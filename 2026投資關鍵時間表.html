@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 投資關鍵時間表</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #232735;
+    --border: #2d3348;
+    --text: #e4e6f0;
+    --text2: #9499b3;
+    --accent: #6c7cff;
+    --green: #34d399;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --orange: #fb923c;
+    --blue: #60a5fa;
+    --purple: #a78bfa;
+    --gray2: #6b7280;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 30px 0 10px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .meta {
+    color: var(--text2);
+    font-size: 0.82rem;
+    margin-top: 8px;
+  }
+  .desc {
+    color: var(--text2);
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 8px 0;
+  }
+  .last-update {
+    color: var(--text2);
+    font-size: 0.82rem;
+    text-align: center;
+    font-style: italic;
+    margin: 4px 0 16px;
+  }
+  /* Summary bar */
+  .summary-bar {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 16px 0 20px;
+    padding: 14px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .stat-item {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .stat-urgent { background: rgba(248,113,113,0.15); color: var(--red); }
+  .stat-soon { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .stat-upcoming { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .stat-ongoing { background: rgba(167,139,250,0.15); color: var(--purple); }
+  /* Sections */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .section[open] {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(108,124,255,0.15);
+  }
+  .section.top3 {
+    border-color: var(--red);
+    background: linear-gradient(135deg, rgba(248,113,113,0.06), rgba(251,146,60,0.04));
+  }
+  .section.top3[open] {
+    border-color: var(--red);
+    box-shadow: 0 0 0 1px rgba(248,113,113,0.2);
+  }
+  .section.expired-section {
+    opacity: 0.6;
+  }
+  .section.rules-section {
+    border-color: var(--gray2);
+  }
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .section-title:hover {
+    background: rgba(255,255,255,0.03);
+  }
+  .section-title::before {
+    content: "\25B6";
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+    color: var(--text2);
+  }
+  details[open] > .section-title::before {
+    transform: rotate(90deg);
+  }
+  .section-title::-webkit-details-marker { display: none; }
+  .section-content {
+    padding: 0 20px 20px;
+  }
+  /* Top 3 list */
+  .top3-list {
+    margin: 8px 0 8px 20px;
+    font-size: 0.95rem;
+  }
+  .top3-list li {
+    margin: 12px 0;
+    line-height: 1.7;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border-radius: 8px;
+    border-left: 4px solid var(--red);
+    list-style-position: inside;
+  }
+  .top3-list li strong {
+    color: var(--orange);
+  }
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--text2);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    white-space: nowrap;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    max-width: 350px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  tr:hover td {
+    background: rgba(108,124,255,0.04);
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+  /* Row urgency highlighting */
+  .row-urgent td {
+    background: rgba(248,113,113,0.08);
+    border-left-color: var(--red);
+  }
+  .row-urgent td:first-child {
+    border-left: 3px solid var(--red);
+  }
+  .row-soon td {
+    background: rgba(251,191,36,0.05);
+  }
+  .row-soon td:first-child {
+    border-left: 3px solid var(--yellow);
+  }
+  .row-upcoming td:first-child {
+    border-left: 3px solid var(--blue);
+  }
+  .row-expired td {
+    opacity: 0.45;
+    text-decoration: line-through;
+  }
+  .row-ongoing td:first-child {
+    border-left: 3px solid var(--purple);
+  }
+  /* Time badges */
+  .time-badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    margin-left: 4px;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .time-badge.red { background: rgba(248,113,113,0.2); color: var(--red); }
+  .time-badge.yellow { background: rgba(251,191,36,0.2); color: var(--yellow); }
+  .time-badge.blue { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .time-badge.gray { background: rgba(107,114,128,0.2); color: var(--gray2); }
+  .time-badge.purple { background: rgba(167,139,250,0.15); color: var(--purple); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: var(--text); font-weight: 600; }
+  ul { margin: 8px 0 8px 20px; font-size: 0.92rem; }
+  li { margin: 6px 0; line-height: 1.6; }
+  p { margin: 8px 0; font-size: 0.92rem; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+  .footer {
+    text-align: center;
+    color: var(--text2);
+    font-size: 0.78rem;
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    .header h1 { font-size: 1.4rem; }
+    .section-title { font-size: 1rem; padding: 14px 16px; }
+    .section-content { padding: 0 14px 14px; }
+    .summary-bar { flex-direction: column; align-items: center; gap: 8px; }
+    table { font-size: 0.8rem; }
+    td, th { padding: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>2026 投資關鍵時間表</h1>
+  <div class="meta">最後更新：2026-03-12（台股日報 3/12：外資 -711 億大翻空。油價暴衝 +8.3%、VIX 25.15 重回 25+。GTC 倒計時 3 天）</div>
+</div>
+<div class="summary-bar"><span class="stat-item stat-urgent">9 個事件 7 天內</span><span class="stat-item stat-soon">2 個事件 30 天內</span><span class="stat-item stat-upcoming">13 個事件 90 天內</span><span class="stat-item stat-ongoing">3 個持續追蹤</span></div>
+<p class="desc">這是一份持續更新的活文件。每次完成個股分析或產業研究後，投資顧問會自動檢查並補入新的關鍵日期。</p>
+<p class="last-update">最後更新：2026-03-12（台股日報 3/12：外資 -711 億大翻空。油價暴衝 +8.3%、VIX 25.15 重回 25+。GTC 倒計時 3 天）</p>
+<details open class="section top3">
+<summary class="section-title">近期最重要 3 件事</summary>
+<div class="section-content">
+
+<ol class="top3-list">
+<li><strong>⚡ CEG $300.69 首次跌入 $290-305 進場區（Day 1）</strong> — 電費 CPI -0.7% + 殖利率升雙殺公用事業。需穩定 5 日止跌 + VIX <25 才行動。3/31 指引日 EPS>$11 是另一觸發條件</li>
+<li><strong>3/16-19 NVIDIA GTC 大會</strong> — Jensen Huang 主題演講 3/16 上午 11 點 PT。Vera Rubin 六顆新晶片 + Feynman 可能提前亮相。<strong>本週最重要 AI 催化劑</strong></li>
+<li><strong>3/17-18 FOMC 利率決議</strong> — 預期維持 3.5%-3.75% 不變。首次要消化伊朗戰爭+油價+關稅的前瞻指引。點陣圖+Powell 措辭是焦點</li>
+</ul>
+
+</div>
+</details>
+
+<details open class="section month-section">
+<summary class="section-title">3 月</summary>
+<div class="section-content">
+
+<div class="table-wrap"><table>
+<thead><tr><th>日期</th><th>事件</th><th>影響標的</th><th>觀察重點</th><th>來源</th></tr></thead>
+<tbody>
+<tr class="row-expired"><td>~~3/6~~ <span class="time-badge gray">已過期</span></td><td>~~非農就業報告（NFP）~~</td><td>—</td><td><strong>已過：NFP -92K 遠差於預期 -50K。失業率 4.4%。VIX 飆至 29.49</strong></td><td>美股日報_20260306</td></tr>
+<tr class="row-expired"><td>~~3/12（盤後）~~ <span class="time-badge gray">已過期</span></td><td>~~SentinelOne Q4 FY2026 財報~~</td><td>—</td><td><strong>已過：結果待明日美股日報確認</strong></td><td>AI資安股美股研究_20260302</td></tr>
+<tr class="row-expired"><td>~~3/10 前~~ <span class="time-badge gray">已過期</span></td><td>~~2 月月營收公告~~</td><td>—</td><td><strong>已過：台積電 2 月營收 YoY +22.2% 創同期新高。其餘待確認</strong></td><td>—</td></tr>
+<tr class="row-urgent"><td>3 月中 <span class="time-badge red">7天內</span></td><td>OFC 光纖通訊展（美國）</td><td>矽光子族群全體（波若威、上詮、聯亞、全新、華星光）</td><td>最重要矽光子年度展，新技術發布、CPO 量產進度確認；展後注意「利多出盡」回調，可能是進場時機</td><td>矽光子族群產業分析_20260301</td></tr>
+<tr class="row-urgent"><td><strong>3/17-18</strong> <span class="time-badge red">7天內</span></td><td><strong>Fed FOMC 利率決議</strong>（3/18 下午公布）</td><td>VST、CEG、電力股全體、全美股</td><td>預期維持 3.5%-3.75% 不變。Goldman 預計 2026 降息兩次（6 月、9 月）。措辭是關鍵——NFP 暴雷 vs 油價通膨兩難，Fed 如何表態決定市場方向</td><td>美股三大題材分析_衛星能源電力_20260228、美股日報_20260310</td></tr>
+<tr class="row-expired"><td><strong>3/9</strong> <span class="time-badge gray">已過期</span></td><td><strong>NVIDIA 投資 Lumentum $20 億</strong></td><td>LITE、AXTI、光通訊全族群、矽光子（聯亞、全新、穩懋）</td><td>LITE +14.73%、AXTI +19.12%。戰略合作支持光通訊 AI 基礎設施。台股光通訊/矽光子族群可能受外溢效應帶動</td><td>美股日報_20260309</td></tr>
+<tr class="row-urgent"><td>3 月以後 <span class="time-badge red">7天內</span></td><td>Cogentrix 收購 FERC 審查進度</td><td>VST</td><td>+5,500 MW 天然氣資產，預計 2026 年中完成；若監管出現障礙，VST 股價受壓</td><td>VST_Vistra_九維度深度分析_20260228</td></tr>
+<tr class="row-urgent"><td><strong>3/16-19</strong> <span class="time-badge red">7天內</span></td><td><strong>NVIDIA GTC 2026 大會（美國聖荷西）</strong></td><td><strong>NVDA、液冷散熱全族群（奇鋐/雙鴻/建準）、矽光子族群、台積電</strong></td><td><strong>Jensen Huang 主題演講 3/16 下午（台灣時間 3/17 凌晨）：Vera Rubin 完整規格揭露？Feynman 下代架構預告？若超預期可能帶動 AI 題材族群齊揚；注意「利多出盡」回調，可能是 NVDA 進場點（$160-170 區間）</strong></td><td>NVDA個股深度分析_20260302</td></tr>
+<tr class="row-soon"><td><strong>3/31</strong> <span class="time-badge yellow">30天內</span></td><td><strong>CEG Business & Earnings Outlook Call（2026 年完整指引）</strong></td><td><strong>CEG</strong></td><td><strong>最關鍵催化劑：Adjusted EPS 指引是否超過 $11？Calpine 整合效益量化確認？PJM 政策因應方案？若超預期，CEG 大漲</strong></td><td>CEG_Constellation_九維度深度分析_20260228</td></tr>
+</tbody></table></div>
+
+</div>
+</details>
+
+<details open class="section month-section">
+<summary class="section-title">4 月</summary>
+<div class="section-content">
+
+<div class="table-wrap"><table>
+<thead><tr><th>日期</th><th>事件</th><th>影響標的</th><th>觀察重點</th><th>來源</th></tr></thead>
+<tbody>
+<tr class="row-soon"><td>4 月初~中 <span class="time-badge yellow">30天內</span></td><td>3 月月營收公告</td><td>台積電、一詮、新應材、<strong>聯亞、全新（矽光子追蹤）</strong></td><td>連續追蹤營收趨勢；聯亞月營收年增是否維持 80%+？全新是否加速？</td><td>三檔持股總覽比較_20260228、矽光子族群產業分析_20260301</td></tr>
+<tr class="row-upcoming"><td>4 月中旬 <span class="time-badge blue">90天內</span></td><td>台積電 Q1 2026 法說會</td><td>台積電</td><td>2nm 進度、AI 需求展望、毛利率指引</td><td>台積電2330深度分析_20260228</td></tr>
+<tr class="row-upcoming"><td>4 月 <span class="time-badge blue">90天內</span></td><td>TSLA Cybercab 量產時間確認</td><td>TSLA</td><td>有無具體量產日期（進場判斷關鍵）</td><td>TSLA個股深度分析_20260228</td></tr>
+<tr class="row-upcoming"><td><strong>4 月（預計 RSA Conference）</strong> <span class="time-badge blue">90天內</span></td><td><strong>RSA Conference 2026（美最大資安展）</strong></td><td><strong>CRWD、NET、PANW、ZS（資安族群全體）</strong></td><td><strong>各公司新產品發布、AI 資安最新趨勢；通常對資安股是短期正面催化劑；注意「利多出盡」回調</strong></td><td>AI資安股美股研究_20260302</td></tr>
+<tr class="row-upcoming"><td><strong>4/30（預計）</strong> <span class="time-badge blue">90天內</span></td><td><strong>FTNT Q1 2026 財報</strong></td><td><strong>FTNT</strong></td><td><strong>成長率是否回升？帳單額加速？若 >14% 成長是穩健訊號</strong></td><td>AI資安股美股研究_20260302</td></tr>
+<tr class="row-upcoming"><td>4/28 <span class="time-badge blue">90天內</span></td><td>GOOGL Q1 2026 財報</td><td>GOOGL</td><td>Cloud 成長率 >40%？（進場判斷）</td><td>GOOGL個股分析_20260228</td></tr>
+<tr class="row-upcoming"><td>4/28~29 <span class="time-badge blue">90天內</span></td><td>MSFT Q3 FY2026 財報</td><td>MSFT</td><td>Azure >39%？Copilot 付費滲透率？（加碼判斷）</td><td>MSFT個股分析_20260228</td></tr>
+<tr class="row-upcoming"><td>4 月底 <span class="time-badge blue">90天內</span></td><td>TSLA Q1 2026 財報</td><td>TSLA</td><td>交車量、毛利率改善？</td><td>TSLA個股深度分析_20260228</td></tr>
+<tr class="row-urgent"><td>3~4 月間 <span class="time-badge red">7天內</span></td><td>一詮 Q4 2025 完整財報</td><td>一詮（最關鍵）</td><td>毛利率 >18%？散熱占比 >40%？</td><td>一詮精密2486_九維度深度分析_20260228</td></tr>
+<tr class="row-urgent"><td>3~4 月間 <span class="time-badge red">7天內</span></td><td>新應材 Q4 2025 完整財報</td><td>新應材</td><td>Q4 EPS >3 元？客戶集中度改善？</td><td>新應材_4749_九維度深度分析_20260228</td></tr>
+<tr class="row-urgent"><td><strong>3~4 月間</strong> <span class="time-badge red">7天內</span></td><td><strong>液冷散熱族群 Q4 2025 財報季</strong></td><td><strong>奇鋐(3017)、雙鴻(3324)、建準(2421)、高力(8996)</strong></td><td><strong>液冷佔比是否持續提升？毛利率走向？建準液冷業務爬坡速度？高力 EPS 成長確認？財報若不如預期，可能是較好的補位切入點</strong></td><td>液冷散熱族群產業分析_20260301</td></tr>
+<tr class="row-urgent"><td><strong>3~4 月間</strong> <span class="time-badge red">7天內</span></td><td><strong>聖暉(5536) Q4 2025 完整財報 + 法說會</strong></td><td><strong>聖暉（5536）</strong></td><td><strong>全年 EPS 是否確認 ≥ 28 元？毛利率是否回升至 19%+？2026 年在手訂單指引是否成長至 600 億元以上？這是進場的最關鍵觸發點</strong></td><td>聖暉工程5536_九維度深度分析_20260301</td></tr>
+<tr class="row-urgent"><td><strong>3~4 月間</strong> <span class="time-badge red">7天內</span></td><td><strong>士電 Q4 2025 完整財報 + 法說會</strong></td><td><strong>士電（1503）</strong></td><td><strong>全年 EPS 是否確認 ≥ 7.5 元？T4 廠 H2 投產時程確認？3 月售價調漲後毛利率指引？這是進場的最關鍵觸發點</strong></td><td>士電_1503_九維度深度分析_20260301</td></tr>
+</tbody></table></div>
+
+</div>
+</details>
+
+<details  class="section month-section">
+<summary class="section-title">5 月</summary>
+<div class="section-content">
+
+<div class="table-wrap"><table>
+<thead><tr><th>日期</th><th>事件</th><th>影響標的</th><th>觀察重點</th><th>來源</th></tr></thead>
+<tbody>
+<tr class="row-upcoming"><td><strong>5 月（預計）</strong> <span class="time-badge blue">90天內</span></td><td><strong>NET Q1 2026 財報</strong></td><td><strong>NET（AI 資安核心持倉候選）</strong></td><td><strong>成長率是否維持 28~30%？NRR 是否繼續提升至 120%+？大客戶數成長？若維持超強財報，確認長期持有邏輯</strong></td><td>AI資安股美股研究_20260302</td></tr>
+<tr class="row-upcoming"><td><strong>5 月（預計）</strong> <span class="time-badge blue">90天內</span></td><td><strong>PANW Q3 FY2026 財報</strong></td><td><strong>PANW（資安觀察）</strong></td><td><strong>CyberArk 整合進度？NGS ARR 維持 30%+？FCF 37%+？若整合順利，可開始評估布局</strong></td><td>AI資安股美股研究_20260302</td></tr>
+<tr class="row-upcoming"><td><strong>5 月（預計）</strong> <span class="time-badge blue">90天內</span></td><td><strong>ZS Q3 FY2026 財報</strong></td><td><strong>ZS（資安次要觀察）</strong></td><td><strong>新客戶開拓是否回溫？ARR 成長率維持 24%？若改善可升格為候選</strong></td><td>AI資安股美股研究_20260302</td></tr>
+<tr class="row-upcoming"><td>5 月（財報季） <span class="time-badge blue">90天內</span></td><td>VST Q1 2026 財報</td><td>VST</td><td>執行力能否修正 Q4 失誤？EPS 是否符合預期？無設施停工？這是 VST 進場的最關鍵觸發點</td><td>VST_Vistra_九維度深度分析_20260228</td></tr>
+<tr class="row-upcoming"><td><strong>5/7</strong> <span class="time-badge blue">90天內</span></td><td><strong>CEG Q1 2026 財報</strong></td><td><strong>CEG</strong></td><td><strong>第一份完整含 Calpine 貢獻的季報：Adjusted EPS >$2.50？Calpine 整合如預期？PJM 收入佔比變化？</strong></td><td>CEG_Constellation_九維度深度分析_20260228</td></tr>
+<tr class="row-upcoming"><td><strong>5 月中旬（預計）</strong> <span class="time-badge blue">90天內</span></td><td><strong>NVIDIA Q1 FY2027 財報</strong></td><td><strong>NVDA、全部 AI 題材（AI 最重要風向標）</strong></td><td><strong>資料中心成長率是否維持 40%+？Vera Rubin 出貨進度確認？毛利率是否維持 73%+？若財報超預期且股價回測 $160-170，是最理想的 NVDA 進場時機</strong></td><td>NVDA個股深度分析_20260302</td></tr>
+</tbody></table></div>
+
+</div>
+</details>
+
+<details  class="section month-section">
+<summary class="section-title">6 月</summary>
+<div class="section-content">
+
+<div class="table-wrap"><table>
+<thead><tr><th>日期</th><th>事件</th><th>影響標的</th><th>觀察重點</th><th>來源</th></tr></thead>
+<tbody>
+<tr><td>2026 年中</td><td>Cogentrix 收購預計完成</td><td>VST</td><td>若順利完成，EBITDA 貢獻超出原指引，正面催化劑；若延期則觀察原因</td><td>VST_Vistra_九維度深度分析_20260228</td></tr>
+<tr><td>2026Q2</td><td>上詮(3363) 馬來西亞新廠開出</td><td>上詮、矽光子族群</td><td>月產能翻倍是否如期；FA 出貨量確認 → 影響 H2 業績爆發幅度</td><td>矽光子族群產業分析_20260301</td></tr>
+<tr><td><strong>2026 年中（6 月起）</strong></td><td><strong>NVIDIA Vera Rubin 平台量產</strong></td><td><strong>奇鋐(3017)、雙鴻(3324)、液冷散熱全族群</strong></td><td><strong>Rubin 功耗達 2,300W，全液冷架構強制需求；奇鋐已確認為 Rubin 供應商；量產後液冷需求再升一個台階；微通道冷板良率是觀察重點</strong></td><td>液冷散熱族群產業分析_20260301</td></tr>
+<tr><td><strong>2026 H2（下半年）</strong></td><td><strong>士電 T4 重電廠正式投產</strong></td><td><strong>士電（1503）</strong></td><td><strong>產能是否如期提升 25%？投產後 Q3/Q4 EPS 是否上修至 9 元以上？若延遲是加碼或停損的判斷依據</strong></td><td>士電_1503_九維度深度分析_20260301</td></tr>
+</tbody></table></div>
+
+</div>
+</details>
+
+<details  class="section month-section">
+<summary class="section-title">7~9 月</summary>
+<div class="section-content">
+
+<div class="table-wrap"><table>
+<thead><tr><th>日期</th><th>事件</th><th>影響標的</th><th>觀察重點</th><th>來源</th></tr></thead>
+<tbody>
+<tr><td>7 月中旬</td><td>台積電 Q2 2026 法說會</td><td>台積電</td><td>下半年展望、CoWoS 產能、COUPE 量產進度說明</td><td>台積電2330深度分析_20260228</td></tr>
+<tr><td>7 月底</td><td>MSFT Q4 FY2026 財報</td><td>MSFT</td><td>全年度總結、下年度指引</td><td>MSFT個股分析_20260228</td></tr>
+<tr><td><strong>2026 下半年</strong></td><td><strong>NVIDIA Spectrum-X Photonics CPO 交換器商用部署</strong></td><td><strong>矽光子族群全體</strong></td><td><strong>最大催化劑：CPO 正式商轉是否如期；AWS、Google、微軟首批 Vera Rubin 部署確認</strong></td><td>矽光子族群產業分析_20260301</td></tr>
+<tr><td><strong>2026 下半年</strong></td><td><strong>Rubin 大規模出貨，機架全面液冷化</strong></td><td><strong>液冷散熱全族群（建準補漲觀察點）</strong></td><td><strong>GB300 → Rubin 切換，液冷滲透率從 40% 跳升至 70%+；全機架液冷化是否如預期加速；台廠是否進入更多 CSP 供應鏈</strong></td><td>液冷散熱族群產業分析_20260301</td></tr>
+<tr><td>9 月（SEMICON Taiwan）</td><td>SEMICON Taiwan 半導體展</td><td>台積電、矽光子族群</td><td>台積電矽光子技術最新進展；CPO 量產進度確認；台廠法說展後可能召開</td><td>矽光子族群產業分析_20260301</td></tr>
+</tbody></table></div>
+
+</div>
+</details>
+
+<details  class="section month-section">
+<summary class="section-title">8~12 月</summary>
+<div class="section-content">
+
+<div class="table-wrap"><table>
+<thead><tr><th>日期</th><th>事件</th><th>影響標的</th><th>觀察重點</th><th>來源</th></tr></thead>
+<tbody>
+<tr><td><strong>2026 年 3~9 月</strong></td><td><strong>各州初選陸續舉行</strong></td><td><strong>全美股（情緒影響）</strong></td><td><strong>注意政治新聞引發的短暫市場波動；歷史上中期選舉前市場平均最大回調 18%；把握拉回時的加倉機會</strong></td><td>美股歷史循環與危機研究_20260302</td></tr>
+<tr><td><strong>2026 年 11 月 3 日</strong></td><td><strong>美國中期選舉日</strong></td><td><strong>全美股（最重要政治事件）</strong></td><td><strong>眾議院 435 席全部改選；參議院 33 席改選；共和黨能否守住眾院？若民主黨翻轉 → 分治政府（歷史上股市最愛）；選後 6 個月是四年循環中最強時段（歷史平均 +14%）</strong></td><td>美股歷史循環與危機研究_20260302</td></tr>
+<tr><td><strong>2026 年 11 月後</strong></td><td><strong>選後行情啟動窗口</strong></td><td><strong>全美股，尤其 S&P 500</strong></td><td><strong>歷史規律：中期選舉後 6 個月 S&P 500 平均 +14%；不確定性消除後市場通常大漲；可考慮在選後行情開始時加碼指數型 ETF（VOO/SPY/0050）</strong></td><td>美股歷史循環與危機研究_20260302</td></tr>
+<tr><td>2027 年（預計）</td><td>Three Mile Island（Crane CCEC）重啟</td><td>CEG</td><td>835 MW 核電廠重啟，正式供電 Microsoft 資料中心；工程進度追蹤至關重要</td><td>CEG_Constellation_九維度深度分析_20260228</td></tr>
+<tr class="row-ongoing"><td>持續追蹤 <span class="time-badge purple">持續</span></td><td>PJM 電力政策細節落地</td><td>CEG</td><td>Trump 方案最終有無電力定價上限？是 CEG 最大系統性風險，每次政策新聞都要追</td><td>CEG_Constellation_九維度深度分析_20260228</td></tr>
+<tr class="row-ongoing"><td>持續追蹤（每月） <span class="time-badge purple">持續</span></td><td>矽光子族群月營收（聯亞、全新）</td><td>聯亞(3081)、全新(2455)</td><td>年增率是否持續 >30%？是判斷矽光子業績是否真正落地的最直接指標</td><td>矽光子族群產業分析_20260301</td></tr>
+<tr class="row-ongoing"><td><strong>持續追蹤（總經預警）</strong> <span class="time-badge purple">持續</span></td><td><strong>總體經濟預警信號監控</strong></td><td><strong>全美股</strong></td><td><strong>警戒點：①失業率快速升至 5%+；② CPI 重回 3% 以上；③ VIX > 30；④ NVDA 財報下修指引；⑤ Fed 暗示暫停降息。以上任一出現需重新評估倉位</strong></td><td>美股歷史循環與危機研究_20260302</td></tr>
+</tbody></table></div>
+
+</div>
+</details>
+
+<details  class="section expired-section">
+<summary class="section-title">已過期事件追蹤</summary>
+<div class="section-content">
+
+<div class="table-wrap"><table>
+<thead><tr><th>日期</th><th>事件</th><th>結果</th><th>影響</th></tr></thead>
+<tbody>
+<tr class="row-expired"><td>3/2 <span class="time-badge gray">已過期</span></td><td>ASTS Q4 2025 財報</td><td>— （未追蹤結果，非核心觀察標的）</td><td>衛星板塊情緒參考</td></tr>
+<tr class="row-expired"><td>3/3（盤後） <span class="time-badge gray">已過期</span></td><td>CRWD Q4 FY2026 財報</td><td>EPS $1.12（超預期）、營收 $1.31B +23% YoY、ARR $5.25B +24%、淨新增 ARR $331M +47% 創紀錄、FCF Margin 29%、首次 GAAP 獲利。盤後 -0.5%</td><td>進場條件部分觸發</td></tr>
+<tr class="row-expired"><td>3/4 <span class="time-badge gray">已過期</span></td><td>CRWD 正式開盤</td><td>開 $384.52→低 $380.11→收 $407.68（+4.15%）。強勢站穩</td><td>✅ 進場條件觸發，但 $407 超出 $370-390 理想區間。等回測 $390-400</td></tr>
+<tr class="row-expired"><td>3/6 <span class="time-badge gray">已過期</span></td><td>非農就業報告（NFP）</td><td>-92K（預期 -50K），失業率 4.4%。醫療罷工+建築+製造+聯邦政府拖累</td><td>VIX 飆至 29.49 突破行動線。Jefferies 稱「衰退風險明顯上升」</td></tr>
+<tr class="row-expired"><td>3/6 <span class="time-badge gray">已過期</span></td><td>MRVL 正式開盤</td><td>大漲 +16%。Q4 營收 $2.22B（+22%），FY2027 指引 ~$11B（+30%+）。BofA 升評至買進，目標 $110；JPM 目標 $135</td><td>AI ASIC 需求爆發，確認 AI 需求邏輯</td></tr>
+<tr class="row-expired"><td>3/10 <span class="time-badge gray">已過期</span></td><td>ORCL Q3 FY2026 財報（盤後）</td><td>⚡ 雲端基建收入 YoY +84%（比上季 +68% 加速），RPO 5,530 億美元 YoY +325%。盤後 +7.8%</td><td>AI 基礎建設需求加速確認。ORCL 雲端需要 NVIDIA GPU，間接為 GTC 鋪路</td></tr>
+<tr class="row-expired"><td>3/11 <span class="time-badge gray">已過期</span></td><td>2 月 CPI 報告</td><td>CPI +2.4% YoY、核心 +2.5%，均符合預期。房租月增 +0.1%（2021 年來最低）。電費月減 -0.7%（打壓公用事業）</td><td>CPI 快照為伊朗戰爭前，能源衝擊尚未反映。電費 CPI 下滑打壓 CEG/VST</td></tr>
+</tbody></table></div>
+
+</div>
+</details>
+
+<details  class="section rules-section">
+<summary class="section-title">更新規則</summary>
+<div class="section-content">
+
+<ul>
+<li>每次完成個股分析或產業研究，檢查是否有新關鍵日期要補入</li>
+<li>事件過期後，移至「已過期事件追蹤」並記錄結果</li>
+<li>每月初更新「近期最重要 3 件事」</li>
+<li>來源欄位標註是從哪份分析報告得出的</li>
+</ul>
+
+</div>
+</details>
+
+<div class="footer">
+  自動產出時間：2026-03-12 18:02 ｜ 以上分析僅供參考，不構成投資建議。
+</div>
+</body>
+</html>
