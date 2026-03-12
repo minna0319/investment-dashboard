@@ -306,7 +306,7 @@ strong{color:var(--text);font-weight:600}
 
 <div class="header">
   <h1>Minna 個股決策卡</h1>
-  <div class="meta">更新：2026-03-12 18:02 | 112 檔</div>
+  <div class="meta">更新：2026-03-12 18:54 | 112 檔</div>
   <div class="signal-summary"><div class="signal-block signal-yellow"><div class="signal-title">🟡 接近進場區間 — 2 檔</div><div class="signal-stocks"><a class="signal-link" href="#" onclick="scrollToCard('2886','holdings');return false">2886 兆豐金 <span class="signal-detail">(技術轉弱)</span></a><a class="signal-link" href="#" onclick="scrollToCard('3008','watchlist');return false">3008 大立光 <span class="signal-detail">(價格到但基本面疑慮)</span></a></div></div></div>
 </div>
 
@@ -17465,6 +17465,7 @@ strong{color:var(--text);font-weight:600}
       <div class="gp-grid">
         <div class="gp-item"><span class="entry-badge entry-red">🔴 可進場</span><div><b>條件全到位</b>：價格落入進場區間＋基本面OK＋技術面支持。看到就可以執行買入計畫</div></div>
         <div class="gp-item"><span class="entry-badge entry-yellow">🟡 接近中</span><div><b>快到了但還差一點</b>：可能價格離進場區間很近、或某個面向還沒翻多。密切觀察，準備好資金</div></div>
+        <div class="gp-item"><span class="entry-badge entry-orange">⚠️ 過高 / 需檢視</span><div><b>觀察股</b>：價格遠高於進場區（超過 +10%），目前不是好的買入時機。<b>持倉股</b>：基本面出現疑慮，建議檢視倉位</div></div>
         <div class="gp-item"><span class="entry-badge entry-gray">⚪ 等待中</span><div><b>條件還沒到</b>：不用急，繼續等。可能還沒跌到便宜價、或大環境不配合</div></div>
         <div class="gp-item"><span class="entry-badge entry-green">🟣 已持有</span><div><b>手上有的股票</b>：持倉標的，重點看「要不要加碼」或「要不要停損」</div></div>
       </div>
@@ -17480,6 +17481,15 @@ strong{color:var(--text);font-weight:600}
         <tr><td><b>籌碼面</b></td><td>法人（外資/投信）在買還是賣？散戶呢？</td><td>即時抓取（TWSE/TPEX）</td></tr>
         <tr><td><b>總經面</b></td><td>大環境對這個產業有利嗎？有沒有政策/事件影響？</td><td>自動判定（產業→指標對照表）</td></tr>
       </table>
+      <details class="gp-faq-item" style="margin-top:10px"><summary>⚠️ 總經面自動降級機制（很重要！）</summary>
+        <p>跑日報時 <code>macro_updater</code> 會自動判定總經面。除了產業指標對照，還有<b>重大事件自動降級</b>規則：</p>
+        <table class="gp-table" style="margin-top:8px">
+          <tr><th>觸發條件</th><th>效果</th></tr>
+          <tr><td>外資單日賣超 &gt; 100 億</td><td>所有台股標的總經面<b>降一級</b>（✅→⏳、⏳→❌）</td></tr>
+          <tr><td>VIX &gt; 30</td><td>所有美股標的總經面降一級</td></tr>
+        </table>
+        <p style="margin-top:8px"><b>白話說</b>：如果某天外資瘋狂大賣（如 -711 億），你會看到一堆標的總經面突然變成 ❌。這不是 bug，是保護機制——告訴你「現在環境不適合進場」。等外資態度轉好、下次跑日報時就會自動回升。</p>
+      </details>
       <div class="gp-grid" style="margin-top:10px">
         <div class="gp-item"><span class="dim-badge dim-pass">✅ 通過</span><div>該面向條件滿足，利多</div></div>
         <div class="gp-item"><span class="dim-badge dim-watch">⏳ 觀望</span><div>不好不壞，持續觀察</div></div>
@@ -17528,6 +17538,25 @@ strong{color:var(--text);font-weight:600}
         <tr><td><b>量比(5d/20d)</b></td><td>近期成交量 vs 平時</td><td>≥2x 暴量（有大事）→ 注意<br>≥1.5x 放量（交易活躍）<br>0.8-1.5x 正常<br>&lt;0.5x 量縮（冷清）</td></tr>
       </table>
       <p class="gp-note">💡 量價配合很重要：上漲 + 放量 = 趨勢確認；上漲 + 量縮 = 小心假突破；下跌 + 暴量 = 可能恐慌殺盤（反而可能是機會）</p>
+      <details class="gp-faq-item" style="margin-top:10px"><summary>進度條的顏色和標記線是什麼意思？</summary>
+        <p><b>RSI 進度條</b>：灰底、彩色條顯示目前 RSI 值。條上有兩條細線標記 30（超賣線）和 70（超買線）。<br>
+        顏色：綠色 = RSI &lt; 30（超賣區，可能反彈）、灰色 = 30-70（正常區）、紅色 = RSI &gt; 70（超買區，小心追高）</p>
+        <p><b>52W 位置進度條</b>：顯示目前股價在過去 52 週最高/最低之間的位置。<br>
+        顏色：正常為淺灰底+藍色條。超過 80% 時條會變橘色（代表接近 52 週高點，追高風險較大）</p>
+      </details>
+    </div>
+
+    <div class="gp-section">
+      <h3>🏛️ 籌碼面怎麼看</h3>
+      <p>展開籌碼面區塊會看到法人和散戶的買賣動態：</p>
+      <table class="gp-table">
+        <tr><th>指標</th><th>白話意思</th><th>怎麼解讀</th></tr>
+        <tr><td><b>外資買賣超</b></td><td>外國大型法人在買還是賣</td><td>連續買超 = 看好（最重要的指標）<br>大量賣超 = 短期可能承壓</td></tr>
+        <tr><td><b>投信買賣超</b></td><td>國內基金經理人的動向</td><td>投信買超通常是中線看好<br>投信賣超可能是獲利了結</td></tr>
+        <tr><td><b>散戶增減</b></td><td>散戶持股比例變化</td><td>散戶大增 = 小心追高<br>散戶大減+法人買 = 好的徵兆（籌碼集中）</td></tr>
+        <tr><td><b>融資/融券</b></td><td>借錢買股 / 借股賣出</td><td>融資大增 = 散戶槓桿追高（風險高）<br>融券大增 = 有人放空（可能軋空反彈）</td></tr>
+      </table>
+      <p class="gp-note">💡 籌碼面判定：法人買（尤其外資）+ 散戶賣 = ✅ 通過。法人賣 + 散戶追 = ❌ 不利。台股特別看外資，美股看機構持股比例。</p>
     </div>
 
     <div class="gp-section">
@@ -17548,9 +17577,10 @@ strong{color:var(--text);font-weight:600}
         <tr><th>功能</th><th>怎麼用</th></tr>
         <tr><td>🔍 搜尋</td><td>輸入股名或代號，即時篩選</td></tr>
         <tr><td>台股 / 美股</td><td>只看台股或只看美股</td></tr>
-        <tr><td>有信號</td><td>只看有 🔴🟡 亮燈的標的</td></tr>
+        <tr><td>有信號</td><td>只看有 🔴🟡⚠️ 亮燈的標的（排除等待中和持倉）</td></tr>
         <tr><td>面向篩選</td><td>例如只看「基本面 ✅ + 技術面 ✅」的標的</td></tr>
         <tr><td>合格數</td><td>篩選通過幾面的標的（4面/≥3/≥2）</td></tr>
+        <tr><td>信號篩選</td><td>🔴 可進場 / 🟡 接近中 / ⚠️ 過高 / 🟣 已持有 / ⚪ 等待中</td></tr>
         <tr><td>產業標籤</td><td>可多選，只看該產業的股票</td></tr>
         <tr><td>排序</td><td>預設（台→美）、信號、合格數、名稱</td></tr>
         <tr><td>🔄 重置</td><td>一鍵清除所有篩選</td></tr>
@@ -17561,7 +17591,7 @@ strong{color:var(--text);font-weight:600}
       <h3>📱 每日使用流程</h3>
       <p class="gp-note" style="margin-bottom:12px"><b>前提</b>：先跑完昨晚的美股日報 + 今天的台股日報（15:30 後），日報流程會自動更新總經面和催化劑。跑完日報後再產出決策卡，這樣四面向資料才是最新的。</p>
       <div class="gp-steps">
-        <div class="gp-step"><span class="step-num">0</span><div><b>跑日報</b>：美股日報（早上）→ 台股日報（15:30 後）→ 產出決策卡。日報會自動更新總經面、催化劑、信號判定</div></div>
+        <div class="gp-step"><span class="step-num">0</span><div><b>跑日報</b>：美股日報（早上）→ 台股日報（15:30 後）→ 產出決策卡。日報會自動更新總經面、催化劑、信號判定。<b>注意：如果外資大賣超（&gt;100 億），總經面會自動降級，很多標的會變 ❌，這是正常的保護機制</b></div></div>
         <div class="gp-step"><span class="step-num">1</span><div><b>看燈號</b>：打開決策卡，看頂部摘要有沒有 🔴 或 🟡 亮燈</div></div>
         <div class="gp-step"><span class="step-num">2</span><div><b>沒亮燈 → 收工</b>：目前沒有標的到進場條件，不用做任何動作</div></div>
         <div class="gp-step"><span class="step-num">3</span><div><b>有亮燈 → 點開看</b>：展開卡片看四面向細節和綜合判斷</div></div>
@@ -17578,6 +17608,8 @@ strong{color:var(--text);font-weight:600}
         <details><summary>進場價差很大是怎麼回事？</summary><p>兩種估值方法（回顧 vs 前瞻）算出的合理價差距大（&gt;30%），通常是高成長股或估值爭議大的標的。進場時用較低者更安全。</p></details>
         <details><summary>信號亮了就一定要買嗎？</summary><p>不一定！信號只是提醒「條件到了可以考慮」。還要看大盤環境、資金水位、有沒有更好的標的。決策卡是輔助工具，不是自動下單系統。</p></details>
         <details><summary>資料多久更新？</summary><p>技術面和籌碼面每次產出決策卡時即時抓取。基本面和總經面在跑日報、做分析時更新。建議至少每天產出一次。</p></details>
+        <details><summary>為什麼一堆總經面突然變成 ❌？</summary><p>這是<b>自動降級機制</b>觸發了。當外資單日賣超超過 100 億（台股）或 VIX 超過 30（美股），系統會把所有標的的總經面自動降一級。這是保護機制，告訴你「現在大環境不適合進場」。等外資態度轉好，下次跑日報時會自動回升。</p></details>
+        <details><summary>⚠️「過高」很多標的都這樣，正常嗎？</summary><p>正常！⚠️ 過高代表股價比你設定的進場區間高出 10% 以上。大多數觀察清單的股票都是「看好但等便宜價」，所以在正常市況下會有很多標的顯示過高。只有跌到進場區附近才會轉 🟡 或 🔴。</p></details>
       </div>
     </div>
 
