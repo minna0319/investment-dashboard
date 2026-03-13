@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股日報 — Minna 報告庫</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.idx-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.idx-header h1{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.idx-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.category{margin-bottom:12px}
+.category details{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.category details[open]{border-color:var(--accent)}
+.category summary{padding:10px 14px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;align-items:center;gap:8px;user-select:none}
+.category summary::-webkit-details-marker{display:none}
+.category summary::before{content:"▸";color:var(--accent);font-size:0.8rem;transition:transform 0.2s}
+.category details[open] summary::before{transform:rotate(90deg)}
+.category summary:hover{background:rgba(255,255,255,0.02)}
+.cat-count{font-size:0.75rem;color:var(--text2);font-weight:400}
+.report-list{padding:4px 14px 10px}
+.report-item{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-radius:6px;transition:background 0.15s}
+.report-item:hover{background:var(--surface2)}
+.report-item a{color:var(--text);text-decoration:none;font-size:0.84rem;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.report-item a:hover{color:var(--accent)}
+.report-date{color:var(--text2);font-size:0.75rem;flex-shrink:0;margin-left:10px}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a>
+  </div>
+</nav>
+<div class="idx-header">
+<h1>台股日報</h1>
+<div class="idx-meta">共 10 份 | <a href="../../../reports/index.html" style="color:var(--accent)">← 回報告庫</a></div>
+</div>
+<div class="category">
+<div class="report-list">
+<div class="report-item"><a href="台股日報_20260313.html">台股日報_20260313</a><span class="report-date">2026/03/13</span></div><div class="report-item"><a href="台股日報_20260312.html">台股日報_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="台股日報_20260311.html">台股日報_20260311</a><span class="report-date">2026/03/11</span></div><div class="report-item"><a href="台股日報_20260310.html">台股日報_20260310</a><span class="report-date">2026/03/10</span></div><div class="report-item"><a href="台股日報_20260309.html">台股日報_20260309</a><span class="report-date">2026/03/09</span></div><div class="report-item"><a href="台股日報_20260306.html">台股日報_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="台股日報_20260305.html">台股日報_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="台股日報_20260304.html">台股日報_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="台股日報_20260303.html">台股日報_20260303</a><span class="report-date">2026/03/03</span></div><div class="report-item"><a href="台股日報_20260302.html">台股日報_20260302</a><span class="report-date">2026/03/02</span></div>
+</div>
+</div>
+</body>
+</html>
