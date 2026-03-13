@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股低軌衛星（LEO）供應鏈研究報告</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../timeline.html">時間表</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>台股低軌衛星（LEO）供應鏈研究報告</h1>
+</div>
+<div class="report-body">
+<h1>台股低軌衛星（LEO）供應鏈研究報告</h1>
+<p><strong>研究日期：</strong> 2026-03-06</p>
+<p><strong>關聯報告：</strong> <a href="低軌衛星LEO產業趨勢與風險分析_20260306.md" target="_blank" rel="noopener">低軌衛星產業趨勢與風險分析</a></p>
+<hr>
+<h2>一句話總結</h2>
+<p>台股 LEO 供應鏈比美股挑戰者估值合理得多，華通（PE 14x）和啟碁（PE 13x）是新手最穩的切入點，昇達科純度最高但估值已高（PE 56x）。</p>
+<hr>
+<h2>供應鏈名單總覽</h2>
+<h3>PCB / 電路板</h3>
+<ul><li><strong>華通（2313）</strong> — 衛星板全球龍頭，HDI 製程</li><li><strong>燿華（2367）</strong> — 衛星板新興供應商，2025 年切入</li></ul>
+<h3>高頻射頻元件</h3>
+<ul><li><strong>昇達科（3491）</strong> — 濾波器、雙工器、TT&C 控制元件、ISL 衛星間連接元件</li><li><strong>穩懋（3105）</strong> — 砷化鎵（GaAs）PA 射頻放大器代工龍頭</li><li><strong>兆赫（2485）</strong> — 微波零組件、衛星接收器</li></ul>
+<h3>天線 / 地面站設備</h3>
+<ul><li><strong>啟碁（6285）</strong> — 相位陣列天線、Starlink 地面終端路由器</li><li><strong>耀登（3138）</strong> — 地面站天線建置，高低軌衛星兩路並行</li></ul>
+<h3>CCL 高頻基板材料</h3>
+<ul><li><strong>台光電（2383）</strong> — 衛星端及地面端高頻低損耗 CCL 材料</li></ul>
+<h3>沾邊概念（不建議）</h3>
+<ul><li>元晶（6443）、大眾控（3701）、明泰（3380）、百一（6152） — MWC 行情帶動，實質連結薄弱</li></ul>
+<hr>
+<h2>篩選評估</h2>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>代號</th><th>供應鏈角色</th><th>衛星營收佔比（估）</th><th>主要確認客戶</th><th>基本面概況</th><th>值得深入？</th></tr></thead><tbody><tr><td>昇達科</td><td>3491</td><td>高頻濾波器、TT&C、ISL 元件</td><td>~70%（2025 Q4）；2026 預估 80%</td><td>SpaceX、Amazon Kuiper、AST SpaceMobile、Eutelsat OneWeb</td><td>2025 衛星營收約 14.5 億；2026 法人估 EPS 15.5~18 元；PE 約 56 倍</td><td>值得深入，但估值已高</td></tr><tr><td>華通</td><td>2313</td><td>低軌衛星 PCB 板全球第一</td><td>~10%（2025）；2026 衛星營收預估 185 億</td><td>SpaceX（美系主要衛星大廠）</td><td>2025 全年營收 760 億；三箭（衛星、AI 伺服器、智慧眼鏡）；2026 EPS 法人估約 6.5 元；PE 約 14 倍</td><td>值得深入，估值合理</td></tr><tr><td>啟碁</td><td>6285</td><td>Starlink 地面終端路由器、相位陣列天線</td><td>>10%（法人估）</td><td>SpaceX（Starlink 地面設備主要供應商）</td><td>2025 全年營收 1,102 億，創新高；2026 EPS 法人估約 8 元；PE 約 13 倍</td><td>值得深入，估值尚可</td></tr><tr><td>燿華</td><td>2367</td><td>衛星地面設備 PCB 板</td><td>~15%（2025）；2026 預估 20%+</td><td>SpaceX、Amazon Kuiper</td><td>泰國廠 2026 Q2 量產；有倍增條件</td><td>可觀察，Q2 後驗證</td></tr><tr><td>穩懋</td><td>3105</td><td>GaAs PA 射頻放大器代工</td><td><10%</td><td>多個衛星客戶（未具名）</td><td>2026 EPS 法人估約 3.72 元；主力仍是手機 PA + Wi-Fi 7</td><td>衛星佔比次要，觀察即可</td></tr><tr><td>台光電</td><td>2383</td><td>衛星高頻 CCL 基板材料</td><td>難以單獨量化</td><td>間接受惠</td><td>業績穩健</td><td>間接受惠，不需單獨建倉</td></tr><tr><td>耀登</td><td>3138</td><td>地面站天線建置</td><td><10%</td><td>歐系客戶、東南亞地面站</td><td>2025 營收 17.4 億，規模較小</td><td>規模小、能見度低</td></tr><tr><td>兆赫</td><td>2485</td><td>微波零組件</td><td>未取得</td><td>未找到確認客戶</td><td>MWC 題材帶動，基本面不足</td><td>暫不建議</td></tr></tbody></table></div>
+<hr>
+<h2>台股供應鏈 vs 美股 LEO 本家</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>台股供應鏈</th><th>美股 LEO 本家</th></tr></thead><tbody><tr><td>估值</td><td>華通 14x、啟碁 13x，合理</td><td>ASTS/RKLB 天價估值</td></tr><tr><td>投資邏輯</td><td>不用押誰贏，總需求成長就受惠</td><td>要押對贏家</td></tr><tr><td>上漲空間</td><td>較有限（供應商利潤薄）</td><td>若成功爆發力大</td></tr><tr><td>追蹤難度</td><td>台幣交易、月營收可追蹤</td><td>美股時差、資訊較遠</td></tr></tbody></table></div>
+<hr>
+<h2>風險提醒</h2>
+<ol><li><strong>題材炒作風險</strong>：MWC 2026 帶動一波漲停，沾邊股沒有訂單基本面，題材退燒就回落</li><li><strong>估值已反映未來</strong>：昇達科 PE 56x 已計入 2026-2027 成長，訂單延遲就下修</li><li><strong>匯率風險</strong>：台廠衛星訂單幾乎全部美元計價，台幣升值壓獲利</li><li><strong>客戶集中風險</strong>：昇達科最大客戶佔 33% 營收（未公開名稱）</li><li><strong>資本支出壓力</strong>：華通泰國廠、燿華越南廠都在擴建，短期壓現金流</li></ol>
+<hr>
+<h2>結論</h2>
+<ul><li>如果想參與 LEO 行情，台股供應鏈比美股挑戰者更適合保守型投資人</li><li><strong>華通最適合新手</strong>（穩健、多元、估值合理）</li><li>昇達科純度高但估值不便宜，等回調</li><li>LEO 相關倉位建議不超過台股的 20%（約 4 萬）</li></ul>
+<hr>
+<h2>資料來源</h2>
+<ul><li>豐雲學堂：昇達科法說會 4 大亮點（2026）</li><li>財報狗：MWC 2026 低軌衛星漲停名單</li><li>Digitimes：Taiwan PCB makers ride LEO satellite boom</li><li>Digitimes：Taiwan's LEO satellite supply chain drives PCB industry growth</li><li>經濟日報：SpaceX 密訪台灣供應鏈擴大下單</li><li>鉅亨網：昇達科接 LEO 訂單達 18 億元</li><li>優分析：燿華法說會重點</li><li>口袋學堂：2026 低軌衛星台美概念股總整理</li></ul>
+<hr>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>重點變化</th></tr></thead><tbody><tr><td>2026-03-06</td><td>首次建立，從產業分析延伸至台股供應鏈篩選；昇達科、華通、啟碁列為深入研究候選</td></tr></tbody></table></div>
+<hr>
+<blockquote>以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>

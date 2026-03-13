@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minna 報告庫</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.idx-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.idx-header h1{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.idx-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.category{margin-bottom:12px}
+.category details{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.category details[open]{border-color:var(--accent)}
+.category summary{padding:10px 14px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;align-items:center;gap:8px;user-select:none}
+.category summary::-webkit-details-marker{display:none}
+.category summary::before{content:"▸";color:var(--accent);font-size:0.8rem;transition:transform 0.2s}
+.category details[open] summary::before{transform:rotate(90deg)}
+.category summary:hover{background:rgba(255,255,255,0.02)}
+.cat-count{font-size:0.75rem;color:var(--text2);font-weight:400}
+.report-list{padding:4px 14px 10px}
+.report-item{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-radius:6px;transition:background 0.15s}
+.report-item:hover{background:var(--surface2)}
+.report-item a{color:var(--text);text-decoration:none;font-size:0.84rem;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.report-item a:hover{color:var(--accent)}
+.report-date{color:var(--text2);font-size:0.75rem;flex-shrink:0;margin-left:10px}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../index.html">首頁</a><a href="../dashboard.html">儀表板</a><a href="../timeline.html">時間表</a><a href="../cards.html">決策卡</a><a href="../reports/index.html" class="nav-active">報告庫</a>
+  </div>
+</nav>
+<div class="idx-header">
+<h1>報告庫</h1>
+<div class="idx-meta">共 104 份報告 | 更新時間：2026/03/13 13:18</div>
+</div>
+<div class="category">
+<details open>
+<summary>美股日報 <span class="cat-count">(9)</span></summary>
+<div class="report-list">
+<div class="report-item"><a href="daily/us/美股日報_20260312.html">美股日報_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="daily/us/美股日報_20260311.html">美股日報_20260311</a><span class="report-date">2026/03/11</span></div><div class="report-item"><a href="daily/us/美股日報_20260310.html">美股日報_20260310</a><span class="report-date">2026/03/10</span></div><div class="report-item"><a href="daily/us/美股日報_20260309.html">美股日報_20260309</a><span class="report-date">2026/03/09</span></div><div class="report-item"><a href="daily/us/美股日報_20260306.html">美股日報_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="daily/us/美股日報_20260305.html">美股日報_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="daily/us/美股日報_20260304.html">美股日報_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="daily/us/美股日報_20260303.html">美股日報_20260303</a><span class="report-date">2026/03/03</span></div><div class="report-item"><a href="daily/us/美股日報_20260302.html">美股日報_20260302</a><span class="report-date">2026/03/02</span></div>
+</div>
+</details>
+</div><div class="category">
+<details open>
+<summary>台股日報 <span class="cat-count">(9)</span></summary>
+<div class="report-list">
+<div class="report-item"><a href="daily/tw/台股日報_20260312.html">台股日報_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="daily/tw/台股日報_20260311.html">台股日報_20260311</a><span class="report-date">2026/03/11</span></div><div class="report-item"><a href="daily/tw/台股日報_20260310.html">台股日報_20260310</a><span class="report-date">2026/03/10</span></div><div class="report-item"><a href="daily/tw/台股日報_20260309.html">台股日報_20260309</a><span class="report-date">2026/03/09</span></div><div class="report-item"><a href="daily/tw/台股日報_20260306.html">台股日報_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="daily/tw/台股日報_20260305.html">台股日報_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="daily/tw/台股日報_20260304.html">台股日報_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="daily/tw/台股日報_20260303.html">台股日報_20260303</a><span class="report-date">2026/03/03</span></div><div class="report-item"><a href="daily/tw/台股日報_20260302.html">台股日報_20260302</a><span class="report-date">2026/03/02</span></div>
+</div>
+</details>
+</div><div class="category">
+<details>
+<summary>台股個股分析 <span class="cat-count">(42)</span></summary>
+<div class="report-list">
+<div class="report-item"><a href="stocks/tw/全新2455_個股分析_20260312.html">全新2455_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/博智8155_個股分析_20260312.html">博智8155_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/華城1519_個股分析_20260312.html">華城1519_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/玉晶光3406_個股分析_20260312.html">玉晶光3406_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/智邦2345_個股分析_20260312.html">智邦2345_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/建準2421_個股分析_20260312.html">建準2421_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/聯亞3081_個股分析_20260312.html">聯亞3081_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/台郡6269_個股分析_20260312.html">台郡6269_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/高力8996_個股分析_20260312.html">高力8996_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/研華2395_個股分析_20260312.html">研華2395_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/和碩4938_個股分析_20260312.html">和碩4938_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/昇達科3491_個股分析_20260312.html">昇達科3491_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/富世達6805_個股分析_20260312.html">富世達6805_個股分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/tw/嘉聯益6153_個股分析_20260308.html">嘉聯益6153_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/南電8046_個股分析_20260308.html">南電8046_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/正崴2392_個股分析_20260308.html">正崴2392_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/日月光投控3711_個股分析_20260308.html">日月光投控3711_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/大立光3008_個股分析_20260308.html">大立光3008_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/晶技3042_個股分析_20260308.html">晶技3042_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/廣達2382_個股分析_20260308.html">廣達2382_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/GIS-KY6456_個股分析_20260308.html">GIS-KY6456_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/國巨2327_個股分析_20260308.html">國巨2327_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/欣興3037_個股分析_20260308.html">欣興3037_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/新日興3376_個股分析_20260308.html">新日興3376_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/緯創3231_個股分析_20260308.html">緯創3231_個股分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/tw/訊芯-KY6451_個股分析_20260306.html">訊芯-KY6451_個股分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/tw/光聖6442_個股分析_20260306.html">光聖6442_個股分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/tw/華通2313_個股分析_20260306.html">華通2313_個股分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/tw/前鼎4908_個股分析_20260306.html">前鼎4908_個股分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/tw/臻鼎-KY4958_個股分析_20260306.html">臻鼎-KY4958_個股分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/tw/啟碁6285_個股分析_20260306.html">啟碁6285_個股分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/tw/眾達-KY4977_個股分析_20260306.html">眾達-KY4977_個股分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/tw/穩懋3105_個股分析_20260305.html">穩懋3105_個股分析_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="stocks/tw/貿聯-KY3665_個股分析_20260305.html">貿聯-KY3665_個股分析_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="stocks/tw/奇鋐3017_個股分析_20260304.html">奇鋐3017_個股分析_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="stocks/tw/士電_1503_九維度深度分析_20260304.html">士電_1503_九維度深度分析_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="stocks/tw/鴻海2317_個股分析_20260304.html">鴻海2317_個股分析_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="stocks/tw/鈊象3293_個股分析_20260304.html">鈊象3293_個股分析_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="stocks/tw/聖暉工程5536_九維度深度分析_20260301.html">聖暉工程5536_九維度深度分析_20260301</a><span class="report-date">2026/03/01</span></div><div class="report-item"><a href="stocks/tw/一詮精密2486_九維度深度分析_20260228.html">一詮精密2486_九維度深度分析_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="stocks/tw/台積電2330深度分析_20260228.html">台積電2330深度分析_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="stocks/tw/新應材_4749_九維度深度分析_20260228.html">新應材_4749_九維度深度分析_20260228</a><span class="report-date">2026/02/28</span></div>
+</div>
+</details>
+</div><div class="category">
+<details>
+<summary>美股個股分析 <span class="cat-count">(28)</span></summary>
+<div class="report-list">
+<div class="report-item"><a href="stocks/us/FN個股深度分析_20260312.html">FN個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/GLW個股深度分析_20260312.html">GLW個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/CSCO個股深度分析_20260312.html">CSCO個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/BE個股深度分析_20260312.html">BE個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/AVGO個股深度分析_20260312.html">AVGO個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/CRWD個股深度分析_20260312.html">CRWD個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/NET個股深度分析_20260312.html">NET個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/META個股深度分析_20260312.html">META個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/IRDM個股深度分析_20260312.html">IRDM個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/LLY個股深度分析_20260312.html">LLY個股深度分析_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="stocks/us/MRVL個股深度分析_20260309.html">MRVL個股深度分析_20260309</a><span class="report-date">2026/03/09</span></div><div class="report-item"><a href="stocks/us/ANET個股深度分析_20260309.html">ANET個股深度分析_20260309</a><span class="report-date">2026/03/09</span></div><div class="report-item"><a href="stocks/us/AXTI個股深度分析_20260309.html">AXTI個股深度分析_20260309</a><span class="report-date">2026/03/09</span></div><div class="report-item"><a href="stocks/us/AAPL個股深度分析_20260308.html">AAPL個股深度分析_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="stocks/us/CIEN個股深度分析_20260306.html">CIEN個股深度分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/us/AAOI個股深度分析_20260306.html">AAOI個股深度分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/us/VIAV個股深度分析_20260306.html">VIAV個股深度分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="stocks/us/LITE個股深度分析_20260305.html">LITE個股深度分析_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="stocks/us/BSY個股深度分析_20260305.html">BSY個股深度分析_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="stocks/us/COHR個股深度分析_20260305.html">COHR個股深度分析_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="stocks/us/CRDO個股深度分析_20260303.html">CRDO個股深度分析_20260303</a><span class="report-date">2026/03/03</span></div><div class="report-item"><a href="stocks/us/ALAB個股深度分析_20260303.html">ALAB個股深度分析_20260303</a><span class="report-date">2026/03/03</span></div><div class="report-item"><a href="stocks/us/NVDA個股深度分析_20260302.html">NVDA個股深度分析_20260302</a><span class="report-date">2026/03/02</span></div><div class="report-item"><a href="stocks/us/MSFT個股分析_20260228.html">MSFT個股分析_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="stocks/us/CEG_Constellation_九維度深度分析_20260228.html">CEG_Constellation_九維度深度分析_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="stocks/us/VST_Vistra_九維度深度分析_20260228.html">VST_Vistra_九維度深度分析_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="stocks/us/TSLA個股深度分析_20260228.html">TSLA個股深度分析_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="stocks/us/GOOGL個股分析_20260228.html">GOOGL個股分析_20260228</a><span class="report-date">2026/02/28</span></div>
+</div>
+</details>
+</div><div class="category">
+<details>
+<summary>產業研究 <span class="cat-count">(12)</span></summary>
+<div class="report-list">
+<div class="report-item"><a href="industry/2026光通訊產業鏈全景圖_20260309.html">2026光通訊產業鏈全景圖_20260309</a><span class="report-date">2026/03/09</span></div><div class="report-item"><a href="industry/台股蘋果概念股研究_20260308.html">台股蘋果概念股研究_20260308</a><span class="report-date">2026/03/08</span></div><div class="report-item"><a href="industry/台股低軌衛星供應鏈研究_20260306.html">台股低軌衛星供應鏈研究_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="industry/低軌衛星LEO產業趨勢與風險分析_20260306.html">低軌衛星LEO產業趨勢與風險分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="industry/特用化學產業趨勢分析_20260306.html">特用化學產業趨勢分析_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="industry/光通訊產業趨勢與風險分析_20260305.html">光通訊產業趨勢與風險分析_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="industry/AI資安股美股研究_20260302.html">AI資安股美股研究_20260302</a><span class="report-date">2026/03/02</span></div><div class="report-item"><a href="industry/液冷散熱族群產業分析_20260301.html">液冷散熱族群產業分析_20260301</a><span class="report-date">2026/03/01</span></div><div class="report-item"><a href="industry/矽光子族群產業分析_20260301.html">矽光子族群產業分析_20260301</a><span class="report-date">2026/03/01</span></div><div class="report-item"><a href="industry/美股三大題材分析_衛星能源電力_20260228.html">美股三大題材分析_衛星能源電力_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="industry/AI產業趨勢與風險評估_20260226.html">AI產業趨勢與風險評估_20260226</a><span class="report-date">2026/02/26</span></div><div class="report-item"><a href="industry/台股題材研究總覽_CoWoS_散熱_設備_資安_20260224.html">台股題材研究總覽_CoWoS_散熱_設備_資安_20260224</a><span class="report-date">2026/02/24</span></div>
+</div>
+</details>
+</div><div class="category">
+<details>
+<summary>比較分析 <span class="cat-count">(4)</span></summary>
+<div class="report-list">
+<div class="report-item"><a href="compare/鈊象_鴻海_奇鋐_三檔比較_20260304.html">鈊象_鴻海_奇鋐_三檔比較_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="compare/美股三檔總覽比較_20260228.html">美股三檔總覽比較_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="compare/三檔持股總覽比較_20260228.html">三檔持股總覽比較_20260228</a><span class="report-date">2026/02/28</span></div><div class="report-item"><a href="compare/電力核能雙雄比較_VST_CEG_20260228.html">電力核能雙雄比較_VST_CEG_20260228</a><span class="report-date">2026/02/28</span></div>
+</div>
+</details>
+</div>
+</body>
+</html>

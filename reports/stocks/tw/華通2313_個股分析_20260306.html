@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>華通（2313）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>華通（2313）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>華通（2313）九維度深度分析</h1>
+<p><strong>分析日期</strong>：2026-03-06</p>
+<p><strong>分析時股價</strong>：203 元（2026/03/06 收盤，來源：Yahoo 股市）</p>
+<p><strong>分析框架</strong>：stock-analysis-template 九維度</p>
+<hr>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>股價</th><th>結論</th><th>重點變化</th></tr></thead><tbody><tr><td>2026-03-06</td><td>203 元</td><td>中長期布局候選，短期需確認支撐</td><td>首次建立分析，納入 LEO 供應鏈研究後評估</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照（數據抓取時間：2026-03-06）</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>收盤價</td><td>203.0 元</td><td>Yahoo 股市</td></tr><tr><td>昨收</td><td>205.0 元</td><td>Yahoo 股市</td></tr><tr><td>本益比（P/E）</td><td>41.0 倍</td><td>Yahoo 股市</td></tr><tr><td>同業平均 P/E</td><td>39.38 倍</td><td>Yahoo 股市</td></tr><tr><td>股價淨值比（P/B）</td><td>5.52 倍</td><td>Yahoo 股市</td></tr><tr><td>2025 全年 EPS</td><td>5.51 元</td><td>財訊快報</td></tr><tr><td>2025 全年營收</td><td>759.96 億元</td><td>經濟日報</td></tr><tr><td>2026 EPS 法人估</td><td>6.77～7.0 元</td><td>多家法人</td></tr><tr><td>ROE</td><td>13.2%</td><td>ifa.ai</td></tr><tr><td>毛利率（2025 全年）</td><td>18.58%</td><td>搜尋結果</td></tr><tr><td>現金股利（2026 年配）</td><td>2.8 元</td><td>Win 投資</td></tr><tr><td>資本支出（2025 全年估）</td><td>70～80 億元</td><td>搜尋結果</td></tr><tr><td>外資持股比</td><td>28.06%</td><td>Yahoo 股市</td></tr><tr><td>三大法人當日合計</td><td>-1,535 張（連 3 賣）</td><td>Yahoo 股市</td></tr></tbody></table></div>
+<hr>
+<h2>維度一：基本資訊與市場定位</h2>
+<h3>公司簡介</h3>
+<p>華通電腦（Compeq Manufacturing）成立於 1971 年，是台灣老牌 PCB（印刷電路板）廠，主力產品為高密度互連板（HDI）。近年因切入低軌衛星、AI 伺服器、智慧眼鏡三大成長市場，從傳統電子製造商轉型為高科技成長股。</p>
+<h3>三大業務引擎</h3>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>2025 年佔比（估）</th><th>2026 年展望</th></tr></thead><tbody><tr><td>低軌衛星 PCB</td><td>約 20%（估 155 億）</td><td>185 億，年增 22%</td></tr><tr><td>AI 伺服器 / 資料中心板</td><td>成長中</td><td>法人估翻倍成長</td></tr><tr><td>AI 智慧眼鏡（Meta/小米）</td><td>新興業務</td><td>Meta 計畫產能 2,000 萬副/年</td></tr><tr><td>手機 HDI</td><td>約 18%</td><td>年增 6%</td></tr><tr><td>其他（NB、軟板等）</td><td>其餘</td><td>穩定</td></tr></tbody></table></div>
+<h3>核心定位</h3>
+<p>全球低軌衛星 PCB 市佔第一（約 80%），在高密度 HDI 及 SLP（類載板）技術上居於台廠領導地位。供應鏈中扮演「難以被取代的關鍵零件」角色。</p>
+<hr>
+<h2>維度二：財務健康度</h2>
+<h3>EPS 歷史趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>全年 EPS（元）</th><th>說明</th></tr></thead><tbody><tr><td>2020</td><td>3.91</td><td>疫情年，穩健</td></tr><tr><td>2021</td><td>4.31</td><td>缺料潮受惠</td></tr><tr><td>2022</td><td>6.71</td><td>歷史高點</td></tr><tr><td>2023</td><td>3.50</td><td>庫存去化，景氣低谷</td></tr><tr><td>2024</td><td>4.70</td><td>回升</td></tr><tr><td>2025</td><td>5.51</td><td>歷史次高，創新高軌跡中</td></tr><tr><td>2026E</td><td>6.77～7.0</td><td>法人共識預估</td></tr></tbody></table></div>
+<p>分析觀察：2023 年 EPS 大幅下滑至 3.5 元，顯示景氣週期敏感度不低。但 2025 年已明顯回升至 5.51 元，且成長驅動力從傳統消費電子轉向衛星與 AI，結構升級趨勢明確。</p>
+<h3>季度 EPS 走勢（2025 年）</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>單季 EPS</th><th>YoY</th></tr></thead><tbody><tr><td>Q1 2025</td><td>1.10 元</td><td>年增 32%</td></tr><tr><td>Q2 2025</td><td>0.70 元</td><td>年減 28%（季節性低點）</td></tr><tr><td>Q3 2025</td><td>1.81 元</td><td>年增 20%，超越上半年總和</td></tr><tr><td>Q4 2025</td><td>約 1.90 元（推算）</td><td>季增，創歷史最佳 Q4</td></tr></tbody></table></div>
+<p>📝 術語補充：EPS 就是「公司幫每一張股票賺了多少錢」，數字越高代表獲利越強。</p>
+<h3>獲利能力指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>評估</th></tr></thead><tbody><tr><td>毛利率</td><td>18.58%（2025）</td><td>近年最高，年增 2.6pp</td></tr><tr><td>淨利率</td><td>7.82%</td><td>合理水位</td></tr><tr><td>ROE</td><td>13.2%</td><td>中等，有改善空間</td></tr><tr><td>ROA</td><td>6.98%</td><td>尚可</td></tr></tbody></table></div>
+<h3>資本支出壓力</h3>
+<ul><li>2025 年資本支出 70～80 億元（超過 2024 年全年 50 億）</li><li>2026 年預計維持相同水準</li><li>泰國廠擴產至每月 40 萬呎（年增 28%），需持續投入資金</li></ul>
+<p>風險提醒：高資本支出壓縮自由現金流，若需求不如預期，折舊費用仍需攤提，將侵蝕獲利。</p>
+<p>配息資訊：</p>
+<ul><li>2026 年配發現金股利 2.8 元</li><li>配發率約 51%（2.8 / 5.51）</li><li>以 203 元計算，殖利率僅 1.38%，不算高</li></ul>
+<p>注意：負債比、流動比等詳細資產負債表數據，本次搜尋未能取得精確數字，標示如下：</p>
+<ul><li>負債比率：❌ 未取得（建議查閱公開資訊觀測站 2025 年報）</li><li>流動比率：❌ 未取得</li></ul>
+<hr>
+<h2>維度三：成長動能</h2>
+<h3>三引擎成長拆解</h3>
+<p><strong>引擎一：低軌衛星 PCB</strong></p>
+<ul><li>2025 年衛星營收約 155 億元</li><li>2026 年預估 185 億元，年增 22%</li><li>主要客戶：SpaceX（星鏈計畫 V3 世代加速部署）</li><li>SpaceX 2026 年 3 月確認低調訪台，重點對象鎖定昇達科與華通，擴大訂單</li><li>訂單能見度已延伸至 2026 年</li></ul>
+<p><strong>引擎二：AI 伺服器板 / 資料中心</strong></p>
+<ul><li>高階 HDI 在 AI 伺服器與交換器板出貨量持續提升</li><li>法人估 2026 年相關營收較 2025 年翻倍成長</li><li>受惠於資料中心擴建潮（雲端廠商大規模 capex）</li></ul>
+<p><strong>引擎三：AI 智慧眼鏡</strong></p>
+<ul><li>確認進入 Meta 及小米智慧眼鏡供應鏈</li><li>Meta 計畫年產能上調至 2,000 萬副</li><li>技術門檻：需要高階 HDI + SLP 輕薄化設計，華通具備</li><li>此為最新引擎，2026 年貢獻佔比相對早期</li></ul>
+<h3>營收趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>累計營收</th><th>YoY</th></tr></thead><tbody><tr><td>2025 全年</td><td>759.96 億</td><td>年增 4.87%，3 年新高</td></tr><tr><td>2025 Q4</td><td>210.16 億</td><td>歷史最佳 Q4</td></tr><tr><td>2026 年 2 月</td><td>52.01 億</td><td>年增 0.01%（淡季）</td></tr></tbody></table></div>
+<p>📝 術語補充：YoY（Year over Year）就是「跟去年同期相比的成長率」。</p>
+<hr>
+<h2>維度四：競爭優勢與護城河</h2>
+<h3>核心護城河分析</h3>
+<p><strong>1. 低軌衛星板技術壟斷（最強護城河）</strong></p>
+<ul><li>全球市佔約 80%，台廠中無明顯競爭者</li><li>切入時間極早（2020 年起與 SpaceX 合作），累積深厚訂製化製程經驗</li><li>衛星板要求「高頻信號損耗極低」，需要特殊材料配方與製程，非短期可複製</li></ul>
+<p><strong>2. 地緣政治護城河（泰國廠）</strong></p>
+<ul><li>SpaceX 要求「非中非台」生產，以規避供應鏈地緣風險</li><li>華通泰國廠 2023 年起建設，已進入量產，月產能 40 萬呎</li><li>這是進入衛星供應鏈的必要門票，競爭者若現在才開始建設海外廠，至少晚 2～3 年</li></ul>
+<p><strong>3. HDI 技術積累</strong></p>
+<ul><li>高密度互連板需要精密蝕刻與多層堆疊技術，開發週期長</li><li>同時供應蘋果 SLP 訂單（需求最嚴苛的製程之一），代表技術等級已達頂級</li></ul>
+<h3>與競爭對手比較</h3>
+<div class="table-wrap"><table><thead><tr><th>廠商</th><th>主要強項</th><th>衛星板強度</th></tr></thead><tbody><tr><td>華通 2313</td><td>衛星板龍頭 + AI 伺服器 HDI</td><td>最強，80% 市佔</td></tr><tr><td>欣興 3037</td><td>全球第二大 PCB + 載板龍頭</td><td>有跨入，但非核心</td></tr><tr><td>金像電 2368</td><td>蘋果供應鏈</td><td>較少衛星曝光</td></tr><tr><td>臻鼎 4958</td><td>全球 PCB 市值最大，軟板</td><td>以消費電子為主</td></tr></tbody></table></div>
+<p>競爭風險提醒：SpaceX 已嘗試部分自製（金寶組裝業務被內化是案例），但 PCB 板涉及材料科學與精密製程，被內化的可能性相對較低，但技術替代或找新供應商風險仍存在。</p>
+<hr>
+<h2>維度五：風險評估</h2>
+<h3>主要風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>影響程度</th><th>發生機率</th><th>備注</th></tr></thead><tbody><tr><td>SpaceX 削減訂單</td><td>高</td><td>低中</td><td>訂單已延伸至 2026 年，短期無虞</td></tr><tr><td>泰國廠擴產壓現金流</td><td>中</td><td>高（已發生）</td><td>2025 資本支出 70～80 億，現金流承壓</td></tr><tr><td>景氣循環向下（消費電子）</td><td>中</td><td>中</td><td>2023 年已示範過 EPS 腰斬</td></tr><tr><td>股價估值偏高後修正</td><td>中</td><td>中高</td><td>當前 P/E 41 倍，高於歷史均值</td></tr><tr><td>競爭者進入衛星板市場</td><td>低中</td><td>低</td><td>技術門檻高，但中長期仍需關注</td></tr><tr><td>美中貿易戰升溫</td><td>中</td><td>中</td><td>泰國廠為部分緩衝</td></tr><tr><td>SpaceX IPO 後策略轉變</td><td>低中</td><td>低</td><td>不確定因素，長期觀察</td></tr></tbody></table></div>
+<h3>特別提醒（對 Minna 而言重要）</h3>
+<ol><li>2026 年 2 月營收僅年增 0.01%，接近持平，淡季效應明顯</li><li>當前本益比 41 倍，已反映部分成長預期，向上空間有限、向下風險相對大</li><li>法人三大合計近 3 日持續賣超，籌碼面偏弱</li></ol>
+<hr>
+<h2>維度六：估值分析</h2>
+<h3>估值方法一：本益比法（P/E Valuation）</h3>
+<p>📝 術語補充：本益比就是「股價是年獲利的幾倍」。用未來預估獲利來算，可以知道貴不貴。</p>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>2026E EPS</th><th>合理 P/E</th><th>合理股價</th></tr></thead><tbody><tr><td>保守</td><td>6.5 元</td><td>20 倍</td><td>130 元</td></tr><tr><td>中性</td><td>6.77 元</td><td>25 倍</td><td>169 元</td></tr><tr><td>樂觀</td><td>7.0 元</td><td>30 倍</td><td>210 元</td></tr><tr><td>現況</td><td>—</td><td>41 倍</td><td>203 元（當前股價）</td></tr></tbody></table></div>
+<p>觀察：當前 41 倍 P/E 屬於「充分定價到樂觀」區間。法人給 210 元目標價，意味著他們隱含 30 倍的成長型估值。對比 PCB 業歷史平均 P/E 約 15～20 倍，這個溢價完全是衛星 + AI 題材帶來的。</p>
+<h3>估值方法二：PEG 思維（成長性調整）</h3>
+<p>📝 術語補充：PEG 是把本益比除以成長率，如果 PEG < 1 代表估值便宜，> 1 代表偏貴。</p>
+<ul><li>2026E EPS 成長率：約 23%（6.77 / 5.51 - 1）</li><li>當前 P/E：41 倍</li><li>PEG = 41 / 23 = 1.78 → 偏貴</li></ul>
+<p>如果用更高成長率 30%（樂觀估）：PEG = 41 / 30 = 1.37 → 仍偏高</p>
+<h3>重要估值結論</h3>
+<p>先前供應鏈研究提到「PE ~14x，估值合理」是基於市場早期研究報告的數字。但根據 2026/03/06 當日實際 P/E（41 倍），<strong>目前估值已遠高於 14 倍</strong>。可能的解釋是：</p>
+<ol><li>股價在 LEO 題材帶動下大幅上漲（近半年漲幅顯著）</li><li>14 倍是以「歷史均值 P/E」計算的「理論便宜價」，而非當前市場價格</li><li>市場已提前 price in 2026～2027 年的成長</li></ol>
+<p>對 Minna 的意義：若以「合理估值」標準看，當前並不便宜；若以「成長股估值」標準，算在偏高區間。</p>
+<hr>
+<h2>維度七：技術面觀察</h2>
+<h3>當日數據（2026/03/06，來源：Yahoo 股市）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>收盤</td><td>203.0 元</td></tr><tr><td>開盤</td><td>202.0 元</td></tr><tr><td>今日最高</td><td>212.5 元</td></tr><tr><td>今日最低</td><td>198.0 元</td></tr><tr><td>均價</td><td>204.3 元</td></tr><tr><td>成交量</td><td>85,370 張</td></tr><tr><td>振幅</td><td>7.07%</td></tr><tr><td>近 3 日走勢</td><td>連跌 3 日，累計下跌 9.58%</td></tr></tbody></table></div>
+<h3>均線狀態（根據搜尋整合）</h3>
+<ul><li>短中長期均線：仍呈多頭排列（5 日 > 月線 > 季線 > 半年線 > 年線）</li><li>均線方向：5 日線已轉向，月線以上仍向上</li><li>意涵：中長期多頭結構完整，但短期動能轉弱</li></ul>
+<h3>技術面判讀</h3>
+<ul><li>近 3 日急跌 9.58%，振幅擴大，是量縮還是量增需觀察</li><li>今日成交量 85,370 張，屬於相對高量，代表換手積極</li><li>內盤比外盤多（53% vs 46%），短線賣壓略重</li><li>支撐位觀察：月線附近（約 190～195 元區間）是關鍵測試點</li></ul>
+<p>⚠️ 技術面資料部分來源為搜尋估算，精確均線數值建議至 Yahoo 股市或 TradingView 即時確認。</p>
+<hr>
+<h2>維度八：法人與籌碼</h2>
+<h3>三大法人動向（2026/03/06）</h3>
+<div class="table-wrap"><table><thead><tr><th>機構</th><th>當日買賣超</th><th>連續方向</th></tr></thead><tbody><tr><td>外資</td><td>+612 張</td><td>連 2 賣後轉買</td></tr><tr><td>投信</td><td>-2,850 張</td><td>連 2 賣</td></tr><tr><td>自營商</td><td>+703 張</td><td>賣轉買</td></tr><tr><td>三大合計</td><td>-1,535 張</td><td>連 3 賣</td></tr></tbody></table></div>
+<h3>籌碼分析</h3>
+<ul><li>外資持股比 28.06%，是最大機構持有者</li><li>三大法人累計賣超達 -31,624 張，籌碼面偏空</li><li>今日雖三大法人合計賣超，但外資已小幅轉買，觀察後續是否持續</li></ul>
+<p>解讀：近期法人賣超可能反映短線獲利了結（股價從低點大漲後的正常回調），也可能是對估值偏高的警示。投信持續賣，是較需觀察的信號。</p>
+<hr>
+<h2>維度九：催化劑與時間表</h2>
+<h3>正面催化劑（可能推升股價）</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>時間</th><th>重要性</th></tr></thead><tbody><tr><td>SpaceX V4 衛星加速部署訂單確認</td><td>2026 H1</td><td>高</td></tr><tr><td>Q4 2025 財報（2026/3 公布）</td><td>近期</td><td>高</td></tr><tr><td>泰國廠量產放量</td><td>2026 H1</td><td>高</td></tr><tr><td>Meta 智慧眼鏡出貨確認訊息</td><td>2026 全年</td><td>中高</td></tr><tr><td>AI 伺服器板訂單翻倍確認</td><td>2026 Q1 法說</td><td>中高</td></tr><tr><td>SpaceX IPO 前題材炒作</td><td>2026 下半年（估）</td><td>中</td></tr></tbody></table></div>
+<h3>負面催化劑（可能壓制股價）</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>時間</th><th>重要性</th></tr></thead><tbody><tr><td>SpaceX 策略轉向或自製擴大</td><td>不確定</td><td>高</td></tr><tr><td>泰國廠擴產進度落後</td><td>2026 H1</td><td>中</td></tr><tr><td>美股科技股大跌帶動台股回調</td><td>隨時</td><td>中高</td></tr><tr><td>2026 Q1 業績未達市場預期</td><td>4～5 月</td><td>高</td></tr><tr><td>法人季末調節賣超</td><td>季末</td><td>中</td></tr></tbody></table></div>
+<hr>
+<h2>綜合評分與操作建議</h2>
+<h3>綜合評分</h3>
+<div class="table-wrap"><table><thead><tr><th>維度</th><th>分數</th><th>說明</th></tr></thead><tbody><tr><td>基本面</td><td>8/10</td><td>三引擎成長明確，獲利創歷史次高</td></tr><tr><td>財務健康</td><td>6/10</td><td>獲利強，但資本支出重，殖利率低</td></tr><tr><td>成長動能</td><td>9/10</td><td>衛星 + AI + 眼鏡三引擎，能見度高</td></tr><tr><td>競爭護城河</td><td>8/10</td><td>80% 市佔、泰國廠壁壘，短期難被超越</td></tr><tr><td>風險評估</td><td>5/10</td><td>估值偏高、籌碼賣超、資本支出壓力</td></tr><tr><td>估值</td><td>4/10</td><td>P/E 41 倍，偏貴；6～7 元 EPS 已充分反映</td></tr><tr><td>技術面</td><td>5/10</td><td>中長期多頭，短期連跌訊號偏弱</td></tr><tr><td>法人籌碼</td><td>5/10</td><td>外資占比高，但三大合計賣超</td></tr><tr><td>催化劑</td><td>8/10</td><td>多個確定性催化劑在 2026 H1</td></tr></tbody></table></div>
+<p><strong>加權綜合評分：6.5 / 10</strong></p>
+<h3>評分解讀</h3>
+<p>這是一檔基本面強、成長動能佳，但<strong>當前時間點估值偏高</strong>的股票。長期方向沒有問題，但現在進場的「安全邊際」不大。若能等到股價修正，會是更好的介入機會。</p>
+<hr>
+<h3>進場條件</h3>
+<p><strong>方案 A：等回調後低接（適合 Minna 偏保守性格）</strong></p>
+<ul><li>進場價位：190～195 元（約月線支撐、P/E 回落至 27～28 倍附近）</li><li>進場邏輯：短線已連跌 9.58%，若技術面出現止跌訊號（量縮、K 線收斂），加上法人買賣超轉正，可考慮第一批</li><li>建議倉位：不超過台股總資金 20 萬的 15%，約 3 萬元（約 15 張，若股價 200 元區間）</li></ul>
+<p>📝 術語補充：倉位就是「你把多少資金押在這檔股票上」，分批進場的好處是萬一繼續跌，你還有子彈往下補。</p>
+<p><strong>方案 B：觀察財報後確認（適合第一次進場）</strong></p>
+<ul><li>進場時機：Q4 2025 財報公布後（預計 3 月下旬），確認 EPS 達 1.5 元以上（即全年 5.5+ 元），再評估進場</li><li>進場邏輯：用財報結果驗證成長動能是否如期</li><li>建議倉位：資金 20 萬的 10%，約 2 萬元（約 10 張）</li></ul>
+<hr>
+<h3>停損參考</h3>
+<div class="table-wrap"><table><thead><tr><th>進場方案</th><th>停損價位</th><th>邏輯</th></tr></thead><tbody><tr><td>方案 A（190～195 元進）</td><td>180 元</td><td>跌破季線下方約 5%，趨勢轉壞</td></tr><tr><td>方案 B（財報後進，約 200 元）</td><td>185 元</td><td>跌破近期支撐，停損約 7～8%</td></tr></tbody></table></div>
+<p>📝 術語補充：停損就是「設定一個你願意認賠出場的價格」，目的是避免一直跌卻捨不得賣，最後虧很大。</p>
+<hr>
+<h3>倉位建議（台股資金 20 萬，偏保守新手）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>建議</th></tr></thead><tbody><tr><td>最大倉位</td><td>20 萬的 15%，即 3 萬元</td></tr><tr><td>分批建議</td><td>第一批 1.5 萬，確認止跌後再加第二批 1.5 萬</td></tr><tr><td>心理準備</td><td>買進後短期仍可能繼續跌 5～10%，這是正常的</td></tr><tr><td>持有期望</td><td>中長期（6 個月以上）以衛星業務兌現為觀察期</td></tr></tbody></table></div>
+<p>理由：倉位不要太重，因為目前估值偏高，本益比 41 倍代表你已付了比較貴的價格，萬一遇到市場情緒轉差或業績不如預期，修正幅度可能大。用 15% 以內的倉位，就算跌 15%，對整體資金只影響不到 2.3%。</p>
+<hr>
+<h2>免責聲明</h2>
+<blockquote>以上分析為個人研究整理，數據來源已標注，部分數據為法人估算值，非官方確認數字。<strong>以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</strong></blockquote>
+<hr>
+<h2>主要參考來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2313.TW" target="_blank" rel="noopener">Yahoo 股市 華通 2313 走勢圖</a></li><li><a href="https://tw.stock.yahoo.com/quote/2313.TW/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 法人買賣</a></li><li><a href="https://money.udn.com/money/story/5710/9266904" target="_blank" rel="noopener">華通三箭齊發 資本支出大增（經濟日報）</a></li><li><a href="https://money.udn.com/money/story/12040/9297208" target="_blank" rel="noopener">SpaceX 策略改變分析（經濟日報）</a></li><li><a href="https://today.line.me/tw/v3/article/yzkDRwG" target="_blank" rel="noopener">華通 2025 全年 EPS 5.51 元（財訊快報）</a></li><li><a href="https://winvest.tw/Stock/Symbol/Comment/2313" target="_blank" rel="noopener">Win 投資 華通分析</a></li><li><a href="https://histock.tw/stock/2313/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank" rel="noopener">HiStock 華通 EPS 歷史</a></li><li><a href="https://ifa.ai/tw-stock/2313" target="_blank" rel="noopener">ifa.ai 華通財務數據</a></li><li><a href="https://wantrich.chinatimes.com/news/20260128900003-420101" target="_blank" rel="noopener">旺得富 低軌衛星 PCB 分析</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/SpaceX%E4%BD%8E%E8%AA%BF%E8%A8%AA%E5%8F%B0%E6%93%B4%E5%A4%A7%E4%B8%8B%E5%96%AE-%E6%98%87%E9%81%94%E7%A7%91-%E8%8F%AF%E9%80%9A%E6%88%90%E9%87%8D%E9%BB%9E%E5%B0%8D%E8%B1%A1-%E5%8F%B0%E5%BB%A0%E5%A4%AA%E7%A9%BA%E4%BE%9B%E6%87%89%E9%8F%88%E5%85%A8%E8%A7%A3%E6%9E%90-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69733dea69e5022612a7aa66" target="_blank" rel="noopener">SpaceX 訪台擴大下單（元富豐雲學堂）</a></li></ul>
+</div>
+</body>
+</html>

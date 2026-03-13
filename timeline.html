@@ -27,10 +27,15 @@
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
-    padding: 20px;
+    padding: 56px 20px 20px;
     max-width: 1100px;
     margin: 0 auto;
   }
+  .top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+  .nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+  .top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+  .top-nav a:hover{background:var(--surface2);color:var(--text)}
+  .top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
   .header {
     text-align: center;
     padding: 30px 0 10px;
@@ -262,6 +267,7 @@
 </style>
 </head>
 <body>
+<nav class="top-nav"><div class="nav-inner"><a href="index.html">首頁</a><a href="dashboard.html">儀表板</a><a href="timeline.html" class="nav-active">時間表</a><a href="cards.html">決策卡</a><a href="reports/index.html">報告庫</a></div></nav>
 <div class="header">
   <h1>2026 投資關鍵時間表</h1>
   <div class="meta">最後更新：2026-03-13（美股日報 3/12：全面下殺 S&P -1.52%、費半 -3.43%。VIX 27.29 大幅飆升。CEG Day 2 逆勢漲。關稅重大裁定。SentinelOne Q1 指引失望。GTC 倒計時 3 天）</div>
@@ -434,7 +440,7 @@
 </details>
 
 <div class="footer">
-  自動產出時間：2026-03-13 09:55 ｜ 以上分析僅供參考，不構成投資建議。
+  自動產出時間：2026-03-13 13:23 ｜ 以上分析僅供參考，不構成投資建議。
 </div>
 </body>
 </html>

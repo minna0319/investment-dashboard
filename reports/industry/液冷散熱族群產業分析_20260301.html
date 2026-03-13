@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>液冷散熱族群產業分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../timeline.html">時間表</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>液冷散熱族群產業分析</h1>
+</div>
+<div class="report-body">
+<h1>液冷散熱族群產業分析</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-03-01（台灣時間，週日）</td></tr><tr><td>台股資料狀態</td><td>未開盤（週日休市，下次開盤：週一 03/02 09:00）</td></tr><tr><td>美股資料狀態</td><td>未開盤（週日休市，下次開盤：週一 03/02 21:30 台灣時間）</td></tr><tr><td>股價資料</td><td>以最近交易日收盤價為基準，盤中波動請自行確認</td></tr><tr><td>待更新項目</td><td>各股最新股價需週一開盤後確認</td></tr></tbody></table></div>
+<hr>
+<h2>一句話總結</h2>
+<p>液冷散熱是 2026 年台股最確定性最高的 AI 基礎建設主題之一，趨勢已從「題材炒作」進入「真實業績兌現」階段，奇鋐、雙鴻是主幹，但股價已漲很多，建準、高力估值相對便宜，適合 Minna 分批觀察布局。</p>
+<hr>
+<h2>1. 液冷散熱白話解釋</h2>
+<h3>什麼是液冷散熱？為什麼需要？</h3>
+<p>想像你在跑步，體溫升高，你會流汗降溫。GPU（AI 晶片）工作時也會發熱，如果沒有散熱，就會「過熱當機」甚至燒壞。</p>
+<p><strong>傳統方式（風冷）：</strong> 用風扇吹走熱氣。就像電扇對著你吹，簡單便宜，但效果有限。</p>
+<p><strong>為什麼風冷不夠用了？</strong></p>
+<p>NVIDIA 的 AI 晶片功耗一直在暴增：</p>
+<ul><li>2023 年 H100：700W</li><li>2024 年 GB200：1000W</li><li>2026 年 Rubin：2300W（高達 2.3 倍）</li></ul>
+<p>功耗越高，發熱量越大。用風扇對著 2300W 的晶片吹，效果等同用電扇對著電磁爐吹，根本不夠。這就是為什麼 AI 時代液冷散熱成為必需品。</p>
+<hr>
+<h3>三種液冷技術比較</h3>
+<p><strong>A. 間接液冷（Cold Plate 冷板式）— 目前主流</strong></p>
+<ul><li>白話解釋：在晶片表面貼一塊「金屬水枕」（冷板），水在裡面循環帶走熱量，晶片不接觸水</li><li>優點：安全、不易損壞設備、成本相對低</li><li>目前狀態：GB200、GB300 伺服器的標準配備，台灣奇鋐、雙鴻主力做的就是這個</li></ul>
+<p><strong>B. 直接液冷（DLC）</strong></p>
+<ul><li>白話解釋：冷卻液更直接靠近晶片，把管線布到伺服器內部各個零件旁邊</li><li>優點：散熱效果更好</li><li>缺點：管路複雜，漏液風險高（GB200 就曾爆出洩漏事件）</li></ul>
+<p><strong>C. 浸沒式冷卻（Immersion Cooling）— 未來趨勢</strong></p>
+<ul><li>白話解釋：把整個伺服器板子「泡在特殊冷卻液裡」，就像把發燙的手機泡進冰水</li><li>優點：散熱效果最好，PUE（電力使用效率）最高</li><li>缺點：成本高、技術門檻最高、目前還不普及</li><li>未來：被視為下一代超高功耗晶片的終極解法</li></ul>
+<hr>
+<h3>和 AI 伺服器/GPU 的關係</h3>
+<p>```</p>
+<p>AI 模型訓練</p>
+<p>→ 需要大量 GPU（如 NVIDIA GB300）</p>
+<p>→ GPU 功耗高達 1000-2300W</p>
+<p>→ 機架（Rack）裡塞滿 GPU，熱量驚人</p>
+<p>→ 風冷撐不住</p>
+<p>→ 必須用液冷</p>
+<p>→ 每個機架都要配：冷板 + CDU + 管路 + 快接頭</p>
+<p>→ 台廠供應鏈直接受益</p>
+<p>```</p>
+<hr>
+<h2>2. 產業鏈地圖</h2>
+<blockquote>CDU（冷卻分配單元）白話說明：就像液冷系統的「心臟」，負責把冷卻水分配到各個發熱零件，再把熱水收回來冷卻，然後再循環輸出。一個機架配一台 CDU。</blockquote>
+<p>```</p>
+<p>上游（材料層）</p>
+<p>├── 冷卻液、熱界面材料（TIM）</p>
+<p>├── 銅、鋁等金屬散熱材料</p>
+<p>└── 特殊工程塑料、密封材料</p>
+<p>中游（零組件層）— 台廠最強區域</p>
+<p>├── 冷板（Cold Plate）：貼在晶片表面的散熱金屬塊</p>
+<p>│   → 奇鋐(3017)、雙鴻(3324)、健策(3653)</p>
+<p>├── CDU（冷卻分配單元）：液冷系統的循環中樞</p>
+<p>│   → 奇鋐(3017)、雙鴻(3324)</p>
+<p>├── 快接頭（Quick Connector）：管路連接件</p>
+<p>│   → 富世達(6805)</p>
+<p>├── 散熱鰭片、均熱片、熱管</p>
+<p>│   → 建準(2421)、高力(8996)</p>
+<p>└── 水冷機櫃整合</p>
+<p>→ 晟銘電(3013)</p>
+<p>下游（系統整合層）</p>
+<p>├── AI 伺服器系統整合商</p>
+<p>│   → 緯穎、廣達、英業達</p>
+<p>└── 資料中心建置</p>
+<p>→ 雲端大廠（AWS、Azure、Google Cloud、Meta）</p>
+<p>終端客戶</p>
+<p>└── NVIDIA GB200/GB300/Rubin 平台</p>
+<p>→ 四大 CSP（AWS、Google、Microsoft、Meta）</p>
+<p>→ 自研 AI 晶片（Google TPU、Amazon Trainium）</p>
+<p>```</p>
+<hr>
+<h2>3. 台股概念股總覽</h2>
+<h3>核心五強（直接受益）</h3>
+<div class="table-wrap"><table><thead><tr><th>股票代號</th><th>名稱</th><th>主要液冷產品</th><th>液冷營收佔比</th><th>近期股價（約）</th><th>2026 預估 EPS</th><th>2026 預估 PE</th><th>一句話評價</th></tr></thead><tbody><tr><td>3017</td><td>奇鋐</td><td>CDU、冷板、水冷模組，NVIDIA + Google TPU 雙客戶</td><td>液冷為主力，佔比持續提升</td><td>約 1,600-1,700 元</td><td>78.1 元</td><td>約 20-22x</td><td>台灣液冷龍頭，地位最穩，但股價已反映大量利多</td></tr><tr><td>3324</td><td>雙鴻</td><td>冷板、CDU、水冷板，AWS 大訂單</td><td>2025 年底超 50%，2026 年估 62%</td><td>約 850-950 元</td><td>57.5 元</td><td>約 15-17x</td><td>液冷轉型最快的標的，AWS T3 訂單是關鍵，成長動能強</td></tr><tr><td>2421</td><td>建準</td><td>散熱模組、風扇、正在切入液冷</td><td>液冷佔比仍在爬升中</td><td>約 130-150 元</td><td>10.8 元</td><td>約 13-14x</td><td>三雄中估值最便宜，液冷爬坡期最有補漲空間</td></tr><tr><td>8996</td><td>高力</td><td>鋁擠散熱器、熱交換器，切入液冷周邊</td><td>未取得精確佔比</td><td>未取得</td><td>17.8 元</td><td>低於 20x</td><td>2026 EPS 成長率估 105%，但流動性較低（小型股）</td></tr><tr><td>3653</td><td>健策</td><td>冷板、封裝散熱（MCL 技術），切入先進封裝</td><td>未取得精確佔比</td><td>未取得</td><td>未取得</td><td>未取得</td><td>技術路線最先進，往封裝端延伸，但資訊較不透明</td></tr></tbody></table></div>
+<h3>中游零件（切入點明確）</h3>
+<div class="table-wrap"><table><thead><tr><th>股票代號</th><th>名稱</th><th>主要業務</th><th>一句話評價</th></tr></thead><tbody><tr><td>6805</td><td>富世達</td><td>液冷快接頭，首家通過 NVIDIA 認證，母公司為奇鋐</td><td>小但關鍵，快接頭技術門檻高，股價已漲多（目標價約 1,666-1,800 元）</td></tr><tr><td>3013</td><td>晟銘電</td><td>水冷機櫃 OEM，與 Meta 合作 GB200 機櫃</td><td>切入 AI 伺服器機構件，但主業是機殼，純概念成分較高</td></tr></tbody></table></div>
+<h3>系統整合（受益但非直接）</h3>
+<div class="table-wrap"><table><thead><tr><th>股票代號</th><th>名稱</th><th>液冷關聯</th><th>評語</th></tr></thead><tbody><tr><td>3711</td><td>日月光</td><td>先進封裝散熱，間接受益</td><td>封裝端熱管理，並非液冷直接受益股</td></tr></tbody></table></div>
+<hr>
+<h2>4. 市場規模與成長性</h2>
+<h3>全球液冷市場規模</h3>
+<div class="table-wrap"><table><thead><tr><th>年份</th><th>全球伺服器冷卻市場</th><th>其中液冷 TAM</th><th>年成長率（液冷）</th></tr></thead><tbody><tr><td>2024</td><td>約 37 億美元</td><td>約 12 億美元</td><td>基準年</td></tr><tr><td>2025</td><td>79 億美元</td><td>54 億美元</td><td>+357%</td></tr><tr><td>2026</td><td>140 億美元</td><td>116 億美元</td><td>+114%</td></tr><tr><td>2027</td><td>176 億美元</td><td>152 億美元</td><td>+31%</td></tr></tbody></table></div>
+<h3>AI 訓練伺服器液冷滲透率（TrendForce / Digitimes）</h3>
+<div class="table-wrap"><table><thead><tr><th>年份</th><th>液冷滲透率</th></tr></thead><tbody><tr><td>2024</td><td>14-15%</td></tr><tr><td>2025</td><td>33-45%</td></tr><tr><td>2026</td><td>40-74%（各機構預估範圍）</td></tr><tr><td>2027</td><td>80%+</td></tr></tbody></table></div>
+<p><strong>白話說明：</strong> 滲透率從 15% 到 74%，代表原本 10 台 AI 伺服器只有 1-2 台用液冷，到 2026 年幾乎 7-8 台都要用液冷。這是一個「擴量」加「升級」的雙重驅動。</p>
+<h3>主要驅動力</h3>
+<ol><li>NVIDIA Rubin 平台（2026 下半年）功耗達 2,300W，沒有液冷根本無法運作</li><li>雲端大廠 CapEx 持續擴張：2025 年四大 CSP 合計資本支出估超過 3,000 億美元</li><li>機架密度提升：GB300 機架散熱值比 GB200 高 20%，液冷單位價值跟著提高</li></ol>
+<hr>
+<h2>5. 關鍵催化劑與時間點</h2>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>影響標的</th></tr></thead><tbody><tr><td>2026 年 3~4 月</td><td>Q4 2025 財報季（散熱股陸續公布）</td><td>奇鋐、雙鴻、建準、高力</td></tr><tr><td>2026 上半年</td><td>GB300 出貨量持續放大（2025 年 9 月已開始出貨）</td><td>全族群</td></tr><tr><td>2026 年中（6 月起）</td><td>NVIDIA Vera Rubin 平台量產（功耗 2,300W，全液冷必需）</td><td>奇鋐（已確認為 Rubin 供應商）、雙鴻</td></tr><tr><td>2026 下半年</td><td>Rubin 大規模出貨，機架全面液冷化</td><td>全族群再升一個台階</td></tr><tr><td>2026 4 月中旬</td><td>台積電 Q1 2026 法說會（CoWoS 先進封裝需求）</td><td>健策（封裝散熱連動）</td></tr><tr><td>2026 5 月中</td><td>NVIDIA Q1 2026 財報（AI 需求溫度計）</td><td>全族群連動</td></tr><tr><td>2026 Q3/Q4</td><td>次世代 AI 晶片（AMD MI450 等）規格確認</td><td>確認台廠是否進入更多 CSP 供應鏈</td></tr></tbody></table></div>
+<hr>
+<h2>6. 風險與挑戰</h2>
+<h3>技術風險</h3>
+<p><strong>液冷洩漏問題：</strong> GB200 伺服器在 2024-2025 年爆出嚴重的冷卻液洩漏問題，主要出在快接頭、分歧管、水管等部位。一次洩漏事件造成整套清洗成本高達 50 萬美元。台廠已改善，但施工複雜度與良率仍是持續挑戰。</p>
+<p><strong>微通道技術門檻：</strong> Rubin 平台採用微流道冷板（奈米等級流道，雷射焊接製成），技術門檻更高，台廠需要額外設備投資和製程升級。</p>
+<h3>競爭風險</h3>
+<p><strong>中國廠商崛起：</strong> A 股液冷概念股 2025 年以來累漲近 70%，龍頭漲幅超 250%。中國液冷技術專利前三名為浪潮、百度、華為，短期因台廠與 NVIDIA 合作認證關係仍有護城河，中長期競爭壓力不容忽視。</p>
+<h3>週期風險</h3>
+<p><strong>AI CapEx 是否持續？</strong> 若 AI 應用商業化的 ROI 不如預期，CSP 可能削減 CapEx，液冷需求直接受衝擊。DeepSeek 等低算力 AI 模型崛起，也會讓市場重新思考 GPU 算力投資的必要性。</p>
+<h3>估值風險</h3>
+<div class="table-wrap"><table><thead><tr><th>股票</th><th>2026 預估 PE</th><th>風險評估</th></tr></thead><tbody><tr><td>奇鋐 3017</td><td>20-22x</td><td>高成長但反映充分，短期回調風險高</td></tr><tr><td>雙鴻 3324</td><td>15-17x</td><td>相對合理，但已是千金股</td></tr><tr><td>建準 2421</td><td>13-14x</td><td>三雄中最便宜，液冷爬坡較慢</td></tr><tr><td>富世達 6805</td><td>偏高</td><td>小型股，波動劇烈</td></tr></tbody></table></div>
+<hr>
+<h2>7. 投資建議（針對 Minna）</h2>
+<blockquote>Minna 條件：台股資金 20 萬、保守偏好、新手程度、不做短線、成長性優先</blockquote>
+<h3>A. 建議優先觀察（可考慮分批布局）</h3>
+<p><strong>建準 (2421) — 三雄中最便宜的補漲標的</strong></p>
+<ul><li>本益比最低（約 13-14 倍），液冷業務還在爬坡，補漲空間最大</li><li>進場條件：等 Q4 2025 財報（3~4 月公布）確認液冷訂單成長後再決定</li><li>資金建議：不超過台股總資金的 10-15%（即 2-3 萬）</li><li>外資目標價：162 元（大摩，從 113 元調升）</li></ul>
+<p><strong>高力 (8996) — 2026 EPS 成長率最高</strong></p>
+<ul><li>2026 EPS 年成長率估 105%，且股價尚未如奇鋐般大漲</li><li>注意：小型股，買賣量小，不容易出場，不適合買太多</li><li>進場條件：先確認月營收成長趨勢，再考慮少量布局</li><li>資金建議：不超過 1-2 萬（小型股流動性風險）</li></ul>
+<h3>B. 觀察但不急著買</h3>
+<p><strong>奇鋐 (3017) — 龍頭地位最穩，但股價已反映大量利多</strong></p>
+<ul><li>趨勢最確定、客戶最多樣（NVIDIA + Google TPU）、CDU 技術護城河最深</li><li>目前股價 1,600-1,700 元，過去 1 年漲幅超過 200%，短線壓力大</li><li>等待點：若整體 AI 題材回調，奇鋐跌回 1,200-1,300 元附近是相對好的切入點</li></ul>
+<p><strong>雙鴻 (3324) — 液冷轉型最純粹，AWS 訂單確定</strong></p>
+<ul><li>2026 年液冷佔比估 62%，是台股中液冷純度最高的標的</li><li>但已是千金股（850-950 元），20 萬資金一張就吃掉快 10 萬</li><li>若要布局，建議只買 1 張試單；回測 750-800 元附近相對合理</li></ul>
+<h3>C. 建議避開或謹慎</h3>
+<p><strong>富世達 (6805)：</strong> 快接頭技術是真的，但小型股波動劇烈，且基本上是奇鋐的影子股，不適合新手。</p>
+<p><strong>健策 (3653)：</strong> 技術先進（MCL 封裝散熱）但研究資訊少、財務能見度低，等分析師覆蓋更多再說。</p>
+<p><strong>晟銘電 (3013)：</strong> 與 Meta 合作機櫃是真的，但主業是機殼 OEM，液冷直接受益程度有限，先列觀察。</p>
+<h3>D. 與現有持股的互補性</h3>
+<div class="table-wrap"><table><thead><tr><th>現有持股</th><th>和液冷散熱的關係</th></tr></thead><tbody><tr><td>台積電 (2330)</td><td>AI 晶片算力越強，台積電訂單越多，間接受益但不是液冷供應商</td></tr><tr><td>一詮 (2486)</td><td>主力是連接器，非核心液冷元件，關聯度有限</td></tr><tr><td>新應材 (4749)</td><td>精密零件加工，與液冷有間接關聯，非核心</td></tr></tbody></table></div>
+<p>補一檔液冷散熱中游股（如建準）可讓 AI 供應鏈佈局更完整，但不是「必須」，而是「若有機會、在合理價位」的選項。</p>
+<h3>E. 進場時機建議</h3>
+<ol><li><strong>等 3~4 月 Q4 2025 財報季：</strong> 確認業績兌現，若不如預期則可能回調，屆時是更好切入點</li><li><strong>等整體台股回調：</strong> NVIDIA 財報（5 月中）或美股修正時，台灣散熱股通常跟著下跌，那才是布局時機</li><li><strong>不要現在追高：</strong> 整族群已漲多，等拉回再說</li></ol>
+<hr>
+<blockquote>以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+<hr>
+<h2>資料來源</h2>
+<ul><li>兆豐證券豐雲學堂：11 月散熱族群營收分析（2026-02）</li><li>旺得富理財網：散熱四強本益比比較（2026-01）</li><li>風傳媒：大摩喊進奇鋐分析</li><li>MoneyDJ：2026 液冷時代啟動焦點專題</li><li>鉅亨網：台股 AI 液冷供應鏈分析</li><li>TrendForce / Digitimes：液冷滲透率預估</li><li>Tom's Hardware：GB200 液冷洩漏事件報導</li><li>Technetbook：GB300 出貨時程與 Rubin 計畫</li></ul>
+</div>
+</body>
+</html>

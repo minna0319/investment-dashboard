@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電力核能雙雄比較：VST vs CEG</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../timeline.html">時間表</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>電力核能雙雄比較：VST vs CEG</h1>
+</div>
+<div class="report-body">
+<h1>電力核能雙雄比較：VST vs CEG</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-02-28（週六）</td></tr><tr><td>資料基準</td><td>2026/02/27 美股收盤</td></tr><tr><td>下次更新</td><td>2026/03/31（CEG 指引日）或 2026/05（Q1 財報季）</td></tr></tbody></table></div>
+<hr>
+<h2>結論總覽</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>VST（Vistra）</th><th>CEG（Constellation）</th></tr></thead><tbody><tr><td><strong>結論</strong></td><td>條件式買進，觀望</td><td>條件式買進，<strong>優先於 VST</strong></td></tr><tr><td><strong>信心</strong></td><td>★★★☆☆（3/5）</td><td><strong>★★★★☆（4/5）</strong></td></tr><tr><td><strong>一句話</strong></td><td>長期故事強（核能 + AI PPA），但 Q4 執行失誤 + 高槓桿，需等確認</td><td>全美最純核電資產，財務穩健、Q4 Beat、Calpine 帶來 20%+ EPS 增厚</td></tr><tr><td><strong>持有狀態</strong></td><td>觀察清單</td><td>觀察清單（優先）</td></tr></tbody></table></div>
+<hr>
+<h2>如果只能選一檔：選 CEG</h2>
+<p><strong>核心理由：</strong> 對天生偏保守、跌了會焦慮的 Minna 來說，CEG 的低槓桿 + 穩定財報 + 22 GW 最強核電資產，持有起來心理壓力更小，長期護城河更深。</p>
+<hr>
+<h2>核心數據比較</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>VST</th><th>CEG</th></tr></thead><tbody><tr><td><strong>股價</strong></td><td>~$172</td><td>~$329</td></tr><tr><td><strong>市值</strong></td><td>~$450 億</td><td>~$1,019 億</td></tr><tr><td><strong>總裝置容量</strong></td><td>44 GW</td><td><strong>55 GW（最大）</strong></td></tr><tr><td><strong>核電容量</strong></td><td>6.5 GW</td><td><strong>22 GW（全美第一）</strong></td></tr><tr><td><strong>核電佔比</strong></td><td>15%</td><td>40%（收購前 70%）</td></tr><tr><td><strong>2025 Adj. EPS</strong></td><td>EBITDA 導向</td><td><strong>$9.39（+17.4%）</strong></td></tr><tr><td><strong>Q4 財報</strong></td><td>Miss -$0.20</td><td><strong>Beat +$0.07</strong></td></tr><tr><td><strong>2026 成長指引</strong></td><td>EBITDA +22%</td><td>待 3/31 公布（預期 EPS +20%+）</td></tr><tr><td><strong>Forward PE</strong></td><td><strong>~17-18x（便宜）</strong></td><td>~27x（合理偏高）</td></tr><tr><td><strong>PEG</strong></td><td><strong>0.61（低估）</strong></td><td>未取得</td></tr><tr><td><strong>D/E（負債比）</strong></td><td>330%（高危險）</td><td><strong>中等可控</strong></td></tr><tr><td><strong>分析師目標</strong></td><td>$234-239（+37%）</td><td>$403-406（+23%）</td></tr><tr><td><strong>分析師共識</strong></td><td>Buy（12 買 + 3 強買 + 1 持有）</td><td><strong>Strong Buy（14 買 + 5 持有 + 0 賣）</strong></td></tr><tr><td><strong>空頭比例</strong></td><td>3-5%（一般）</td><td><strong>2.32%（極低）</strong></td></tr></tbody></table></div>
+<hr>
+<h2>六大維度 PK</h2>
+<div class="table-wrap"><table><thead><tr><th>維度</th><th>VST</th><th>CEG</th><th>勝者</th></tr></thead><tbody><tr><td><strong>基本面（護城河）</strong></td><td>規模大、多元化，但煤炭資產是包袱</td><td>22 GW 核電不可複製，Calpine 升級為全美最大</td><td><strong>CEG</strong></td></tr><tr><td><strong>財務健康</strong></td><td>D/E 330% 高危險，Altman Z-Score 在危機區</td><td>中等槓桿，連續股利 +10%，現金流充裕</td><td><strong>CEG</strong></td></tr><tr><td><strong>估值吸引力</strong></td><td>Forward PE 17-18x，PEG 0.61，表面更便宜</td><td>Forward PE 27x，但核電稀缺性溢價合理</td><td><strong>VST</strong></td></tr><tr><td><strong>執行力與信任</strong></td><td>Q4 Miss（設施停工），需一季修正</td><td>Q4 Beat，核電容量因子 95-96.8%</td><td><strong>CEG</strong></td></tr><tr><td><strong>AI 題材強度</strong></td><td>Meta 2,609 MW + AWS 1,200 MW（PPA 規模更大）</td><td>Microsoft TMI 20 年合約（象徵意義最高）</td><td>平手</td></tr><tr><td><strong>風險可控度</strong></td><td>高槓桿 + 執行風險 + 電價波動</td><td>PJM 政策是最大變數，但物理資產保底</td><td><strong>CEG</strong></td></tr></tbody></table></div>
+<p><strong>CEG 勝 4 項、VST 勝 1 項、平手 1 項</strong></p>
+<hr>
+<h2>風險比較</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>VST</th><th>CEG</th></tr></thead><tbody><tr><td><strong>最大風險</strong></td><td>Q4 執行失誤可能重演 + D/E 330% 高槓桿</td><td>Trump PJM 電力定價政策（49% 收入暴露）</td></tr><tr><td><strong>最壞情境</strong></td><td>再 Miss + FERC 限制 → 跌至 $120-130（-28%）</td><td>PJM 限價 + Calpine 整合失誤 → 跌至 $200-230（-30%）</td></tr><tr><td><strong>保底邏輯</strong></td><td>Meta/AWS 20 年 PPA 提供估值底部</td><td>21 座核電廠 + 55 GW 物理資產不可能歸零</td></tr><tr><td><strong>波動預期</strong></td><td>高（高槓桿放大波動）</td><td>中（財務穩健，回調較溫和）</td></tr><tr><td><strong>適合偏保守投資者</strong></td><td>不太適合</td><td><strong>更適合</strong></td></tr></tbody></table></div>
+<hr>
+<h2>操作建議摘要</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>VST</th><th>CEG</th></tr></thead><tbody><tr><td><strong>建議倉位</strong></td><td>5-10%（$500-1,000）</td><td><strong>10-15%（$1,000-1,500）</strong></td></tr><tr><td><strong>最佳進場價</strong></td><td>$155-165</td><td><strong>$290-305</strong></td></tr><tr><td><strong>指引觸發進場</strong></td><td>5 月 Q1 財報 EPS 達標</td><td><strong>3/31 指引 Adj. EPS > $11</strong></td></tr><tr><td><strong>停損</strong></td><td>$140（-15%）</td><td>$265-290（-12~13%）</td></tr><tr><td><strong>加碼條件</strong></td><td>Q1 Beat + Cogentrix 完成 + FERC 無限制</td><td>Q1 Beat + PJM 無限價 + TMI 里程碑</td></tr><tr><td><strong>下次檢視</strong></td><td>5 月（Q1 財報）</td><td><strong>3/31（最重要）</strong>、5/7（Q1 財報）</td></tr></tbody></table></div>
+<hr>
+<h2>資金配置建議（$10,000 美股資金）</h2>
+<h3>方案 A：只選一檔（最保守）</h3>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>比例</th><th>金額</th><th>時機</th></tr></thead><tbody><tr><td>MSFT（現有）</td><td>持有</td><td>原有</td><td>—</td></tr><tr><td><strong>CEG</strong></td><td><strong>10-15%</strong></td><td><strong>$1,000-1,500</strong></td><td>等 $290-305 或 3/31 指引</td></tr><tr><td>現金</td><td>剩餘</td><td>~$8,500+</td><td>保留給 NVDA/GOOGL 等機會</td></tr></tbody></table></div>
+<h3>方案 B：兩檔都佈局</h3>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>比例</th><th>金額</th><th>時機</th></tr></thead><tbody><tr><td>MSFT（現有）</td><td>持有</td><td>原有</td><td>—</td></tr><tr><td><strong>CEG（主力）</strong></td><td><strong>10-15%</strong></td><td><strong>$1,000-1,500</strong></td><td>等 $290-305 或 3/31 指引</td></tr><tr><td>VST（次要）</td><td>5-10%</td><td>$500-1,000</td><td>等 $155-165 或 5 月 Q1 財報</td></tr><tr><td>現金</td><td>剩餘</td><td>~$7,000+</td><td>保留給其他機會</td></tr></tbody></table></div>
+<blockquote>兩檔合計不超過 25%（$2,500），避免過度集中電力/核能單一題材</blockquote>
+<hr>
+<h2>關鍵時間軸</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>事件</th><th>影響</th><th>重要度</th></tr></thead><tbody><tr><td><strong>3/31</strong></td><td><strong>CEG 2026 完整指引發布</strong></td><td><strong>最關鍵：確認 Calpine 20%+ EPS 增厚，決定 CEG 進場時機</strong></td><td>★★★★★</td></tr><tr><td>3 月中</td><td>Fed FOMC 利率決策</td><td>影響電力股整體估值</td><td>★★★☆☆</td></tr><tr><td>3 月~</td><td>PJM 政策細節陸續公布</td><td>CEG 最大風險的方向確認</td><td>★★★★☆</td></tr><tr><td>3 月~</td><td>Cogentrix FERC 審查（VST）</td><td>VST 收購能否順利完成</td><td>★★★☆☆</td></tr><tr><td><strong>5/7</strong></td><td><strong>CEG Q1 財報</strong></td><td><strong>驗證 Calpine 整合實際成效</strong></td><td>★★★★☆</td></tr><tr><td>5 月</td><td>VST Q1 財報</td><td>執行力能否修正 Q4 失誤</td><td>★★★★☆</td></tr><tr><td>6 月</td><td>Cogentrix 收購預計完成（VST）</td><td>若順利，EBITDA 超出指引</td><td>★★★☆☆</td></tr></tbody></table></div>
+<hr>
+<h2>一句話給 Minna</h2>
+<p><strong>先盯 3/31 CEG 指引日，那是你決定要不要上車的第一個關鍵點。</strong> 如果指引超預期 + PJM 政策方向明朗，CEG 就是你電力核能題材的主力持股。VST 當備選，等 5 月 Q1 財報確認再說。不急，好公司不會跑掉。</p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+</div>
+</body>
+</html>

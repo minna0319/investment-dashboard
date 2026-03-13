@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股三檔總覽比較：MSFT / GOOGL / TSLA</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../timeline.html">時間表</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>美股三檔總覽比較：MSFT / GOOGL / TSLA</h1>
+</div>
+<div class="report-body">
+<h1>美股三檔總覽比較：MSFT / GOOGL / TSLA</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-02-28（週六）</td></tr><tr><td>資料基準</td><td>2026/02/26 美股收盤</td></tr><tr><td>下次更新</td><td>2026/04 月底（Q1 財報季）</td></tr></tbody></table></div>
+<hr>
+<h2>結論總覽</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>MSFT</th><th>GOOGL</th><th>TSLA</th></tr></thead><tbody><tr><td><strong>結論</strong></td><td>持有</td><td>觀望，條件式買進</td><td>觀望</td></tr><tr><td><strong>信心</strong></td><td>★★★★☆（4/5）</td><td>★★★☆☆（3/5）</td><td>★★★☆☆（3/5，方向確定但時機不確定）</td></tr><tr><td><strong>一句話</strong></td><td>AI 變現最紮實的巨頭，估值在 10 年低位</td><td>基本面強、AI 反追力道明顯，但高 CapEx 嚇到市場</td><td>品牌受損 + 估值極貴，等 Robotaxi/FSD 兌現再說</td></tr><tr><td><strong>持有狀態</strong></td><td>已持有</td><td>觀察清單</td><td>觀察清單</td></tr></tbody></table></div>
+<hr>
+<h2>核心數據比較</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>MSFT</th><th>GOOGL</th><th>TSLA</th></tr></thead><tbody><tr><td><strong>股價</strong></td><td>$401.72</td><td>$306.15</td><td>~$417</td></tr><tr><td><strong>市值</strong></td><td>$2.97T</td><td>~$2.0T</td><td>~$1.35T</td></tr><tr><td><strong>毛利率</strong></td><td>68.6%</td><td>~59.6%</td><td>~18-20%</td></tr><tr><td><strong>EPS（TTM）</strong></td><td>~$15.98</td><td>~$10.22</td><td>~$2.42</td></tr><tr><td><strong>本益比</strong></td><td>~25x</td><td>~28x</td><td>~388x</td></tr><tr><td><strong>PEG</strong></td><td>0.86~1.60</td><td>1.76</td><td>4.84</td></tr><tr><td><strong>營收 YoY</strong></td><td>+17%</td><td>+18%</td><td>-3%</td></tr><tr><td><strong>FCF</strong></td><td>$77.4B</td><td>$73.3B</td><td>$6.22B</td></tr><tr><td><strong>2026 CapEx</strong></td><td>~$100B+</td><td>$175-185B</td><td>$20B+</td></tr></tbody></table></div>
+<hr>
+<h2>估值排行（便宜 → 貴）</h2>
+<div class="table-wrap"><table><thead><tr><th>排名</th><th>股票</th><th>本益比</th><th>PEG</th><th>評價</th></tr></thead><tbody><tr><td>1</td><td><strong>MSFT</strong></td><td>25x</td><td>0.86-1.60</td><td>同業最便宜，10 年低位</td></tr><tr><td>2</td><td>GOOGL</td><td>28x</td><td>1.76</td><td>合理偏貴，但 Cloud 加速可支撐</td></tr><tr><td>3</td><td>TSLA</td><td>388x</td><td>4.84</td><td>極度昂貴，靠未來故事撐住</td></tr></tbody></table></div>
+<hr>
+<h2>風險比較</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th>MSFT</th><th>GOOGL</th><th>TSLA</th></tr></thead><tbody><tr><td><strong>最大風險</strong></td><td>AI 變現不如預期 / OpenAI 關係</td><td>DOJ 反壟斷強制分拆</td><td>品牌持續損傷（Musk 政治爭議）</td></tr><tr><td><strong>致命情境</strong></td><td>OpenAI 轉向其他平台</td><td>Chrome/Android 被強制分拆</td><td>AI 故事落空 + 估值崩塌</td></tr><tr><td><strong>波動預期</strong></td><td>中等</td><td>中等</td><td>非常高</td></tr><tr><td><strong>品牌風險</strong></td><td>低</td><td>低</td><td>高（已在發生）</td></tr></tbody></table></div>
+<hr>
+<h2>操作建議摘要</h2>
+<h3>MSFT（已持有）</h3>
+<ul><li><strong>動作</strong>：持有，觀察加碼時機</li><li><strong>倉位上限</strong>：$3,500（總資金 35%）</li><li><strong>加碼條件</strong>：回測 $370-380 站穩，或突破 $420</li><li><strong>停損</strong>：$355 以下週收盤</li><li><strong>下次看</strong>：4/28~29 Q3 FY2026 財報</li></ul>
+<h3>GOOGL（觀察清單）</h3>
+<ul><li><strong>動作</strong>：觀望，條件式分批買進</li><li><strong>首次進場</strong>：~$1,000（3 股），確認後再加</li><li><strong>進場條件</strong>：$300-305 穩住 3 日不破，或 Q1 財報 Cloud > 40%</li><li><strong>停損</strong>：$275-280</li><li><strong>下次看</strong>：4/28 Q1 財報</li></ul>
+<h3>TSLA（觀察清單）</h3>
+<ul><li><strong>動作</strong>：觀望，不急進場</li><li><strong>進場條件</strong>：Cybercab 量產確認 OR FSD 監管核准 OR 股價回落 $355-375</li><li><strong>若進場倉位</strong>：不超過 $1,000（10%）</li><li><strong>停損</strong>：$300 以下</li><li><strong>下次看</strong>：4 月 Cybercab 量產時間確認 + Q1 財報</li></ul>
+<hr>
+<h2>如果只能選一檔加碼？</h2>
+<p><strong>MSFT。</strong></p>
+<p>理由：</p>
+<ol><li>估值最便宜（PEG 最低、P/E 同業最低）</li><li>基本面最穩（毛利率 68%、FCF $77B、AAA 信評）</li><li>AI 變現進度最領先（Azure +39%、Copilot 已進 90% Fortune 500）</li><li>你已經持有，加碼是加強核心持倉，不是開新風險</li></ol>
+<p>GOOGL 可以當第二選擇，等 Q1 財報確認 Cloud 成長後再考慮。</p>
+<p>TSLA 先觀察就好，波動太大、估值太貴、品牌風險正在發生中。</p>
+<hr>
+<h2>美股資金配置建議（$10,000）</h2>
+<div class="table-wrap"><table><thead><tr><th>股票</th><th>目前狀態</th><th>建議配置</th><th>金額</th></tr></thead><tbody><tr><td>MSFT</td><td>已持有</td><td>30-35%</td><td>$3,000-3,500</td></tr><tr><td>GOOGL</td><td>觀察中</td><td>10-15%（條件達成後）</td><td>$1,000-1,500</td></tr><tr><td>TSLA</td><td>觀察中</td><td>0-10%（條件達成後）</td><td>$0-1,000</td></tr><tr><td>現金保留</td><td>—</td><td>40-50%</td><td>$4,000-5,000</td></tr></tbody></table></div>
+<p>保留 40-50% 現金的原因：你是新手且偏保守，留子彈等更好的進場點比滿倉更重要。</p>
+<hr>
+<h2>下次關鍵時間點</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>事件</th><th>影響</th></tr></thead><tbody><tr><td>04/28~29</td><td>MSFT Q3 FY2026 財報</td><td>MSFT 加碼判斷</td></tr><tr><td>04/28</td><td>GOOGL Q1 2026 財報</td><td>GOOGL 進場判斷</td></tr><tr><td>04 月底</td><td>TSLA Q1 2026 財報</td><td>TSLA 觀察</td></tr><tr><td>04 月</td><td>TSLA Cybercab 量產確認</td><td>TSLA 進場判斷</td></tr><tr><td>05 月中</td><td>NVIDIA Q1 財報</td><td>整體 AI 需求風向</td></tr></tbody></table></div>
+<hr>
+<p>*最後更新：2026-02-28*</p>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+</div>
+</body>
+</html>

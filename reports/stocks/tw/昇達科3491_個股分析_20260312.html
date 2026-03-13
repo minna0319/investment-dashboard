@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昇達科（3491）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>昇達科（3491）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>昇達科（3491）九維度深度分析</h1>
+<p><strong>分析日期：</strong> 2026-03-06</p>
+<p><strong>分析師：</strong> Investment Advisor Agent</p>
+<p><strong>股票代號：</strong> 3491（上櫃）</p>
+<p><strong>目前股價：</strong> 約 1,380 元（2026-03-05 收盤，當日跌幅 -9.80%，遭列注意股）</p>
+<hr>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>股價</th><th>結論</th><th>重點變化</th></tr></thead><tbody><tr><td>2026-03-06</td><td>~1,380 元</td><td>觀察等待，不追高</td><td>首次建立分析檔，法說會後訂單 18 億，股價從高點 1,725 急跌 20%</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照（分析當下）</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>股價（2026-03-05 收盤）</td><td>~1,380 元</td><td>WebSearch</td></tr><tr><td>近期高點</td><td>1,725 元（2026-03-02 波段高）</td><td>WebSearch</td></tr><tr><td>從高點跌幅</td><td>約 -20%</td><td>計算</td></tr><tr><td>市場</td><td>上櫃（OTC）</td><td>—</td></tr><tr><td>2025 全年 EPS</td><td>7.55 元</td><td>WebSearch</td></tr><tr><td>2025 全年營收</td><td>24.52 億元</td><td>法說會</td></tr><tr><td>2026 法人估 EPS</td><td>15.5~18 元</td><td>WebSearch</td></tr><tr><td>外資目標價</td><td>751 元（部分機構上修至 800~850）</td><td>WebSearch</td></tr><tr><td>目前本益比（以 1,380 / 2026E EPS 15.5 計）</td><td>約 89 倍</td><td>計算</td></tr><tr><td>在手訂單</td><td>18 億元（2026-01-22 法說）</td><td>法說會/鉅亨</td></tr></tbody></table></div>
+<hr>
+<h2>維度一：基本資訊與市場定位</h2>
+<h3>公司簡介</h3>
+<p>昇達科技（UMT，Universal Microwave Technology）成立於 1997 年，總部位於新北市汐止，主要業務為<strong>高頻微波與毫米波被動元件</strong>的設計、研發與製造。產品涵蓋：</p>
+<ul><li>濾波器（Filter）</li><li>雙工器（Duplexer）</li><li>TT&C 衛星控制元件（Telemetry, Tracking & Command）</li><li>ISL 衛星間連接元件（Inter-Satellite Link）</li><li>天線及其他被動元件</li></ul>
+<h3>市場定位</h3>
+<p>昇達科是<strong>台股 LEO 衛星供應鏈中純度最高的標的</strong>，衛星業務占比在 2025 Q4 已達 69.9%，2026 年預計進一步提升至 80%。四大 LEO 客戶皆已打入：</p>
+<div class="table-wrap"><table><thead><tr><th>客戶</th><th>定位</th></tr></thead><tbody><tr><td>SpaceX（Starlink）</td><td>最大客戶，占整體營收約 33%</td></tr><tr><td>Amazon Kuiper</td><td>2026 年加速發射，主要成長動能</td></tr><tr><td>Eutelsat OneWeb</td><td>歐洲 LEO 星群</td></tr><tr><td>AST SpaceMobile</td><td>直連手機衛星新進客戶</td></tr></tbody></table></div>
+<h3>台股 LEO 定位比較</h3>
+<p>在台股 LEO 供應鏈中，昇達科被分析師定位為「血統最純、估值最高」的核心標的。相較於其他切入衛星的多角化電子廠，昇達科<strong>幾乎是純衛星元件公司</strong>。</p>
+<hr>
+<h2>維度二：財務健康度</h2>
+<h3>損益表關鍵指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>2024</th><th>2025 全年</th><th>2025 Q3</th><th>備注</th></tr></thead><tbody><tr><td>營收（億元）</td><td>~24.5</td><td>24.52</td><td>4.84（季）</td><td>Q3 年減 24.35%</td></tr><tr><td>毛利率</td><td>—</td><td>~51%</td><td>47.31%</td><td>Q4 預計突破 60%</td></tr><tr><td>淨利率</td><td>—</td><td>—</td><td>18.24%</td><td>—</td></tr><tr><td>EPS（元）</td><td>—</td><td>7.55</td><td>1.33（季）</td><td>前三季累計 4.60</td></tr></tbody></table></div>
+<p>📝 <strong>術語解釋：毛利率</strong> — 賣出產品後，扣掉製造成本剩下多少百分比。51% 代表賣 100 元的產品，還剩 51 元可以支付其他費用和賺錢，這個數字在製造業算非常高。</p>
+<h3>資產負債表</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>時間</th></tr></thead><tbody><tr><td>每股淨值</td><td>40.61 元</td><td>2025 Q3</td></tr><tr><td>股東權益報酬率（ROE）</td><td>3.38%（季）</td><td>2025 Q3</td></tr><tr><td>2025 資本支出</td><td>10 億元</td><td>法說會</td></tr><tr><td>2026 預估資本支出</td><td>6~8 億元</td><td>法說會</td></tr></tbody></table></div>
+<p>📝 <strong>術語解釋：每股淨值</strong> — 公司解散的話，每股能分到多少錢。目前股價 1,380 元 vs 每股淨值 40.61 元，代表市場願意用淨值的 34 倍來買這間公司，反映高度的成長期待。</p>
+<h3>配息紀錄</h3>
+<ul><li>連續配息 20 年以上，合計歷年配息 59.77 元</li><li>2025 年配息 6.489 元（除息日 2025/07/21）</li><li>近五年平均現金股利 4.06 元，現金殖利率約 2.41%（以歷史均價計）</li><li>成長型公司，<strong>配息率偏低，以資本利得為主</strong></li></ul>
+<h3>財務健康度小結</h3>
+<p>優點：毛利率持續提升（47% → 60% 路徑中）、資本支出高峰已過（2025 年 10 億 → 2026 年 6~8 億）。</p>
+<p>疑慮：Q3 ROE 僅 3.38% 偏低（但 Q4 訂單爆發後應大幅改善）、2025 全年 EPS 7.55 元相對股價偏低。</p>
+<hr>
+<h2>維度三：成長動能</h2>
+<h3>核心成長引擎</h3>
+<p><strong>1. LEO 衛星訂單爆發</strong></p>
+<ul><li>2025 Q4 LEO 營收 5.83 億元，季增 120%</li><li>2026 年在手訂單超過 18 億元（法說會 2026-01-22 揭露）</li><li>法人估 2026 年全年營收較 2025 年成長約 90%（約 46~47 億元）</li></ul>
+<p><strong>2. 客戶需求加速</strong></p>
+<ul><li>SpaceX Starlink：2026 年每月 4 次發射，每次 29 顆</li><li>Amazon Kuiper：FCC 要求 2026-07-30 前完成一半星群部署，趕工壓力大</li><li>AST SpaceMobile：直連手機技術商用，歐洲前五大電信商合作中</li></ul>
+<p><strong>3. 新產品滲透</strong></p>
+<ul><li>ISL（衛星間連接）從選配升級為<strong>標準配置</strong>，新增穩定收入來源</li><li>TT&C 控制元件出貨量增加</li><li>地面站通訊元件、衛星直連手機元件等產品線擴張中</li></ul>
+<p><strong>4. 產能釋放</strong></p>
+<ul><li>汐止新廠產能陸續開出</li><li>越南海外廠通過航太品質認證，目前僅啟用一半，未來可再倍增</li></ul>
+<h3>月營收趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>月營收</th><th>年增率</th></tr></thead><tbody><tr><td>2026 年 1 月</td><td>3.69 億元（推估，創歷史新高）</td><td>—</td></tr><tr><td>2026 年 2 月</td><td>3.22 億元</td><td>+57.06%</td></tr><tr><td>2026 年累計前 2 月</td><td>6.91 億元</td><td>+82.52%</td></tr></tbody></table></div>
+<p>📝 年增 82% 代表今年同期比去年同期多了 82%，是非常強勁的成長訊號。</p>
+<h3>成長動能小結</h3>
+<ul><li>短期（1~2 季）：在手訂單 18 億元提供高確定性</li><li>中期（2026 全年）：Amazon Kuiper 加速部署、Starlink 持續擴張</li><li>長期（2027+）：越南廠滿載 + 新客戶滲透，潛在空間「再成長 3 倍」</li></ul>
+<hr>
+<h2>維度四：競爭優勢與護城河</h2>
+<h3>核心優勢</h3>
+<p><strong>1. 技術壁壘：毫米波 / 高頻微波</strong></p>
+<ul><li>昇達科掌握高頻微波與毫米波的核心設計技術，這是 LEO 衛星通訊不可或缺的頻段</li><li>技術積累超過 25 年，難以短期複製</li></ul>
+<p><strong>2. 成本競爭力</strong></p>
+<ul><li>與歐美同業相比，成本結構差距超過 40%</li><li>即使吸收關稅壓力，在價格上仍具明顯優勢</li></ul>
+<p><strong>3. 交期優勢</strong></p>
+<ul><li>歐美同業多為軍工產業供應商，受軍工訂單排擠，民用 LEO 排程彈性差</li><li>昇達科出貨速度比歐美競爭者快 3 倍（法人研究數據）</li></ul>
+<p><strong>4. 四大客戶背書</strong></p>
+<ul><li>SpaceX、Amazon Kuiper、Eutelsat OneWeb、AST SpaceMobile 同時認可</li><li>切入難度極高，新進者需通過嚴格航太品質認證（FAA/ITAR 等）</li></ul>
+<p><strong>5. 品質認證護城河</strong></p>
+<ul><li>海外生產據點（越南廠）已通過航太品質體系認證</li><li>認證門檻高，一旦通過即建立長期合作黏性</li></ul>
+<h3>主要風險面（護城河的潛在侵蝕）</h3>
+<ul><li>客戶技術自製化（SpaceX 有能力自研部分元件）</li><li>歐美同業產能閒置後轉向 LEO，未來 3~5 年競爭可能加劇</li><li>台灣有其他微波元件廠（如 API Technologies 等），但目前尚未搶食訂單</li></ul>
+<hr>
+<h2>維度五：風險評估</h2>
+<h3>主要風險清單</h3>
+<div class="table-wrap"><table><thead><tr><th>風險類型</th><th>說明</th><th>嚴重度</th><th>發生機率</th></tr></thead><tbody><tr><td>客戶集中度</td><td>最大客戶（SpaceX）占 33% 營收，若 Starlink 策略改變影響大</td><td>高</td><td>低</td></tr><tr><td>估值修正風險</td><td>以 2026E EPS 15.5 計，本益比達 89 倍，遠高於傳統製造業</td><td>高</td><td>中</td></tr><tr><td>訂單落差風險</td><td>在手訂單 18 億是預約，若客戶發射計畫延期，出貨遞延</td><td>中</td><td>中</td></tr><tr><td>越南廠進度延遲</td><td>預計 2026 年底貢獻，若延遲影響產能釋放</td><td>中</td><td>低</td></tr><tr><td>技術自製化</td><td>SpaceX 長期有能力自製部分元件</td><td>高</td><td>低（3~5 年內）</td></tr><tr><td>台灣地緣政治</td><td>兩岸緊張若升溫，上櫃廠商估值可能受壓</td><td>高</td><td>低</td></tr><tr><td>股價波動</td><td>已被列為注意股，短線波動極大</td><td>中</td><td>高（已發生）</td></tr></tbody></table></div>
+<p>📝 <strong>術語解釋：注意股</strong> — 台灣股市的一種警示機制，當股價波動太劇烈（例如短期漲跌幅過大），主管機關會列入注意，之後可能實施「五分鐘撮合一次」的處置措施，使交易不順暢、投機者退場，有時會造成股價進一步下跌。</p>
+<h3>風險小結</h3>
+<p>最需要注意的是<strong>估值風險</strong>：以 89 倍本益比（2026E）持有，任何訂單延遲、毛利率不如預期、或市場風險偏好下降，都可能造成股價大幅修正。昇達科不是「穩健型」投資，是「高成長、高估值、高波動」三高標的。</p>
+<hr>
+<h2>維度六：估值分析</h2>
+<h3>本益比評估</h3>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>EPS 假設</th><th>本益比（股價 1,380）</th><th>評論</th></tr></thead><tbody><tr><td>保守（法人低估）</td><td>13 元</td><td>106 倍</td><td>極高</td></tr><tr><td>基本（法人共識）</td><td>15.5 元</td><td>89 倍</td><td>高</td></tr><tr><td>樂觀（法人高估）</td><td>18 元</td><td>77 倍</td><td>高</td></tr></tbody></table></div>
+<h3>外資目標價參考</h3>
+<div class="table-wrap"><table><thead><tr><th>機構</th><th>目標價</th><th>評等</th><th>隱含上漲空間（以 1,380 計）</th></tr></thead><tbody><tr><td>外資 A（公開）</td><td>751 元</td><td>買進</td><td>-46%（目標價低於現價）</td></tr><tr><td>外資 B（傳聞）</td><td>800~850 元</td><td>買進</td><td>-38%（目標價低於現價）</td></tr></tbody></table></div>
+<p>重要：<strong>部分外資目標價 751~850 元，現在股價 1,380 元已大幅超過外資目標價。</strong> 這表示市場的樂觀情緒已經「超前反映」了法人的預期。</p>
+<p>📝 <strong>這是什麼意思？</strong> 外資認為昇達科「合理價」是 751~850 元，但現在市場價格是 1,380 元，代表市場已經把「更樂觀的未來」提前算進去了。若未來成長不如想像，股價就有大幅回落空間。</p>
+<h3>合理估值區間（參考）</h3>
+<div class="table-wrap"><table><thead><tr><th>假設條件</th><th>估值</th></tr></thead><tbody><tr><td>2026E EPS 15.5、給予 50 倍 PE</td><td>775 元</td></tr><tr><td>2026E EPS 15.5、給予 60 倍 PE</td><td>930 元</td></tr><tr><td>2026E EPS 18、給予 60 倍 PE</td><td>1,080 元</td></tr><tr><td>2026E EPS 18、給予 80 倍 PE</td><td>1,440 元</td></tr></tbody></table></div>
+<p>按 50~60 倍合理本益比估算，合理價約 <strong>775~930 元</strong>；若市場給予更高成長溢價（80 倍），則約 1,080~1,440 元。<strong>目前 1,380 元已在估值合理上限邊緣或略超。</strong></p>
+<hr>
+<h2>維度七：技術面觀察</h2>
+<h3>近期走勢</h3>
+<ul><li>2026 年 1 月：法說會後衝至 771 元歷史新高（當時被處置，五分鐘撮合）</li><li>2026 年 3 月 2 日：波段新高 1,725 元</li><li>2026 年 3 月 5 日：收盤 1,380 元，單日跌幅 -9.80%，三日內從高點急跌 20%</li><li>2026 年 3 月 5 日：遭列入注意股</li></ul>
+<h3>技術訊號</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>狀況</th></tr></thead><tbody><tr><td>均線</td><td>跌破 5 日線與 10 日線，短線均線下彎</td></tr><tr><td>法人動向</td><td>三大法人當日合計賣超 114 張，外資賣超 99 張</td></tr><tr><td>高點特徵</td><td>從 1,725 → 1,380 約跌 20%，伴隨高量</td></tr><tr><td>技術形態</td><td>短線可能形成「M 頭」或中期回檔整理</td></tr></tbody></table></div>
+<p>📝 <strong>術語解釋：M 頭</strong> — 股價走勢形成像字母「M」的形狀（兩個高點，中間低谷），通常是反轉向下的訊號，技術分析者會比較警惕。</p>
+<h3>技術面小結</h3>
+<p><strong>短線不利</strong>：剛從高點急跌 20%，法人賣超，被列注意股。短期很可能繼續整理，不建議追高。若要介入，需等待量縮整理、止穩反彈的訊號確認。</p>
+<hr>
+<h2>維度八：法人與籌碼</h2>
+<h3>法人態勢</h3>
+<div class="table-wrap"><table><thead><tr><th>法人</th><th>最新動向</th></tr></thead><tbody><tr><td>外資</td><td>目標價 751 元（部分上修至 800~850），近期轉為賣超（當日 -99 張）</td></tr><tr><td>投信</td><td>曾採連買模式，顯示長線認同；近期動向待觀察</td></tr><tr><td>自營商</td><td>—</td></tr></tbody></table></div>
+<h3>外資持股</h3>
+<ul><li>外資持股比率約 31%（高峰期）</li><li>近期外資調高 2026~2028 年獲利預估，同時賣超 → 「調目標價但落袋為安」</li></ul>
+<h3>融資融券</h3>
+<ul><li>搜尋結果未取得詳細融資餘額數據，標示：❌ 未取得（建議查 TWSE 或 Goodinfo）</li></ul>
+<h3>籌碼小結</h3>
+<p>法人對長期故事仍認同，但短線已出現獲利了結訊號。<strong>目標價低於現價</strong>、<strong>外資賣超</strong>，是目前最大的籌碼警訊。</p>
+<hr>
+<h2>維度九：催化劑與時間表</h2>
+<h3>正向催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>影響評估</th></tr></thead><tbody><tr><td>2026 Q1（持續）</td><td>Amazon Kuiper 緊急趕工（FCC 期限 2026-07-30）</td><td>訂單加速交付</td></tr><tr><td>2026 Q1 結束</td><td>2025 全年財報公布（預計 EPS 7.55 元確認）</td><td>若符合預期，無特別催化效果</td></tr><tr><td>2026 Q2</td><td>2026 Q1 財報（2026 年爆發首季）</td><td>關鍵！若 Q1 EPS > 4 元，將引爆法人上修</td></tr><tr><td>2026 上半年</td><td>18 億在手訂單陸續交付</td><td>直接轉換為營收</td></tr><tr><td>2026 下半年</td><td>越南廠擴產效益顯現</td><td>毛利率提升、產能增加</td></tr><tr><td>持續</td><td>SpaceX Starlink 月度發射（4 次/月）</td><td>穩定補單需求</td></tr></tbody></table></div>
+<h3>負向催化劑（風險事件）</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>影響評估</th></tr></thead><tbody><tr><td>隨時</td><td>被列注意股後進入處置</td><td>流動性下降，短線繼續跌</td></tr><tr><td>2026 Q1</td><td>Amazon Kuiper 若申請再延期</td><td>訂單交付遞延，利空</td></tr><tr><td>2026 任何季度</td><td>單季 EPS 不如預期</td><td>估值重估，股價大幅下修</td></tr><tr><td>全球</td><td>美股科技股修正</td><td>高本益比成長股首當其衝</td></tr></tbody></table></div>
+<hr>
+<h2>綜合評分與操作建議</h2>
+<h3>九維度評分總表</h3>
+<div class="table-wrap"><table><thead><tr><th>維度</th><th>評分（1~10）</th><th>說明</th></tr></thead><tbody><tr><td>1. 市場定位</td><td>9</td><td>台股 LEO 純度第一，四大客戶認可</td></tr><tr><td>2. 財務健康</td><td>6</td><td>毛利率優秀但 ROE 偏低，高資本支出期</td></tr><tr><td>3. 成長動能</td><td>9</td><td>在手訂單 18 億，2026 年月營收年增 82%</td></tr><tr><td>4. 競爭優勢</td><td>8</td><td>技術壁壘 + 成本優勢 + 交期優勢</td></tr><tr><td>5. 風險評估</td><td>5</td><td>客戶集中、估值極高、注意股</td></tr><tr><td>6. 估值分析</td><td>4</td><td>現價 1,380 元已超外資目標價，89 倍 PE</td></tr><tr><td>7. 技術面</td><td>4</td><td>從高點急跌 20%，短線不利</td></tr><tr><td>8. 法人籌碼</td><td>5</td><td>外資賣超，目標價低於現價</td></tr><tr><td>9. 催化劑</td><td>8</td><td>Q1 財報、Kuiper 趕工、新訂單</td></tr><tr><td><strong>綜合評分</strong></td><td><strong>6.4 / 10</strong></td><td>長期故事強，短期進場時機差</td></tr></tbody></table></div>
+<h3>判斷結論</h3>
+<p><strong>長期展望：持續關注（不追高）</strong></p>
+<p>昇達科的長期成長故事是清晰且有說服力的，但<strong>目前的股價已反映了極度樂觀的預期</strong>：</p>
+<ul><li>現價 1,380 元 vs 外資目標價 751~850 元 → 市場已超前法人預期 60~80%</li><li>本益比 89 倍 → 必須「完美執行」才能撐住估值</li><li>技術面剛從高點跌 20%，且被列注意股</li></ul>
+<p><strong>現在不是好的進場時點，需等待回調。</strong></p>
+<hr>
+<h3>進場條件</h3>
+<p><strong>方案 A（保守、等待明確止穩）</strong></p>
+<ul><li>等待條件：</li></ul>
+<ol><li>股價回落至 <strong>900~1,000 元</strong>區間（接近外資目標價上緣）</li><li>週線出現止穩（連續 2 週收紅，量縮後放量）</li><li>Q1 2026 財報（約 5 月公布）確認 EPS 超過 3.5 元</li></ol>
+<ul><li>進場倉位：<strong>10%（約 2 萬元）</strong>，分 2 批</li><li>第一批 1 萬元（止穩確認後）</li><li>第二批 1 萬元（財報確認後）</li></ul>
+<p><strong>方案 B（積極、短線技術反彈）</strong></p>
+<ul><li>等待條件：</li></ul>
+<ol><li>注意股期間結束，交易恢復正常</li><li>股價在 1,200~1,300 元形成支撐，出現 K 線止跌訊號（如 K 線留長下影線、量縮）</li><li>三大法人轉回淨買超</li></ol>
+<ul><li>進場倉位：<strong>5%（約 1 萬元）</strong>，小部位試水溫</li><li>本方案風險較高，適合可以承受 20~30% 短期帳面虧損的心態</li></ul>
+<hr>
+<h3>停損參考</h3>
+<div class="table-wrap"><table><thead><tr><th>方案</th><th>進場參考價</th><th>停損位</th><th>停損幅度</th></tr></thead><tbody><tr><td>方案 A</td><td>950 元</td><td>760 元</td><td>-20%</td></tr><tr><td>方案 B</td><td>1,250 元</td><td>1,000 元</td><td>-20%</td></tr></tbody></table></div>
+<p>📝 <strong>停損的概念</strong> — 設定一個「最多虧這麼多就認賠離場」的價格，避免小虧變大虧。-20% 是參考值，Minna 可根據自己的風險承受度調整（例如改為 -15%）。</p>
+<hr>
+<h3>倉位建議（以 Minna 台股資金 20 萬元、偏保守新手為基礎）</h3>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>建議倉位</th><th>金額</th><th>理由</th></tr></thead><tbody><tr><td>現在立刻買</td><td>不建議</td><td>—</td><td>技術面不利、估值偏高</td></tr><tr><td>等待方案 A 成立</td><td>10% 資金</td><td>約 2 萬</td><td>分批進場，控制風險</td></tr><tr><td>等待方案 B 成立</td><td>5% 資金</td><td>約 1 萬</td><td>試水溫，設好停損</td></tr><tr><td>最大可持倉</td><td>15% 資金</td><td>約 3 萬</td><td>昇達科屬高波動股，不宜重倉</td></tr></tbody></table></div>
+<p><strong>核心邏輯：昇達科是「好公司、貴股票」。長期故事值得追蹤，但現在的股價需要等到更合理的時機才適合新手投資。</strong></p>
+<hr>
+<h2>免責聲明</h2>
+<p>以上分析僅供參考，不構成投資建議。所有數據來自公開資訊（法說會、外資報告、財報、新聞搜尋），分析時間點為 2026-03-06，市場狀況隨時變動。投資有風險，請根據個人財務狀況自行判斷，並在承受範圍內做決策。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://news.cnyes.com/news/id/6319170" target="_blank" rel="noopener">鉅亨網 - 昇達科法說接 LEO 訂單 18 億元</a></li><li><a href="https://statementdog.com/analysis/3491/profit-margin" target="_blank" rel="noopener">財報狗 - 昇達科毛利率分析</a></li><li><a href="https://www.mitrade.com/zh/insights/shares-analysis/more/3491-gen-20260105" target="_blank" rel="noopener">Mitrade - 昇達科 1 月處置期滿股價分析</a></li><li><a href="https://news.cnyes.com/news/id/5866462" target="_blank" rel="noopener">鉅亨網 - 外資評昇達科 2026 賺 2 個股本</a></li><li><a href="https://money.udn.com/money/story/5607/9221312" target="_blank" rel="noopener">經濟日報 - 外資調高目標價至 751 元</a></li><li><a href="https://cmnews.com.tw/article/cmoneyaicurator-20ce29fb-c13b-11f0-83dd-76517903c612" target="_blank" rel="noopener">CMoney - 昇達科 Q3 財報</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E6%98%87%E9%81%94%E7%A7%91%E6%B3%95%E8%AA%AA%E6%9C%834%E5%A4%A7%E4%BA%AE%E9%BB%9E%E6%95%B4%E7%90%86-%E4%BD%8E%E8%BB%8C%E8%A1%9B%E6%98%9F%E8%A8%82%E5%96%AE%E8%83%BD%E8%A6%8B%E5%BA%A6%E9%81%9418%E5%84%84%E5%85%83-2026%E5%B9%B4%E9%82%81%E5%85%A5%E9%AB%98%E6%88%90%E9%95%B7%E5%85%83%E5%B9%B4-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-6972c71525b05425f5e44c27" target="_blank" rel="noopener">元大/兆豐法說整理 - 昇達科 4 大亮點</a></li></ul>
+</div>
+</body>
+</html>

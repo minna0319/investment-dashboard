@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>低軌衛星（LEO Satellite）產業趨勢與風險分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../timeline.html">時間表</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>低軌衛星（LEO Satellite）產業趨勢與風險分析</h1>
+</div>
+<div class="report-body">
+<h1>低軌衛星（LEO Satellite）產業趨勢與風險分析</h1>
+<p><strong>分析日期：</strong> 2026-03-06</p>
+<p><strong>前次分析：</strong> 2026-02-28（三大題材分析）</p>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>來源 / 時間</th></tr></thead><tbody><tr><td>全球 LEO 市場規模（2024）</td><td>$12.6B — $16.0B（各機構估算不一）</td><td>Grand View Research / Fortune Business Insights</td></tr><tr><td>全球 LEO 市場規模（2033/2034 預測）</td><td>$41B — $72B</td><td>同上</td></tr><tr><td>CAGR 預測</td><td>14% — 18.2%</td><td>不同機構區間</td></tr><tr><td>LEO 通訊服務用戶支出（2026 Gartner 預測）</td><td>$14.8B，年增 24.5%</td><td>Gartner，2025-07</td></tr><tr><td>Starlink 在軌衛星數</td><td>約 9,500 顆（2026 年初）</td><td>S&P Global</td></tr><tr><td>Starlink 用戶數</td><td>920 萬（2025 底），2026 目標 1,840 萬</td><td>Motley Fool</td></tr><tr><td>Starlink 市場份額（LEO 寬頻）</td><td>72%</td><td>S&P Global 2025</td></tr><tr><td>ASTS 近期股價</td><td>約 $85（2026-03-04 附近）</td><td>多方來源</td></tr><tr><td>RKLB 近期股價</td><td>約 $68.83（2026-03-05）</td><td>MarketBeat</td></tr><tr><td>IRDM 2025 全年營收</td><td>$8.717 億，成長 5%</td><td>Iridium 官方</td></tr><tr><td>Amazon Leo 在軌衛星數</td><td>約 212 顆（2025-12）</td><td>Amazon 官方</td></tr></tbody></table></div>
+<hr>
+<h2>一句話總結</h2>
+<p>低軌衛星是結構性成長的真實產業，但 Starlink 的壟斷地位在短期內幾乎無法撼動，挑戰者的估值普遍已領先基本面，現階段屬於「看好產業，但個股難選、難入場」的典型情境。</p>
+<hr>
+<h2>模組一：產業趨勢掃描</h2>
+<h3>1.1 PREST 分析</h3>
+<p><strong>政策（Policy）</strong></p>
+<ul><li>美國 FCC 頻譜分配制度仍針對小型星座設計，難以應對 LEO 密集網路，改革討論中但進度緩慢</li><li>Amazon Leo 已正式向 FCC 申請寬限兩年（原 2026-07 需達 1,618 顆，申請延至 2028-07），核准與否將是 2026 年關鍵監管事件</li><li>中國向 ITU 申請 200,000 顆衛星軌道槽，明確與美國爭奪軌道資源主導權</li><li>台灣太空署（TASA）2025 年啟動 $81M LEO 衛星製造產業計畫，政策資源明確投入</li></ul>
+<p><strong>法規轉移（Regulatory Shift）</strong></p>
+<ul><li>軌道碎片管理尚無具約束力的全球框架，各國推動中但進展緩慢</li><li>頻譜共用規則（LEO 與 GEO 系統共享 10.7–30.0 GHz 頻段）仍是爭議焦點，未解決</li><li>D2D（直連手機）技術進入市場後，電信監管邊界正在模糊化</li></ul>
+<p><strong>經濟（Economic）</strong></p>
+<ul><li>2025 年美國關稅政策衝擊供應鏈，LEO 廠商加速在地化生產或供應商多元化</li><li>發射成本持續下降，SpaceX Falcon 9 已大幅壓低每公斤入軌成本，長期有利產業擴張</li><li>D2D 服務支出 2026 年預計達 $6B — $8B（Deloitte），新的商業模式正在形成</li></ul>
+<p><strong>社會（Social）</strong></p>
+<ul><li>全球仍有數十億人缺乏高速網路，農村、海事、航空、偏遠地區需求真實存在</li><li>烏俄戰爭讓 Starlink 的軍事價值大幅曝光，國防需求成為重要成長驅動力</li><li>消費者對衛星緊急求救功能接受度提升（iPhone 14 起支援）</li></ul>
+<p><strong>技術（Technology）</strong></p>
+<ul><li>D2D 技術在 2025 年正式進入商業化：T-Mobile + Starlink 全國訊息服務 2025-07 上線</li><li>衛星微型化 + AI 邊緣計算整合是 2025–2035 技術主軸（2026-03 研究報告確認）</li><li>ASTS 的 BlueBird 星座技術路線（大型衛星 + 現有手機）是差異化但高成本的賭注</li></ul>
+<hr>
+<h3>1.2 微觀趨勢（過去 12 個月的新興模式）</h3>
+<ol><li><strong>D2D 從概念跨入商業化</strong>：T-Mobile + Starlink 在 2025-07 推出全美訊息服務，支援 WhatsApp、Google Maps；STL Partners 預測 2026 年是 D2D 從早期部署走向主流採用的轉折點</li></ol>
+<ol><li><strong>電信商成為衛星業者的關鍵生態夥伴</strong>：ASTS 已與 AT&T、Verizon、TELUS（2026-03 新增）簽約合作；電信商不自建星座、轉為批量購買容量，成為主流商業模式</li></ol>
+<ol><li><strong>Amazon Leo 正式迎戰，但進度落後</strong>：預計 2026-Q1 在美英法德加五國上線服務，但截至 2025-12 僅 212 顆在軌，FCC 里程碑幾乎確定無法達標，主要瓶頸是發射容量不足（非製造）</li></ol>
+<ol><li><strong>SpaceX IPO 預期升溫</strong>：市場廣泛預期 SpaceX 2026 年 IPO，估值目標 $1.5 兆，Starlink 將佔 SpaceX 約 79% 營收、且毛利率據報高達 60–80%。IPO 若成真，將對整個 LEO 題材產生巨大吸力</li></ol>
+<ol><li><strong>中國加速軍民兩用 LEO 星座建設</strong>：國網（Guowang）已超過 100 顆在軌，千帆（Qianfan）約 90 顆；中國已向 ITU 申請 200,000 顆軌道槽，與美方正面競爭軌道資源</li></ol>
+<ol><li><strong>台灣成為全球 LEO 供應鏈關鍵節點</strong>：Eutelsat OneWeb 將台灣列為全球生態系核心夥伴；台灣 PCB 廠商（Starlink 終端訂單）佔比持續提升；英台太空供應鏈 MOU 2025-09 簽署</li></ol>
+<ol><li><strong>軌道碎片風險從學術走向工程警報</strong>：CRASH Clock 測算 5.5 天為無規避能力下的臨界時間；Starlink 2025 上半年規避機動 144,404 次，較前期增加三倍</li></ol>
+<hr>
+<h3>1.3 資金流向</h3>
+<ul><li><strong>SpaceX</strong>：據報 2026 年預估營收 $23.8B（Payload），其中 Starlink $18.7B；IPO 準備中</li><li><strong>ASTS</strong>：2026 年營收指引 $1.5B–$2.0B，UBS 目標價調至 $85，Deutsche Bank 目標 $139</li><li><strong>Amazon</strong>：已投入數百億建設 Leo，但受制發射容量，FCC 申請寬限兩年</li><li><strong>Apple + GSAT</strong>：Apple 累計投入超過 $17B 支持 Globalstar 下一代星座</li><li><strong>TASA（台灣）</strong>：$81M 產業計畫，推動在地製造</li><li><strong>Gartner 預測</strong>：2026 年 LEO 通訊服務支出 $14.8B，年增 24.5%</li></ul>
+<hr>
+<h3>1.4 時間線映射</h3>
+<div class="table-wrap"><table><thead><tr><th>時間軸</th><th>關鍵事件</th></tr></thead><tbody><tr><td>短期（0–6 個月，2026 H1）</td><td>Amazon Leo 美英法德加上線；ASTS 持續擴張衛星數；FCC 對 Amazon 寬限案做裁決；SpaceX IPO 消息流動；台灣 TASA 計畫第一批落地</td></tr><tr><td>中期（6 個月–2 年，2026H2–2027）</td><td>ASTS 目標 45–60 顆 BlueBird 在軌；RKLB Neutron 火箭首飛（目前延至 2026-Q4）；Amazon Leo 全球擴張；中國 Guowang / 千帆加速部署；D2D 擴展至語音/數據</td></tr><tr><td>長期（2–5 年，2027–2030）</td><td>SpaceX IPO 後市場重新定價；Telesat 商業服務（2027 底目標）；全球頻譜監管框架可能重塑；軌道碎片管理法規化；台灣 LEO 供應商地位確立</td></tr></tbody></table></div>
+<hr>
+<h2>模組二：風險評估</h2>
+<h3>2.1 風險識別矩陣</h3>
+<p>評分標準：機率（1–3 低/中/高）× 嚴重度（1–3 低/中/高）= 風險評分（最高 9）</p>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>風險項目</th><th>類別</th><th>機率</th><th>嚴重度</th><th>評分</th><th>說明</th></tr></thead><tbody><tr><td>R1</td><td>Starlink 市佔壟斷加深，擠壓所有競爭者空間</td><td>市場</td><td>3</td><td>3</td><td><strong>9</strong></td><td>Starlink 已達 72% 市佔，2026 預計用戶再翻倍；挑戰者難以在 B2C 正面競爭</td></tr><tr><td>R2</td><td>SpaceX IPO 吸走資金，LEO 題材股資金輪動</td><td>市場</td><td>2</td><td>3</td><td><strong>6</strong></td><td>IPO 若成真，資金可能從 ASTS、RKLB 等轉入；RKLB 已承受此壓力</td></tr><tr><td>R3</td><td>高估值遇成長不達預期（估值泡沫破滅）</td><td>財務</td><td>3</td><td>3</td><td><strong>9</strong></td><td>RKLB P/S 仍在極高位；ASTS 仍虧損；任何執行失誤都可能引發重估</td></tr><tr><td>R4</td><td>發射失敗 / 衛星在軌故障</td><td>技術</td><td>2</td><td>2</td><td><strong>4</strong></td><td>RKLB Neutron 測試期間出現油箱破裂，首飛延至 Q4 2026；技術風險真實存在</td></tr><tr><td>R5</td><td>軌道碎片 / Kessler 效應</td><td>技術/系統</td><td>2</td><td>3</td><td><strong>6</strong></td><td>CRASH Clock 5.5 天臨界值；規避機動頻率三倍增長；太陽風暴是觸發黑天鵝的潛在因子</td></tr><tr><td>R6</td><td>FCC / ITU 頻譜監管收緊</td><td>政策/法規</td><td>2</td><td>3</td><td><strong>6</strong></td><td>Amazon Leo 已面臨 FCC 里程碑壓力；頻譜規則改革方向不確定</td></tr><tr><td>R7</td><td>地緣政治：美中 LEO 衝突升級</td><td>地緣</td><td>2</td><td>2</td><td><strong>4</strong></td><td>中國 200,000 顆軌道槽申請是 ITU 佔位策略；雙方均有軍民兩用考量</td></tr><tr><td>R8</td><td>單一客戶依賴（GSAT 對 Apple）</td><td>財務/集中</td><td>3</td><td>3</td><td><strong>9</strong></td><td>Apple 佔 GSAT 超過 60% 營收，85% 網路容量；Apple 改變策略即成危機</td></tr><tr><td>R9</td><td>融資風險（挑戰者持續燒錢）</td><td>財務</td><td>3</td><td>2</td><td><strong>6</strong></td><td>ASTS 2026 Q4 損失 $0.26 超預期；製造擴張、設施擴大、衛星生產加速，現金消耗快</td></tr><tr><td>R10</td><td>市場需求落差（B2C 定價門檻過高）</td><td>市場</td><td>2</td><td>2</td><td><strong>4</strong></td><td>Starlink 終端設備費 + 月費仍是偏遠地區居民的高門檻；B2C 需求實現速度慢於預期</td></tr><tr><td>R11</td><td>關稅 / 供應鏈衝擊</td><td>供應鏈</td><td>2</td><td>2</td><td><strong>4</strong></td><td>美國 2025 關稅已衝擊 LEO 硬體供應鏈，廠商加速在地化但成本上升</td></tr><tr><td>R12</td><td>台股相關個股間接受惠幅度有限</td><td>投資人</td><td>2</td><td>1</td><td><strong>2</strong></td><td>台股 PCB、天線廠是供應鏈末端，受惠程度取決於訂單能見度，非直接受益</td></tr></tbody></table></div>
+<hr>
+<h3>2.2 情境規劃</h3>
+<p><strong>最佳情境（機率 15–20%）</strong></p>
+<p>條件：SpaceX IPO 帶動 LEO 板塊整體資金湧入；D2D 在 2026 年大量普及；ASTS 商業化超預期；Amazon Leo 快速追趕。</p>
+<p>結果：ASTS、RKLB 等標的估值因題材催化繼續大漲；台灣供應鏈廠商訂單爆量；市場從「概念股」轉型為「成長股」階段。</p>
+<p>對 Minna 的意義：適合積極型投資者，但 Minna 偏保守，此情境不宜重押。</p>
+<hr>
+<p><strong>基準情境（機率 45–50%）</strong></p>
+<p>條件：Starlink 持續主導，挑戰者在特定利基（D2D、政府、企業）找到立足點；SpaceX IPO 若成真會造成短期資金輪動；產業整體穩定成長但未出現突破性轉折。</p>
+<p>結果：IRDM 最穩、GSAT 跟 Apple 策略高度綁定；ASTS 和 RKLB 高波動持續；台灣供應鏈廠商穩定受惠但幅度有限。</p>
+<p>對 Minna 的意義：若要參與，IRDM 是風險最低的選項，但成長空間也相對有限。</p>
+<hr>
+<p><strong>最差情境（機率 25–30%）</strong></p>
+<p>條件：全球景氣衰退壓縮資本支出；ASTS 融資遇困難；RKLB Neutron 持續延誤；競爭者無法達到規模效益。</p>
+<p>結果：估值大幅修正（ASTS、RKLB 可能腰斬）；融資困難的挑戰者面臨生存危機；整個題材降溫。</p>
+<p>對 Minna 的意義：這是 2/28 分析就警示過的風險，目前結構沒有實質改變。</p>
+<hr>
+<p><strong>黑天鵝情境（機率 5–10%）</strong></p>
+<p>條件（任一觸發）：</p>
+<ul><li>重大衛星碰撞事件引發 Kessler 連鎖反應</li><li>強烈太陽風暴癱瘓大規模在軌衛星</li><li>美中地緣緊張導致 ITU 頻譜分配體系破裂</li><li>Apple 宣布結束 GSAT 合作（GSAT 股價幾乎歸零）</li><li>SpaceX IPO 因監管問題受阻</li></ul>
+<p>結果：高度不可預測，但對 GSAT 持有者風險極高；對整個題材會有劇烈的信心衝擊。</p>
+<hr>
+<h2>模組三：「那又怎樣」分析</h2>
+<h3>3.1 產業週期位置</h3>
+<p>目前 LEO 產業位置：<strong>早期成長期，但估值已在中後期定價</strong>。</p>
+<p>```</p>
+<p>種子期 → 技術驗證期 → 早期商業化（現在）→ 快速擴張期 → 成熟期</p>
+<p>↑ 我們在這裡</p>
+<p>但估值在 ↑↑ 這裡</p>
+<p>```</p>
+<p>說明：</p>
+<ul><li>技術已驗證（Starlink 運行中，T-Mobile + Starlink D2D 商業化）</li><li>商業模式已確認（至少對 Starlink 而言）</li><li>挑戰者仍處於「燒錢換規模」階段</li><li>市場估值反映的是 3–5 年後的成功情境，而非現在的基本面</li></ul>
+<h3>3.2 進場時機判斷</h3>
+<p><strong>現在（2026-03）是否適合進場？</strong></p>
+<p>整體結論：偏不利，但有條件例外。</p>
+<div class="table-wrap"><table><thead><tr><th>子領域 / 標的</th><th>當前狀態</th><th>進場難度</th><th>理由</th></tr></thead><tbody><tr><td>ASTS</td><td>近期因 TELUS 合作消息大漲，股價約 $85</td><td>高風險</td><td>仍虧損、估值高；每次好消息後都是一段劇烈波動</td></tr><tr><td>RKLB</td><td>約 $68，過去一個月下跌 13%</td><td>高風險</td><td>P/S 仍高；Neutron 延誤是執行風險；SpaceX IPO 概念搶奪資金</td></tr><tr><td>IRDM</td><td>2025 全年獲利 $1.14 億，2026 EBITDA 指引 $480-490M</td><td>相對低風險</td><td>唯一已穩定獲利的標的；但成長性低（營收指引幾近持平）；適合保守型</td></tr><tr><td>GSAT</td><td>Apple 綁定深但集中風險極高</td><td>中等風險</td><td>蘋果 $17B 投入已背書；但 85% 容量依賴單一客戶，集中風險評分 R8 = 9</td></tr><tr><td>台股供應鏈</td><td>需個別評估，非直接受益</td><td>需另行研究</td><td>PCB 廠、天線廠是間接受惠，訂單能見度才是關鍵</td></tr></tbody></table></div>
+<p><strong>潛在較佳的進場時間點（供觀察，非建議）：</strong></p>
+<ol><li>估值顯著回調（ASTS、RKLB 各自回調 30–40%）後</li><li>SpaceX IPO 消息造成資金輪動引發非理性下殺時</li><li>ASTS 達到穩定現金流轉正後（可能是 2027 以後）</li></ol>
+<h3>3.3 哪些子領域最受惠 vs 最危險</h3>
+<p><strong>最受惠的子領域：</strong></p>
+<ol><li><strong>D2D / 緊急通訊</strong>：T-Mobile + Starlink 已驗證，Deloitte 預測 2026 年支出 $6–8B</li><li><strong>政府 / 國防</strong>：地緣政治推動各國採購，預算有保障，不受消費者市場週期影響</li><li><strong>海事 / 航空企業用戶</strong>：高 ARPU，需求穩定，競爭者難以追上 Starlink</li></ol>
+<p><strong>最危險的子領域：</strong></p>
+<ol><li><strong>B2C 消費者寬頻（非 Starlink）</strong>：Starlink 已壟斷，非 Starlink 的挑戰者在這個市場幾乎沒有生存空間</li><li><strong>高估值、仍虧損的成長型挑戰者</strong>：若市場風格轉換（從成長轉向獲利），估值壓縮風險極高</li></ol>
+<h3>3.4 對 Minna 的具體建議</h3>
+<p><strong>核心結論維持：暫不積極建倉</strong>，理由與 2/28 分析相同，且這次有更充分的數據佐證。</p>
+<p>三個值得繼續觀察的角度：</p>
+<p><strong>角度一（最低風險切入點）：IRDM</strong></p>
+<ul><li>唯一已穩定獲利的 LEO 公司，2025 年 EPS $1.06</li><li>EBITDA margin 高（約 57%），現金流穩定</li><li>代價：成長慢（2026 營收指引幾乎持平），這是「防守型持有」而非「成長題材」</li><li>適合想「參與產業但不想賭」的保守型投資者，倉位建議不超過總美股配置的 10%</li></ul>
+<p><strong>角度二（觀察清單，等待時機）：ASTS</strong></p>
+<ul><li>如果 ASTS 在 SpaceX IPO 消息或市場風格轉換時大幅回調（例如跌回 $40–50 區間），可再評估</li><li>屆時需確認：融資進度、在軌衛星數、電信夥伴合約數量三項關鍵指標</li><li>現在 $85 附近不是理想入場點</li></ul>
+<p><strong>角度三（台股間接受惠）：值得另行研究</strong></p>
+<ul><li>台灣 PCB 廠、天線廠、衛星終端相關廠商是間接受惠</li><li>比美股挑戰者更低的估值風險，但需要個別研究確認訂單能見度</li><li>建議另開一份台股衛星供應鏈研究，確認具體標的</li></ul>
+<p><strong>整體判斷框架：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>問題</th><th>答案</th></tr></thead><tbody><tr><td>這個產業是真實的嗎？</td><td>是，需求結構性存在，市場持續增長</td></tr><tr><td>現在個股容易選嗎？</td><td>不容易，Starlink 無法直接買，挑戰者估值普遍過高</td></tr><tr><td>什麼時候比較好進場？</td><td>市場回調 + 挑戰者有明確獲利路徑之後</td></tr><tr><td>Minna 現在應該怎麼做？</td><td>持續觀察，不急進場；若非常想參與，IRDM 是最穩選項</td></tr></tbody></table></div>
+<hr>
+<h2>資料來源</h2>
+<p><strong>產業規模與市場研究</strong></p>
+<ul><li>Fortune Business Insights — LEO Satellite Market Size, Share, Industry Growth 2026-2034</li><li>Gartner — LEO Satellite Communications Services Spending Forecast（2025-07）</li><li>Grand View Research — LEO Satellite Market Report</li><li>GlobeNewsWire — Low Earth Orbit Satellite Industry Research Report 2025-2035（2026-03-03）</li></ul>
+<p><strong>個股最新動態</strong></p>
+<ul><li>StocksToTrade — AST SpaceMobile TELUS Deal & Revenue Surge（2026-03-04）</li><li>StockAnalysis — Rocket Lab FY25 Results & RKLB Stock</li><li>Insider Monkey — Iridium 2025 Results and 2026 Outlook</li><li>CNBC — Globalstar & Apple $1.5B Investment（2024-11）</li></ul>
+<p><strong>競爭動態 / 地緣</strong></p>
+<ul><li>Satellite Today — The Coming Wave of Competition in LEO Constellations（2026-03）</li><li>S&P Global — The State of Satellite Connectivity 2025（2025-11）</li><li>SatNews — China Challenges SpaceX Dominance with Massive LEO Governance Strategy（2026-02）</li><li>IISS — Orbital ambitions: LEO satellite constellations and strategic competition（2025-05）</li></ul>
+<p><strong>技術與風險</strong></p>
+<ul><li>STL Partners — Satellite D2D Services Poised for Mainstream Adoption by 2026</li><li>Deloitte — 2026 Tech Predictions: Next-gen satellite internet</li><li>ScienceDaily — Low-Earth orbit is just 2.8 days from disaster（2026-01）</li><li>TechPolicy.Press — Space is Getting Crowded, and Policy Governing LEO is Broken</li></ul>
+<p><strong>Amazon Leo</strong></p>
+<ul><li>SatNews — Amazon Leo seeks 24-month extension from FCC（2026-02）</li><li>Amazon — Project Kuiper progress updates</li></ul>
+<p><strong>SpaceX / Starlink</strong></p>
+<ul><li>Motley Fool — 3 Things to Know About Starlink Before the 2026 SpaceX IPO（2026-02）</li></ul>
+<p><strong>台灣供應鏈</strong></p>
+<ul><li>Digitimes — Taiwan's space ambitions grow with new industrial platform for LEO satellites</li><li>Digitimes — Taiwan PCB makers ride LEO satellite boom</li><li>Digitimes — Taiwan Space Agency launches $81m LEO satellite program</li></ul>
+<hr>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>重點變化</th></tr></thead><tbody><tr><td>2026-02-28</td><td>首次分析（含在三大題材研究中），結論：暫不建議碰</td></tr><tr><td>2026-03-06</td><td>獨立產業深度分析，結論維持暫不建倉；新增 PREST 分析、風險矩陣、情境規劃；IRDM 納入觀察清單</td></tr></tbody></table></div>
+<hr>
+<blockquote>以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>

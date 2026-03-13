@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一詮精密（2486）個股分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>一詮精密（2486）個股分析</h1>
+</div>
+<div class="report-body">
+<h1>一詮精密（2486）個股分析</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-02-28 週六（台灣時間）</td></tr><tr><td>台股資料</td><td>已收盤（最後一筆：2026/02/26，收盤價 140 元）</td></tr><tr><td>美股資料</td><td>已收盤（與本分析無關）</td></tr><tr><td>注意事項</td><td>週六非交易日，最新籌碼數據以 02/26 為準；Q4 2025 完整財報尚未公告</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p><strong>【持有】— 轉型方向正確、1月營收創新高，但現階段 EPS 仍低、估值極貴，已持有者繼續觀望等待 Q4 財報確認毛利率改善才是關鍵節點。</strong></p>
+<p>信心程度：★★★☆☆（3/5）</p>
+<p>適合操作：中線波段，等待基本面追上股價</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司靠什麼賺錢</h3>
+<p>一詮精密（1977 年成立）是台灣第一大 LED 導線架（→ 導線架是 LED 燈珠的金屬骨架，負責導電和散熱，是 LED 的核心零件）供應商。近年正在進行重大轉型：從傳統 LED 導線架，轉向 AI 伺服器高階散熱元件。</p>
+<p>目前 2025 年前三季營收結構：</p>
+<div class="table-wrap"><table><thead><tr><th>產品線</th><th>占比（約）</th></tr></thead><tbody><tr><td>散熱元件（均熱片 / Metal TIM / Film TIM）</td><td>~32%（成長中）</td></tr><tr><td>IC 導線架</td><td>~28%</td></tr><tr><td>陶瓷電路板</td><td>~15%</td></tr><tr><td>LED 導線架 / 背光模組</td><td>~25%（持續萎縮）</td></tr></tbody></table></div>
+<h3>產業鏈定位</h3>
+<p>```</p>
+<p>AI晶片設計（NVIDIA / AMD / ASIC客戶）</p>
+<p>↓</p>
+<p>晶圓代工（台積電 CoWoS 先進封裝）</p>
+<p>↓</p>
+<p>封裝散熱元件供應商（← 一詮精密在這裡）</p>
+<p>├── Metal TIM 散熱片（銦片）</p>
+<p>├── Film TIM 散熱片（銅與石墨烯）</p>
+<p>├── VC Lid 均溫蓋板（與工研院合作）</p>
+<p>└── 未來：Micro-channel Lid</p>
+<p>↓</p>
+<p>AI 伺服器組裝（北美 CSP → 雲端服務供應商，如 AWS/Azure）</p>
+<p>↓</p>
+<p>資料中心運算</p>
+<p>```</p>
+<p>一詮目前是台灣先進封裝散熱片的「全球唯二」供應商之一（另一家為健策）。</p>
+<h3>客戶集中度</h3>
+<ul><li>VC Lid 均溫蓋板：已通過 AMD 系統驗證，可提升散熱效率 50%</li><li>Metal TIM：獲大陸 ASIC 晶片客戶採用</li><li>Film TIM：已通過北美某 AI 伺服器大廠驗證（公司未公開名稱）</li><li>2025 Q4 小量出貨北美大廠，2026 年預計放量</li><li>❌ 具體客戶名稱、單一客戶占比未公開，建議自行查閱法說會簡報（公開資訊觀測站）</li></ul>
+<h3>護城河（→ 讓競爭對手很難搶走生意的優勢）</h3>
+<p>一詮的護城河屬於「窄護城河、正在加寬」：</p>
+<ul><li>優勢：先進封裝散熱片全球供應商極少，認證門檻高（通過 AMD 驗證即代表進入壁壘）</li><li>挑戰：公司規模遠小於健策，技術積累時間較短，仍在建立護城河</li></ul>
+<h3>管理層品質</h3>
+<ul><li>董事長：周萬順（長期掌舵）</li><li>2025 年 12 月舉辦法說會，主動揭露轉型進度，透明度尚可</li><li>關鍵承諾追蹤：</li><li>法說會承諾 2026 年產能倍增</li><li>法說會承諾散熱元件占比超過 50%</li><li>法說會承諾毛利率朝 25% 以上邁進</li><li>⚠️ 目前毛利率仍僅 13.65%，距目標尚遠，需持續追蹤是否兌現</li></ul>
+<p>（來源：MoneyDJ 法說會報導、CMoney 論壇觀察清單）</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（近 6 個月）</h3>
+<blockquote>月營收 → 公司每個月賣出多少東西換來的錢，是最即時的健康指標。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收（千元）</th><th>YoY 年增率</th><th>MoM 月增率</th></tr></thead><tbody><tr><td>2025/08</td><td>約 450,000（估）</td><td>❌ 未取得</td><td>—</td></tr><tr><td>2025/09</td><td>約 460,000（估）</td><td>❌ 未取得</td><td>—</td></tr><tr><td>2025/10</td><td>505,360</td><td>❌ 未取得</td><td>—</td></tr><tr><td>2025/11</td><td>514,597</td><td>❌ 未取得</td><td>—</td></tr><tr><td>2025/12</td><td>525,962</td><td>+10.5%</td><td>+2.2%</td></tr><tr><td><strong>2026/01</strong></td><td><strong>558,578</strong></td><td><strong>+34.93%</strong></td><td><strong>+6.2%</strong></td></tr></tbody></table></div>
+<p>亮點：2026 年 1 月營收創下 40 個月新高，且連續 4 個月成長。年增率由 10.5% 跳升至 34.93%，加速成長訊號明確。</p>
+<p>2025 年全年營收約 60.46 億元，年增 10%，為 2016 年以來新高。</p>
+<p>（來源：財報狗月營收頁面、MoneyDJ）</p>
+<h3>EPS（→ 每股盈餘，公司賺到的錢平均分給每一股，數字越大表示越賺錢）</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>EPS（元）</th><th>備注</th></tr></thead><tbody><tr><td>2024 Q1</td><td>-0.03</td><td>虧損</td></tr><tr><td>2024 Q2</td><td>+0.13</td><td></td></tr><tr><td>2024 Q3</td><td>-0.06</td><td>虧損</td></tr><tr><td>2024 Q4</td><td>+0.04</td><td></td></tr><tr><td>2025 Q1</td><td>-0.01</td><td>虧損</td></tr><tr><td>2025 Q2</td><td>-0.05</td><td>虧損</td></tr><tr><td><strong>2025 Q3</strong></td><td><strong>+0.22</strong></td><td><strong>轉虧為盈，季增最佳</strong></td></tr><tr><td>近四季累計</td><td>約 0.20</td><td></td></tr></tbody></table></div>
+<p>2025 Q3 的 EPS +0.22 是過去 2 年最佳單季成績，但全年近四季 EPS 合計僅約 0.20 元，獲利底子仍薄。</p>
+<p>（來源：HiStock EPS 頁面）</p>
+<h3>毛利率（→ 每賣 100 元的東西，扣掉原料和生產成本後能留下多少）</h3>
+<div class="table-wrap"><table><thead><tr><th>期間</th><th>毛利率</th></tr></thead><tbody><tr><td>2025 Q1~Q3 累計</td><td>13.65%</td></tr><tr><td>公司目標（2026）</td><td>朝 25% 以上邁進</td></tr><tr><td>健策（對照組）</td><td>~38.97%（2025 Q3）</td></tr></tbody></table></div>
+<h3>其他財務指標</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>備注</th></tr></thead><tbody><tr><td>負債比率</td><td><strong>55.79%</strong></td><td>因擴產偏高，接近警戒邊緣（60%）</td></tr><tr><td>自由現金流</td><td>❌ 未取得</td><td>建議查閱財報狗或公司年報</td></tr><tr><td>資本支出</td><td>偏高（擴產中）</td><td>❌ 精確數字未取得</td></tr></tbody></table></div>
+<p>（來源：MoneyDJ 前三季財報數據、Anue 鉅亨）</p>
+<hr>
+<h2>3. 估值面</h2>
+<blockquote>本益比（P/E）→ 用股價除以 EPS，花幾年獲利才能回本，越低越便宜</blockquote>
+<blockquote>PEG → 本益比除以成長率，< 1 低估，1~2 合理，> 2 偏貴</blockquote>
+<blockquote>PS ratio → 市值除以年營收，用在 EPS 太小的轉型股</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>判讀</th></tr></thead><tbody><tr><td>收盤價（02/26）</td><td>140 元</td><td></td></tr><tr><td>近四季 EPS 合計</td><td>約 0.20 元</td><td></td></tr><tr><td><strong>本益比（P/E）</strong></td><td><strong>約 685 倍</strong></td><td>極高（因 EPS 太低而失真）</td></tr><tr><td>每股淨值</td><td>21.78 元</td><td></td></tr><tr><td>股價淨值比（P/B）</td><td>6.42 倍</td><td>偏貴</td></tr><tr><td>市值</td><td>約 327 億元</td><td></td></tr><tr><td><strong>PS ratio</strong></td><td><strong>約 5.4 倍</strong></td><td>轉型成長股的合理偏貴範圍</td></tr><tr><td>PEG</td><td>❌ 無法計算</td><td>EPS 太低，本益比失真</td></tr></tbody></table></div>
+<p>關鍵：股價 140 元 vs 每股淨值 21.78 元，溢價 6.4 倍，市場「買的是未來，不是現在」。若 2026 年毛利率沒如期跳升，重估風險很大。</p>
+<p>（來源：Anue 鉅亨、Win 投資）</p>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>均線 → 過去 N 天的平均股價連成一條線，股價在均線上方代表近期買進的人多半有獲利</blockquote>
+<blockquote>支撐 → 股價跌到這個位置通常會反彈。壓力 → 股價漲到這裡通常會遇到賣壓</blockquote>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>最新收盤（02/26）</td><td>140 元</td></tr><tr><td>52 週最高</td><td>160 元</td></tr><tr><td>52 週最低</td><td>64.20 元</td></tr><tr><td>目前位置</td><td>距高點 -12.5%，距低點 +118%</td></tr><tr><td>均線排列</td><td>多頭排列（→ 短均線在長均線上方，趨勢向上）</td></tr></tbody></table></div>
+<h3>處置股歷史（重要！）</h3>
+<p>一詮於 2026/1/30 被列為「處置股」（→ 交易所認為交易異常，限制下單後要等 5 分鐘才成交），處置期 10 個交易日，2/24 已解除。</p>
+<h3>支撐與壓力</h3>
+<div class="table-wrap"><table><thead><tr><th>區間</th><th>說明</th></tr></thead><tbody><tr><td>主要壓力</td><td>150 元（前高）、160 元（52 週最高）</td></tr><tr><td>主要支撐</td><td>120 元（前整理區）、100 元（整數關卡）</td></tr><tr><td>量能</td><td>02/26 成交 12,815 張，週轉率 5.40%</td></tr></tbody></table></div>
+<p>（來源：Anue 鉅亨、CMoney）</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<blockquote>三大法人 → 外資、投信、自營商。融資 → 借錢買股票，融資高代表散戶在追</blockquote>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>三大法人近 5/20 日</td><td>❌ 未取得 → 建議查三竹、玩股網</td></tr><tr><td>融資融券</td><td>❌ 未取得 → 建議查三竹、GoodInfo</td></tr><tr><td>大戶散戶比例</td><td>❌ 未取得 → 建議查鉅亨網、XQ</td></tr><tr><td>董監持股</td><td>❌ 未取得 → 建議查公開資訊觀測站</td></tr><tr><td>內盤/外盤比（02/26）</td><td>內盤 56.14% / 外盤 43.86%（略偏空）</td></tr></tbody></table></div>
+<p>⚠️ 一詮剛從處置股解除（02/24），建議特別觀察 02/24~03/07 法人動向。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>一詮（2486）</th><th>健策（3653）</th><th>奇鋐（3017）</th></tr></thead><tbody><tr><td>主要業務</td><td>LED 導線架 + AI 封裝散熱片</td><td>晶片級封裝散熱片</td><td>散熱器 + 水冷 + 液冷</td></tr><tr><td>市場定位</td><td>轉型中，切入高階散熱</td><td>先進封裝散熱技術領頭羊</td><td>散熱模組龍頭</td></tr><tr><td>市值</td><td>約 327 億</td><td>約數千億</td><td>約 6,896 億</td></tr><tr><td>毛利率</td><td>13.65%</td><td>~38.97%</td><td>~26.5%</td></tr><tr><td>近期 EPS</td><td>0.20 元（近四季）</td><td>~9.49 元（Q3 單季）</td><td>~13.6 元（Q3 單季）</td></tr><tr><td>競爭優勢</td><td>唯二供應商、AMD 認證</td><td>先行者、技術最深</td><td>獨家交換器液冷、規模最大</td></tr><tr><td>主要風險</td><td>規模小、轉型期</td><td>已達高估值</td><td>依賴 NVIDIA 週期</td></tr></tbody></table></div>
+<p>一詮相對優勢：市值小、爆發彈性大；AMD 認證稀缺。</p>
+<p>一詮相對劣勢：獲利能力遠遜同業、轉型未完成、體質脆弱。</p>
+<p>（來源：CMoney 論壇、MoneyDJ、LINE Today）</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>2025 Q4 財報公告</td><td>已確認</td><td>2026 年 3~4 月</td><td>高</td></tr><tr><td>北美大廠訂單放量</td><td>已確認方向</td><td>2026 Q1~Q2</td><td>高</td></tr><tr><td>Metal TIM 月產能達 12 萬片</td><td>計劃中</td><td>已到時間點</td><td>高</td></tr><tr><td>散熱占比突破 50%</td><td>潛在</td><td>2026 H1</td><td>高</td></tr><tr><td>毛利率突破 20~25%</td><td>潛在</td><td>2026（待驗證）</td><td>高</td></tr><tr><td>NVIDIA 認證</td><td>潛在</td><td>未定</td><td>非常高</td></tr><tr><td>Micro-channel Lid 量產</td><td>潛在</td><td>2026 H2~2027</td><td>中高</td></tr></tbody></table></div>
+<p>最重要催化劑：2025 Q4 財報（3~4 月公告），毛利率是否改善是關鍵。</p>
+<p>（來源：MoneyDJ 法說會整理、CMoney）</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th></tr></thead><tbody><tr><td>毛利率改善不如預期</td><td>中</td><td>高</td><td>Q4 毛利率未達 15%</td></tr><tr><td>估值泡沫（股價提前反映）</td><td>中高</td><td>高</td><td>月營收成長趨緩</td></tr><tr><td>北美大客戶訂單不確定</td><td>中</td><td>高</td><td>月營收成長停滯</td></tr><tr><td>競爭加劇</td><td>低中</td><td>中</td><td>報價壓力、毛利低迷</td></tr><tr><td>負債比率偏高</td><td>低中</td><td>中</td><td>超過 60%</td></tr><tr><td>AI 資本支出週期反轉</td><td>低</td><td><strong>極高</strong></td><td>CSP 支出下修、GPU 庫存升</td></tr><tr><td>再次被列為處置股</td><td>中</td><td>低中</td><td>股價連續飆漲</td></tr><tr><td>傳統業務萎縮速度超預期</td><td>低中</td><td>中</td><td>散熱補不上導線架流失</td></tr></tbody></table></div>
+<p>⚠️ <strong>致命風險</strong>：若 AI 資本支出週期反轉，一詮作為小型供應商，股價可能腰斬。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：持有（已持有者）/ 觀望（尚未進場者）</li><li><strong>信心程度</strong>：★★★☆☆（3/5）</li><li><strong>建議倉位</strong>：不超過總資金 20%（即 4 萬元），目前不建議在 140 元加碼</li><li><strong>進場條件</strong>：</li></ul>
+<ol><li>Q4 財報毛利率明顯高於 Q3（13.65%），朝 18~20% 靠近</li><li>散熱元件月營收占比確認突破 40%</li><li>股價回測至 120 元附近支撐且量縮</li></ol>
+<ul><li><strong>停損參考</strong>：</li><li>Q4 毛利率比 Q3 更差 → 減碼 50%+</li><li>月營收 YoY < 15% 連續 2 個月 → 全數退出</li><li>股價跌破 100 元 → 嚴格停損</li><li><strong>加碼條件</strong>：Q4 毛利率 > 18% 且散熱占比 > 40%</li><li><strong>觀察指標</strong>：月營收 YoY、Q4 毛利率、散熱占比、法人動向</li><li><strong>下次檢視</strong>：</li><li>2026/03/10 前：2 月月營收公告</li><li>2026/03~04 月：Q4 完整財報（最重要）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<ul><li><a href="https://today.line.me/tw/v3/article/eL096wB" target="_blank" rel="noopener">MoneyDJ / Line Today — 一詮半導體散熱元件放量</a></li><li><a href="https://www.cmoney.tw/forum/article/176909626" target="_blank" rel="noopener">CMoney 論壇 — 一詮2026觀察清單</a></li><li><a href="https://statementdog.com/analysis/2486/monthly-revenue" target="_blank" rel="noopener">財報狗 — 一詮(2486)月營收</a></li><li><a href="https://histock.tw/stock/2486/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank" rel="noopener">HiStock — 一詮(2486) EPS 財報分析</a></li><li><a href="https://www.cnyes.com/twstock/2486" target="_blank" rel="noopener">Anue 鉅亨 — 一詮總覽</a></li><li><a href="https://winvest.tw/Stock/Symbol/Comment/2486" target="_blank" rel="noopener">Win 投資 — 一詮(2486)可以買嗎</a></li><li><a href="https://vocus.cc/article/694b8daffd897800010643ad" target="_blank" rel="noopener">Vocus 深度報告 — AI 高階散熱轉型</a></li></ul>
+<h2>補查清單</h2>
+<div class="table-wrap"><table><thead><tr><th>缺失數據</th><th>建議查詢管道</th></tr></thead><tbody><tr><td>三大法人近 5/20 日</td><td>三竹股市、玩股網</td></tr><tr><td>融資融券</td><td>三竹、GoodInfo</td></tr><tr><td>大戶散戶持股比例</td><td>鉅亨網、XQ 全球贏家</td></tr><tr><td>董監持股</td><td>公開資訊觀測站</td></tr><tr><td>自由現金流</td><td>財報狗、公司季報</td></tr><tr><td>Q4 完整財報</td><td>公開資訊觀測站（3~4 月公告）</td></tr></tbody></table></div>
+</div>
+</body>
+</html>

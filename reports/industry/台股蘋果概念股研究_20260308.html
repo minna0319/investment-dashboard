@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股蘋果概念股研究報告</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../timeline.html">時間表</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>台股蘋果概念股研究報告</h1>
+</div>
+<div class="report-body">
+<h1>台股蘋果概念股研究報告</h1>
+<blockquote>分析日期：2026-03-08</blockquote>
+<blockquote>搭配閱讀：<a href="../04_個股分析/美股/AAPL個股深度分析_20260308.md" target="_blank" rel="noopener">AAPL 個股深度分析</a></blockquote>
+<hr>
+<h2>一句話總結</h2>
+<p>蘋概股 2026 年最大看點是「摺疊 iPhone」和「Apple Intelligence」，但共同風險是關稅衝擊和蘋果年年殺價。選股要看<strong>技術門檻</strong>和<strong>客戶多元性</strong>，不要只看「蘋果供應商」四個字。</p>
+<hr>
+<h2>蘋果供應鏈台股全覽</h2>
+<h3>半導體 / 晶片封測</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>供應鏈角色</th><th>蘋果依賴度</th></tr></thead><tbody><tr><td>2330</td><td>台積電</td><td>A/M 系列晶片晶圓代工；2026 年蘋果包下約半數 2nm 產能</td><td>~25% 營收（多元客戶）</td></tr><tr><td>3711</td><td>日月光投控</td><td>SiP 封裝、IC 測試；AirPods/Watch 整合封裝</td><td>多元客戶</td></tr><tr><td>3037</td><td>欣興</td><td>ABF 載板（天線封裝）；AI 晶片基板，產能利用率 90%</td><td>多元客戶</td></tr><tr><td>8046</td><td>南電</td><td>IC 載板，蘋果晶片封裝基板</td><td>多元客戶</td></tr></tbody></table></div>
+<h3>組裝代工</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>供應鏈角色</th><th>蘋果依賴度</th></tr></thead><tbody><tr><td>2317</td><td>鴻海</td><td>iPhone 主力組裝（全球最大份額）；摺疊 iPhone 組裝主導</td><td>高度依賴</td></tr><tr><td>4938</td><td>和碩</td><td>iPhone 組裝第二大；印度塔塔合資廠進行中</td><td>高度依賴</td></tr><tr><td>2382</td><td>廣達</td><td>MacBook 組裝、Apple Watch</td><td>多元客戶</td></tr><tr><td>3231</td><td>緯創</td><td>iPhone/MacBook 組裝；部分訂單已移轉</td><td>多元客戶</td></tr></tbody></table></div>
+<h3>光學鏡頭</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>供應鏈角色</th><th>蘋果依賴度</th></tr></thead><tbody><tr><td>3008</td><td>大立光</td><td>iPhone 鏡頭模組龍頭；Vision Pro 光學元件；摺疊機可變光圈鏡頭開發中</td><td>純蘋概</td></tr><tr><td>3406</td><td>玉晶光</td><td>iPhone 鏡頭（大立光替代）；Vision Pro Pancake 模組主力</td><td>高度依賴</td></tr></tbody></table></div>
+<h3>PCB / 軟板 / 載板</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>供應鏈角色</th><th>蘋果依賴度</th></tr></thead><tbody><tr><td>4958</td><td>臻鼎-KY</td><td>iPhone 軟板（FPC）</td><td>高度依賴</td></tr><tr><td>6269</td><td>台郡</td><td>iPhone/AirPods 軟板</td><td>純蘋概</td></tr><tr><td>6153</td><td>嘉聯益</td><td>iPhone 軟板</td><td>高度依賴</td></tr></tbody></table></div>
+<h3>被動元件 / 其他零組件</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>供應鏈角色</th><th>蘋果依賴度</th></tr></thead><tbody><tr><td>2327</td><td>國巨</td><td>MLCC 被動元件（電容電阻）</td><td>多元客戶</td></tr><tr><td>3042</td><td>晶技</td><td>石英晶體元件（震盪器）</td><td>多元客戶</td></tr><tr><td>6456</td><td>GIS-KY</td><td>觸控模組；摺疊 iPhone UTG 超薄玻璃後製程獨家</td><td>高蘋果依賴</td></tr><tr><td>3376</td><td>新日興</td><td>摺疊 iPhone 轉軸機構（與安費諾聯合開發）</td><td>近純蘋概（摺疊機）</td></tr></tbody></table></div>
+<hr>
+<h2>純蘋概 vs 多元客戶</h2>
+<h3>純蘋概（蘋果佔大比重，股價連動性強）</h3>
+<p>→ 蘋果好它就好，蘋果砍單它先死</p>
+<ul><li><strong>大立光（3008）</strong> — 鏡頭幾乎全靠蘋果</li><li><strong>台郡（6269）</strong> — 軟板純蘋概</li><li><strong>玉晶光（3406）</strong> — 高度蘋果依賴</li><li><strong>新日興（3376）</strong> — 摺疊 iPhone 轉軸新純蘋概</li></ul>
+<h3>多元客戶（蘋果是大客戶但非唯一）</h3>
+<p>→ 蘋果砍單有其他客戶撐，風險較分散</p>
+<ul><li><strong>台積電（2330）</strong> — 蘋果 ~25%，另有 NVIDIA、AMD、高通</li><li><strong>鴻海（2317）</strong> — 蘋果最大客戶，但同時有電動車、AI 伺服器</li><li><strong>欣興（3037）</strong> — AI 伺服器 + 蘋果雙引擎</li><li><strong>國巨（2327）</strong> — 蘋果 + 汽車 + 工業</li></ul>
+<hr>
+<h2>2026 年關鍵動態</h2>
+<h3>iPhone 17e 上市（2026 年 3 月）</h3>
+<ul><li>$599 起，搭載 A19 晶片，主打平價換機市場</li><li>受惠台廠：台積電、大立光、鴻海、台郡/臻鼎</li></ul>
+<h3>摺疊 iPhone（2026 年最大催化劑）</h3>
+<ul><li>最快 2026 年秋季推出，出貨量預估 800-1,000 萬支</li><li><strong>關鍵卡位台廠：</strong></li></ul>
+<div class="table-wrap"><table><thead><tr><th>台廠</th><th>卡位角色</th><th>潛力</th></tr></thead><tbody><tr><td>新日興（3376）</td><td>轉軸機構，與安費諾合作</td><td>法人估 2026 營收 +86%</td></tr><tr><td>GIS-KY（6456）</td><td>UTG 超薄玻璃後製程獨家（郭明錤點名）</td><td>高成長但量能未確定</td></tr><tr><td>大立光（3008）</td><td>可變光圈鏡頭研發中</td><td>既有龍頭地位 + 新題材</td></tr><tr><td>鴻海（2317）</td><td>組裝主導</td><td>量最大但利潤率低</td></tr></tbody></table></div>
+<h3>Apple Intelligence / AI 晶片</h3>
+<ul><li>A19/A20/M5 全由台積電代工，2026 年 A20 採用 2nm</li><li>欣興 AI 晶片載板需求爆發，資本支出加碼至 340 億元</li><li>AI 趨勢讓「非純蘋概」的台積電、欣興受惠更大</li></ul>
+<h3>Vision Pro 供應鏈</h3>
+<ul><li>台積電（M/R 晶片）、玉晶光（Pancake 模組主力）、大立光、GIS、日月光、欣興、臻鼎</li><li>⚠️ 但 Vision Pro 銷售慘敗、生產已暫停，短期貢獻極有限</li></ul>
+<h3>印度移廠趨勢</h3>
+<ul><li>和碩與塔塔談判合資、緯創已出售部分印度廠股份</li><li><strong>短期影響有限</strong>：印度仍缺乏工程量能和供應鏈深度，台廠零組件出口不受直接衝擊</li><li><strong>長期觀察</strong>：若印度成熟，組裝代工台廠（鴻海、和碩）的台灣產線重要性降低</li></ul>
+<hr>
+<h2>投資價值排序：Top 5 觀察名單</h2>
+<blockquote>以下依技術門檻、成長催化劑、蘋果依賴風險等因素綜合排列，<strong>不構成買賣建議</strong></blockquote>
+<h3>第 1 名：台積電（2330）</h3>
+<p><strong>理由</strong>：蘋果所有旗艦晶片唯一代工廠，無可取代。2nm 技術壁壘極高。AI 伺服器晶片（NVIDIA CoWoS）帶來非蘋果成長動能。</p>
+<p><strong>風險</strong>：地緣政治（台海）、估值已不便宜、客戶集中度</p>
+<p><strong>定位</strong>：最穩健的蘋概股，同時也是 AI 概念股</p>
+<h3>第 2 名：大立光（3008）</h3>
+<p><strong>理由</strong>：iPhone 鏡頭龍頭，技術門檻高。摺疊 iPhone 可變光圈鏡頭是新成長催化劑。</p>
+<p><strong>風險</strong>：純蘋概、中國光學廠追上、高股價波動</p>
+<p><strong>定位</strong>：純蘋概龍頭，波動大但反彈也快</p>
+<h3>第 3 名：欣興（3037）</h3>
+<p><strong>理由</strong>：ABF 載板 + AI 晶片雙引擎，不只靠蘋果。產能利用率 90%，大幅擴產中。</p>
+<p><strong>風險</strong>：景氣循環敏感（載板曾大起大落）、資本支出龐大</p>
+<p><strong>定位</strong>：蘋概 + AI 雙引擎，客戶多元</p>
+<h3>第 4 名：新日興（3376）</h3>
+<p><strong>理由</strong>：摺疊 iPhone 轉軸機構唯一台廠供應商。法人估 2026 年營收 +86%。</p>
+<p><strong>風險</strong>：摺疊 iPhone 量能未確定、幾乎全靠單一產品成長、題材股波動大</p>
+<p><strong>定位</strong>：高成長高風險的題材型標的</p>
+<h3>第 5 名：GIS-KY（6456）</h3>
+<p><strong>理由</strong>：摺疊 iPhone UTG 超薄玻璃後製程「獨家」訂單。估值相對壓縮，上行空間大。</p>
+<p><strong>風險</strong>：題材能否兌現取決於摺疊 iPhone 時程、獨家地位可能被打破</p>
+<p><strong>定位</strong>：潛力黑馬但不確定性高</p>
+<hr>
+<h2>風險提醒</h2>
+<h3>蘋概股共同風險（年年都有）</h3>
+<ol><li><strong>砍單</strong>：蘋果秋季備貨後 Q1 容易砍單，供應鏈股價跟著修正</li><li><strong>殺價（Cost Down）</strong>：蘋果每年要求降價，長期壓縮供應商毛利率</li><li><strong>轉單</strong>：蘋果刻意雙供應商策略分散採購（如大立光 vs 玉晶光）</li><li><strong>客戶集中度</strong>：一旦被踢出供應鏈，衝擊巨大</li></ol>
+<h3>2026 年特有風險</h3>
+<ol><li><strong>關稅</strong>：台美已達 15% 對等關稅，蘋果若漲價可能壓縮銷售量</li><li><strong>中國關稅</strong>：中國廠房組裝的 iPhone 受高關稅影響，加速印度移廠</li><li><strong>地緣政治</strong>：台海緊張是台積電及整體台股的系統性風險</li><li><strong>印度移廠加速</strong>：組裝廠若大量轉移，對台灣本島蘋概評價有壓力</li><li><strong>摺疊 iPhone 量能不確定</strong>：若出貨低於預期，新日興、GIS 題材恐落空</li></ol>
+<hr>
+<h2>操作思路</h2>
+<div class="table-wrap"><table><thead><tr><th>策略</th><th>適合標的</th><th>說明</th></tr></thead><tbody><tr><td><strong>穩健型</strong></td><td>台積電、欣興</td><td>蘋概 + AI 雙引擎，客戶多元，下檔保護較好</td></tr><tr><td><strong>純蘋概波段</strong></td><td>大立光、台郡</td><td>跟著蘋果節奏操作，Q3 備貨前布局，Q1 砍單前考慮獲利了結</td></tr><tr><td><strong>題材型</strong></td><td>新日興、GIS</td><td>賭摺疊 iPhone 題材，高風險高報酬，建議小倉位</td></tr><tr><td><strong>大型穩定</strong></td><td>鴻海</td><td>量最大但利潤率最低，適合穩定配息需求</td></tr></tbody></table></div>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<ul><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/2025台灣蘋果概念股有哪些股票-蘋果供應鏈最新名單值得留意的公司" target="_blank" rel="noopener">豐雲學堂 - 2025 台灣蘋果概念股名單（2026/2 更新）</a></li><li><a href="https://www.sinotrade.com.tw/richclub/industry/蘋果摺疊機2026年上市在即" target="_blank" rel="noopener">豐雲學堂 - 蘋果摺疊機 2026 年台廠供應鏈解析</a></li><li><a href="https://news.cnyes.com/news/id/6122397" target="_blank" rel="noopener">鉅亨網 - iPhone 17 帶動供應鏈</a></li><li><a href="https://www.pocket.tw/school/report/perspective/6853/" target="_blank" rel="noopener">口袋學堂 - 6 檔摺疊 iPhone 台股黑馬</a></li><li><a href="https://macdailynews.com/2025/09/06/gis-lands-exclusive-deal" target="_blank" rel="noopener">郭明錤 - GIS 獨家 UTG 後製程訂單</a></li><li><a href="https://www.apple.com/newsroom/2026/03/apple-introduces-iphone-17e/" target="_blank" rel="noopener">Apple 官方 - iPhone 17e 發表</a></li><li><a href="https://technews.tw/2026/02/10/apple-supply-chain-india-china/" target="_blank" rel="noopener">TechNews - 印度仍難取代中國（2026/2）</a></li><li><a href="https://tw.stock.yahoo.com/class-quote?category=蘋果200大供應商" target="_blank" rel="noopener">Yahoo 股市 - 蘋果 200 大供應商概念股</a></li></ul>
+</div>
+</body>
+</html>

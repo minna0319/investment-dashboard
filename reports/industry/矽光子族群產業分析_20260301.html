@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矽光子技術族群分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../timeline.html">時間表</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>矽光子技術族群分析</h1>
+</div>
+<div class="report-body">
+<h1>矽光子技術族群分析</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-03-01（台灣時間，週日）</td></tr><tr><td>台股狀態</td><td>週日，未開盤（下次開盤：2026-03-02 週一 09:00）</td></tr><tr><td>美股狀態</td><td>週日，未開盤（下次開盤：2026-03-02 週一 21:30 台灣時間，夏令）</td></tr><tr><td>股價資料</td><td>以搜尋到之 2026-02-24 前後收盤價為基準，非即時數據</td></tr><tr><td>待更新項目</td><td>各檔個股最新股價與本益比，建議開盤後至 Yahoo 股市 / CMoney 確認</td></tr></tbody></table></div>
+<hr>
+<h2>一句話總結</h2>
+<p>矽光子族群是 2026 年台股最具爆發潛力的 AI 基礎建設主題之一，2026 年是 CPO 商轉元年，業績正從「題材」轉向「實際出貨」，但多數個股已漲 1-3 倍，此刻進場需要高度評估估值風險與回調時機。</p>
+<hr>
+<h2>1. 矽光子技術白話解釋</h2>
+<h3>什麼是矽光子？</h3>
+<p><strong>一句話解釋：矽光子就是「用光代替電線來傳輸資料」的技術，讓晶片之間、伺服器之間的溝通速度暴增、耗電大幅降低。</strong></p>
+<p>傳統的電腦晶片靠「銅線（電子）」傳遞資料，就像用老舊水管運水，速度有上限、距離越遠越慢、還會大量發熱。</p>
+<p>矽光子用「光（光子）」來傳資料，就像換成光纖高速公路，傳輸速度快 10 倍以上，耗電只有原本的 1/5，發熱量也大幅降低。</p>
+<p>更厲害的是，它用「矽」（就是一般半導體的材料）來做光學元件，可以用現有的晶圓廠設備製造，成本大幅低於傳統光學材料。</p>
+<h3>解決什麼問題？</h3>
+<p>AI 訓練需要數萬顆 GPU 同時工作，這些 GPU 彼此之間的資料傳輸量是天文數字。目前 NVIDIA 訓練一個超大 AI 模型，需要 10 萬顆以上的 GPU 串聯，全部靠銅線（電訊號）傳資料的話：</p>
+<ul><li>速度不夠（銅線頻寬上限快到了）</li><li>耗電暴增（傳輸損耗大）</li><li>資料中心發熱嚴重（降溫成本爆炸）</li></ul>
+<p>矽光子直接解決這三個問題。</p>
+<h3>為什麼現在是關鍵時間點？</h3>
+<p>2026 年是「CPO 商轉元年」。</p>
+<p>📝 <strong>CPO（Co-Packaged Optics，共封裝光學）</strong>：把光學元件直接封裝進晶片旁邊，讓光訊號和電訊號能在同一個封裝體內溝通，省去長距離傳輸的損耗。</p>
+<p>關鍵事件連鎖：</p>
+<ol><li>台積電的 <strong>COUPE 技術</strong>（光學引擎封裝）2025 年完成驗證，2026 年整合進 CoWoS 量產</li><li>NVIDIA <strong>Spectrum-X Photonics</strong> 交換器預計 2026 年下半年商用部署</li><li>NVIDIA <strong>Rubin 架構</strong>採用矽光子，功耗效率提升 3.5 倍</li><li>AWS、Google Cloud、Microsoft 都已列為 2026 年 Vera Rubin 首批部署客戶</li></ol>
+<h3>跟 AI 伺服器的關係？</h3>
+<div class="table-wrap"><table><thead><tr><th>傳統 AI 伺服器</th><th>矽光子 AI 伺服器</th></tr></thead><tbody><tr><td>銅線連接 GPU</td><td>光纖/矽光子連接 GPU</td></tr><tr><td>頻寬上限：800G</td><td>頻寬目標：1.6T → 3.2T</td></tr><tr><td>耗電大</td><td>省電 3-5 倍</td></tr><tr><td>傳輸距離有限</td><td>可跨機架、跨機房</td></tr></tbody></table></div>
+<p>簡單說：沒有矽光子，NVIDIA 下一代 100 萬 GPU 叢集規模的 AI 資料中心，在物理上根本無法運作。</p>
+<hr>
+<h2>2. 產業鏈地圖</h2>
+<h3>整體架構</h3>
+<p>```</p>
+<p>上游（材料/磊晶）</p>
+<p>↓</p>
+<p>中游（設計/製造/封裝）</p>
+<p>↓</p>
+<p>下游（模組/系統整合）</p>
+<p>↓</p>
+<p>終端用戶（AWS、Google、Microsoft、Meta 等雲端大廠）</p>
+<p>```</p>
+<h3>上游：材料與磊晶</h3>
+<p>📝 <strong>磊晶（Epitaxy）</strong>：在基板上一層一層長出半導體薄膜的製程，決定雷射的品質，是矽光子的「原料廠」。</p>
+<p>矽光子的光源需要用「磷化銦（InP）」材料製作雷射（因為矽無法直接發光），這是台灣廠商的優勢所在。</p>
+<div class="table-wrap"><table><thead><tr><th>角色</th><th>代表台廠</th><th>說明</th></tr></thead><tbody><tr><td>InP 磊晶代工</td><td>聯亞(3081)、全新(2455)、穩懋(3105)</td><td>三家合計台灣 InP 磊晶市占八成，是光源核心材料</td></tr><tr><td>GaAs 磊晶</td><td>全新(2455)</td><td>微電子+光電子雙業務</td></tr><tr><td>雷射晶片</td><td>華星光(4979)、IET-KY(4971)</td><td>將磊晶製作成 CW Laser（連續波雷射）成品</td></tr></tbody></table></div>
+<h3>中游：晶圓製造與封裝</h3>
+<p>📝 <strong>FAU（Fiber Array Unit，光纖陣列單元）</strong>：把光纖精確排列固定的元件，讓光訊號能準確進出矽光子晶片，是 CPO 的關鍵接頭。</p>
+<div class="table-wrap"><table><thead><tr><th>角色</th><th>代表台廠</th><th>說明</th></tr></thead><tbody><tr><td>矽光子晶圓製造</td><td>台積電(2330)、聯電(2303)</td><td>台積電主導 COUPE 技術平台，聯電 2025 年取得 imec iSiPP300 技術授權</td></tr><tr><td>光纖接合元件(FAU)</td><td>上詮(3363)、波若威(3163)</td><td>CPO 最終連接的關鍵元件，進入 NVIDIA/台積電 供應鏈</td></tr><tr><td>矽光封裝</td><td>采鈺(6789)</td><td>主被動元件製程整合</td></tr><tr><td>晶圓測試</td><td>旺矽(6223)、穎崴(6515)、致茂(2360)</td><td>測試介面廠商</td></tr></tbody></table></div>
+<h3>下游：模組與系統</h3>
+<div class="table-wrap"><table><thead><tr><th>角色</th><th>代表台廠</th><th>說明</th></tr></thead><tbody><tr><td>光模組/收發器</td><td>光聖(6442)、聯鈞(3450)、華星光(4979)</td><td>800G/1.6T 高速光模組</td></tr><tr><td>交換器（AI 專用）</td><td>智邦(2345)</td><td>800G CPO 交換器，NVIDIA Spectrum-X 生態系</td></tr><tr><td>AI 伺服器代工</td><td>鴻海(2317)、廣達(2382)</td><td>系統整合端</td></tr><tr><td>封測</td><td>日月光投控(3711)</td><td>先進 CPO 封裝測試</td></tr></tbody></table></div>
+<h3>終端用戶</h3>
+<ul><li><strong>雲端大廠</strong>：AWS、Google Cloud、Microsoft Azure、Meta AI</li><li><strong>AI 晶片廠</strong>：NVIDIA（Spectrum-X / Rubin）、Broadcom（Tomahawk 系列）</li><li><strong>網通設備廠</strong>：Cisco、Juniper</li></ul>
+<hr>
+<h2>3. 台股矽光子概念股總覽</h2>
+<blockquote>股價資料以 2026-02-24 前後資料為準，非即時。本益比部分因多數個股已大幅上漲且 2025 年 EPS 尚未全部公告，標示 ❌ 未取得者請自行至 CMoney 查詢最新數據。</blockquote>
+<h3>核心第一線（直接受益矽光子/CPO 量產）</h3>
+<div class="table-wrap"><table><thead><tr><th>股票代號</th><th>名稱</th><th>產業鏈位置</th><th>主要矽光子業務</th><th>近期股價（參考）</th><th>矽光子概念強度</th><th>一句話評價</th></tr></thead><tbody><tr><td>3163</td><td>波若威</td><td>中游（FAU元件）</td><td>FAU 光纖套件、光纖配線盒，已進入 NVIDIA 矽光子生態系</td><td>約 647 元（2/24 漲停）</td><td>★★★★★</td><td>最純矽光子概念，NVIDIA 直接點名，2025 年漲近 3 倍，估值已貴但訂單能見度延伸至 2026H1</td></tr><tr><td>3363</td><td>上詮</td><td>中游（FAU元件）</td><td>光纖陣列(FA)、MT-MPO 跳線，與台積電 COUPE 合作，800G/1.6T CPO 用高密度 FA 已送樣 NVIDIA/Cisco</td><td>約 501 元（2/24 漲停）</td><td>★★★★★</td><td>台積電矽光子體系連接端最具代表性台廠，2025 年漲 184%，2026Q2 馬來西亞新廠月產能翻倍</td></tr><tr><td>3081</td><td>聯亞</td><td>上游（InP磊晶）</td><td>InP 雷射磊晶代工，是矽光子光源關鍵材料，台灣 InP 磊晶龍頭之一</td><td>❌ 未取得（2025 漲 1 倍以上）</td><td>★★★★☆</td><td>InP 磊晶龍頭，2026 年 1 月營收 YoY+122%，業績最先落地，但矽光子是其中一部分非全部業務</td></tr><tr><td>2455</td><td>全新</td><td>上游（InP/GaAs磊晶）</td><td>InP + GaAs 雙磊晶，光電子營收佔比 2026 年預計突破 35-38%</td><td>❌ 未取得（高盛目標價 233 元）</td><td>★★★★☆</td><td>三五族化合物磊晶全球前三大，2025 是蓄勢年、2026 是爆發年，估值相對同族群尚合理</td></tr><tr><td>4979</td><td>華星光</td><td>上游+中游</td><td>CW Laser 矽光子光源，出貨已是 4 倍成長，2026 年預計再翻倍；同時做 CPO 矽光晶圓代工</td><td>約 357.5 元（2/24 漲停）</td><td>★★★★★</td><td>業績成長最具爆發力，大摩點名毛利率將衝破 4 成，純矽光子受益度高</td></tr></tbody></table></div>
+<h3>核心第二線（重要供應商，部分業務受益）</h3>
+<div class="table-wrap"><table><thead><tr><th>股票代號</th><th>名稱</th><th>產業鏈位置</th><th>主要矽光子業務</th><th>矽光子概念強度</th><th>一句話評價</th></tr></thead><tbody><tr><td>3105</td><td>穩懋</td><td>上游（GaAs/InP磊晶）</td><td>InP 磊晶，與聯亞、全新並稱台灣 InP 三大廠</td><td>★★★★☆</td><td>InP 磊晶三強之一，但 GaAs 手機業務也是大宗，矽光子佔比不如聯亞、全新純</td></tr><tr><td>6442</td><td>光聖</td><td>下游（光模組）</td><td>CPO 光模組研發製造，前 10 月營收 YoY 近九成</td><td>★★★★☆</td><td>光模組受益 800G 爆量，但非純矽光子，競爭較激烈</td></tr><tr><td>3450</td><td>聯鈞</td><td>下游（光模組）</td><td>高速 COB/FO 封裝，2026 年擴產月產能 3KK，營收年複合成長目標 40%</td><td>★★★☆☆</td><td>光模組範疇，搭 800G 升級潮，矽光子受益偏間接</td></tr><tr><td>2345</td><td>智邦</td><td>下游（交換器系統）</td><td>800G CPO 交換器研發，2020 年起布局 CPO，NVIDIA Spectrum-X 潛在受益者</td><td>★★★☆☆</td><td>光通訊設備龍頭，但產品大、出貨週期長，題材偏概念</td></tr><tr><td>6789</td><td>采鈺</td><td>中游（製程整合）</td><td>矽光子主被動元件製程開發，台積電體系廠商</td><td>★★★☆☆</td><td>台積電轉投資，矽光子是新業務，產能規模尚小，長線看好</td></tr></tbody></table></div>
+<h3>外圍相關（間接受益）</h3>
+<div class="table-wrap"><table><thead><tr><th>股票代號</th><th>名稱</th><th>關聯說明</th></tr></thead><tbody><tr><td>2330</td><td>台積電</td><td>COUPE 技術核心，但矽光子只是其中一項業務，整體市值龐大，矽光子貢獻短期佔比有限</td></tr><tr><td>3711</td><td>日月光投控</td><td>CPO 先進封裝測試，受益於整體先進封裝成長而非純矽光子</td></tr><tr><td>2317</td><td>鴻海</td><td>AI 伺服器組裝，矽光子是其中模組，間接受益</td></tr><tr><td>2382</td><td>廣達</td><td>同鴻海，AI 伺服器代工，間接受益</td></tr><tr><td>6223</td><td>旺矽</td><td>測試介面，受益矽光子量產帶來的測試需求</td></tr><tr><td>2303</td><td>聯電</td><td>取得 imec 矽光子技術授權，2026-27 年風險試產，尚在早期</td></tr></tbody></table></div>
+<hr>
+<h2>4. 市場規模與成長性</h2>
+<h3>全球矽光子市場規模</h3>
+<div class="table-wrap"><table><thead><tr><th>年份</th><th>市場規模</th><th>成長率（YoY）</th></tr></thead><tbody><tr><td>2025</td><td>約 28-33 億美元</td><td>—</td></tr><tr><td>2026</td><td>約 37 億美元</td><td>+30%</td></tr><tr><td>2030</td><td>約 103 億美元</td><td>CAGR 約 27%</td></tr><tr><td>2034</td><td>約 288 億美元</td><td>CAGR 約 29%</td></tr></tbody></table></div>
+<blockquote>資料來源：Precedence Research、Fortune Business Insights、Mordor Intelligence（各家預估略有差異）</blockquote>
+<h3>主要驅動力</h3>
+<ol><li><strong>AI 算力暴增</strong>：生成式 AI 叢集從 10 萬 GPU 邁向 100 萬 GPU 規模，銅線傳輸出現物理瓶頸</li><li><strong>800G → 1.6T 升級潮</strong>：TrendForce 預估 2026 年 800G 以上光收發模組出貨量達 6,300 萬組，較 2025 年爆增 2.6 倍</li><li><strong>CPO 商轉元年（2026 年）</strong>：NVIDIA + 台積電同步推進，從技術驗證轉為大規模量產</li><li><strong>功耗危機倒逼</strong>：AI 資料中心電力消耗急速增加，CPO 省電 3-5 倍的優勢成為剛性需求</li></ol>
+<h3>台廠機會</h3>
+<p>業界估計台灣供應鏈可望吃下全球矽光子市場約三成份額，原因是：</p>
+<ul><li>InP 磊晶三強（聯亞、全新、穩懋）合計市占超過八成</li><li>台積電 COUPE 是目前最先進的 CPO 整合平台</li><li>上詮、波若威已直接進入 NVIDIA 供應鏈驗證</li></ul>
+<hr>
+<h2>5. 關鍵催化劑與時間點</h2>
+<h3>台積電</h3>
+<div class="table-wrap"><table><thead><tr><th>事件</th><th>預計時間</th><th>重要性</th></tr></thead><tbody><tr><td>COUPE 技術驗證完成</td><td>2025 年上半年（已完成）</td><td>★★★★★</td></tr><tr><td>COUPE 整合進 CoWoS，CPO 進入量產</td><td>2026 年</td><td>★★★★★</td></tr><tr><td>台積電 Q1 2026 法說會（矽光子進度說明）</td><td>2026 年 4 月中</td><td>★★★★☆</td></tr></tbody></table></div>
+<h3>NVIDIA</h3>
+<div class="table-wrap"><table><thead><tr><th>事件</th><th>預計時間</th><th>重要性</th></tr></thead><tbody><tr><td>Spectrum-X Photonics CPO 交換器商用部署</td><td>2026 年下半年</td><td>★★★★★</td></tr><tr><td>Rubin 架構（含矽光子）全面導入</td><td>2026 年</td><td>★★★★★</td></tr><tr><td>AWS、Google Cloud、Microsoft 首批 Vera Rubin 部署</td><td>2026 年</td><td>★★★★☆</td></tr><tr><td>NVIDIA Q1 2026 財報（AI 需求溫度計）</td><td>2026 年 5 月中</td><td>★★★★★</td></tr></tbody></table></div>
+<h3>台廠個別催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>關鍵事件</th><th>預計時間</th></tr></thead><tbody><tr><td>上詮(3363)</td><td>馬來西亞新廠開出，月產能翻倍</td><td>2026 年 Q2</td></tr><tr><td>波若威(3163)</td><td>CPO 產品（FAU 套件等）完成驗證，量產出貨</td><td>2025H2 驗證完成，2026 年量產</td></tr><tr><td>華星光(4979)</td><td>CPO 矽光晶圓代工進入風險量產（AWS 訂單）</td><td>2026 年 Q1 已啟動</td></tr><tr><td>聯亞(3081)</td><td>月營收創新高趨勢持續確認</td><td>每月 10 日前公告</td></tr><tr><td>全新(2455)</td><td>光電子營收佔比突破 35%，毛利率突破 40%</td><td>2026 年全年</td></tr><tr><td>聯電(2303)</td><td>iSiPP300 矽光子技術進入風險試產</td><td>2026-27 年</td></tr></tbody></table></div>
+<h3>重要展會/論壇</h3>
+<div class="table-wrap"><table><thead><tr><th>事件</th><th>時間</th><th>說明</th></tr></thead><tbody><tr><td>OFC（光纖通訊展）</td><td>每年 3 月</td><td>矽光子技術最重要年度展，美國舉辦</td></tr><tr><td>SEMICON Taiwan</td><td>每年 9 月</td><td>台灣半導體展，2025 年台積電在此發布 COUPE</td></tr><tr><td>NVIDIA GTC</td><td>每年 3 月</td><td>AI 晶片生態系最大展，矽光子供應鏈直接受益</td></tr></tbody></table></div>
+<hr>
+<h2>6. 風險與挑戰</h2>
+<h3>技術風險</h3>
+<p><strong>良率問題（最關鍵）</strong></p>
+<p>CPO 把光學引擎直接封裝進交換器晶片旁，一旦光學元件有問題，整個封裝體可能要報廢，良率對成本影響極大。矽光子的光學 IO 良率目前仍在驗證磨合階段。</p>
+<p><strong>光源難題</strong></p>
+<p>矽本身無法發光，需要用 InP 雷射外接，如何高精度、低損耗地耦合光源進矽光子晶片，是技術挑戰。</p>
+<h3>時程風險</h3>
+<p><strong>量產延後的可能性高</strong></p>
+<p>半導體新製程歷史一再告訴我們，新技術量產時程幾乎都會延後。目前業界普遍預期 2026 年 CPO 商轉，但若台積電 COUPE 整合遇到問題，或客戶驗證時間拉長，台廠業績爆發點可能推遲到 2027 年。</p>
+<p><strong>「出貨 ≠ 大量貢獻」</strong></p>
+<p>2026 年商轉元年，初期量可能仍是試產規模，不代表第一天就有大量業績貢獻。</p>
+<h3>估值泡沫風險</h3>
+<p><strong>本益比極高</strong></p>
+<p>多數矽光子個股在 2025 年已漲 1-3 倍，目前股價隱含了相當樂觀的未來業績，一旦量產進度稍有延誤，股價修正幅度可能很大（跌 20-40% 都屬正常範圍）。</p>
+<p><strong>「概念題材」與「實際業績」的落差</strong></p>
+<p>市場炒作題材時往往先漲，等業績真正出來時反而「利多出盡」。矽光子很可能走這個劇本。</p>
+<h3>競爭風險</h3>
+<p><strong>中國追趕</strong></p>
+<p>中國在矽光子領域投入大量資源，部分廠商技術進展較快，尤其在 InP 磊晶方面有追上的可能，長期來看是台廠的潛在威脅。</p>
+<p><strong>Intel 反撲</strong></p>
+<p>Intel 在矽光子領域布局最久（十多年），雖目前落後台積電，但不能低估其研發實力與資源投入。</p>
+<p><strong>材料多元化</strong></p>
+<p>除了 InP，部分廠商在研究矽鍺（SiGe）雷射，若替代技術突破，現有 InP 磊晶廠的優勢可能削弱。</p>
+<hr>
+<h2>7. 投資建議（針對 Minna）</h2>
+<blockquote>以下分析基於 Minna 的個人狀況：台股資金 20 萬、中線波段偏好、新手學習階段、偏保守但願意學習。</blockquote>
+<h3>整體判斷</h3>
+<p><strong>矽光子是真實需求驅動的大題材，但大多數個股已先漲一步，此時進場需要非常謹慎評估風險承受度。</strong></p>
+<p>適合的做法：<strong>建立觀察清單，等待回調後分批進場，而非追漲。</strong></p>
+<hr>
+<h3>推薦類別一：適合觀察，等回調再考慮進場</h3>
+<h4>全新光電（2455）- 「首選觀察標的」</h4>
+<p><strong>為什麼是首選：</strong></p>
+<ul><li>在矽光子族群中，全新的評估相對較早「尚未被炒到極端」</li><li>高盛目標價 233 元，上游材料廠受益確定性高</li><li>業務雙引擎：微電子復甦 + 光電子爆發，抗跌性較強</li><li>2026 年 1 月月營收年增 30%，業績趨勢向上確認</li></ul>
+<p><strong>觀察條件（滿足以下任一再考慮進場）：</strong></p>
+<ul><li>股價有效回測 150-170 元附近（若目前高於此）</li><li>每月 10 日月營收公告持續年增 30%+ 確認</li><li>2025 年全年 EPS 優於預期，光電子佔比確認攀升</li></ul>
+<p><strong>建議倉位：</strong> 若決定進場，台股資金 20 萬中配置 5-8%（即 1-1.6 萬），小部位試水</p>
+<hr>
+<h4>聯亞（3081）- 「業績最先落地的上游廠」</h4>
+<p><strong>為什麼適合：</strong></p>
+<ul><li>2026 年 1 月營收年增 122%，業績是族群中最先落地的</li><li>台灣 InP 磊晶龍頭之一，受益確定性高</li><li>上游材料廠，比下游模組廠波動稍小</li></ul>
+<p><strong>觀察條件：</strong></p>
+<ul><li>確認月營收持續創新高（每月 10 日追蹤）</li><li>股價回落至前一個月均線附近才考慮布局</li></ul>
+<p><strong>建議倉位：</strong> 5-8%（1-1.6 萬），與全新二選一或各半</p>
+<hr>
+<h3>推薦類別二：值得追蹤但目前不急著進場</h3>
+<h4>波若威（3163）- 「最純矽光子概念，但漲幅已大」</h4>
+<ul><li>2025 年漲近 3 倍，股價已在高位（647 元附近）</li><li>NVIDIA 點名合作，訂單能見度高，但估值相當高</li><li>建議：追蹤月營收確認出貨規模，若業績持續超預期且股價明顯回落 20-30%，再考慮介入</li></ul>
+<h4>上詮（3363）- 「台積電矽光子體系最直接受益」</h4>
+<ul><li>與台積電 COUPE 深度合作，2026Q2 馬來西亞新廠產能翻倍</li><li>也是 NVIDIA / Cisco 送樣驗證中，進度確定性高</li><li>但 501 元的股價同樣在高位，建議等回調 20% 以上再考慮</li></ul>
+<h4>華星光（4979）- 「業績成長最猛，但波動也最大」</h4>
+<ul><li>CW Laser 出貨量 4 倍成長，大摩看好毛利率突破 40%</li><li>上游+中游雙重受益，業績爆發力強</li><li>股價在高位（357 元附近），且波動性高，不適合新手在高點追進</li></ul>
+<hr>
+<h3>推薦類別三：建議避開的標的（或目前不適合新手）</h3>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>避開原因</th></tr></thead><tbody><tr><td>光聖(6442)</td><td>下游光模組競爭激烈，矽光子純度不足，較偏一般光通訊</td></tr><tr><td>聯電(2303)</td><td>矽光子技術授權才剛開始，2026-27 年才風險試產，時程太遠</td></tr><tr><td>日月光投控(3711)</td><td>矽光子是其眾多業務之一，敏感度低，不是純矽光子標的</td></tr><tr><td>鴻海(2317)、廣達(2382)</td><td>AI 伺服器組裝概念，矽光子僅為其中一個模組，影響太間接</td></tr><tr><td>智邦(2345)</td><td>交換器大廠，CPO 是長遠布局，短中期業績貢獻有限</td></tr></tbody></table></div>
+<hr>
+<h3>進場時機建議</h3>
+<h4>不建議現在追漲</h4>
+<p>目前時間點（2026 年 3 月）是矽光子族群炒作高峰，多數個股 2025 年已漲 100-300%，追漲風險極高。</p>
+<h4>建議的等待策略</h4>
+<ol><li><strong>建立觀察清單</strong>：全新(2455)、聯亞(3081) 設為重點追蹤標的</li><li><strong>每月 10 日追蹤月營收</strong>：聯亞、全新的月營收年增率是否維持 >30%</li><li><strong>等 3 月 OFC 光纖展後觀察</strong>：若展後股價回落（利多出盡效應），可能是進場時機</li><li><strong>等整體大盤或族群出現 10-20% 修正</strong>：大跌往往是最好的進場機會</li><li><strong>2026Q1 財報季後（4-5 月）</strong>：看業績能否支撐股價，是否值得繼續持有觀察</li></ol>
+<h4>若決定進場的操作框架</h4>
+<p>```</p>
+<p>倉位建議：矽光子族群整體不超過台股資金的 15%（3 萬以下）</p>
+<p>首選標的：全新(2455) 或 聯亞(3081)，選一或各半</p>
+<p>進場方式：分 2 批進場，不要一次全押</p>
+<p>停損設定：進場後跌破 15% 要認賠，不要硬撐</p>
+<p>停利思考：目標報酬 30-50%，設定停利價預防貪心</p>
+<p>```</p>
+<hr>
+<h2>重要提醒</h2>
+<p><strong>矽光子族群的特殊風險：</strong></p>
+<ul><li>這是「題材驅動 + 業績跟上」的題材，兩者必須同時成立</li><li>目前族群整體本益比極高，對業績達成的要求很嚴</li><li>任何量產進度延後的消息都可能引發大幅修正</li><li>新手建議先觀察學習 1-2 個月，等理解這個題材的節奏後再決定是否進場</li></ul>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/矽光子國家隊全解析-台積電-波若威-上詮三大龍頭股布局與2025展望--股市話題-690038f99d971b01236f3442" target="_blank" rel="noopener">矽光子國家隊全解析 - 豐雲學堂 (2026/02)</a></li><li><a href="https://www.sinotrade.com.tw/richclub/industry/2026年CPO光通訊商轉元年" target="_blank" rel="noopener">2026年CPO光通訊商轉元年！台積電COUPE技術領軍 - 豐雲學堂 (2026/02)</a></li><li><a href="https://finance.technews.tw/2025/09/10/silicon-photonics-concept-stocks/" target="_blank" rel="noopener">SEMICON Taiwan 矽光子概念股解析 - TechNews 科技新報 (2025/09)</a></li><li><a href="https://www.tweaktown.com/news/97861/tsmcs-next-gen-coupe-tech-silicon-photonics-packaging-will-be-ready-in-2026/index.html" target="_blank" rel="noopener">TSMC COUPE 技術 2026 年量產 - Tweaktown</a></li><li><a href="https://www.tomshardware.com/networking/nvidia-outlines-plans-for-using-light-for-communication-between-ai-gpus-by-2026" target="_blank" rel="noopener">NVIDIA Spectrum-X CPO 部署時程 - Tom's Hardware</a></li><li><a href="https://nvidianews.nvidia.com/news/nvidia-spectrum-x-co-packaged-optics-networking-switches-ai-factories" target="_blank" rel="noopener">NVIDIA Spectrum-X Photonics 發表 - NVIDIA Newsroom</a></li><li><a href="https://www.trendforce.com/news/2025/12/08/news-umc-licenses-imecs-isipp300-to-advance-silicon-photonics-eyes-2026-27-risk-production/" target="_blank" rel="noopener">TrendForce - UMC iSiPP300 矽光子授權 (2025/12)</a></li><li><a href="https://www.trendforce.com/news/2025/03/19/news-nvidia-teams-up-with-tsmc-for-silicon-photonics-switches-expected-in-2025-26/" target="_blank" rel="noopener">TrendForce - NVIDIA x TSMC 矽光子合作 (2025/03)</a></li><li><a href="https://blog.fugle.tw/post/vpec-analysis" target="_blank" rel="noopener">全新光電 2026 爆發年分析 - 富果部落格</a></li><li><a href="https://www.precedenceresearch.com/silicon-photonics-market" target="_blank" rel="noopener">矽光子市場規模 - Precedence Research</a></li><li><a href="https://cmnews.com.tw/article/cmoney-f30cce57-d4d6-11f0-8f65-2d31e6af0996" target="_blank" rel="noopener">矽光子族群 2026 噴出 - CMoney</a></li></ul>
+<hr>
+<blockquote>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>

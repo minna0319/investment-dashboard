@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabrinet（FN）個股深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>Fabrinet（FN）個股深度分析</h1>
+</div>
+<div class="report-body">
+<h1>Fabrinet（FN）個股深度分析</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-03-12（更新），首次建立 2026-03-09</td></tr><tr><td>美股資料</td><td>2026-03-10（週一）收盤參考，股價 ~$543</td></tr><tr><td>資料來源</td><td>GlobeNewswire、Motley Fool 財報電話會、StockTitan、MarketBeat、SimplyWallSt、Quiver Quantitative</td></tr><tr><td>分析背景</td><td>光通訊產業鏈分析：FN 為光模組 EMS 代工龍頭</td></tr></tbody></table></div>
+<h2>結論</h2>
+<p>【研究追蹤 — 不急進場，等回調確認止跌】</p>
+<p>基本面無可挑剔，是光通訊產業鏈「吃最寬」的代工平台，Q2 創歷史新高且 Q3 指引持續加速，成長故事清晰。然而：</p>
+<ul><li>估值 PE 約 51x，高於歷史均值 2 倍，已 price-in 大量成長預期</li><li>3/6-7 重跌 -10%，是 VIX 飆升 + 獲利了結的市場行為，而非基本面惡化</li><li>泰國關稅（19%）是結構性風險，目前尚難量化對毛利的長期影響</li><li>等股價回落至合理支撐區（$440-480）且大盤風險情緒改善（VIX < 20），再考慮進場</li></ul>
+<p>信心程度：基本面 5/5、時機 2/5（估值偏貴 + 市場環境不佳）</p>
+<p>適合操作：研究追蹤，不急進場，等回調</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>靠什麼賺錢？</h3>
+<p>Fabrinet 是全球最重要的光通訊精密製造代工廠（EMS），核心定位是「光模組品牌商的製造手」——它不做品牌、不賣產品，而是幫助 COHR（Coherent）、LITE（Lumentum）、NVIDIA 等客戶生產高精度光模組與光學組件。</p>
+<p>商業模式的精髓是：客戶提供設備與技術，Fabrinet 提供廠房、人力、供應鏈管理與精密製造。每一條生產線都是為特定客戶量身設計的「廠中廠」，切換門檻極高。</p>
+<div class="table-wrap"><table><thead><tr><th>業務分類</th><th>最新季度（Q2 FY2026）收入</th><th>佔比</th><th>YoY 成長</th></tr></thead><tbody><tr><td>光通訊（Optical Comm）</td><td>$833M</td><td>73.5%</td><td>+29%</td></tr><tr><td>— 電信（Telecom）</td><td>$554M</td><td>66.6%（光通訊內）</td><td>+59%</td></tr><tr><td>— 資料通訊（Datacom）</td><td>$278M</td><td>33.4%（光通訊內）</td><td>-7%</td></tr><tr><td>非光通訊（含工業/半導體/汽車）</td><td>~$300M</td><td>26.5%</td><td>—</td></tr><tr><td>高效能運算（HPC，新興）</td><td>$86M</td><td>7.6%</td><td>爆發增長（前季 $15M）</td></tr><tr><td><strong>合計</strong></td><td><strong>$1,132.9M</strong></td><td>100%</td><td><strong>+36%</strong></td></tr></tbody></table></div>
+<blockquote>白話說：Fabrinet 73% 的收入來自光通訊，而光通訊裡面電信佔更大，主要是「資料中心互聯（DCI）」和長途光纖傳輸。這兩個都是 AI 建設 + 全球數位基建的核心需求。</blockquote>
+<h3>產業鏈定位</h3>
+<p>```</p>
+<p>晶片設計層       光模組品牌層                 代工製造層（FN）     終端客戶</p>
+<p>─────────────────────────────────────────────────────────────────────</p>
+<p>MACOM            Coherent (COHR)    ──→   Fabrinet  ──→   AWS</p>
+<p>II-VI (已併入)   Lumentum (LITE)    ──→   Fabrinet  ──→   Google</p>
+<p>Ciena              ──→   Fabrinet  ──→   Meta</p>
+<p>NVIDIA（自有）     ──→   Fabrinet  ──→   Microsoft</p>
+<p>```</p>
+<p>FN 的定位：光通訊設備製造的「台積電」。它不替客戶設計產品，而是替所有主要品牌代工，就像台積電不做品牌 CPU 但幫 Intel、AMD、NVIDIA 全部代工一樣。</p>
+<h3>競爭優勢（護城河）</h3>
+<ol><li><strong>技術門檻極高</strong>：光模組的精密封裝涉及光纖對準（tolerance 在微米以下）、雷射調校、溫度控制，一般 EMS 廠無法複製，Fabrinet 為此深耕超過 25 年</li><li><strong>廠中廠模式</strong>：每條產線專屬於一個客戶，機密保護極佳，加上客戶設備已安置廠內，切換成本極高（等於要把設備搬走）</li><li><strong>不競爭原則</strong>：Fabrinet 只做代工，不設計也不賣品牌，因此對客戶而言是「安全」的合作夥伴，不像台廠可能搶訂單</li><li><strong>泰國低成本基地</strong>：在曼谷附近的 Chonburi 工業區擁有 100 萬平方英呎以上的製造產能，加上 Silicon Valley 的 NPI 中心，形成「矽谷驗證 → 泰國量產」的無縫轉移模型</li><li><strong>1.6T 光模組獨家</strong>：目前在 NVIDIA Blackwell 平台的 1.6T 收發器市佔率接近 100%，是下一代 AI 互聯基建的唯一供應商</li></ol>
+<h3>管理層動態</h3>
+<ul><li><strong>CEO Seamus Grady</strong>：2017 年接任，持續推動精密製造升級與產能擴張</li><li><strong>財務紀律佳</strong>：無負債擴張（debt-free expansion），全部以自有現金流支持 Building 10 建設</li><li><strong>Q2 電話會語氣</strong>：指引 Q3 持續創新高，明確指出電信 / Datacom / HPC 三條線同步成長</li></ul>
+<h3>客戶集中度（風險）</h3>
+<div class="table-wrap"><table><thead><tr><th>客戶</th><th>估計收入佔比</th></tr></thead><tbody><tr><td>前三大客戶合計</td><td>51.5%（Q2 FY2026）</td></tr><tr><td>前十大客戶合計</td><td>86%</td></tr><tr><td>NVIDIA（估計）</td><td>~28%（FY2025）</td></tr></tbody></table></div>
+<blockquote>高度集中是最大的非市場風險。NVIDIA 若削減 1.6T 光模組採購（或選擇其他代工廠），FN 短期衝擊會非常大。</blockquote>
+<hr>
+<h2>2. 財務面</h2>
+<h3>最新財報亮點（Q2 FY2026，2025 年 10-12 月）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>總營收</td><td>$1,132.9M</td><td><strong>歷史新高，YoY +36%（公司 IPO 以來最快成長）</strong></td></tr><tr><td>Telecom 收入</td><td>$554M</td><td>YoY +59%</td></tr><tr><td>Datacom 收入</td><td>$278M</td><td>YoY -7%（但環比 +2%）</td></tr><tr><td>HPC 收入</td><td>$86M</td><td>前季僅 $15M，爆發性成長</td></tr><tr><td>GAAP EPS</td><td>$3.11</td><td>超過指引</td></tr><tr><td>非 GAAP EPS</td><td>$3.36</td><td>超過指引</td></tr><tr><td>毛利率（GAAP）</td><td>~11.99%</td><td>低但穩定（EMS 業態特性）</td></tr><tr><td>營業利潤率</td><td>~9.55%</td><td></td></tr><tr><td>淨利率</td><td>~9.77%</td><td></td></tr></tbody></table></div>
+<blockquote>白話說：Fabrinet 在 10-12 月交出了公司創立以來最漂亮的一張季報。成長快到打破自己的紀錄。</blockquote>
+<h3>Q3 FY2026 指引（2026 年 1-3 月）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>指引範圍</th></tr></thead><tbody><tr><td>收入</td><td>$1.15B ~ $1.20B</td></tr><tr><td>GAAP EPS</td><td>$3.22 ~ $3.37</td></tr><tr><td>非 GAAP EPS</td><td>$3.45 ~ $3.60</td></tr><tr><td>YoY 成長（EPS 中位數）</td><td>約 +40%</td></tr></tbody></table></div>
+<blockquote>三條線（Telecom、Datacom、HPC）同步指引成長，確認成長並非單一驅動。</blockquote>
+<h3>長期趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>FY2025 全年</th><th>Q1 FY2026</th><th>Q2 FY2026</th></tr></thead><tbody><tr><td>季度收入</td><td>$3.4B（全年）</td><td>$978M（+22% YoY）</td><td>$1,132.9M（+36% YoY）</td></tr><tr><td>成長加速</td><td>—</td><td>+22%</td><td>+36%</td></tr></tbody></table></div>
+<p>成長在明顯加速，而非放緩，是財務上最亮眼的信號。</p>
+<h3>毛利率補充說明</h3>
+<p>11.99% 的毛利率初看很低，但這是 EMS 代工廠的正常水準（台灣鴻海毛利率也只有 5-6%）。FN 的競爭優勢不在毛利率高，而在：</p>
+<ul><li>複雜光電製造能力（競爭者難複製）</li><li>客戶黏性（廠中廠模式）</li><li>規模擴張（收入成長率 >>毛利率提升）</li></ul>
+<hr>
+<h2>3. 估值面</h2>
+<h3>當前估值（2026-03-10 更新）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>股價</td><td>~$543（3/10 參考）</td><td>從 3/7 $488 反彈，已超過進場目標區 $440-480</td></tr><tr><td>52 週高點</td><td>~$600（推估）</td><td>2025-2026 年高點區</td></tr><tr><td>PE（TTM）</td><td>~49x</td><td>遠高於歷史 5 年均值（~24-26x）</td></tr><tr><td>Forward PE</td><td>~34x</td><td>以 FY2026 全年 EPS 共識 $11.70-$12.16 估算</td></tr><tr><td>PEG 比</td><td>~0.85-1.0</td><td>EPS YoY 成長率 ~35-40%，考慮成長速度後估值尚可解釋，但風險高</td></tr><tr><td>現金</td><td>$961.5M（2025/12）</td><td>零負債，財務非常健康</td></tr><tr><td>FCF（TTM）</td><td>~$201.7M</td><td>正向，支持持續擴產</td></tr><tr><td>市值</td><td>約 $196 億</td><td>—</td></tr><tr><td>分析師共識目標價</td><td>$531-$544 中位數（範圍 $452-$600）</td><td>9 Buy / 1 Hold / 0 Sell</td></tr></tbody></table></div>
+<blockquote>目前股價 $543 已在法人共識目標價中位數附近，上行空間有限。Forward PE 34x 考慮到成長速度後尚在合理邊界，但安全邊際薄。等回調或泰國關稅明確改善再進場。</blockquote>
+<h3>估值合理性判斷</h3>
+<ul><li><strong>Bull case（樂觀）</strong>：FY2026 年化收入有望達 $4.5B+，EPS 超過 $13，若 PE 壓縮至 35-40x，目標股價 $455-520，目前價格仍可接受</li><li><strong>Bear case（悲觀）</strong>：關稅衝擊泰國製造 + 客戶自建產能，成長放緩，PE 壓回 25-30x，股價可能見 $325-390</li><li><strong>中性看法</strong>：目前 $488 的股價已從高點修正約 10-15%，但考慮到估值和外部風險，尚未到非常有吸引力的進場點</li></ul>
+<hr>
+<h2>4. 技術面（定性）</h2>
+<h3>股價位置（2026-03-07）</h3>
+<ul><li>3/10 回升至 ~$543，從低點 $488 反彈約 +11%</li><li>3/6 大跌 -10.1% 是市場情緒主導（VIX 飆升），而非 FN 特定利空，基本面未變</li><li>目前已超過進場目標區 $440-480，短線在法人目標價中位數附近整理</li></ul>
+<h3>技術支撐與壓力</h3>
+<div class="table-wrap"><table><thead><tr><th>類型</th><th>價位</th><th>說明</th></tr></thead><tbody><tr><td>強力支撐</td><td>$440-480</td><td>Q2 財報後跳空缺口上緣（約 2 月初水準）</td></tr><tr><td>次級支撐</td><td>$390-420</td><td>技術面 200 日均線預估區間</td></tr><tr><td>短期壓力</td><td>$520-540</td><td>近期整理區上緣</td></tr><tr><td>強力壓力</td><td>$570-600</td><td>歷史高點區域</td></tr></tbody></table></div>
+<blockquote>建議觀察 $440-480 支撐是否守住。若 VIX 回落 + 股價在此區間止跌，才是進場時機。</blockquote>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>機構持股</h3>
+<ul><li><strong>機構投資人</strong>廣泛持有，但具體比例無精確資料</li><li><strong>分析師共識</strong>：9 Buy、1 Hold、0 Sell，強烈偏多</li><li>Wolfe Research 最新評級：Outperform，目標價 $540</li><li>3/6 大跌為市場整體 risk-off，非主力出逃</li></ul>
+<h3>籌碼解讀</h3>
+<p>FN 屬於高成長、高估值、高動能股，這類股在 VIX 升高時通常跌幅大於大盤。目前跌幅 -10% 是典型的「高位高貝塔修正」，基本面未變。</p>
+<hr>
+<h2>6. 成長驅動因素</h2>
+<h3>近期（2026-2027）</h3>
+<ol><li><strong>800G / 1.6T 光模組量產</strong>：NVIDIA Blackwell 每台 GPU 配備數十個 1.6T 收發器，FN 是主要代工廠，Building 10 2026 年落成後可雙倍產能，最高可新增年產能 $2.4B</li><li><strong>資料中心互聯（DCI）加速</strong>：Q1 DCI 收入 $138M，YoY +92%，是最亮眼的細分市場</li><li><strong>電信 Telecom 復甦</strong>：受益於超大規模資料中心建設，長途光纖需求回升，Q2 電信 +59% YoY</li><li><strong>高效能運算（HPC）新增長</strong>：Q2 HPC 收入從 $15M 跳升至 $86M，代表 AI 超算集群對光互聯的需求正式啟動</li><li><strong>800ZR / 共封裝光學（CPO）進入量產</strong>：下一世代光互聯技術，FN 已獲準入資格</li></ol>
+<h3>中長期（2027+）</h3>
+<ul><li><strong>CPO（Co-packaged Optics）</strong>：當 GPU 密度越來越高，傳統可插拔光模組效能不足，CPO 將光學元件整合進晶片封裝，難度更高，更有利於 FN 的精密製造優勢</li><li><strong>AI 超算規模化</strong>：每座 Blackwell / Vera Rubin 超算集群都需要大量光互聯，FN 是整個 AI 時代的隱性受益者</li></ul>
+<hr>
+<h2>7. 風險因素</h2>
+<h3>高風險</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>說明</th></tr></thead><tbody><tr><td><strong>泰國關稅（19%）</strong></td><td>川普關稅政策讓泰國出口面臨 19% 關稅（已從 36% 降低），成本壓力實質存在，且泰國 2026 年出口預測有 -3.1% 至 +1.1% 的不確定性</td></tr><tr><td><strong>客戶集中度</strong></td><td>前三大客戶佔 51.5%，NVIDIA 估計佔 ~28%。NVIDIA 若自建或換廠，FN 收入衝擊極大</td></tr><tr><td><strong>估值過高</strong></td><td>PE 51x，歷史均值 2 倍。若成長達不到預期，估值壓縮幅度大</td></tr></tbody></table></div>
+<h3>中風險</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>說明</th></tr></thead><tbody><tr><td><strong>泰國政治/社會穩定性</strong></td><td>製造產能 100% 集中泰國，地緣或政局風險難以分散</td></tr><tr><td><strong>Datacom 短期走弱</strong></td><td>Q2 Datacom YoY -7%，原因是客戶前置拉貨效應（pull-in）結束後的消化期，雖環比回穩但需觀察</td></tr><tr><td><strong>HPC 集中於 NVIDIA</strong></td><td>HPC 爆發成長幾乎等於 NVIDIA 成長，依賴度過高</td></tr><tr><td><strong>美元升值</strong></td><td>FN 以美元計價但成本在泰銖，匯率波動影響毛利率</td></tr></tbody></table></div>
+<h3>低風險</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>說明</th></tr></thead><tbody><tr><td><strong>競爭者進入</strong></td><td>光電精密製造門檻極高，Sanmina 等通用 EMS 廠難以直接競爭</td></tr><tr><td><strong>財務健康</strong></td><td>無負債擴張，資產負債表穩健</td></tr></tbody></table></div>
+<hr>
+<h2>8. 投資觀點</h2>
+<h3>利多因素</h3>
+<ul><li>公司創立以來最快 YoY 成長（+36%），且 Q3 持續指引加速</li><li>AI 建設每個環節都需要更多光互聯，FN 是不可繞過的製造節點</li><li>分析師強烈 Buy 共識（9:1:0），目標價中位數 $541</li><li>Building 10 2026 年完工後可新增 $2.4B 年產能，為未來 3 年成長奠定基礎</li><li>技術面：-10% 修正是市場情緒因素，非基本面惡化</li></ul>
+<h3>利空因素</h3>
+<ul><li>PE 51x 估值過高，已 price-in 大量樂觀預期，安全邊際薄弱</li><li>客戶高度集中（NVIDIA 佔 ~28%），單一客戶風險不可忽視</li><li>泰國製造 19% 關稅壓縮毛利空間，長期影響待觀察</li><li>大盤風險：VIX 29.49，整體市場氣氛不利於高估值成長股</li><li>Datacom 短期 YoY 轉負，需觀察 Q3 是否真正反彈</li></ul>
+<h3>進場條件（條件式）</h3>
+<p>若想納入觀察清單，建議等以下條件：</p>
+<div class="table-wrap"><table><thead><tr><th>條件</th><th>說明</th></tr></thead><tbody><tr><td>技術</td><td>股價回落至 $440-480，且出現止跌信號（成交量縮、K 棒止跌）</td></tr><tr><td>市場情緒</td><td>VIX 回落至 20 以下，整體風險情緒改善</td></tr><tr><td>基本面</td><td>Q3 FY2026 財報（約 5 月）確認三條線同步成長，Datacom 轉正</td></tr><tr><td>加分</td><td>泰國關稅有進一步降低或豁免的消息</td></tr></tbody></table></div>
+<p>建議倉位：若條件達成，$500-800 試水位（美股資金的 5-8%），因為估值風險仍高</p>
+<h3>與光通訊產業鏈其他標的比較</h3>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>定位</th><th>角色</th><th>風險</th></tr></thead><tbody><tr><td><strong>FN（Fabrinet）</strong></td><td>EMS 代工龍頭</td><td>製造執行層，吃寬度</td><td>估值高，客戶集中</td></tr><tr><td>COHR（Coherent）</td><td>光模組品牌商</td><td>設計+品牌，吃利潤</td><td>整合後整合風險</td></tr><tr><td>LITE（Lumentum）</td><td>光模組品牌商</td><td>設計+品牌，吃利潤</td><td>產品線轉型中</td></tr><tr><td>GLW（Corning）</td><td>光纖材料</td><td>基礎材料，吃長期</td><td>成長慢但穩</td></tr></tbody></table></div>
+<p>FN 的獨特之處：它是整個光通訊產業鏈裡「唯一同時服務所有品牌商」的節點，類似台積電在半導體的地位。</p>
+<hr>
+<h2>9. 關鍵追蹤指標</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>追蹤頻率</th><th>合格標準</th></tr></thead><tbody><tr><td>季度收入 YoY</td><td>季報</td><td>維持 25%+ 成長</td></tr><tr><td>Datacom 是否回正</td><td>Q3 財報（5 月）</td><td>YoY 轉正視為確認復甦</td></tr><tr><td>HPC 收入成長</td><td>季報</td><td>持續 >$80M / 季</td></tr><tr><td>泰國關稅動態</td><td>隨時</td><td>是否降至 10% 以下</td></tr><tr><td>NVIDIA 採購動態</td><td>財報 / 新聞</td><td>佔比是否持續 >25%</td></tr><tr><td>Building 10 完工時間</td><td>新聞</td><td>2026 年完工確認</td></tr><tr><td>VIX 水準</td><td>每週</td><td>回落至 20 以下才考慮進場</td></tr></tbody></table></div>
+<hr>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>股價</th><th>結論</th><th>重點變化</th></tr></thead><tbody><tr><td>2026-03-09</td><td>~$488（3/7 收盤）</td><td>研究追蹤，等回調</td><td>首次分析，建立基準</td></tr><tr><td>2026-03-12</td><td>~$543（2026-03-10）</td><td>研究追蹤，維持</td><td>股價從 $488 反彈至 $543，超過進場目標區 $440-480；Q2 FY2026 確認：$1.13B 史上最高季收 +36%，Non-GAAP EPS $3.36；Q3 指引 $1.15-1.20B 持續加速；OFC 展期間有投資人 Q&A，是近期觀察點</td></tr></tbody></table></div>
+<hr>
+<blockquote>以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>

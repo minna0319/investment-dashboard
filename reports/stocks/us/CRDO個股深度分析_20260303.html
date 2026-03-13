@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credo Technology (CRDO) 深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>Credo Technology (CRDO) 深度分析</h1>
+</div>
+<div class="report-body">
+<h1>Credo Technology (CRDO) 深度分析</h1>
+<blockquote>分析日期：2026-03-03</blockquote>
+<blockquote>結論：<strong>不列入觀察清單</strong> — 成長放緩訊號明確、內部人狂賣、估值仍貴</blockquote>
+<blockquote>定位：AI 資料中心互連溫度計，追蹤 AEC vs 光纖趨勢用</blockquote>
+<hr>
+<h2>一句話</h2>
+<p>「有腦的銅線」—— AEC（主動電纜）市佔 88%，讓 AI 資料中心 GPU 之間用銅纜高速傳資料，比光纖便宜、比普通銅線傳更遠。</p>
+<hr>
+<h2>公司概述</h2>
+<ul><li><strong>產業</strong>：AI 資料中心高速互聯晶片（Fabless，台積電代工）</li><li><strong>總部</strong>：美國（台灣、中國大陸、香港設有辦公室）</li><li><strong>上市</strong>：NASDAQ: CRDO</li><li><strong>會計年度</strong>：5 月底結束（Q3 FY26 = 截至 2026/01/31）</li><li><strong>核心定位</strong>：AEC 市場絕對壟斷者（88% 市佔）</li></ul>
+<hr>
+<h2>產品線</h2>
+<div class="table-wrap"><table><thead><tr><th>產品</th><th>佔比</th><th>說明</th></tr></thead><tbody><tr><td>HiWire ZeroFlap AEC</td><td>~95%+</td><td>800G 主動電纜，傳輸距離 5-15m，每條約 $500</td></tr><tr><td>IC 線路卡（光學 DSP）</td><td>快速成長</td><td>800G/1.6T 光模組的核心 DSP 晶片</td></tr><tr><td>SerDes IP 授權</td><td>~2.7%</td><td>授權高速串列/並列技術給其他晶片公司</td></tr></tbody></table></div>
+<h3>AEC 的甜蜜區</h3>
+<div class="table-wrap"><table><thead><tr><th>技術方案</th><th>最佳距離</th><th>成本</th><th>CRDO 角色</th></tr></thead><tbody><tr><td>DAC 被動銅纜</td><td>1~3m</td><td>最低</td><td>—</td></tr><tr><td><strong>AEC 主動電纜</strong></td><td><strong>5~15m</strong></td><td><strong>中等</strong></td><td><strong>CRDO 主戰場</strong></td></tr><tr><td>AOC 主動光纜</td><td>15~300m</td><td>高</td><td>—</td></tr><tr><td>傳統光收發器</td><td>300m+</td><td>最高</td><td>—</td></tr></tbody></table></div>
+<hr>
+<h2>財報數據</h2>
+<h3>Q3 FY2026（最新季，2026/03/02 公布）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>營收</td><td>$4.07 億（QoQ +52%，YoY +201.5%）</td></tr><tr><td>Non-GAAP 毛利率</td><td>68.6%</td></tr><tr><td>Non-GAAP 營業利益率</td><td>49.6%</td></tr><tr><td>Non-GAAP EPS</td><td>$1.07（預期 $0.89，超 20%）</td></tr><tr><td>GAAP EPS</td><td>$0.82</td></tr><tr><td>營運現金流</td><td>$1.66 億（史上最高）</td></tr><tr><td>FCF</td><td>$1.40 億（FCF margin ~34%）</td></tr></tbody></table></div>
+<h3>過去四季趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>營收</th><th>趨勢</th></tr></thead><tbody><tr><td>Q4 FY25</td><td>~$1.35 億</td><td>基期</td></tr><tr><td>Q1 FY26</td><td>~$1.37 億</td><td>平穩</td></tr><tr><td>Q2 FY26</td><td>$2.68 億</td><td>大幅跳升</td></tr><tr><td>Q3 FY26</td><td>$4.07 億</td><td>爆發</td></tr></tbody></table></div>
+<h3>Q4 FY2026 指引</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>指引</th></tr></thead><tbody><tr><td>營收</td><td>$4.25 億～$4.35 億</td></tr><tr><td>Non-GAAP 毛利率</td><td><strong>64%～66%</strong>（低於 Q3 的 68.6%）</td></tr></tbody></table></div>
+<h3>FY27 展望</h3>
+<p>管理層指引：QoQ 僅「mid-single digit」成長 → <strong>爆發期可能進入平台期</strong></p>
+<hr>
+<h2>資產負債表（2026/01/31）</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>現金 + 短期投資</td><td>~$13 億</td></tr><tr><td>長期負債</td><td>極低（負債/權益比 0.01）</td></tr><tr><td>流動比率</td><td>8.86</td></tr></tbody></table></div>
+<p>財務極度健康。</p>
+<hr>
+<h2>客戶結構</h2>
+<div class="table-wrap"><table><thead><tr><th>客戶</th><th>佔比（Q2 估算）</th></tr></thead><tbody><tr><td>最大客戶（疑為 Microsoft 或 Amazon）</td><td>~42%</td></tr><tr><td>第 2 大</td><td>~24%</td></tr><tr><td>第 3 大</td><td>~16%</td></tr><tr><td>第 4 大</td><td>~11%</td></tr><tr><td><strong>前 4 大合計</strong></td><td><strong>~93%</strong></td></tr><tr><td>第 5 家 Hyperscaler</td><td>Q3 新增，剛開始貢獻</td></tr></tbody></table></div>
+<p>已知客戶包括：Amazon、Microsoft、Meta、xAI。</p>
+<hr>
+<h2>AEC 市佔率 88%</h2>
+<ul><li>來源：多家分析機構及 Seeking Alpha、TenBagger Explorer</li><li>護城河：技術開創者，與 Hyperscaler 深度共同設計</li><li>視覺標誌：Amazon AWS 伺服器中的「紫色電纜」就是 Credo 的</li><li>風險：隨市場爆炸成長，競爭者（Marvell、Broadcom）會切入</li></ul>
+<hr>
+<h2>AEC vs 矽光子：長期競爭態勢</h2>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>AEC vs 光纖</th><th>對 CRDO 影響</th></tr></thead><tbody><tr><td>現在~2 年</td><td>AEC 是主流短距方案</td><td>黃金期</td></tr><tr><td>3~5 年</td><td>CPO 矽光子成熟，侵蝕 5-15m 區間</td><td>甜蜜區收窄</td></tr><tr><td>5 年+</td><td>光學可能成主流</td><td>純 AEC 業務衰退風險</td></tr></tbody></table></div>
+<p><strong>Credo 的應對</strong>：佈局光學 DSP 晶片（LRO 模組），光學業務 FY26 指引同比翻倍。但光學目前仍非主力。</p>
+<hr>
+<h2>估值</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>股價</td><td>~$105（2026/03/03）</td></tr><tr><td>市值</td><td>~$206 億</td></tr><tr><td>GAAP P/E</td><td>~100 倍</td></tr><tr><td>P/S（前瞻）</td><td>17.5 倍</td></tr><tr><td>EV/FCF</td><td>~138 倍</td></tr><tr><td>分析師目標價</td><td>$183～$225，共識「強力買入」</td></tr><tr><td>52 週高點</td><td>$213.80</td></tr><tr><td>距高點</td><td>-51%</td></tr></tbody></table></div>
+<h3>同業比較</h3>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>P/S</th><th>特色</th></tr></thead><tbody><tr><td>CRDO</td><td>17.5x</td><td>成長最快，估值最貴</td></tr><tr><td>ALAB</td><td>~23x</td><td>毛利率最高，客戶更集中</td></tr><tr><td>MRVL</td><td>7.4x</td><td>規模大、多元化</td></tr></tbody></table></div>
+<hr>
+<h2>SBC 分析</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>Q3 SBC</td><td>$5,220 萬</td></tr><tr><td>SBC 佔營收</td><td>~12.8%</td></tr><tr><td>SBC YoY 成長</td><td>+222%</td></tr><tr><td>GAAP vs Non-GAAP EPS 差距</td><td>$0.25（約 30%）</td></tr></tbody></table></div>
+<p>比 ALAB（18.8%）好一些，但 SBC 成長速度 222% 很快。</p>
+<hr>
+<h2>風險清單</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>嚴重度</th><th>說明</th></tr></thead><tbody><tr><td><strong>成長放緩訊號</strong></td><td><strong>最高</strong></td><td>FY27 指引只有「mid-single digit」QoQ 成長，爆發期可能結束</td></tr><tr><td><strong>毛利率下滑</strong></td><td><strong>高</strong></td><td>Q4 指引 64-66% vs Q3 的 68.6%，市場擔心獲利率高峰已過</td></tr><tr><td><strong>內部人狂賣</strong></td><td><strong>高</strong></td><td>過去 6 個月 365 次賣出、0 次買入</td></tr><tr><td>客戶集中 93%</td><td>高</td><td>前 4 大佔 93%，任一減單衝擊大</td></tr><tr><td>矽光子長期取代</td><td>中</td><td>AEC 甜蜜區 3-5 年後可能被 CPO 侵蝕</td></tr><tr><td>台積電製造集中</td><td>中</td><td>60% 長期資產在台灣，14% 在中國大陸</td></tr><tr><td>估值仍貴</td><td>中</td><td>跌 51% 還是 100 倍 P/E</td></tr></tbody></table></div>
+<hr>
+<h2>與台股的連動</h2>
+<p>CRDO 的營收趨勢是 AI 資料中心互聯需求的溫度計。但有一個弔詭：</p>
+<blockquote>CRDO 做的 AEC（銅纜方案）本質上是在<strong>減少光纖需求</strong>。短期 CRDO 大漲對光通訊台股是利多（代表 AI 擴充），但長期 AEC vs 矽光子是<strong>替代競爭</strong>關係。</blockquote>
+<p>台股連動標的參考：</p>
+<div class="table-wrap"><table><thead><tr><th>台股</th><th>連動邏輯</th></tr></thead><tbody><tr><td>台積電(2330)</td><td>CRDO 代工廠，直接吃單</td></tr><tr><td>聯亞(3081)</td><td>矽光子受惠（光學路線，與 AEC 互補/替代）</td></tr><tr><td>上詮(3363)</td><td>同上</td></tr><tr><td>波若威(3163)</td><td>同上</td></tr></tbody></table></div>
+<hr>
+<h2>不列入觀察清單的原因</h2>
+<ol><li><strong>成長放緩訊號明確</strong> — FY27 指引只有個位數 QoQ 成長，爆發期可能結束</li><li><strong>內部人 365 次賣出、0 次買入</strong> — 管理層用腳投票</li><li><strong>毛利率趨勢向下</strong> — 從 68.6% 降至 64-66%，獲利率壓縮</li><li><strong>客戶集中 93%</strong> — 結構性風險</li><li><strong>估值 100 倍 P/E</strong> — 成長放緩 + 估值仍貴 = 壓縮風險最大</li><li><strong>長期被矽光子侵蝕</strong> — AEC 是過渡方案，不是終局</li><li><strong>美股資金優先級</strong>：CEG > CRWD > 其他</li></ol>
+<p><strong>作為 AI 互連產業溫度計持續追蹤。</strong></p>
+<hr>
+<blockquote>免責聲明：以上內容僅為公開資訊整理，不構成投資建議。投資有風險，請依個人財務狀況自行判斷。</blockquote>
+<blockquote>資料來源：Credo 官方財報（BusinessWire）、Investing.com、Motley Fool、Seeking Alpha、MarketBeat、SignalBloom、Yahoo Finance</blockquote>
+</div>
+</body>
+</html>

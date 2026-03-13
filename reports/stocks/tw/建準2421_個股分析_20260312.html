@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>建準（2421）九維度個股深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>建準（2421）九維度個股深度分析</h1>
+</div>
+<div class="report-body">
+<h1>建準（2421）九維度個股深度分析</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-03-12（台灣時間）</td></tr><tr><td>台股資料</td><td>已收盤（2026-03-12 收 141.0 元）</td></tr><tr><td>數據來源</td><td>Yahoo Finance、HiStock、ifa.ai、鉅亨網、財報狗、法人報告</td></tr><tr><td>待更新</td><td>2025Q4 財報已公布（全年 EPS 7.94 元）；2026 年 1-2 月營收已公布</td></tr></tbody></table></div>
+<h2>結論</h2>
+<p>【觀望偏多】— AI 伺服器散熱長線趨勢明確，2026 年液冷量產為重要催化劑，但目前股價在技術面偏弱、短線死亡交叉尚未消化，建議等技術面轉強或回測支撐後再進場。</p>
+<p>信心程度：⭐⭐⭐⭐☆（4 星）</p>
+<p>適合操作：中線波段（3-6 個月）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司簡介</h3>
+<p>建準電機（2421）成立於 1980 年，是<strong>全球第二大散熱風扇製造商</strong>，總部位於高雄。用一句話說：<strong>建準靠做「幫電子設備散熱」的風扇和模組賺錢</strong>。</p>
+<h3>產業鏈定位</h3>
+<p>```</p>
+<p>上游（零組件/材料）    →    中游（建準）         →    下游（品牌/組裝廠）</p>
+<p>馬達、軸承、塑膠        風扇模組設計製造          伺服器廠（廣達、緯穎）</p>
+<p>PCB、散熱片             液冷散熱模組              網通設備商（思科）</p>
+<p>銅管、水冷板材料        幫浦/Cold Plate           IT 品牌（Dell、HP）</p>
+<p>車廠（電動車散熱）</p>
+<p>```</p>
+<p>建準位於<strong>中游</strong>，核心能力是把散熱元件整合成完整模組，再賣給下游組裝廠和品牌商。</p>
+<h3>營收結構（2025Q3 基準）</h3>
+<div class="table-wrap"><table><thead><tr><th>應用領域</th><th>營收佔比</th><th>年增率</th><th>趨勢</th></tr></thead><tbody><tr><td>伺服器（含 AI）</td><td>~47%</td><td>+43%</td><td>📈 高速成長</td></tr><tr><td>網通設備</td><td>~11%</td><td>持平</td><td>➡️ 穩定</td></tr><tr><td>工業應用（含儲能）</td><td>~15%</td><td>+15%</td><td>📈 穩定成長</td></tr><tr><td>車用</td><td>~10%</td><td>回溫中</td><td>📈 下半年轉好</td></tr><tr><td>IT / 家電 / 其他</td><td>~17%</td><td>微減</td><td>➡️ 持平偏弱</td></tr></tbody></table></div>
+<p><strong>重點</strong>：AI 伺服器在 2025Q3 單季營收 11.35 億元，佔比已達 23.5%，是最大成長引擎。</p>
+<h3>客戶集中度</h3>
+<p>建準服務的客戶分散在伺服器、網通、車用等多個領域，單一客戶依賴度不算特別高，但 NVIDIA 供應鏈認證（NVL72、GB200、GB300）是關鍵，若失去認證將是風險。</p>
+<h3>競爭優勢（護城河）</h3>
+<blockquote><strong>護城河</strong> → 讓競爭對手很難搶走生意的優勢。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>護城河類型</th><th>建準的情況</th><th>強度</th></tr></thead><tbody><tr><td>技術門檻</td><td>40+ 年風扇製造經驗、AALC 氣液整合專利、NVIDIA 認證</td><td>中強</td></tr><tr><td>客戶轉換成本</td><td>散熱模組需通過長期驗證（6-12 個月），客戶不會輕易換</td><td>中</td></tr><tr><td>規模經濟</td><td>全球第二大，但跟第一大 Delta（台達）還有差距</td><td>中</td></tr><tr><td>品牌</td><td>在 B2B 散熱領域有口碑，但一般消費者不認識</td><td>中弱</td></tr></tbody></table></div>
+<p><strong>護城河綜合評估：中等</strong>。技術和客戶關係是核心優勢，但散熱產業進入門檻不算極高，需持續靠技術升級（液冷）維持。</p>
+<h3>管理層</h3>
+<ul><li>建準為家族企業背景，經營團隊穩定</li><li>近年策略方向明確：從純風扇轉型為「氣冷 + 液冷整合方案供應商」</li><li>菲律賓擴廠（未來兩年投入 20 億元）、新北研發中心規劃，顯示管理層有積極擴張意圖</li></ul>
+<hr>
+<h2>2. 財務面</h2>
+<h3>歷年 EPS（每股盈餘）</h3>
+<blockquote><strong>EPS</strong> → 公司一年賺的錢分到每一股是多少。EPS 越高代表公司越會賺。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>EPS（元）</th><th>年增率</th><th>備註</th></tr></thead><tbody><tr><td>2021</td><td>1.71</td><td>—</td><td>疫情後低基期</td></tr><tr><td>2022</td><td>4.34</td><td>+154%</td><td>復甦</td></tr><tr><td>2023</td><td>5.16</td><td>+19%</td><td>穩定成長</td></tr><tr><td>2024</td><td>5.46</td><td>+6%</td><td>微幅成長</td></tr><tr><td>2025</td><td>7.94</td><td>+45%</td><td>AI 伺服器爆發</td></tr><tr><td>2026E</td><td>~10.8</td><td>+36%</td><td>法人預估</td></tr></tbody></table></div>
+<p><strong>判讀</strong>：EPS 連續 5 年正成長，2025 年因 AI 伺服器需求爆發加速成長。2026 年法人預估可達 10.8 元（賺超過 1 個股本），成長趨勢強勁。</p>
+<h3>各季 EPS 細節</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>Q1</td><td>1.11</td><td>1.19</td><td>1.73</td></tr><tr><td>Q2</td><td>1.72</td><td>1.39</td><td>1.37</td></tr><tr><td>Q3</td><td>1.49</td><td>1.28</td><td>2.55</td></tr><tr><td>Q4</td><td>0.84</td><td>1.60</td><td>2.29</td></tr></tbody></table></div>
+<h3>月營收趨勢（近 6 個月）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>營收（億元）</th><th>年增率（YoY）</th><th>月增率（MoM）</th></tr></thead><tbody><tr><td>2025/09</td><td>17.50</td><td>+38%</td><td>+12%</td></tr><tr><td>2025/10</td><td>16.50</td><td>+25%</td><td>-6%</td></tr><tr><td>2025/11</td><td>15.34</td><td>+17.6%</td><td>-7%</td></tr><tr><td>2025/12</td><td>17.91</td><td>+30.1%</td><td>+16.8%</td></tr><tr><td>2026/01</td><td>17.78</td><td>+36.5%</td><td>-0.7%</td></tr><tr><td>2026/02</td><td>13.23</td><td>+2.3%</td><td>-25.6%</td></tr></tbody></table></div>
+<p><strong>判讀</strong>：營收年增率多數維持正成長，2026/02 因農曆年工作天數減少導致月增率大幅下降，但年增率仍為正，屬於季節性因素。</p>
+<h3>毛利率趨勢</h3>
+<blockquote><strong>毛利率</strong> → 每賣 100 元東西，扣掉成本後留下多少。31% = 賣 100 元留 31 元。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>年度/季度</th><th>毛利率</th></tr></thead><tbody><tr><td>2024 全年</td><td>28.42%</td></tr><tr><td>2025Q3</td><td>31.40%</td></tr><tr><td>2025 全年</td><td>31.06%</td></tr></tbody></table></div>
+<p><strong>判讀</strong>：毛利率逐年改善，從 2024 年的 28.4% 提升到 2025 年的 31.1%，主因產品組合優化（高毛利的 AI 伺服器散熱佔比提升）。趨勢穩定向上。</p>
+<h3>負債與現金流</h3>
+<blockquote><strong>自由現金流</strong> → 公司做完生意、付完所有該付的，口袋裡真正剩下的錢。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>判讀</th></tr></thead><tbody><tr><td>淨有息負債權益比率</td><td>-22.36%</td><td>✅ 負數代表現金大於負債，非常健康</td></tr><tr><td>有息負債 ÷ 營業現金流</td><td>0.64 倍</td><td>✅ 低於 1 倍，償債能力強</td></tr><tr><td>有息負債 ÷ 自由現金流</td><td>0.81 倍</td><td>✅ 不到 1 年就能還清</td></tr></tbody></table></div>
+<p><strong>判讀</strong>：財務體質非常健康，現金比負債多，完全不用擔心還不起錢的問題。</p>
+<h3>健康體檢摘要</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>✅ 成長</td><td>連續 5 年正成長，2025 年 +45%</td></tr><tr><td>營收趨勢</td><td>✅ 成長</td><td>近 6 月 YoY 多數正成長</td></tr><tr><td>毛利率趨勢</td><td>✅ 穩定</td><td>逐年改善，2025 年 31.06%</td></tr><tr><td>負債健康度</td><td>✅ 健康</td><td>現金大於負債</td></tr><tr><td>自由現金流</td><td>✅ 正數</td><td>有息負債÷FCF 僅 0.81 倍</td></tr><tr><td>護城河強度</td><td>⏳ 中</td><td>技術＋客戶關係，但非不可取代</td></tr></tbody></table></div>
+<p><strong>基本面通過</strong>：正面 5 項 + 中性 1 項 → ✅ 體質良好</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>股票類型判定</h3>
+<ul><li>EPS YoY +45%（> 15%）→ <strong>TYPE_A 成長股</strong></li><li>配對方式：方法 A（歷史 PE 區間法）+ 方法 B（PEG 估值法）</li></ul>
+<h3>方法 A：歷史 PE 區間法（回顧型）</h3>
+<p>目前建準 PE 約 17.74 倍（以最新收盤價 141 元 ÷ 近四季 EPS 7.94 元）。</p>
+<p>參考歷年 PE 區間（2022-2025）：</p>
+<ul><li>2022 年股價區間約 36-63 元，EPS 4.34 → PE 約 8-15x</li><li>2023 年股價區間約 50-88 元，EPS 5.16 → PE 約 10-17x</li><li>2024 年股價區間約 64-176 元，EPS 5.46 → PE 約 12-32x（AI 題材推升）</li><li>2025 年股價區間約 64-190 元，EPS 7.94 → PE 約 8-24x</li></ul>
+<div class="table-wrap"><table><thead><tr><th>PE 參數</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>歷史 PE 低標（25th）</td><td>~12x</td><td>市場悲觀時的估值</td></tr><tr><td>歷史 PE 中位數</td><td>~17x</td><td>市場中性估值</td></tr><tr><td>歷史 PE 高標（75th）</td><td>~24x</td><td>市場樂觀時的估值</td></tr></tbody></table></div>
+<p>使用 Forward EPS（2026E）10.8 元計算（成長股用前瞻 EPS 更合理）：</p>
+<p>```</p>
+<p>fair_value_a = Forward EPS 10.8 × 歷史 PE 中位數 17x = 183.6 元</p>
+<p>便宜價 = 10.8 × 12x = 129.6 元</p>
+<p>昂貴價 = 10.8 × 24x = 259.2 元</p>
+<p>```</p>
+<p><strong>方法 A 合理價：183.6 元</strong></p>
+<h3>方法 B：PEG 估值法（前瞻型）</h3>
+<blockquote><strong>PEG</strong> → 考慮成長性之後，股票到底貴不貴。PEG < 1 表示成長被低估。</blockquote>
+<p>```</p>
+<p>EPS 年成長率 = 36%（2026E vs 2025）</p>
+<p>合理 PE = 36 × 1（PEG = 1）= 30x → 但 TYPE_A 上限 30x，取 30x</p>
+<p>fair_value_b = 30x × Forward EPS 10.8 = 324 元</p>
+<p>```</p>
+<p>但 PEG 算出的值偏高，需要保守處理。考量建準並非純 AI 股（AI 佔比約 25-30%），用 PEG = 1 偏樂觀。調整為 PEG = 0.7（考慮部分傳統業務拉低整體成長）：</p>
+<p>```</p>
+<p>合理 PE = 36 × 0.7 = 25.2x</p>
+<p>fair_value_b = 25.2 × 10.8 = 272.2 元</p>
+<p>```</p>
+<p><strong>方法 B 合理價：272.2 元</strong></p>
+<h3>差距判定與進場區間</h3>
+<p>```</p>
+<p>差距 = |183.6 - 272.2| / 183.6 = 48.3%</p>
+<p>```</p>
+<p>差距 > 40% → <strong>取較低者 + ⚠️ 估值分歧大</strong></p>
+<p>```</p>
+<p>anchor = 183.6（方法 A）</p>
+<p>```</p>
+<p>TYPE_A 進場區間：</p>
+<p>```</p>
+<p>entry_high = 183.6 × 0.90 = 165.2 → 取整 165 元</p>
+<p>entry_low = 183.6 × 0.85 = 156.1 → 取整 156 元</p>
+<p>```</p>
+<h3>技術面微調</h3>
+<ul><li>MA120（半年線）= 149.9 元，entry_low 156 元距離 MA120 約 +4%</li><li>現價 141 元低於 entry_low 156 元 → 目前股價已在合理進場區間以下</li><li>但技術面偏弱（死亡交叉），不宜急著接刀</li></ul>
+<h3>估值面結論</h3>
+<p>```</p>
+<p>方法 A（歷史PE區間法）：合理價 183.6 元（Forward EPS 10.8 × 歷史PE中位數 17x）</p>
+<p>方法 B（PEG估值法）：合理價 272.2 元（Forward EPS 10.8 × 合理PE 25.2x, PEG=0.7）</p>
+<p>差距：48.3% → 取較低(方法A) + ⚠️ 估值分歧大</p>
+<p>錨定價：183.6 元</p>
+<p>進場區間：156 ~ 165 元</p>
+<p>備註：⚠️ 估值分歧大（方法B明顯高於方法A），建議以方法A為主要參考。現價141元低於進場區間，技術面偏弱宜等回穩。</p>
+<p>```</p>
+<blockquote><strong>白話說</strong>：用歷史估值看，建準合理價約 184 元，目前 141 元確實偏便宜。但估值分歧大，市場對未來成長力道看法不一，需要更多營收數據確認 2026 年成長是否如預期。</blockquote>
+<hr>
+<h2>4. 技術面</h2>
+<h3>技術指標掃描結果（2026-03-12）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>判讀</th></tr></thead><tbody><tr><td>收盤價</td><td>141.0 元</td><td>+0.36%</td></tr><tr><td>52 週高點</td><td>189.5 元</td><td>距高點 -25.6%</td></tr><tr><td>52 週低點</td><td>64.14 元</td><td>距低點 +119.8%</td></tr><tr><td>52 週位置</td><td>61.3%</td><td>中間偏上</td></tr></tbody></table></div>
+<h3>均線排列</h3>
+<blockquote><strong>均線</strong> → 過去 N 天的平均股價。股價在均線上方 = 最近買的人大多有賺。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>價位</th><th>與現價關係</th></tr></thead><tbody><tr><td>MA5（5日）</td><td>135.3</td><td>現價在上 ✅</td></tr><tr><td>MA10（10日）</td><td>140.15</td><td>現價在上 ✅</td></tr><tr><td>MA20（月線）</td><td>143.99</td><td>現價在下 ❌</td></tr><tr><td>MA60（季線）</td><td>151.48</td><td>現價在下 ❌（-6.9%）</td></tr><tr><td>MA120（半年線）</td><td>149.94</td><td>現價在下 ❌</td></tr><tr><td>MA240（年線）</td><td>126.74</td><td>現價在上 ✅</td></tr></tbody></table></div>
+<p><strong>排列狀態：糾結</strong>。短均線（5/10日）在下方開始上彎，但中長均線（20/60/120日）仍壓在上方，屬於整理格局。</p>
+<h3>技術指標</h3>
+<blockquote><strong>RSI</strong> → 股價漲跌的溫度計。超過 70 = 發燒，低於 30 = 體溫過低。</blockquote>
+<blockquote><strong>KD</strong> → 短線多空紅綠燈。K 上穿 D = 綠燈偏多。</blockquote>
+<blockquote><strong>MACD</strong> → 火車的加速度。柱狀負 = 動能向下。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>RSI(14)</td><td>46.76</td><td>中性，多空均可</td></tr><tr><td>KD（K/D）</td><td>37.0 / 30.96</td><td>K > D 偏多，但位階偏低</td></tr><tr><td>MACD 柱狀</td><td>-0.54</td><td>負值，空頭格局</td></tr><tr><td>死亡交叉</td><td>6 天前（3/4）</td><td>短線轉空訊號</td></tr></tbody></table></div>
+<h3>量能</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>判讀</th></tr></thead><tbody><tr><td>近 5 日均量</td><td>512.7 萬股</td><td>—</td></tr><tr><td>近 20 日均量</td><td>380.3 萬股</td><td>—</td></tr><tr><td>量比（5d/20d）</td><td>1.35</td><td>略增但未爆量</td></tr></tbody></table></div>
+<h3>支撐與壓力</h3>
+<div class="table-wrap"><table><thead><tr><th>類型</th><th>價位</th><th>說明</th></tr></thead><tbody><tr><td>強支撐</td><td>126-127</td><td>年線（MA240）</td></tr><tr><td>中支撐</td><td>130</td><td>前波低點附近</td></tr><tr><td>短壓力</td><td>144</td><td>月線（MA20）</td></tr><tr><td>中壓力</td><td>150-152</td><td>季線 + 半年線</td></tr></tbody></table></div>
+<h3>技術面綜合評分</h3>
+<p><strong>中性</strong>（tech_score: -1.0）</p>
+<ul><li>KD 偏多 +0.5</li><li>MACD 柱狀負 -1.0</li><li>死亡交叉 -0.5</li></ul>
+<p><strong>白話說</strong>：股價從高點 190 元下來後，目前在 130-150 區間整理。短線剛出現死亡交叉，動能偏弱，但 KD 已在低檔有上彎跡象。需要站上月線 144 元才能確認短線轉強。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<blockquote><strong>籌碼面</strong> → 看大戶（法人）和散戶各自在做什麼。大戶買 = 通常是中長期看好。</blockquote>
+<p>籌碼面數據需從券商 App 或三竹股市取得即時明細，以下為可取得的概況：</p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>觀察</th></tr></thead><tbody><tr><td>外資動向</td><td>近期偏賣超，股價回檔期間外資有減碼跡象</td></tr><tr><td>投信動向</td><td>部分投信有布局，但力道不強</td></tr><tr><td>融資變化</td><td>❌ 未取得即時數據</td></tr><tr><td>大戶持股</td><td>❌ 未取得即時數據</td></tr><tr><td>成交量</td><td>近期量能增加（5日/20日量比 1.35），顯示市場關注度提升</td></tr></tbody></table></div>
+<blockquote>⚠️ 即時籌碼明細建議到三竹股市、券商 App 或 CMoney 查看更完整的法人進出資料。</blockquote>
+<hr>
+<h2>6. 同業比較</h2>
+<h3>散熱三雄比較表</h3>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>建準（2421）</th><th>奇鋐（3017）</th><th>雙鴻（3324）</th></tr></thead><tbody><tr><td><strong>主要業務</strong></td><td>散熱風扇 + 液冷模組</td><td>散熱模組 + 液冷板 + 機櫃</td><td>散熱模組 + 液冷 CDU</td></tr><tr><td><strong>2025 營收</strong></td><td>~187 億元</td><td>~1,396 億元</td><td>❌ 未取得完整數據</td></tr><tr><td><strong>營收年增率</strong></td><td>+27%</td><td>+95%</td><td>高成長中</td></tr><tr><td><strong>2025 EPS</strong></td><td>7.94 元</td><td>49.17 元</td><td>~23 元（近四季）</td></tr><tr><td><strong>毛利率</strong></td><td>31.06%</td><td>25.81%</td><td>~27%</td></tr><tr><td><strong>本益比</strong></td><td>~17.7x</td><td>~49x</td><td>~44x</td></tr><tr><td><strong>液冷佈局</strong></td><td>AALC 氣液整合、Cold Plate、菲律賓擴廠</td><td>液冷板 + 機櫃整合方案、中國/東南亞擴產</td><td>CDU（冷卻分配單元）、液冷管路</td></tr><tr><td><strong>NVIDIA 認證</strong></td><td>NVL72、GB200、GB300 ✅</td><td>GB200、GB300 ✅</td><td>GB200 ✅</td></tr></tbody></table></div>
+<h3>比較結論</h3>
+<div class="table-wrap"><table><thead><tr><th>面向</th><th>建準的相對位置</th></tr></thead><tbody><tr><td><strong>估值</strong></td><td>⭐ PE 最低（17.7x vs 同業 44-49x），便宜很多</td></tr><tr><td><strong>毛利率</strong></td><td>⭐ 三雄中最高（31% vs 25-27%）</td></tr><tr><td><strong>營收規模</strong></td><td>❌ 最小（187 億 vs 奇鋐 1,396 億）</td></tr><tr><td><strong>成長速度</strong></td><td>⏳ 中等（27% vs 奇鋐 95%）</td></tr><tr><td><strong>液冷進度</strong></td><td>⏳ 較晚（2026 年才正式量產）</td></tr></tbody></table></div>
+<p><strong>白話說</strong>：建準在散熱三雄中規模最小，但毛利率最高、估值最便宜。如果你看好 AI 散熱但覺得奇鋐、雙鴻太貴，建準是相對便宜的選擇。風險是液冷進度落後同業。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>2025Q4 / 2025 全年財報公布</td><td>已確認</td><td>2026/03（已公布，EPS 7.94）</td><td>中</td></tr><tr><td>GB300 風冷+液冷訂單放量</td><td>已確認</td><td>2026 Q1-Q2</td><td>高</td></tr><tr><td>Cold Plate 正式量產</td><td>已確認</td><td>2026 Q1 起</td><td>高</td></tr><tr><td>菲律賓新廠量產</td><td>潛在</td><td>2026-2027</td><td>中高</td></tr><tr><td>NVIDIA 下一代平台認證</td><td>潛在</td><td>2026 下半年</td><td>高</td></tr><tr><td>2026 年配息 5.5 元</td><td>已確認</td><td>2026 除息日</td><td>中（殖利率 ~3.9%）</td></tr><tr><td>AI 資料中心液冷滲透率提升至 30%+</td><td>潛在</td><td>2026-2027</td><td>高</td></tr><tr><td>ASIC 客戶平台轉換完成</td><td>潛在</td><td>2026 Q2 後</td><td>中</td></tr></tbody></table></div>
+<p><strong>近期最重要的催化劑</strong>：</p>
+<ol><li><strong>GB300 液冷訂單放量</strong>（2026 Q1-Q2）— 這是驗證建準液冷能否規模化貢獻營收的關鍵</li><li><strong>Cold Plate 量產</strong>（2026 Q1 起）— 從試產轉正式量產，營收貢獻開始浮現</li><li><strong>2026 年月營收持續成長</strong>— 確認 AI 散熱需求不是一次性的</li></ol>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th><th>類型</th></tr></thead><tbody><tr><td>AI 資本支出放緩</td><td>中</td><td>高</td><td>北美雲端廠 CapEx 季減</td><td>不可控</td></tr><tr><td>液冷量產延遲</td><td>中低</td><td>高</td><td>Cold Plate 良率低、客戶驗證未過</td><td>可控</td></tr><tr><td>產品組合惡化（低毛利產品佔比升）</td><td>低</td><td>中</td><td>毛利率連兩季下降</td><td>可控</td></tr><tr><td>匯率風險（新台幣升值）</td><td>中</td><td>中</td><td>美元走弱</td><td>不可控</td></tr><tr><td>競爭加劇（中國散熱廠搶市）</td><td>中</td><td>中</td><td>訂單流失、ASP 下降</td><td>部分可控</td></tr><tr><td>NVIDIA 轉單給其他散熱供應商</td><td>低</td><td>高</td><td>NVIDIA 新認證名單變動</td><td>不可控</td></tr><tr><td>菲律賓擴廠成本超支</td><td>低</td><td>中低</td><td>資本支出大幅超預算</td><td>可控</td></tr></tbody></table></div>
+<h3>⚠️ 致命風險</h3>
+<p><strong>AI 資本支出急凍</strong>：如果北美四大雲端廠（Meta、Google、Microsoft、Amazon）同時大幅削減 AI 相關資本支出，所有散熱股都會遭受重創，建準也不例外。這是系統性風險，目前看機率不高（各大廠仍在加碼 AI 投資），但需要持續追蹤。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望偏多（等技術面轉強後可考慮買進）</li><li><strong>信心程度</strong>：⭐⭐⭐⭐☆（4 星）</li><li>6 項 health 都有填 ✅</li><li>方向明確（AI 散熱成長趨勢）✅</li><li>估值分歧大（48.3%）需降一點信心</li><li>有已確認催化劑（GB300、Cold Plate 量產）✅</li><li><strong>建議倉位</strong>：佔總資金 10-15%（約 3-6 萬元，以 Minna 30-40 萬資金計算）</li><li><strong>進場條件</strong>：</li><li>理想進場：股價回測 130-135 元（年線附近）且 KD 金叉</li><li>突破進場：站穩月線 144 元以上且帶量 → 確認短線轉強</li><li>估值進場區間：156-165 元（基本面錨定），目前 141 元已低於此區間</li><li><strong>停損參考</strong>：跌破年線 127 元（-10%），代表中期趨勢轉弱</li><li><strong>加碼條件</strong>：</li><li>月營收連續 2 個月 YoY > 30%</li><li>站上季線 150 元且量能放大</li><li>液冷產品營收佔比突破 10%</li><li><strong>觀察指標</strong>：</li></ul>
+<ol><li>每月營收年增率（是否維持 20%+ 成長）</li><li>毛利率變化（液冷產品是否拉低毛利）</li><li>法人買賣超動向</li><li>NVIDIA 新平台散熱認證進度</li><li>北美雲端廠 AI CapEx 動態</li></ol>
+<ul><li><strong>下次檢視</strong>：2026-04-15（觀察 3 月營收 + Q1 法說會前佈局）</li></ul>
+<h3>波段操作附加</h3>
+<ul><li><strong>止盈參考</strong>：+15% 先出 1/2，+25% 全出（若從 135 元進場 → 155 元出半、169 元全出）</li><li><strong>分批進場</strong>：1/2 在 130-135 確認支撐 → 1/2 在站上 144 月線後加碼</li><li><strong>技術面出場信號</strong>：KD 死叉 + RSI 跌破 40 + 跌破年線 127 → 出場</li><li><strong>最長持有期限</strong>：3 個月，到期重新評估</li></ul>
+<hr>
+<h2>給 Minna 的白話總結</h2>
+<p>建準是一家做散熱風扇的老牌公司，最近因為 AI 伺服器需要很強的散熱能力，公司業績大幅成長。2025 年賺了 7.94 元（比前一年多 45%），2026 年法人預估可以賺到 10.8 元。</p>
+<p><strong>為什麼值得關注</strong>：</p>
+<ul><li>估值是散熱三雄中最便宜的（PE 才 17 倍，同業都 40-50 倍）</li><li>毛利率最高（31%，同業只有 25-27%）</li><li>財務體質很健康（現金比負債多）</li><li>2026 年液冷量產是大催化劑</li></ul>
+<p><strong>為什麼現在不急著買</strong>：</p>
+<ul><li>技術面剛出現死亡交叉，短線偏弱</li><li>估值分歧大，市場對未來成長看法不一致</li><li>液冷量產還在初期，需要看到實際營收貢獻</li></ul>
+<p><strong>建議</strong>：放進觀察清單，等股價回測 130-135 元（年線附近）或站上月線 144 元後再考慮分批進場。以你 30-40 萬的資金，建議配置 3-6 萬（10-15%），不要押太重在單一檔。</p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<ul><li><a href="https://histock.tw/stock/2421/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank" rel="noopener">HiStock 建準 EPS 財報分析</a></li><li><a href="https://ifa.ai/tw-stock/2421" target="_blank" rel="noopener">ifa.ai 建準股票分析</a></li><li><a href="https://blog.fugle.tw/earnings-call-2421-2025-11-20/" target="_blank" rel="noopener">富果直送 - 建準法說會重點備忘錄 2025/11/20</a></li><li><a href="https://statementdog.com/news/14945" target="_blank" rel="noopener">財報狗 - 建準 Q3 營收再創新高</a></li><li><a href="https://www.cmoney.tw/notes/note-detail.aspx?nid=1048660" target="_blank" rel="noopener">CMoney 建準 11 月營收公告</a></li><li><a href="https://www.cnyes.com/twstock/2421" target="_blank" rel="noopener">鉅亨網 建準總覽</a></li><li><a href="https://wantrich.chinatimes.com/news/20251107900375-420101" target="_blank" rel="noopener">旺得富 - 大摩連調目標價</a></li><li><a href="https://wantrich.chinatimes.com/news/20260106900306-420101" target="_blank" rel="noopener">旺得富 - 散熱四強一次看</a></li><li><a href="https://www.moneyweekly.com.tw/ArticleData/Info/Article/201002" target="_blank" rel="noopener">理財周刊 - 液冷散熱滲透率飆升</a></li><li><a href="https://www.pocket.tw/school/report/SCHOOL/6627/" target="_blank" rel="noopener">口袋學堂 - 建準做什麼的</a></li><li><a href="https://vocus.cc/article/68e4dfc1fd89780001420fcb" target="_blank" rel="noopener">vocus 建準法人報告 2025/9/30</a></li><li><a href="https://tw.stock.yahoo.com/quote/2421.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 建準營收表</a></li></ul>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>股價</th><th>結論</th><th>重點變化</th></tr></thead><tbody><tr><td>2026-03-12</td><td>141.0</td><td>觀望偏多</td><td>首次分析。AI 散熱長線看好，但技術面偏弱、估值分歧大，等回穩再進場。</td></tr></tbody></table></div>
+</div>
+</body>
+</html>

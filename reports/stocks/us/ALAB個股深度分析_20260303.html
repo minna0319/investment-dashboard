@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astera Labs (ALAB) 深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>Astera Labs (ALAB) 深度分析</h1>
+</div>
+<div class="report-body">
+<h1>Astera Labs (ALAB) 深度分析</h1>
+<blockquote>分析日期：2026-03-03</blockquote>
+<blockquote>結論：<strong>不列入觀察清單</strong> — 估值過高、客戶集中度極高、管理層不穩定</blockquote>
+<blockquote>定位：AI 資料中心互連溫度計，追蹤產業趨勢用</blockquote>
+<hr>
+<h2>一句話</h2>
+<p>GPU 之間的「高速公路匝道」——做 PCIe Retimer、CXL 控制器、Fabric Switch，解決 AI 叢集內部的訊號傳輸瓶頸。</p>
+<hr>
+<h2>公司概述</h2>
+<ul><li><strong>產業</strong>：AI 基礎設施連接晶片（Fabless，台積電代工）</li><li><strong>總部</strong>：美國</li><li><strong>上市</strong>：NASDAQ: ALAB</li><li><strong>核心定位</strong>：不造 GPU，造 GPU 之間的連接晶片</li></ul>
+<hr>
+<h2>產品線</h2>
+<div class="table-wrap"><table><thead><tr><th>產品</th><th>佔比</th><th>階段</th><th>功能</th></tr></thead><tbody><tr><td>Aries PCIe Retimer</td><td>~60-65%</td><td>主力，PCIe 6.0 量產中</td><td>訊號放大器，讓 GPU 跟記憶體傳資料不失真</td></tr><tr><td>Scorpio Fabric Switch</td><td>合計~30%</td><td>快速成長</td><td>GPU 叢集的「交通管制塔」</td></tr><tr><td>Taurus AEC</td><td>合計~30%</td><td>快速成長</td><td>智慧銅纜（與 CRDO 競爭）</td></tr><tr><td>Leo CXL</td><td>微小</td><td>2026H2 才有營收</td><td>讓 CPU 外掛更多記憶體（未來最大想像空間）</td></tr></tbody></table></div>
+<hr>
+<h2>財報數據</h2>
+<h3>Q4 2025（最新季）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>營收</td><td>$2.706 億（QoQ +17%，YoY +92%）</td></tr><tr><td>Non-GAAP 毛利率</td><td>75.7%</td></tr><tr><td>Non-GAAP 營業利益率</td><td>40.2%</td></tr><tr><td>Non-GAAP EPS</td><td>$0.58（預期 $0.51，超 14%）</td></tr><tr><td>GAAP EPS</td><td>$0.25（SBC 差距大）</td></tr></tbody></table></div>
+<h3>全年 2025</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>年度營收</td><td>$8.525 億（YoY +115%）</td></tr><tr><td>Non-GAAP 毛利率</td><td>75.8%</td></tr><tr><td>Non-GAAP EPS</td><td>$1.84</td></tr><tr><td>GAAP EPS</td><td>$1.22</td></tr><tr><td>SBC</td><td>$1.6 億（佔營收 18.8%）</td></tr><tr><td>FCF</td><td>$2.82 億</td></tr></tbody></table></div>
+<h3>Q1 2026 指引</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>指引</th></tr></thead><tbody><tr><td>營收</td><td>$2.86 億～$2.97 億（超預期）</td></tr><tr><td>毛利率</td><td>~74%（下滑，Amazon 認股權費用從 Q2 起再吃 ~2%）</td></tr><tr><td>Non-GAAP EPS</td><td>$0.53～$0.54</td></tr></tbody></table></div>
+<hr>
+<h2>資產負債表（2025/12/31）</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>現金 + 有價證券</td><td>~$11.9 億</td></tr><tr><td>長期負債</td><td>$0.31 億（幾乎零負債）</td></tr><tr><td>FCF（全年）</td><td>$2.82 億</td></tr></tbody></table></div>
+<p>財務極度健康。</p>
+<hr>
+<h2>客戶結構</h2>
+<div class="table-wrap"><table><thead><tr><th>客戶</th><th>佔比</th><th>備註</th></tr></thead><tbody><tr><td>Amazon（AWS）</td><td><strong>70%+</strong>（估算）</td><td>簽署 $65 億認股權採購協議（到 2033 年）</td></tr><tr><td>Microsoft</td><td>較小</td><td>Azure 首次商用 CXL 記憶體擴充</td></tr><tr><td>其他 Hyperscaler</td><td>未披露</td><td>—</td></tr></tbody></table></div>
+<p><strong>客戶集中度是最核心的風險。</strong></p>
+<h3>Amazon 認股權協議細節</h3>
+<ul><li>簽署日：2026/02/05</li><li>最多 326 萬股，行使價 $142.82</li><li>歸屬條件：依採購金額里程碑，最高 $65 億</li><li>從 Q2 2026 起每季約 -2% 非現金毛利率衝擊</li></ul>
+<hr>
+<h2>競爭格局</h2>
+<div class="table-wrap"><table><thead><tr><th>產品線</th><th>主要競爭</th><th>狀態</th></tr></thead><tbody><tr><td>PCIe Retimer</td><td>Broadcom、Marvell</td><td>ALAB 領先但對手在追</td></tr><tr><td>Fabric Switch</td><td>Broadcom（Scale-Up Ethernet）</td><td>最大威脅</td></tr><tr><td>AEC</td><td>Credo（CRDO）</td><td>直接競爭</td></tr><tr><td>CXL</td><td>Marvell（收購 XConn）</td><td>新進入者追趕</td></tr></tbody></table></div>
+<hr>
+<h2>成長催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>事件</th><th>時間</th><th>影響</th></tr></thead><tbody><tr><td>PCIe 6.0 升級週期</td><td>進行中</td><td>Aries 6 已量產，帶寬翻倍</td></tr><tr><td>CXL 記憶體商用化</td><td>2026H2+</td><td>Azure 首次部署是里程碑，但大規模要 2027+</td></tr><tr><td>aiXscale Photonics 收購</td><td>2025/11 完成</td><td>佈局光學互連，PCIe over Optics</td></tr><tr><td>PCIe over Optics 商用</td><td>2026-2027 早期</td><td>業界首個展示，但大規模量產時程未定</td></tr></tbody></table></div>
+<hr>
+<h2>估值</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>股價</td><td>~$119（2026/03/03）</td></tr><tr><td>市值</td><td>~$210 億</td></tr><tr><td>GAAP P/E</td><td>~117 倍</td></tr><tr><td>Non-GAAP P/E</td><td>~65 倍</td></tr><tr><td>P/S</td><td>~23-25 倍</td></tr><tr><td>分析師目標價</td><td>$80～$225，平均 ~$190</td></tr><tr><td>52 週高點</td><td>$262.90</td></tr><tr><td>距高點</td><td>-55%</td></tr></tbody></table></div>
+<hr>
+<h2>風險清單</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>嚴重度</th><th>說明</th></tr></thead><tbody><tr><td>Amazon 客戶集中 70%+</td><td>最高</td><td>單一客戶減單 = 營收崩潰</td></tr><tr><td>SBC 稀釋 18.8%</td><td>高</td><td>GAAP EPS 只有 Non-GAAP 的一半</td></tr><tr><td>CFO 財報日離職</td><td>中高</td><td>新 CFO Desmond Lynch 有經驗，但時機敏感</td></tr><tr><td>毛利率下行壓力</td><td>中</td><td>硬體佔比提升 + Amazon 認股權費用</td></tr><tr><td>估值仍貴</td><td>中</td><td>跌 55% 還是 117 倍 P/E</td></tr><tr><td>台積電製造集中</td><td>中</td><td>地緣政治風險</td></tr><tr><td>CXL 商業化延遲</td><td>中</td><td>Leo CXL 是最大想像空間，但還沒貢獻營收</td></tr></tbody></table></div>
+<hr>
+<h2>不列入觀察清單的原因</h2>
+<ol><li>估值過高（117 倍 GAAP P/E），資金規模 $10,000 承受不起這種波動</li><li>Amazon 佔 70%+ 營收，單點風險極高</li><li>CFO 離職 + SBC 稀釋 + 毛利率下行 = 三重不確定性</li><li>美股資金優先級：CEG（電力）> CRWD（資安）> 其他，不需要再分散</li></ol>
+<p><strong>但作為 AI 資料中心溫度計持續追蹤</strong> — ALAB 營收趨勢反映 AI 投資熱度，對台積電和矽光子族群是正面參考。</p>
+<hr>
+<blockquote>免責聲明：以上內容僅為公開資訊整理，不構成投資建議。投資有風險，請依個人財務狀況自行判斷。</blockquote>
+<blockquote>資料來源：Astera Labs 官方財報、StockTitan、Yahoo Finance、Motley Fool、MarketBeat、Investing.com</blockquote>
+</div>
+</body>
+</html>

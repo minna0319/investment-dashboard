@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>啟碁（6285）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../timeline.html">時間表</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html">報告庫</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>啟碁（6285）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>啟碁（6285）九維度深度分析</h1>
+<p><strong>分析日期</strong>：2026-03-06</p>
+<p><strong>分析師</strong>：Investment Advisor Agent</p>
+<p><strong>當日收盤價</strong>：164.50 元（2026/03/06 盤中資料）</p>
+<p><strong>分析框架</strong>：九維度個股分析</p>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>當日股價</td><td>164.50 元</td><td>Win 投資 2026/03/06</td></tr><tr><td>52 週高低</td><td>96.00 ~ 207.50 元</td><td>Yahoo Finance</td></tr><tr><td>本益比（P/E）</td><td>25.74 倍（當前股價）</td><td>Win 投資</td></tr><tr><td>2025 全年營收</td><td>1,102.51 億元</td><td>CMoney</td></tr><tr><td>2026/01 月營收</td><td>101.36 億元（年增 10.95%）</td><td>CMoney</td></tr><tr><td>法人 2026 EPS 預估</td><td>8.97 元（中信投顧）</td><td>聯合新聞網</td></tr><tr><td>法人目標價</td><td>130 ~ 180 元（各家不一）</td><td>FactSet / 法人報告</td></tr><tr><td>現金殖利率</td><td>4.03%（以 165.5 元計）</td><td>Win 投資</td></tr></tbody></table></div>
+<blockquote>注意：部分數據來自搜尋引擎摘要，帶 * 號者為法人預估值，非官方財報。</blockquote>
+<hr>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>股價</th><th>結論</th><th>重點變化</th></tr></thead><tbody><tr><td>2026-03-06</td><td>164.50 元</td><td>合理偏高，等待回調</td><td>初次建立，LEO 供應鏈研究後深入追蹤</td></tr></tbody></table></div>
+<hr>
+<h2>一、基本資訊與市場定位</h2>
+<h3>公司簡介</h3>
+<p>啟碁科技（6285）隸屬緯創集團，成立於 1999 年，主力業務為無線通訊與網通裝置的系統整合製造。核心能力是「把高規格連線（Wi-Fi / 5G / 衛星 / 車用）做成可量產、可交期、可良率的硬體產品」。</p>
+<h3>產品結構（概略）</h3>
+<div class="table-wrap"><table><thead><tr><th>業務線</th><th>佔比（法人估）</th><th>代表產品</th></tr></thead><tbody><tr><td>網通（Wi-Fi 路由器、企業 AP）</td><td>~50%</td><td>家用 / 企業 Wi-Fi 7 路由器</td></tr><tr><td>低軌衛星（LEO 地面終端）</td><td>~10-15%</td><td>Starlink 地面接收路由器</td></tr><tr><td>車用通訊</td><td>個位數</td><td>車用 Wi-Fi / 5G 模組</td></tr><tr><td>800G 交換器（新業務）</td><td>極小，成長中</td><td>資料中心交換器</td></tr></tbody></table></div>
+<h3>市場定位</h3>
+<p>啟碁是全球最大低軌衛星 SpaceX（Starlink）地面終端路由器的主要台廠供應商，同時是台灣網通三雄（智易 3596、中磊 5388、啟碁 6285）之一。在 LEO 衛星供應鏈中，法人估計啟碁的衛星實際金額貢獻是全台最大。</p>
+<hr>
+<h2>二、財務健康度</h2>
+<h3>EPS 與獲利趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>EPS</th><th>備註</th></tr></thead><tbody><tr><td>2023 全年</td><td>8.98 元</td><td>近 20 年新高（已確認）</td></tr><tr><td>2024 全年</td><td>7.26 元</td><td>年減約 19%（已確認）</td></tr><tr><td>2025 Q1</td><td>1.92 元</td><td>財報已公布</td></tr><tr><td>2025 Q2</td><td>1.03 元</td><td>季減 46%，淡季 + 產品換代</td></tr><tr><td>2025 Q3</td><td>1.40 元</td><td>季增 36%，年增 28%，回升中</td></tr><tr><td>2025 前三季合計</td><td>4.35 元</td><td>—</td></tr><tr><td>2025 全年（法人估）</td><td>8.97 ~ 9.12 元</td><td>Q4 財報尚未公布</td></tr></tbody></table></div>
+<blockquote>重要說明：Minna 在供應鏈研究中提到「2025 全年 EPS 8.98 元」，核查後此數字對應 2023 年財報。2025 年全年 EPS 前三季合計僅 4.35 元，全年法人估計 8.97 ~ 9.12 元尚待 Q4 財報確認（預計 2026 年 3 月中旬公布）。</blockquote>
+<h3>毛利率</h3>
+<div class="table-wrap"><table><thead><tr><th>時期</th><th>毛利率</th></tr></thead><tbody><tr><td>2025 Q1</td><td>12.2%（年增 0.6 個百分點）</td></tr><tr><td>2024 Q3</td><td>11.37%（年減、季減）</td></tr><tr><td>2025 全年目標（公司指引）</td><td>12 ~ 13%</td></tr></tbody></table></div>
+<p>白話說明：毛利率 12% 在硬體代工業算合理，但不算高。啟碁靠的是量大 + 系統整合能力，而不是高毛利率。</p>
+<h3>殖利率與配息</h3>
+<ul><li>近五年平均現金股利：4.05 元</li><li>2025 年現金股利（已發）：4.801 元（殖利率約 4.03%）</li><li>若 2026 EPS 達 8.97 元，推估 2026 年股息約 5 ~ 6 元（法人估），殖利率約 3 ~ 4%</li></ul>
+<h3>財務體質（其他指標）</h3>
+<ul><li>ROE：❌ 未取得精確數值（WebFetch 無法取得財報狗詳細數據）</li><li>負債比率：❌ 未取得</li><li>流動比率：❌ 未取得</li></ul>
+<blockquote>建議 Minna 到財報狗（statementdog.com/analysis/6285）確認 ROE 和負債比，以完整評估財務健康度。</blockquote>
+<hr>
+<h2>三、成長動能</h2>
+<h3>主要成長引擎</h3>
+<p><strong>1. Starlink 地面終端持續放量</strong></p>
+<p>Starlink 用戶數持續擴張，啟碁做為主要供應商，訂單能見度相對穩定。低軌衛星衛星首批衛星（2018-2019 年升空，壽命約 5 年）正逐步進入汰換週期，2026 年後換機需求預計放量。</p>
+<p><strong>2. 800G 交換器新業務</strong></p>
+<p>啟碁切入 800G 高階交換器，預計 2026 年貢獻 1.5 ~ 2 億美元（約 49 ~ 65 億台幣）。另看好 2027 年後達雙位數佔比。這是從網通跨入 AI 資料中心基礎設施的重要一步。</p>
+<p><strong>3. SpaceX 擴張效應</strong></p>
+<p>SpaceX 持續增加衛星發射量（2026 年目標更多）、xAI 整合消息、IPO 計畫傳出，均對 Starlink 用戶成長和地面設備需求有正面推動。</p>
+<p><strong>4. Wi-Fi 7 換代升級</strong></p>
+<p>全球家用和企業 Wi-Fi 進入 7 代換機週期（Wi-Fi 6/6E 於 2019-2021 年大量部署，約 3-5 年後換代），啟碁在 Wi-Fi 路由器具量產優勢。</p>
+<h3>2026 年營收展望</h3>
+<p>法人預估 2026 年營收 1,243 億元（年增約 12.7%），EPS 8.97 元（年增約 30%，相較法人估 2025 全年）。</p>
+<hr>
+<h2>四、競爭優勢與護城河</h2>
+<h3>核心護城河</h3>
+<div class="table-wrap"><table><thead><tr><th>護城河類型</th><th>說明</th></tr></thead><tbody><tr><td>客戶黏性</td><td>已是 SpaceX Starlink 指定供應商，具切換成本</td></tr><tr><td>相位陣列天線技術</td><td>高門檻製造能力，全台量產規模最大</td></tr><tr><td>系統整合能力</td><td>RF 設計 + 天線 + 量產一條龍，競爭者難以複製</td></tr><tr><td>緯創集團背景</td><td>資金、供應鏈、客戶關係均受集團支持</td></tr><tr><td>多元產線</td><td>Wi-Fi、衛星、車用、交換器——不過度依賴單一客戶</td></tr></tbody></table></div>
+<h3>競爭對手</h3>
+<div class="table-wrap"><table><thead><tr><th>競爭對手</th><th>強項</th><th>差異</th></tr></thead><tbody><tr><td>中磊（5388）</td><td>家用寬頻、地緣優勢</td><td>衛星佔比較小</td></tr><tr><td>智易（3596）</td><td>均衡型網通廠</td><td>無衛星主力業務</td></tr><tr><td>智邦（2345）</td><td>白牌交換器龍頭</td><td>路由器較弱</td></tr></tbody></table></div>
+<h3>地緣政治優勢</h3>
+<p>台灣（南科 S3 廠）+ 越南二期 + 墨西哥廠，三地產能分散，可承接中美貿易戰轉單，對美國客戶（如 SpaceX）政治風險較低。</p>
+<hr>
+<h2>五、風險評估</h2>
+<h3>風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>影響程度</th><th>發生機率</th><th>說明</th></tr></thead><tbody><tr><td>Starlink 訂單減少 / 競爭加劇</td><td>高</td><td>低~中</td><td>SpaceX 可能多元化供應商，或推遲換機週期</td></tr><tr><td>毛利率無法突破 13%</td><td>中</td><td>中</td><td>硬體代工天花板，高毛利需靠產品結構優化</td></tr><tr><td>800G 交換器爬坡不如預期</td><td>中</td><td>中</td><td>新業務，客戶導入時間難預測</td></tr><tr><td>台股整體市場修正</td><td>高</td><td>低~中</td><td>外資撤出台股會拖累個股</td></tr><tr><td>股價已在高位</td><td>中</td><td>已發生</td><td>52 週高點 207.5 元，目前 164.5 元雖已回落，但本益比 25.74 倍仍偏高</td></tr><tr><td>SpaceX IPO 預期落差</td><td>中</td><td>中</td><td>若 IPO 延後或估值低於預期，LEO 族群可能回檔</td></tr><tr><td>2025 Q4 財報不如預期</td><td>高</td><td>低</td><td>若全年 EPS 低於 8.5 元，估值重估壓力大</td></tr></tbody></table></div>
+<h3>特別注意</h3>
+<p>啟碁主要收入來源（路由器、衛星設備）是硬體代工，全球景氣下行或消費電子需求萎縮時，訂單能見度會下降。衛星業務目前佔比僅 10-15%，「LEO 題材股」的光環大於實際的衛星營收佔比。</p>
+<hr>
+<h2>六、估值分析</h2>
+<h3>當前估值</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>當前股價</td><td>164.50 元</td><td>2026/03/06</td></tr><tr><td>本益比（當前）</td><td>25.74 倍</td><td>以 2025 近四季 EPS 6.09 元計算</td></tr><tr><td>本益比（2026 法人估）</td><td>~18.3 倍</td><td>以股價 164.5 / EPS 8.97 計算</td></tr><tr><td>52 週高點</td><td>207.50 元</td><td>相較高點已回落約 20%</td></tr><tr><td>52 週低點</td><td>96.00 元</td><td></td></tr><tr><td>法人目標價（低）</td><td>130 元（FactSet 調降後）</td><td>部分法人看空</td></tr><tr><td>法人目標價（高）</td><td>180 元（中信等樂觀派）</td><td>基於 EPS 8.97 x 20 倍 PE</td></tr><tr><td>FactSet 平均目標價</td><td>147.83 元</td><td>分析師共識中位數</td></tr></tbody></table></div>
+<h3>合理估值試算</h3>
+<p>以 2026 EPS 法人估 8.97 元為基礎：</p>
+<div class="table-wrap"><table><thead><tr><th>本益比假設</th><th>對應合理股價</th></tr></thead><tbody><tr><td>13 倍（保守，歷史低點）</td><td>116.6 元</td></tr><tr><td>16 倍（合理中性）</td><td>143.5 元</td></tr><tr><td>18 倍（中高）</td><td>161.5 元</td></tr><tr><td>20 倍（法人樂觀）</td><td>179.4 元</td></tr></tbody></table></div>
+<p>目前股價 164.5 元約對應 18.3 倍 2026 EPS，已計入相當程度的成長預期。</p>
+<h3>估值結論</h3>
+<p>目前股價偏高、但非極端高估。Minna 研究中提到的「PE ~13x」是以 2025 全年 EPS 8.98 元試算（注意：這是法人預估，非已確認財報），若以目前股價反推，顯示市場已提前 price in 2026 年成長。若 2025 Q4 財報公布後 EPS 不如預期，可能出現補跌。</p>
+<hr>
+<h2>七、技術面觀察</h2>
+<h3>股價近期走勢</h3>
+<div class="table-wrap"><table><thead><tr><th>時間點</th><th>股價</th><th>事件</th></tr></thead><tbody><tr><td>2025 年低點</td><td>~96 元</td><td>52 週低點</td></tr><tr><td>2026/01 飆升</td><td>~110 元漲停 → 後續持續上攻</td><td>低軌衛星題材發酵</td></tr><tr><td>2026/01/21</td><td>約 130 元</td><td>法人目標價上修，漲停</td></tr><tr><td>2026/02/07</td><td>175 元</td><td>前收 153.5 元，當日高 178 元</td></tr><tr><td>2026 高點</td><td>207.50 元</td><td>52 週高點</td></tr><tr><td>2026/03/06</td><td>164.50 元</td><td>從高點回落約 20%</td></tr></tbody></table></div>
+<h3>技術面觀察重點</h3>
+<ul><li>從高點 207.5 元回落至 164.5 元，跌幅約 20%，進入技術面修正區間</li><li>本益比 25.74 倍（以近四季 EPS 計算），數據平台顯示「股價偏高位階」</li><li>FactSet 平均目標價 147.83 元低於當前股價，顯示法人共識偏謹慎</li><li>若支撐 160 元守不住，下一支撐約在 140 ~ 145 元（法人平均目標價區間）</li></ul>
+<blockquote>注意：因 WebFetch 受限，無法取得 MA5 / MA20 / MA60 精確數值，建議 Minna 自行到 Yahoo 股市技術分析頁查看均線位置。</blockquote>
+<hr>
+<h2>八、法人與籌碼</h2>
+<h3>法人立場（彙整）</h3>
+<div class="table-wrap"><table><thead><tr><th>機構 / 來源</th><th>目標價</th><th>立場</th></tr></thead><tbody><tr><td>中信投顧</td><td>180 元</td><td>看多，上修 53.85%</td></tr><tr><td>FactSet 共識（2026/03 調降後）</td><td>142.5 元（調降 3.06%）</td><td>中性偏謹慎</td></tr><tr><td>FactSet 共識均值</td><td>147.83 元</td><td>中性</td></tr></tbody></table></div>
+<p>法人意見分歧，樂觀派（衛星題材驅動）vs. 謹慎派（估值已高、EPS 驗證待確認）並存。</p>
+<h3>籌碼面</h3>
+<ul><li>近期外資、投信買賣超詳細數字：❌ 未取得（需直接至玩股網或 HiStock 查詢）</li><li>近期明顯特徵：1 月漲停行情伴隨大量成交，題材輪動帶動大量散戶追價</li><li>目前從高點回落，需觀察法人是否趁回檔加碼或續減持</li></ul>
+<hr>
+<h2>九、催化劑與時間表</h2>
+<h3>近期重要時間點</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>影響評估</th></tr></thead><tbody><tr><td>2026/03 中旬</td><td>2025 Q4 財報公布</td><td>關鍵！確認全年 EPS 是否達 8.5 元以上</td></tr><tr><td>2026 Q3 起</td><td>800G 交換器開始出貨</td><td>新業務能見度提升</td></tr><tr><td>2026 全年</td><td>SpaceX IPO 消息進展</td><td>若確定 IPO，LEO 族群估值重估</td></tr><tr><td>2026 全年</td><td>Starlink 換機潮放量</td><td>首批衛星（2018-19 年升空）進入汰換週期</td></tr><tr><td>2026 下半年</td><td>Wi-Fi 7 換代需求旺季</td><td>傳統路由器業務貢獻</td></tr></tbody></table></div>
+<h3>催化劑評估</h3>
+<p><strong>正向催化劑：</strong></p>
+<ul><li>2025 Q4 財報 EPS 達 8 元以上，確認 2025 全年強勁</li><li>SpaceX IPO 宣佈，LEO 族群全面重評</li><li>Starlink 用戶超預期成長（換機需求提前放量）</li><li>800G 交換器拿到大客戶訂單</li></ul>
+<p><strong>負向催化劑：</strong></p>
+<ul><li>2025 Q4 財報 EPS 低於預期</li><li>美股大盤修正拖累台股外資賣壓</li><li>SpaceX IPO 延後或落空</li><li>中美貿易戰升溫影響客戶採購節奏</li></ul>
+<hr>
+<h2>綜合評分</h2>
+<div class="table-wrap"><table><thead><tr><th>維度</th><th>評分</th><th>說明</th></tr></thead><tbody><tr><td>基本面</td><td>7/10</td><td>獲利能力穩健，但毛利率偏低，體質需確認</td></tr><tr><td>成長動能</td><td>8/10</td><td>LEO + 800G + Wi-Fi 7 三引擎並進</td></tr><tr><td>競爭優勢</td><td>7/10</td><td>具備技術護城河，但衛星營收佔比仍低</td></tr><tr><td>估值</td><td>5/10</td><td>目前股價偏高，未到「便宜」水位</td></tr><tr><td>技術面</td><td>5/10</td><td>從高點回落中，趨勢方向未明確</td></tr><tr><td>法人籌碼</td><td>6/10</td><td>法人意見分歧，短線籌碼偏散</td></tr><tr><td>風險</td><td>6/10</td><td>風險可控，但財報驗證期仍有不確定性</td></tr><tr><td>催化劑</td><td>8/10</td><td>Q4 財報 + SpaceX IPO + 換機潮，催化劑豐富</td></tr><tr><td>股息</td><td>6/10</td><td>殖利率約 4%，中等水準</td></tr></tbody></table></div>
+<p><strong>總體評分：6.4 / 10</strong></p>
+<p>說明：啟碁體質好、題材強，但目前股價已反映部分利多。適合「等待確認後進場」，而非追高。</p>
+<hr>
+<h2>進場條件建議</h2>
+<blockquote>以下為分析觀點，非買賣建議。Minna 請根據自身財務狀況自行判斷。</blockquote>
+<h3>方案 A（等待財報確認，保守進場）</h3>
+<ul><li>等待 2025 Q4 財報公布（2026 年 3 月中旬）</li><li>確認條件：全年 EPS 達 8.5 元以上 + 2026 Q1 法說展望正向</li><li>進場價位參考：145 ~ 155 元（對應約 16 ~ 17 倍 2026 EPS）</li><li>優點：財報確認後，降低「估值泡沫」風險</li><li>缺點：若財報超預期，股價可能不回落</li></ul>
+<h3>方案 B（分批佈局，把握回檔）</h3>
+<ul><li>目前股價 164.5 元從高點回落 20%，若持續走弱</li><li>第一批進場：回落至 155 元附近（5 ~ 7 千元，1/3 倉）</li><li>第二批進場：回落至 145 元附近（另加 1/3 倉）</li><li>等財報確認後再考慮第三批</li><li>優點：均攤成本，不追高</li><li>缺點：分批買入需要紀律執行</li></ul>
+<hr>
+<h2>停損參考</h2>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>停損點位</th></tr></thead><tbody><tr><td>2025 Q4 EPS < 7 元（不如預期）</td><td>立即重新評估，考慮止損</td></tr><tr><td>跌破 130 元（年線支撐區）</td><td>技術面停損參考</td></tr><tr><td>跌破 52 週低點（96 元）</td><td>基本面出現嚴重問題才會到這裡</td></tr></tbody></table></div>
+<hr>
+<h2>倉位建議</h2>
+<p>Minna 台股資金約 20 萬，偏保守新手。</p>
+<div class="table-wrap"><table><thead><tr><th>方案</th><th>建議倉位</th><th>金額</th><th>說明</th></tr></thead><tbody><tr><td>方案 A</td><td>5 ~ 10%</td><td>1 ~ 2 萬</td><td>財報確認後少量試水，觀察市場反應</td></tr><tr><td>方案 B</td><td>10 ~ 15%（分批）</td><td>2 ~ 3 萬</td><td>分兩到三批，降低單次追高風險</td></tr></tbody></table></div>
+<p><strong>不建議超過 15%（3 萬元）</strong>，原因：</p>
+<ol><li>目前估值偏高，Q4 財報前有不確定性</li><li>Minna 為保守新手，單檔超過 15% 資金過度集中</li><li>啟碁雖好，但 20 萬資金更需要分散在 3 ~ 5 檔觀察標的</li></ol>
+<hr>
+<h2>分析結論</h2>
+<p><strong>持有 / 等待 — 不建議在目前價位追買</strong></p>
+<p>啟碁是台灣 LEO 供應鏈中體質最均衡的標的之一：Starlink 訂單穩定 + 800G 新業務 + 多元產線收入。但目前股價 164.5 元、本益比 18.3 倍（以 2026 法人 EPS 估算），已相當程度 price in 成長預期。</p>
+<p>關鍵等待點：<strong>2025 Q4 財報（2026 年 3 月中旬）</strong>。若 EPS 全年達 8.5 元以上，且 2026 法說展望正向，可考慮在 145 ~ 155 元區間分批佈局。若財報不如預期，股價可能測試 130 ~ 140 元，屆時才是更安全的進場機會。</p>
+<hr>
+<h2>資訊來源</h2>
+<ul><li><a href="https://www.cmoney.tw/forum/stock/6285" target="_blank" rel="noopener">CMoney 啟碁股市論壇</a></li><li><a href="https://winvest.tw/Stock/Symbol/Comment/6285" target="_blank" rel="noopener">Win 投資 啟碁分析</a></li><li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202601210043/" target="_blank" rel="noopener">今周刊 啟碁低軌衛星報導</a></li><li><a href="https://udn.com/news/story/7251/9275058" target="_blank" rel="noopener">聯合新聞網 法人目標價上修</a></li><li><a href="https://news.cnyes.com/news/id/6330443" target="_blank" rel="noopener">鉅亨網 SpaceX xAI 整併</a></li><li><a href="https://today.line.me/tw/v3/article/qoLEN3G" target="_blank" rel="noopener">LINE TODAY 啟碁 800G 交換器</a></li><li><a href="https://today.line.me/tw/v3/article/gzvqW12" target="_blank" rel="noopener">LINE TODAY 啟碁 Q4 展望</a></li><li><a href="https://today.line.me/tw/v3/article/vXGKJxj" target="_blank" rel="noopener">鉅亨網 FactSet 目標價調降</a></li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+</div>
+</body>
+</html>
