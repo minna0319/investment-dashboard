@@ -122,6 +122,106 @@ tr:last-child td { border-bottom: none; }
 .badge.blue { background: rgba(96,165,250,0.15); color: var(--blue); }
 .badge.gray { background: rgba(107,114,128,0.2); color: var(--gray2); }
 
+/* Last-update badge (D) */
+.update-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 10px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.update-badge.normal {
+  background: rgba(52,211,153,0.12);
+  color: var(--green);
+  border-color: rgba(52,211,153,0.25);
+}
+.update-badge.warning {
+  background: rgba(251,146,60,0.18);
+  color: var(--orange);
+  border-color: rgba(251,146,60,0.4);
+  box-shadow: 0 0 8px rgba(251,146,60,0.2);
+}
+.update-badge .badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* Market snapshot bar (E) */
+.market-snapshot {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 14px 0 8px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.snapshot-label {
+  color: var(--text2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  border-right: 1px solid var(--border);
+  margin-right: 2px;
+  white-space: nowrap;
+}
+.snapshot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 14px;
+  border-radius: 10px;
+  min-width: 80px;
+}
+.snapshot-item .si-name {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.75;
+}
+.snapshot-item .si-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.snapshot-item .si-status {
+  font-size: 0.65rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+.snapshot-item.green  { background: rgba(52,211,153,0.10); color: var(--green); }
+.snapshot-item.yellow { background: rgba(251,191,36,0.10); color: var(--yellow); }
+.snapshot-item.orange { background: rgba(251,146,60,0.14); color: var(--orange); }
+.snapshot-item.red    { background: rgba(248,113,113,0.12); color: var(--red); }
+.snapshot-item.blue   { background: rgba(96,165,250,0.12); color: var(--blue); }
+.snapshot-item.gray   { background: rgba(107,114,128,0.15); color: var(--gray2); }
+.snapshot-no-data {
+  color: var(--text2);
+  font-size: 0.78rem;
+  font-style: italic;
+  padding: 6px 0;
+}
+
 .footer { text-align: center; color: var(--text2); font-size: 0.78rem; margin-top: 30px; padding: 20px 0; border-top: 1px solid var(--border); }
 
 @media (max-width: 768px) {
@@ -130,6 +230,10 @@ tr:last-child td { border-bottom: none; }
   .section-title { font-size: 1rem; padding: 14px 16px; }
   .section-content { padding: 0 14px 14px; }
   .summary-bar { flex-direction: column; align-items: center; gap: 8px; }
+  .market-snapshot { gap: 7px; padding: 10px 12px; }
+  .snapshot-item { min-width: 68px; padding: 5px 10px; }
+  .snapshot-item .si-value { font-size: 0.92rem; }
+  .snapshot-label { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 4px; width: 100%; justify-content: center; }
   table { font-size: 0.8rem; }
   td, th { padding: 8px; }
 }
@@ -140,9 +244,9 @@ tr:last-child td { border-bottom: none; }
 <nav class="top-nav"><div class="nav-inner"><a href="index.html">首頁</a><a href="dashboard.html" class="nav-active">儀表板</a><a href="cards.html">決策卡</a><a href="reports/index.html">報告庫</a><a href="timeline.html">時間表</a></div></nav>
 <div class="header">
   <h1 style="background: linear-gradient(135deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Minna 投資決策儀表板</h1>
-  <div class="meta">最後更新：2026-03-14（美股 3/13 盤後）</div>
+  <div style="text-align:center;margin-top:10px;"><span class="update-badge warning"><span class="badge-dot"></span>⚠ 最後更新：2026-03-14（美股 3/13 盤後）</span></div>
 </div>
-
+<div class="market-snapshot"><span class="snapshot-label">市場環境</span><div class="snapshot-item orange"><span class="si-name">VIX</span><span class="si-value">25.88</span><span class="si-status">高位警戒</span></div><div class="snapshot-item blue"><span class="si-name">DXY</span><span class="si-value">100.11</span><span class="si-status">中性</span></div><div class="snapshot-item red"><span class="si-name">WTI</span><span class="si-value">$93.58</span><span class="si-status">高油價</span></div></div>
 <details open class="section speed-section" id="section-1">
 <summary class="section-title">30 秒速覽（本週重點）</summary>
 <div class="section-content">
@@ -287,7 +391,7 @@ tr:last-child td { border-bottom: none; }
 </details>
 
 <div class="footer">
-  自動產出時間：2026-03-14 22:06 ｜ 以上分析僅供參考，不構成投資建議。
+  自動產出時間：2026-03-14 22:27 ｜ 以上分析僅供參考，不構成投資建議。
 </div>
 </body>
 </html>
