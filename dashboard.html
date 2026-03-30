@@ -244,9 +244,9 @@ tr:last-child td { border-bottom: none; }
 <nav class="top-nav"><div class="nav-inner"><a href="index.html">首頁</a><a href="dashboard.html" class="nav-active">儀表板</a><a href="cards.html">決策卡</a><a href="reports/index.html">報告庫</a><a href="timeline.html">時間表</a></div></nav>
 <div class="header">
   <h1 style="background: linear-gradient(135deg, var(--accent), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Minna 投資決策儀表板</h1>
-  <div style="text-align:center;margin-top:10px;"><span class="update-badge info"><span class="badge-dot"></span>最後更新：2026-03-30（2454 聯發科買入同步）</span></div>
+  <div style="text-align:center;margin-top:10px;"><span class="update-badge warning"><span class="badge-dot"></span>⚠ 最後更新：2026-03-30（3293 鈊象買入同步）</span></div>
 </div>
-<div class="market-snapshot"><span class="snapshot-label">市場環境</span><div class="snapshot-item red"><span class="si-name">VIX</span><span class="si-value">31.05</span><span class="si-status">極度恐慌</span></div><div class="snapshot-item blue"><span class="si-name">DXY</span><span class="si-value">100.19</span><span class="si-status">中性</span></div><div class="snapshot-item red"><span class="si-name">WTI</span><span class="si-value">$101.18</span><span class="si-status">高油價</span></div></div>
+<div class="market-snapshot"><span class="snapshot-label">市場環境</span><div class="snapshot-item orange"><span class="si-name">VIX</span><span class="si-value">31.05</span><span class="si-status">恐慌（觀察窗口）</span></div><div class="snapshot-item blue"><span class="si-name">DXY</span><span class="si-value">100.19</span><span class="si-status">中性</span></div><div class="snapshot-item red"><span class="si-name">WTI</span><span class="si-value">$101.18</span><span class="si-status">高油價</span></div></div>
 <details open class="section speed-section" id="section-1">
 <summary class="section-title">30 秒速覽（本週重點）</summary>
 <div class="section-content">
@@ -271,7 +271,7 @@ tr:last-child td { border-bottom: none; }
 <div class="table-wrap"><table>
 <thead><tr><th>類型</th><th>目標比例</th><th>目前持倉</th><th>規則</th></tr></thead>
 <tbody>
-<tr><td>核心（長期）</td><td>70%</td><td>0050、0056、006208、00878、00919、台積電、兆豐金、MSFT、NVDA</td><td>基本面惡化才動，不看技術面</td></tr><tr><td>波段（短中線）</td><td>20-25%</td><td>一詮</td><td>技術面進出，+15% 止盈 / -10% 止損</td></tr><tr><td>其他</td><td>—</td><td>大魯閣（零股）、虎航（股東禮）</td><td>—</td></tr><tr><td>現金</td><td>10-15%</td><td>—</td><td>永遠保留子彈</td></tr>
+<tr><td>核心（長期）</td><td>70%</td><td>0050、0056、006208、00878、00919、台積電、兆豐金、聯發科、鈊象、MSFT、NVDA</td><td>基本面惡化才動，不看技術面</td></tr><tr><td>波段（短中線）</td><td>20-25%</td><td>一詮</td><td>技術面進出，+15% 止盈 / -10% 止損</td></tr><tr><td>其他</td><td>—</td><td>大魯閣（零股）、虎航（股東禮）</td><td>—</td></tr><tr><td>現金</td><td>10-15%</td><td>—</td><td>永遠保留子彈</td></tr>
 </tbody></table></div>
 <p class="note">核心倉位用基本面決定去留；波段倉位用技術面（RSI/KD/MACD）決定進出時機</p>
 <hr>
@@ -284,7 +284,7 @@ tr:last-child td { border-bottom: none; }
 <div class="table-wrap"><table>
 <thead><tr><th>標的</th><th>代號</th><th>股數</th><th>類型</th><th>狀態燈</th><th>結論</th></tr></thead>
 <tbody>
-<tr><td>元大台灣50</td><td>0050</td><td>2,870</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>長期持有，大盤基底</td></tr><tr><td>元大高股息</td><td>0056</td><td>1,501</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>高股息配置，定期定額</td></tr><tr><td>富邦台50</td><td>006208</td><td>43</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>市值型 ETF</td></tr><tr><td>國泰永續高股息</td><td>00878</td><td>1,339</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>ESG 高股息，季配</td></tr><tr><td>群益精選高息</td><td>00919</td><td>316</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>精選高息，季配</td></tr><tr><td>台積電</td><td>2330</td><td>53</td><td>核心</td><td><span class="badge green">安心持有</span></td><td>AI 最核心，持有不動</td></tr><tr><td>兆豐金</td><td>2886</td><td>25</td><td>核心</td><td><span class="badge green">安心持有</span></td><td>官股金控，穩定配息</td></tr><tr><td>一詮精密</td><td>2486</td><td>200</td><td>波段</td><td><span class="badge yellow">需關注</span></td><td>持有，等 Q4 財報確認</td></tr><tr><td>聯發科</td><td>2454</td><td>6</td><td>核心</td><td><span class="badge yellow">需關注</span></td><td>3/26 買入，AI SoC 龍頭，小試長期持有。⚠️ 個股分析待補</td></tr><tr><td>大魯閣</td><td>1432</td><td>1</td><td>其他</td><td>—</td><td>零股，極小部位</td></tr><tr><td>台灣虎航</td><td>6757</td><td>1</td><td>其他</td><td>—</td><td>領股東禮，1 股</td></tr>
+<tr><td>元大台灣50</td><td>0050</td><td>2,870</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>長期持有，大盤基底</td></tr><tr><td>元大高股息</td><td>0056</td><td>1,501</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>高股息配置，定期定額</td></tr><tr><td>富邦台50</td><td>006208</td><td>43</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>市值型 ETF</td></tr><tr><td>國泰永續高股息</td><td>00878</td><td>1,339</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>ESG 高股息，季配</td></tr><tr><td>群益精選高息</td><td>00919</td><td>316</td><td>核心 ETF</td><td><span class="badge green">安心持有</span></td><td>精選高息，季配</td></tr><tr><td>台積電</td><td>2330</td><td>53</td><td>核心</td><td><span class="badge green">安心持有</span></td><td>AI 最核心，持有不動</td></tr><tr><td>兆豐金</td><td>2886</td><td>25</td><td>核心</td><td><span class="badge green">安心持有</span></td><td>官股金控，穩定配息</td></tr><tr><td>一詮精密</td><td>2486</td><td>200</td><td>波段</td><td><span class="badge yellow">需關注</span></td><td>持有，等 Q4 財報確認</td></tr><tr><td>大魯閣</td><td>1432</td><td>1</td><td>其他</td><td>—</td><td>零股，極小部位</td></tr><tr><td>聯發科</td><td>2454</td><td>6</td><td>核心</td><td><span class="badge yellow">需關注</span></td><td>3/26 買入，AI SoC 龍頭，小試長期持有。⚠️ 個股分析待補</td></tr><tr><td>鈊象</td><td>3293</td><td>5</td><td>核心</td><td><span class="badge yellow">需關注</span></td><td>3/30 逢低 755 元買入，遊戲授權龍頭，國外利多消息布局</td></tr><tr><td>台灣虎航</td><td>6757</td><td>1</td><td>其他</td><td>—</td><td>領股東禮，1 股</td></tr>
 </tbody></table></div>
 <p><strong>狀態燈說明</strong>：安心持有 = 不需動作 / 需關注 = 近期有關鍵節點，要追蹤 / 需要行動 = 有進出場決策要執行</p>
 <hr>
@@ -306,7 +306,7 @@ tr:last-child td { border-bottom: none; }
 <div class="table-wrap"><table>
 <thead><tr><th>情境</th><th>觸發條件</th><th>應對行動</th></tr></thead>
 <tbody>
-<tr><td>台股大跌 10%+</td><td>加權指數跌破 17,000 點</td><td>核心持股（0050、台積電）繼續持有；一詮倉位視財報品質評估；不追殺不加碼，等企穩後再看</td></tr><tr><td>台股大跌 20%+</td><td>加權指數跌破 15,000 點</td><td>0050 可考慮分批加碼（指數型長期投資）；個股評估是否是基本面崩壞還是市場超跌</td></tr><tr><td>美股大跌 10%（S&P 500）</td><td>S&P 500 跌破 4,800 點</td><td>MSFT 繼續持有（長線核心）；觀察清單標的若達到理想進場區間，分批佈局（保留現金是前提）</td></tr><tr><td>美股大跌 20%（熊市）</td><td>S&P 500 跌破 4,200 點</td><td>MSFT 繼續持有；等確認底部後加倉 VOO/SPY 指數，這是歷史上最好的買點</td></tr><tr><td>黑天鵝事件（戰爭/金融危機）</td><td>突發地緣政治衝突或系統性金融崩潰</td><td>不要在最恐慌時做決定（根據歷史，外部衝擊型崩跌恢復較快）；若有現金準備，分批在崩跌 20-30% 後開始布局指數型 ETF</td></tr><tr><td>台股中期選舉前震盪（2026 H1）</td><td>VIX > 25，市場出現系統性回調</td><td>這是歷史上的正常現象（中期選舉年上半年平均最大回調 18%）；選後 6 個月歷史平均 +14%，震盪中繼續累積研究功課</td></tr>
+<tr><td>台股大跌 10%+</td><td>加權指數跌破 17,000 點</td><td>核心持股（0050、台積電）繼續持有；一詮倉位視財報品質評估；不追殺不加碼，等企穩後再看</td></tr><tr><td>台股大跌 20%+</td><td>加權指數跌破 15,000 點</td><td>0050 可考慮分批加碼（指數型長期投資）；個股評估是否是基本面崩壞還是市場超跌</td></tr><tr><td>美股大跌 10%（S&P 500）</td><td>S&P 500 跌破 4,800 點</td><td>MSFT 繼續持有（長線核心）；觀察清單標的若達到理想進場區間，分批佈局（保留現金是前提）</td></tr><tr><td>美股大跌 20%（熊市）</td><td>S&P 500 跌破 4,200 點</td><td>MSFT 繼續持有；等確認底部後加倉 VOO/SPY 指數，這是歷史上最好的買點</td></tr><tr><td>黑天鵝事件（戰爭/金融危機）</td><td>突發地緣政治衝突或系統性金融崩潰</td><td>不要在最恐慌時做決定（根據歷史，外部衝擊型崩跌恢復較快）；若有現金準備，分批在崩跌 20-30% 後開始布局指數型 ETF</td></tr><tr><td>台股中期選舉前震盪（2026 H1）</td><td>VIX > 25，市場出現系統性回調</td><td>這是歷史上的正常現象（中期選舉年上半年平均最大回調 18%）；選後 6 個月歷史平均 +14%，震盪中繼續累積研究功課</td></tr><tr><td><strong>VIX 30-40 恐慌觀察窗口</strong></td><td>VIX 進入 30-40 區間</td><td>不再全面凍結。合格標的（已做個股分析 + 基本面 ✅ + 價格在進場區）可用 ≤5% 資金試水溫，單次一檔，累計 ≤15%。非合格標的仍暫停</td></tr><tr><td><strong>VIX > 40 歷史機會區</strong></td><td>VIX 突破 40</td><td>大盤 ETF（0050/VOO）可分批進場（每批 5-10%，累計 ≤20%）。合格個股同 30-40 規則。排除系統性金融危機（銀行倒閉潮等）</td></tr>
 </tbody></table></div>
 <hr>
 <h3 class="">個股情境</h3>
@@ -391,7 +391,7 @@ tr:last-child td { border-bottom: none; }
 </details>
 
 <div class="footer">
-  自動產出時間：2026-03-29 20:12 ｜ 以上分析僅供參考，不構成投資建議。
+  自動產出時間：2026-03-30 14:09 ｜ 以上分析僅供參考，不構成投資建議。
 </div>
 </body>
 </html>
