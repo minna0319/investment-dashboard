@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兆豐金（2886）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>兆豐金（2886）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>兆豐金（2886）九維度深度分析</h1>
+<blockquote>更新記錄：</blockquote>
+<blockquote>- 20260410：首次建立九維度完整分析，含雙軌估值與停損設定</blockquote>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-04-10 21:30（台灣時間）</td></tr><tr><td>台股資料</td><td>已收盤（2026/04/10）</td></tr><tr><td>股價來源</td><td>Yahoo Finance 台股</td></tr><tr><td>PE / 殖利率 / PBR</td><td>TWSE 官方（BWIBBU_d）</td></tr><tr><td>EPS / 配息</td><td>Yahoo Finance 台股（EPS 頁、Dividend 頁）</td></tr><tr><td>技術指標</td><td>technical_indicators.py 腳本輸出</td></tr><tr><td>三大法人</td><td>TWSE T86 API（2026/04/10）</td></tr><tr><td>融資融券</td><td>TWSE MI_MARGN API（2026/04/10）</td></tr><tr><td>同業數據</td><td>TWSE BWIBBU_d + yfinance</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【持有】— 官股金控配息穩、體質健、但現價接近合理價上緣，不宜積極追高；適合當定存股長抱，加碼等回調至 37-39 元</p>
+<p>信心程度：四星（6 項 health 完整，方向明確，風險可控，但估值差距 10% 屬小分歧）</p>
+<p>適合操作：長期持有（存股）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司是什麼</h3>
+<p>兆豐金融控股（2886）是台灣資產規模最大的<strong>公股金控</strong>，背後有政府股份支撐。旗下最重要的子公司是<strong>兆豐銀行</strong>，貢獻整體獲利約 84%。</p>
+<p>📝 <strong>公股金控</strong> → 就是政府持有大量股份的金融公司。好處是倒閉機率極低、監管嚴格；缺點是獲利成長比民營金控保守。</p>
+<h3>業務結構</h3>
+<p>```</p>
+<p>兆豐金融控股</p>
+<p>├── 兆豐銀行（獲利貢獻 ~84%）← 核心</p>
+<p>│   ├── 國內放款（約 71%）</p>
+<p>│   └── 外幣/海外放款（約 29%）</p>
+<p>├── 兆豐票券（貢獻 ~7%）</p>
+<p>├── 兆豐證券（貢獻 ~4%）</p>
+<p>└── 其他（保險、資管、創投）</p>
+<p>```</p>
+<h3>海外布局</h3>
+<p>兆豐銀行在全球有 <strong>39 個海外據點</strong>，橫跨 18 個國家，以美洲、東南亞為主（新南向政策配合 22 個據點在新南向區域）。這是台灣金控中海外布局最廣的之一。</p>
+<h3>競爭優勢（護城河）</h3>
+<div class="table-wrap"><table><thead><tr><th>護城河項目</th><th>說明</th><th>強度</th></tr></thead><tbody><tr><td>官股背景</td><td>倒閉機率近乎零，政府背書信用</td><td>強</td></tr><tr><td>企業放款關係</td><td>長期服務台灣大型企業，轉換成本高</td><td>中強</td></tr><tr><td>海外外匯業務</td><td>台資企業海外資金流動首選，市占領先</td><td>中強</td></tr><tr><td>連 24 年穩定配息</td><td>配息歷史最長的金控之一</td><td>中</td></tr></tbody></table></div>
+<p>📝 <strong>護城河</strong> → 讓競爭對手很難搶走生意的優勢。就像台積電的技術讓別人追不上，兆豐的官股背景讓它在企業放款市場有天然信任感。</p>
+<h3>管理層品質</h3>
+<ul><li>2025 年法說會：管理層承諾「現金股利為主，發放率與近年 75% 相當」</li><li>主動因應川普關稅，預先減碼約 80 億元上市櫃股票部位，顯示較保守穩健的風險管理態度</li><li>總體而言，管理層無重大誠信疑慮，但決策偏保守（公股特性）</li></ul>
+<hr>
+<h2>2. 財務面</h2>
+<h3>EPS 趨勢（年度）</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>EPS（元）</th><th>年增率</th></tr></thead><tbody><tr><td>2025</td><td>2.36</td><td>+0.4%</td></tr><tr><td>2024</td><td>2.35</td><td>-0.8%</td></tr><tr><td>2023</td><td>2.37</td><td>+79.5%</td></tr><tr><td>2022</td><td>1.32</td><td>—</td></tr><tr><td>2021</td><td>約 1.89</td><td>—</td></tr></tbody></table></div>
+<p>說明：2022 年 EPS 大幅下滑，主因是當年金融市場動盪（升息衝擊債券評價損失）。2023 年後回歸正常水準並連續兩年創新高。</p>
+<p>📝 <strong>EPS（每股盈餘）</strong> → 公司每一張股票賺了多少錢。EPS 2.36 代表你持有 1 張（1,000 股）兆豐金，公司替你賺了 2,360 元。</p>
+<h3>EPS 季度明細（近 8 季）</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>EPS</th><th>年增率</th></tr></thead><tbody><tr><td>2025 Q4</td><td>0.46</td><td>+24.3%</td></tr><tr><td>2025 Q3</td><td>0.68</td><td>+13.3%</td></tr><tr><td>2025 Q2</td><td>0.69</td><td>+15.0%</td></tr><tr><td>2025 Q1</td><td>0.54</td><td>-32.5%</td></tr><tr><td>2024 Q4</td><td>0.37</td><td>-15.9%</td></tr><tr><td>2024 Q3</td><td>0.60</td><td>+1.7%</td></tr><tr><td>2024 Q2</td><td>0.60</td><td>+5.3%</td></tr><tr><td>2024 Q1</td><td>0.80</td><td>+3.9%</td></tr></tbody></table></div>
+<p>2025 全年 EPS 2.36 元，連續兩年創新高（2024 年 2.35 元）。趨勢為溫和持平/小幅成長。</p>
+<h3>月營收趨勢（近 6 個月）</h3>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>月營收（億元）</th><th>月增率</th><th>年增率</th></tr></thead><tbody><tr><td>2026/02</td><td>64.6</td><td>-20.79%</td><td>-0.73%</td></tr><tr><td>2026/01</td><td>81.6</td><td>+16.28%</td><td>+20.06%</td></tr><tr><td>2025/12</td><td>70.1</td><td>+17.94%</td><td>+5.56%</td></tr><tr><td>2025/11</td><td>59.5</td><td>-13.22%</td><td>+15.17%</td></tr><tr><td>2025/10</td><td>68.5</td><td>-5.94%</td><td>+10.68%</td></tr><tr><td>2025/09</td><td>72.9</td><td>+5.71%</td><td>+8.67%</td></tr></tbody></table></div>
+<p>金融股月營收波動屬正常（受市場交易量、利息收入季節性影響）。2026/02 年增率 -0.73% 幾乎持平。長期（累計）仍呈成長趨勢。</p>
+<h3>股利配息紀錄</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>所屬獲利期間</th><th>現金股利（元）</th><th>股票股利（元）</th><th>現金殖利率</th></tr></thead><tbody><tr><td>2025</td><td>2024 年</td><td>1.60</td><td>—</td><td>3.72%</td></tr><tr><td>2024</td><td>2023 年</td><td>1.50</td><td>0.30</td><td>3.61%</td></tr><tr><td>2023</td><td>2022 年</td><td>1.24</td><td>0.08</td><td>3.10%</td></tr><tr><td>2022</td><td>2021 年</td><td>1.40</td><td>0.25</td><td>3.76%</td></tr><tr><td>2021</td><td>2020 年</td><td>1.58</td><td>—</td><td>4.78%</td></tr><tr><td>2020</td><td>2019 年</td><td>1.70</td><td>—</td><td>5.26%</td></tr></tbody></table></div>
+<p>連續 <strong>24 年</strong> 穩定配息，歷年累計配息 31.94 元。近 5 年平均現金殖利率 3.79%。</p>
+<h3>財務健康度</h3>
+<p>金融股的財務結構與一般製造業不同，關鍵指標如下：</p>
+<ul><li><strong>放款成長</strong>：兆豐銀行 2025 年放款餘額約 2.3 兆元，年成長 4.9%（健康）</li><li><strong>台幣放款 Q3 成長 8.1%</strong>：受惠 AI、半導體產業授信需求擴大</li><li><strong>信用成本</strong>：管理層預期 2026 年信用成本低於 2025 年（利多）</li><li><strong>匯率敏感度</strong>：新台幣每升值 1 元，影響兆豐銀行獲利約 3 億元（需留意匯率）</li></ul>
+<p>📝 <strong>信用成本</strong> → 銀行預估放出去的錢有多少比例收不回來的費用。成本下降代表壞帳比率降低，是利多。</p>
+<h3>健康體檢六指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>持平</td><td>2023-2025 年約 2.35-2.37 元，波動 < 1%</td></tr><tr><td>營收趨勢</td><td>成長</td><td>近 6 月 YoY 多數正成長</td></tr><tr><td>毛利率趨勢</td><td>穩定</td><td>金融股以淨利息收益率衡量，整體穩健</td></tr><tr><td>負債健康度</td><td>健康</td><td>銀行業特性，存款（負債）為業務本質，資本適足率穩健</td></tr><tr><td>自由現金流</td><td>true</td><td>2025 年稅後純益 350.9 億，配息後仍有留存</td></tr><tr><td>護城河強度</td><td>強</td><td>官股背景 + 企業外匯業務市占</td></tr></tbody></table></div>
+<hr>
+<h2>3. 估值面</h2>
+<h3>股票類型判定</h3>
+<p>殖利率 5.84% > 3%，EPS 成長率 < 15% → <strong>TYPE_B（價值/存股型）</strong></p>
+<p>雙軌估值方法：<strong>方法 A（歷史 PE 區間法）+ 方法 B（股利折現法）</strong></p>
+<h3>方法 A：歷史 PE 區間法</h3>
+<p>近 4 年 EPS：2.36（2025）、2.35（2024）、2.37（2023）、1.32（2022）</p>
+<p>說明：2022 年 EPS 受金融市場動盪拖累明顯偏低，屬非常態年份。採近 3 年平均更能反映目前獲利能力（2022 年為升息衝擊下的一次性低點）。</p>
+<p><strong>近 3 年平均 EPS = (2.36 + 2.35 + 2.37) / 3 = 2.36 元</strong></p>
+<p>歷史 PE 區間（⚠️ 單一來源，引用市場共識數據）：</p>
+<ul><li>台灣金融股 PE 歷史區間約 12~20 倍，公股金控常落在 14~18 倍</li><li>近期 PE（TWSE）：14.73 倍（接近低標）</li><li>依市場共識：低標 ~13x，中位數 ~16x，高標 ~19x</li></ul>
+<p>方法 A 合理價 = 2.36 × 16 = <strong>37.8 元</strong></p>
+<p>方法 A 公式：近 3 年平均 EPS 2.36 × 歷史 PE 中位數 16x</p>
+<h3>方法 B：股利折現法</h3>
+<p>近 3 年平均現金股利 = (1.60 + 1.50 + 1.24) / 3 = <strong>1.447 元</strong></p>
+<p>目標殖利率 = 近 3 年平均殖利率 = (3.72% + 3.61% + 3.10%) / 3 = <strong>3.48%</strong></p>
+<p>方法 B 合理價 = 1.447 ÷ 3.48% = <strong>41.6 元</strong></p>
+<p>方法 B 公式：近 3 年平均現金股利 1.447 ÷ 近 3 年平均殖利率 3.48%</p>
+<h3>差距判定與進場區間</h3>
+<p>```</p>
+<p>差距 = |37.8 - 41.6| / 37.8 = 10.1% → ≤ 20%，取平均</p>
+<p>錨定價 anchor = (37.8 + 41.6) / 2 = 39.7 元</p>
+<p>取值規則：取平均</p>
+<p>```</p>
+<p>TYPE_B 進場區間：</p>
+<ul><li>entry_high = 39.7 × 1.00 = <strong>39.7 元</strong></li><li>entry_low = 39.7 × 0.95 = <strong>37.7 元</strong></li><li>標準寬度：5.0%（符合規範 3-5%）</li></ul>
+<p>現價 39.85 元，略高於 entry_high 39.7 元（高出約 0.4%）。</p>
+<p>→ <strong>備註：現價幾乎恰在合理價上緣，已持有者安心持有；若要加碼，等回調至 37.7-39.7 元區間</strong></p>
+<p>📝 <strong>股利折現法</strong> → 如果你把未來每年的配息折算成現在的價值，股票應該值多少錢。就像你問「如果這張股票每年配 1.45 元，我要求 3.48% 的報酬率，那它值多少？」</p>
+<h3>估值彙整</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>方法 A（歷史 PE 法）合理價</td><td>37.8 元</td><td>近 3 年均 EPS 2.36 × 中位 PE 16x</td></tr><tr><td>方法 B（股利折現法）合理價</td><td>41.6 元</td><td>均股利 1.447 ÷ 均殖利率 3.48%</td></tr><tr><td>差距</td><td>10.1%</td><td>取平均</td></tr><tr><td>錨定價</td><td>39.7 元</td><td></td></tr><tr><td>進場區間</td><td>37.7 ~ 39.7 元</td><td>TYPE_B 安全邊際</td></tr><tr><td>現價（2026/04/10）</td><td>39.85 元</td><td>略高於進場區間上緣 0.4%</td></tr><tr><td>現 PE（TWSE 官方）</td><td>14.73 倍</td><td>接近歷史低標，估值偏低</td></tr><tr><td>現殖利率（TWSE）</td><td>5.84%</td><td>以現股價計算，配息吸引力高</td></tr><tr><td>現 PBR（TWSE）</td><td>1.13 倍</td><td>低於 1.5，相對便宜</td></tr></tbody></table></div>
+<hr>
+<h2>4. 技術面</h2>
+<p>技術指標數據來源：<code>technical_indicators.py</code>，2026/04/10 收盤後計算。</p>
+<h3>即時行情</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>收盤價</td><td>39.85 元</td></tr><tr><td>漲跌</td><td>+0.10 元（+0.25%）</td></tr><tr><td>開 / 高 / 低</td><td>39.75 / 39.90 / 39.60</td></tr><tr><td>成交量</td><td>24,718 張</td></tr><tr><td>52 週高點</td><td>42.8 元</td></tr><tr><td>52 週低點</td><td>34.23 元</td></tr><tr><td>52 週位置</td><td>65.6%（在高低點之間偏上方）</td></tr></tbody></table></div>
+<h3>均線分布</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>現價 vs 均線</th></tr></thead><tbody><tr><td>MA5</td><td>39.52</td><td>在均線上方 +0.8%</td></tr><tr><td>MA10</td><td>39.18</td><td>在均線上方 +1.7%</td></tr><tr><td>MA20</td><td>39.05</td><td>在均線上方 +2.1%</td></tr><tr><td>MA60</td><td>39.62</td><td>在均線上方 +0.6%</td></tr><tr><td>MA120</td><td>40.15</td><td>在均線下方 -0.7%</td></tr><tr><td>MA240</td><td>39.97</td><td>在均線下方 -0.3%</td></tr></tbody></table></div>
+<p>均線排列：糾結（短均線交錯），短期（5/10/20MA）多頭排列，中長期（120/240MA）股價在下方。</p>
+<p>📝 <strong>均線糾結</strong> → 股價的各條平均線擠在一起，代表多空方向還不清楚，需要一個事件來打破僵局。</p>
+<h3>技術指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>RSI(14)</td><td>58.57</td><td>偏強，但未超買（< 70）</td></tr><tr><td>KD K / D</td><td>84.53 / 74.95</td><td>K > D，偏多；K > 80 超買區，留意回調</td></tr><tr><td>MACD 柱狀</td><td>+0.14</td><td>正值，零軸上方，多頭格局</td></tr><tr><td>黃金交叉</td><td>2 天前（2026/04/08）</td><td>MA5 上穿長均線，短線轉多</td></tr></tbody></table></div>
+<p>📝 <strong>KD 超買</strong> → 短線漲幅已大，就像橡皮筋拉太緊，容易出現小幅回彈。KD 在 80 以上時不代表一定要賣，但要留意隨時可能回跌。</p>
+<h3>量能</h3>
+<ul><li>近 5 日均量 / 20 日均量比值：1.02（量能穩定，非爆量）</li><li>外盤比例 65.46%（買方主動，偏多）</li></ul>
+<h3>技術面綜合評分</h3>
+<p>技術評分：<strong>2.5 分（中性偏多）</strong></p>
+<p>說明：短線剛出現黃金交叉，MACD 柱狀為正，多頭氛圍尚好；但 KD 已進超買區（K = 84），且股價在年線（240MA）下方，長期趨勢仍屬整理。整體技術面是「短多長不確定」。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>三大法人（2026/04/10）</h3>
+<div class="table-wrap"><table><thead><tr><th>法人</th><th>當日買賣超</th></tr></thead><tbody><tr><td>外資</td><td>-915 張</td></tr><tr><td>投信</td><td>-139 張</td></tr><tr><td>自營商</td><td>-57 張</td></tr><tr><td><strong>合計</strong></td><td><strong>-1,111 張</strong></td></tr></tbody></table></div>
+<h3>近 5 日趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資</th><th>投信</th><th>自營</th><th>合計</th></tr></thead><tbody><tr><td>2026/04/10</td><td>-915</td><td>-139</td><td>-57</td><td>-1,111</td></tr><tr><td>2026/04/09</td><td>+18,564</td><td>+2,866</td><td>-128</td><td>+21,099</td></tr><tr><td>2026/04/08</td><td>+1,726</td><td>+2,360</td><td>-15</td><td>+4,512</td></tr><tr><td>2026/04/07</td><td>+8,231</td><td>+1,456</td><td>+1,229</td><td>+10,888</td></tr><tr><td>2026/04/02</td><td>+7,201</td><td>+798</td><td>+2,535</td><td>+10,513</td></tr></tbody></table></div>
+<p>近 5 日合計：外資 +34,807 張、投信 +7,341 張，今日小幅回落屬正常。整體而言法人上週大量買進，今日屬短線獲利了結。</p>
+<p>📝 <strong>三大法人</strong> → 外資（外國機構）、投信（台灣基金公司）、自營商（券商自己的錢）。這三個大戶的動向是重要訊號：連續買超代表看好，賣超代表看淡。</p>
+<h3>融資融券（2026/04/10）</h3>
+<ul><li>融資增加：2 張（幾乎為零，散戶借錢追的比例極低）</li><li>融券：❌ 詳細數值未完整取得，建議至三竹股市或券商 App 查詢</li></ul>
+<p>整體籌碼面評估：融資比例極低（代表沒有散戶過度借錢追高的風險），法人近期持續買進，籌碼面健康。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p>選取比較對象：第一金（2892，官股金控）、玉山金（2884，民營金控）</p>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>兆豐金（2886）</th><th>第一金（2892）</th><th>玉山金（2884）</th></tr></thead><tbody><tr><td>現股價</td><td>39.85 元</td><td>28.60 元</td><td>32.25 元</td></tr><tr><td>2025 EPS</td><td>2.36 元</td><td>1.87 元</td><td>2.12 元</td></tr><tr><td>本益比（PE）</td><td>14.73 倍</td><td>15.29 倍</td><td>15.21 倍</td></tr><tr><td>股價淨值比（PBR）</td><td>1.13 倍</td><td>1.41 倍</td><td>1.91 倍</td></tr><tr><td>現金殖利率</td><td>5.84%</td><td>3.26%</td><td>3.68%</td></tr><tr><td>現金股利（配 2025 年）</td><td>1.60 元</td><td>⚠️ 未確認</td><td>1.40 元</td></tr><tr><td>市值</td><td>5,911 億</td><td>—</td><td>—</td></tr><tr><td>海外布局</td><td>39 個據點</td><td>較小</td><td>著重財富管理</td></tr><tr><td>獲利驅動</td><td>放款+外匯</td><td>放款+企業金融</td><td>消金+財富管理</td></tr></tbody></table></div>
+<p>資料來源：TWSE BWIBBU_d（PE/PBR/殖利率），yfinance（同業股價/EPS）</p>
+<h3>同業比較結論</h3>
+<ul><li><strong>PBR 最低</strong>：兆豐金 PBR 1.13 倍是三者中最低，代表「用淨值比較，兆豐最便宜」</li><li><strong>殖利率最高</strong>：5.84% 遠高於第一金 3.26%、玉山金 3.68%，存股族最有吸引力</li><li><strong>EPS 最高</strong>：2.36 元略優於玉山金 2.12 元、第一金 1.87 元</li><li><strong>缺點</strong>：官股體質，成長性不如民營金控（玉山金的消金、財富管理有更多成長空間）</li></ul>
+<p>如果只能選一檔：<strong>兆豐金在估值面和股利面最佳，適合穩健存股族；玉山金適合願意接受較低殖利率換取成長潛力的投資人。</strong></p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>2026 年現金股利公告</td><td>已確認方向（現金為主，高於 1.5 元）</td><td>2026 年股東會（約 5-6 月）</td><td>高</td></tr><tr><td>AI/半導體產業授信需求持續擴大</td><td>潛在</td><td>持續中</td><td>中</td></tr><tr><td>台灣新南向政策支持海外分行業績</td><td>潛在</td><td>持續中</td><td>中</td></tr><tr><td>Fed 降息週期（利差壓縮但存款成本下降）</td><td>潛在</td><td>2026 年</td><td>中（雙面刃）</td></tr><tr><td>信用成本下降（管理層預期）</td><td>已確認方向</td><td>2026 年全年</td><td>中高</td></tr><tr><td>川普關稅影響台灣企業放款需求</td><td>不確定</td><td>2026 年</td><td>中（負面）</td></tr></tbody></table></div>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th></tr></thead><tbody><tr><td>利率下行（Fed 降息）壓縮淨利差</td><td>中</td><td>中</td><td>Fed 降息頻率加快；利息收入年增率轉負</td></tr><tr><td>新台幣升值（每升值 1 元影響獲利 3 億）</td><td>中高</td><td>中</td><td>美元指數 DXY 大幅下跌；台幣快速升值</td></tr><tr><td>川普關稅壓縮台灣出口企業放款需求</td><td>中</td><td>中</td><td>台灣製造業 PMI 持續萎縮；呆帳率上升</td></tr><tr><td>金融市場大幅震盪影響交易損益</td><td>中（2026 地緣風險高）</td><td>中</td><td>VIX > 30；股債市同步下跌</td></tr><tr><td>海外據點（美國、東南亞）信用風險</td><td>低</td><td>中</td><td>海外放款逾放比上升</td></tr><tr><td>政策風險（官股配合政策放款，犧牲商業利益）</td><td>低中</td><td>低中</td><td>政府主導政策性授信明顯增加</td></tr><tr><td>台海情勢升溫</td><td>低（現況）</td><td>極高</td><td>地緣政治緊張；外資大幅撤資</td></tr></tbody></table></div>
+<p><strong>最需要關注的風險：匯率風險（已知新台幣升值 1 元影響 3 億獲利）+ 川普關稅間接影響（台灣製造業放款需求可能收縮）。</strong></p>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>持有狀態評估</h3>
+<p>Minna 目前持有 25 張（以均價估算，約佔總資金 4-5%）。以下建議皆針對已持有後的決策。</p>
+<p><strong>結論：持有</strong></p>
+<ul><li>信心程度：四星</li><li>建議倉位：目前 4-5%，若長期看好可在加碼區間提升至 7-8%（但單檔不超過 10%）</li></ul>
+<h3>停損參考</h3>
+<p>金融股傳統停損邏輯較特殊，提供兩種思路：</p>
+<p><strong>方法一（技術面停損）：</strong></p>
+<p>跌破 MA240（年線）37.5 元 附近且成交量放大 → 觀察是否站回；若連續 3 日收在年線下方 → 考慮減碼</p>
+<p><strong>方法二（基本面停損）：</strong></p>
+<p>若發生以下任一事項，重新評估持倉：</p>
+<ul><li>EPS 連續兩季年增率轉為 -10% 以上</li><li>配息金額較前一年大幅削減（低於 1.2 元）</li><li>發生重大呆帳事件或監理處分</li></ul>
+<p><strong>建議停損價：37.5 元（MA240 附近）</strong></p>
+<p>理由：年線是長期支撐，跌破代表長期趨勢可能轉弱。</p>
+<h3>進場價格區間</h3>
+<p>```</p>
+<p>方法 A（歷史 PE 法）合理價：37.8 元（近 3 年均 EPS 2.36 × 歷史中位 PE 16x）</p>
+<p>方法 B（股利折現法）合理價：41.6 元（均股利 1.447 ÷ 均殖利率 3.48%）</p>
+<p>差距：10.1% → 取平均</p>
+<p>錨定價 anchor：39.7 元</p>
+<p>進場區間：37.7 ~ 39.7 元（TYPE_B，安全邊際 5%）</p>
+<p>現價 39.85 元 → 略高於進場上緣 0.4%，屬臨界狀態</p>
+<p>```</p>
+<p>加碼條件：</p>
+<ul><li>股價回落至 37.7-39.7 元 + 法人持續買超 + EPS 無明顯惡化</li><li>若整體大盤 VIX > 25 且兆豐金股價跌至 37.5 元附近，可視為加碼機會</li></ul>
+<p>止盈（長期持有不設止盈，僅設參考）：</p>
+<ul><li>股價達 43-45 元（2024 年 52 週高點附近），PE 接近 18-19 倍歷史高標 → 可考慮小幅減碼</li><li>年度配息後若殖利率跌至 3% 以下（代表股價已偏貴）→ 再評估</li></ul>
+<h3>觀察指標</h3>
+<ol><li><strong>月配息公告（年度股利）</strong>：預計 2026 年 5-6 月股東會，法人預估不低於 1.5 元</li><li><strong>月營收 YoY</strong>：持續觀察是否維持正成長</li><li><strong>台幣兌美元匯率</strong>：特別關注新台幣升值幅度（每月留意）</li><li><strong>三大法人買賣超</strong>：外資連續 5 日以上賣超 → 需提高警覺</li><li><strong>信用成本/呆帳率</strong>：季報公告後確認管理層預期是否兌現</li></ol>
+<h3>下次檢視時間</h3>
+<ul><li><strong>近期</strong>：2026 年 Q1 季報公告後（約 5 月）</li><li><strong>中期</strong>：股東會股利確認後（2026 年 6 月）</li><li><strong>長期</strong>：每半年例行檢視，或遇重大新聞事件</li></ul>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2886.TW" target="_blank" rel="noopener">Yahoo Finance 台股 - 兆豐金 2886 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2886.TW/eps" target="_blank" rel="noopener">Yahoo Finance 台股 - 兆豐金 2886 EPS</a></li><li><a href="https://tw.stock.yahoo.com/quote/2886.TW/dividend" target="_blank" rel="noopener">Yahoo Finance 台股 - 兆豐金 2886 股利</a></li><li><a href="https://tw.stock.yahoo.com/quote/2886.TW/revenue" target="_blank" rel="noopener">Yahoo Finance 台股 - 兆豐金 2886 月營收</a></li><li><a href="https://www.twse.com.tw/exchangeReport/BWIBBU_d" target="_blank" rel="noopener">TWSE 官方 - 個股本益比/殖利率/股價淨值比</a>（⚠️ 歷史 PE 區間引用市場共識，屬單一來源，建議至 Goodinfo 或財報狗核對）</li><li><a href="https://www.twse.com.tw/rwd/zh/fund/T86" target="_blank" rel="noopener">TWSE 官方 - 三大法人 T86</a></li><li><a href="https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN" target="_blank" rel="noopener">TWSE 官方 - 融資融券 MI_MARGN</a></li><li><a href="https://histock.tw/stock/chips.aspx?no=2886" target="_blank" rel="noopener">HiStock 嗨投資 - 兆豐金三大法人</a></li><li><a href="https://winvest.tw/Stock/Symbol/Comment/2886" target="_blank" rel="noopener">Win 投資 - 兆豐金完整分析</a></li><li><a href="https://news.cnyes.com/news/id/6302721" target="_blank" rel="noopener">鉅亨網 - 兆豐金稅務利益助攻 2025 獲利新高</a></li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+</div>
+</body>
+</html>

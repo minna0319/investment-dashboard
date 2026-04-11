@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯發科（2454）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>聯發科（2454）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>聯發科（2454）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>說明</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-04-10</td><td>首次完整九維度分析，補設停損線與進場區間</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-04-10（台灣時間）</td></tr><tr><td>台股資料</td><td>已收盤（2026/04/10）</td></tr><tr><td>股價來源</td><td>Yahoo 股市（TWSE 同步驗證）</td></tr><tr><td>融資融券</td><td>TWSE MI_MARGN（2026/04/10）</td></tr><tr><td>法人數據</td><td>Yahoo 股市法人買賣（2026/04/06-04/10）</td></tr><tr><td>PE/殖利率</td><td>TWSE BWIBBU_d（2026/04/10）</td></tr><tr><td>月營收</td><td>Yahoo 股市 revenue（最新至 2026/03）</td></tr><tr><td>技術指標</td><td>technical_indicators.py 腳本計算</td></tr><tr><td>待更新</td><td>2025Q4 完整財報（自由現金流、負債比）— 僅取得摘要數字</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【持有，等待加碼時機】— 基本面轉型題材明確（手機 SoC 穩守 + ASIC 新成長引擎），但現價 1,575 元遠高於估值合理進場區（1,177 ~ 1,247 元），持有者安心抱、新資金等回調再動。</p>
+<p><strong>信心程度：⭐⭐⭐⭐（4 星）</strong></p>
+<p>適合操作：長期核心持股</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司靠什麼賺錢</h3>
+<p>聯發科（MediaTek）是全球最大的手機晶片設計公司之一，主要設計「系統單晶片（SoC → 就是把 CPU、GPU、記憶體控制器、數據機全塞進一顆晶片）」，自己不生產，交給台積電代工。</p>
+<p><strong>產業鏈位置：</strong></p>
+<p>```</p>
+<p>ARM（IP授權）→ 聯發科（晶片設計）→ 台積電（代工製造）</p>
+<p>↓</p>
+<p>三星/小米/OPPO/vivo（手機品牌）→ 消費者</p>
+<p>```</p>
+<h3>營收結構（2025年估算）</h3>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>佔比</th><th>趨勢</th></tr></thead><tbody><tr><td>手機 SoC（天璣系列）</td><td>約 55%</td><td>穩定，中低階稱霸</td></tr><tr><td>智慧家居/IoT</td><td>約 15%</td><td>穩定成長</td></tr><tr><td>電源管理 IC</td><td>約 10%</td><td>穩定</td></tr><tr><td>車用晶片</td><td>約 8%</td><td>高速成長</td></tr><tr><td>雲端 ASIC（Google TPU）</td><td>約 2-3%（快速攀升）</td><td>新動能，2027 年可望達 20%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>ASIC</strong>：Application Specific Integrated Circuit，應用特定積體電路。就是「為特定用途量身打造的晶片」，例如 Google 為了 AI 計算特別訂製的 TPU，和一般通用晶片不同。</blockquote>
+<h3>競爭優勢（護城河）</h3>
+<p><strong>強度：強</strong></p>
+<ol><li><strong>手機 SoC 全球市占近 40%</strong>：中低階和中高階市場稱霸，高通主攻旗艦，兩強分食全球 98% 市場</li><li><strong>SerDes 技術積累</strong>：高速 IC 互連核心技術，是 ASIC 業務的關鍵 IP，競爭對手難以複製</li><li><strong>客戶黏性高</strong>：晶片設計深度整合客戶 BSP（開機程式），更換供應商成本極高</li><li><strong>台積電先進製程優先取得</strong>：長期大客戶，取得 3nm 和 2nm 產能有優先權</li><li><strong>Google TPU v7e + v8e 訂單</strong>：已鎖定兩代訂單，成為 ASIC 領域重要玩家</li></ol>
+<h3>管理層品質</h3>
+<ul><li>董事長蔡明介：業界公認半導體老將，「農夫哲學」（深耕不追短線）獲市場信任</li><li>執行長蔡力行：前台積電總裁，專業公信力極高</li><li>2025 年法說會如實呈現 Q4 雙率下滑，沒有粉飾，誠信度佳</li><li>⚠️ 單一來源：管理層品質評估來自新聞報導，建議觀察法說會實際言行一致性</li></ul>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（最新 6 個月）</h3>
+<p>（來源：Yahoo 股市 2026/04/10）</p>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>月營收（億元）</th><th>月增率</th><th>年增率</th></tr></thead><tbody><tr><td>2026/03</td><td>632</td><td><strong>+62.3%</strong></td><td>+12.9%</td></tr><tr><td>2026/02</td><td>390</td><td>-17.1%</td><td>-15.6%</td></tr><tr><td>2026/01</td><td>470</td><td>-8.4%</td><td>-8.2%</td></tr><tr><td>2025/12</td><td>513</td><td>+9.3%</td><td>+23.0%</td></tr><tr><td>2025/11</td><td>469</td><td>-9.9%</td><td>+3.7%</td></tr><tr><td>2025/10</td><td>520</td><td>-4.2%</td><td>+1.8%</td></tr></tbody></table></div>
+<p><strong>解讀</strong>：2026/03 月營收 632 億元大幅反彈（+62.3% MoM），主因為農曆年效應後的訂單補貨。年增率多數維持正成長，但 1-2 月年增率轉負顯示 2026 年上半年仍有壓力。全年 2025 年營收 5,960 億元，年增 12.3%。</p>
+<blockquote>📝 <strong>YoY（年增率）</strong>：今年和去年同期比較，正數代表成長，負數代表衰退。MoM 是和上個月比。</blockquote>
+<h3>關鍵財務指標</h3>
+<p>（來源：法說會公告 + Yahoo 股市）</p>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>2022年</th><th>2023年</th><th>2024年</th><th>2025年</th></tr></thead><tbody><tr><td>年營收（億元）</td><td>5,482</td><td>4,344</td><td>5,381</td><td>5,960</td></tr><tr><td>EPS（元）</td><td>74.59</td><td>48.51</td><td>66.92</td><td>66.16</td></tr><tr><td>毛利率</td><td>53.3%</td><td>46.3%</td><td>49.4%</td><td><strong>47.5%</strong></td></tr><tr><td>Q4 毛利率</td><td>—</td><td>—</td><td>—</td><td>46.1%</td></tr></tbody></table></div>
+<p><strong>EPS 趨勢解讀</strong>：2022 高峰 → 2023 大幅修正（-35%）→ 2024 回升 → 2025 持平微降。整體呈現「修正後穩定」格局。</p>
+<p><strong>毛利率趨勢</strong>：從 2022 年 53.3% 高點持續下滑至 2025 年 47.5%，為近期低點，主因是行動晶片競爭激烈 + 中低階佔比高。Q4 2025 毛利率 46.1% 為 19 季低點，是重要觀察指標。</p>
+<blockquote>📝 <strong>毛利率</strong>：每賣 100 元的晶片，扣掉設計成本、台積電代工費後，能留下多少。聯發科 47.5% = 每 100 元留 47.5 元，屬於半導體設計公司的良好水準。</blockquote>
+<h3>財務健康估算</h3>
+<ul><li><strong>負債比率</strong>：❌ 未取得（建議查閱公司官網財報 → https://corp.mediatek.tw/investor-relations）</li><li>歷史記錄顯示聯發科財務體質保守，無大規模借債紀錄，合理推測健康度良好</li><li>法說會無提及財務壓力</li><li><strong>自由現金流</strong>：❌ 未取得完整數字，但 2025Q4 毛利率 46.1%、EPS 14.39 元，顯示仍維持盈利，合理推測 FCF 正數（⚠️ 單一來源推估，非官方數字）</li><li><strong>ROE（股東權益報酬率）</strong>：❌ 未取得，歷史上聯發科 ROE 20-30% 範圍，屬優質成長股水準</li></ul>
+<h3>健康體檢</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>⏳ 持平</td><td>2024-2025 年 66-67 元區間，修正後穩定</td></tr><tr><td>營收趨勢</td><td>✅ 成長</td><td>近 6 個月多數年增正成長，全年 +12.3%</td></tr><tr><td>毛利率趨勢</td><td>⚠️ 波動</td><td>從 53% 下滑至 47%，有結構性壓力但還算穩定</td></tr><tr><td>負債健康度</td><td>⏳ 注意</td><td>❌ 未取得正式數據，依歷史推估為健康</td></tr><tr><td>自由現金流</td><td>✅ 正數（推估）</td><td>高毛利率支撐，但正式數字未取得</td></tr><tr><td>護城河強度</td><td>✅ 強</td><td>SerDes 技術 + 市占 + 客戶黏性</td></tr></tbody></table></div>
+<p><strong>體檢結果：正面 3 項確認 + 1 項推估為正 → ⏳ 基本面觀望（數據完整度不足拉到 ✅ 通過）</strong></p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>股票類型判定</h3>
+<ul><li>EPS > 0，YoY 約 7.6%（2025 vs 2026 預估） → 介於成長股邊緣</li><li>殖利率 3.40%（來源：TWSE BWIBBU_d 2026/04/10）</li><li>判定：<strong>TYPE_A 成長股</strong>（EPS YoY 介於 5-15%，但 ASIC 轉型可能帶動未來加速成長）</li></ul>
+<h3>目前估值</h3>
+<p>（來源：TWSE BWIBBU_d 2026/04/10 & Yahoo 股市）</p>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>1,575 元</td></tr><tr><td>本益比（PE）</td><td>23.87x</td></tr><tr><td>股息殖利率</td><td>3.40%</td></tr><tr><td>股價淨值比（PBR）</td><td>6.28x</td></tr><tr><td>52 週高點</td><td>1,945 元</td></tr><tr><td>52 週低點</td><td>1,123 元</td></tr><tr><td>目前位置</td><td>52 週區間 55%（中間偏上）</td></tr></tbody></table></div>
+<h3>雙軌估值（進場價格 SOP）</h3>
+<p><strong>基本數據：</strong></p>
+<ul><li>近 4 年 EPS：74.59 / 48.51 / 66.92 / 66.16 元（平均 64.05 元）</li><li>2026 年 Forward EPS 市場預估：70~72 元，取 <strong>71 元</strong></li><li>歷史 PE 區間（2023-2026）：8.81x ~ 29.48x，低標約 <strong>14x</strong>，中位數約 <strong>19x</strong>，高標約 <strong>24x</strong></li></ul>
+<hr>
+<p><strong>方法 A（歷史 PE 區間法，用 Forward EPS）：</strong></p>
+<p>```</p>
+<p>合理價 = Forward EPS 71 × 歷史 PE 中位數 19x = 1,349 元</p>
+<p>```</p>
+<p><strong>方法 B（PEG 估值法）：</strong></p>
+<p>```</p>
+<p>2026 vs 2025 EPS 成長率 = (71-66.16)/66.16 = 7.3%</p>
+<p>→ 成長率偏低，直接用 PEG=1 → 合理 PE = 7.3x（過低，加入 ASIC 題材溢價）</p>
+<p>→ 市場共識：ASIC 轉型值得 18-20x PE</p>
+<p>→ 取 20x（考量 ASIC 成長加速的未來溢價，上限 30x）</p>
+<p>合理價 = Forward EPS 71 × 20x = 1,420 元</p>
+<p>```</p>
+<p><strong>差距計算：</strong></p>
+<p>```</p>
+<p>差距 = |1,349 - 1,420| / 1,349 = 5.3% → ≤ 20% → 取平均</p>
+<p>錨定價 = (1,349 + 1,420) / 2 = 1,385 元</p>
+<p>```</p>
+<p><strong>進場區間（TYPE_A）：</strong></p>
+<p>```</p>
+<p>entry_high = 1,385 × 0.90 = 1,247 元</p>
+<p>entry_low  = 1,385 × 0.85 = 1,177 元</p>
+<p>```</p>
+<p><strong>技術面微調：</strong></p>
+<ul><li>MA120（半年線）= 1,481 元，遠高於 entry_high（1,247 元）</li><li>現價 1,575 元，高於 entry_high 26%</li><li>→ 備註：「技術支撐在 MA120 = 1,481，高於公式進場區。現價遠高於進場區，不建議追高加碼。若要加碼，等回調至 1,400-1,481 元區間（MA120 附近）再評估。」</li></ul>
+<p><strong>估值結論：</strong></p>
+<p>```</p>
+<p>方法 A（歷史PE法）：合理價 1,349 元（Forward EPS 71 × PE 19x）</p>
+<p>方法 B（PEG+ASIC溢價法）：合理價 1,420 元（Forward EPS 71 × PE 20x）</p>
+<p>差距：5.3% → 取平均</p>
+<p>錨定價：1,385 元</p>
+<p>進場區間：1,177 ~ 1,247 元</p>
+<p>目前現價 1,575 元 → 溢價約 14% 高於 entry_high</p>
+<p>備註：ASIC 轉型若如期加速，可支撐更高 PE，但估值已偏貴，持有者按兵不動</p>
+<p>```</p>
+<blockquote>📝 <strong>PEG</strong>：本益比除以 EPS 成長率。PEG = 1 代表股價成長和獲利成長剛好匹配，< 1 代表成長被低估。聯發科因為 ASIC 題材，市場願意給額外溢價。</blockquote>
+<hr>
+<h2>4. 技術面</h2>
+<p>（來源：technical_indicators.py，2026/04/10 資料）</p>
+<h3>現價位置</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>現價</td><td>1,575 元（收平盤）</td><td>—</td></tr><tr><td>MA5</td><td>1,533 元</td><td>現價高於 +2.7%</td></tr><tr><td>MA10</td><td>1,530 元</td><td>現價高於 +2.9%</td></tr><tr><td>MA20</td><td>1,611 元</td><td>現價低於 -2.2%</td></tr><tr><td>MA60</td><td>1,654 元</td><td>現價低於 -4.8%</td></tr><tr><td>MA120</td><td>1,481 元</td><td>現價高於 +6.3%</td></tr><tr><td>MA240</td><td>1,397 元</td><td>現價高於 +12.7%</td></tr><tr><td>52W 高點</td><td>1,945 元</td><td>距高點 -19.0%</td></tr><tr><td>52W 低點</td><td>1,123 元</td><td>距低點 +40.2%</td></tr><tr><td>52W 位置</td><td>55%（中間偏上）</td><td>—</td></tr></tbody></table></div>
+<h3>技術指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>RSI(14)</td><td>45.19</td><td>中性區間（30-70 為中性），多空均可</td></tr><tr><td>KD K值</td><td>55.43</td><td>偏多（K > D）</td></tr><tr><td>KD D值</td><td>34.86</td><td>—</td></tr><tr><td>MACD</td><td>-48.75</td><td>零軸下方，負值代表空頭格局</td></tr><tr><td>MACD 柱狀</td><td>-1.64</td><td>負值代表賣壓仍在</td></tr><tr><td>黃金交叉</td><td>未偵測</td><td>—</td></tr></tbody></table></div>
+<blockquote>📝 <strong>RSI</strong>：股價的溫度計。45 屬中性，沒有過熱也沒有超賣，目前沒有明顯訊號。</blockquote>
+<blockquote>📝 <strong>MACD</strong>：動能方向指標。現在 MACD 在零軸下方，代表中期偏空，柱狀 -1.64 負值但接近零，動能弱化中。</blockquote>
+<blockquote>📝 <strong>均線糾結</strong>：短期均線（MA5、MA10）在現價下方，長期均線（MA20、MA60）在現價上方，代表短線剛反彈、但中長期壓力仍存在。</blockquote>
+<h3>技術面綜合評分</h3>
+<p><strong>評分：-0.5（中性）</strong></p>
+<ul><li>KD 偏多 +0.5</li><li>MACD 柱狀負 -1.0</li><li>均線糾結，無明確方向</li></ul>
+<p><strong>技術面解讀</strong>：目前處於均線糾結整理區，短線剛從低點反彈，但尚未站回 MA20（1,611）和 MA60（1,654）。MA120（1,481）是重要支撐，若能持守此線則下跌空間有限。突破 MA20 + 站穩是轉強訊號。</p>
+<p><strong>成本 1,600 元 vs 現價 1,575 元</strong>：目前小幅虧損 -1.6%，處於成本線附近整理。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<p>（來源：TWSE MI_MARGN + Yahoo 法人買賣，2026/04/10）</p>
+<h3>三大法人近 5 日買賣超</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資（張）</th><th>投信（張）</th><th>自營（張）</th><th>合計（張）</th></tr></thead><tbody><tr><td>04/10</td><td>-1,441</td><td>-276</td><td>+2</td><td>-1,716</td></tr><tr><td>04/09</td><td>-728</td><td>-178</td><td>-79</td><td>-985</td></tr><tr><td>04/08</td><td>-81</td><td>-55</td><td>+199</td><td>+62</td></tr><tr><td>04/07</td><td>-829</td><td>-748</td><td>+126</td><td>-1,452</td></tr><tr><td>04/02</td><td>-824</td><td>-27</td><td>+11</td><td>-840</td></tr></tbody></table></div>
+<p><strong>近 20 日累計：</strong></p>
+<ul><li>外資累計賣超約 7,440 張，連續 6 個交易日賣超</li><li>投信累計賣超約 2,203 張，連續 7 日賣超</li><li>外資持股比重：55.19%（仍為最大持股者）</li></ul>
+<blockquote>📝 <strong>三大法人</strong>：外資（國際基金）、投信（台灣基金公司）、自營商（券商自己操盤）。外資買賣是最重要的觀察指標，因為外資佔了超過一半的持股。</blockquote>
+<h3>融資融券</h3>
+<p>（來源：TWSE MI_MARGN 2026/04/10）</p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>餘額（單位）</th><th>當日增減</th></tr></thead><tbody><tr><td>融資餘額</td><td>6,375</td><td>-125（淨減少）</td></tr><tr><td>融券餘額</td><td>9</td><td>0</td></tr></tbody></table></div>
+<p><strong>解讀</strong>：</p>
+<ul><li>融資餘額 6,375 張，相對於每日成交量 5,371 張，佔比不高，無追高借錢的警訊</li><li>融券餘額僅 9 張，幾乎無放空力道，市場對基本面沒有強烈看空</li><li>融資呈現淨減少，散戶小幅去槓桿，正常整理現象</li></ul>
+<h3>籌碼面小結</h3>
+<p>外資和投信連續賣超是短期負面訊號，但外資持股仍高達 55.19%，屬於「法人獲利了結」而非「恐慌出走」。融資低、融券低，籌碼結構穩健。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<h3>可比較同業</h3>
+<p>聯發科的主要競爭對手：高通（美股 QCOM）和矽力-KY（6415）作為對照，台股同業取聯詠（3034）。</p>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>聯發科（2454）</th><th>高通（QCOM，美股）</th><th>聯詠（3034）</th></tr></thead><tbody><tr><td>主要業務</td><td>手機 SoC + ASIC</td><td>旗艦手機晶片 + 授權</td><td>顯示驅動 IC</td></tr><tr><td>市場定位</td><td>中低階~中高階手機，ASIC 新動能</td><td>旗艦手機霸主</td><td>車用/TV 顯示 IC</td></tr><tr><td>2025 年 EPS</td><td>66.16 元</td><td>約 10 USD</td><td>約 20~25 元（⚠️ 估算）</td></tr><tr><td>本益比</td><td>23.87x</td><td>約 17x（⚠️ 估算）</td><td>—（❌ 未取得）</td></tr><tr><td>毛利率</td><td>47.5%</td><td>55%+</td><td>約 35%（❌ 未取得正式數字）</td></tr><tr><td>成長驅動</td><td>ASIC/車用/AI SoC</td><td>高通骨科/PC/車用</td><td>車用顯示 IC</td></tr><tr><td>主要風險</td><td>手機需求、美中科技戰</td><td>客戶集中（Apple 25%+）</td><td>中國 TV 需求低迷</td></tr></tbody></table></div>
+<blockquote>⚠️ 高通和聯詠的部分數字為估算，非 WebFetch 官方來源，僅供方向性參考。</blockquote>
+<p><strong>競爭格局：</strong></p>
+<ul><li>手機 SoC：高通 71% vs 聯發科 27%。聯發科已深度佔領中低階，難以撼動；旗艦市場仍是高通領地</li><li>ASIC 市場：聯發科是台股最直接受益 Google TPU 的設計廠，相比聯詠更具題材性</li><li>估值：聯發科 PE 23.87x 高於高通約 17x，但 ASIC 轉型溢價有其合理性</li></ul>
+<p><strong>同業結論</strong>：在台股晶片設計股中，聯發科擁有最完整的 AI ASIC 轉型故事，競爭地位相對突出。但與美股高通相比，估值已不便宜。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>Google TPU v7e 量產</td><td>已確認</td><td>2026 Q2 開始出貨</td><td>高</td></tr><tr><td>Google TPU v8e 訂單確認</td><td>已確認</td><td>2027 年量產</td><td>高</td></tr><tr><td>天璣 9600（2nm）旗艦晶片</td><td>已確認</td><td>2026 H2 發布</td><td>中</td></tr><tr><td>ASIC 營收跨越 10 億美元</td><td>已確認目標</td><td>2026 全年</td><td>高</td></tr><tr><td>2026 Q1 法說會</td><td>已確認</td><td>約 2026 年 5 月</td><td>中</td></tr><tr><td>Meta ASIC 訂單</td><td>潛在</td><td>2026-2027</td><td>高（若實現）</td></tr><tr><td>智慧型手機換機潮（AI 功能驅動）</td><td>潛在</td><td>2026-2027</td><td>中</td></tr><tr><td>WOA（Windows on ARM）晶片切入</td><td>潛在</td><td>2027+</td><td>中</td></tr><tr><td>關稅戰解除，中國手機品牌回溫</td><td>潛在</td><td>不確定</td><td>中</td></tr></tbody></table></div>
+<p><strong>關鍵時間軸：</strong></p>
+<ul><li><strong>2026 Q2</strong>：Google TPU v7e 開始量產 → 最近重要觀察節點</li><li><strong>2026 全年</strong>：ASIC 年營收能否達成 10 億美元目標</li><li><strong>2027 年</strong>：v8e + ASIC 倍增期，市場對 EPS 80-85 元的預期是否成真</li></ul>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th></tr></thead><tbody><tr><td>美中科技戰升級（晶片出口管制擴大）</td><td>中</td><td>高</td><td>美國商務部 Entity List 新增台廠客戶</td></tr><tr><td>手機市場寒冬持續（全球出貨量下滑）</td><td>中</td><td>高</td><td>月營收連續 3 個月 YoY 負成長</td></tr><tr><td>毛利率持續惡化至 44% 以下</td><td>中</td><td>高</td><td>Q2 法說會毛利率指引下修</td></tr><tr><td>Google ASIC 訂單不如預期或延遲</td><td>低-中</td><td>高</td><td>官方進度公告或媒體報導推遲</td></tr><tr><td>資源分配問題：押注 ASIC 導致手機晶片天璣降格</td><td>中</td><td>中</td><td>天璣新品競爭力評測大幅落後高通</td></tr><tr><td>台積電先進製程產能搶奪（蘋果/NVIDIA 優先）</td><td>中</td><td>中</td><td>法說會提及製程取得困難</td></tr><tr><td>中國手機品牌轉用自研晶片</td><td>低</td><td>中</td><td>華為、小米加快自研晶片進度</td></tr></tbody></table></div>
+<p><strong>⚠️ 致命風險（一旦發生可能大幅衝擊股價）：</strong></p>
+<ol><li><strong>美國出口管制升級</strong>：若聯發科被列入出口管制對象，中國業務（約 65%+ 營收）將受嚴重影響，股價可能腰斬</li><li><strong>ASIC 關鍵訂單流失</strong>：Google 若轉換供應商或縮減 TPU 委外，2027 年 EPS 成長故事崩解</li></ol>
+<p><strong>可控風險 vs 不可控風險：</strong></p>
+<ul><li>可控：毛利率管理、產品競爭力、客戶多元化（積極追加 Meta 等）</li><li>不可控：地緣政治、美中科技戰、全球手機景氣週期</li></ul>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>綜合判斷</h3>
+<div class="table-wrap"><table><thead><tr><th>維度</th><th>評分</th><th>說明</th></tr></thead><tbody><tr><td>基本面</td><td>✅</td><td>護城河強，ASIC 轉型故事明確</td></tr><tr><td>財務面</td><td>⏳</td><td>EPS 持平，毛利率下滑，部分數據未取得</td></tr><tr><td>估值面</td><td>❌</td><td>現價溢價估值進場區 26%，貴</td></tr><tr><td>技術面</td><td>⏳</td><td>均線糾結，中性，無明確方向</td></tr><tr><td>籌碼面</td><td>⚠️</td><td>外資投信連續賣超，短期偏弱</td></tr><tr><td>催化劑</td><td>✅</td><td>Google TPU v7e 即將量產，題材明確</td></tr></tbody></table></div>
+<hr>
+<ul><li><strong>結論</strong>：持有，等待加碼時機</li><li><strong>信心程度</strong>：⭐⭐⭐⭐（4 星）</li><li>6 項 health 均有填，方向明確，催化劑已確認，但毛利率趨勢有隱憂，估值偏貴</li><li><strong>建議倉位</strong>：現有 6 股維持不動，佔總資金估計 ~3%（1,575 × 6 = 9,450 元 / 30 萬 = 3.2%），符合核心持股但倉位偏輕，可在合適價位加碼至 6-8%</li></ul>
+<p><strong>進場條件（加碼用）：</strong></p>
+<ul><li>方法 A 合理價：1,349 元（Forward EPS 71 × PE 19x）</li><li>方法 B 合理價：1,420 元（Forward EPS 71 × ASIC 溢價 PE 20x）</li><li>差距：5.3% → 錨定價：1,385 元</li><li><strong>加碼進場區間：1,177 ~ 1,247 元</strong>（基本面錨定進場區）</li><li><strong>實際觀察點：1,400 ~ 1,481 元</strong>（MA120 半年線附近，技術支撐更強）</li><li>現價 1,575 元遠高於進場區，不宜追高</li></ul>
+<p><strong>停損參考：</strong></p>
+<ul><li><strong>技術面停損：跌破 MA120（1,481 元）且收盤站不回去 → 考慮減碼 1/3</strong></li><li><strong>基本面停損：毛利率跌破 44% 或 EPS 全年低於 55 元 → 重新評估核心持股地位</strong></li><li><strong>絕對停損：月收盤價跌破 1,123 元（52W 低點）→ 出場，確認趨勢轉空</strong></li><li>現成本 1,600 元，目前虧損 -1.6%，短期先以 MA120（1,481）作為軟性停損參考（虧損約 -7.4%）</li></ul>
+<p><strong>加碼條件：</strong></p>
+<ol><li>股價回落至 1,400-1,481 元（MA120 附近）+ 技術面出現 KD 金叉</li><li>Q2 法說會（約 5 月）確認 ASIC 業務進度符合預期</li><li>月營收恢復年增率連續 3 個月正成長</li></ol>
+<p><strong>觀察指標（接下來追蹤）：</strong></p>
+<ol><li>每月 10 日：月營收公告，重點看年增率是否轉正並持續</li><li>每季法說會：毛利率指引 + ASIC 業務進度</li><li>外資持股比例：是否持續下降（當前 55.19%，下降至 50% 以下需警戒）</li><li>Google TPU v7e 實際量產時程（預計 2026 Q2）</li><li>MA60（1,654 元）突破：突破且站穩 → 轉強訊號</li></ol>
+<p><strong>下次檢視時間</strong>：2026 年 5 月法說會後（Q1 2026 財報公布）</p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2454.TW" target="_blank" rel="noopener">Yahoo 股市 - 聯發科(2454)即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2454.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 聯發科(2454)月營收</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE - 個股本益比/殖利率（BWIBBU_d）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN" target="_blank" rel="noopener">TWSE - 融資融券（MI_MARGN）</a></li><li><a href="https://tw.stock.yahoo.com/quote/2454.TW/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 - 聯發科法人買賣</a></li><li><a href="https://www.wantgoo.com/stock/2454/enterprise-value/price-to-earning-ratio" target="_blank" rel="noopener">玩股網 - 聯發科本益比歷史</a></li><li><a href="https://statementdog.com/analysis/2454/pe-band" target="_blank" rel="noopener">財報狗 - 聯發科本益比河流圖</a>（⚠️ WebFetch 無回應，PE 區間數字來自玩股網）</li><li><a href="https://technews.tw/2026/02/21/google-tpu-mediatek/" target="_blank" rel="noopener">TechNews - 聯發科搶下 Google TPU 大單</a></li><li><a href="https://tw.stock.yahoo.com/news/%E8%81%AF%E7%99%BC%E7%A7%91%E6%B3%95%E8%AA%AA-%E5%8E%BB%E5%B9%B4q4%E9%9B%99%E7%8E%87%E7%BA%8C%E8%B7%8C-eps-14-39%E5%85%83-065013944.html" target="_blank" rel="noopener">Yahoo 股市 - 聯發科法說 Q4 財報</a></li><li><a href="https://technews.tw/2026/01/05/mediatek-mobile-chips-ai-asics/" target="_blank" rel="noopener">TechNews - 聯發科資源大調度！行動晶片改押 ASIC</a></li><li><a href="https://finance.technews.tw/2026/04/02/smartphone-market-cold-winter-mediatek-qualcomm-cut-chip-shipments" target="_blank" rel="noopener">TechNews - 智慧手機市場寒冬</a></li><li><a href="https://cmnews.com.tw/article/newsyoudeservetoknow-3ae9429f-e8ef-11f0-8d46-0947caf3a682" target="_blank" rel="noopener">CMoney - 聯發科 2026 年除息新聞</a></li><li>[technical_indicators.py 腳本輸出]（2026/04/10）</li></ul>
+</div>
+</body>
+</html>

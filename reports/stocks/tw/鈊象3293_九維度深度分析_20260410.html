@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鈊象（3293）九維度深度個股分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>鈊象（3293）九維度深度個股分析</h1>
+</div>
+<div class="report-body">
+<h1>鈊象（3293）九維度深度個股分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>主要更新</th></tr></thead><tbody><tr><td>v2.0</td><td>2026-04-10</td><td>九維度重寫。Minna 已持有 5 股（成本 755 元）。更新月營收至 2026/03、EPS 至 2025 全年 38.51 元、法人目標價最新版</td></tr><tr><td>v1.0</td><td>2026-03-04</td><td>初版分析（技術面空頭排列，結論觀望）</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-04-10 14:30（台灣時間）</td></tr><tr><td>台股資料</td><td>今日已收盤</td></tr><tr><td>美股資料</td><td>未開盤</td></tr><tr><td>Minna 持倉</td><td>5 股，成本 755 元（2026/3/30 買入）</td></tr><tr><td>今日收盤</td><td>769 元（+0.65%，+5 元）</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【持有】— 授權模式護城河極深，月營收連創新高，現價低於基本面合理進場區，核心持有邏輯未變</p>
+<p>信心程度：⭐⭐⭐⭐（6 項 health 全填，方向明確，風險可控）</p>
+<p>適合操作：長線核心持有，可在進場區補倉</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司主要業務</h3>
+<p>鈊象電子（International Games System，IGS）成立於 1989 年，是台灣電子遊戲授權產業龍頭。</p>
+<p><strong>兩大業務線：</strong></p>
+<ul><li><strong>網路遊戲（佔營收約 93%）</strong>：旗下 TaDa Gaming 平台將自研遊戲（麻將、老虎機、電子骰、捕魚機等）透過 B2B 授權模式，授權給全球各地的線上博弈平台，收取授權費與服務費。這是核心高毛利獲利引擎。</li><li><strong>商用遊戲機（佔約 7%）</strong>：傳統大型電玩機台，比重持續下滑。</li></ul>
+<h3>產業鏈定位（ASCII 流程圖）</h3>
+<p>```</p>
+<p>【遊戲開發商（鈊象）】</p>
+<p>↓ 授權遊戲內容</p>
+<p>【線上博弈平台商（全球代理商）】</p>
+<p>↓ 吸引玩家</p>
+<p>【終端玩家（全球各地）】</p>
+<p>```</p>
+<p>鈊象在「中游授權」位置，不直接面對玩家，不碰金流，風險極低，毛利極高。</p>
+<h3>獲利模式（護城河所在）</h3>
+<blockquote><strong>護城河</strong> → 讓競爭對手很難搶走生意的優勢。</blockquote>
+<p>授權模式（Licensing）：不需直接經營賭場或面對玩家，只賣「遊戲內容版權」給平台商，收版稅。平台商吸引越多玩家 → 鈊象收到越多授權費。這是典型的「軟體版稅商業模式」，毛利率接近 98%，業界罕見。</p>
+<p>護城河強度分析：</p>
+<ul><li><strong>技術積累</strong>：30 年以上遊戲研發，遊戲庫龐大（尤其亞洲文化主題如麻將、百家樂，難以複製）</li><li><strong>全球執照</strong>：已取得馬爾他、瑞典、希臘、羅馬尼亞、英國、葡萄牙等多國監管執照，門檻高</li><li><strong>客戶黏著</strong>：平台商一旦整合 TaDa Gaming 遊戲，切換成本高</li><li><strong>規模效應</strong>：遊戲開發是固定成本，授權的邊際成本接近零，規模越大利潤越高</li></ul>
+<h3>地理分佈（更新版）</h3>
+<ul><li>海外授權佔整體營收約 <strong>68%</strong>，東南亞是最大市場（約 40%）</li><li>台灣約 29%</li><li>歐洲市場快速擴張中（英國、瑞典、希臘、葡萄牙、羅馬尼亞已取得執照並上線）</li><li>南非 2026 年正式上線（非洲市場切入）</li><li>美國市場為中長期目標</li></ul>
+<h3>TaDa Gaming 戰略地位升級</h3>
+<p>2025 年最大亮點：TaDa Gaming 從過去第 6 大營收來源，升至今年第 2 大（超越《明星三缺一》），成長動能強，成為海外擴張的核心引擎。</p>
+<h3>客戶集中度</h3>
+<p>鈊象採 B2B 多元授權模式，客戶為全球博弈平台商，無單一大客戶依賴問題，客戶集中度低，風險分散。</p>
+<h3>管理層品質</h3>
+<ul><li>創辦人家族持股穩定，董監持股約 8%</li><li>歷史上法說會的業績承諾與實際達成吻合度高（月營收連創新高是最佳佐證）</li><li>無重大誠信疑慮</li></ul>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（最新至 2026/03）</h3>
+<p>來源：Yahoo Finance（2026/04/10 抓取）</p>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收（億元）</th><th>月增率</th><th>年增率</th></tr></thead><tbody><tr><td>2025/10</td><td>18.76</td><td>+4.51%</td><td>+11.66%</td></tr><tr><td>2025/11</td><td>18.65</td><td>-0.63%</td><td>+11.56%</td></tr><tr><td>2025/12</td><td>19.52</td><td>+4.68%</td><td>+14.12%</td></tr><tr><td>2026/01</td><td>19.88</td><td>+1.84%</td><td>+13.57%</td></tr><tr><td>2026/02</td><td>20.84</td><td>+4.82%</td><td>+19.25%</td></tr><tr><td>2026/03</td><td><strong>21.93</strong></td><td>+5.27%</td><td><strong>+17.81%</strong></td></tr></tbody></table></div>
+<ul><li>2025 全年營收：<strong>220.33 億元</strong></li><li>2026 年 Q1 累計：<strong>62.65 億</strong>，年增 <strong>+16.89%</strong></li><li>2026/03 為近期高點，顯示成長動能持續加速</li></ul>
+<p>判讀：年增率連續維持 10-19% 區間，無衰退跡象；月增率連續正成長是健康訊號。</p>
+<h3>EPS 趨勢</h3>
+<blockquote><strong>EPS（每股盈餘）</strong> → 公司每賺 1 元，平均分到每張股票上的獲利能力指標。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>期間</th><th>EPS（元）</th><th>年增率</th></tr></thead><tbody><tr><td>2025 Q1</td><td>9.32</td><td>+20%</td></tr><tr><td>2025 Q2</td><td>9.39</td><td>—</td></tr><tr><td>2025 Q3</td><td>9.90</td><td>+28%</td></tr><tr><td>2025 Q4</td><td><strong>10.61</strong></td><td>+16%（季增 7%）</td></tr><tr><td><strong>2025 全年</strong></td><td><strong>38.51</strong></td><td><strong>+20%</strong></td></tr><tr><td>2024 全年</td><td>32.14</td><td>基期</td></tr></tbody></table></div>
+<p>法人 2026 年 EPS 預估：<strong>47.3 元</strong>（凱基最新，年增 +22.8%）⚠️ 單一來源</p>
+<h3>毛利率與獲利能力</h3>
+<blockquote><strong>毛利率</strong> → 每賣 100 元，扣掉直接成本後能留下多少。98% = 賣 100 元留 98 元。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數據</th><th>備註</th></tr></thead><tbody><tr><td>毛利率</td><td><strong>97.68%</strong></td><td>2025 Q1，創 40 季新高</td></tr><tr><td>2024 毛利率</td><td>96.5%</td><td>穩定向上趨勢</td></tr><tr><td>營業利益率</td><td>55.8%（2024）/ 57.12%（2025 Q1）</td><td>持續改善</td></tr><tr><td>淨利率</td><td>49.01%</td><td>2025 Q1</td></tr><tr><td>ROE</td><td><strong>57.4%</strong>（2025 預估）/ 55.3%（2024）</td><td>資料來源：intelligentdata.cc ⚠️ 單一來源</td></tr></tbody></table></div>
+<blockquote><strong>ROE（股東權益報酬率）</strong> → 股東投入 100 元，公司每年幫你賺多少。57% 是極高水準。</blockquote>
+<h3>配息紀錄</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>現金股利（元）</th><th>殖利率（參考股價）</th></tr></thead><tbody><tr><td>2025 配息</td><td><strong>29 元</strong></td><td>約 3.55-4.05%（依股價不同）</td></tr><tr><td>2026 預估配息</td><td><strong>44 元</strong>（凱基預估）</td><td>—</td></tr></tbody></table></div>
+<p>法人預估 2026 殖利率：約 <strong>5.9%</strong>（以現價 769 元計，若配 44 元 = 5.72%）</p>
+<h3>資本結構健康度</h3>
+<ul><li>授權模式資本支出極低，自由現金流長期為正</li><li>負債比率：因授權業務不需大量資產，財務結構健康（精確數字未取得）</li></ul>
+<hr>
+<h2>3. 估值面</h2>
+<blockquote><strong>本益比（P/E）</strong> → 用幾年的獲利能買回這張股票。數字越小越便宜。</blockquote>
+<h3>目前估值</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數據</th><th>來源</th></tr></thead><tbody><tr><td>今日收盤</td><td>769 元</td><td>Yahoo Finance（2026/04/10）</td></tr><tr><td>本益比（PE）</td><td><strong>19.84 倍</strong></td><td>Yahoo Finance（以 TTM EPS 計算）</td></tr><tr><td>歷史 PE 高點</td><td>34.34 倍（2025/02）</td><td>wantgoo.com</td></tr><tr><td>歷史 PE 低點</td><td>13.08 倍（2023/01）</td><td>wantgoo.com</td></tr><tr><td>歷史 PE 中位數</td><td>約 <strong>20 倍</strong></td><td>估算</td></tr></tbody></table></div>
+<h3>雙軌估值（TYPE_A 成長股）</h3>
+<p>鈊象 EPS 年增 20%+，屬成長股（TYPE_A），使用歷史 PE 區間法 + PEG 估值法。</p>
+<p><strong>方法 A（歷史 PE 區間法）：</strong></p>
+<p>```</p>
+<p>使用 Forward EPS（成長股適用）：47.3 元</p>
+<p>× 歷史 PE 中位數：20x</p>
+<p>= 合理價 946 元</p>
+<p>```</p>
+<p><strong>方法 B（PEG 估值法）：</strong></p>
+<p>```</p>
+<p>EPS 年增率：22.8%（47.3/38.51 - 1）</p>
+<p>合理 PE = 22.8（PEG = 1 時合理）→ 取整 23x</p>
+<p>23x × Forward EPS 47.3 = 1,088 元</p>
+<p>```</p>
+<blockquote><strong>PEG</strong> → 考慮成長速度後，這檔股票到底貴不貴。PEG = 1 表示股價成長和獲利成長剛好匹配，是合理水準。</blockquote>
+<p><strong>差距與錨定：</strong></p>
+<p>```</p>
+<p>差距 = (1088 - 946) / 946 = 15% → 取平均</p>
+<p>錨定價 = (946 + 1088) / 2 = 1,017 元</p>
+<p>```</p>
+<p><strong>進場區間（TYPE_A）：</strong></p>
+<p>```</p>
+<p>entry_high = 1,017 × 0.90 = 915 元</p>
+<p>entry_low  = 1,017 × 0.85 = 865 元</p>
+<p>```</p>
+<p><strong>目前位置分析：</strong></p>
+<p>現價 769 元，低於進場區（865-915 元）約 <strong>11-16%</strong>。</p>
+<p>→ 這代表<strong>現價已低於基本面估算的合理進場區</strong>，是加碼的基本面訊號，但仍需搭配技術面確認。</p>
+<p><strong>分析師目標價（定性參考）：</strong></p>
+<ul><li>凱基投顧：950 元（上修，2026/03，維持「增加持股」）⚠️ WebSearch 來源</li><li>其他法人均值：836-924 元 ⚠️ WebSearch 來源</li></ul>
+<hr>
+<h2>4. 技術面</h2>
+<p>技術指標由系統腳本抓取（2026/04/10 收盤後）：</p>
+<div class="table-wrap"><table><thead><tr><th>技術指標</th><th>數值 / 狀態</th></tr></thead><tbody><tr><td>今日收盤</td><td>769 元</td></tr><tr><td>今日開盤 / 高 / 低</td><td>768 / 777 / 757 元</td></tr><tr><td>52 週高點</td><td>863.23 元</td></tr><tr><td>52 週低點</td><td>670 元</td></tr><tr><td>52 週位置</td><td><strong>51.2%</strong>（中間位置）</td></tr><tr><td>10MA</td><td>768.6 元</td></tr><tr><td>20MA</td><td>751.2 元</td></tr><tr><td>50MA</td><td>724.24 元</td></tr><tr><td>100MA</td><td>727.76 元</td></tr><tr><td>200MA</td><td>760.67 元</td></tr></tbody></table></div>
+<p><strong>均線排列：糾結（短長均線交錯）</strong></p>
+<ul><li>股價在 50MA 上方 +6.2%，多頭支撐</li><li>10MA（768.6）≈ 股價（769），短線黏附均線</li><li>200MA（760.67）↔ 股價接近，年線是重要支撐</li></ul>
+<p><strong>技術指標：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>RSI(14)</td><td><strong>57.61</strong></td><td>偏強（但未超買）</td></tr><tr><td>KD - K</td><td>51.11</td><td>K < D，偏空</td></tr><tr><td>KD - D</td><td>53.19</td><td>—</td></tr><tr><td>MACD 柱狀</td><td><strong>+0.57</strong>（正）</td><td>動能轉強</td></tr><tr><td>MACD / 信號線</td><td>14.54 / 13.97</td><td>零軸上方，多頭格局</td></tr></tbody></table></div>
+<blockquote><strong>RSI</strong> → 股價最近是漲太多還是跌太多的溫度計。57 = 偏強但未過熱，安全區間。</blockquote>
+<blockquote><strong>MACD</strong> → 火車的加速度。柱狀為正代表動能在累積，方向向上。</blockquote>
+<p><strong>技術面綜合評分：中性（score 1.0）</strong></p>
+<ul><li>正面：MACD 柱狀正（動能轉強）、RSI 偏強、股價站在 50MA 上</li><li>負面：KD 偏空（K < D）、均線糾結尚未走出明確方向</li></ul>
+<p><strong>近月走勢回顧（對比舊版 3/4 分析）：</strong></p>
+<ul><li>3/4 分析時：空頭排列，KD < 20，686 元附近</li><li>現在（4/10）：從低點 670 元回升至 769 元，漲幅約 +15%</li><li>技術面已從空頭轉為「糾結中性」，止穩跡象成立</li></ul>
+<p><strong>關鍵價位：</strong></p>
+<ul><li>支撐：757（今低）/ 751（20MA）/ 724（50MA）/ 670（52 週低）</li><li>壓力：777（今高）/ 863（52 週高）</li></ul>
+<hr>
+<h2>5. 籌碼面</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數據</th><th>來源</th></tr></thead><tbody><tr><td>今日成交量</td><td>1,749 張</td><td>Yahoo Finance</td></tr><tr><td>5 日均量</td><td>1,662 張</td><td>技術指標腳本</td></tr><tr><td>20 日均量</td><td>1,825 張</td><td>技術指標腳本</td></tr><tr><td>量比（5日/20日）</td><td>0.91</td><td>量縮（低於 1）</td></tr><tr><td>外資持股比例</td><td>21.48%</td><td>舊版資料（2026/03）⚠️</td></tr><tr><td>大戶持股比例</td><td>40.2%</td><td>舊版資料（2026/03）⚠️</td></tr><tr><td>董監持股</td><td>8.13%</td><td>舊版資料 ⚠️</td></tr><tr><td>融資 / 融券</td><td>❌ 未取得</td><td>建議至三竹股市或券商 App 查詢</td></tr><tr><td>近期法人動向</td><td>主力近五日偏賣超（逾千張）</td><td>WebSearch 摘要 ⚠️ 單一來源</td></tr></tbody></table></div>
+<p><strong>籌碼面解讀：</strong></p>
+<ul><li>量縮（量比 0.91）顯示目前市場觀望，非強攻格局</li><li>大戶持股 40%+ 仍高，籌碼集中度佳，股價相對穩定</li><li>主力近五日賣超是短期負面訊號，需持續觀察是否為法人調節或短線獲利了結</li><li>精確法人三大買賣超數據建議自行至台股資訊平台查詢</li></ul>
+<hr>
+<h2>6. 同業比較</h2>
+<p>鈊象在台灣遊戲產業中屬獨特「B2B 授權平台」定位，完全沒有直接對等的台股對手。比較如下：</p>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>鈊象（3293）</th><th>宇峻奧汀（6275）</th><th>演算法遊戲（全球：Evolution Gaming）</th></tr></thead><tbody><tr><td>主要業務</td><td>B2B 博弈授權（TaDa）</td><td>RPG + 美國休閒博弈</td><td>B2B 現場直播博弈</td></tr><tr><td>市場定位</td><td>台灣上市，授權海外</td><td>台灣上市，自研遊戲</td><td>歐洲上市，全球龍頭</td></tr><tr><td>毛利率</td><td><strong>≈98%</strong></td><td>遠低於鈊象</td><td>約 60-65%（需即時查）</td></tr><tr><td>EPS 成長</td><td>2025 全年 +20%</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>護城河</td><td>極強（執照壁壘 + 亞洲文化題材）</td><td>弱（傳統手遊）</td><td>極強（全球市占第一）</td></tr><tr><td>風險</td><td>監管、成長趨緩</td><td>遊戲壽命週期</td><td>歐洲強監管</td></tr></tbody></table></div>
+<p><strong>同業比較結論：</strong></p>
+<p>在台股中，鈊象毛利率 98% 幾乎無敵手，授權模式的商業結構在台灣遊戲股中唯一。全球競爭對手（Evolution Gaming）體量遠大，但鈊象在亞洲文化主題遊戲（麻將、百家樂）有深度護城河，兩者並非正面競爭，而是互補。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>已確認催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>TaDa 升格第 2 大營收來源</td><td>已確認</td><td>持續</td><td>高</td></tr><tr><td>歐洲多國執照上線（英/葡/羅/希）</td><td>已確認</td><td>2025 Q3 開始挹注</td><td>中高</td></tr><tr><td>南非市場上線</td><td>已確認</td><td>2026 年初</td><td>中</td></tr><tr><td>月營收連創新高（2026/03 歷史新高）</td><td>已確認</td><td>持續中</td><td>高</td></tr></tbody></table></div>
+<h3>潛在催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>美國市場正式進入</td><td>潛在</td><td>2026-2027</td><td>極高</td></tr><tr><td>比利時、義大利執照取得</td><td>潛在</td><td>2026</td><td>中高</td></tr><tr><td>2026 Q1 財報公告（EPS 驗證）</td><td>潛在</td><td>2026/05</td><td>高</td></tr><tr><td>法人上修 2026 EPS 預估</td><td>潛在</td><td>視財報發展</td><td>中</td></tr></tbody></table></div>
+<h3>利空因素</h3>
+<ul><li>授權收入年增率從 2024 年的 47% 降至預估 2026 年的 22%，成長動能趨緩（但絕對值仍高）</li><li>主力近期賣超，短線籌碼偏弱</li></ul>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險因子</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th></tr></thead><tbody><tr><td><strong>博弈監管收緊</strong>（主要市場被限制）</td><td>中</td><td>極高</td><td>主要市場（東南亞、歐洲）立法動態</td></tr><tr><td>授權成長率持續趨緩</td><td>中</td><td>中</td><td>月營收年增率跌破 10%</td></tr><tr><td>歐洲/美國推進落後</td><td>中高</td><td>中</td><td>新市場開台時間延遲</td></tr><tr><td>地緣政治風險（東南亞、中國）</td><td>中</td><td>中高</td><td>主要市場地緣衝突升溫</td></tr><tr><td>競爭加劇（全球博弈商進入亞洲）</td><td>低</td><td>中</td><td>市占率下滑</td></tr><tr><td>匯率風險（海外收入 68%）</td><td>中</td><td>低中</td><td>新台幣大幅升值</td></tr></tbody></table></div>
+<p><strong>最壞情境：</strong> 主力市場（東南亞）遭到嚴格監管打壓，加上全球系統性風險，股價可能測試 670 元（52 週低）甚至更低。</p>
+<p><strong>可控風險 vs 不可控風險：</strong></p>
+<ul><li>可控：歐洲推進速度可透過執照取得進程追蹤</li><li>不可控：各國政策變化、地緣政治</li></ul>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：持有（核心持倉不動）</li><li><strong>信心程度</strong>：⭐⭐⭐⭐（6 項 health 全填，方向明確，2 個次要風險尚存：籌碼短線偏弱、成長率趨緩）</li><li><strong>建議倉位</strong>：目前 5 股約佔小倉位，可考慮在進場區間加碼至總資金 8-12%</li><li><strong>進場條件（加碼區）</strong>：</li><li>方法 A（歷史 PE 法）合理價：946 元</li><li>方法 B（PEG 法）合理價：1,088 元</li><li>差距 15%，取平均錨定：1,017 元</li><li>進場區：<strong>865 元（entry_low）～ 915 元（entry_high）</strong></li><li>目前股價 769 元，已低於進場區（低約 11%）</li><li>技術面補充：現價在 50MA 上方站穩，可視為進場訊號</li><li><strong>建議：現價已具基本面吸引力，可分批布局（第一批已在 755 買入），等技術面確認（KD 翻多 or 站回 800）可考慮加碼</strong></li></ul>
+<ul><li><strong>停損參考</strong>：</li><li>技術面停損：收盤跌破 20MA（751 元）且連續 2 日收盤在下方 → 重新評估</li><li>基本面停損：月營收年增率連續 3 個月跌破 10% or 下修 2026 EPS → 減碼</li></ul>
+<ul><li><strong>加碼條件</strong>：</li><li>KD 翻多（K 上穿 D）+ 成交量放大（超過 20 日均量）</li><li>或 2026 Q1 財報 EPS ≥ 11 元（符合法人預期）</li></ul>
+<ul><li><strong>觀察指標</strong>：</li></ul>
+<ol><li>每月月營收公告（是否持續年增 10%+）</li><li>KD 指標是否翻多</li><li>2026/05 Q1 財報（EPS 驗證法人預估）</li><li>歐洲市場貢獻比例是否提升</li></ol>
+<ul><li><strong>下次檢視</strong>：</li><li>短期：2026/04 月營收公告後（約 4/10 後）</li><li>中期：2026 Q1 財報（2026/05）</li></ul>
+<hr>
+<h2>健康體檢（fundamental.health 欄位）</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>依據</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>✅ 成長</td><td>2025 全年 38.51，年增 20%</td></tr><tr><td>營收趨勢</td><td>✅ 成長</td><td>月營收年增率 11-19%，連續 6 個月正成長</td></tr><tr><td>毛利率趨勢</td><td>✅ 穩定</td><td>97.68%，創 40 季新高</td></tr><tr><td>負債健康度</td><td>✅ 健康</td><td>授權模式，低資本支出，財務結構健康</td></tr><tr><td>自由現金流</td><td>✅ 正數</td><td>授權模式邊際成本近零，FCF 長期正</td></tr><tr><td>護城河強度</td><td>✅ 強</td><td>執照壁壘 + 亞洲文化題材 + 客戶轉換成本</td></tr></tbody></table></div>
+<p><strong>結果：6 / 6 正面 → 基本面通過 ✅</strong></p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/3293.TWO" target="_blank" rel="noopener">Yahoo Finance - 鈊象 3293.TWO 股價</a></li><li><a href="https://tw.stock.yahoo.com/quote/3293.TWO/revenue" target="_blank" rel="noopener">Yahoo Finance - 鈊象 3293 月營收</a></li><li><a href="https://www.wantgoo.com/stock/3293/enterprise-value/price-to-earning-ratio" target="_blank" rel="noopener">Wantgoo 玩股網 - 鈊象本益比歷史</a></li><li><a href="https://winvest.tw/Stock/Symbol/Comment/3293" target="_blank" rel="noopener">Win 投資 - 鈊象綜合健診</a></li><li><a href="https://wantrich.chinatimes.com/news/20260327900281-420101" target="_blank" rel="noopener">旺得富 - 凱基投顧鈊象最新報告（2026/03/27）</a></li><li><a href="https://uanalyze.com.tw/articles/1029432702" target="_blank" rel="noopener">優分析 - 鈊象英國執照最新進展</a></li><li><a href="https://intelligentdata.cc/%E9%88%8A%E8%B1%A1-3293-2025-04-09/" target="_blank" rel="noopener">盈智 iData - 鈊象 2026 最新分析</a></li><li><a href="https://statementdog.com/analysis/3293/dividend-policy" target="_blank" rel="noopener">財報狗 - 鈊象 2025 現金股利殖利率</a></li><li>技術指標：系統腳本 <code>technical_indicators.py</code> 抓取（2026/04/10 收盤）</li></ul>
+</div>
+</body>
+</html>

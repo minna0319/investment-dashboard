@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臻鼎-KY（4958）個股分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>臻鼎-KY（4958）個股分析</h1>
+</div>
+<div class="report-body">
+<h1>臻鼎-KY（4958）個股分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>股價（當日收盤）</th><th>結論</th><th>重點變化</th></tr></thead><tbody><tr><td>2026-03-06</td><td>174.5 元</td><td>觀察（中性偏多）</td><td>首次建立報告，法說會（3/12）前觀察期</td></tr><tr><td>2026-04-10</td><td>265.0 元</td><td>觀望（技術面過熱）</td><td>九維度深度更新：法說會已召開，資本支出上修至500億，股價近3個月漲55%，RSI過熱</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-04-10 盤後</td></tr><tr><td>台股資料</td><td>已收盤（2026-04-10）</td></tr><tr><td>美股資料</td><td>不適用</td></tr><tr><td>技術指標</td><td>來自 technical_indicators.py（yfinance）</td></tr><tr><td>待更新</td><td>毛利率歷史各季完整數字未取得（財報狗/Goodinfo JS 重定向無法 WebFetch）；負債比率未取得</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 基本面成長故事完整，但股價從 174 元漲至 265 元（+52%），RSI 71 已進入過熱區，追高風險大；等待回調至合理進場區再行動。</p>
+<p>信心程度：⭐⭐⭐⭐（4 星）</p>
+<p>適合操作：中線波段，等待回調後分批進場</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位一句話</h3>
+<p>臻鼎-KY 是<strong>全球 PCB（印刷電路板）產值第一大廠</strong>，鴻海旗下，是 Apple 最大 FPC（軟板）供應商，同時積極布局 AI 伺服器 PCB 與 IC 載板。</p>
+<blockquote>白話說明 — PCB（印刷電路板）：手機、電腦、伺服器裡幾乎所有電子零件都要「站」在 PCB 上才能連接起來。沒有 PCB，任何電子產品都跑不起來。</blockquote>
+<h3>產業鏈定位</h3>
+<p>```</p>
+<p>上游（原材料）：CCL 覆銅板、ABF 膠膜、金鹽</p>
+<p>↓</p>
+<p>中游（臻鼎所在）：PCB 製造</p>
+<p>├── FPC 軟板（iPhone、摺疊機）</p>
+<p>├── R-PCB 剛性板（消費電子、伺服器）</p>
+<p>├── HDI/iHDI（高密度互連板，AI伺服器）</p>
+<p>└── IC 載板（ABF/BT，AI 晶片底座）</p>
+<p>↓</p>
+<p>下游（客戶）：Apple、AI 伺服器廠商、各類消費電子品牌</p>
+<p>```</p>
+<h3>主要產品線與佔比</h3>
+<div class="table-wrap"><table><thead><tr><th>產品類別</th><th>說明</th><th>估計佔比</th></tr></thead><tbody><tr><td>FPC（軟性印刷電路板）</td><td>iPhone 內部主要連接件，Apple 最大需求</td><td>約 65~70%</td></tr><tr><td>HDI / iHDI</td><td>高密度互連板，AI 伺服器用</td><td>含於上項</td></tr><tr><td>IC 載板（ABF + BT）</td><td>AI 晶片底座，毛利率最高</td><td>約 10~12%（2026 年估）</td></tr><tr><td>R-PCB（剛性板）</td><td>一般消費電子</td><td>剩餘比例</td></tr><tr><td>光通訊 PCB</td><td>800G/1.6T 高速光模塊用板</td><td>快速成長中</td></tr></tbody></table></div>
+<h3>客戶結構</h3>
+<div class="table-wrap"><table><thead><tr><th>客戶 / 市場</th><th>估計佔比</th><th>說明</th></tr></thead><tbody><tr><td>Apple（iPhone + 摺疊機）</td><td>約 60~70%</td><td>最主要客戶；⚠️ 客戶集中風險</td></tr><tr><td>AI 伺服器客戶</td><td>5% 以下但快速成長</td><td>美系 AI ASIC 廠（具體名稱未公開）</td></tr><tr><td>其他消費電子</td><td>約 20~25%</td><td>安卓手機、電腦等</td></tr><tr><td>車用 PCB</td><td>初期布局</td><td>自駕車、ADAS</td></tr></tbody></table></div>
+<blockquote>⚠️ Apple 佔比超過 60%，單一客戶集中風險高，是本股最大的基本面風險之一。</blockquote>
+<h3>全球製造基地</h3>
+<div class="table-wrap"><table><thead><tr><th>地點</th><th>狀態</th></tr></thead><tbody><tr><td>中國（淮安、深圳等）</td><td>最大生產基地；2026 年投入人民幣 80 億元新增 6 座高階廠</td></tr><tr><td>台灣（高雄 AI 園區）</td><td>ABF 載板 + iHDI/HLC，2026 年 Q1 進入打樣</td></tr><tr><td>泰國（巴真府）</td><td>泰國一廠 2026 年 Q2 達滿產，二三五廠同步建置</td></tr></tbody></table></div>
+<h3>護城河評估：中強</h3>
+<div class="table-wrap"><table><thead><tr><th>護城河來源</th><th>說明</th></tr></thead><tbody><tr><td>Apple 供應鏈認證門檻</td><td>Apple FPC 認證極難進入，新競爭者極難搶走</td></tr><tr><td>垂直整合能力（One ZDT）</td><td>軟板 + 硬板 + IC 載板一站式，開發時間縮短 30%</td></tr><tr><td>全球最大 FPC 量產規模</td><td>規模優勢帶來成本控制力</td></tr><tr><td>全球 PCB 市佔第一（2017年起）</td><td>品牌信譽與客戶信賴</td></tr></tbody></table></div>
+<p>護城河弱點：IC 載板業務起步較欣興（3037）晚；對 Apple 高度依賴。</p>
+<h3>管理層與股東結構</h3>
+<ul><li>鴻海持股約 15.9%（最大股東）</li><li>管理層承諾方面：2025 年法說會承諾 2026 年資本支出 500 億元以上，較 2025 年大幅上修，顯示對未來訂單能見度有信心</li><li>2025 年全年 EPS 6.91 元，低於 2024 年 9.67 元，管理層說明主因為匯兌損失（12.98 億元）</li></ul>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（來源：Yahoo 奇摩股市月營收頁面）</h3>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>單月營收</th><th>YoY（年增率）</th><th>MoM（月增率）</th></tr></thead><tbody><tr><td>2026/03</td><td>154.43 億元</td><td>+7.18%</td><td>+31.76%</td></tr><tr><td>2026/02</td><td>117.21 億元</td><td>-3.97%</td><td>-13.59%</td></tr><tr><td>2026/01</td><td>135.64 億元</td><td>+0.71%</td><td>-29.80%</td></tr><tr><td>2025/12</td><td>193.21 億元</td><td>+22.70%</td><td>+6.62%</td></tr><tr><td>2025/11</td><td>181.21 億元</td><td>-6.76%</td><td>-6.73%</td></tr><tr><td>2025/10</td><td>194.28 億元</td><td>-7.28%</td><td>+0.34%</td></tr></tbody></table></div>
+<p><strong>解讀</strong>：2026 年 Q1 前兩個月 YoY 分別為 +0.71%、-3.97%，呈現季節性淡季；3 月 YoY 轉正至 +7.18% 且創同期新高，顯示逐漸回溫。2025 年全年累積營收 1,825.22 億元，年增 6.33%，創歷史新高。</p>
+<blockquote>白話說明 — YoY（年增率）：跟去年同期比，今年多賺或少賺了幾成。YoY 正 = 今年比去年好，負 = 比去年差。</blockquote>
+<h3>季度 EPS 趨勢（來源：Yahoo 奇摩股市 EPS 頁面）</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>單季 EPS（元）</th><th>YoY 年增率</th></tr></thead><tbody><tr><td>2025 Q4</td><td>3.22</td><td>-30.0%</td></tr><tr><td>2025 Q3</td><td>2.46</td><td>-30.1%</td></tr><tr><td>2025 Q2</td><td>0.63</td><td>+23.5%</td></tr><tr><td>2025 Q1</td><td>0.66</td><td>-35.9%</td></tr><tr><td>2024 Q4</td><td>4.60</td><td>+24.0%</td></tr><tr><td>2024 Q3</td><td>3.52</td><td>+46.7%</td></tr><tr><td>2024 Q2</td><td>0.51</td><td>+666.7%</td></tr><tr><td>2024 Q1</td><td>1.03</td><td>+94.3%</td></tr></tbody></table></div>
+<blockquote>白話說明 — EPS（每股盈餘）：公司把全年賺到的錢平均分給每一股的金額。EPS 越高代表每股能分到越多，是衡量獲利能力最直接的指標。</blockquote>
+<p><strong>重要特性</strong>：臻鼎的 EPS 極度集中在 Q3、Q4（下半年旺季），Q1~Q2 通常偏低是正常現象，不代表公司衰退。</p>
+<h3>全年 EPS 趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>全年 EPS（元）</th><th>來源</th></tr></thead><tbody><tr><td>2023 年</td><td>6.55</td><td>HiStock（WebFetch）</td></tr><tr><td>2024 年</td><td>9.67</td><td>Yahoo 奇摩股市</td></tr><tr><td>2025 年</td><td>6.91</td><td>新聞報導（法說會資訊）</td></tr><tr><td>2026 年（法人預估）</td><td>10.78</td><td>CMoney 新聞</td></tr></tbody></table></div>
+<p><strong>EPS 趨勢判定</strong>：2025 年 EPS 較 2024 年衰退（9.67 → 6.91），主因為匯兌損失 12.98 億元拖累。若剔除匯兌因素，實際本業獲利有所改善（毛利率由 18.9% 提升至 19.8%）。2026 年法人預估 EPS 10.78 元，若達成將創歷史新高。</p>
+<h3>毛利率趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>期間</th><th>毛利率</th></tr></thead><tbody><tr><td>2025 全年</td><td>19.8%（法說會揭露，較 2024 年 18.9% 改善 0.9pp）</td></tr><tr><td>2025 Q3</td><td>21.98%（Yahoo EPS 頁面附帶資訊）</td></tr><tr><td>2025 前三季均值</td><td>18.45%（新聞報導）</td></tr><tr><td>其他各季</td><td>❌ 未取得（Goodinfo/財報狗 WebFetch JS 重定向問題）</td></tr></tbody></table></div>
+<p><strong>毛利率判定</strong>：逐年改善趨勢，2025 年 19.8% 明顯高於 2023 年（估計約 15~16%），主因高階產品佔比提升。</p>
+<blockquote>白話說明 — 毛利率：每賣出 100 元的東西，扣掉直接成本後還剩多少。19.8% = 賣 100 元留 19.8 元。PCB 產業毛利率 20% 以上算不錯。</blockquote>
+<h3>其他關鍵財務指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>2025 年全年營收</td><td>1,825.22 億元</td><td>法說會資訊</td></tr><tr><td>毛利率（2025全年）</td><td>19.8%</td><td>法說會資訊</td></tr><tr><td>營業利益率（2025全年）</td><td>7.6%（較 2024 年 6.7% 改善）</td><td>法說會資訊</td></tr><tr><td>歸屬母公司淨利（2025）</td><td>67.91 億元（年減 26.0%）</td><td>法說會資訊</td></tr><tr><td>2026 年資本支出（規劃）</td><td>逾 500 億元</td><td>法說會資訊</td></tr><tr><td>2025 年現金股利</td><td>3.45 元/股（2026 年 7/13 發放）</td><td>Yahoo 奇摩股市</td></tr><tr><td>每股淨值（2025 Q2）</td><td>100.21 元</td><td>財報狗（WebSearch 搜尋結果）</td></tr><tr><td>負債比率</td><td>❌ 未取得</td></tr><tr><td>自由現金流</td><td>❌ 未取得（大規模資本支出期，推估為負）</td></tr></tbody></table></div>
+<blockquote>白話說明 — 自由現金流：公司做完生意、付完所有該付的（包括蓋廠、買機器），口袋裡真正剩下的錢。臻鼎現在大規模擴廠，大量花錢投資未來，所以自由現金流可能為負，這是「先花錢換成長」的模式。</blockquote>
+<h3>健康體檢</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>衰退（⚠️ 注意）</td><td>2025 年 EPS 6.91 元 < 2024 年 9.67 元；但主因匯兌損失，本業毛利率改善</td></tr><tr><td>營收趨勢</td><td>成長</td><td>2025 全年年增 6.33%；2026 Q1 逐月回溫</td></tr><tr><td>毛利率趨勢</td><td>穩定</td><td>2025 年 19.8%，逐年改善</td></tr><tr><td>負債健康度</td><td>❌ 未取得</td><td>推估因大規模資本支出負債比偏高，需關注</td></tr><tr><td>自由現金流</td><td>推估為負</td><td>資本支出 500 億 >> 折舊攤提，擴廠期正常</td></tr><tr><td>護城河強度</td><td>中</td><td>Apple 供應鏈認證壁壘強；IC 載板仍在追趕欣興</td></tr></tbody></table></div>
+<hr>
+<h2>3. 估值面</h2>
+<h3>目前估值（來源：Yahoo 奇摩股市）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>臻鼎-KY</th><th>同業平均（Yahoo）</th><th>說明</th></tr></thead><tbody><tr><td>目前股價</td><td>265.0 元</td><td>—</td><td>2026-04-10 收盤</td></tr><tr><td>本益比（P/E，TTM）</td><td>41.50 倍</td><td>61.96 倍（同業）</td><td>⚠️ 以 2025 年低 EPS 為基礎，偏高</td></tr><tr><td>殖利率（5年平均）</td><td>4.23%</td><td>—</td><td>Yahoo 顯示</td></tr><tr><td>每股淨值（2025Q2）</td><td>100.21 元</td><td>—</td><td>財報狗</td></tr><tr><td>股價淨值比（PBR）</td><td>約 2.64 倍（265 ÷ 100.21）</td><td>—</td><td>估算值</td></tr></tbody></table></div>
+<blockquote>白話說明 — 本益比（P/E）：用「幾年的獲利」才能買回這張股票。41 倍代表以目前獲利計算，需要 41 年才能回本。但若明年 EPS 跳升，本益比會快速下降。</blockquote>
+<h3>雙軌估值（進場價計算）</h3>
+<h4>股票類型判定</h4>
+<p>2026 年法人預估 EPS 10.78 元，YoY 成長約 +56%（較 2025 年 6.91 元），屬於高成長 → <strong>TYPE_A 成長股</strong></p>
+<h4>方法 A：歷史 PE 區間法（回顧型）</h4>
+<p>歷史年度本益比（來源：WebSearch 搜尋結果）：</p>
+<ul><li>2021 年：10.4 倍</li><li>2022 年：6.9 倍（景氣低點）</li><li>2023 年：13.9 倍</li><li>2024 年：13.8 倍</li></ul>
+<p>近 4 年歷史 PE 區間（剔除極端值）：</p>
+<ul><li>低標（25th percentile）：約 10x</li><li>中位數：約 13x</li><li>高標（75th percentile）：約 14x</li></ul>
+<blockquote>⚠️ 注意：2026 年 PE 因股價大漲至 41 倍，顯著高於歷史區間，代表市場已開始用高成長預期定價</blockquote>
+<p><strong>方法 A 計算</strong>：</p>
+<ul><li>使用 Forward EPS（2026 年法人預估 EPS 10.78 元），PE 中位數 13x</li><li>方法 A 合理價（fair_value_a）= 10.78 × 13 = <strong>140 元</strong></li></ul>
+<h4>方法 B：PEG 估值法（前瞻型）</h4>
+<blockquote>白話說明 — PEG：考慮成長速度後，這檔股票到底貴不貴。PEG = 1 表示成長速度和本益比剛好匹配，算合理。</blockquote>
+<ul><li>2026 年 EPS 成長率：（10.78 - 6.91）÷ 6.91 ≈ 56%</li><li>合理 PE（PEG = 1）= 56 倍（超過 TYPE_A 上限 30x，取上限 30x）</li><li>方法 B 合理價（fair_value_b）= 10.78 × 30 = <strong>323 元</strong></li></ul>
+<h4>差距判定</h4>
+<p>差距 = |140 - 323| / min(140, 323) = 183 / 140 ≈ <strong>131%</strong> → 遠超 40%，估值分歧極大</p>
+<p>取值方式：<strong>取較低者 + ⚠️ 估值分歧大</strong></p>
+<p>錨定價（anchor）= <strong>140 元</strong></p>
+<h4>進場區間（TYPE_A）</h4>
+<div class="table-wrap"><table><thead><tr><th>區間</th><th>計算</th><th>結果</th></tr></thead><tbody><tr><td>entry_high</td><td>140 × 0.90</td><td><strong>126 元</strong></td></tr><tr><td>entry_low</td><td>140 × 0.85</td><td><strong>119 元</strong></td></tr></tbody></table></div>
+<blockquote>⚠️ 技術面微調說明：目前股價 265 元，遠高於 entry_high 126 元達 110%。公式算出的進場區基於歷史保守估值，市場已用「成長股溢價」重新定價。若用方法 B 錨定（323 元），entry_high = 291 元，entry_low = 274 元，更接近當前股價。</blockquote>
+<p><strong>雙軌估值結論說明</strong>：方法 A（歷史 PE）和方法 B（PEG）差距高達 131%，反映市場對臻鼎 2026 年高成長的高度期待已先行反映在股價。保守派用 A，成長派用 B。Minna 的新手保守風格建議使用方法 A 錨定，等待較大幅度回調。</p>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>數據來源：technical_indicators.py（yfinance，2026-04-10 收盤）</blockquote>
+<h3>技術指標數值</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號解讀</th></tr></thead><tbody><tr><td>收盤價</td><td>265.0 元</td><td>—</td></tr><tr><td>52 週高點</td><td><strong>265.0 元</strong>（今日即創）</td><td>站上 52 週高點</td></tr><tr><td>52 週低點</td><td>81.95 元</td><td></td></tr><tr><td>52 週位置</td><td><strong>100%</strong>（52 週最高點）</td><td>⚠️ 完全在高點，追高風險最大</td></tr><tr><td>RSI(14)</td><td><strong>71.45</strong></td><td>⚠️ 進入過熱區（>70），回調壓力</td></tr><tr><td>KD K 值</td><td>84.22</td><td>⚠️ 超買區</td></tr><tr><td>KD D 值</td><td>77.23</td><td>K > D → 偏多但已超買</td></tr><tr><td>MACD 柱狀</td><td>+5.0（正值）</td><td>多頭格局</td></tr><tr><td>均線排列</td><td><strong>多頭排列</strong></td><td>所有均線向上</td></tr><tr><td>黃金交叉</td><td>15 天前（2026-03-18）</td><td>短線轉多訊號</td></tr></tbody></table></div>
+<blockquote>白話說明 — RSI：衡量股價是漲太多還是跌太多的「溫度計」。超過 70 = 發燒（可能要退燒回調），低於 30 = 體溫過低（可能要反彈）。目前 71.45，剛進過熱區。</blockquote>
+<h3>均線位置</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>現價距離</th></tr></thead><tbody><tr><td>MA5（5日線）</td><td>242.9</td><td>現價 +9.1%</td></tr><tr><td>MA10（10日線）</td><td>231.6</td><td>現價 +14.5%</td></tr><tr><td>MA20（20日線）</td><td>215.1</td><td>現價 +23.2%</td></tr><tr><td>MA60（季線）</td><td>188.2</td><td>現價 +40.8%</td></tr><tr><td>MA120（半年線）</td><td>168.9</td><td>現價 +56.9%</td></tr><tr><td>MA240（年線）</td><td>146.9</td><td>現價 +80.4%</td></tr></tbody></table></div>
+<p><strong>現價高於季線 40.8%，遠超安全買進距離</strong>。通常股價高於季線 20% 以上即需謹慎，40% 以上追高風險顯著。</p>
+<h3>成交量</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>今日成交量</td><td>33,745 千股</td></tr><tr><td>5 日均量</td><td>37,837 千股</td></tr><tr><td>20 日均量</td><td>33,126 千股</td></tr><tr><td>5日/20日量比</td><td>1.14（偏高，近期交投活躍）</td></tr></tbody></table></div>
+<h3>技術面綜合評分</h3>
+<p><strong>評分：2.0 分（中性偏多）</strong></p>
+<div class="table-wrap"><table><thead><tr><th>評分細項</th><th>分數</th></tr></thead><tbody><tr><td>RSI 過熱</td><td>-1</td></tr><tr><td>KD 偏多</td><td>+0.5</td></tr><tr><td>MACD 柱狀正</td><td>+1</td></tr><tr><td>均線多頭</td><td>+1</td></tr><tr><td>黃金交叉</td><td>+0.5</td></tr></tbody></table></div>
+<p><strong>技術面小結</strong>：多頭格局確立，趨勢向上，但 RSI 71 和 KD 84 均進入過熱區，股價正站上 52 週高點，短線追高有回調風險。技術面適合「等回調再進」，而非現在追買。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<blockquote>數據來源：WebSearch 搜尋結果（三大法人資料為 2026 年 4 月 8~9 日數據）</blockquote>
+<h3>三大法人近期動向</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資</th><th>投信</th><th>自營商</th><th>合計</th></tr></thead><tbody><tr><td>2026-04-09</td><td>+2,163 張</td><td>+659 張</td><td>+979 張</td><td><strong>+3,800 張</strong></td></tr><tr><td>2026-04-08</td><td>+1,740 張</td><td>+43 張</td><td>-280 張</td><td>+1,503 張</td></tr></tbody></table></div>
+<p>近 10 個交易日三大法人合計買超：約 16,775 張（WebSearch 資訊）</p>
+<blockquote>白話說明 — 三大法人：外資（外國投資機構）、投信（台灣本土基金）、自營商（券商自己操盤）。法人連續買超通常代表大資金看好，是正面訊號。</blockquote>
+<h3>外資持股</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>意涵</th></tr></thead><tbody><tr><td>外資持股比例</td><td><strong>65.24%</strong></td><td>外資高持股，籌碼穩定</td></tr><tr><td>近 10 日法人買超</td><td>~16,775 張</td><td>法人積極加碼</td></tr></tbody></table></div>
+<h3>融資融券</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值（2026-04-07）</th><th>解讀</th></tr></thead><tbody><tr><td>融資增減</td><td><strong>-785 張</strong></td><td>融資減少 → 散戶借錢追的在退場</td></tr><tr><td>融券增減</td><td>+41 張</td><td>放空小幅增加</td></tr></tbody></table></div>
+<p><strong>籌碼面小結</strong>：外資連續大幅買超 + 融資餘額下降，籌碼呈現「法人接手、散戶退出」的健康型態，是中長線偏多的訊號。但外資高持股（65.24%）也意味著若外資轉向賣出，下跌速度會很快。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<h3>台股 PCB 三雄比較</h3>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>臻鼎-KY（4958）</th><th>欣興電子（3037）</th><th>健鼎科技（3044）</th></tr></thead><tbody><tr><td>主要定位</td><td>全球 PCB 產值第一；FPC 龍頭</td><td>ABF 載板全球領先</td><td>汽車 + 高階硬板</td></tr><tr><td>2025 全年 EPS</td><td>6.91 元</td><td>約 3.93 元（近四季）</td><td>近四季 17.8 元</td></tr><tr><td>2026 年預估 EPS</td><td>10.78 元（法人共識）</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>2025 Q4 毛利率</td><td>❌ 未取得（全年19.8%）</td><td>15.77%（財報狗）</td><td>❌ 未取得</td></tr><tr><td>目前 P/E（TTM）</td><td>41.5 倍</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>競爭優勢</td><td>Apple 供應鏈壁壘高；垂直整合</td><td>ABF 最高端技術，欣興是 IC 載板標竿</td><td>車用佔比高，AI 爆發力相對弱</td></tr><tr><td>主要風險</td><td>Apple 集中；資本支出壓力</td><td>景氣循環；IC 載板供過於求風險</td><td>車用成長慢</td></tr><tr><td>AI 受益程度</td><td>中高（IC 載板 + AI 伺服器 PCB）</td><td>高（ABF 最高端客戶：NVIDIA、AMD）</td><td>低至中</td></tr></tbody></table></div>
+<blockquote>欣興 2025 年 Q4 毛利率 15.77%（財報狗），低於臻鼎 2025 年全年 19.8%，反映臻鼎產品組合更多元，FPC 毛利較高。</blockquote>
+<h3>同業比較結論</h3>
+<ul><li><strong>若押 AI 晶片 IC 載板題材</strong>：欣興（3037）更純粹，但估值相對也高</li><li><strong>若押 AI + Apple 摺疊機雙線</strong>：臻鼎（4958）是唯一同時具備兩個催化劑的標的</li><li><strong>若要穩定獲利的純 PCB</strong>：健鼎（3044）EPS 最穩，但 AI 爆發力最弱</li></ul>
+<p>臻鼎在三者中具有最豐富的題材組合，但客戶集中風險也最高。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期已確認催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>800G / 1.6T 光通訊 PCB 量產</td><td>已確認</td><td>2026 年持續放量</td><td>高</td></tr><tr><td>IC 載板（BT + ABF）擴產</td><td>已確認</td><td>2026 年增速優於 2025 年 31.3%</td><td>高</td></tr><tr><td>泰國一廠 Q2 達滿產</td><td>已確認</td><td>2026-Q2</td><td>中高</td></tr><tr><td>iPhone Fold 發布</td><td>高度期待</td><td>預計 2026-09</td><td>高（FPC 用量 2.5 倍）</td></tr><tr><td>高雄 AI 園區 ABF + iHDI/HLC 打樣</td><td>已確認</td><td>2026-Q1（已進入）</td><td>中高</td></tr></tbody></table></div>
+<h3>潛在催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>AI 眼鏡 FPC 規格升級</td><td>潛在</td><td>2026~2027</td><td>中</td></tr><tr><td>人形機器人 PCB 訂單</td><td>潛在</td><td>2027 以後</td><td>中（早期）</td></tr><tr><td>2026 年 Q2 月營收創新高</td><td>潛在</td><td>每月 10 日前</td><td>中</td></tr><tr><td>淮安廠 2026 下半年新廠啟用</td><td>潛在</td><td>2026 下半年</td><td>中高</td></tr></tbody></table></div>
+<h3>定期觀察時間點</h3>
+<ul><li>每月 10 日前：月營收公告（觀察 YoY 是否持續成長）</li><li>2026 年 4 月底：2025 年 Q4 完整財報（毛利率精確數字）</li><li>2026 年 5 月：泰國一廠滿產確認</li><li>2026 年 9 月：iPhone Fold 發布（若確認，直接受惠）</li></ul>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th></tr></thead><tbody><tr><td><strong>Apple 大幅減單</strong>（iPhone 銷售不如預期）</td><td>中</td><td>高</td><td>Apple 出貨預估下調；月營收 YoY 連續轉負</td></tr><tr><td><strong>RSI 過熱引發獲利回吐</strong></td><td>高</td><td>中</td><td>RSI 若從 70 以上急跌至 50 以下；月線失守</td></tr><tr><td><strong>資本支出超標 / 財務壓力</strong></td><td>中</td><td>中高</td><td>2026 年資本支出逾 500 億；短期借款上升；股息政策調整</td></tr><tr><td><strong>IC 載板市場供過於求</strong></td><td>中</td><td>中</td><td>ABF 載板同業也在大幅擴產；ASP（均價）下滑</td></tr><tr><td><strong>中國廠房地緣政治風險</strong></td><td>中低</td><td>高</td><td>美中關係惡化；出口管制擴大到 PCB</td></tr><tr><td><strong>原物料成本上漲</strong></td><td>中</td><td>中</td><td>金鹽、CCL 覆銅板價格上漲超 10%</td></tr><tr><td><strong>iPhone Fold 出貨不如預期</strong></td><td>中</td><td>中高</td><td>市場調研機構調降 Fold 出貨預測</td></tr></tbody></table></div>
+<blockquote>致命風險標示：Apple 大量減單 + 地緣政治同時爆發，可能使股價腰斬。</blockquote>
+<p><strong>可控風險 vs 不可控風險</strong>：</p>
+<ul><li>可控：資本支出管理（管理層可調整）、原物料成本（部分可轉嫁）</li><li>不可控：Apple 採購決策、中美地緣政治、iPhone Fold 市場接受度</li></ul>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>結論：觀望（等回調）</h3>
+<p><strong>信心程度：⭐⭐⭐⭐（4 星）</strong></p>
+<p>判定依據：</p>
+<ul><li>EPS 趨勢：衰退（2025 年 < 2024 年）</li><li>營收趨勢：成長</li><li>毛利率趨勢：穩定（逐年改善）</li><li>負債健康度：❌ 未取得（降半星）</li><li>自由現金流：推估為負（擴廠期，尚可接受）</li><li>護城河強度：中</li></ul>
+<p>→ 6 項 health 中 3 項明確正向，1 項未取得，1 項衰退，1 項負 → 觀望等待更好進場點，信心 4 星（雙軌估值差距 >40%，降至 3~4 星間，取 4）</p>
+<p><strong>建議倉位</strong>：5~10%（Minna 可用資金 20 萬 × 5~10% = 1~2 萬元 / 不超過 1 張零股試水溫）</p>
+<hr>
+<h3>進場區間（雙軌估值 SOP）</h3>
+<p><strong>方法 A（歷史 PE 區間法）</strong>：合理價 140 元</p>
+<ul><li>公式：Forward EPS 10.78 元 × 歷史 PE 中位數 13x = 140 元</li></ul>
+<p><strong>方法 B（PEG 估值法）</strong>：合理價 323 元</p>
+<ul><li>公式：Forward EPS 10.78 元 × 合理 PE（上限 30x）= 323 元</li><li>（EPS 成長率 56% → 合理 PE = 56x，但超過 TYPE_A 上限 30x，取 30x）</li></ul>
+<p><strong>差距：131%（遠超 40%）→ 估值分歧極大，取較低者 + ⚠️</strong></p>
+<p><strong>錨定價：140 元</strong></p>
+<div class="table-wrap"><table><thead><tr><th>進場區間</th><th>計算</th><th>結果</th></tr></thead><tbody><tr><td>entry_high</td><td>140 × 0.90</td><td><strong>126 元</strong></td></tr><tr><td>entry_low</td><td>140 × 0.85</td><td><strong>119 元</strong></td></tr></tbody></table></div>
+<blockquote>⚠️ 重要說明：目前股價 265 元，高於公式進場區間 110%。這個分歧反映市場已用高成長溢價重新定價臻鼎。兩種解讀：</blockquote>
+<blockquote>- 保守解讀（方法 A）：等到 119~126 元才進場，意味等待大幅回調（現價 -53%），機率低</blockquote>
+<blockquote>- 成長解讀（方法 B）：若接受 PEG = 1 為合理，進場區為 274~291 元（稍低於現價），即等待 -3%~-8% 小幅回調</blockquote>
+<blockquote>- <strong>建議 Minna 用折衷策略</strong>：等待股價回測 MA20（約 215 元）或 MA10（約 232 元）後再考慮進場，兼顧基本面保守估值和市場溢價現實</blockquote>
+<hr>
+<h3>停損參考</h3>
+<div class="table-wrap"><table><thead><tr><th>條件</th><th>說明</th></tr></thead><tbody><tr><td>技術面停損</td><td>若進場後股價跌破 MA60（季線，目前 188 元），代表趨勢轉弱，建議退場</td></tr><tr><td>基本面停損</td><td>月營收 YoY 連續兩個月負成長；Apple 宣布大幅減單</td></tr><tr><td>幅度參考</td><td>以進場價計算，虧損超過 -10% 且無反彈訊號時重新評估</td></tr></tbody></table></div>
+<hr>
+<h3>加碼條件</h3>
+<ol><li>月營收 YoY 連續 3 個月正成長且加速</li><li>iPhone Fold 出貨確認（2026 年 9 月前有明確消息）</li><li>高雄 AI 園區 ABF 載板客戶認證完成且開始出貨</li><li>股價回測 MA20 後出現站穩（量縮、收漲）</li></ol>
+<hr>
+<h3>觀察指標（接下來追蹤）</h3>
+<ol><li><strong>月營收 YoY</strong>：每月 10 日前公告，觀察是否持續成長且加速</li><li><strong>外資持股比例</strong>：若外資從 65.24% 開始下降，需注意</li><li><strong>RSI 走勢</strong>：RSI 從 71 回落至 50~60 附近是較好的進場觀察區</li><li><strong>IC 載板業務佔比</strong>：2026 年是否突破 15%（從目前 ~10%）</li><li><strong>iPhone Fold 訂單消息</strong>：任何供應商確認訊息都是催化劑</li></ol>
+<hr>
+<h3>下次檢視時間</h3>
+<ul><li><strong>2026-04 月底</strong>：Q4 完整財報揭露（毛利率精確數字）</li><li><strong>2026-05-10 前</strong>：4 月月營收公告</li><li><strong>2026-06-08</strong>：除息基準日（除息前後有行情效應）</li><li><strong>2026-09（前後）</strong>：iPhone Fold 發布確認</li></ul>
+<hr>
+<h3>波段操作附加建議（觀察清單標的）</h3>
+<ul><li><strong>止盈參考</strong>：若從進場價 +10% 先出 1/2；+20% 考慮全出（高成長股可調高至 +20%）</li><li><strong>分批進場</strong>：建議 2 批</li><li>第 1 批：股價回測 MA10（232 元）且止跌後，買 1/2 倉位</li><li>第 2 批：確認月營收 YoY 持續正成長，買剩餘 1/2</li><li><strong>技術面出場訊號</strong>：KD 死叉 + RSI 跌破 50 + 跌破 MA20 → 出場觀望</li><li><strong>最長持有期限</strong>：波段不超過 3 個月，到期重新評估</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/4958.TW" target="_blank" rel="noopener">Yahoo 奇摩股市 - 臻鼎-KY 即時報價</a></li><li><a href="https://tw.stock.yahoo.com/quote/4958.TW/revenue" target="_blank" rel="noopener">Yahoo 奇摩股市 - 臻鼎-KY 月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/4958.TW/eps" target="_blank" rel="noopener">Yahoo 奇摩股市 - 臻鼎-KY EPS</a></li><li><a href="https://cmnews.com.tw/article/newsyoudeservetoknow-f875d3d5-11f4-11f1-873e-3492470eedef" target="_blank" rel="noopener">CMoney 新聞 - 法說會 EPS 預估</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E8%87%BB%E9%BC%8E-KY%E6%B3%95%E8%AA%AA-%E5%85%A8%E5%B9%B4%E7%87%9F%E6%94%B6%E5%A2%9E6-3-%E5%89%B5%E6%AD%B7%E5%B9%B4%E6%96%B0%E9%AB%98-%E5%AE%A3%E4%BD%88%E4%B8%8A%E4%BF%AE%E8%B3%87%E6%9C%AC%E6%94%AF%E5%87%BA%E6%8A%95500%E5%84%84%E6%93%B4%E7%94%A2%E8%BF%8EAI%E6%B5%AA%E6%BD%AE-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69b393094b2e4863100eb6d8" target="_blank" rel="noopener">信託證券豐雲學堂 - 臻鼎法說會全文整理</a></li><li><a href="https://7evenguy.com/what-is-4958-doing/" target="_blank" rel="noopener">七仔財經筆記 - 臻鼎-KY 基本面解析</a></li><li><a href="https://www.moneyweekly.com.tw/ArticleData/Info/Article/219475" target="_blank" rel="noopener">理財周刊 - 資本支出暴衝 800 億</a></li><li><a href="https://statementdog.com/analysis/4958/eps" target="_blank" rel="noopener">財報狗 - 臻鼎 EPS 頁面</a></li><li><a href="https://statementdog.com/analysis/3037/profit-margin" target="_blank" rel="noopener">財報狗 - 欣興毛利率</a></li><li><a href="https://news.cnyes.com/news/id/6380897" target="_blank" rel="noopener">鉅亨網 - 臻鼎資本支出展望</a></li><li>technical_indicators.py（本地腳本，yfinance 資料，2026-04-10）</li></ul>
+</div>
+</body>
+</html>
