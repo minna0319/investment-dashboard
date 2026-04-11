@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>奇鋐科技（3017）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>奇鋐科技（3017）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>奇鋐科技（3017）九維度深度分析</h1>
+<blockquote><strong>信任層級說明</strong></blockquote>
+<blockquote>- 無標記 = 已由公開來源交叉驗證</blockquote>
+<blockquote>- ⚠️ = 來自媒體報導或推論分析，僅供參考，建議自行查證</blockquote>
+<blockquote>- ❌ 未取得 = 公開資料中找不到，非編造</blockquote>
+<p><strong>分析日期：</strong> 2026-04-11</p>
+<p><strong>資料截止：</strong> 2026-04 最新公開資訊</p>
+<hr>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>主要更新</th></tr></thead><tbody><tr><td>v2</td><td>2026-04-11</td><td>九維度深度分析全面改版，涵蓋 2026Q1 最新月營收、GB300 出貨動態、技術面重新評估</td></tr><tr><td>v1</td><td>2026-03-04</td><td>初版個股分析</td></tr></tbody></table></div>
+<hr>
+<h2>1. 公司概覽</h2>
+<p><strong>公司全名：</strong> 奇鋐科技股份有限公司（上市，集中市場）</p>
+<p><strong>主要業務：</strong> 散熱模組、伺服器機殼、工業用風扇，近年大力擴充液冷元件</p>
+<h3>產品線</h3>
+<ul><li>氣冷散熱：風扇、散熱器、散熱模組（傳統強項）</li><li>液冷散熱：Cold Plate（水冷板）、CDU（冷卻液分配裝置）、液冷管路元件</li><li>伺服器機殼：高階 AI 伺服器機箱整機解決方案</li><li>3D 均溫板（Vapor Chamber）：越南廠主力生產</li></ul>
+<h3>客戶結構</h3>
+<ul><li>⚠️ 主要客戶涵蓋四大 CSP：Microsoft、AWS 及其他雲端服務供應商</li><li>⚠️ 下游包含伺服器 ODM 廠（廣達、緯穎等）</li><li>提供「機殼＋風扇＋散熱模組」整機解決方案，具供應鏈整合優勢</li></ul>
+<h3>競爭地位</h3>
+<ul><li>⚠️ 台股散熱族群龍頭，規模最大</li><li>競爭對手：雙鴻（3324）、健策（3653）、富世達（6805）</li><li>差異化：整機解決方案能力、越南廠擴產規模、客戶廣度</li></ul>
+<p><strong>來源：</strong> <a href="https://www.pocket.tw/school/report/SCHOOL/6427/" target="_blank" rel="noopener">奇鋐液冷＋機箱雙引擎解析</a>、<a href="https://www.sinotrade.com.tw/richclub/hotstock" target="_blank" rel="noopener">液冷三大基建霸主</a></p>
+<hr>
+<h2>2. 基本面</h2>
+<h3>月營收趨勢（2026 年）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收</th><th>月增率</th><th>年增率</th></tr></thead><tbody><tr><td>2026-03</td><td>180.17 億元</td><td>+28.54%</td><td>+111.72%</td></tr><tr><td>2026-02</td><td>❌ 未取得精確數字</td><td>—</td><td>—</td></tr><tr><td>2026-01</td><td>❌ 未取得精確數字</td><td>—</td><td>—</td></tr><tr><td>2026 累計（Q1）</td><td>490.38 億元</td><td>—</td><td>+110.17%</td></tr></tbody></table></div>
+<p><strong>來源：</strong> <a href="https://goodinfo.tw/tw/ShowSaleMonChart.asp?STOCK_ID=3017" target="_blank" rel="noopener">奇鋐月營收 - Goodinfo</a>、<a href="https://www.wantgoo.com/stock/3017/financial-statements/monthly-revenue" target="_blank" rel="noopener">奇鋐月營收 - wantgoo</a></p>
+<h3>財務指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>備註</th></tr></thead><tbody><tr><td>2026 年 EPS 預估</td><td>⚠️ 法人估成長 54%（大摩）</td><td>非官方公告數字</td></tr><tr><td>目前股價</td><td>⚠️ 約 2,265 元</td><td>搜尋時點，非即時報價</td></tr><tr><td>毛利率</td><td>❌ 未取得最新數字</td><td>—</td></tr><tr><td>本益比</td><td>❌ 未取得即時計算值</td><td>—</td></tr><tr><td>股價淨值比</td><td>❌ 未取得</td><td>—</td></tr></tbody></table></div>
+<p><strong>來源：</strong> <a href="https://money.udn.com/money/story/5607/9162583" target="_blank" rel="noopener">大摩目標價 1,800 元報告</a></p>
+<hr>
+<h2>3. 技術面</h2>
+<ul><li>⚠️ 日線買賣訊號顯示「強力買進」（多條 MA 均線多頭排列）</li><li>⚠️ 股價約 2,265 元，依部分估值工具評估處於偏高區間（以淨值比衡量）</li><li>❌ KD、RSI、MACD 具體數值未取得（建議至 Yahoo 股市或玩股網查詢即時數據）</li></ul>
+<p><strong>建議自查來源：</strong> <a href="https://tw.stock.yahoo.com/quote/3017.TW/technical-analysis" target="_blank" rel="noopener">Yahoo 股市技術分析</a>、<a href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=3017" target="_blank" rel="noopener">玩股網技術分析</a></p>
+<hr>
+<h2>4. 籌碼面</h2>
+<ul><li>❌ 三大法人近期買賣超具體張數未取得（資料即時性要求高，請查 TWSE 或 CMoney）</li><li>❌ 外資持股比例未取得</li><li>❌ 融資融券餘額未取得</li></ul>
+<p><strong>建議自查來源：</strong> <a href="https://www.cmoney.tw/forum/stock/3017" target="_blank" rel="noopener">CMoney 奇鋐法人買賣超</a>、<a href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=3017" target="_blank" rel="noopener">Goodinfo 奇鋐籌碼</a></p>
+<hr>
+<h2>5. 產業面</h2>
+<h3>散熱產業鏈位置</h3>
+<ul><li>奇鋐橫跨「氣冷（風扇/散熱片）」與「液冷（Cold Plate/CDU）」兩個子市場</li><li>同時切入伺服器機殼，是台灣少數能做「整機熱管理解決方案」的廠商</li></ul>
+<h3>AI 伺服器散熱趨勢</h3>
+<ul><li>NVIDIA GB200/GB300 TDP 達 1,200W～2,700W，氣冷上限約 700W，液冷成為必需品</li><li>⚠️ GB300 自 2025Q4 開始放量，預計延續至 2026H1；後續 Rubin 平台 2026H2 啟動</li><li>⚠️ 液冷在 AI 資料中心的滲透率預估 2025 年達 33%，2026 年快速成長</li></ul>
+<h3>液冷 vs. 氣冷</h3>
+<ul><li>氣冷：仍是一般伺服器主流，奇鋐市佔強；AI 伺服器逐步被液冷取代</li><li>DLC（直接液冷）：主流 AI 伺服器採用，奇鋐正積極擴充 Cold Plate 產能</li><li>⚠️ 浸沒式液冷：目前業界討論趨於退燒，DLC 佔主導</li></ul>
+<p><strong>來源：</strong> <a href="https://money.udn.com/money/story/5612/8761971" target="_blank" rel="noopener">GB300 機櫃液冷趨勢分析</a>、<a href="https://blog.growin.tv/ai-server-stocks-2026/" target="_blank" rel="noopener">AI 伺服器概念股解析</a></p>
+<hr>
+<h2>6. 成長動能</h2>
+<ol><li><strong>GB300 放量持續</strong>：⚠️ 2026H1 出貨持續放大，直接帶動散熱元件需求</li><li><strong>越南廠擴產</strong>：⚠️ 目標 2026 年底達 12 座工廠，產能年增至少 50%</li><li><strong>液冷占比提升</strong>：⚠️ 從氣冷為主轉向液冷，客單價顯著提高</li><li><strong>整機解決方案</strong>：⚠️ 機殼＋散熱整合，切入更高附加價值的 Rack Level 商機</li><li><strong>NVIDIA Rubin 平台</strong>：⚠️ 2026H2 啟動量產，奇鋐預期為供應商之一</li></ol>
+<hr>
+<h2>7. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險因素</th><th>說明</th><th>嚴重度</th></tr></thead><tbody><tr><td>估值偏高</td><td>股價 2,265 元，本益比已反映高度成長預期</td><td>高</td></tr><tr><td>⚠️ 關稅衝擊</td><td>越南廠在美國關稅清單內，可能影響出口成本</td><td>中高</td></tr><tr><td>⚠️ 競爭加劇</td><td>雙鴻、健策、富世達積極搶奪液冷訂單</td><td>中</td></tr><tr><td>訂單集中</td><td>⚠️ CSP 大客戶若資本支出縮減，衝擊顯著</td><td>高</td></tr><tr><td>匯率</td><td>越南生產、美元收入，新台幣升值壓縮利潤</td><td>中</td></tr><tr><td>產能擴張風險</td><td>⚠️ 若 AI 需求不如預期，大規模擴廠恐成負擔</td><td>中</td></tr></tbody></table></div>
+<hr>
+<h2>8. 估值評估</h2>
+<ul><li>⚠️ 大摩目標價 1,800 元（2026 年獲利看增 54% 前提下），現股價 2,265 元已超越此目標</li><li>⚠️ 依淨值比評估，部分工具顯示股價處於偏高區間</li><li>⚠️ 若 2026 年 EPS 達法人預估成長 54%，隱含 2026E PE 仍偏貴</li><li>與雙鴻（3324）同業比較：❌ 未取得同業最新 P/E、P/B 數據進行系統性比較</li></ul>
+<hr>
+<h2>9. 綜合結論</h2>
+<p><strong>投資觀點摘要</strong></p>
+<div class="table-wrap"><table><thead><tr><th>面向</th><th>評估</th></tr></thead><tbody><tr><td>基本面動能</td><td>強勁，2026Q1 月營收年增逾 110%，趨勢明確</td></tr><tr><td>技術面</td><td>⚠️ 多頭排列，但股價已處高位</td></tr><tr><td>籌碼面</td><td>❌ 資料不足，需自查</td></tr><tr><td>產業位置</td><td>台股散熱龍頭，AI 液冷核心受益者</td></tr><tr><td>估值風險</td><td>股價 2,265 元已超越多數法人目標價，估值偏貴</td></tr></tbody></table></div>
+<p><strong>利多因素</strong></p>
+<ul><li>2026Q1 累計營收達 490 億，年增 110%，成長動能最強勁的台股散熱股</li><li>整機解決方案壁壘高，客戶黏性強</li><li>越南廠持續擴產，供應端配合</li></ul>
+<p><strong>利空因素</strong></p>
+<ul><li>⚠️ 股價已在高位，下行空間大於上行空間</li><li>⚠️ 越南廠關稅風險浮現（2026 年美國對越南提高關稅）</li><li>法人最新目標價 1,800 元，與現價倒掛</li></ul>
+<p><strong>風險提醒</strong></p>
+<ul><li>現價已充分反映甚至超越多數樂觀預期，新進場須審慎評估賠率</li><li>若持有者應考慮設定保護性停損</li></ul>
+<blockquote>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>
