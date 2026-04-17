@@ -271,9 +271,13 @@ strong{color:var(--text);font-weight:600}
 .card-tags{display:flex;flex-wrap:wrap;gap:3px;padding:4px 0 0}
 .tags-inline{display:flex;flex-wrap:wrap;gap:3px;margin-left:4px}
 .tag-filter-bar{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-bottom:10px;padding:8px 10px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+.tag-filter-bar.special-tag-bar{background:rgba(236,72,153,0.06);border-color:rgba(236,72,153,0.3);margin-bottom:6px}
 .tag-fbtn{padding:2px 8px;border-radius:12px;border:1px solid transparent;background:rgba(108,124,255,0.08);color:var(--accent);font-size:0.72rem;cursor:pointer;white-space:nowrap}
 .tag-fbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .tag-fbtn:hover{border-color:var(--accent)}
+.tag-fbtn.tag-fbtn-special{background:rgba(236,72,153,0.12);color:#ec4899;font-weight:500}
+.tag-fbtn.tag-fbtn-special.active{background:#ec4899;color:#fff;border-color:#ec4899}
+.tag-fbtn.tag-fbtn-special:hover{border-color:#ec4899}
 .method-text{font-size:0.75rem;color:var(--text2);font-style:italic}
 .dual-valuation{background:var(--bg2);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:0.82rem}
 .val-header{font-weight:600;color:var(--accent);margin-bottom:6px;font-size:0.8rem}
@@ -321,7 +325,7 @@ strong{color:var(--text);font-weight:600}
 
 <div class="header">
   <h1>Minna 個股決策卡</h1>
-  <div class="meta">更新：2026-04-18 00:25 | 150 檔</div>
+  <div class="meta">更新：2026-04-18 00:31 | 150 檔</div>
   <div class="dates-info"><span class="dates-item">📊 基本面：依各標的分析日期</span><span class="dates-item">📈 技術面：4/16 <span class="dates-stale">⚠️ 非今日</span></span><span class="dates-item">💰 籌碼面：4/17 <span class="dates-stale">⚠️ 非今日</span></span><span class="dates-item">🌐 總經面：4/17 <span class="dates-stale">⚠️ 非今日</span></span></div>
   <div class="signal-summary"><div class="signal-block signal-yellow"><div class="signal-title">🟡 接近進場區間 — 2 檔</div><div class="signal-stocks"><a class="signal-link" href="#" onclick="scrollToCard('6770','watchlist');return false">6770 力積電 <span class="signal-detail">(價格到但基本面疑慮)</span></a><a class="signal-link" href="#" onclick="scrollToCard('6781','watchlist');return false">6781 AES-KY <span class="signal-detail">(價格到但基本面疑慮)</span></a></div></div></div>
 </div>
@@ -429,7 +433,7 @@ strong{color:var(--text);font-weight:600}
   <button class="dfbtn reset-btn" onclick="resetAllFilters()">🔄 重置</button>
 </div>
 
-<div class="tag-filter-bar"><span class="df-label">產業標籤：</span><button class="tag-fbtn active" onclick="setTagFilter('all',this)">全部</button><button class="tag-fbtn" onclick="setTagFilter('2nm',this)">2nm</button><button class="tag-fbtn" onclick="setTagFilter('345kV',this)">345kV</button><button class="tag-fbtn" onclick="setTagFilter('3D封裝',this)">3D封裝</button><button class="tag-fbtn" onclick="setTagFilter('5G',this)">5G</button><button class="tag-fbtn" onclick="setTagFilter('800G',this)">800G</button><button class="tag-fbtn" onclick="setTagFilter('ABF載板',this)">ABF載板</button><button class="tag-fbtn" onclick="setTagFilter('AEC',this)">AEC</button><button class="tag-fbtn" onclick="setTagFilter('AI',this)">AI</button><button class="tag-fbtn" onclick="setTagFilter('AI 應用',this)">AI 應用</button><button class="tag-fbtn" onclick="setTagFilter('AIoT',this)">AIoT</button><button class="tag-fbtn" onclick="setTagFilter('AI互連',this)">AI互連</button><button class="tag-fbtn" onclick="setTagFilter('AI伺服器',this)">AI伺服器</button><button class="tag-fbtn" onclick="setTagFilter('AI基建',this)">AI基建</button><button class="tag-fbtn" onclick="setTagFilter('AI基礎建設',this)">AI基礎建設</button><button class="tag-fbtn" onclick="setTagFilter('AI推論',this)">AI推論</button><button class="tag-fbtn" onclick="setTagFilter('AI液冷',this)">AI液冷</button><button class="tag-fbtn" onclick="setTagFilter('AI用電',this)">AI用電</button><button class="tag-fbtn" onclick="setTagFilter('AI資料中心',this)">AI資料中心</button><button class="tag-fbtn" onclick="setTagFilter('AI電力',this)">AI電力</button><button class="tag-fbtn" onclick="setTagFilter('AOC',this)">AOC</button><button class="tag-fbtn" onclick="setTagFilter('ASIC',this)">ASIC</button><button class="tag-fbtn" onclick="setTagFilter('B2B',this)">B2B</button><button class="tag-fbtn" onclick="setTagFilter('BBU',this)">BBU</button><button class="tag-fbtn" onclick="setTagFilter('Bloom Energy',this)">Bloom Energy</button><button class="tag-fbtn" onclick="setTagFilter('Broadcom',this)">Broadcom</button><button class="tag-fbtn" onclick="setTagFilter('CATV',this)">CATV</button><button class="tag-fbtn" onclick="setTagFilter('CDN',this)">CDN</button><button class="tag-fbtn" onclick="setTagFilter('CPO',this)">CPO</button><button class="tag-fbtn" onclick="setTagFilter('CWLaser',this)">CWLaser</button><button class="tag-fbtn" onclick="setTagFilter('CXL',this)">CXL</button><button class="tag-fbtn" onclick="setTagFilter('DCI',this)">DCI</button><button class="tag-fbtn" onclick="setTagFilter('DRAM',this)">DRAM</button><button class="tag-fbtn" onclick="setTagFilter('EMS',this)">EMS</button><button class="tag-fbtn" onclick="setTagFilter('ESG',this)">ESG</button><button class="tag-fbtn" onclick="setTagFilter('ETF',this)">ETF</button><button class="tag-fbtn" onclick="setTagFilter('EV充電',this)">EV充電</button><button class="tag-fbtn" onclick="setTagFilter('Edge AI',this)">Edge AI</button><button class="tag-fbtn" onclick="setTagFilter('FAU',this)">FAU</button><button class="tag-fbtn" onclick="setTagFilter('GIS',this)">GIS</button><button class="tag-fbtn" onclick="setTagFilter('GLP-1',this)">GLP-1</button><button class="tag-fbtn" onclick="setTagFilter('GPU',this)">GPU</button><button class="tag-fbtn" onclick="setTagFilter('Google供應鏈',this)">Google供應鏈</button><button class="tag-fbtn" onclick="setTagFilter('IC測試',this)">IC測試</button><button class="tag-fbtn" onclick="setTagFilter('IC載板',this)">IC載板</button><button class="tag-fbtn" onclick="setTagFilter('IC通路',this)">IC通路</button><button class="tag-fbtn" onclick="setTagFilter('InP',this)">InP</button><button class="tag-fbtn" onclick="setTagFilter('InP雷射',this)">InP雷射</button><button class="tag-fbtn" onclick="setTagFilter('IoT',this)">IoT</button><button class="tag-fbtn" onclick="setTagFilter('LEO衛星',this)">LEO衛星</button><button class="tag-fbtn" onclick="setTagFilter('Llama',this)">Llama</button><button class="tag-fbtn" onclick="setTagFilter('Marvell',this)">Marvell</button><button class="tag-fbtn" onclick="setTagFilter('NVIDIA',this)">NVIDIA</button><button class="tag-fbtn" onclick="setTagFilter('ODM',this)">ODM</button><button class="tag-fbtn" onclick="setTagFilter('PCB',this)">PCB</button><button class="tag-fbtn" onclick="setTagFilter('PCIe',this)">PCIe</button><button class="tag-fbtn" onclick="setTagFilter('SOFC',this)">SOFC</button><button class="tag-fbtn" onclick="setTagFilter('SaaS',this)">SaaS</button><button class="tag-fbtn" onclick="setTagFilter('SoC',this)">SoC</button><button class="tag-fbtn" onclick="setTagFilter('SpaceX',this)">SpaceX</button><button class="tag-fbtn" onclick="setTagFilter('TOPCon',this)">TOPCon</button><button class="tag-fbtn" onclick="setTagFilter('UTG',this)">UTG</button><button class="tag-fbtn" onclick="setTagFilter('Wi-Fi',this)">Wi-Fi</button><button class="tag-fbtn" onclick="setTagFilter('XDR',this)">XDR</button><button class="tag-fbtn" onclick="setTagFilter('lala 組合',this)">lala 組合</button><button class="tag-fbtn" onclick="setTagFilter('上櫃',this)">上櫃</button><button class="tag-fbtn" onclick="setTagFilter('不銹鋼',this)">不銹鋼</button><button class="tag-fbtn" onclick="setTagFilter('代工',this)">代工</button><button class="tag-fbtn" onclick="setTagFilter('休閒',this)">休閒</button><button class="tag-fbtn" onclick="setTagFilter('伺服器',this)">伺服器</button><button class="tag-fbtn" onclick="setTagFilter('儲能',this)">儲能</button><button class="tag-fbtn" onclick="setTagFilter('元宇宙',this)">元宇宙</button><button class="tag-fbtn" onclick="setTagFilter('先進製程',this)">先進製程</button><button class="tag-fbtn" onclick="setTagFilter('光傳輸設備',this)">光傳輸設備</button><button class="tag-fbtn" onclick="setTagFilter('光學',this)">光學</button><button class="tag-fbtn" onclick="setTagFilter('光模組',this)">光模組</button><button class="tag-fbtn" onclick="setTagFilter('光纖',this)">光纖</button><button class="tag-fbtn" onclick="setTagFilter('光纖測試',this)">光纖測試</button><button class="tag-fbtn" onclick="setTagFilter('光通訊',this)">光通訊</button><button class="tag-fbtn" onclick="setTagFilter('公用事業',this)">公用事業</button><button class="tag-fbtn" onclick="setTagFilter('化合物半導體',this)">化合物半導體</button><button class="tag-fbtn" onclick="setTagFilter('半導體',this)">半導體</button><button class="tag-fbtn" onclick="setTagFilter('半導體材料',this)">半導體材料</button><button class="tag-fbtn" onclick="setTagFilter('博弈授權',this)">博弈授權</button><button class="tag-fbtn" onclick="setTagFilter('口服藥',this)">口服藥</button><button class="tag-fbtn" onclick="setTagFilter('台灣50',this)">台灣50</button><button class="tag-fbtn" onclick="setTagFilter('台積電供應鏈',this)">台積電供應鏈</button><button class="tag-fbtn" onclick="setTagFilter('台積電生態系',this)">台積電生態系</button><button class="tag-fbtn" onclick="setTagFilter('台電',this)">台電</button><button class="tag-fbtn" onclick="setTagFilter('國防',this)">國防</button><button class="tag-fbtn" onclick="setTagFilter('基建',this)">基建</button><button class="tag-fbtn" onclick="setTagFilter('基板',this)">基板</button><button class="tag-fbtn" onclick="setTagFilter('大數據',this)">大數據</button><button class="tag-fbtn" onclick="setTagFilter('太空',this)">太空</button><button class="tag-fbtn" onclick="setTagFilter('太陽能',this)">太陽能</button><button class="tag-fbtn" onclick="setTagFilter('存股',this)">存股</button><button class="tag-fbtn" onclick="setTagFilter('官股',this)">官股</button><button class="tag-fbtn" onclick="setTagFilter('客製晶片',this)">客製晶片</button><button class="tag-fbtn" onclick="setTagFilter('封裝',this)">封裝</button><button class="tag-fbtn" onclick="setTagFilter('工業電腦',this)">工業電腦</button><button class="tag-fbtn" onclick="setTagFilter('市值型',this)">市值型</button><button class="tag-fbtn" onclick="setTagFilter('廣告',this)">廣告</button><button class="tag-fbtn" onclick="setTagFilter('快接頭',this)">快接頭</button><button class="tag-fbtn" onclick="setTagFilter('折疊手機',this)">折疊手機</button><button class="tag-fbtn" onclick="setTagFilter('授權模式',this)">授權模式</button><button class="tag-fbtn" onclick="setTagFilter('摺疊手機',this)">摺疊手機</button><button class="tag-fbtn" onclick="setTagFilter('政府科技',this)">政府科技</button><button class="tag-fbtn" onclick="setTagFilter('散熱',this)">散熱</button><button class="tag-fbtn" onclick="setTagFilter('數位廣告',this)">數位廣告</button><button class="tag-fbtn" onclick="setTagFilter('晶圓代工',this)">晶圓代工</button><button class="tag-fbtn" onclick="setTagFilter('核電',this)">核電</button><button class="tag-fbtn" onclick="setTagFilter('機器人',this)">機器人</button><button class="tag-fbtn" onclick="setTagFilter('歐洲擴張',this)">歐洲擴張</button><button class="tag-fbtn" onclick="setTagFilter('氫能',this)">氫能</button><button class="tag-fbtn" onclick="setTagFilter('海外廠擴產',this)">海外廠擴產</button><button class="tag-fbtn" onclick="setTagFilter('消費電子',this)">消費電子</button><button class="tag-fbtn" onclick="setTagFilter('液冷',this)">液冷</button><button class="tag-fbtn" onclick="setTagFilter('減重',this)">減重</button><button class="tag-fbtn" onclick="setTagFilter('濾波器',this)">濾波器</button><button class="tag-fbtn" onclick="setTagFilter('火箭',this)">火箭</button><button class="tag-fbtn" onclick="setTagFilter('無人機',this)">無人機</button><button class="tag-fbtn" onclick="setTagFilter('無塵室',this)">無塵室</button><button class="tag-fbtn" onclick="setTagFilter('熱交換器',this)">熱交換器</button><button class="tag-fbtn" onclick="setTagFilter('燃料電池',this)">燃料電池</button><button class="tag-fbtn" onclick="setTagFilter('營建',this)">營建</button><button class="tag-fbtn" onclick="setTagFilter('玻璃',this)">玻璃</button><button class="tag-fbtn" onclick="setTagFilter('白牌交換器',this)">白牌交換器</button><button class="tag-fbtn" onclick="setTagFilter('直連手機D2D',this)">直連手機D2D</button><button class="tag-fbtn" onclick="setTagFilter('石英元件',this)">石英元件</button><button class="tag-fbtn" onclick="setTagFilter('矽光子',this)">矽光子</button><button class="tag-fbtn" onclick="setTagFilter('砷化鎵',this)">砷化鎵</button><button class="tag-fbtn" onclick="setTagFilter('磊晶',this)">磊晶</button><button class="tag-fbtn" onclick="setTagFilter('磷化銦',this)">磷化銦</button><button class="tag-fbtn" onclick="setTagFilter('社群',this)">社群</button><button class="tag-fbtn" onclick="setTagFilter('科技',this)">科技</button><button class="tag-fbtn" onclick="setTagFilter('端點安全',this)">端點安全</button><button class="tag-fbtn" onclick="setTagFilter('糖尿病',this)">糖尿病</button><button class="tag-fbtn" onclick="setTagFilter('綠能',this)">綠能</button><button class="tag-fbtn" onclick="setTagFilter('網路',this)">網路</button><button class="tag-fbtn" onclick="setTagFilter('網路交換器',this)">網路交換器</button><button class="tag-fbtn" onclick="setTagFilter('網通',this)">網通</button><button class="tag-fbtn" onclick="setTagFilter('美國外銷',this)">美國外銷</button><button class="tag-fbtn" onclick="setTagFilter('美國製造',this)">美國製造</button><button class="tag-fbtn" onclick="setTagFilter('膠材',this)">膠材</button><button class="tag-fbtn" onclick="setTagFilter('自動駕駛',this)">自動駕駛</button><button class="tag-fbtn" onclick="setTagFilter('航空',this)">航空</button><button class="tag-fbtn" onclick="setTagFilter('華邦電',this)">華邦電</button><button class="tag-fbtn" onclick="setTagFilter('蘋概',this)">蘋概</button><button class="tag-fbtn" onclick="setTagFilter('衛星',this)">衛星</button><button class="tag-fbtn" onclick="setTagFilter('衛星影像',this)">衛星影像</button><button class="tag-fbtn" onclick="setTagFilter('衛星通訊',this)">衛星通訊</button><button class="tag-fbtn" onclick="setTagFilter('被動元件',this)">被動元件</button><button class="tag-fbtn" onclick="setTagFilter('製藥',this)">製藥</button><button class="tag-fbtn" onclick="setTagFilter('觀光',this)">觀光</button><button class="tag-fbtn" onclick="setTagFilter('變壓器',this)">變壓器</button><button class="tag-fbtn" onclick="setTagFilter('資安',this)">資安</button><button class="tag-fbtn" onclick="setTagFilter('資料中心',this)">資料中心</button><button class="tag-fbtn" onclick="setTagFilter('超算',this)">超算</button><button class="tag-fbtn" onclick="setTagFilter('車用',this)">車用</button><button class="tag-fbtn" onclick="setTagFilter('車用晶片',this)">車用晶片</button><button class="tag-fbtn" onclick="setTagFilter('軟板',this)">軟板</button><button class="tag-fbtn" onclick="setTagFilter('轉軸',this)">轉軸</button><button class="tag-fbtn" onclick="setTagFilter('連接器',this)">連接器</button><button class="tag-fbtn" onclick="setTagFilter('連接線束',this)">連接線束</button><button class="tag-fbtn" onclick="setTagFilter('遊戲',this)">遊戲</button><button class="tag-fbtn" onclick="setTagFilter('邊緣運算',this)">邊緣運算</button><button class="tag-fbtn" onclick="setTagFilter('重電',this)">重電</button><button class="tag-fbtn" onclick="setTagFilter('金仁寶集團',this)">金仁寶集團</button><button class="tag-fbtn" onclick="setTagFilter('金融',this)">金融</button><button class="tag-fbtn" onclick="setTagFilter('鈣鈦礦',this)">鈣鈦礦</button><button class="tag-fbtn" onclick="setTagFilter('銀行',this)">銀行</button><button class="tag-fbtn" onclick="setTagFilter('鋰電池',this)">鋰電池</button><button class="tag-fbtn" onclick="setTagFilter('防偽',this)">防偽</button><button class="tag-fbtn" onclick="setTagFilter('阿茲海默',this)">阿茲海默</button><button class="tag-fbtn" onclick="setTagFilter('雲端',this)">雲端</button><button class="tag-fbtn" onclick="setTagFilter('雲端AI',this)">雲端AI</button><button class="tag-fbtn" onclick="setTagFilter('雲端安全',this)">雲端安全</button><button class="tag-fbtn" onclick="setTagFilter('零信任',this)">零信任</button><button class="tag-fbtn" onclick="setTagFilter('雷射',this)">雷射</button><button class="tag-fbtn" onclick="setTagFilter('雷射封測',this)">雷射封測</button><button class="tag-fbtn" onclick="setTagFilter('電力設備',this)">電力設備</button><button class="tag-fbtn" onclick="setTagFilter('電動車',this)">電動車</button><button class="tag-fbtn" onclick="setTagFilter('電源',this)">電源</button><button class="tag-fbtn" onclick="setTagFilter('電網',this)">電網</button><button class="tag-fbtn" onclick="setTagFilter('電纜',this)">電纜</button><button class="tag-fbtn" onclick="setTagFilter('風扇',this)">風扇</button><button class="tag-fbtn" onclick="setTagFilter('高力供應鏈',this)">高力供應鏈</button><button class="tag-fbtn" onclick="setTagFilter('高毛利',this)">高毛利</button><button class="tag-fbtn" onclick="setTagFilter('高股息',this)">高股息</button><button class="tag-fbtn" onclick="setTagFilter('高階多層板',this)">高階多層板</button><button class="tag-fbtn" onclick="setTagFilter('鴻海',this)">鴻海</button></div>
+<div class="tag-filter-bar special-tag-bar"><span class="df-label">🔖 快速標籤：</span><button class="tag-fbtn tag-fbtn-special" onclick="setTagFilter('lala 組合',this)">🤝 lala 組合 (6)</button></div><div class="tag-filter-bar"><span class="df-label">產業標籤：</span><button class="tag-fbtn tag-fbtn-all active" onclick="setTagFilter('all',this)">全部</button><button class="tag-fbtn" onclick="setTagFilter('2nm',this)">2nm</button><button class="tag-fbtn" onclick="setTagFilter('345kV',this)">345kV</button><button class="tag-fbtn" onclick="setTagFilter('3D封裝',this)">3D封裝</button><button class="tag-fbtn" onclick="setTagFilter('5G',this)">5G</button><button class="tag-fbtn" onclick="setTagFilter('800G',this)">800G</button><button class="tag-fbtn" onclick="setTagFilter('ABF載板',this)">ABF載板</button><button class="tag-fbtn" onclick="setTagFilter('AEC',this)">AEC</button><button class="tag-fbtn" onclick="setTagFilter('AI',this)">AI</button><button class="tag-fbtn" onclick="setTagFilter('AI 應用',this)">AI 應用</button><button class="tag-fbtn" onclick="setTagFilter('AIoT',this)">AIoT</button><button class="tag-fbtn" onclick="setTagFilter('AI互連',this)">AI互連</button><button class="tag-fbtn" onclick="setTagFilter('AI伺服器',this)">AI伺服器</button><button class="tag-fbtn" onclick="setTagFilter('AI基建',this)">AI基建</button><button class="tag-fbtn" onclick="setTagFilter('AI基礎建設',this)">AI基礎建設</button><button class="tag-fbtn" onclick="setTagFilter('AI推論',this)">AI推論</button><button class="tag-fbtn" onclick="setTagFilter('AI液冷',this)">AI液冷</button><button class="tag-fbtn" onclick="setTagFilter('AI用電',this)">AI用電</button><button class="tag-fbtn" onclick="setTagFilter('AI資料中心',this)">AI資料中心</button><button class="tag-fbtn" onclick="setTagFilter('AI電力',this)">AI電力</button><button class="tag-fbtn" onclick="setTagFilter('AOC',this)">AOC</button><button class="tag-fbtn" onclick="setTagFilter('ASIC',this)">ASIC</button><button class="tag-fbtn" onclick="setTagFilter('B2B',this)">B2B</button><button class="tag-fbtn" onclick="setTagFilter('BBU',this)">BBU</button><button class="tag-fbtn" onclick="setTagFilter('Bloom Energy',this)">Bloom Energy</button><button class="tag-fbtn" onclick="setTagFilter('Broadcom',this)">Broadcom</button><button class="tag-fbtn" onclick="setTagFilter('CATV',this)">CATV</button><button class="tag-fbtn" onclick="setTagFilter('CDN',this)">CDN</button><button class="tag-fbtn" onclick="setTagFilter('CPO',this)">CPO</button><button class="tag-fbtn" onclick="setTagFilter('CWLaser',this)">CWLaser</button><button class="tag-fbtn" onclick="setTagFilter('CXL',this)">CXL</button><button class="tag-fbtn" onclick="setTagFilter('DCI',this)">DCI</button><button class="tag-fbtn" onclick="setTagFilter('DRAM',this)">DRAM</button><button class="tag-fbtn" onclick="setTagFilter('EMS',this)">EMS</button><button class="tag-fbtn" onclick="setTagFilter('ESG',this)">ESG</button><button class="tag-fbtn" onclick="setTagFilter('ETF',this)">ETF</button><button class="tag-fbtn" onclick="setTagFilter('EV充電',this)">EV充電</button><button class="tag-fbtn" onclick="setTagFilter('Edge AI',this)">Edge AI</button><button class="tag-fbtn" onclick="setTagFilter('FAU',this)">FAU</button><button class="tag-fbtn" onclick="setTagFilter('GIS',this)">GIS</button><button class="tag-fbtn" onclick="setTagFilter('GLP-1',this)">GLP-1</button><button class="tag-fbtn" onclick="setTagFilter('GPU',this)">GPU</button><button class="tag-fbtn" onclick="setTagFilter('Google供應鏈',this)">Google供應鏈</button><button class="tag-fbtn" onclick="setTagFilter('IC測試',this)">IC測試</button><button class="tag-fbtn" onclick="setTagFilter('IC載板',this)">IC載板</button><button class="tag-fbtn" onclick="setTagFilter('IC通路',this)">IC通路</button><button class="tag-fbtn" onclick="setTagFilter('InP',this)">InP</button><button class="tag-fbtn" onclick="setTagFilter('InP雷射',this)">InP雷射</button><button class="tag-fbtn" onclick="setTagFilter('IoT',this)">IoT</button><button class="tag-fbtn" onclick="setTagFilter('LEO衛星',this)">LEO衛星</button><button class="tag-fbtn" onclick="setTagFilter('Llama',this)">Llama</button><button class="tag-fbtn" onclick="setTagFilter('Marvell',this)">Marvell</button><button class="tag-fbtn" onclick="setTagFilter('NVIDIA',this)">NVIDIA</button><button class="tag-fbtn" onclick="setTagFilter('ODM',this)">ODM</button><button class="tag-fbtn" onclick="setTagFilter('PCB',this)">PCB</button><button class="tag-fbtn" onclick="setTagFilter('PCIe',this)">PCIe</button><button class="tag-fbtn" onclick="setTagFilter('SOFC',this)">SOFC</button><button class="tag-fbtn" onclick="setTagFilter('SaaS',this)">SaaS</button><button class="tag-fbtn" onclick="setTagFilter('SoC',this)">SoC</button><button class="tag-fbtn" onclick="setTagFilter('SpaceX',this)">SpaceX</button><button class="tag-fbtn" onclick="setTagFilter('TOPCon',this)">TOPCon</button><button class="tag-fbtn" onclick="setTagFilter('UTG',this)">UTG</button><button class="tag-fbtn" onclick="setTagFilter('Wi-Fi',this)">Wi-Fi</button><button class="tag-fbtn" onclick="setTagFilter('XDR',this)">XDR</button><button class="tag-fbtn" onclick="setTagFilter('上櫃',this)">上櫃</button><button class="tag-fbtn" onclick="setTagFilter('不銹鋼',this)">不銹鋼</button><button class="tag-fbtn" onclick="setTagFilter('代工',this)">代工</button><button class="tag-fbtn" onclick="setTagFilter('休閒',this)">休閒</button><button class="tag-fbtn" onclick="setTagFilter('伺服器',this)">伺服器</button><button class="tag-fbtn" onclick="setTagFilter('儲能',this)">儲能</button><button class="tag-fbtn" onclick="setTagFilter('元宇宙',this)">元宇宙</button><button class="tag-fbtn" onclick="setTagFilter('先進製程',this)">先進製程</button><button class="tag-fbtn" onclick="setTagFilter('光傳輸設備',this)">光傳輸設備</button><button class="tag-fbtn" onclick="setTagFilter('光學',this)">光學</button><button class="tag-fbtn" onclick="setTagFilter('光模組',this)">光模組</button><button class="tag-fbtn" onclick="setTagFilter('光纖',this)">光纖</button><button class="tag-fbtn" onclick="setTagFilter('光纖測試',this)">光纖測試</button><button class="tag-fbtn" onclick="setTagFilter('光通訊',this)">光通訊</button><button class="tag-fbtn" onclick="setTagFilter('公用事業',this)">公用事業</button><button class="tag-fbtn" onclick="setTagFilter('化合物半導體',this)">化合物半導體</button><button class="tag-fbtn" onclick="setTagFilter('半導體',this)">半導體</button><button class="tag-fbtn" onclick="setTagFilter('半導體材料',this)">半導體材料</button><button class="tag-fbtn" onclick="setTagFilter('博弈授權',this)">博弈授權</button><button class="tag-fbtn" onclick="setTagFilter('口服藥',this)">口服藥</button><button class="tag-fbtn" onclick="setTagFilter('台灣50',this)">台灣50</button><button class="tag-fbtn" onclick="setTagFilter('台積電供應鏈',this)">台積電供應鏈</button><button class="tag-fbtn" onclick="setTagFilter('台積電生態系',this)">台積電生態系</button><button class="tag-fbtn" onclick="setTagFilter('台電',this)">台電</button><button class="tag-fbtn" onclick="setTagFilter('國防',this)">國防</button><button class="tag-fbtn" onclick="setTagFilter('基建',this)">基建</button><button class="tag-fbtn" onclick="setTagFilter('基板',this)">基板</button><button class="tag-fbtn" onclick="setTagFilter('大數據',this)">大數據</button><button class="tag-fbtn" onclick="setTagFilter('太空',this)">太空</button><button class="tag-fbtn" onclick="setTagFilter('太陽能',this)">太陽能</button><button class="tag-fbtn" onclick="setTagFilter('存股',this)">存股</button><button class="tag-fbtn" onclick="setTagFilter('官股',this)">官股</button><button class="tag-fbtn" onclick="setTagFilter('客製晶片',this)">客製晶片</button><button class="tag-fbtn" onclick="setTagFilter('封裝',this)">封裝</button><button class="tag-fbtn" onclick="setTagFilter('工業電腦',this)">工業電腦</button><button class="tag-fbtn" onclick="setTagFilter('市值型',this)">市值型</button><button class="tag-fbtn" onclick="setTagFilter('廣告',this)">廣告</button><button class="tag-fbtn" onclick="setTagFilter('快接頭',this)">快接頭</button><button class="tag-fbtn" onclick="setTagFilter('折疊手機',this)">折疊手機</button><button class="tag-fbtn" onclick="setTagFilter('授權模式',this)">授權模式</button><button class="tag-fbtn" onclick="setTagFilter('摺疊手機',this)">摺疊手機</button><button class="tag-fbtn" onclick="setTagFilter('政府科技',this)">政府科技</button><button class="tag-fbtn" onclick="setTagFilter('散熱',this)">散熱</button><button class="tag-fbtn" onclick="setTagFilter('數位廣告',this)">數位廣告</button><button class="tag-fbtn" onclick="setTagFilter('晶圓代工',this)">晶圓代工</button><button class="tag-fbtn" onclick="setTagFilter('核電',this)">核電</button><button class="tag-fbtn" onclick="setTagFilter('機器人',this)">機器人</button><button class="tag-fbtn" onclick="setTagFilter('歐洲擴張',this)">歐洲擴張</button><button class="tag-fbtn" onclick="setTagFilter('氫能',this)">氫能</button><button class="tag-fbtn" onclick="setTagFilter('海外廠擴產',this)">海外廠擴產</button><button class="tag-fbtn" onclick="setTagFilter('消費電子',this)">消費電子</button><button class="tag-fbtn" onclick="setTagFilter('液冷',this)">液冷</button><button class="tag-fbtn" onclick="setTagFilter('減重',this)">減重</button><button class="tag-fbtn" onclick="setTagFilter('濾波器',this)">濾波器</button><button class="tag-fbtn" onclick="setTagFilter('火箭',this)">火箭</button><button class="tag-fbtn" onclick="setTagFilter('無人機',this)">無人機</button><button class="tag-fbtn" onclick="setTagFilter('無塵室',this)">無塵室</button><button class="tag-fbtn" onclick="setTagFilter('熱交換器',this)">熱交換器</button><button class="tag-fbtn" onclick="setTagFilter('燃料電池',this)">燃料電池</button><button class="tag-fbtn" onclick="setTagFilter('營建',this)">營建</button><button class="tag-fbtn" onclick="setTagFilter('玻璃',this)">玻璃</button><button class="tag-fbtn" onclick="setTagFilter('白牌交換器',this)">白牌交換器</button><button class="tag-fbtn" onclick="setTagFilter('直連手機D2D',this)">直連手機D2D</button><button class="tag-fbtn" onclick="setTagFilter('石英元件',this)">石英元件</button><button class="tag-fbtn" onclick="setTagFilter('矽光子',this)">矽光子</button><button class="tag-fbtn" onclick="setTagFilter('砷化鎵',this)">砷化鎵</button><button class="tag-fbtn" onclick="setTagFilter('磊晶',this)">磊晶</button><button class="tag-fbtn" onclick="setTagFilter('磷化銦',this)">磷化銦</button><button class="tag-fbtn" onclick="setTagFilter('社群',this)">社群</button><button class="tag-fbtn" onclick="setTagFilter('科技',this)">科技</button><button class="tag-fbtn" onclick="setTagFilter('端點安全',this)">端點安全</button><button class="tag-fbtn" onclick="setTagFilter('糖尿病',this)">糖尿病</button><button class="tag-fbtn" onclick="setTagFilter('綠能',this)">綠能</button><button class="tag-fbtn" onclick="setTagFilter('網路',this)">網路</button><button class="tag-fbtn" onclick="setTagFilter('網路交換器',this)">網路交換器</button><button class="tag-fbtn" onclick="setTagFilter('網通',this)">網通</button><button class="tag-fbtn" onclick="setTagFilter('美國外銷',this)">美國外銷</button><button class="tag-fbtn" onclick="setTagFilter('美國製造',this)">美國製造</button><button class="tag-fbtn" onclick="setTagFilter('膠材',this)">膠材</button><button class="tag-fbtn" onclick="setTagFilter('自動駕駛',this)">自動駕駛</button><button class="tag-fbtn" onclick="setTagFilter('航空',this)">航空</button><button class="tag-fbtn" onclick="setTagFilter('華邦電',this)">華邦電</button><button class="tag-fbtn" onclick="setTagFilter('蘋概',this)">蘋概</button><button class="tag-fbtn" onclick="setTagFilter('衛星',this)">衛星</button><button class="tag-fbtn" onclick="setTagFilter('衛星影像',this)">衛星影像</button><button class="tag-fbtn" onclick="setTagFilter('衛星通訊',this)">衛星通訊</button><button class="tag-fbtn" onclick="setTagFilter('被動元件',this)">被動元件</button><button class="tag-fbtn" onclick="setTagFilter('製藥',this)">製藥</button><button class="tag-fbtn" onclick="setTagFilter('觀光',this)">觀光</button><button class="tag-fbtn" onclick="setTagFilter('變壓器',this)">變壓器</button><button class="tag-fbtn" onclick="setTagFilter('資安',this)">資安</button><button class="tag-fbtn" onclick="setTagFilter('資料中心',this)">資料中心</button><button class="tag-fbtn" onclick="setTagFilter('超算',this)">超算</button><button class="tag-fbtn" onclick="setTagFilter('車用',this)">車用</button><button class="tag-fbtn" onclick="setTagFilter('車用晶片',this)">車用晶片</button><button class="tag-fbtn" onclick="setTagFilter('軟板',this)">軟板</button><button class="tag-fbtn" onclick="setTagFilter('轉軸',this)">轉軸</button><button class="tag-fbtn" onclick="setTagFilter('連接器',this)">連接器</button><button class="tag-fbtn" onclick="setTagFilter('連接線束',this)">連接線束</button><button class="tag-fbtn" onclick="setTagFilter('遊戲',this)">遊戲</button><button class="tag-fbtn" onclick="setTagFilter('邊緣運算',this)">邊緣運算</button><button class="tag-fbtn" onclick="setTagFilter('重電',this)">重電</button><button class="tag-fbtn" onclick="setTagFilter('金仁寶集團',this)">金仁寶集團</button><button class="tag-fbtn" onclick="setTagFilter('金融',this)">金融</button><button class="tag-fbtn" onclick="setTagFilter('鈣鈦礦',this)">鈣鈦礦</button><button class="tag-fbtn" onclick="setTagFilter('銀行',this)">銀行</button><button class="tag-fbtn" onclick="setTagFilter('鋰電池',this)">鋰電池</button><button class="tag-fbtn" onclick="setTagFilter('防偽',this)">防偽</button><button class="tag-fbtn" onclick="setTagFilter('阿茲海默',this)">阿茲海默</button><button class="tag-fbtn" onclick="setTagFilter('雲端',this)">雲端</button><button class="tag-fbtn" onclick="setTagFilter('雲端AI',this)">雲端AI</button><button class="tag-fbtn" onclick="setTagFilter('雲端安全',this)">雲端安全</button><button class="tag-fbtn" onclick="setTagFilter('零信任',this)">零信任</button><button class="tag-fbtn" onclick="setTagFilter('雷射',this)">雷射</button><button class="tag-fbtn" onclick="setTagFilter('雷射封測',this)">雷射封測</button><button class="tag-fbtn" onclick="setTagFilter('電力設備',this)">電力設備</button><button class="tag-fbtn" onclick="setTagFilter('電動車',this)">電動車</button><button class="tag-fbtn" onclick="setTagFilter('電源',this)">電源</button><button class="tag-fbtn" onclick="setTagFilter('電網',this)">電網</button><button class="tag-fbtn" onclick="setTagFilter('電纜',this)">電纜</button><button class="tag-fbtn" onclick="setTagFilter('風扇',this)">風扇</button><button class="tag-fbtn" onclick="setTagFilter('高力供應鏈',this)">高力供應鏈</button><button class="tag-fbtn" onclick="setTagFilter('高毛利',this)">高毛利</button><button class="tag-fbtn" onclick="setTagFilter('高股息',this)">高股息</button><button class="tag-fbtn" onclick="setTagFilter('高階多層板',this)">高階多層板</button><button class="tag-fbtn" onclick="setTagFilter('鴻海',this)">鴻海</button></div>
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('main',this)">📋 持倉＋觀察 (70)</button>
@@ -2682,8 +2686,8 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-pass">基本✅</span><span class="dim-badge dim-watch">技術⏳</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$428.52</span>
-          <span class="change-green">+1.97%</span>
+          <span class="card-price">$428.93</span>
+          <span class="change-green">+2.06%</span>
           <span class="entry-badge entry-green">🟣 安心持有</span>
         </div>
       </summary>
@@ -2701,7 +2705,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-icon">⏳</span>
           <span class="dim-title">📈 技術面</span>
           <span class="dim-status">中性</span>
-          <span class="dim-note">RSI 73.58 超買，均線糾結（短長均線交錯）</span>
+          <span class="dim-note">RSI 73.7 超買，均線糾結（短長均線交錯）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div>
         <div class="dim-row dim-pass">
@@ -2744,26 +2748,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-red" style="width:73.58%"></div>
+            <div class="tv-bar tv-bar-red" style="width:73.7%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">73.58</span>
+          <span class="tv-val">73.7</span>
           <span class="tv-label tv-c-red">超買</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=90.73</span>
+            <span>K=90.94</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=81.25</span>
+            <span>D=81.32</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">7.76</span>
+            <span class="macd-block tv-c-green">7.79</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -2777,17 +2781,17 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="ma-pos-table">
         <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">390.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +9.9%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">380.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +12.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">392.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +9.3%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">431.5</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 0.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">470.5</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 8.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">380.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +12.8%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">392.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +9.4%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">431.5</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 0.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">470.5</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 8.8%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-gray" style="width:39.3%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:39.5%"></div>
           </div>
-          <span class="tv-val-sm">39.3%</span>
+          <span class="tv-val-sm">39.5%</span>
           <span class="tv-label tv-c-gray">中間偏低</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -2856,8 +2860,8 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-pass">基本✅</span><span class="dim-badge dim-watch">技術⏳</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$200.74</span>
-          <span class="change-green">+1.2%</span>
+          <span class="card-price">$200.68</span>
+          <span class="change-green">+1.17%</span>
           <span class="entry-badge entry-green">🟣 安心持有</span>
         </div>
       </summary>
@@ -2875,7 +2879,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-icon">⏳</span>
           <span class="dim-title">📈 技術面</span>
           <span class="dim-status">中性</span>
-          <span class="dim-note">RSI 70.71 超買，均線糾結（短長均線交錯）</span>
+          <span class="dim-note">RSI 70.67 超買，均線糾結（短長均線交錯）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div>
         <div class="dim-row dim-pass">
@@ -2918,19 +2922,19 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-red" style="width:70.71%"></div>
+            <div class="tv-bar tv-bar-red" style="width:70.67%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">70.71</span>
+          <span class="tv-val">70.67</span>
           <span class="tv-label tv-c-red">超買</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=94.24</span>
+            <span>K=94.17</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=90.54</span>
+            <span>D=90.51</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
@@ -2951,17 +2955,17 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="ma-pos-table">
         <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">189.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +6.0%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">181.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.7%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">181.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.6%</span></div>
         <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">183.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +9.5%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">183.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +9.4%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">183.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +9.4%</span></div>
         <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">181.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.4%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-red" style="width:94.3%"></div>
+            <div class="tv-bar tv-bar-red" style="width:94.2%"></div>
           </div>
-          <span class="tv-val-sm">94.3%</span>
+          <span class="tv-val-sm">94.2%</span>
           <span class="tv-label tv-c-red">接近年高點（注意追高）</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -10598,9 +10602,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-pass">基本✅</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-pass">總經✅</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$271.56</span>
-          <span class="change-green">+3.1%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+122.6%）</span>
+          <span class="card-price">$271.67</span>
+          <span class="change-green">+3.14%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+122.7%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -10634,7 +10638,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">NASDAQ+大盤（消費電子）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面 OK。技術面偏多。價格偏高（距進場區 +122.6%）。近期催化劑：WWDC（6 月）AI 展示。</div>
+          <div class="summary-text">🎯 基本面 OK。技術面偏多。價格偏高（距進場區 +122.7%）。近期催化劑：WWDC（6 月）AI 展示。</div>
         </div>
 
         <details class="sub-section">
@@ -10660,19 +10664,19 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-blue" style="width:65.25%"></div>
+            <div class="tv-bar tv-bar-blue" style="width:65.33%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">65.25</span>
+          <span class="tv-val">65.33</span>
           <span class="tv-label tv-c-blue">偏強</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=89.38</span>
+            <span>K=89.51</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=84.54</span>
+            <span>D=84.58</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
@@ -10693,17 +10697,17 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="ma-pos-table">
         <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">261.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +4.0%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">256.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +5.9%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">260.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +4.2%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">256.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +5.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">260.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +4.3%</span></div>
         <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">264.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">251.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +7.8%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">251.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +7.9%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-orange" style="width:84.7%"></div>
+            <div class="tv-bar tv-bar-orange" style="width:84.8%"></div>
           </div>
-          <span class="tv-val-sm">84.7%</span>
+          <span class="tv-val-sm">84.8%</span>
           <span class="tv-label tv-c-orange">偏高檔</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -10772,9 +10776,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-pass">基本✅</span><span class="dim-badge dim-watch">技術⏳</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$164.42</span>
-          <span class="change-green">+2.12%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+113.5%）</span>
+          <span class="card-price">$164.20</span>
+          <span class="change-green">+1.98%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+113.2%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -10791,7 +10795,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-icon">⏳</span>
           <span class="dim-title">📈 技術面</span>
           <span class="dim-status">中性</span>
-          <span class="dim-note">RSI 73.31 超買，均線糾結（短長均線交錯）</span>
+          <span class="dim-note">RSI 73.2 超買，均線糾結（短長均線交錯）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div>
         <div class="dim-row dim-pass">
@@ -10808,7 +10812,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">費半+外資（AI）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面 OK。技術面中性。價格偏高（距進場區 +113.5%）。近期催化劑：Q1 財報確認 AI 營收 $32.5B 進度。</div>
+          <div class="summary-text">🎯 基本面 OK。技術面中性。價格偏高（距進場區 +113.2%）。近期催化劑：Q1 財報確認 AI 營收 $32.5B 進度。</div>
         </div>
 
         <details class="sub-section">
@@ -10834,26 +10838,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-red" style="width:73.31%"></div>
+            <div class="tv-bar tv-bar-red" style="width:73.2%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">73.31</span>
+          <span class="tv-val">73.2</span>
           <span class="tv-label tv-c-red">超買</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=97.17</span>
+            <span>K=96.97</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=91.75</span>
+            <span>D=91.69</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">3.68</span>
+            <span class="macd-block tv-c-green">3.66</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -10866,11 +10870,11 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-gray" style="flex:1">糾結（短長均線交錯）</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">148.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">137.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +19.5%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">136.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +20.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">133.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +23.0%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">134.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +22.5%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">148.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">137.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +19.4%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">136.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +20.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">133.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +22.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">134.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +22.3%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
@@ -10882,7 +10886,7 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W區間</span>
-          <span class="tv-val-sm" style="color:var(--text2)">67.67 – 164.42</span>
+          <span class="tv-val-sm" style="color:var(--text2)">67.67 – 164.2</span>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">量比(5d/20d)</span>
@@ -10946,9 +10950,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-fail">基本❌</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$82.95</span>
-          <span class="change-green">+1.43%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+963.5%）</span>
+          <span class="card-price">$82.84</span>
+          <span class="change-green">+1.3%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+962.1%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -11008,26 +11012,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-blue" style="width:68.12%"></div>
+            <div class="tv-bar tv-bar-blue" style="width:68.07%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">68.12</span>
+          <span class="tv-val">68.07</span>
           <span class="tv-label tv-c-blue">偏強</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=89.79</span>
+            <span>K=89.64</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=78.24</span>
+            <span>D=78.19</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">2.04</span>
+            <span class="macd-block tv-c-green">2.03</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -11040,11 +11044,11 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-green" style="flex:1">多頭排列</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">62.93</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +31.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">60.63</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +36.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">45.77</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +81.2%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">31.08</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +166.9%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">17.75</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +367.3%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">62.92</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +31.7%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">60.63</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +36.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">45.77</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +81.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">31.08</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +166.5%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">17.75</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +366.7%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
@@ -11056,7 +11060,7 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W區間</span>
-          <span class="tv-val-sm" style="color:var(--text2)">1.17 – 82.95</span>
+          <span class="tv-val-sm" style="color:var(--text2)">1.17 – 82.84</span>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">量比(5d/20d)</span>
@@ -11120,9 +11124,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-watch">基本⏳</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$202.49</span>
-          <span class="change-red">-3.6%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+499.1%）</span>
+          <span class="card-price">$202.72</span>
+          <span class="change-red">-3.49%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+499.8%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -11156,7 +11160,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">NASDAQ+殖利率(反向)（燃料電池）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +499.1%）。近期催化劑：2026 Q1財報（5月）。</div>
+          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +499.8%）。近期催化劑：2026 Q1財報（5月）。</div>
         </div>
 
         <details class="sub-section">
@@ -11182,26 +11186,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-blue" style="width:65.52%"></div>
+            <div class="tv-bar tv-bar-blue" style="width:65.63%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">65.52</span>
+          <span class="tv-val">65.63</span>
           <span class="tv-label tv-c-blue">偏強</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=80.96</span>
+            <span>K=81.03</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=80.75</span>
+            <span>D=80.77</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">8.13</span>
+            <span class="macd-block tv-c-green">8.14</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -11214,18 +11218,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-green" style="flex:1">多頭排列</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">176.7</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +14.6%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">157.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +28.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">155.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +30.0%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">136.0</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +48.9%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">103.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +96.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">176.7</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +14.7%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">157.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +28.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">155.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +30.1%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">136.0</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +49.1%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">103.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +96.2%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-red" style="width:91.8%"></div>
+            <div class="tv-bar tv-bar-red" style="width:92.0%"></div>
           </div>
-          <span class="tv-val-sm">91.8%</span>
+          <span class="tv-val-sm">92.0%</span>
           <span class="tv-label tv-c-red">接近年高點（注意追高）</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -11294,9 +11298,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-watch">基本⏳</span><span class="dim-badge dim-watch">技術⏳</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$294.41</span>
-          <span class="change-red">-1.58%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+90.2%）</span>
+          <span class="card-price">$294.88</span>
+          <span class="change-red">-1.42%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+90.5%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -11330,7 +11334,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">NASDAQ+殖利率(反向)（預設）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面觀望中。技術面中性。價格偏高（距進場區 +90.2%）。近期催化劑：3/31 指引結果：EPS $11-12（中值 $11.50），低於共識 $11.73。市場失望 -6.44%。</div>
+          <div class="summary-text">🎯 基本面觀望中。技術面中性。價格偏高（距進場區 +90.5%）。近期催化劑：3/31 指引結果：EPS $11-12（中值 $11.50），低於共識 $11.73。市場失望 -6.44%。</div>
         </div>
 
         <details class="sub-section">
@@ -11356,26 +11360,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-gray" style="width:50.52%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:50.8%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">50.52</span>
+          <span class="tv-val">50.8</span>
           <span class="tv-label tv-c-gray">中性</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=75.83</span>
+            <span>K=76.24</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=68.57</span>
+            <span>D=68.71</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-blue">2.1</span>
+            <span class="macd-block tv-c-blue">2.13</span>
           </div>
           <span class="tv-label tv-c-blue">動能轉強（柱正但零軸下）</span>
         </div>
@@ -11384,18 +11388,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-red" style="flex:1">空頭排列</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">287.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.4%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">288.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.0%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">296.9</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 0.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">316.2</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 6.9%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">327.2</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 10.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">287.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.5%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">288.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.2%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">296.9</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 0.7%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">316.2</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 6.7%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">327.2</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 9.9%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-gray" style="width:48.6%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:48.9%"></div>
           </div>
-          <span class="tv-val-sm">48.6%</span>
+          <span class="tv-val-sm">48.9%</span>
           <span class="tv-label tv-c-gray">中間偏低</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -11464,9 +11468,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-pass">基本✅</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$423.08</span>
-          <span class="change-green">+1.17%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+19.2%）</span>
+          <span class="card-price">$423.96</span>
+          <span class="change-green">+1.38%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+19.4%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -11500,7 +11504,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">NASDAQ+美元(反向)（資安）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面 OK。技術面偏多。價格偏高（距進場區 +19.2%）。近期催化劑：FY2027 Q1財報（2026/6月）。</div>
+          <div class="summary-text">🎯 基本面 OK。技術面偏多。價格偏高（距進場區 +19.4%）。近期催化劑：FY2027 Q1財報（2026/6月）。</div>
         </div>
 
         <details class="sub-section">
@@ -11526,26 +11530,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-blue" style="width:55.49%"></div>
+            <div class="tv-bar tv-bar-blue" style="width:55.75%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">55.49</span>
+          <span class="tv-val">55.75</span>
           <span class="tv-label tv-c-blue">偏強</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=57.76</span>
+            <span>K=58.11</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=52.13</span>
+            <span>D=52.25</span>
           </div>
           <span class="tv-label tv-c-blue">🔔 KD黃金交叉（1天前）</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">3.06</span>
+            <span class="macd-block tv-c-green">3.11</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -11558,18 +11562,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-gray" style="flex:1">糾結（短長均線交錯）</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">407.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +3.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">400.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +5.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">405.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +4.4%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">441.4</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 4.1%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">459.6</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 8.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">407.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +4.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">400.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +6.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">405.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +4.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">441.4</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 3.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">459.6</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 7.8%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-gray" style="width:35.1%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:35.6%"></div>
           </div>
-          <span class="tv-val-sm">35.1%</span>
+          <span class="tv-val-sm">35.6%</span>
           <span class="tv-label tv-c-gray">中間偏低</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -11638,8 +11642,8 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-pass">基本✅</span><span class="dim-badge dim-watch">技術⏳</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$339.02</span>
-          <span class="change-green">+0.89%</span>
+          <span class="card-price">$338.88</span>
+          <span class="change-green">+0.85%</span>
           <span class="entry-badge entry-orange">⚠️ 過高（+29.6%）</span>
         </div>
       </summary>
@@ -11657,7 +11661,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-icon">⏳</span>
           <span class="dim-title">📈 技術面</span>
           <span class="dim-status">中性</span>
-          <span class="dim-note">RSI 71.54 超買，均線糾結（短長均線交錯）</span>
+          <span class="dim-note">RSI 71.48 超買，均線糾結（短長均線交錯）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div>
         <div class="dim-row dim-pass">
@@ -11700,26 +11704,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-red" style="width:71.54%"></div>
+            <div class="tv-bar tv-bar-red" style="width:71.48%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">71.54</span>
+          <span class="tv-val">71.48</span>
           <span class="tv-label tv-c-red">超買</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=95.36</span>
+            <span>K=95.25</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=92.06</span>
+            <span>D=92.02</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">5.09</span>
+            <span class="macd-block tv-c-green">5.08</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -11734,8 +11738,8 @@ strong{color:var(--text);font-weight:600}
         <div class="ma-pos-table">
         <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">322.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +5.1%</span></div>
         <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">305.9</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">307.7</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.2%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">314.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +7.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">307.7</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.1%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">314.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +7.8%</span></div>
         <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">272.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +24.5%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
@@ -11812,9 +11816,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-watch">基本⏳</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-pass">總經✅</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$42.39</span>
-          <span class="change-red">-2.35%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+151.1%）</span>
+          <span class="card-price">$42.44</span>
+          <span class="change-red">-2.23%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+151.4%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -11831,7 +11835,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-icon">✅</span>
           <span class="dim-title">📈 技術面</span>
           <span class="dim-status">偏多</span>
-          <span class="dim-note">RSI 81.96 超買，均線多頭排列</span>
+          <span class="dim-note">RSI 82.19 超買，均線多頭排列</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div>
         <div class="dim-row dim-pass">
@@ -11848,7 +11852,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">NASDAQ+大盤（LEO衛星）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +151.1%）。近期催化劑：Project Stardust/NTN Direct 2026 H2商業化。</div>
+          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +151.4%）。近期催化劑：Project Stardust/NTN Direct 2026 H2商業化。</div>
         </div>
 
         <details class="sub-section">
@@ -11874,19 +11878,19 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-red" style="width:81.96%"></div>
+            <div class="tv-bar tv-bar-red" style="width:82.19%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">81.96</span>
+          <span class="tv-val">82.19</span>
           <span class="tv-label tv-c-red">嚴重超買</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=90.99</span>
+            <span>K=91.13</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=90.77</span>
+            <span>D=90.82</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
@@ -11902,18 +11906,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-green" style="flex:1">多頭排列</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">36.49</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +16.2%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">32.26</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +31.4%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">26.87</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +57.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">22.54</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +88.1%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">22.14</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +91.5%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">36.49</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +16.3%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">32.27</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +31.5%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">26.87</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +57.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">22.54</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +88.3%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">22.14</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +91.7%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-red" style="width:96.3%"></div>
+            <div class="tv-bar tv-bar-red" style="width:96.5%"></div>
           </div>
-          <span class="tv-val-sm">96.3%</span>
+          <span class="tv-val-sm">96.5%</span>
           <span class="tv-label tv-c-red">接近年高點（注意追高）</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -11922,7 +11926,7 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">量比(5d/20d)</span>
-          <span class="tv-val-sm">1.18x</span>
+          <span class="tv-val-sm">1.19x</span>
           <span class="tv-label tv-c-gray">正常量</span>
         </div>
       </div>
@@ -11982,9 +11986,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-watch">基本⏳</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-watch">籌碼⏳</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$878.49</span>
-          <span class="change-red">-1.43%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+451.8%）</span>
+          <span class="card-price">$876.59</span>
+          <span class="change-red">-1.64%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+450.6%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -12018,7 +12022,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">費半+NASDAQ（光通訊）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +451.8%）。近期催化劑：NVIDIA 投資整合進展。</div>
+          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +450.6%）。近期催化劑：NVIDIA 投資整合進展。</div>
         </div>
 
         <details class="sub-section">
@@ -12044,26 +12048,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-blue" style="width:60.17%"></div>
+            <div class="tv-bar tv-bar-blue" style="width:59.96%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">60.17</span>
+          <span class="tv-val">59.96</span>
           <span class="tv-label tv-c-blue">偏強</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=61.22</span>
+            <span>K=60.89</span>
             <span class="kd-arrow tv-c-red">↘</span>
-            <span>D=66.07</span>
+            <span>D=65.96</span>
           </div>
           <span class="tv-label tv-c-red">🔔 高檔KD死亡交叉（3天前）</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">2.05</span>
+            <span class="macd-block tv-c-green">1.93</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -12076,18 +12080,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-green" style="flex:1">多頭排列</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">859.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.2%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">797.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.2%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">703.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +24.9%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">528.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +66.1%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">340.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +158.3%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">859.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">797.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +9.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">703.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +24.7%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">528.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +65.8%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">340.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +157.7%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-red" style="width:97.8%"></div>
+            <div class="tv-bar tv-bar-red" style="width:97.6%"></div>
           </div>
-          <span class="tv-val-sm">97.8%</span>
+          <span class="tv-val-sm">97.6%</span>
           <span class="tv-label tv-c-red">接近年高點（注意追高）</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -12156,8 +12160,8 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-watch">基本⏳</span><span class="dim-badge dim-watch">技術⏳</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$925.45</span>
-          <span class="change-green">+2.37%</span>
+          <span class="card-price">$923.39</span>
+          <span class="change-green">+2.15%</span>
           <span class="entry-badge entry-gray">⚪ 等待中</span>
         </div>
       </summary>
@@ -12218,26 +12222,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-gray" style="width:46.3%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:45.74%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">46.3</span>
+          <span class="tv-val">45.74</span>
           <span class="tv-label tv-c-gray">中性</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=38.86</span>
+            <span>K=37.95</span>
             <span class="kd-arrow tv-c-orange">↘</span>
-            <span>D=42.7</span>
+            <span>D=42.39</span>
           </div>
           <span class="tv-label tv-c-orange">🔔 KD死亡交叉（4天前）</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-blue">2.3</span>
+            <span class="macd-block tv-c-blue">2.17</span>
           </div>
           <span class="tv-label tv-c-blue">動能轉強（柱正但零軸下）</span>
         </div>
@@ -12250,18 +12254,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-gray" style="flex:1">糾結（短長均線交錯）</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">929.3</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 0.4%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">920.0</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.6%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">973.1</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 4.9%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">1,013.4</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 8.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">903.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.4%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">929.1</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 0.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">919.9</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.4%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">973.1</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 5.1%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">1,013.4</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 8.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">903.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.2%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-gray" style="width:62.4%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:62.0%"></div>
           </div>
-          <span class="tv-val-sm">62.4%</span>
+          <span class="tv-val-sm">62.0%</span>
           <span class="tv-label tv-c-gray">中間偏高</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -12330,9 +12334,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-pass">基本✅</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$684.31</span>
-          <span class="change-green">+1.1%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+61.8%）</span>
+          <span class="card-price">$684.69</span>
+          <span class="change-green">+1.16%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+61.9%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -12366,7 +12370,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">費半+外資（AI）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面 OK。技術面偏多。價格偏高（距進場區 +61.8%）。近期催化劑：Q1 2026財報（4月底）。</div>
+          <div class="summary-text">🎯 基本面 OK。技術面偏多。價格偏高（距進場區 +61.9%）。近期催化劑：Q1 2026財報（4月底）。</div>
         </div>
 
         <details class="sub-section">
@@ -12392,26 +12396,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-blue" style="width:69.07%"></div>
+            <div class="tv-bar tv-bar-blue" style="width:69.13%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">69.07</span>
+          <span class="tv-val">69.13</span>
           <span class="tv-label tv-c-blue">偏強</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=94.66</span>
+            <span>K=94.77</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=88.96</span>
+            <span>D=88.99</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">13.96</span>
+            <span class="macd-block tv-c-green">13.98</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -12425,17 +12429,17 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="ma-pos-table">
         <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">634.9</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +7.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">603.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +13.4%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">629.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +8.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">641.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +6.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">680.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">603.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +13.5%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">629.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +8.8%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">641.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +6.8%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">680.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.7%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-gray" style="width:66.0%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:66.1%"></div>
           </div>
-          <span class="tv-val-sm">66.0%</span>
+          <span class="tv-val-sm">66.1%</span>
           <span class="tv-label tv-c-gray">中間偏高</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -12504,9 +12508,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-pass">基本✅</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$139.23</span>
-          <span class="change-green">+4.39%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+124.6%）</span>
+          <span class="card-price">$139.12</span>
+          <span class="change-green">+4.31%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+124.4%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -12523,7 +12527,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-icon">✅</span>
           <span class="dim-title">📈 技術面</span>
           <span class="dim-status">偏多</span>
-          <span class="dim-note">RSI 82.16 超買，均線多頭排列</span>
+          <span class="dim-note">RSI 82.12 超買，均線多頭排列</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div>
         <div class="dim-row dim-pass">
@@ -12540,7 +12544,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">費半+NASDAQ（光通訊）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面 OK。技術面偏多。價格偏高（距進場區 +124.6%）。近期催化劑：CPO 收購整合進展。</div>
+          <div class="summary-text">🎯 基本面 OK。技術面偏多。價格偏高（距進場區 +124.4%）。近期催化劑：CPO 收購整合進展。</div>
         </div>
 
         <details class="sub-section">
@@ -12566,26 +12570,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-red" style="width:82.16%"></div>
+            <div class="tv-bar tv-bar-red" style="width:82.12%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">82.16</span>
+          <span class="tv-val">82.12</span>
           <span class="tv-label tv-c-red">嚴重超買</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=92.93</span>
+            <span>K=92.83</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=91.6</span>
+            <span>D=91.56</span>
           </div>
           <span class="tv-label tv-c-blue">🔔 KD黃金交叉（今日）</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">2.74</span>
+            <span class="macd-block tv-c-green">2.73</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -12595,10 +12599,10 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="ma-pos-table">
         <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">125.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +11.0%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">110.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +25.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">93.99</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +48.1%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">89.57</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +55.4%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">84.04</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +65.7%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">110.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +25.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">93.99</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +48.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">89.57</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +55.3%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">84.04</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +65.5%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
@@ -12610,7 +12614,7 @@ strong{color:var(--text);font-weight:600}
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W區間</span>
-          <span class="tv-val-sm" style="color:var(--text2)">49.25 – 139.23</span>
+          <span class="tv-val-sm" style="color:var(--text2)">49.25 – 139.12</span>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">量比(5d/20d)</span>
@@ -12674,9 +12678,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-watch">基本⏳</span><span class="dim-badge dim-watch">技術⏳</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$195.60</span>
-          <span class="change-red">-0.9%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+54.0%）</span>
+          <span class="card-price">$196.16</span>
+          <span class="change-red">-0.62%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+54.5%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -12710,7 +12714,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">NASDAQ+美元(反向)（資安）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面觀望中。技術面中性。價格偏高（距進場區 +54.0%）。近期催化劑：Agentic Internet — AI Agent流量持續翻倍。</div>
+          <div class="summary-text">🎯 基本面觀望中。技術面中性。價格偏高（距進場區 +54.5%）。近期催化劑：Agentic Internet — AI Agent流量持續翻倍。</div>
         </div>
 
         <details class="sub-section">
@@ -12736,26 +12740,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-gray" style="width:48.79%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:49.03%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">48.79</span>
+          <span class="tv-val">49.03</span>
           <span class="tv-label tv-c-gray">中性</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=44.67</span>
+            <span>K=44.98</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=40.19</span>
+            <span>D=40.29</span>
           </div>
           <span class="tv-label tv-c-blue">🔔 KD黃金交叉（1天前）</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-red">-2.0</span>
+            <span class="macd-block tv-c-red">-1.96</span>
           </div>
           <span class="tv-label tv-c-red">空頭格局（柱負+零軸下）</span>
         </div>
@@ -12768,18 +12772,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-gray" style="flex:1">糾結（短長均線交錯）</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">194.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.6%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">202.2</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 3.3%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">194.9</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.3%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">194.0</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.8%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">202.1</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 3.2%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">194.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.8%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">202.2</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 3.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">194.9</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">194.0</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +1.1%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">202.1</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 2.9%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-gray" style="width:61.8%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:62.2%"></div>
           </div>
-          <span class="tv-val-sm">61.8%</span>
+          <span class="tv-val-sm">62.2%</span>
           <span class="tv-label tv-c-gray">中間偏高</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -12848,9 +12852,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-watch">基本⏳</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-watch">籌碼⏳</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$406.47</span>
-          <span class="change-green">+4.52%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+311.0%）</span>
+          <span class="card-price">$407.60</span>
+          <span class="change-green">+4.81%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+312.1%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -12884,7 +12888,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">費半+外資（AI）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +311.0%）。近期催化劑：Cybercab 量產確認。</div>
+          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +312.1%）。近期催化劑：Cybercab 量產確認。</div>
         </div>
 
         <details class="sub-section">
@@ -12910,26 +12914,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-blue" style="width:62.09%"></div>
+            <div class="tv-bar tv-bar-blue" style="width:62.41%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">62.09</span>
+          <span class="tv-val">62.41</span>
           <span class="tv-label tv-c-blue">偏強</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=76.92</span>
+            <span>K=77.44</span>
             <span class="kd-arrow tv-c-green">↗</span>
-            <span>D=57.07</span>
+            <span>D=57.24</span>
           </div>
           <span class="tv-label tv-c-green">🔔 低檔KD黃金交叉（4天前）</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-blue">6.54</span>
+            <span class="macd-block tv-c-blue">6.61</span>
           </div>
           <span class="tv-label tv-c-blue">動能轉強（柱正但零軸下）</span>
         </div>
@@ -12938,18 +12942,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-gray" style="flex:1">糾結（短長均線交錯）</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">364.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +11.6%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">368.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.4%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">390.4</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +4.1%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">417.5</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 2.6%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">398.9</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +1.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">364.2</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +11.9%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">368.1</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +10.7%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">390.5</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +4.4%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">417.5</span><span class="ma-arrow tv-c-orange">▼</span><span class="ma-note tv-c-orange">略低於 2.4%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">398.9</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.2%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-gray" style="width:68.2%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:68.6%"></div>
           </div>
-          <span class="tv-val-sm">68.2%</span>
+          <span class="tv-val-sm">68.6%</span>
           <span class="tv-label tv-c-gray">中間偏高</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -13018,9 +13022,9 @@ strong{color:var(--text);font-weight:600}
           <div class="dims-inline"><span class="dim-badge dim-watch">基本⏳</span><span class="dim-badge dim-pass">技術✅</span><span class="dim-badge dim-pass">籌碼✅</span><span class="dim-badge dim-watch">總經⏳</span></div>
         </div>
         <div class="card-header-right">
-          <span class="card-price">$163.86</span>
-          <span class="change-red">-1.01%</span>
-          <span class="entry-badge entry-orange">⚠️ 過高（+177.7%）</span>
+          <span class="card-price">$164.02</span>
+          <span class="change-red">-0.91%</span>
+          <span class="entry-badge entry-orange">⚠️ 過高（+178.0%）</span>
         </div>
       </summary>
       <div class="card-body">
@@ -13054,7 +13058,7 @@ strong{color:var(--text);font-weight:600}
           <span class="dim-note">NASDAQ+殖利率(反向)（預設）</span>
           <div class="stale-warning">⚠️ 資料日期 4/17，非今日數據，僅供參考</div>
         </div></div>
-          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +177.7%）。近期催化劑：Q1 2026 財報（5 月）。</div>
+          <div class="summary-text">🎯 基本面觀望中。技術面偏多。價格偏高（距進場區 +178.0%）。近期催化劑：Q1 2026 財報（5 月）。</div>
         </div>
 
         <details class="sub-section">
@@ -13080,26 +13084,26 @@ strong{color:var(--text);font-weight:600}
         <div class="tv-row">
           <span class="tv-name">RSI(14)</span>
           <div class="tv-bar-wrap">
-            <div class="tv-bar tv-bar-blue" style="width:56.4%"></div>
+            <div class="tv-bar tv-bar-blue" style="width:56.6%"></div>
             <div class="tv-mark" style="left:30%" title="30（超賣線）"></div>
             <div class="tv-mark" style="left:70%" title="70（超買線）"></div>
           </div>
-          <span class="tv-val">56.4</span>
+          <span class="tv-val">56.6</span>
           <span class="tv-label tv-c-blue">偏強</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">KD(9)</span>
           <div class="tv-kd">
-            <span>K=78.65</span>
+            <span>K=78.94</span>
             <span class="kd-arrow tv-c-blue">↗</span>
-            <span>D=73.62</span>
+            <span>D=73.72</span>
           </div>
           <span class="tv-label tv-c-blue">K>D 偏多</span>
         </div>
         <div class="tv-row">
           <span class="tv-name">MACD柱</span>
           <div class="tv-macd">
-            <span class="macd-block tv-c-green">1.77</span>
+            <span class="macd-block tv-c-green">1.78</span>
           </div>
           <span class="tv-label tv-c-green">多頭格局（柱正+零軸上）</span>
         </div>
@@ -13112,18 +13116,18 @@ strong{color:var(--text);font-weight:600}
           <span class="tv-label tv-c-gray" style="flex:1">糾結（短長均線交錯）</span>
         </div>
         <div class="ma-pos-table">
-        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">158.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +3.5%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">154.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +5.9%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">160.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.0%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">162.7</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.7%</span></div>
-        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">179.1</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 8.5%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA10<span class="ma-alias">(雙週)</span></span><span class="ma-val">158.3</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +3.6%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA20<span class="ma-alias">(月線)</span></span><span class="ma-val">154.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +6.0%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA50<span class="ma-alias">(50日)</span></span><span class="ma-val">160.6</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +2.1%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA100<span class="ma-alias">(百日)</span></span><span class="ma-val">162.8</span><span class="ma-arrow tv-c-green">▲</span><span class="ma-note tv-c-green">股價在上方 +0.8%</span></div>
+        <div class="ma-pos-row"><span class="ma-label">MA200<span class="ma-alias">(200日)</span></span><span class="ma-val">179.1</span><span class="ma-arrow tv-c-red">▼</span><span class="ma-note tv-c-red">已跌破 8.4%</span></div>
         </div>
         <div class="tv-row tv-row-sub">
           <span class="tv-name">52W位置</span>
           <div class="tv-bar-wrap small">
-            <div class="tv-bar tv-bar-gray" style="width:52.0%"></div>
+            <div class="tv-bar tv-bar-gray" style="width:52.1%"></div>
           </div>
-          <span class="tv-val-sm">52.0%</span>
+          <span class="tv-val-sm">52.1%</span>
           <span class="tv-label tv-c-gray">中間偏高</span>
         </div>
         <div class="tv-row tv-row-sub">
@@ -23348,18 +23352,18 @@ function setSignalFilter(val, btn) {
 }
 
 function setTagFilter(val, btn) {
-  const bar = btn.parentElement;
-  const allBtn = bar.querySelector('.tag-fbtn');
+  // 支援多 bar（special + industry）：allBtn 用 class 查
+  const allBtn = document.querySelector('.tag-fbtn-all');
   if (val === 'all') {
     tagFilters.clear();
-    bar.querySelectorAll('.tag-fbtn').forEach(b => b.classList.remove('active'));
-    allBtn.classList.add('active');
+    document.querySelectorAll('.tag-fbtn').forEach(b => b.classList.remove('active'));
+    if (allBtn) allBtn.classList.add('active');
   } else {
-    allBtn.classList.remove('active');
+    if (allBtn) allBtn.classList.remove('active');
     if (btn.classList.contains('active')) {
       btn.classList.remove('active');
       tagFilters.delete(val);
-      if (tagFilters.size === 0) allBtn.classList.add('active');
+      if (tagFilters.size === 0 && allBtn) allBtn.classList.add('active');
     } else {
       btn.classList.add('active');
       tagFilters.add(val);
@@ -23389,12 +23393,10 @@ function resetAllFilters() {
   document.querySelectorAll('.filter-bar .fbtn').forEach(b => b.classList.remove('active'));
   const allMarketBtn = document.querySelector('.filter-bar .fbtn');
   if (allMarketBtn) allMarketBtn.classList.add('active');
-  const tagBar = document.querySelector('.tag-filter-bar');
-  if (tagBar) {
-    tagBar.querySelectorAll('.tag-fbtn').forEach(b => b.classList.remove('active'));
-    const first = tagBar.querySelector('.tag-fbtn');
-    if (first) first.classList.add('active');
-  }
+  // 清所有 tag filter bar（含 special + industry）
+  document.querySelectorAll('.tag-filter-bar .tag-fbtn').forEach(b => b.classList.remove('active'));
+  const allBtn = document.querySelector('.tag-fbtn-all');
+  if (allBtn) allBtn.classList.add('active');
   const searchBox = document.getElementById('searchBox');
   if (searchBox) searchBox.value = '';
   // 恢復預設排序
