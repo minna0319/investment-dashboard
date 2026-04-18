@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NVIDIA（NVDA）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>NVIDIA（NVDA）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>NVIDIA（NVDA）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-04-18</td><td>首次建立正統九維度格式，取代舊版 NVDA個股深度分析_20260322.md。更新 H20 出口禁令 $5.5B 損失、Q1 FY2027 股價 $201 水位、技術面黃金交叉確認</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-04-18（台灣時間）</td></tr><tr><td>台股資料</td><td>—（美股標的，不適用）</td></tr><tr><td>美股資料</td><td>4/17 收盤（美東時間）</td></tr><tr><td>股價來源</td><td>Yahoo Finance</td></tr><tr><td>技術指標</td><td>technical_indicators.py 腳本計算（2026-04-17）</td></tr><tr><td>待更新</td><td>Q1 FY2027 財報（預計 2026-05-28）</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【持有】— H20 出口禁令帶來一次性 $5.5B 損失但屬非經常性，Blackwell 需求強勁、Vera Rubin 下半年即將量產，長期基本面未受損，持有等 Q1 FY2027 財報確認。</p>
+<p>信心程度：⭐⭐⭐⭐☆（4/5）</p>
+<p>適合操作：長期持有</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>NVIDIA 在 AI 鏈的位置</h3>
+<blockquote>白話解釋：NVIDIA 賣的是 AI 的「算力引擎」。就像蓋大樓需要挖土機，做 AI 就需要 NVIDIA 的 GPU（圖形處理器）。全世界幾乎所有的 AI 訓練——從 ChatGPT 到 Gemini 到 Grok——都跑在 NVIDIA 的 GPU 上。</blockquote>
+<p>```</p>
+<p>雲端大廠（Microsoft/Google/Amazon/Meta）大量採購 NVIDIA GPU</p>
+<p>↓</p>
+<p>NVIDIA 設計 GPU（H100 → H200 → Blackwell → Vera Rubin）</p>
+<p>↓</p>
+<p>台積電代工製造（NVIDIA 是台積電最大客戶之一）</p>
+<p>↓</p>
+<p>各大公司蓋 AI 資料中心，訓練 / 推理 AI 模型</p>
+<p>```</p>
+<h3>核心護城河：CUDA 生態系</h3>
+<blockquote>📝 <strong>CUDA（Compute Unified Device Architecture）</strong>：NVIDIA 自家的程式開發工具包，讓工程師可以輕鬆讓程式跑在 GPU 上。</blockquote>
+<ul><li>累積超過 20 年的生態系（程式庫、工具、教材）</li><li>全球超過 300 萬工程師使用 CUDA</li><li>護城河關鍵：就算 AMD 做出效能更好的 GPU，工程師要從 CUDA 搬移到別的平台需要花費大量時間重寫程式碼，轉換成本極高</li></ul>
+<h3>管理層</h3>
+<ul><li><strong>Jensen Huang（黃仁勳）</strong>：執行長兼創辦人，持股比例高。2026 年 3 月 GTC 大會再次宣告 Vera Rubin 六款晶片全面量產，並預告 2027 年的 Kyber 架構，展現一年一代的產品節奏。</li></ul>
+<h3>業務結構（Q4 FY2026）</h3>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>佔比</th><th>說明</th></tr></thead><tbody><tr><td>資料中心（Data Center）</td><td>約 91%</td><td>AI GPU（Blackwell）、網路設備（InfiniBand/NVLink）</td></tr><tr><td>遊戲（Gaming）</td><td>約 7%</td><td>GeForce GPU</td></tr><tr><td>專業視覺化</td><td>約 1%</td><td>工作站 GPU</td></tr><tr><td>汽車</td><td>約 1%</td><td>Orin/Thor 自駕晶片（未來成長項）</td></tr></tbody></table></div>
+<p><strong>重點</strong>：NVIDIA 本質上是一家「AI 基礎設施公司」，遊戲業務已退居邊緣。</p>
+<p><strong>來源</strong>：NVIDIA Q4 FY2026 財報（2026-02-25）</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>Q4 FY2026 最新財報（2026-02-25 發布）</h3>
+<blockquote>📝 <strong>NVIDIA 的財年（Fiscal Year）</strong>：NVIDIA 的 FY2026 指 2025 年 2 月至 2026 年 1 月，Q4 FY2026 即 2025 年 11 月至 2026 年 1 月。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>Q4 FY2026</th><th>YoY（年增率）</th><th>QoQ（季增率）</th></tr></thead><tbody><tr><td>總營收</td><td>$68.13B</td><td>+73.2%</td><td>+20%</td></tr><tr><td>資料中心營收</td><td>$62.3B</td><td>+75%</td><td>+22%</td></tr><tr><td>GAAP 毛利率</td><td>75.0%</td><td>—</td><td>—</td></tr><tr><td>Non-GAAP 毛利率</td><td>75.2%</td><td>—</td><td>—</td></tr><tr><td>GAAP EPS</td><td>$1.76</td><td>—</td><td>—</td></tr><tr><td>Non-GAAP EPS</td><td>$1.62</td><td>—</td><td>—</td></tr><tr><td>自由現金流（單季）</td><td>$34.9B</td><td>—</td><td>—</td></tr></tbody></table></div>
+<h3>全年 FY2026 總結</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>FY2026 全年</th></tr></thead><tbody><tr><td>總營收</td><td>$215.9B（+65% YoY）</td></tr><tr><td>全年 EPS（GAAP）</td><td>$4.90</td></tr><tr><td>全年 EPS（Non-GAAP）</td><td>$4.77</td></tr><tr><td>全年自由現金流</td><td>$97B</td></tr><tr><td>現金持有（TTM）</td><td>$62.56B</td></tr><tr><td>股本報酬率（ROE）</td><td>101.49%</td></tr><tr><td>利潤率</td><td>55.60%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>ROE（Return on Equity）股本報酬率</strong>：每 1 元股東投入，公司能賺回多少錢。101% 代表 1 元能賺回超過 1 元，屬於極度優秀的獲利效率。</blockquote>
+<h3>Q1 FY2027 指引及 H20 出口損失（最重要更新）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>Q1 FY2027 營收指引</td><td>$78.0B（±2%）</td></tr><tr><td>分析師原始共識</td><td>$72.6B（指引超預期約 +7.5%）</td></tr><tr><td>Q1 指引備註</td><td><strong>完全排除中國資料中心 GPU 營收</strong></td></tr><tr><td>H20 出口禁令損失</td><td>Q1 計入一次性損失 $5.5B（H20 存貨及採購義務損失）</td></tr><tr><td>H20 ban 毛利影響</td><td>使 Q1 GAAP 毛利率下滑至約 60.5%（非經常性）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>H20 出口禁令</strong>：2026 年 4 月 9 日起，美國政府要求出口 NVIDIA H20 晶片至中國須申請許可證（且為無限期），NVIDIA 因此需將庫存中已為中國準備的 H20 晶片認列損失 $5.5B。這是「一次性衝擊」，不影響後續核心業務，但短期壓低毛利率。</blockquote>
+<p><strong>關鍵解讀</strong>：排除中國市場仍能指引 $78B，代表「無中國也能繼續成長」邏輯確立。</p>
+<p><strong>來源</strong>：NVIDIA Newsroom、CNBC（2026-02-25）、WolfStreet（2026-04-15）</p>
+<hr>
+<h2>3. 估值面</h2>
+<blockquote>📝 <strong>Forward P/E（預期本益比）</strong>：用「未來 12 個月預期每股獲利」計算本益比，比歷史數字更能反映市場對未來的看法。</blockquote>
+<h3>目前估值（2026-04-17 收盤）</h3>
+<div class="table-wrap"><table><thead><tr><th>估值指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>股價（4/17 收盤）</td><td>$201.68（來源：Yahoo Finance）</td><td>—</td></tr><tr><td>52 週高低</td><td>$207.02 / $96.89</td><td></td></tr><tr><td>TTM P/E</td><td>41.16x（來源：Yahoo Finance）</td><td>以 EPS $4.90 計算</td></tr><tr><td>Forward P/E</td><td>24.33x（來源：Yahoo Finance）</td><td></td></tr><tr><td>PEG 比率</td><td>0.71（來源：Yahoo Finance）</td><td>< 1 = 相對成長率仍合理</td></tr><tr><td>市值</td><td>$4.902T</td><td></td></tr><tr><td>分析師平均目標價</td><td>$268.61（來源：Yahoo Finance）</td><td>隱含上漲空間約 +33%</td></tr><tr><td>分析師共識評級</td><td>強力買進（39-41 位分析師）</td><td>來源：MarketBeat / TipRanks</td></tr><tr><td>目標價範圍</td><td>$140 - $380</td><td>—</td></tr></tbody></table></div>
+<h3>歷史估值比較</h3>
+<div class="table-wrap"><table><thead><tr><th>時間段</th><th>NVDA TTM P/E</th></tr></thead><tbody><tr><td>5 年平均</td><td>約 64x</td></tr><tr><td>3 年平均</td><td>約 61x</td></tr><tr><td>AI 泡沫高峰（2023）</td><td>曾高達 200x+</td></tr><tr><td>目前（41.16x TTM）</td><td>比歷史均值低約 35%</td></tr></tbody></table></div>
+<p><strong>估值小結</strong>：Forward P/E 24.33x 對年增率 65%+ 的公司屬合理甚至偏低。PEG 0.71 低於 1，代表以成長速度校正後估值便宜。H20 $5.5B 一次性損失已壓低股價，創造相對好的持有成本。</p>
+<p>⚠️ <strong>單一來源注意</strong>：TTM P/E 及 Forward P/E 來自 Yahoo Finance，建議自行以 Finviz 或 Seeking Alpha 覆核。</p>
+<hr>
+<h2>4. 技術面</h2>
+<h3>技術指標（2026-04-17 收盤，technical_indicators.py 計算）</h3>
+<div class="table-wrap"><table><thead><tr><th>技術指標</th><th>數值 / 狀態</th></tr></thead><tbody><tr><td>收盤價</td><td>$201.68（+1.68% 當日）</td></tr><tr><td>52 週位置</td><td>95.2%（接近 52 週高點）</td></tr><tr><td>MA10</td><td>$189.51（股價在上方 +6.4%）</td></tr><tr><td>MA20</td><td>$181.44（股價在上方 +11.2%）</td></tr><tr><td>MA50</td><td>$183.29（股價在上方 +10.0%）</td></tr><tr><td>MA100</td><td>$183.47</td></tr><tr><td>MA200</td><td>$181.76</td></tr><tr><td>均線排列</td><td>糾結（短長均線交錯）</td></tr><tr><td>RSI（14 日）</td><td>71.37（進入過熱區，留意回調）</td></tr><tr><td>KD K 值</td><td>95.34（超買區）</td></tr><tr><td>KD D 值</td><td>90.90</td></tr><tr><td>MACD</td><td>+4.72，高於訊號線 +1.71，柱狀 +3.01</td></tr><tr><td>黃金交叉</td><td>確認（4/13，4 天前）</td></tr><tr><td>成交量</td><td>近 5 日均量 vs 近 20 日均量 = 0.94（略低於均量）</td></tr><tr><td>技術評分</td><td>中性（1.0 分）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>黃金交叉</strong>：短期均線（如 MA20）由下往上穿越長期均線（如 MA50），一般視為短線轉多頭的信號。</blockquote>
+<blockquote>📝 <strong>RSI > 70</strong>：相對強弱指數超過 70 進入「過熱區」，代表股價短期漲勢較強，有回調風險，但不等於馬上要下跌。</blockquote>
+<h3>支撐與壓力區間</h3>
+<div class="table-wrap"><table><thead><tr><th>區間</th><th>性質</th><th>說明</th></tr></thead><tbody><tr><td>$175 - $180</td><td>支撐帶</td><td>MA200 / MA50 / MA100 聚集區</td></tr><tr><td>$190</td><td>次支撐</td><td>MA10 附近</td></tr><tr><td>$200</td><td>心理關口</td><td>整數關卡</td></tr><tr><td>$207</td><td>壓力</td><td>近期 52 週高點</td></tr><tr><td>$212</td><td>強壓</td><td>Yahoo 52 週高點（歷史高點）</td></tr></tbody></table></div>
+<p><strong>技術面評估</strong>：黃金交叉（4/13）確認短線轉多，股價從 3 月低點 $170 附近回升至 $200，反彈幅度達 +18%。RSI 71 與 KD K 值 95 同時進入過熱區，短期存在回調可能，建議現有持有人觀察 $190-200 是否能守住。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>機構持股（來源：Yahoo Finance）</h3>
+<div class="table-wrap"><table><thead><tr><th>持股類型</th><th>比例</th></tr></thead><tbody><tr><td>機構法人</td><td>64.57%</td></tr><tr><td>內部人士（Jensen Huang 等）</td><td>4.33%</td></tr><tr><td>散戶</td><td>31.10%</td></tr><tr><td>最大股東</td><td>Vanguard Group（約 9%）</td></tr></tbody></table></div>
+<h3>ETF 被動持倉</h3>
+<div class="table-wrap"><table><thead><tr><th>ETF</th><th>NVDA 配置比例</th><th>說明</th></tr></thead><tbody><tr><td>SPY（S&P 500 ETF）</td><td>約 6.6%</td><td>S&P 500 最大市值之一</td></tr><tr><td>SMH（半導體 ETF）</td><td>約 20.7%</td><td>半導體 ETF 最大持股</td></tr><tr><td>持有 NVDA 的 ETF 總數</td><td>超過 500 檔</td><td>廣泛被動持倉提供支撐</td></tr></tbody></table></div>
+<p><strong>籌碼解讀</strong>：機構持有 64%，ETF 被動持倉超 500 檔，大跌時 ETF 再平衡買盤提供技術支撐。美股無融資融券公開數據可直接比對，機構動向以 13F 季報為準（下次更新約 2026 年 5 月）。</p>
+<p>❌ <strong>未取得</strong>：即時機構增減持數據（13F 有季度延遲），如需精確籌碼可至 <a href="https://www.sec.gov/cgi-bin/browse-edgar" target="_blank" rel="noopener">SEC EDGAR</a> 查閱最新 13F 申報。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>NVIDIA（NVDA）</th><th>AMD</th><th>Broadcom（AVGO）</th><th>Intel（INTC）</th></tr></thead><tbody><tr><td>股價（4/17）</td><td>$201.68</td><td>$278.39</td><td>$406.54</td><td>$68.50</td></tr><tr><td>市值</td><td>$4.90T</td><td>$453.9B</td><td>$1.93T</td><td>$343.9B</td></tr><tr><td>TTM P/E</td><td>41.16x</td><td>106.26x</td><td>79.40x</td><td>904x（幾乎虧損）</td></tr><tr><td>Forward P/E</td><td>24.33x</td><td>41.49x</td><td>36.50x</td><td>❌ 未取得</td></tr><tr><td>EPS（TTM）</td><td>$4.90</td><td>$2.62</td><td>$5.12</td><td>-$0.06</td></tr><tr><td>毛利率</td><td>75%（Q4 FY2026）</td><td>約 50%</td><td>36.57%</td><td>約 40%</td></tr><tr><td>FCF（TTM）</td><td>$58.13B</td><td>$4.59B</td><td>$25.5B</td><td>-$4.5B</td></tr><tr><td>AI GPU 市占</td><td>約 80%+</td><td>約 15-20%</td><td>客製化 ASIC（Google/Meta）</td><td>極低</td></tr><tr><td>分析師平均目標價</td><td>$268.61</td><td>$291.52</td><td>$475.49</td><td>$52.14</td></tr></tbody></table></div>
+<p><strong>競爭態勢分析</strong>：</p>
+<ul><li><strong>vs AMD</strong>：AMD MI450 仍在追趕 CUDA 生態系，短期無法撼動 NVIDIA 通用 GPU 市占。TTM P/E 106x 遠高於 NVIDIA，估值更貴。</li><li><strong>vs AVGO</strong>：Broadcom 的客製化 ASIC（如 Google TPU）主攻特定大客戶的推理工作負載，與 NVIDIA 通用 GPU 互補而非直接競爭。AVGO 毛利率 36.57% 遠低於 NVDA 的 75%。</li><li><strong>vs INTC</strong>：Intel 正在艱困轉型期，FCF 為負值，與 NVIDIA 已不在同一競爭維度。</li></ul>
+<p><strong>同業小結</strong>：以 Forward P/E 而言，NVDA（24.33x）是四家中最低的，且具備最高毛利率與最強 FCF，相對同業估值具備優勢。</p>
+<p><strong>來源</strong>：Yahoo Finance（2026-04-17）</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期核心題材：AI 資料中心基礎設施軍備競賽</h3>
+<blockquote>📝 <strong>CapEx（資本支出）</strong>：公司花在購買機器設備、蓋廠房的錢。雲端大廠的 CapEx 幾乎就是在買 NVIDIA GPU。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>雲端大廠</th><th>2026 年 CapEx 承諾</th></tr></thead><tbody><tr><td>Microsoft</td><td>~$800B</td></tr><tr><td>Amazon</td><td>~$1,050B</td></tr><tr><td>Alphabet（Google）</td><td>~$750B</td></tr><tr><td>Meta</td><td>~$600-650B</td></tr><tr><td>合計</td><td>約 $3,200B 以上</td></tr></tbody></table></div>
+<p>這 $3,200B 大部分最終流向 NVIDIA GPU。</p>
+<h3>產品催化劑時間軸</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>催化劑</th><th>重要性</th></tr></thead><tbody><tr><td>2026 H2</td><td>Vera Rubin NVL72 正式出貨（已全面量產）</td><td>高</td></tr><tr><td>2026-05-28（預計）</td><td>Q1 FY2027 財報</td><td>極高</td></tr><tr><td>2027</td><td>Rubin Ultra / Kyber 架構</td><td>中（遠期）</td></tr></tbody></table></div>
+<h3>GTC 2026 大會重點（2026-03-16~03-19，已落地）</h3>
+<div class="table-wrap"><table><thead><tr><th>公告</th><th>說明</th></tr></thead><tbody><tr><td>Vera Rubin 全面量產</td><td>六款晶片（Vera CPU、Rubin GPU、NVLink 6 等），H2 2026 出貨</td></tr><tr><td>$1 兆訂單展望</td><td>Blackwell + Vera Rubin 合計 2025-2027 超過 $1 兆</td></tr><tr><td>Kyber 架構預告</td><td>144 顆 GPU、垂直堆疊，預計 2027 年</td></tr></tbody></table></div>
+<h3>H20 出口禁令（不利因素，已計入）</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th></tr></thead><tbody><tr><td>2026-04-09</td><td>美國政府宣布出口 H20 至中國須申請許可證（無限期）</td></tr><tr><td>2026-04-15</td><td>NVIDIA 宣告 Q1 計入 $5.5B 一次性損失</td></tr><tr><td>後續</td><td>Q1 FY2027 指引 $78B 已完全排除中國收入</td></tr></tbody></table></div>
+<p><strong>題材小結</strong>：H20 禁令是短期衝擊，市場已知曉並反應於 Q1 指引。中長期看，Vera Rubin H2 出貨、Q1 FY2027 財報是兩個最近的正面催化劑。</p>
+<p><strong>來源</strong>：TechCrunch（2026-04-15）、NVIDIA GTC 新聞稿（2026-03-16）</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險類型</th><th>發生機率</th><th>影響程度</th><th>綜合評級</th><th>說明</th></tr></thead><tbody><tr><td>AI CapEx 週期反轉</td><td>低（1-2 年）/ 中（3-5 年）</td><td>極高</td><td>中高</td><td>若微軟 / 谷歌宣布大幅削減 CapEx，NVDA 首當其衝</td></tr><tr><td>出口管制進一步擴大</td><td>中</td><td>中高</td><td>中</td><td>H20 已禁，若未來 Vera Rubin 也被限制，影響更大</td></tr><tr><td>Q1 FY2027 財報下修</td><td>低（已有指引 $78B）</td><td>高</td><td>低中</td><td>指引已超預期，但 H20 $5.5B 損失使毛利率一次性下滑</td></tr><tr><td>估值壓縮</td><td>中</td><td>高</td><td>中</td><td>若成長放緩，Forward P/E 24x 可能壓縮至 18-20x</td></tr><tr><td>供應鏈風險（台積電）</td><td>低（地緣政治外）</td><td>極高</td><td>低中</td><td>100% 委外台積電，台海風險為系統性風險</td></tr><tr><td>AMD / 客製 ASIC 競爭</td><td>低（短期）/ 中（2-3 年）</td><td>中</td><td>中低</td><td>CUDA 護城河仍難複製，但長期不容忽視</td></tr><tr><td>美國貿易政策不確定性</td><td>中</td><td>中</td><td>中</td><td>關稅 / 出口管制政策快速變化，增加整體不確定性</td></tr></tbody></table></div>
+<p><strong>最大尾部風險</strong>：AI 泡沫破裂 / 雲端大廠大規模削減 CapEx，估值殺傷力最大。現階段各大廠均維持或上調 CapEx，此風險尚未實現。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>結論</h3>
+<p><strong>【持有】</strong></p>
+<p>理由：</p>
+<ol><li>Q4 FY2026 基本面強勁（營收 $68.13B，+73.2% YoY），$1 兆訂單展望未改變。</li><li>H20 $5.5B 損失為一次性衝擊，不影響 Blackwell / Vera Rubin 核心業務。</li><li>Q1 FY2027 指引 $78B 完全排除中國仍超分析師預期 +7.5%，「無中國也能成長」邏輯確立。</li><li>技術面黃金交叉（4/13）確認短線轉多，股價已回升至 $200 水位。</li><li>分析師平均目標價 $268.61，較現價約 +33% 空間。</li></ol>
+<hr>
+<ul><li><strong>結論</strong>：持有</li><li><strong>信心程度</strong>：⭐⭐⭐⭐☆（4/5）</li><li><strong>建議倉位</strong>：現有持倉維持，不超過總資金 10%</li><li><strong>進場條件</strong>：加碼條件見下方；新進場建議等 Q1 FY2027 財報（5/28 預計）確認毛利率回升再考慮</li><li><strong>停損參考</strong>：$150 週收盤（跌破代表技術結構破壞）；或 Q1 FY2027 財報指引下修（基本面惡化）</li><li><strong>加碼條件</strong>：Q1 FY2027 財報（5/28 預計）超預期 + 毛利率排除 H20 損失後回到 73%+ + 股價未暴漲</li><li><strong>觀察指標</strong>：</li><li>資料中心營收成長率：≥ +40% YoY（低於此需警覺）</li><li>毛利率：剔除 H20 一次性損失後是否回到 73%+ 以上</li><li>Q1 FY2027 指引 vs 實際：連續「超預期指引」是核心看多邏輯</li><li>Vera Rubin H2 2026 出貨進度</li><li>雲端大廠 2026 Q2 財報中 CapEx 指引是否維持</li><li><strong>下次檢視</strong>：2026-05-28（Q1 FY2027 財報日，預計）</li></ul>
+<hr>
+<h3>白話建議</h3>
+<p>目前 $200 附近是從 3 月低點 $170 反彈 +18% 後的位置，技術上 RSI 71 與 KD K 值 95 同時過熱，短期可能有整理。如果已持有，安心持有等 5 月財報；如果考慮加碼，等財報確認毛利率回升後再動作，避免在過熱位置追高。H20 禁令帶來的 $5.5B 損失是短期干擾，不是 NVIDIA 護城河崩解的訊號。</p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://finance.yahoo.com/quote/NVDA/" target="_blank" rel="noopener">Yahoo Finance - NVDA 即時行情</a></li><li><a href="https://finance.yahoo.com/quote/AMD/" target="_blank" rel="noopener">Yahoo Finance - AMD 即時行情</a></li><li><a href="https://finance.yahoo.com/quote/AVGO/" target="_blank" rel="noopener">Yahoo Finance - AVGO 即時行情</a></li><li><a href="https://finance.yahoo.com/quote/INTC/" target="_blank" rel="noopener">Yahoo Finance - INTC 即時行情</a></li><li><a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-j0kg9vc0geqr.html" target="_blank" rel="noopener">NVIDIA Newsroom - Q4 FY2026 財報</a></li><li><a href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer" target="_blank" rel="noopener">NVIDIA Newsroom - Rubin Platform 發布</a></li><li><a href="https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html" target="_blank" rel="noopener">CNBC - GTC 2026 $1 兆訂單</a></li><li><a href="https://wolfstreet.com/2025/04/15/nvidia-makes-mess-afterhours-discloses-5-5-billion-in-charges-due-to-us-export-restrictions-on-its-h20-chip-for-china/" target="_blank" rel="noopener">WolfStreet - H20 $5.5B 損失</a></li><li><a href="https://techcrunch.com/2025/04/15/nvidia-h20-chip-exports-hit-with-license-requirement-by-us-government/" target="_blank" rel="noopener">TechCrunch - H20 出口許可要求</a></li><li><a href="https://www.marketbeat.com/stocks/NASDAQ/NVDA/forecast/" target="_blank" rel="noopener">MarketBeat - NVDA 分析師評級</a></li><li><a href="投資理財/scripts/technical_indicators.py" target="_blank" rel="noopener">technical_indicators.py 腳本（本地計算）</a></li></ul>
+</div>
+</body>
+</html>

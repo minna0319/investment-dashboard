@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>富世達（6805）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>富世達（6805）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>富世達（6805）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-04-18</td><td>首次建立，九維度深度分析（取代舊版 富世達6805_個股分析_20260312.md）</td></tr></tbody></table></div>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-04-18（台灣時間）</td></tr><tr><td>台股資料</td><td>已收盤（2026-04-17 資料）</td></tr><tr><td>美股資料</td><td>不適用（台股個股）</td></tr><tr><td>股價來源</td><td>Yahoo 股市 6805.TW</td></tr><tr><td>PE / 殖利率 / PBR</td><td>TWSE BWIBBU_d（2026-04-17）</td></tr><tr><td>月營收</td><td>Yahoo 股市月營收頁</td></tr><tr><td>技術指標</td><td>technical_indicators.py 腳本計算（2026-04-17）</td></tr><tr><td>法人籌碼</td><td>HiStock（近 5 日，2026-04-17）</td></tr><tr><td>待更新</td><td>融資融券精確數值未取得（TWSE MI_MARGN 無列出，建議自行查券商 App）</td></tr></tbody></table></div>
+<h2>結論</h2>
+<p>【觀望】— 成長動能強勁但估值高於歷史合理區間，技術面出現死亡交叉且法人近 5 日全面賣超，等待回落或基本面進一步確認再行動。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段，等回調佈局</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司簡介</h3>
+<p>富世達成立於 2001 年，是<strong>奇鋐（3017）的子公司</strong>，股本約 10.7 億元，上市代號 6805.TW。原本是全球領先的精密轉軸（Hinge）製造商 → 轉軸就是筆電螢幕、折疊手機可以翻開/折疊的那個金屬關節零件。</p>
+<p>近年成功打造<strong>雙引擎成長策略</strong>：</p>
+<ol><li><strong>折疊手機轉軸</strong>（第一引擎）：以「水滴型轉軸」技術切入華為、Motorola 等一線品牌</li><li><strong>AI 伺服器液冷散熱零組件</strong>（第二引擎）：生產快接頭（QDC / NVQD / UQD）、浮動接頭、滑軌等關鍵零件</li></ol>
+<p>→ <strong>NVQD</strong> = NVIDIA 認證的專用快接頭規格，供應商必須通過 NVIDIA 認證才能出貨</p>
+<h3>產業鏈定位</h3>
+<p>```</p>
+<p>上游（原料）           中游（零組件）            下游（系統/品牌）</p>
+<p>金屬材料 / CNC 加工 → 【富世達】轉軸 / 快接頭 → 奇鋐（散熱模組）→ 雲端四大 CSP</p>
+<p>→ 華為 / Motorola（折疊手機）</p>
+<p>```</p>
+<p>→ 富世達在中游，做「小但關鍵」的精密零組件。透過母公司奇鋐，直接打入 NVIDIA GB200 / GB300 / Rubin 平台液冷供應鏈。</p>
+<h3>營收結構（2025 全年推估）</h3>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>佔比</th><th>趨勢</th></tr></thead><tbody><tr><td>轉軸（折疊手機 + 筆電）</td><td>~75%</td><td>穩定成長，華為系列帶動</td></tr><tr><td>AI 伺服器液冷零組件</td><td>~22% → 2026 預計達 37%</td><td>爆發成長（2024 僅 5%）</td></tr><tr><td>其他</td><td>~3%</td><td>—</td></tr></tbody></table></div>
+<p>（來源：優分析 / 盈智 iData，⚠️ 單一來源，建議自行覆核）</p>
+<h3>客戶集中度</h3>
+<ul><li>母公司奇鋐為最大客戶（伺服器零組件主要透過奇鋐出貨）→ 集團內關係穩定，但也代表依賴母公司通路</li><li>折疊手機：華為（外折 / 三折規格）、Motorola 為主力</li><li>⚠️ 華為佔折疊手機業務比重高，地緣政治風險需持續關注</li></ul>
+<h3>競爭優勢（護城河）</h3>
+<ul><li><strong>精密金屬加工技術</strong>：水滴型轉軸技術門檻高，折疊次數、手感精度要求嚴苛</li><li><strong>集團綜效</strong>：背靠奇鋐，直接卡位 NVIDIA 液冷供應鏈</li><li><strong>NVQD 客戶認證門檻</strong>：快接頭需通過 NVIDIA 認證，新進者短期不易取代</li><li><strong>護城河評級：中</strong>（技術有門檻，但仰賴母公司通路，且為 Tier 2 供應商）</li></ul>
+<h3>管理層</h3>
+<ul><li>經營者為奇鋐集團體系，管理層穩定</li><li>近年成功從純轉軸廠轉型為雙引擎，策略執行力佳</li><li>2025 法說會（10/19）公開說明 Rubin 平台認證進度，資訊透明度中等</li></ul>
+<p><strong>來源</strong>：<a href="https://tw.stock.yahoo.com/quote/6805.TW" target="_blank" rel="noopener">Yahoo 股市 - 富世達</a> / <a href="https://vocus.cc/article/687a3eabfd89780001c01035" target="_blank" rel="noopener">vocus - 富世達如何掌握資料中心散熱命脈</a> / <a href="https://intelligentdata.cc/%E5%AF%8C%E4%B8%96%E9%81%94-6805-2025-05-07/" target="_blank" rel="noopener">盈智 iData</a> / <a href="https://uanalyze.com.tw/articles/8112911058" target="_blank" rel="noopener">優分析 UAnalyze</a></p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（來源：Yahoo 股市月營收頁）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收（億元）</th><th>月增率（MoM）</th><th>年增率（YoY）</th></tr></thead><tbody><tr><td>2026/03</td><td>16.00</td><td>+35.70%</td><td><strong>+95.02%</strong></td></tr><tr><td>2026/02</td><td>11.79</td><td>-16.03%</td><td>+51.13%</td></tr><tr><td>2026/01</td><td>14.04</td><td>+18.26%</td><td>+115.76%</td></tr><tr><td>2025/12</td><td>11.88</td><td>-19.95%</td><td>+39.34%</td></tr><tr><td>2025/11</td><td>14.83</td><td>+13.67%</td><td>+47.27%</td></tr><tr><td>2025/10</td><td>13.05</td><td>+6.92%</td><td>+43.38%</td></tr></tbody></table></div>
+<p>→ 2025 全年營收 124.14 億元（來源：網路搜尋，⚠️ 單一來源）</p>
+<p>→ 2026 Q1 三個月 YoY 均在 50%+，3 月更跳升至 95%，成長動能強勁</p>
+<p><strong>→ 年增率</strong>（YoY）= Year-over-Year，就是跟去年同一個月比，成長多少</p>
+<h3>EPS（每股盈餘）→ 每股能賺多少錢</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>EPS（元）</th><th>說明</th></tr></thead><tbody><tr><td>2022</td><td>9.33</td><td>—</td></tr><tr><td>2023</td><td>10.18</td><td>+9%</td></tr><tr><td>2024</td><td>17.90</td><td>+76% 爆發</td></tr><tr><td>2025 全年</td><td><strong>31.00</strong></td><td>+73%（含 Q4 EPS 10.96）</td></tr><tr><td>2026E（法人保守）</td><td>40.62</td><td>+31%（FactSet 中位數）</td></tr><tr><td>2026E（摩根士丹利）</td><td>~49+</td><td>利潤年增 60% 估算</td></tr></tbody></table></div>
+<p>（來源：WebSearch 彙整 / <a href="https://news.cnyes.com/news/id/6291781" target="_blank" rel="noopener">鉅亨網 FactSet</a>，⚠️ 2026E 為法人預估，非公司公告）</p>
+<p>→ 2025 全年 EPS 31 元，季增 9%、年增 82%（Q4 10.96 元），符合法人預期</p>
+<h3>毛利率</h3>
+<ul><li>2025 年毛利率：<strong>26.34%</strong>（來源：WebSearch，⚠️ 單一來源，建議至財報狗覆核）</li><li>法人報告指出伺服器零組件毛利率高於 30%（摩根士丹利），隨伺服器佔比上升，整體毛利率有望持續改善</li></ul>
+<h3>負債與現金流</h3>
+<ul><li>⚠️ 精確負債比、自由現金流數字未取得（未 WebFetch 到財報官方原始數據）</li><li>公司處於擴產投資期，資本支出增加中（成長期正常現象）</li><li>2025 年配息推估 10 元（⚠️ 尚未公告，此為推估，殖利率約 0.53% @1,870 元）</li></ul>
+<h3>健康體檢</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>✅ 成長</td><td>2022→2025 連年成長，2025 全年 31 元，年增 73%</td></tr><tr><td>營收趨勢</td><td>✅ 成長</td><td>近 6 月 YoY 均在 39%~115%，2026 Q1 加速</td></tr><tr><td>毛利率趨勢</td><td>✅ 穩定</td><td>26.34%，伺服器高毛利結構改善中</td></tr><tr><td>負債健康度</td><td>⏳ 注意</td><td>擴產期，精確數字未取得</td></tr><tr><td>自由現金流</td><td>⏳ 未確認</td><td>擴產投資中，FCF 可能偏低但有合理理由</td></tr><tr><td>護城河強度</td><td>中</td><td>技術門檻 + 集團綜效，但為 Tier 2 依賴母公司</td></tr></tbody></table></div>
+<p><strong>來源</strong>：<a href="https://tw.stock.yahoo.com/quote/6805.TW/revenue" target="_blank" rel="noopener">Yahoo 股市月營收</a> / <a href="https://uanalyze.com.tw/articles/8112911058" target="_blank" rel="noopener">優分析 UAnalyze</a></p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>目前估值（來源：TWSE BWIBBU_d，2026-04-17）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>股價</td><td>1,870 元</td><td>—</td></tr><tr><td>本益比（TTM）</td><td><strong>60.32x</strong></td><td>TWSE 官方，基於 2025 全年 EPS 31 元</td></tr><tr><td>殖利率</td><td>0.67%</td><td>低殖利率成長股典型</td></tr><tr><td>股價淨值比（PBR）</td><td>17.82x</td><td>高 PBR，反映市場給予高度成長溢價</td></tr><tr><td>同業平均 PE</td><td>66.16x（Yahoo 顯示電子零組件同業）</td><td>富世達相對同業稍低</td></tr></tbody></table></div>
+<p>→ <strong>本益比</strong>（PE）= Price-to-Earnings，就是用幾年的盈餘把股票買回來，越低越便宜</p>
+<p>→ <strong>股價淨值比</strong>（PBR）= 股價 / 每股帳面淨值，17.82 代表市場願意付出淨資產 17 倍的溢價</p>
+<h3>雙軌估值（基於 2026E 保守 EPS 40.62 元）</h3>
+<p><strong>股票類型判定</strong>：EPS YoY > 15% → <strong>TYPE_A 成長股</strong></p>
+<p><strong>方法 A（歷史 PE 區間法）</strong>：</p>
+<p>```</p>
+<p>2026E EPS = 40.62 元</p>
+<p>歷史 PE 低標 = 30x（近 3 年估值低檔參考）</p>
+<p>合理價 A = 40.62 × 30 = 1,219 元</p>
+<p>```</p>
+<p>⚠️ 富世達 2025 年前為小型轉軸股，轉型後本益比體系改變，歷史 PE 對照性有限</p>
+<p><strong>方法 B（PEG 估值法 → 用成長率決定合理 PE）</strong>：</p>
+<p>```</p>
+<p>EPS 成長率（2025→2026 保守）= (40.62 - 31.00) / 31.00 = 31.0%</p>
+<p>合理 PE = 31.0 × 1（PEG = 1）= 31x</p>
+<p>合理價 B = 40.62 × 31 = 1,259 元</p>
+<p>```</p>
+<p>→ <strong>PEG = 1</strong> = 成長率和 PE 相同，是市場認為「合理定價」的標準線</p>
+<p><strong>差距判定</strong>：</p>
+<p>```</p>
+<p>差距 = |1219 - 1259| / 1219 = 3.3% → ≤ 20% → 取平均</p>
+<p>錨定價 = (1219 + 1259) / 2 = 1,239 元（取整 1,240）</p>
+<p>```</p>
+<p><strong>進場區間（TYPE_A）</strong>：</p>
+<p>```</p>
+<p>entry_high = 1,240 × 0.90 = 1,116 元</p>
+<p>entry_low  = 1,240 × 0.85 = 1,054 元</p>
+<p>```</p>
+<p><strong>技術面參考</strong>：MA60（季線）在 1,651.5 元，遠高於公式值。現價 1,870 元高於 entry_high 約 67%。</p>
+<p>⚠️ <strong>重要備註</strong>：</p>
+<ul><li>此估值採<strong>保守 EPS 40.62 元</strong>。若採摩根士丹利樂觀情境（利潤年增 60% → EPS ~50 元），合理價 A 約 1,500 元，進場區間升至 1,275~1,350 元</li><li>現價 1,870 元仍<strong>顯著高於樂觀估值的進場區間</strong>，估值偏高</li><li>目前市場給予的 PE 60x，隱含市場認為 2026 EPS 可達 31 元，對應 2027 仍有高成長預期 → 一旦成長不及預期，修正幅度大</li></ul>
+<p><strong>來源</strong>：<a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE BWIBBU_d</a> / <a href="https://news.cnyes.com/news/id/6291781" target="_blank" rel="noopener">鉅亨網 FactSet</a></p>
+<hr>
+<h2>4. 技術面</h2>
+<h3>技術指標掃描（2026-04-17，來源：technical_indicators.py）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>收盤價</td><td><strong>1,870 元</strong></td><td>前日收 1,900，下跌 1.58%</td></tr><tr><td>52 週高點</td><td>2,000 元</td><td>股價目前在 92% 位置（高檔區）</td></tr><tr><td>52 週低點</td><td>372.64 元</td><td>一年漲了逾 4 倍</td></tr><tr><td>RSI(14)</td><td><strong>53.74</strong></td><td>中性偏多，未過熱也未過冷</td></tr><tr><td>KD</td><td>K=51.78 / D=43.37</td><td>1 天前出現黃金交叉（mid 區）</td></tr><tr><td>MACD 柱狀</td><td><strong>-11.22</strong>（零軸上方）</td><td>動能開始轉弱</td></tr><tr><td>技術評分</td><td><strong>-0.5（中性）</strong></td><td>KD 黃金交叉 +1，MACD 柱狀負 -1，死亡交叉 -0.5</td></tr></tbody></table></div>
+<p>→ <strong>RSI</strong> = 股票近期漲跌的溫度計。53 分算中性，沒有過熱（>70）也沒有過冷（<30）</p>
+<p>→ <strong>KD 黃金交叉</strong> = K 線向上穿過 D 線，短線轉多的訊號</p>
+<p>→ <strong>死亡交叉</strong> = 短期均線向下穿過長期均線，短線轉空的訊號</p>
+<h3>均線排列</h3>
+<p>```</p>
+<p>MA5  (1,818) ↕ MA10 (1,842) ↕ MA20 (1,865)</p>
+<p>→ 短均線糾結在 1,820~1,870 之間，尚未確立方向</p>
+<p>MA60 (1,651.5) / MA120 (1,558.96) / MA240 (1,196.48)</p>
+<p>→ 中長均線仍在下方，中長線多頭架構未破</p>
+<p>```</p>
+<p>⚠️ 均線糾結（短長均線交錯），短期方向不明，4 天前出現死亡交叉（2026-04-13）</p>
+<h3>量能分析</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>2026-04-17 成交量</td><td>1,742 千股（約 1,742 張）</td></tr><tr><td>近 5 日均量</td><td>2,432 千股</td></tr><tr><td>近 20 日均量</td><td>1,814 千股</td></tr><tr><td>量比（5d/20d）</td><td>1.34（近 5 日均量高於 20 日均量）</td></tr></tbody></table></div>
+<p>→ 4 月以來整體量能偏縮，今日成交量低於近 5 日均量，代表賣壓未大量出現但買盤也未積極</p>
+<h3>支撐與壓力</h3>
+<div class="table-wrap"><table><thead><tr><th>位置</th><th>價格</th><th>說明</th></tr></thead><tbody><tr><td>壓力 1</td><td>2,000 元</td><td>52 週高點 / 整數關卡</td></tr><tr><td>壓力 2</td><td>1,900 元</td><td>前日收盤 / 短線反壓</td></tr><tr><td>支撐 1</td><td>1,840 元</td><td>今日最低點</td></tr><tr><td>支撐 2</td><td>1,818（MA5）</td><td>超短線支撐</td></tr><tr><td>支撐 3</td><td>1,652（MA60）</td><td>季線，中線重要支撐</td></tr><tr><td>支撐 4</td><td>1,559（MA120）</td><td>半年線，長線保護</td></tr></tbody></table></div>
+<h3>技術面結論</h3>
+<p>短線轉弱訊號出現（死亡交叉 + MACD 柱狀翻負），KD 剛出現黃金交叉是一個中性的反彈訊號，但需觀察能否有效站回 MA10（1,842）以上。若跌破 MA60（1,652）需警覺。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>三大法人近 5 日（來源：HiStock，2026-04-17）</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資</th><th>投信</th><th>自營商</th><th>合計</th></tr></thead><tbody><tr><td>2026/04/17</td><td>-232 張</td><td>-106 張</td><td>-7 張</td><td><strong>-346 張</strong></td></tr><tr><td>2026/04/16</td><td>+91</td><td>+31</td><td>-5</td><td>+118</td></tr><tr><td>2026/04/15</td><td>+334</td><td>-240</td><td>+48</td><td>+142</td></tr><tr><td>2026/04/14</td><td>+29</td><td>-483</td><td>+1</td><td>-453</td></tr><tr><td>2026/04/13</td><td>+212</td><td>-344</td><td>-21</td><td>-153</td></tr><tr><td><strong>近 5 日合計</strong></td><td><strong>+434</strong></td><td><strong>-1,142</strong></td><td><strong>+16</strong></td><td><strong>-692</strong></td></tr></tbody></table></div>
+<p>→ <strong>投信近 5 日明顯賣超 -1,142 張</strong>，且最後 2 日大幅賣出，是主要賣壓來源</p>
+<p>→ 外資近 5 日小幅買超 +434 張，但單日波動大，方向不穩定</p>
+<p>→ 整體法人近 5 日淨賣超 692 張，籌碼面偏空</p>
+<h3>融資融券</h3>
+<ul><li>❌ 精確融資融券數字未取得（TWSE MI_MARGN 當日未列出 6805，可能當日無融資融券交易記錄）</li><li>建議至券商 App 或三竹股市查詢最新融資餘額</li></ul>
+<h3>籌碼面結論</h3>
+<p>近 5 日投信大幅賣超，是近期籌碼面最明顯的負面訊號。投信在 1 月時曾是主力買盤，但近期明顯轉向，需持續追蹤是否轉換方向。</p>
+<p><strong>來源</strong>：<a href="https://histock.tw/stock/chips.aspx?no=6805" target="_blank" rel="noopener">HiStock - 富世達三大法人</a></p>
+<hr>
+<h2>6. 同業比較</h2>
+<h3>數據快照（2026-04-17，來源：TWSE BWIBBU_d / Yahoo 股市）</h3>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>富世達（6805）</th><th>奇鋐（3017）</th><th>雙鴻（3324）</th><th>建準（2421）</th></tr></thead><tbody><tr><td>主要業務</td><td>轉軸 + 液冷快接頭</td><td>散熱模組 / 水冷板</td><td>熱導管 / 散熱模組</td><td>風扇 / 風冷散熱</td></tr><tr><td>與 AI 伺服器關聯</td><td>液冷快接頭（Tier 2）</td><td>水冷板 + 分歧管（Tier 1）</td><td>AWS/Meta 訂單</td><td>風扇氣冷，液冷轉型中</td></tr><tr><td>收盤價</td><td>1,870 元</td><td>2,400 元</td><td>1,035 元</td><td>146.50 元</td></tr><tr><td>PE（TWSE 官方）</td><td><strong>60.32x</strong></td><td>49.06x</td><td>❌ 未取得</td><td>18.43x</td></tr><tr><td>PBR</td><td>17.82x</td><td>21.10x</td><td>❌ 未取得</td><td>4.49x</td></tr><tr><td>殖利率</td><td>0.67%</td><td>0.88%</td><td>❌ 未取得</td><td>3.75%</td></tr><tr><td>2025 全年 EPS</td><td>~31.00 元</td><td>—</td><td>—</td><td>—</td></tr><tr><td>護城河</td><td>中</td><td>強</td><td>中強</td><td>中（轉型中）</td></tr><tr><td>特色</td><td>雙引擎（手機 + 伺服器）</td><td>散熱龍頭</td><td>熱管技術領先</td><td>高殖利率 / 穩健</td></tr></tbody></table></div>
+<p>（⚠️ 雙鴻 PE / PBR 未取得，奇鋐 / 雙鴻 2025 全年 EPS 尚未補抓，建議至 Yahoo 股市覆核）</p>
+<h3>同業比較結論</h3>
+<ul><li>富世達 PE 60.32x 高於奇鋐 49.06x，更遠高於建準 18.43x，估值在同業中偏貴</li><li>但富世達的<strong>成長彈性最大</strong>（雙引擎、伺服器佔比快速提升），奇鋐的<strong>確定性最高</strong>（直接面對 CSP 客戶），建準屬於<strong>穩定收息型</strong>（高殖利率）</li><li><strong>如果只能選一檔散熱/液冷相關股</strong>：</li><li>想要確定性 → 奇鋐（3017），護城河強、估值相對富世達合理</li><li>想要成長彈性（接受高風險）→ 富世達（6805），但需在合理估值區間進場</li><li>想要穩定收息 → 建準（2421），但液冷轉型進度是關鍵變數</li></ul>
+<p><strong>來源</strong>：<a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE BWIBBU_d</a> / <a href="https://tw.stock.yahoo.com/quote/3017.TW" target="_blank" rel="noopener">Yahoo 股市奇鋐</a> / <a href="https://tw.stock.yahoo.com/quote/3324.TW" target="_blank" rel="noopener">Yahoo 股市雙鴻</a> / <a href="https://tw.stock.yahoo.com/quote/2421.TW" target="_blank" rel="noopener">Yahoo 股市建準</a></p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>GB300 NVQD 快接頭持續放量</td><td>已確認進行中</td><td>2026 全年</td><td>高</td></tr><tr><td>CSP 自研 AI 晶片（ASIC）快接頭供應</td><td>已確認</td><td>2026 Q1 起</td><td>高</td></tr><tr><td>伺服器業務佔比衝破 30%（2026 年）</td><td>潛在</td><td>2026 H1-H2</td><td>中高</td></tr><tr><td>摩根士丹利預估利潤年增 60%</td><td>已公開預估</td><td>2026 全年</td><td>中</td></tr><tr><td>華為折疊旗艦新機（三折機）上市放量</td><td>已確認</td><td>2026 H1</td><td>中</td></tr><tr><td>Rubin 平台（NVIDIA 下一代）認證出貨</td><td>潛在</td><td>2026 H2</td><td>高</td></tr><tr><td>Apple 折疊 iPhone 供應鏈（如能切入）</td><td>潛在（多次延後）</td><td>未確認</td><td>高（但機率低）</td></tr><tr><td>2026 Q1 財報公告（確認成長是否延續）</td><td>已確認</td><td>2026 年 5 月</td><td>中</td></tr></tbody></table></div>
+<p><strong>來源</strong>：<a href="https://vocus.cc/article/68f3bd54fd8978000135995c" target="_blank" rel="noopener">vocus - 富世達 2025 法說更新</a> / <a href="https://uanalyze.com.tw/articles/8112911058" target="_blank" rel="noopener">優分析 UAnalyze</a> / <a href="https://intelligentdata.cc/%E5%AF%8C%E4%B8%96%E9%81%94-6805-2025-05-07/" target="_blank" rel="noopener">盈智 iData</a></p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th><th>類型</th></tr></thead><tbody><tr><td><strong>CSP 資本支出縮減</strong></td><td>低-中</td><td>高</td><td>財報下修 capex 指引</td><td>不可控</td></tr><tr><td><strong>液冷滲透率不如預期</strong></td><td>低-中</td><td>高</td><td>競品回歸氣冷、成本下降</td><td>不可控</td></tr><tr><td><strong>投信大量賣超持續</strong></td><td>中</td><td>中</td><td>連續 5 日賣超且無反彈</td><td>可觀察</td></tr><tr><td><strong>估值過高引發劇烈回調</strong></td><td>中-高</td><td>高</td><td>PE > 60x 且成長不及預期</td><td>可控（停損）</td></tr><tr><td><strong>依賴母公司奇鋐通路</strong></td><td>低</td><td>中</td><td>奇鋐轉單或業務調整</td><td>不可控</td></tr><tr><td><strong>折疊手機競爭加劇</strong></td><td>中</td><td>中</td><td>新進轉軸廠搶單、ASP 下滑</td><td>不可控</td></tr><tr><td><strong>華為地緣政治風險</strong></td><td>中</td><td>中-高</td><td>美國加強制裁華為供應鏈</td><td>不可控</td></tr><tr><td><strong>GB300 / Rubin 認證延遲</strong></td><td>中</td><td>高</td><td>公司公告認證進度落後</td><td>不可控</td></tr><tr><td><strong>股價極高波動性</strong></td><td>高（已發生）</td><td>中</td><td>52 週低 372 → 高 2000，幅度 437%</td><td>可控（部位控管）</td></tr></tbody></table></div>
+<h3>致命風險（必須特別注意）</h3>
+<ul><li>⚠️ <strong>CSP 資本支出大幅縮減 + 液冷不如預期同時發生</strong>：伺服器成長邏輯崩塌，股價可能回到 1,200 元以下</li><li>⚠️ <strong>一年漲 4 倍已充分反映預期</strong>：一旦成長不及預期（財報遜色、法人下修 EPS），修正速度會快且深</li><li>⚠️ <strong>近期技術面死亡交叉 + 投信賣超</strong>：短期下行壓力存在，並非僅是估值問題</li></ul>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li>營收和 EPS 基本面確認成長（+），但估值偏高（-），技術面短線轉弱（-），投信籌碼近期賣超（-），部分財務數字未完整取得（-）。綜合給 3/5。</li><li><strong>建議倉位</strong>：目前不建議進場；等回調至進場區間再評估，建議佔總資金 <strong>5-8%</strong>（高波動標的，控制在 10% 以下）</li><li><strong>進場條件</strong>：</li><li>保守估值進場區：<strong>1,054 ~ 1,116 元</strong>（基於保守 EPS 40.62 元）</li><li>技術面確認：需等死亡交叉修復、均線重新多頭排列，且 MA20 形成支撐</li><li>若等不到保守區間，至少需回落至 <strong>MA60（1,652 元）附近</strong>，且技術面確認止穩</li><li><strong>停損參考</strong>：</li><li>進場後跌破 <strong>MA60（目前 1,652 元）</strong> → 考慮出場，成長邏輯可能改變</li><li>若財報 EPS 明顯低於法人預估 → 重新評估</li><li><strong>加碼條件</strong>：</li><li>2026 Q1 財報 EPS 符合或超越預期（單季 > 8 元）</li><li>月營收 YoY 連續 3 個月維持 50%+</li><li>伺服器業務佔比突破 30%</li><li>投信轉為持續買超 3 日以上</li><li><strong>觀察指標</strong>：</li></ul>
+<ol><li>每月月營收年增率（維持 50%+ 是核心邏輯）</li><li>三大法人籌碼（特別是投信是否回補）</li><li>奇鋐集團液冷出貨進度</li><li>CSP（AWS / Google / Meta / MSFT）資本支出指引</li><li>技術面：MA5 / MA10 是否重新站穩 MA20 上方</li></ol>
+<ul><li><strong>下次檢視</strong>：<strong>2026-05-15</strong>（2026 Q1 財報公告後）</li></ul>
+<h3>白話建議</h3>
+<blockquote>富世達是一家正在全速轉型的公司，從做手機轉軸轉向 AI 伺服器液冷零件，成長故事清晰、執行也有成績。2025 全年 EPS 31 元、2026 Q1 月營收年增率全面 50%+，基本面確實強勁。</blockquote>
+<p>></p>
+<blockquote>但問題在於<strong>股價已從去年低點 372 元漲到現在 1,870 元，整整漲了 5 倍</strong>，未來 1-2 年的好消息大部分已被定價進去了（PE 高達 60x）。近期又出現技術面死亡交叉和投信大量賣超，短線有壓力。</blockquote>
+<p>></p>
+<blockquote>對新手投資人而言，建議的做法是：<strong>先放觀察清單，等股價回落到合理估值區間（MA60 附近 1,650 元，或更理想的 1,054~1,116 元），再考慮用零股小量佈局</strong>。若急於參與液冷散熱題材，母公司<strong>奇鋐（3017）估值更合理（PE 49x）、確定性更高</strong>，是更適合新手的替代選擇。</blockquote>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/6805.TW" target="_blank" rel="noopener">Yahoo 股市 - 富世達即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/6805.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 富世達月營收</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE - 全市場 PE / 殖利率 / PBR（BWIBBU_d）</a></li><li><a href="https://histock.tw/stock/chips.aspx?no=6805" target="_blank" rel="noopener">HiStock - 富世達三大法人買賣超</a></li><li><a href="https://news.cnyes.com/news/id/6291781" target="_blank" rel="noopener">鉅亨網 - FactSet EPS 預估 31.48 元</a></li><li><a href="https://uanalyze.com.tw/articles/8112911058" target="_blank" rel="noopener">優分析 UAnalyze - 富世達 2026 展望</a></li><li><a href="https://intelligentdata.cc/%E5%AF%8C%E4%B8%96%E9%81%94-6805-2025-05-07/" target="_blank" rel="noopener">盈智 iData - 富世達伺服器業務分析</a></li><li><a href="https://vocus.cc/article/68f3bd54fd8978000135995c" target="_blank" rel="noopener">vocus - 富世達 2025 法說更新（10/19）</a></li><li><a href="https://vocus.cc/article/687a3eabfd89780001c01035" target="_blank" rel="noopener">vocus - 富世達如何掌握資料中心散熱命脈</a></li><li><a href="https://www.cmoney.tw/notes/note-detail.aspx?nid=887546" target="_blank" rel="noopener">CMoney - 富世達 GB300 首批水冷供應商</a></li><li><a href="https://tw.stock.yahoo.com/quote/3017.TW" target="_blank" rel="noopener">Yahoo 股市 - 奇鋐 3017</a></li><li><a href="https://tw.stock.yahoo.com/quote/3324.TW" target="_blank" rel="noopener">Yahoo 股市 - 雙鴻 3324</a></li><li><a href="https://tw.stock.yahoo.com/quote/2421.TW" target="_blank" rel="noopener">Yahoo 股市 - 建準 2421</a></li></ul>
+</div>
+</body>
+</html>
