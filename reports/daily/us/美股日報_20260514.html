@@ -88,7 +88,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans T
 <blockquote>⚠️ 本報告經 data-audit 修正：類股排名（XLE 由「弱勢估 -0.3%」修正為「第二強 +0.76%」、XLB -0.75% 補入最弱、XLU/XLP 修正為中段）+ 類股輪動觀察改寫</blockquote>
 <hr>
 <h2>資料來源</h2>
-<ul><li><strong>數據層</strong>：<code>投資理財/scripts/output/us_market_20260515.json</code>（API 抓取 2026-05-14 盤後）</li><li><strong>技術掃描</strong>：<code>watchlist_scanner.py --market us</code>（2026-05-15 09:50 掃描結果）</li><li><strong>質性分析</strong>：investment-advisor agent + WebSearch（Cisco/CNBC/Motley Fool/TheStreet/Advisor Perspectives/Timothy Sykes/TechCrunch 等）</li><li><strong>儀表板基準</strong>：<code>投資理財/01_決策總覽/投資決策儀表板.md</code>（最後更新 2026-05-14 台股盤後）</li></ul>
+<ul><li><strong>數據層</strong>：<code>us_market_api.py</code> 即時抓取（fetch_time = 2026-05-15T10:54，數據對應 2026-05-14 美股交易日盤後）。歷史快照 <code>投資理財/scripts/output/us_market_20260514.json</code></li><li><strong>技術掃描</strong>：<code>watchlist_scanner.py --market us</code>（2026-05-15 09:50 掃描結果）</li><li><strong>質性分析</strong>：investment-advisor agent + WebSearch（Cisco/CNBC/Motley Fool/TheStreet/Advisor Perspectives/Timothy Sykes/TechCrunch 等）</li><li><strong>儀表板基準</strong>：<code>投資理財/01_決策總覽/投資決策儀表板.md</code>（最後更新 2026-05-14 台股盤後）</li></ul>
 </div>
 </body>
 </html>
