@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日月光投控（3711）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>日月光投控（3711）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>日月光投控（3711）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.2</td><td>2026-06-05</td><td><strong>輕度更新</strong>。距上版 5 天（5/31），無重大財報事件。重抓：股價、PE/PBR/殖利率、法人買賣超（6/1-6/5）、技術面位置、估值重算。沿用：基本面、財務面、月營收（最新至 4 月，5 月未公布）、同業比較框架、題材催化劑。新增：資本支出上修 80 億→85 億美元確認；6/4-6/5 大盤劇烈波動背景說明</td></tr><tr><td>v1.1</td><td>2026-05-31</td><td>升級為正統九維度深度分析。取代 2026-03-08 舊版，整合舊版精華，基於 Q1 2026 法說會全面重建</td></tr><tr><td>v1.0</td><td>2026-03-08</td><td>首次分析（舊格式）</td></tr></tbody></table></div>
+<hr>
+<h2>歷史分析延續</h2>
+<blockquote>歷史快照保留作為回看基準，詳見 5/31 版（v1.1）。</blockquote>
+<h3>3/8 → 5/31 → 6/5 三階段股價演進</h3>
+<div class="table-wrap"><table><thead><tr><th>時間點</th><th>股價</th><th>PE（TTM）</th><th>主要事件</th></tr></thead><tbody><tr><td>2026/03/08</td><td>342 元</td><td>42.27x</td><td>首次分析，結論觀望偏樂觀</td></tr><tr><td>2026/05/29</td><td>611 元</td><td>56.73x</td><td>v1.1 分析基準，結論觀望不追高</td></tr><tr><td>2026/06/05</td><td><strong>577 元</strong></td><td><strong>53.57x</strong></td><td>v1.2 更新，5 天內跌 5.6%，大盤波動為主因</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-06-05（台灣時間，週四，當日盤後）</td></tr><tr><td>最近交易日</td><td>2026-06-05（已收盤 14:30）</td></tr><tr><td>收盤價</td><td><strong>577 元</strong>（6/5，跌 2.7%，連 2 跌）</td></tr><tr><td>台股大盤狀態</td><td>6/5 盤中急殺近千點（失守 45,000 點），收斂後終場仍跌，電子權值股受拖累</td></tr><tr><td>股價來源</td><td>Yahoo 股市（6/5 14:30）</td></tr><tr><td>估值數據</td><td>TWSE BWIBBU_d（6/5）</td></tr><tr><td>月營收</td><td>Yahoo 股市 revenue（最新至 2026/04，5 月未公布）</td></tr><tr><td>法人數據</td><td>Yahoo 股市法人買賣（2026/05/25-06/05）</td></tr><tr><td>技術指標</td><td>基於 Yahoo/Goodinfo 頁面數據估算（6/5）</td></tr><tr><td>待補充</td><td>融資融券個股明細；技術指標精確 MA 數值（Goodinfo 頁面未回應）</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【觀望，條件接近】— 股價從 611 回落至 577 元，距估值合理進場區（430-480 元）縮短至 20% 溢價，但 6/5 大盤急殺回彈的市場環境仍不穩定。若大盤穩定、外資轉買超，540-560 元是技術面試水觀察點；理想進場仍在 430-480 元。投信近期大賣是需要監控的籌碼警訊。</p>
+<p><strong>信心程度：⭐⭐⭐☆☆（3/5）</strong></p>
+<blockquote>維持 3 星。基本面題材方向正確（資本支出升至 85 億，LEAP 35 億+ 確認），但大盤系統性波動（中東因素）製造不確定性，投信大量賣超籌碼面轉弱，估值仍未回到合理區，維持觀望定位。</blockquote>
+<p>適合操作：中線題材波段（等技術面站穩 + 法人轉向再動作）</p>
+<hr>
+<h2>1. 基本面</h2>
+<p>（沿用 v1.1，基本面 5 天無重大事件，但有一條數字更新）</p>
+<h3>一句話說清楚</h3>
+<p>日月光投控是全球規模最大的<strong>半導體封裝測試代工廠（OSAT）</strong>，靠幫晶圓代工廠（如台積電）製造出的裸晶做「包裝、測試、整合」賺錢；AI 伺服器對先進封裝需求爆發，台積電 CoWoS 產能吃緊外溢訂單直接灌進日月光，是本輪 AI 晶片供應鏈最直接的受惠者之一。</p>
+<blockquote>📝 <strong>OSAT（封裝測試代工）</strong>：Outsourced Semiconductor Assembly and Test。晶圓代工廠（台積電）只做晶圓，出廠的「裸晶」還不能直接用，需要封裝成成品晶片、再逐顆測試功能，這就是 OSAT 做的事。日月光是全球這個環節規模最大的公司。</blockquote>
+<blockquote>📝 <strong>CoWoS</strong>：Chip on Wafer on Substrate，台積電的先進封裝技術，把 GPU（如 NVIDIA H100）和 HBM 記憶體整合進同一個封裝，大幅提升 AI 運算效率。因為台積電 CoWoS 自有產能滿載，大量委外訂單流向日月光，就是所謂的「外溢效應」。</blockquote>
+<h3>產業鏈定位</h3>
+<p>```</p>
+<p>晶圓代工（台積電）→ 裸晶（Die）</p>
+<p>↓</p>
+<p>【日月光 ATM 部門】封裝 + 測試 ← 你在這裡</p>
+<p>↓</p>
+<p>模組組裝（EMS，環電負責）</p>
+<p>↓</p>
+<p>下游品牌客戶（NVIDIA、Apple、高通等）→ 終端產品</p>
+<p>```</p>
+<h3>主要業務</h3>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>說明</th><th>占比</th></tr></thead><tbody><tr><td>ATM（封裝測試）</td><td>傳統封裝 + 先進封裝（CoWoS、FoCoS、SiP）+ 測試服務</td><td>約 65% 營收</td></tr><tr><td>EMS（電子製造）</td><td>旗下環電負責系統組裝、ODM/EMS 服務</td><td>約 35% 營收</td></tr></tbody></table></div>
+<blockquote>📝 <strong>ATM</strong>：Assembly, Testing & Material，就是封裝與測試，日月光的核心業務，毛利率較高（Q1 達 26.0%）。</blockquote>
+<p>></p>
+<blockquote>📝 <strong>EMS</strong>：Electronics Manufacturing Services，電子製造代工，毛利率較低（約 5-7%），拖累整體毛利率表現。</blockquote>
+<p>></p>
+<blockquote>📝 <strong>SiP</strong>：System in Package，系統級封裝，把多顆功能晶片整合進單一封裝。AirPods 晶片模組、Apple Watch 主機板就是用 SiP，日月光是全球 SiP 最大供應商之一。</blockquote>
+<p>></p>
+<blockquote>📝 <strong>FoCoS</strong>：Fan-Out Chip on Substrate，日月光自研的先進封裝技術，預估 2026 年下半年放量出貨，可望貢獻 10 億美元營收，毛利率高於傳統封裝。</blockquote>
+<h3>AI 先進封裝（核心成長引擎）</h3>
+<ul><li>台積電 CoWoS 產能吃緊，大量委外 → 日月光是最大承接方</li><li>2026 年 LEAP 先進封裝服務營收目標：<strong>35 億美元以上</strong>（Q1 法說會公告，沿用）</li><li>資本支出再度上修：<strong>最高 85 億美元</strong>（⭐ v1.2 更新：DigiTimes 4/30 報導，從「逾 80 億」升至「最高 85 億」，因先進封裝需求超預期）</li><li>FoCoS 自研技術：預計 2026 H2 放量，可貢獻 10 億美元營收</li></ul>
+<blockquote>📝 <strong>LEAP</strong>：日月光的先進封裝服務品牌名稱（Leading Edge Advanced Packaging），涵蓋 CoWoS、FoCoS、SiP 等高階製程。LEAP 業務毛利率遠高於傳統封裝，是日月光毛利率改善的主要驅動力。</blockquote>
+<h3>競爭優勢（護城河）</h3>
+<p><strong>強度：中強（沿用 v1.1）</strong></p>
+<div class="table-wrap"><table><thead><tr><th>護城河類型</th><th>評估</th><th>說明</th></tr></thead><tbody><tr><td>規模壁壘</td><td>強</td><td>全球最大 OSAT，客戶認證門檻高（Apple、NVIDIA 供應商資格極難取得）</td></tr><tr><td>技術廣度</td><td>強</td><td>傳統封裝 + SiP + CoWoS/FoCoS 全覆蓋，競爭對手難以一站式服務</td></tr><tr><td>客戶黏性</td><td>中強</td><td>長期供應蘋果、NVIDIA，換供應商成本極高</td></tr><tr><td>資本密度</td><td>中</td><td>85 億美元資本支出是進入障礙，但也是財務壓力</td></tr><tr><td>技術深度</td><td>中</td><td>FoCoS 自研，但台積電 SoIC/CoWoS 技術仍更先進</td></tr></tbody></table></div>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（近 6 個月）</h3>
+<p>（來源：Yahoo 股市 revenue，2026/06/05 重抓，數值與 5/31 版一致；5 月營收尚未公布）</p>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>月營收（億元）</th><th>月增率</th><th>年增率</th></tr></thead><tbody><tr><td>2026/04</td><td><strong>622.5</strong></td><td>+1.09%</td><td><strong>+19.22%</strong></td></tr><tr><td>2026/03</td><td><strong>615.8</strong></td><td>+18.20%</td><td>+14.57%</td></tr><tr><td>2026/02</td><td>521.0</td><td>-13.16%</td><td>+15.87%</td></tr><tr><td>2026/01</td><td><strong>600.0</strong></td><td>+1.91%</td><td><strong>+21.33%</strong></td></tr><tr><td>2025/12</td><td>588.6</td><td>+0.08%</td><td>+11.27%</td></tr><tr><td>2025/11</td><td>588.2</td><td>-2.34%</td><td>+11.12%</td></tr></tbody></table></div>
+<blockquote>月營收確認抓取日期：2026/06/05。5 月營收預計 6/10 前公布，屆時 YoY 若仍維持 15%+ 為加分訊號。</blockquote>
+<p>2026 年前 4 月累計營收 23,590.93 億元，年增率 17.74%，成長趨勢穩固。</p>
+<h3>關鍵財務指標</h3>
+<p>（沿用 v1.1；Q1 財報數字無變化，下次更新點為 Q2 財報 2026 年 8 月）</p>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>2022 年</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th>2026 Q1</th></tr></thead><tbody><tr><td>年 EPS（元）</td><td><strong>14.53</strong></td><td>7.39</td><td>7.52</td><td>9.37</td><td>3.24（單季）</td></tr><tr><td>ATM 毛利率</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>26.0%</strong>（創歷史高）</td></tr><tr><td>整體毛利率</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>20.1%</strong>（YoY +3.27%）</td></tr><tr><td>合併營收（億元）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>1,737（Q1）</td></tr><tr><td>稅後淨利（億元）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>141（年增 87%）</td></tr></tbody></table></div>
+<p><strong>法人預估 2026 全年 EPS：18.50 元</strong>（沿用 v1.1，Q1 財報後法人共識）</p>
+<p>→ Forward PE（現價 577 / 18.50）= <strong>31.2x</strong>（v1.1：33.0x，隨股價下跌改善）</p>
+<h3>財務健康狀況</h3>
+<p>（v1.2 更新：殖利率和 PBR 數字重抓）</p>
+<ul><li><strong>股利</strong>：殖利率 <strong>1.14%</strong>（6/5，TWSE，v1.1 為 1.08%）；下次現金股利 5.30 元，預計 2026-07-30 配發</li><li><strong>PBR</strong>：<strong>7.22x</strong>（6/5，TWSE，v1.1 為 7.65x，隨股價下跌降低）</li><li><strong>負債狀況</strong>：❌ 未取得官方數字（沿用 v1.1）。85 億美元資本支出留有相當債務，建議查閱公開資訊觀測站</li><li><strong>自由現金流</strong>：❌ 未取得完整數字（沿用 v1.1）。鉅額資本支出拉低 FCF</li></ul>
+<h3>健康體檢</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>✅ 成長</td><td>2023→2025 年複合回升，2026 Q1 年增 87%</td></tr><tr><td>營收趨勢</td><td>✅ 成長</td><td>連 6 個月 YoY 雙位數，加速中</td></tr><tr><td>毛利率趨勢</td><td>✅ 改善中</td><td>ATM 毛利率 26% 創歷史新高</td></tr><tr><td>負債健康度</td><td>⚠️ 注意</td><td>85 億美元資本支出鉅額負擔，❌ 正式數字未取得</td></tr><tr><td>自由現金流</td><td>⚠️ 注意</td><td>龐大資本支出壓縮 FCF，❌ 正式數字未取得</td></tr><tr><td>護城河強度</td><td>✅ 中強</td><td>規模+客戶黏性，但毛利率仍低於晶圓代工廠</td></tr></tbody></table></div>
+<hr>
+<h2>3. 估值面</h2>
+<h3>目前估值（v1.2 重抓，2026/06/05）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>v1.1（5/29）</th><th>v1.2（6/5）</th><th>變化</th></tr></thead><tbody><tr><td>現價</td><td>611 元</td><td><strong>577 元</strong></td><td>-34 元（-5.6%）</td></tr><tr><td>本益比（PE，TTM）</td><td>56.73x</td><td><strong>53.57x</strong></td><td>▼ 改善</td></tr><tr><td>股價淨值比（PBR）</td><td>7.65x</td><td><strong>7.22x</strong></td><td>▼ 改善</td></tr><tr><td>股息殖利率</td><td>1.08%</td><td><strong>1.14%</strong></td><td>▲ 微升</td></tr><tr><td>法人預估 2026E EPS</td><td>18.50 元</td><td><strong>18.50 元</strong></td><td>不變</td></tr><tr><td>Forward PE（2026E）</td><td>33.0x</td><td><strong>31.2x</strong></td><td>▼ 改善</td></tr></tbody></table></div>
+<p>（來源：TWSE BWIBBU_d + Yahoo 股市，2026/06/05 14:30）</p>
+<blockquote>📝 <strong>本益比（PE）</strong>：股價除以 EPS。53.57x 雖比 5/31 版的 56.73x 略降，但封測業歷史 PE 正常帶 15-35x，仍位於高估值區。若以法人預估全年 EPS 18.50 計算的 Forward PE 31.2x，則位於 AI 題材溢價的合理偏高範圍。</blockquote>
+<h3>雙軌估值（沿用 v1.1 框架，現價重新代入）</h3>
+<p><strong>方法 A（歷史 PE 區間法，PE 22x）：</strong></p>
+<p>```</p>
+<p>合理價 = 18.50 × 22x = 407 元</p>
+<p>```</p>
+<p><strong>方法 B（AI 先進封裝成長溢價，PE 26x）：</strong></p>
+<p>```</p>
+<p>合理價 = 18.50 × 26x = 481 元</p>
+<p>```</p>
+<p><strong>錨定價 + 進場區：</strong></p>
+<p>```</p>
+<p>差距 18.2% ≤ 20% → 取平均</p>
+<p>錨定價 = (407 + 481) / 2 = 444 元</p>
+<p>entry_high = 444 × 0.90 = 400 元</p>
+<p>entry_low  = 444 × 0.85 = 378 元</p>
+<p>```</p>
+<p><strong>技術面修正後的進場區：430-480 元</strong>（考量 MA60 附近，沿用 v1.1）</p>
+<p><strong>現價 577 元 vs 錨定價 444 元：</strong></p>
+<p>```</p>
+<p>溢價幅度 = (577 - 444) / 444 = 30.0%</p>
+<p>（v1.1 時溢價 37.6%，本次改善 7.6 個百分點）</p>
+<p>```</p>
+<p><strong>試水位（技術支撐考量）：540-560 元</strong></p>
+<ul><li>若大盤穩定、法人轉向，540-560 元可考慮小量試水（5% 以內）</li></ul>
+<blockquote>⚠️ 現價仍超出估值錨定區 30%，主要進場區仍在 430-480 元。</blockquote>
+<hr>
+<h2>4. 技術面</h2>
+<p>（v1.2 更新：基於 6/5 收盤價重新評估位置，技術指標精確數值因 Goodinfo 未回應，以趨勢方向判斷）</p>
+<h3>現價位置（2026/06/05 收盤 577 元）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>v1.1（5/29）</th><th>v1.2 估算（6/5）</th><th>說明</th></tr></thead><tbody><tr><td>現價</td><td>611 元</td><td><strong>577 元</strong></td><td>跌 2.7%（連 2 跌）</td></tr><tr><td>MA5（估）</td><td>621.6 元</td><td><strong>~597 元</strong></td><td>現價低於 MA5（短線偏弱）</td></tr><tr><td>MA10（估）</td><td>563.7 元</td><td><strong>~575 元</strong></td><td>現價約在 MA10 附近（關鍵支撐）</td></tr><tr><td>MA20</td><td>549.85 元</td><td><strong>~560 元</strong></td><td>現價仍在 MA20 上方（中線仍多頭）</td></tr><tr><td>MA60</td><td>442.88 元</td><td><strong>~470 元</strong></td><td>季線大幅低於現價（趨勢完整）</td></tr></tbody></table></div>
+<blockquote>⚠️ 技術指標精確數值標注：MA5/MA10/MA20/MA60 為基於 5/29 數值推估方向，非官方即時抓取（Goodinfo 頁面 6/5 未回應）。精確數值請以實際看盤軟體為準。抓取日：2026/06/05。</blockquote>
+<h3>技術面解讀（v1.2 更新）</h3>
+<ul><li>股價從 611 元回落至 577 元，跌幅 5.6%，短線跌破 MA5，正測試 MA10 支撐位</li><li>中線（MA20）仍在 560 元附近，若收盤守住 MA10（約 575 元）是持穩信號</li><li>均線多頭排列格局仍完整（MA10 > MA20 > MA60），中長線趨勢未破壞</li><li>6/5 大盤急殺（盤中跌近千點），日月光當日跌幅 2.7%，屬被動跟跌，非個股基本面惡化</li><li>RSI/KD/MACD：方向未逆轉，但短線動能走弱（跌破 MA5 + 連 2 跌）</li></ul>
+<p><strong>技術面修正評分：3.5/5.0（由 4.0 調降）</strong></p>
+<div class="table-wrap"><table><thead><tr><th>信號</th><th>分數</th><th>說明</th></tr></thead><tbody><tr><td>均線多頭排列（MA10 > MA20 > MA60）</td><td>+1.0</td><td>中長線趨勢仍完整</td></tr><tr><td>短線跌破 MA5</td><td>-0.5</td><td>短線偏弱，動能轉向</td></tr><tr><td>測試 MA10 支撐</td><td>±0</td><td>守住 = 健康回測，跌破 = 進一步下探</td></tr><tr><td>大盤急殺被動跟跌</td><td>+0.5</td><td>非個股基本面問題，反彈可能性高</td></tr><tr><td>MACD/RSI 方向未逆轉</td><td>+0.5</td><td>中線格局未破</td></tr><tr><td>連 2 跌，短線動能偏弱</td><td>-0.5</td><td>需等穩定信號</td></tr></tbody></table></div>
+<p><strong>技術面關鍵觀察（v1.2）：</strong></p>
+<ul><li>守住 MA10（約 575 元）：短線有支撐，維持觀察</li><li>跌破 MA10：下一支撐 MA20 約 560 元，再破看 MA60（約 470 元）</li><li>止跌反彈守 600 元以上：技術回歸強勢，可考慮試水</li></ul>
+<hr>
+<h2>5. 籌碼面</h2>
+<p>（v1.2 重抓：補入 6/1-6/5 新數據）</p>
+<h3>三大法人近 10 日買賣超</h3>
+<p>（來源：Yahoo 股市法人買賣，2026/05/25-06/05，抓取日：2026/06/05）</p>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資（張）</th><th>投信（張）</th><th>自營商（張）</th><th>合計（張）</th></tr></thead><tbody><tr><td>06/05</td><td>-851</td><td>-707</td><td>+179</td><td><strong>-1,379</strong></td></tr><tr><td>06/04</td><td>+1,534</td><td>-4,838</td><td>+234</td><td><strong>-3,070</strong></td></tr><tr><td>06/03</td><td>+7,525</td><td>-3,719</td><td>+255</td><td><strong>+4,061</strong></td></tr><tr><td>06/02</td><td>+1,316</td><td>-4,725</td><td>-21</td><td><strong>-3,429</strong></td></tr><tr><td>06/01</td><td>+2,284</td><td>-4,657</td><td>+103</td><td><strong>-2,270</strong></td></tr><tr><td>05/29</td><td>-10,102</td><td>-3,776</td><td>+40</td><td><strong>-13,838</strong></td></tr><tr><td>05/28</td><td>-2,361</td><td>+401</td><td>-79</td><td><strong>-2,039</strong></td></tr><tr><td>05/27</td><td>+834</td><td>-674</td><td>+46</td><td><strong>+206</strong></td></tr><tr><td>05/26</td><td>-1,468</td><td>-43</td><td>-435</td><td><strong>-1,946</strong></td></tr><tr><td>05/25</td><td>-3,418</td><td>+1,131</td><td>+340</td><td><strong>-1,947</strong></td></tr></tbody></table></div>
+<h3>6 月以來籌碼分析（v1.2 新增）</h3>
+<p><strong>外資（6/1-6/5 合計）：</strong></p>
+<ul><li>+2,284 +1,316 +7,525 +1,534 -851 = <strong>+11,808 張（淨買超）</strong></li><li>解讀：外資 6 月以來明顯回補（5/29 大賣 10,102 張後轉為淨買），是相對正面信號</li></ul>
+<p><strong>投信（6/1-6/5 合計）：</strong></p>
+<ul><li>-4,657 -4,725 -3,719 -4,838 -707 = <strong>-18,646 張（大幅淨賣超）</strong></li><li>解讀：⚠️ 投信 5 天賣出近 1.9 萬張，力道相當大，是本次最重要的負面籌碼訊號</li></ul>
+<p><strong>自營商（6/1-6/5）：小幅偏多，影響有限</strong></p>
+<p><strong>籌碼小結（v1.2）：</strong></p>
+<ul><li>外資 6 月轉買（+11,808 張），但抵不過投信狂賣（-18,646 張）</li><li>整體 6 月 5 日合計仍為淨賣超（-5,107 張）</li><li>投信大量拋售的原因需進一步觀察（是基金贖回、獲利了結、還是對基本面轉向擔憂）</li><li>外資持股比例維持高位（約 77%+），並非撤退性出逃</li></ul>
+<hr>
+<h2>6. 同業比較</h2>
+<p>（沿用 v1.1 框架；股價數字已變動，此處標注比較時間點，建議重查最新價格）</p>
+<blockquote>力成（6239）、京元電子（2449）詳細數字未在本次重抓範圍，沿用 5/29 數據框架，精確比較請自行查詢最新。</blockquote>
+<p><strong>日月光在三大 OSAT 廠中的定位不變（v1.1 結論沿用）：</strong></p>
+<ul><li>唯一能同時受益於傳統封裝市占最大 + CoWoS 外溢 + FoCoS 自研放量 + SiP 消費電子的公司</li><li>PE 三者中仍最高（53.57x），但題材廣度最強</li></ul>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<p>（v1.2 更新：補充資本支出升至 85 億美元；其餘沿用 v1.1）</p>
+<h3>重要催化劑時間表（更新）</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th><th>v1.2 更新</th></tr></thead><tbody><tr><td><strong>資本支出升至最高 85 億美元</strong></td><td>⭐ 新確認</td><td>2026 全年執行</td><td><strong>高</strong></td><td>DigiTimes 4/30 報導，從 80 億升至 85 億</td></tr><tr><td>FoCoS 先進封裝放量出貨</td><td>已公告</td><td>2026 H2</td><td><strong>高</strong></td><td>沿用 v1.1</td></tr><tr><td>LEAP 目標達成確認（35 億美元+）</td><td>已公告</td><td>2026 全年逐季</td><td><strong>高</strong></td><td>沿用 v1.1</td></tr><tr><td>Q2 2026 財報（ATM 毛利率走向）</td><td>已確認</td><td>2026 年 8 月</td><td><strong>高</strong></td><td>沿用 v1.1</td></tr><tr><td>蘋果 iPhone SiP 備貨旺季</td><td>已確認</td><td>2026 Q3-Q4</td><td>中高</td><td>沿用 v1.1</td></tr><tr><td>矽品 CoW 廠房投產</td><td>已公告</td><td>2026-2027</td><td>中高</td><td>沿用 v1.1</td></tr><tr><td>NVIDIA Blackwell 次代出貨</td><td>進行中</td><td>2026-2027</td><td>高</td><td>沿用 v1.1</td></tr></tbody></table></div>
+<h3>近 5 天重要事件（v1.2 新增）</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>事件</th><th>影響</th></tr></thead><tbody><tr><td>2026/06/05</td><td>台股大盤急殺近 1,000 點（失守 45,000），日月光被動跟跌 2.7%</td><td>短線賣壓，非個股問題</td></tr><tr><td>2026/06/04</td><td>大盤暴跌 781 點（中東局勢升溫，外資爆砍逾 750 億元）</td><td>系統性風險事件</td></tr><tr><td>2026/06/03</td><td>日月光受邀 Citi Taiwan Tech Conference 法人說明會</td><td>中性，持續維繫外資關係</td></tr><tr><td>2026/06/03</td><td>子公司台灣福雷電子取得廠務工程（3 億元）</td><td>小額，繼續布建產能</td></tr><tr><td>2026/06/04</td><td>子公司環誠科技股東會定 6/29 召開</td><td>例行事項，無影響</td></tr><tr><td>2026/06/01</td><td>員工平均年薪 628.2 萬元，奪上市公司之冠（+40% YoY）</td><td>反映公司獲利回報員工，正面但不影響股價</td></tr><tr><td>2026-04/30</td><td>DigiTimes：ASE 2026 資本支出升至最高 85 億美元（先進封裝需求超預期）</td><td>長期正面</td></tr></tbody></table></div>
+<hr>
+<h2>8. 風險評估</h2>
+<p>（沿用 v1.1 框架，v1.2 調整「資本支出壓力」數字至 85 億美元；新增第 8 點：大盤系統性風險）</p>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th><th>可控性</th></tr></thead><tbody><tr><td><strong>台積電自建封裝搶回委外訂單</strong></td><td>中</td><td>高</td><td>台積電 CoWoS/SoIC 月產能快速擴張、主動宣布減少外包</td><td>不可控</td></tr><tr><td><strong>ATM 毛利率無法維持 25%+</strong></td><td>中</td><td>高</td><td>FoCoS 放量時程延後、傳統封裝價格競爭加劇</td><td>不可控</td></tr><tr><td><strong>85 億美元資本支出回收不如預期</strong></td><td>低中</td><td>高</td><td>AI 需求突然縮減、LEAP 目標下修</td><td>部分可控</td></tr><tr><td><strong>EMS 毛利率拖累整體</strong></td><td>高（結構性）</td><td>中</td><td>EMS 比重持續偏高</td><td>部分可控</td></tr><tr><td><strong>封裝景氣週期反轉（2022 教訓）</strong></td><td>中</td><td>高</td><td>月營收 YoY 轉負、ATM 稼動率下滑</td><td>不可控</td></tr><tr><td><strong>美中關稅/地緣政治</strong></td><td>中</td><td>中高</td><td>客戶移轉訂單、關稅追加</td><td>不可控</td></tr><tr><td><strong>投信持續大量賣超</strong></td><td>已發生</td><td>中</td><td>6 月投信 5 日賣超 1.9 萬張，若持續 2 週以上需提高警戒</td><td>可控（觀察時機）</td></tr><tr><td><strong>大盤系統性下跌（中東/地緣）</strong></td><td>中</td><td>中高</td><td>台股 6/4-6/5 已出現，若持續數週則壓制個股反彈空間</td><td>不可控</td></tr></tbody></table></div>
+<h3>最重要的 3 個風險（v1.2）</h3>
+<p><strong>1. 台積電自建封裝（最大長期威脅）</strong>（沿用 v1.1 全文）</p>
+<p>台積電正在積極發展自有先進封裝產能（CoWoS、SoIC、InFO），若台積電大幅減少委外，日月光 LEAP 業務的最大訂單來源將受到直接衝擊。目前台積電先進封裝仍供不應求，但 2027-2028 年後是需要密切觀察的時間點。</p>
+<p><strong>2. 投信大量賣超（v1.2 升級為第 2 大短線風險）</strong></p>
+<p>6 月以來投信 5 日賣超 18,646 張，力道遠超外資買超（11,808 張），造成淨賣超格局。投信通常代表台灣本土基金的中長線觀點，大量賣超若持續超過 2 週，需提高對股價下行的警惕。原因尚不明確（基金贖回 vs. 策略性減碼），需進一步觀察。</p>
+<p><strong>3. 高估值 + 高資本支出的雙重壓力</strong>（沿用 v1.1）</p>
+<p>現價 PE 53.57x 雖從 56.73x 下降，但仍位於歷史偏高水位。85 億美元資本支出（再度上修）在 2026-2027 年形成持續財務壓力。若 AI 需求成長速度不如預期，股價面臨「基本面故事打折 + 估值收縮」的雙殺風險。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>綜合判斷（v1.2）</h3>
+<div class="table-wrap"><table><thead><tr><th>維度</th><th>評分</th><th>v1.2 說明</th></tr></thead><tbody><tr><td>基本面</td><td>✅</td><td>Q1 EPS 年增 87%、ATM 毛利率 26% 創高、資本支出升至 85 億顯示訂單能見度高</td></tr><tr><td>財務面</td><td>✅</td><td>月營收 YoY 加速，Q2 財報待 8 月驗證</td></tr><tr><td>估值面</td><td>⚠️</td><td>PE 53.57x（改善），溢價 30%（從 37.6% 縮小），仍未進入進場區</td></tr><tr><td>技術面</td><td>⚠️</td><td>跌破 MA5，測試 MA10；短線偏弱，中長線多頭格局仍在</td></tr><tr><td>籌碼面</td><td>⚠️</td><td>外資轉買（+1.18 萬張），但投信大賣（-1.86 萬張），整體仍淨賣超</td></tr><tr><td>題材與催化劑</td><td>✅</td><td>資本支出升至 85 億確認、FoCoS H2 放量、LEAP 35 億+，題材能見度高</td></tr><tr><td>風險評估</td><td>⚠️</td><td>台積電自建+投信持續賣超+大盤系統性波動，三重壓力並存</td></tr></tbody></table></div>
+<hr>
+<p><strong>結論</strong>：觀望，等穩定信號</p>
+<p><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</p>
+<p><strong>建議倉位</strong>：若回調到進場區，建議 5-10% 分批布局</p>
+<p><strong>進場條件</strong>：</p>
+<ul><li><strong>理想進場區：430-480 元</strong>（估值錨定區，距現價還有 20-25% 空間）</li><li><strong>技術試水位：540-560 元</strong>（前提：大盤穩定 + 外資連 3 日淨買超 + 投信賣超明顯縮小）</li><li>目前 577 元：仍在觀察區，不宜追買</li></ul>
+<p><strong>停損參考</strong>：</p>
+<ul><li>技術停損：若已試水進場，跌破 MA20（約 560 元）需重新評估</li><li>主力停損：跌破 MA60（約 470 元），考慮出場</li><li>硬停損：進場成本 -15%</li></ul>
+<p><strong>加碼條件</strong>（沿用 v1.1）：</p>
+<ul><li>FoCoS H2 放量確認（有具體客戶量產新聞）</li><li>Q2 財報 ATM 毛利率維持 25%+、EPS 4 元以上</li></ul>
+<p><strong>觀察指標（每月追蹤）</strong>：</p>
+<ol><li>5 月月營收（預計 6/10 前公布）：YoY 是否維持 15%+</li><li>投信買賣超：是否在 2 週內停止大幅賣超（每日追蹤）</li><li>技術面 MA10 支撐（約 575 元）：守住 vs. 跌破</li><li>FoCoS 放量進度（法說會、新聞）</li><li>台積電 CoWoS 外溢訂單動向</li></ol>
+<p><strong>下次檢視</strong>：</p>
+<ul><li>短線：5 月月營收公布後（6/10 前）</li><li>中線：2026 年 8 月 Q2 財報公布後</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，封測代工業景氣週期性明顯、資本支出龐大，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<h3>v1.2 本次新抓（2026/06/05）</h3>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/3711.TW" target="_blank" rel="noopener">Yahoo 股市 - 日月光投控(3711)即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/3711.TW/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 - 日月光投控(3711)法人買賣超</a></li><li><a href="https://tw.stock.yahoo.com/quote/3711.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 日月光投控(3711)月營收</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE - 個股本益比/殖利率（BWIBBU_d）</a></li><li><a href="https://www.digitimes.com/news/a20260430PD210/ase-packaging-2026-demand-capex.html" target="_blank" rel="noopener">DigiTimes - ASE raises 2026 capex to record US$8.5 billion</a></li><li><a href="https://tw.stock.yahoo.com/news/" target="_blank" rel="noopener">Yahoo 股市新聞 - 台股暴跌失守38000 6/5</a></li><li><a href="https://vocus.cc/article/6a213f46fd89780001b1f3e6" target="_blank" rel="noopener">Vocus - 2026年6月4日-今日台股為何下跌</a></li></ul>
+<h3>v1.1 沿用來源</h3>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/3711.TW/eps" target="_blank" rel="noopener">Yahoo 股市 - 日月光投控(3711) EPS</a></li><li><a href="https://histock.tw/stock/3711/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank" rel="noopener">HiStock - 日月光投控 EPS 歷史</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E6%97%A5%E6%9C%88%E5%85%89-3711-%E5%81%9A%E4%BB%80%E9%BA%BC-%E6%B3%95%E8%AA%AA%E9%87%8D%E9%BB%9E%E6%9C%89%E5%93%AA%E4%BA%9B-Q1%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%983-24%E5%85%83%E5%89%B5%E6%AD%B7%E5%8F%B2%E5%90%8C%E6%9C%9F%E6%96%B0%E9%AB%98-%E6%B3%95%E8%AA%AA%E6%9C%83%E5%AE%A3%E5%B8%83%E8%B3%87%E6%9C%AC%E6%94%AF%E5%87%BA%E4%B8%8A%E8%AA%BF%E8%87%B3%E9%80%BE80%E5%84%84%E7%BE%8E%E5%85%83-LEAP%E7%9B%AE%E6%A8%99%E4%B8%8A%E4%BF%AE%E8%87%B335%E5%84%84%E7%BE%8E%E5%85%83%E4%BB%A5%E4%B8%8A-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69f1d1c2693c8f006c8ce67e" target="_blank" rel="noopener">豐雲學堂 - 日月光 2026 Q1 法說會重點（LEAP 35 億+、資本支出 80 億）</a></li><li><a href="https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=736706fa-5c4d-4345-bc30-299f74ee32e5" target="_blank" rel="noopener">MoneyDJ - 日月光投控Q1每股賺3.24元；Q2雙率續向上</a></li><li><a href="https://tw.stock.yahoo.com/quote/6239.TW" target="_blank" rel="noopener">Yahoo 股市 - 力成(6239)行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2449.TW" target="_blank" rel="noopener">Yahoo 股市 - 京元電子(2449)行情</a></li><li><a href="https://blog.growin.tv/advanced-packaging-stocks/" target="_blank" rel="noopener">先進封裝概念股 2026 攻略 - Growin Blog</a></li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>太空三檔比較分析：ASTS、RKLB、PL</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>太空三檔比較分析：ASTS、RKLB、PL</h1>
+</div>
+<div class="report-body">
+<h1>太空三檔比較分析：ASTS、RKLB、PL</h1>
+<blockquote>分析日期：2026-04-18</blockquote>
+<blockquote>數據快照：技術指標以 2026-04-17 收盤為基準；財務數據以各公司最新財報（FY2025/FY2026）為準</blockquote>
+<blockquote>分析師：Investment Advisor Agent</blockquote>
+<blockquote>適用對象：美股新手，偏穩健，美股資金約 3 萬台幣，可接受少量題材股配置</blockquote>
+<hr>
+<h2>免責聲明</h2>
+<p>以下分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>一、產業脈絡：太空經濟的三個切入點</h2>
+<p>「太空股」不是一個同質的族群，三檔其實代表太空經濟完全不同的商業模式：</p>
+<div class="table-wrap"><table><thead><tr><th>層次</th><th>比喻</th><th>ASTS</th><th>RKLB</th><th>PL</th></tr></thead><tbody><tr><td>商業模式</td><td>蓋路</td><td>把衛星當基地台打電話</td><td>造火箭幫別人送衛星</td><td>拍地球照片賣數據</td></tr><tr><td>收費方式</td><td>誰付錢</td><td>電信商（AT&T/Verizon）按月付</td><td>政府/商業客戶按發射收費</td><td>政府/企業按訂閱收費</td></tr><tr><td>產業位置</td><td>生態位</td><td>最終用戶服務層</td><td>基礎建設/運輸層</td><td>數據應用層</td></tr><tr><td>風險核心</td><td>核心挑戰</td><td>衛星能否按時佈建+網路能否商用</td><td>Neutron 大火箭能否成功首飛</td><td>能否從「賣照片」升級到「賣 AI 分析」</td></tr></tbody></table></div>
+<p><strong>產業大背景（白話）：</strong></p>
+<p>低軌衛星（LEO）是目前太空題材最熱的一塊。傳統衛星在 36,000 公里的高空，延遲高；LEO 衛星在 300~2,000 公里，延遲低、覆蓋廣。SpaceX 的 Starlink 已經驗證了這個市場的真實需求，帶動整個 LEO 衛星生態系的估值擴張。</p>
+<p>三檔都是「Starlink 周邊受惠者」，但切入方向不同：ASTS 要做「手機直連衛星」（不需要買 Starlink 天線），RKLB 要做「把別人的衛星送上去」，PL 則是「衛星已經上去了，現在要把數據賣出去」。</p>
+<hr>
+<h2>二、基本面速覽表</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>ASTS（AST SpaceMobile）</th><th>RKLB（Rocket Lab）</th><th>PL（Planet Labs）</th></tr></thead><tbody><tr><td><strong>市值</strong>（4/18）</td><td>$34.7B</td><td>$37.3B</td><td>$13.8B</td></tr><tr><td><strong>股價</strong>（4/17 收盤）</td><td>$85.53</td><td>$84.80</td><td>$38.48</td></tr><tr><td><strong>52 週區間</strong></td><td>$20.76 ~ $122.09</td><td>$18.65 ~ $96.30</td><td>$2.96 ~ $39.89</td></tr><tr><td><strong>在 52 週的位置</strong></td><td>63.9%（中段）</td><td>85.2%（高段）</td><td>96.2%（幾乎歷史高點）</td></tr><tr><td><strong>核心商業模式</strong></td><td>衛星直連手機通訊</td><td>火箭發射服務 + 衛星製造</td><td>地球觀測衛星數據訂閱</td></tr><tr><td><strong>主要客戶</strong></td><td>AT&T、Verizon、Vodafone 等 50+ 電信商</td><td>政府（NRO/SDA）+ 商業衛星客戶</td><td>NGA、NRO、德國政府、商業企業</td></tr><tr><td><strong>競爭對手</strong></td><td>SpaceX Starlink Direct-to-Cell</td><td>SpaceX Falcon 9、Blue Origin</td><td>Maxar、Airbus Defence</td></tr><tr><td><strong>護城河</strong></td><td>LEO 衛星通訊專利 + 電信商生態系</td><td>Electron 可重複發射 + 一站式服務</td><td>200+ 顆衛星艦隊 + 每日重訪頻率</td></tr></tbody></table></div>
+<hr>
+<h2>三、財務面比較</h2>
+<blockquote>數據來源：stockanalysis.com，各公司最新財年財報</blockquote>
+<h3>損益表比較</h3>
+<div class="table-wrap"><table><thead><tr><th>財務指標</th><th>ASTS（FY2025）</th><th>RKLB（FY2025）</th><th>PL（FY2026，截 2026-01）</th></tr></thead><tbody><tr><td><strong>年營收</strong></td><td>$70.9M</td><td>$601.8M</td><td>$307.7M</td></tr><tr><td><strong>YoY 成長</strong></td><td>+1,505%</td><td>+38%</td><td>+26%</td></tr><tr><td><strong>毛利率</strong></td><td>50.3%</td><td>34.4%</td><td>56.1%</td></tr><tr><td><strong>營業利益率</strong></td><td>-405.7%</td><td>-38.0%</td><td>-30.9%</td></tr><tr><td><strong>淨虧損</strong></td><td>-$341.9M</td><td>-$198.2M</td><td>-$246.9M</td></tr><tr><td><strong>EPS（TTM）</strong></td><td>-$1.34</td><td>-$0.37</td><td>-$0.80</td></tr></tbody></table></div>
+<p><strong>解讀（白話）：</strong></p>
+<ul><li>ASTS：營收從幾乎為零暴增，但背後是「賣設備給電信商」的一次性收入，尚未進入規模化訂閱；虧損金額巨大。</li><li>RKLB：三檔中唯一有真實規模營收（$602M），成長穩健，毛利率最低但最真實（火箭是重資產生意）。</li><li>PL：毛利率最高（56%），而且首次達成全年非 GAAP 盈利，是三檔中財務體質改善最明顯的。</li></ul>
+<h3>現金流與資產負債</h3>
+<div class="table-wrap"><table><thead><tr><th>財務指標</th><th>ASTS</th><th>RKLB</th><th>PL</th></tr></thead><tbody><tr><td><strong>自由現金流</strong></td><td>-$1,136M</td><td>-$321.8M</td><td>+$57.7M</td></tr><tr><td><strong>現金與短投</strong></td><td>$2,336M</td><td>$1,017M</td><td>$640.1M</td></tr><tr><td><strong>總負債</strong></td><td>$2,622M</td><td>$602.6M</td><td>$957.3M</td></tr><tr><td><strong>淨現金部位</strong></td><td>$2,336M - $2,240M 債務 ≈ +$96M</td><td>$1,017M - $254M 債務 ≈ +$763M</td><td>$640M - $462M 債務 ≈ +$178M</td></tr><tr><td><strong>燒錢速率（年化）</strong></td><td>~$1.1B/年</td><td>~$322M/年</td><td>轉正</td></tr><tr><td><strong>現金跑道估算</strong></td><td>~2 年（如果不再融資）</td><td>3+ 年</td><td>已轉正，無立即危機</td></tr></tbody></table></div>
+<p><strong>重要備注：</strong></p>
+<ul><li>ASTS 在 2026-02 發行 $10.75 億可轉換公司債（convertible note），為稀釋風險，股價當時跌近 10%。但公司宣稱現有流動性可支撐 100 顆衛星佈建。</li><li>RKLB 是三檔中負債結構最健康的（債務 $254M，現金 $1B，淨現金最多）。</li><li>PL FY2026 首次實現正自由現金流（$57.7M），意義重大——不再是純燒錢公司。</li></ul>
+<hr>
+<h2>四、估值面比較</h2>
+<blockquote>PS 比率 = 市值 ÷ 年營收；PE 皆 N/A（三檔均未獲利）</blockquote>
+<div class="table-wrap"><table><thead><tr><th>估值指標</th><th>ASTS</th><th>RKLB</th><th>PL</th></tr></thead><tbody><tr><td><strong>市值</strong></td><td>$34.7B</td><td>$37.3B</td><td>$13.8B</td></tr><tr><td><strong>年營收</strong></td><td>$70.9M</td><td>$601.8M</td><td>$307.7M</td></tr><tr><td><strong>PS 比率</strong></td><td><strong>~490x</strong></td><td><strong>~62x</strong></td><td><strong>~45x</strong></td></tr><tr><td><strong>分析師目標價</strong></td><td>$72.10（-16% 下行空間）</td><td>$80.08（-6% 下行空間）</td><td>$26.24（-32% 下行空間）</td></tr><tr><td><strong>分析師評級</strong></td><td>Hold（8 人）</td><td>Buy（14 人）</td><td>Buy（12 人）</td></tr><tr><td><strong>訂單積壓（Backlog）</strong></td><td>$1.2B 承諾合約</td><td>$1.85B</td><td>$900M+</td></tr><tr><td><strong>市值/Backlog</strong></td><td>28.9x</td><td>20.2x</td><td>15.3x</td></tr></tbody></table></div>
+<p><strong>PS 比率白話解釋：</strong> PS = 490x 意思是「你現在付出的錢，需要 ASTS 維持現在規模賣 490 年才能回本」。這個數字反映的完全是「未來期望值」，而不是現在的基本面。</p>
+<p><strong>估值結論：</strong></p>
+<ul><li>ASTS 的估值完全是故事驅動，沒有任何基本面支撐，需要 FY2027 營收達 $10 億的劇本才能合理化。</li><li>RKLB PS ~62x 仍然很貴，但在太空概念股中屬於相對有基本面支撐的定價。</li><li>PL PS ~45x 三檔最低，結合首次轉正的 FCF 和快速成長的 backlog，相對估值最合理。</li><li><strong>注意：分析師目標價全部低於現在股價</strong>，表示三檔目前都已超出分析師共識預期，短期有超買疑慮。</li></ul>
+<hr>
+<h2>五、技術面比較</h2>
+<blockquote>數據來源：technical_indicators.py 2026-04-17 收盤</blockquote>
+<div class="table-wrap"><table><thead><tr><th>技術指標</th><th>ASTS</th><th>RKLB</th><th>PL</th></tr></thead><tbody><tr><td><strong>收盤價（4/17）</strong></td><td>$85.53</td><td>$84.80</td><td>$38.48</td></tr><tr><td><strong>MA10</strong></td><td>$92.13</td><td>$72.20</td><td>$35.67</td></tr><tr><td><strong>MA20</strong></td><td>$89.12</td><td>$68.90</td><td>$33.86</td></tr><tr><td><strong>MA50</strong></td><td>$89.30</td><td>$70.10</td><td>$28.15</td></tr><tr><td><strong>股價 vs MA50</strong></td><td>-4.2%（跌破）</td><td>+21.0%（大幅高於）</td><td>+36.7%（大幅高於）</td></tr><tr><td><strong>均線排列</strong></td><td>糾結（短長均線交錯）</td><td>糾結（短長均線交錯）</td><td>多頭排列</td></tr><tr><td><strong>RSI（14）</strong></td><td>46.42（中性）</td><td>66.88（偏強）</td><td>63.78（偏強）</td></tr><tr><td><strong>KD（K/D）</strong></td><td>33.88 / 49.69</td><td>86.54 / 77.99</td><td>75.53 / 71.29</td></tr><tr><td><strong>KD 交叉信號</strong></td><td>死亡交叉（3 天前，中位）</td><td>無交叉</td><td>黃金交叉（1 天前，高檔）</td></tr><tr><td><strong>MACD 柱狀</strong></td><td>-0.21（轉負）</td><td>+2.16（強多）</td><td>+0.28（弱多）</td></tr><tr><td><strong>MA50/200 黃金交叉</strong></td><td>4 天前（4/13）</td><td>2 天前（4/15）</td><td>未形成</td></tr><tr><td><strong>技術評分</strong></td><td>-1.5（中性偏空）</td><td>+2.5（中性偏多）</td><td>+3.5（多頭）</td></tr></tbody></table></div>
+<p><strong>技術面解讀：</strong></p>
+<ul><li><strong>ASTS</strong>：短線 KD 死亡交叉、MACD 柱轉負，均線糾結，技術面偏弱。唯一亮點是 MA10/MA50 黃金交叉剛發生（4 天前），但後繼無力。</li><li><strong>RKLB</strong>：RSI 67 偏強、MACD 柱大幅正值、MA50/MA200 黃金交叉（2 天前），技術面最強，但 KD 已進超買區（K=86），注意回調風險。</li><li><strong>PL</strong>：均線多頭排列（最健康），KD 昨日黃金交叉（高檔，需注意）、MACD 正值，股價幾乎在 52 週新高（96.2%），技術分數最高但也已高度強勢。</li></ul>
+<hr>
+<h2>六、催化劑比較（未來 6-12 個月關鍵事件）</h2>
+<h3>ASTS — 催化劑清單</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>影響方向</th></tr></thead><tbody><tr><td>2026-04-19</td><td><strong>BlueBird 7 發射</strong>（確定日期）</td><td>正面（成功）/ 負面（失敗）</td></tr><tr><td>2026-H1</td><td>AT&T beta 衛星服務開放商業用戶</td><td>關鍵：第一波商用訂閱收入</td></tr><tr><td>2026 全年</td><td>目標再部署 45~60 顆衛星</td><td>佈建節奏是股價核心驅動</td></tr><tr><td>2026</td><td>FY2026 營收指引 $150-$200M</td><td>達標=股價支撐，未達=大跌</td></tr><tr><td>2027</td><td>管理層目標：營收 $1B</td><td>太激進，市場半信半疑</td></tr><tr><td>持續</td><td>STC Group $175M 預付款入帳節奏</td><td>現金流緩解燒錢壓力</td></tr></tbody></table></div>
+<h3>RKLB — 催化劑清單</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>影響方向</th></tr></thead><tbody><tr><td>2026-Q4</td><td><strong>Neutron 首飛</strong>（目前最新延後目標）</td><td>若成功，是 RKLB 故事的決定性時刻</td></tr><tr><td>2026 全年</td><td>Electron 49 顆積壓訂單消化</td><td>穩定現有現金流</td></tr><tr><td>2026</td><td>SDA $816M 衛星製造合約執行</td><td>占 Backlog $1.85B 的核心</td></tr><tr><td>2026</td><td>Q1 FY2026 財報（預計 4-5 月）</td><td>市場驗證成長動能是否延續</td></tr><tr><td>長期</td><td>Neutron 商業化 → 搶 SpaceX 中型發射市場</td><td>一旦成功是 10 倍以上的市場擴張</td></tr></tbody></table></div>
+<h3>PL — 催化劑清單</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>影響方向</th></tr></thead><tbody><tr><td>2026-Q1~Q2</td><td>Q4 FY2026 財報已出（+41% YoY，超預期）</td><td>已實現，動能延續</td></tr><tr><td>2026</td><td>德國政府 €240M 多年合約執行</td><td>長期穩定收入</td></tr><tr><td>2026-2027</td><td>Pelican-3/4 衛星（2025-11 已發射）數據商業化</td><td>升級解析度，提升客戶黏著度</td></tr><tr><td>2027</td><td>Google 合作：衛星搭載 TPU 進行太空 AI 運算</td><td>顛覆性催化劑，但時程尚早</td></tr><tr><td>持續</td><td>政府 D&I 訂單連續超預期成長（近期 +70% YoY）</td><td>最可見的短期動能</td></tr><tr><td>持續</td><td>Backlog $900M（YoY +79%），RPO $672M（YoY +361%）</td><td>未來收入能見度極高</td></tr></tbody></table></div>
+<hr>
+<h2>七、風險評估</h2>
+<h3>產業共通風險（三檔都有）</h3>
+<div class="table-wrap"><table><thead><tr><th>風險類型</th><th>說明</th></tr></thead><tbody><tr><td><strong>太空事故風險</strong></td><td>衛星發射失敗、在軌故障，直接影響股價（難以預測）</td></tr><tr><td><strong>SpaceX 競爭</strong></td><td>Starlink 的規模、成本優勢無可比擬，三檔都在 SpaceX 的陰影下</td></tr><tr><td><strong>宏觀利率敏感</strong></td><td>成長股對利率變化極敏感，Fed 轉鷹 = 估值壓縮</td></tr><tr><td><strong>地緣政治</strong></td><td>衛星頻段管制、出口管制、軍事合約政治風險</td></tr><tr><td><strong>流動性風險</strong></td><td>三檔均未獲利，持續依賴資本市場融資；市場環境惡化會傷很重</td></tr></tbody></table></div>
+<h3>各自獨特風險</h3>
+<p><strong>ASTS 獨特風險：</strong></p>
+<ul><li>稀釋風險：可轉換債 $10.75 億，若股價不夠高，轉股後大量稀釋現有股東</li><li>執行風險：目標 100 顆衛星，目前（2026-04）已入軌 ~6 顆，差距巨大</li><li>商用收入依賴單一假設：「電信商肯付訂閱費」的前提目前尚未大規模驗證</li><li>技術面偏弱，短線賣壓未完全消化</li></ul>
+<p><strong>RKLB 獨特風險：</strong></p>
+<ul><li>Neutron 火箭的技術研發風險（2026-01 才發現 tank 破裂，現在延到 Q4 2026）</li><li>若 Neutron 首飛再延，股價有大幅回調歷史先例</li><li>發射頻率低於預期會影響 Electron 現金流</li><li>目前 KD 超買（K=86），技術面有回調壓力</li></ul>
+<p><strong>PL 獨特風險：</strong></p>
+<ul><li>衛星使用壽命有限，需定期換代（Dove 系列壽命約 2-3 年）</li><li>股價近期暴漲（4/2 起 +35%），已在 52 週高點附近，追高風險高</li><li>股東權益快速縮水（$441M → $188M，下降 57%），財務結構仍脆弱</li><li>分析師目標價 $26.24 遠低於現價 $38-40，存在高估風險</li></ul>
+<hr>
+<h2>八、結論：如果只能選一檔，誰最值得觀察？</h2>
+<h3>三檔評分總表</h3>
+<div class="table-wrap"><table><thead><tr><th>評估維度（滿分 5）</th><th>ASTS</th><th>RKLB</th><th>PL</th></tr></thead><tbody><tr><td><strong>基本面成熟度</strong></td><td>⭐☆☆☆☆ 1/5</td><td>⭐⭐⭐☆☆ 3/5</td><td>⭐⭐⭐⭐☆ 4/5</td></tr><tr><td><strong>財務健康度</strong></td><td>⭐⭐☆☆☆ 2/5</td><td>⭐⭐⭐☆☆ 3/5</td><td>⭐⭐⭐☆☆ 3/5</td></tr><tr><td><strong>估值合理性</strong></td><td>⭐☆☆☆☆ 1/5</td><td>⭐⭐☆☆☆ 2/5</td><td>⭐⭐⭐☆☆ 3/5</td></tr><tr><td><strong>技術面</strong></td><td>⭐⭐☆☆☆ 2/5</td><td>⭐⭐⭐⭐☆ 4/5</td><td>⭐⭐⭐⭐☆ 4/5</td></tr><tr><td><strong>催化劑可見度</strong></td><td>⭐⭐⭐☆☆ 3/5</td><td>⭐⭐⭐⭐☆ 4/5</td><td>⭐⭐⭐⭐⭐ 5/5</td></tr><tr><td><strong>適合新手介入</strong></td><td>⭐☆☆☆☆ 1/5</td><td>⭐⭐⭐☆☆ 3/5</td><td>⭐⭐⭐☆☆ 3/5</td></tr><tr><td><strong>綜合信心度</strong></td><td>⭐⭐☆☆☆（2/5）</td><td>⭐⭐⭐☆☆（3/5）</td><td>⭐⭐⭐⭐☆（4/5）</td></tr></tbody></table></div>
+<h3>各檔一句話結論</h3>
+<ul><li><strong>ASTS ⭐⭐☆☆☆（2/5）</strong>：故事最宏大，但執行風險最高、估值最貴（PS 490x）、財務燒錢最嚴重，建立在「電信商革命」這個尚未驗證的假設上。2026-04-19 BlueBird 7 發射是短期催化劑，但明天發射不代表商用成功。<strong>目前：觀望。</strong></li></ul>
+<ul><li><strong>RKLB ⭐⭐⭐☆☆（3/5）</strong>：三檔中財務最健康（淨現金 $763M）、商業模式最成熟（火箭每次發射都有真實收入）、Backlog $1.85B 能見度最強；但 Neutron 延遲是揮之不去的風險，目前技術面 KD 超買。<strong>目前：等回調後觀察（KD 回到 60 以下）。</strong></li></ul>
+<ul><li><strong>PL ⭐⭐⭐⭐☆（4/5）</strong>：首次轉正 FCF、D&I 收入加速成長（+70% YoY）、Backlog YoY +79%、商業模式最接近 SaaS 的穩定訂閱型；缺點是股價已在 52 週高點附近，近期大漲後短線追高風險高。<strong>目前：等強勢整理後的第一個回踩買點。</strong></li></ul>
+<h3>如果只能選一檔</h3>
+<p><strong>推薦觀察：PL（Planet Labs）</strong></p>
+<p><strong>理由（按重要度排序）：</strong></p>
+<ol><li><strong>商業模式最清晰</strong>：PL 的收入來自「政府和企業訂閱衛星影像+AI 分析服務」，97% 是年度合約，可預測性最強。不像 ASTS 還在「賣設備」、RKLB 靠「每次發射」。</li></ol>
+<ol><li><strong>財務改善最有力</strong>：FY2026 首次實現正 FCF（$57.7M），Backlog $900M（YoY +79%），不再是純粹的燒錢公司。這是一個重要的質變。</li></ol>
+<ol><li><strong>AI 題材加持</strong>：從「賣衛星照片」升級為「AI 地理情報分析平台」，Google 合作 + NGA 合約 + Pelican 高解析衛星，故事升級了但又有真實訂單支撐。</li></ol>
+<ol><li><strong>估值三檔最合理</strong>：PS 45x，雖然仍然很貴，但跟 ASTS 的 490x 相比已接近「有邏輯可以算」的區間。</li></ol>
+<ol><li><strong>催化劑已在發酵中</strong>：Q4 FY2026 財報超預期（+41% YoY）、德國政府 €240M 合約、Morgan Stanley/Citi 相繼上調目標價。</li></ol>
+<p><strong>為什麼不選 RKLB？</strong> 理由只差在一點：Neutron 的延遲（現在推到 Q4 2026）給了 RKLB 估值的「時間成本」，而且目前技術面已超買；PL 的催化劑是「現在進行式」，RKLB 的大催化劑還要等。</p>
+<p><strong>為什麼不選 ASTS？</strong> PS 490x 且尚未進入規模化收入階段，對新手而言不確定性太高，虧損承受門檻超出穩健型配置範圍。</p>
+<hr>
+<h2>九、進場條件、停損、建議倉位</h2>
+<blockquote>前提：美股資金約 $1,000 USD（3 萬台幣），題材股最多配置 10-15%，即 $100-150 USD 以內。這三檔屬高波動題材股，任一檔都不宜超過整體倉位 5%。</blockquote>
+<h3>ASTS</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>建議</th></tr></thead><tbody><tr><td><strong>進場條件</strong></td><td>等 BlueBird 7 發射成功後 + AT&T beta 收入確認 + KD 回到 50 以下不破位</td></tr><tr><td><strong>進場區間</strong></td><td>$75-$80（跌回 MA50 附近，技術面回穩後）</td></tr><tr><td><strong>停損</strong></td><td>$68（跌破 MA100，-20% from entry）</td></tr><tr><td><strong>停利參考</strong></td><td>$105（前高 $122 的 85%，分批獲利）</td></tr><tr><td><strong>建議倉位</strong></td><td>不超過 3-4%（約 $30-40 USD）</td></tr><tr><td><strong>不進場條件</strong></td><td>BlueBird 7 失敗 / FY2026 指引下修 / 再度股權稀釋</td></tr></tbody></table></div>
+<h3>RKLB</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>建議</th></tr></thead><tbody><tr><td><strong>進場條件</strong></td><td>KD 回落至 60 以下 + 股價回測 MA20（$68-70 區間）不破 + Neutron 正面更新</td></tr><tr><td><strong>進場區間</strong></td><td>$68-$75（等回調，不追高）</td></tr><tr><td><strong>停損</strong></td><td>$60（跌破 MA50，均線糾結確認）</td></tr><tr><td><strong>停利參考</strong></td><td>$95-$100（接近 52 週高點，分批減碼）</td></tr><tr><td><strong>建議倉位</strong></td><td>不超過 4-5%（約 $40-50 USD）</td></tr><tr><td><strong>不進場條件</strong></td><td>Neutron 再度延遲公告 / Electron 發射失敗</td></tr></tbody></table></div>
+<h3>PL</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>建議</th></tr></thead><tbody><tr><td><strong>進場條件</strong></td><td>等近期急漲後第一個回踩 MA10（$35-36 區間）不破 + MACD 柱維持正值</td></tr><tr><td><strong>進場區間</strong></td><td>$34-$37（MA10 附近，強勢回踩）</td></tr><tr><td><strong>停損</strong></td><td>$30（跌破 MA20，均線排列破壞）</td></tr><tr><td><strong>停利參考</strong></td><td>$45-$50（分析師目標 $26 已落後現實，摩根史坦利上調 $35，但技術面可能更強）</td></tr><tr><td><strong>建議倉位</strong></td><td>不超過 4-5%（約 $40-50 USD）</td></tr><tr><td><strong>不進場條件</strong></td><td>防部/NGA 合約明顯縮減 / FY2027 指引大幅下修 / FCF 重新轉負</td></tr></tbody></table></div>
+<hr>
+<h2>十、數據快照與缺口說明</h2>
+<p><strong>數據快照日期：</strong> 2026-04-18</p>
+<p><strong>已確認數據（WebFetch 官方來源）：</strong></p>
+<ul><li>股價、市值、52 週區間（Yahoo Finance，4/17-4/18）</li><li>財務數據（stockanalysis.com，各公司最新財報）</li><li>技術指標（technical_indicators.py，4/17 收盤）</li></ul>
+<p><strong>數據缺口（無法取得或未取得）：</strong></p>
+<ul><li>ASTS 年 FY2023 收入（stockanalysis.com 未提供）</li><li>三檔 Forward PS 的官方共識預測值（Yahoo Finance financials 頁 503 無法抓取）</li><li>PB 比率（未成功抓取，三檔均在虧損狀態，PB 參考意義有限）</li><li>最新一季（Q1 2026）財報數字（RKLB、ASTS 尚未公布）</li></ul>
+<p><strong>注意事項：</strong></p>
+<ul><li>PL 的財年是 2 月結算（FY2026 = 截至 2026-01-31），所以 FY2026 已包含最新全年數字。</li><li>ASTS 和 RKLB 的財年是 12 月結算，FY2025 = 截至 2025-12-31，Q1 2026 財報尚未出。</li></ul>
+<hr>
+<p>*以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。*</p>
+</div>
+</body>
+</html>

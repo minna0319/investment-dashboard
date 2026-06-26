@@ -1,0 +1,12 @@
+# 敏感檔案
+.env
+*.env
+.env.*
+
+# 系統檔案
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc

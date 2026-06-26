@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>奇鋐科技（3017）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>奇鋐科技（3017）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>奇鋐科技（3017）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>主要更新</th></tr></thead><tbody><tr><td>v4.0</td><td>2026-06-05</td><td>更新 2026Q1 財報（EPS 20.17 創高、毛利率 29.77%）、5/14 法說會重點、Rubin 規格變更事件、最新股價技術面（腳本計算）、法人目標價大幅上修至 3,140～3,780 元</td></tr><tr><td>v3.0</td><td>2026-04-18</td><td>重建為正統九維度格式，更新 2026Q1 月營收、2025Q4 財報、技術指標、同業比較數據</td></tr><tr><td>v2.0</td><td>2026-04-11</td><td>涵蓋 2026Q1 最新月營收、GB300 出貨動態、技術面重新評估</td></tr><tr><td>v1.0</td><td>2026-03-04</td><td>初版個股分析</td></tr></tbody></table></div>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-06-05 14:30（台灣時間，已收盤）</td></tr><tr><td>台股市場狀態</td><td>已收盤</td></tr><tr><td>美股市場狀態</td><td>未開盤（台灣時間）</td></tr><tr><td>股價來源</td><td>Yahoo 股市 3017.TW（2026-06-05 收盤）</td></tr><tr><td>估值來源</td><td>TWSE BWIBBU_d（2026-06-05）</td></tr><tr><td>月營收來源</td><td>Yahoo 股市月營收頁（2026-06-05 抓取）</td></tr><tr><td>融資融券來源</td><td>TWSE MI_MARGN（2026-06-04 資料）</td></tr><tr><td>技術指標</td><td>technical_indicators.py 腳本計算（2026-06-05 收盤）</td></tr><tr><td>Q1 財報</td><td>2026-05-14 法說會公布，來源：工商時報、Yahoo 股市新聞</td></tr><tr><td>法人目標價</td><td>FactSet 分析師調查、大摩報告（WebSearch，非即時更新）</td></tr></tbody></table></div>
+<h2>結論</h2>
+<p>【持有】— Q1 財報創歷史新高、法人大幅上修目標價至 3,140 元，Rubin 規格調整造成短線震盪，但中長期液冷結構性需求未變，現價仍在法人目標價中樞下方，持有等待下半年 Rubin 放量更為合理。</p>
+<p>信心程度：⭐⭐⭐⭐☆（4/5）</p>
+<p>適合操作：中線波段，目標下半年 Rubin 放量確認後評估加碼</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司概覽</h3>
+<p><strong>奇鋐科技</strong>（上市，集中市場，代號 3017）是台灣散熱產業規模最大的廠商，主要生產散熱模組、伺服器機殼、工業用風扇，近年積極擴充液冷元件業務。2026Q1 伺服器與網通應用佔整體營收已達 66.4%，大幅超越去年同期的 45.5%，顯示業務重心快速向高毛利的 AI 伺服器散熱轉移。</p>
+<blockquote>📝 <strong>液冷（Liquid Cooling）</strong>：用冷卻液把熱量帶走的散熱技術，效率遠高於傳統風扇。AI 晶片功耗愈來愈高，風扇已不夠用，液冷是目前 AI 伺服器的標配方向。</blockquote>
+<h3>產品線</h3>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>說明</th><th>重要性</th></tr></thead><tbody><tr><td>氣冷散熱</td><td>風扇、散熱器、散熱模組</td><td>傳統主力，穩定現金流</td></tr><tr><td>液冷散熱</td><td>Cold Plate（水冷板）、CDU（冷卻液分配裝置）</td><td>高成長新引擎</td></tr><tr><td>伺服器機殼</td><td>AI 伺服器整機機箱解決方案</td><td>提升客單價</td></tr><tr><td>3D 均溫板（Vapor Chamber）</td><td>越南廠主力生產</td><td>高附加價值</td></tr></tbody></table></div>
+<blockquote>📝 <strong>CDU（Cooling Distribution Unit，冷卻液分配裝置）</strong>：液冷系統的核心設備，負責把冷卻液分配到每顆處理器。一台 AI 機架通常需要多套 CDU，單價高，是奇鋐毛利的重要來源。</blockquote>
+<blockquote>📝 <strong>Cold Plate（冷板）</strong>：直接貼在晶片上吸熱的金屬板，是液冷系統的第一關，奇鋐在 GB200/GB300 機架上市佔率 40～50%。</blockquote>
+<h3>競爭地位</h3>
+<ul><li>台股散熱族群規模最大，是少數能同時提供「機殼＋風扇＋散熱模組」整機熱管理方案的廠商</li><li>主要客戶涵蓋四大 CSP（Microsoft、AWS、Google、Meta 等雲端服務供應商）及伺服器 ODM 廠（廣達、緯穎）</li><li>GB200/GB300 水冷板市佔率 40～50%，供應鏈話語權強</li><li>積極開發兩相液冷技術，與多家 CSP 共同驗證，熱效率比單相液冷高約 15%</li><li>競爭對手：雙鴻（3324）、健策（3653）、富世達（6805）</li></ul>
+<blockquote>📝 <strong>CSP（Cloud Service Provider，雲端服務供應商）</strong>：微軟 Azure、亞馬遜 AWS、Google Cloud、Meta 這類提供雲端服務的大公司，也是全球 AI 伺服器採購的最大金主。</blockquote>
+<blockquote>📝 <strong>ODM（Original Design Manufacturer，原廠委託設計製造商）</strong>：廣達、緯穎這類公司，代 NVIDIA 或 CSP 設計並製造完整的 AI 伺服器，再銷售給最終客戶。</blockquote>
+<blockquote>📝 <strong>兩相液冷（Two-phase Liquid Cooling）</strong>：比一般液冷更進階的技術。冷卻液在吸熱後會汽化（從液態變氣態），帶走更多熱量後再冷凝回液態，循環效率更高。目前仍是前沿技術，正在與 CSP 驗證中。</blockquote>
+<p><strong>來源：</strong> Yahoo 股市新聞、工商時報 2026-05-14 法說會報導</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（2025Q4 ～ 2026Q2 最新）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收</th><th>月增率</th><th>年增率</th></tr></thead><tbody><tr><td>2026/04</td><td>156.31 億元</td><td>-13.24%</td><td>+71.62%</td></tr><tr><td>2026/03</td><td>180.17 億元</td><td>+28.54%</td><td>+111.72%</td></tr><tr><td>2026/02</td><td>140.17 億元</td><td>-17.56%</td><td>+74.74%</td></tr><tr><td>2026/01</td><td>170.03 億元</td><td>+21.96%</td><td>+150.01%</td></tr><tr><td>2025/12</td><td>139.41 億元</td><td>-19.80%</td><td>+110.24%</td></tr><tr><td>2025/11</td><td>173.82 億元</td><td>+5.66%</td><td>+141.69%</td></tr></tbody></table></div>
+<blockquote>2026Q1 累計營收 490.38 億元，年增 110.17%。</blockquote>
+<blockquote>2026/04 月減 13.24% 是受 Rubin 規格調整短期拉貨節奏放緩影響（詳見維度 7/8），年增率 71.62% 仍強勁。</blockquote>
+<p><strong>來源：</strong> Yahoo 股市 3017.TW 月營收頁（2026-06-05 抓取）</p>
+<h3>2026Q1 財報（2026-05-14 法說會公布）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>2026Q1</th><th>說明</th></tr></thead><tbody><tr><td>合併營收</td><td>490.38 億元</td><td>季增 2.6%、年增 110.17%</td></tr><tr><td>毛利率</td><td>29.77%</td><td>季增 3.4 個百分點、年增 4 個百分點</td></tr><tr><td>稅後淨利</td><td>79.16 億元</td><td>季增 19%、年增 146%</td></tr><tr><td>EPS</td><td>20.17 元</td><td>創單季歷史新高</td></tr></tbody></table></div>
+<blockquote>📝 <strong>EPS（每股盈餘）</strong>：公司賺的錢平均分到每張股票的那份。Q1 單季就賺了 20.17 元，換算年化已超過 80 元，超出市場先前預期。</blockquote>
+<blockquote>📝 <strong>毛利率</strong>：賣東西扣掉直接成本（材料、製造）後剩下的比例。從 2025Q4 的 26.4% 跳升到 2026Q1 的 29.77%，代表高毛利的液冷產品佔比提升，產品組合在改善。</blockquote>
+<h3>EPS 歷史趨勢（近 9 季）</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>2024Q1</th><th>2024Q2</th><th>2024Q3</th><th>2024Q4</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th><th>2025Q4</th><th>2026Q1</th></tr></thead><tbody><tr><td>EPS（元）</td><td>4.08</td><td>5.08</td><td>6.02</td><td>6.03</td><td>8.28</td><td>—</td><td>—</td><td>16.92</td><td>20.17</td></tr></tbody></table></div>
+<blockquote>注：2025Q2/Q3 數字尚未從官方來源確認，以「—」標示。2025 全年 EPS 49.17 元（Yahoo 股市新聞）。</blockquote>
+<h3>全年展望</h3>
+<ul><li>公司 5/14 法說會確認：2026 全年營收與獲利預期<strong>逐季成長</strong>，下半年優於上半年</li><li>分析師 FactSet 調查 19 位，2026E EPS 預估中位數為 93.75 元</li></ul>
+<blockquote>📝 <strong>FactSet</strong>：國際金融數據服務商，彙整各大投行分析師對同一家公司的預估數字，是觀察法人共識的重要指標。</blockquote>
+<h3>財務健康評估</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>評估</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>強勁成長（逐季加速，2026Q1 創歷史新高）</td></tr><tr><td>月營收趨勢</td><td>成長（年增率維持 70-150%，4 月受 Rubin 調整短暫放緩）</td></tr><tr><td>毛利率趨勢</td><td>改善（29.77% 為歷史高位，產品組合向液冷轉型）</td></tr><tr><td>財務體質</td><td>⚠️ 最新負債比未取得，歷史體質良好</td></tr><tr><td>自由現金流</td><td>⚠️ 未取得即時數字，擴廠期持續觀察</td></tr></tbody></table></div>
+<p><strong>來源：</strong> 工商時報 2026-05-14 法說會報導、Yahoo 股市新聞、Yahoo 月營收頁</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>即時估值數據（2026-06-05 收盤）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>奇鋐 3017</th><th>備註</th></tr></thead><tbody><tr><td>股價</td><td>2,600 元</td><td>Yahoo 股市收盤，跌 4.06%</td></tr><tr><td>本益比（PE）</td><td>42.72 倍</td><td>TWSE BWIBBU_d（2026-06-05）</td></tr><tr><td>股價淨值比（PBR）</td><td>22.60 倍</td><td>TWSE BWIBBU_d（2026-06-05）</td></tr><tr><td>殖利率</td><td>0.81%</td><td>TWSE BWIBBU_d（2026-06-05）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>本益比（PE，Price to Earnings）</strong>：現在的股價相當於幾年的公司獲利。42.72 倍表示用現在股價買，要等 42.72 年的獲利才能回本（如果獲利不變的話）。成長股通常接受更高 PE，因為未來獲利預期大幅增加。</blockquote>
+<blockquote>📝 <strong>股價淨值比（PBR，Price to Book Ratio）</strong>：股價是公司帳面資產的幾倍。22.6 倍表示市場願意用帳面價值 22.6 倍的高價買這家公司，代表對其未來成長非常樂觀，但同時也代表風險偏高。</blockquote>
+<h3>估值評估</h3>
+<p><strong>以 2026E EPS 93.75 元（FactSet 共識）計算：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>估值方法</th><th>說明</th><th>合理價</th></tr></thead><tbody><tr><td>歷史 PE 法（保守）</td><td>Trailing EPS 49.17 × 歷史 PE 25 倍</td><td>約 1,229 元（已大幅低於現價，不適用成長股）</td></tr><tr><td>Forward PE 法（成長溢價）</td><td>2026E EPS 93.75 × PE 30 倍</td><td>約 2,813 元</td></tr><tr><td>Forward PE 法（高估值）</td><td>2026E EPS 93.75 × PE 35 倍</td><td>約 3,281 元</td></tr></tbody></table></div>
+<blockquote>📝 <strong>Forward PE（預估本益比）</strong>：用「未來預估獲利」來算本益比，而不是用過去已實現的獲利。成長股常用這個方式估值，因為過去的獲利已不代表未來。</blockquote>
+<blockquote>📝 <strong>Trailing EPS（歷史 EPS）</strong>：用過去 12 個月實際已實現的每股盈餘算出來的本益比。對快速成長公司而言，往往會顯得「貴」，因為它跟不上成長速度。</blockquote>
+<p><strong>法人目標價彙整（來源：WebSearch，非即時更新）：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>機構</th><th>最新目標價</th><th>評等</th></tr></thead><tbody><tr><td>摩根士丹利（大摩）</td><td>3,333 元</td><td>優於大盤</td></tr><tr><td>FactSet 分析師共識（19 位）</td><td>3,140 元</td><td>—</td></tr><tr><td>CMoney 法人報告</td><td>3,780 元</td><td>—</td></tr></tbody></table></div>
+<blockquote>現股價 2,600 元相對 FactSet 共識目標價 3,140 元，<strong>仍有約 20.8% 上行空間</strong>。相較 v3.0 分析時股價 2,400 元超越所有目標價的情況，法人目標價已大幅上修，現在股價反而回到目標價以下。</blockquote>
+<p><strong>估值小結：</strong></p>
+<ul><li>以 Forward PE 30 倍估算合理價約 2,813 元，現價 2,600 元略低於此水位，估值已不像 4 月高點 3,010 元時那麼緊張</li><li>若 2026E EPS 達 93.75 元並給予 35 倍 PE，目標 3,281 元，距現價有 26% 空間</li><li>估值風險轉為「中性偏合理」，市場已部分消化 Rubin 規格調整的利空</li></ul>
+<p><strong>來源：</strong> TWSE BWIBBU_d、Yahoo 股市新聞、FactSet 共識報導（今日 LINE TODAY）</p>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>以下數據由 technical_indicators.py 腳本計算（2026-06-05 收盤）</blockquote>
+<h3>股價位置</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>收盤</td><td>2,600 元（跌 4.06%，跌 110 元）</td></tr><tr><td>開盤 / 最高 / 最低</td><td>2,680 / 2,680 / 2,505 元</td></tr><tr><td>52 週高點</td><td>2,945 元</td></tr><tr><td>52 週低點</td><td>597.77 元（yfinance）</td></tr><tr><td>52 週位置</td><td>85.3%（仍屬高位，但較 4/18 的 98.1% 已明顯回落）</td></tr></tbody></table></div>
+<h3>均線系統</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>股價 vs 均線</th></tr></thead><tbody><tr><td>MA5</td><td>2,730 元</td><td>股價 <strong>跌破</strong> MA5（-4.8%）</td></tr><tr><td>MA10</td><td>2,689.5 元</td><td>股價 <strong>跌破</strong> MA10（-3.3%）</td></tr><tr><td>MA20</td><td>2,587.25 元</td><td>股價在 MA20 <strong>上方</strong>（+0.5%，危臨支撐）</td></tr><tr><td>MA60（季線）</td><td>2,396.5 元</td><td>股價在季線上方（+8.5%）</td></tr><tr><td>MA120</td><td>1,943.17 元</td><td>股價在 MA120 上方（+33.8%）</td></tr><tr><td>MA240（年線）</td><td>1,495.66 元</td><td>股價在年線上方（+73.8%）</td></tr><tr><td>均線排列</td><td>多頭排列（MA5 > MA10 > MA20 > MA60 > MA120 > MA240）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>均線多頭排列</strong>：短期均線（MA5）在長期均線（MA240）上方，代表整體趨勢仍向上。但今日股價已跌破 MA5 和 MA10，MA20（2,587 元）是近期關鍵支撐。</blockquote>
+<h3>動能指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>RSI14</td><td>50.51</td><td>中性區間，多空均可</td></tr><tr><td>KD — K 值</td><td>48.12</td><td>中位，往下走</td></tr><tr><td>KD — D 值</td><td>59.55</td><td>—</td></tr><tr><td>KD 交叉</td><td>死亡交叉（1 天前，K=61.9，中位區）</td><td>賣出參考訊號</td></tr><tr><td>MACD 柱狀</td><td>+2.65（正值）</td><td>零軸上方，仍多頭格局</td></tr><tr><td>黃金交叉</td><td>7 天前（2026-05-27）偵測到</td><td>短線轉多訊號，但今日死亡交叉削弱效力</td></tr></tbody></table></div>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：K 線從上方穿越 D 線往下，傳統上視為賣出參考訊號，和黃金交叉相反。今天剛形成死亡交叉（1 天前），代表短線動能轉弱，但因在中位區（非超買區）發生，殺傷力較有限。</blockquote>
+<blockquote>📝 <strong>MACD（移動平均匯聚/散離指標）</strong>：衡量中短期趨勢動能。柱狀值為正（+2.65）代表上漲動能仍大於下跌動能，但數值已從高點縮小，需持續觀察。</blockquote>
+<p><strong>技術綜合評分：中性偏多（1.5 / 5.0）</strong></p>
+<p>詳細評分明細：</p>
+<ul><li>KD 死亡交叉（中位）：-1</li><li>MACD 柱狀正值：+1</li><li>均線多頭排列：+1</li><li>黃金交叉（7 天前）：+0.5</li></ul>
+<p><strong>技術面小結：</strong> 均線多頭排列完整，但今日 KD 剛形成死亡交叉、股價跌破 MA5/MA10，MA20（2,587 元）是近期最重要支撐。若收盤守住 MA20 且 MACD 柱狀維持正值，多頭結構完整；若跌破 MA20，則可能測試季線 2,396 元。</p>
+<p><strong>來源：</strong> technical_indicators.py 腳本計算（yfinance 數據，2026-06-05）</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>融資融券（2026-06-04 資料）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>變化</th></tr></thead><tbody><tr><td>融資餘額</td><td>4,242 張</td><td>+155 張（增加）</td></tr><tr><td>融券餘額</td><td>26 張</td><td>-8 張（減少）</td></tr><tr><td>融資券比（借買/借賣）</td><td>約 163:1</td><td>大幅偏向融資</td></tr></tbody></table></div>
+<blockquote>📝 <strong>融資</strong>：跟券商借錢買股票。融資餘額增加（+155 張）代表散戶看多意願增強，但同時意味槓桿風險提升——若股價繼續跌，可能觸發斷頭（被強制賣出）。</blockquote>
+<blockquote>📝 <strong>融券</strong>：借股票來賣（做空，賭股票會跌）。餘額只剩 26 張且持續減少，表示空方幾乎不存在，股票是純靠多方力量推動。</blockquote>
+<h3>三大法人（2026-06-05 全市場）</h3>
+<p>全市場今日數據：</p>
+<ul><li>外資：賣超 826.3 億元</li><li>投信：買超 9.6 億元</li><li>自營商：賣超 284.3 億元</li></ul>
+<blockquote>❌ 奇鋐 3017 個股法人買賣超張數：未取得（TWSE BFI82U 僅提供全市場彙總，個股數據建議至 CMoney 或 Goodinfo 查詢）</blockquote>
+<h3>籌碼面解讀</h3>
+<ul><li>融資持續增加（+155 張），散戶看多意願升溫，但也代表槓桿風險累積</li><li>融券極低（26 張），空方幾乎放棄，「軋空」行情難以形成</li><li>今日大盤外資大賣超 826 億，屬系統性賣壓，個股難以抵擋</li><li>整體籌碼仍以多方為主，但散戶槓桿比例需留意</li></ul>
+<p><strong>來源：</strong> TWSE MI_MARGN（融資融券）、TWSE BFI82U（三大法人全市場）</p>
+<hr>
+<h2>6. 同業比較</h2>
+<h3>散熱族群四強（2026-06-05）</h3>
+<blockquote>以下同業數據為 v3.0（2026-04-17）版本資料，已過時；奇鋐本身數據已更新為今日最新。同業比較僅供趨勢方向參考，數字請至 TWSE BWIBBU_d 或 Yahoo 股市覆核。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>奇鋐 3017</th><th>雙鴻 3324</th><th>健策 3653</th><th>備註</th></tr></thead><tbody><tr><td>股價（元）</td><td>2,600</td><td>⚠️ 舊數據</td><td>⚠️ 舊數據</td><td>奇鋐為 6/5 最新</td></tr><tr><td>本益比（PE）</td><td>42.72 倍</td><td>⚠️ 待更新</td><td>⚠️ 待更新</td><td>—</td></tr><tr><td>股價淨值比（PBR）</td><td>22.60 倍</td><td>⚠️ 待更新</td><td>⚠️ 待更新</td><td>—</td></tr><tr><td>殖利率</td><td>0.81%</td><td>⚠️ 待更新</td><td>⚠️ 待更新</td><td>—</td></tr><tr><td>2026/04 月營收</td><td>156.31 億</td><td>⚠️ 未抓取</td><td>⚠️ 未抓取</td><td>—</td></tr><tr><td>2026/04 年增率</td><td>+71.62%</td><td>⚠️ 未抓取</td><td>⚠️ 未抓取</td><td>—</td></tr></tbody></table></div>
+<h3>同業比較定性分析</h3>
+<p><strong>規模優勢：奇鋐最大，壁壘最高。</strong></p>
+<p>奇鋐 2026/04 月營收 156 億元仍遠超同業（雙鴻、健策、高力均在 20-40 億元量級），整機解決方案（機殼＋散熱整合）能力讓競爭對手難以複製。</p>
+<p><strong>Rubin 事件衝擊比較：</strong></p>
+<ul><li>健策（3653）受 Rubin 鍍金製程可能取消衝擊更大，5 月初曾連吞跌停，7 天跌幅超過 30%</li><li>奇鋐業務較分散（氣冷＋液冷＋機殼），衝擊相對健策較小</li><li>雙鴻同樣受影響但程度居中</li></ul>
+<p><strong>中長期競爭力排序（質性判斷）：</strong></p>
+<p>若追求<strong>規模與整體方案能力</strong> → 奇鋐最強</p>
+<p>若追求<strong>高彈性高成長</strong> → 雙鴻或健策（基期較低，彈性較大）</p>
+<p>若在意<strong>估值相對便宜</strong> → 需待同業數據更新後比較</p>
+<p><strong>來源：</strong> 財報狗新聞、今周刊 2026-05-08 報導、奇鋐 Yahoo 月營收頁</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>核心題材</h3>
+<p><strong>1. NVIDIA GB300 全液冷架構持續放量</strong></p>
+<ul><li>奇鋐在 GB200/GB300 水冷板市佔率 40～50%</li><li>2026Q1 驗證成功：490.38 億元、年增 110%</li></ul>
+<blockquote>📝 <strong>GB300（Grace Blackwell 300 系列）</strong>：NVIDIA 2025-2026 年的主力 AI 運算平台。採用全液冷架構，散熱需求比前代大幅提升，是奇鋐 2026 年業績爆發的直接驅動力。</blockquote>
+<p><strong>2. Vera Rubin 平台——中長期最大催化劑</strong></p>
+<ul><li>機櫃種類大幅增加（VR NVL72、Groq 3 LPX、Vera CPU 機櫃、Bluefield 4 儲存機櫃、Spectrum-X CPO 交換器機櫃），全採液冷設計</li><li>法人預估每套機櫃液冷系統價值從 GB300 的 350 萬美元提升至 Rubin 的 630～650 萬美元，增幅超 50%</li></ul>
+<blockquote>📝 <strong>Vera Rubin（VR）</strong>：NVIDIA 下一代 AI 平台，預計 2026 下半年開始放量。因功耗更高，整個平台強制採用液冷，代表散熱組件需求量和單價同步提升。</blockquote>
+<blockquote>📝 <strong>VR NVL72</strong>：Vera Rubin 的核心 AI 運算機架，72 顆 GPU 擠在一個機架裡，散熱挑戰極高，液冷是唯一選項。</blockquote>
+<p><strong>3. Rubin 規格調整事件（短期利空已浮現）</strong></p>
+<ul><li>5 月初傳出 NVIDIA Rubin GPU 均熱片設計可能從雙片式改回單片式，並取消鍍金製程</li><li>單顆零件 ASP（平均售價）可能從 150 美元跌至 50 美元</li><li>造成奇鋐從 4/27 高點 3,010 元到 5/6 跌至 2,435 元，7 天修正約 20%</li></ul>
+<blockquote>📝 <strong>ASP（Average Selling Price，平均售價）</strong>：每個零件賣出去的平均價格。Rubin 規格改變傳言讓市場擔心奇鋐的散熱零件賣得比預期便宜，進而影響毛利。</blockquote>
+<blockquote>⚠️ 重要說明：雖然單零件 ASP 可能下降，但 Rubin 機櫃總液冷需求金額反而更高（因為機櫃種類增加、每台機架散熱總量更大），中長期影響相對有限。</blockquote>
+<p><strong>4. 兩相液冷技術開發</strong></p>
+<ul><li>正與多家 CSP 共同驗證，效率比單相高 15%</li><li>若量產成功，可能成為下一輪高毛利業務</li></ul>
+<p><strong>5. 越南廠擴產（持續進行中）</strong></p>
+<ul><li>3D 均溫板及液冷元件主力產地</li><li>擴廠支撐出貨能力，但越南關稅風險仍存在</li></ul>
+<h3>催化事件時間表</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>預期影響</th></tr></thead><tbody><tr><td>2026/06（本月）</td><td>5 月月營收公布（約 10 日）</td><td>確認 Rubin 調整後實際影響幅度</td></tr><tr><td>2026 Q2</td><td>季報公布</td><td>確認毛利率能否守住 29% 以上</td></tr><tr><td>2026 下半年</td><td>Vera Rubin VR NVL72 正式放量</td><td>下一輪業績加速的關鍵</td></tr><tr><td>2026 年底</td><td>越南廠擴產完成</td><td>產能瓶頸解除，支撐 Rubin 出貨</td></tr><tr><td>2027</td><td>兩相液冷量產驗證</td><td>若成功，帶動毛利率再上台階</td></tr></tbody></table></div>
+<p><strong>來源：</strong> 今周刊 2026-05-08 報導、財報狗新聞、鉅亨網、Yahoo 股市新聞</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險因素</th><th>說明</th><th>嚴重度</th><th>機率</th></tr></thead><tbody><tr><td>Rubin 規格調整</td><td>均熱片從雙片改單片、取消鍍金，ASP 大幅下降，Q2/Q3 月營收可能短暫放緩</td><td>中高</td><td>中高（傳聞已有跌價）</td></tr><tr><td>越南廠關稅</td><td>美國對越南加徵關稅已落地（部分商品），電子散熱產品進一步列入 301 條款風險</td><td>中高</td><td>中</td></tr><tr><td>CSP 資本支出削減</td><td>微軟、AWS 若削減 AI 投入，拉貨立竿見影受影響</td><td>高</td><td>低（目前 CSP 持續擴大 AI 投資）</td></tr><tr><td>競爭加劇</td><td>雙鴻、健策、富世達積極搶液冷訂單，毛利率有壓縮風險</td><td>中</td><td>中</td></tr><tr><td>技術性高位</td><td>52 週位置 85.3%，KD 剛死亡交叉，短線仍有向下測試支撐的壓力</td><td>中</td><td>中高</td></tr><tr><td>高估值風險</td><td>PE 42 倍、PBR 22 倍，一旦 AI 需求預期下修，估值壓縮幅度大</td><td>高</td><td>低中</td></tr><tr><td>Rubin 放量延遲</td><td>若 Rubin 量產時間延後，下半年業績成長不如預期</td><td>中高</td><td>低中</td></tr></tbody></table></div>
+<h3>主要風險詳解</h3>
+<p><strong>最大短期風險：Rubin 規格調整消化尚未結束</strong></p>
+<p>5 月傳出的 Rubin 均熱片設計改變，讓奇鋐股價從 3,010 元高點快速修正 20% 至 2,435 元，目前股價 2,600 元仍在消化期。2026/05 月營收（預計 6 月 10 日前公布）是最重要的短期觀察點——若維持 150 億以上，代表影響有限；若低於 140 億，市場可能進一步修正預期。</p>
+<p><strong>次要風險：越南廠關稅</strong></p>
+<p>美越關稅問題持續存在，奇鋐大量產能在越南。目前管理層尚未公開說明具體因應方案，建議法說會追問。</p>
+<p><strong>技術性風險：MA20 守不住的情境</strong></p>
+<p>今日收盤 2,600 元，恰在 MA20（2,587 元）附近。若明日跌破 MA20 並收盤在下方，下一個支撐在季線 MA60（2,396 元），技術面壓力增大。</p>
+<p><strong>長期風險（低但需監控）：AI 資本支出週期轉折</strong></p>
+<p>若 CSP 因 AI 商業化不如預期而削減資本支出，奇鋐訂單動能可能急速煞車。目前尚無此跡象，但屬於「尾部風險」需長期追蹤。</p>
+<p><strong>來源：</strong> 今周刊 2026-05-06 報導（健策/奇鋐跌停分析）、CMoney 散熱三雄 Rubin 衝擊報導</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：持有</li><li><strong>信心程度</strong>：⭐⭐⭐⭐☆（4/5）</li><li><strong>建議倉位</strong>：不超過總資金 10%（散熱屬高波動 AI 題材，單一個股不宜過重）</li></ul>
+<h3>進場條件</h3>
+<p><strong>已持有者（持有邏輯確認）：</strong></p>
+<ul><li>現價 2,600 元在 MA20（2,587 元）附近，若能守住 MA20 且 5 月月營收 ≥ 150 億，持有邏輯完整</li><li>持有目標：待 Rubin 正式放量確認（預計 Q3）後重新評估是否加碼</li></ul>
+<p><strong>若想加碼或新進場：</strong></p>
+<ul><li>條件 A（技術面回穩）：股價回測 MA20（2,587 元）且守住，同時 KD 止跌回升至 50 以上</li><li>條件 B（月營收驗證）：2026/05 月營收公布 ≥ 150 億，確認 Rubin 調整影響有限</li><li>條件 C（季線回測）：若股價繼續修正至季線 MA60（2,396 元）且量縮守穩，代表技術洗盤完成，是更好的加碼點（比現在更低的風險進場）</li></ul>
+<h3>停損參考</h3>
+<div class="table-wrap"><table><thead><tr><th>停損情境</th><th>觸發條件</th><th>建議動作</th></tr></thead><tbody><tr><td>短線停損</td><td>跌破 MA20（2,587 元）且收盤在下方</td><td>考慮減碼 30%，觀察季線支撐</td></tr><tr><td>中線停損</td><td>跌破季線 MA60（2,396 元）且收盤在下方</td><td>考慮再減碼，只留核心倉位</td></tr><tr><td>硬停損</td><td>跌破 2,200 元（前期整理區）</td><td>出清停損，等重新評估</td></tr></tbody></table></div>
+<h3>加碼條件</h3>
+<ol><li>2026/05 月營收 ≥ 150 億（6 月 10 日前公布）</li><li>外資對散熱族群轉為連續 3 日買超</li><li>Rubin VR NVL72 正式量產確認消息</li></ol>
+<h3>觀察指標</h3>
+<ol><li><strong>最重要（本月）</strong>：2026/05 月營收（約 6 月 10 日公布）——確認 Rubin 調整影響幅度</li><li><strong>技術面</strong>：MA20（2,587 元）能否守住，或季線（2,396 元）是否提供支撐</li><li><strong>基本面</strong>：2026Q2 季報毛利率能否守住 28% 以上</li><li><strong>題材面</strong>：Rubin VR NVL72 正式出貨時間確認</li><li><strong>風險監控</strong>：越南廠關稅是否進一步擴大範圍</li><li><strong>籌碼面</strong>：外資對散熱族群買賣超方向</li></ol>
+<h3>下次檢視</h3>
+<p><strong>2026 年 6 月 10 日前</strong>（2026/05 月營收公布後）——這是本次分析最關鍵的短期觀察點</p>
+<blockquote>對於新手 Minna：奇鋐現在的情況是「好公司遇到短期雜音」——Rubin 規格調整是真實的短期利空，但中長期液冷需求的方向沒有改變。現在股價從高點 3,010 元修正了約 14%，估值比 4 月更合理。持有的邏輯是：基本面還在（Q1 創高）、法人目標價比現在還高（3,140 元）、Rubin 放量是下半年的故事。停損放在季線（2,396 元），若跌到那裡代表市場對奇鋐的看法已經改變，要認輸不手軟。</blockquote>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/3017.TW" target="_blank" rel="noopener">Yahoo 股市 - 奇鋐 3017.TW 即時行情（2026-06-05）</a></li><li><a href="https://tw.stock.yahoo.com/quote/3017.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 奇鋐月營收（2026-06-05 抓取）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE BWIBBU_d - 全市場 PE/PBR/殖利率（2026-06-05）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?response=json&selectType=ALL" target="_blank" rel="noopener">TWSE MI_MARGN - 融資融券（2026-06-04）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/fund/BFI82U?response=json&type=day" target="_blank" rel="noopener">TWSE BFI82U - 三大法人全市場（2026-06-05）</a></li><li><a href="https://tw.stock.yahoo.com/news/%E5%A5%87%E9%8B%90q1%E8%B3%BA20-17%E5%85%83%E5%89%B5%E9%AB%98-%E4%BB%8A%E5%B9%B4%E7%87%9F%E6%94%B6-%E7%8D%B2%E5%88%A9%E7%9A%86%E7%9C%8B%E9%80%90%E5%AD%A3%E5%A2%9E-085400172.html" target="_blank" rel="noopener">工商時報 - 奇鋐 Q1 賺 20.17 元創高，今年營收/獲利皆看逐季增</a></li><li><a href="https://tw.stock.yahoo.com/news/%E5%A4%A7%E6%91%A9%E5%87%BA%E6%89%8B-%E6%95%A3%E7%86%B1%E5%A4%A7%E5%BB%A0-q1%E6%AF%8F%E8%82%A1%E5%A4%A7%E8%B3%BA20-17%E5%85%83-%E7%9B%AE%E6%A8%99%E5%83%B9%E5%96%8A%E4%B8%8A3333%E5%85%83-001500209.html" target="_blank" rel="noopener">大摩出手！散熱大廠 Q1 每股大賺 20.17 元，目標價喊上 3,333 元</a></li><li><a href="https://today.line.me/tw/v3/article/kEoVzXo" target="_blank" rel="noopener">鉅亨速報 - FactSet 最新調查：奇鋐 EPS 預估 93.75 元，目標價 3,140 元</a></li><li><a href="https://www.businesstoday.com.tw/article/category/183015/post/202605060036/" target="_blank" rel="noopener">今周刊 - 健策/奇鋐為何跌停？散熱股 7 天砍 20%</a></li><li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605080009/" target="_blank" rel="noopener">今周刊 - 散熱三雄回檔該逃命還是抄底？（2026-05-08）</a></li><li><a href="https://cmnews.com.tw/article/cmoney-a93a1934-4ab7-11f1-aeec-ebb6eab87a1b" target="_blank" rel="noopener">CMoney - 散熱三雄遭血洗！Rubin 設計變更傳言衝擊</a></li><li><a href="https://news.cnyes.com/news/id/6423986" target="_blank" rel="noopener">鉅亨網 - 2026 液冷滲透率直衝 76%！單櫃產值跳升 4 倍</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%A5%87%E9%8B%90-3017-%E5%81%9A%E4%BB%80%E9%BA%BC-%E6%B3%95%E8%AA%AA%E6%9C%89%E4%BD%95%E9%87%8D%E9%BB%9E-%E9%A6%96%E5%AD%A3EPS%E5%89%B5%E6%AD%B7%E5%8F%B2%E6%96%B0%E9%AB%98%E9%81%9420-17%E5%85%83-%E6%95%A3%E7%86%B1%E9%9C%80%E6%B1%82%E7%88%86%E7%99%BC%E6%8E%A8%E5%8D%87%E5%85%A8%E5%B9%B4%E5%B1%95%E6%9C%9B%E6%A8%82%E8%A7%80-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-6a059014998cb6188cb1bdb7" target="_blank" rel="noopener">豐雲學堂 - 奇鋐法說會 2026-06（含法說重點）</a></li><li>technical_indicators.py 腳本計算（yfinance 數據，2026-06-05）</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>廣達（2382）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>廣達（2382）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>廣達（2382）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-05</td><td>首次建立正式九維度格式。取代舊檔 <code>廣達2382_個股分析_20260308.md</code>（舊格式，缺第 4、5 維度）。整合舊版精華（商業模式、訂單能見度），全數據重新 WebFetch + yfinance 驗證</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-06-05（台灣時間盤後）</td></tr><tr><td>台股市場狀態</td><td>已收盤</td></tr><tr><td>美股市場狀態</td><td>未開盤</td></tr><tr><td>股價來源</td><td>Yahoo Finance TW（2382.TW）盤後確認</td></tr><tr><td>估值指標來源</td><td>yfinance API（2382.TW）2026-06-05 抓取</td></tr><tr><td>月營收來源</td><td>Yahoo 股市財務報表（2026-06-05 抓取）</td></tr><tr><td>法說資料來源</td><td>鉅亨網、今周刊、Yahoo 財經新聞（2026-05-14 法說）</td></tr><tr><td>技術指標</td><td>technical_indicators.py 腳本計算（2026-06-05）</td></tr><tr><td>同業估值</td><td>yfinance API（2317.TW / 3231.TW）2026-06-05 抓取</td></tr><tr><td>TWSE BWIBBU_d</td><td>❌ 2026-06-05 全日維護，無法取得官方 PE 表</td></tr><tr><td>待更新</td><td>融資融券餘額（TWSE 維護中）；TWSE 官方 PE 待下次確認</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【持有】— AI 伺服器代工王者，下半年 Vera Rubin 放量 + ASIC 轉型是主催化劑，但法說後毛利率疑慮未消、短線過熱，現價持有觀察勝於追價。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段，等毛利率趨勢明朗後評估加碼</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>廣達靠什麼賺錢？</h3>
+<p>廣達電腦（2382）是<strong>全球筆記型電腦 ODM 龍頭</strong>，同時也是目前<strong>台灣 AI 伺服器代工最成熟的廠商</strong>。</p>
+<blockquote>📝 <strong>ODM（Original Design Manufacturer，自有設計製造商）</strong>：就是「幫品牌商從設計到製造全包」的代工廠，比只負責製造的 OEM 更上游，廣達不只組裝還參與設計。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>佔伺服器+筆電營收比重</th><th>說明</th></tr></thead><tbody><tr><td>AI 伺服器</td><td>約 75%（伺服器中的比重）</td><td>已成為最大收入來源</td></tr><tr><td>通用型伺服器</td><td>約 25%（伺服器中的比重）</td><td>2026 年起也上修展望</td></tr><tr><td>筆記型電腦</td><td>佔整體約 20% 以下</td><td>包含蘋果 MacBook 組裝</td></tr><tr><td>其他</td><td>~5%</td><td>Apple Watch 等</td></tr></tbody></table></div>
+<p><strong>來源：2026-05-14 廣達法說會（鉅亨網）、整體伺服器佔廣達總業務 >80%</strong></p>
+<h3>AI 伺服器的核心競爭力</h3>
+<p>廣達是全球四大雲端服務商（CSP：微軟、Google、亞馬遜 AWS、Meta）的 GB200/GB300 系列主要組裝夥伴，並已拿到下一代 Vera Rubin 系統訂單。</p>
+<blockquote>📝 <strong>CSP（Cloud Service Provider，雲端服務商）</strong>：就是提供雲端算力的大公司，例如微軟 Azure、Google Cloud、AWS、Meta。他們是廣達 AI 伺服器的主要買家。</blockquote>
+<blockquote>📝 <strong>GB300</strong>：輝達（NVIDIA）2025-2026 年推出的高階 AI 加速器平台，用於訓練大型 AI 模型，廣達是主要代工廠之一。</blockquote>
+<blockquote>📝 <strong>Vera Rubin</strong>：輝達下一代 AI 晶片平台（GB300 的繼任者），預計 2026 下半年進入量產，廣達為重要代工夥伴。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>關鍵事件</th><th>時間</th><th>說明</th></tr></thead><tbody><tr><td>Computex 2026：黃仁勳親訪廣達</td><td>2026-06-02</td><td>公開感謝廣達、宣示 Vera Rubin 加速生產</td></tr><tr><td>GB300 大規模出貨</td><td>2026 Q1 起放量</td><td>Q1 高單價機櫃（>300 萬美元）較 Q4 倍增</td></tr><tr><td>Vera Rubin 首批樣品交付</td><td>2026 年 7 月（規劃中）</td><td>微軟、Google、AWS、Meta、Oracle 五大 CSP</td></tr><tr><td>NeoCloud 客戶訂單</td><td>2026 下半年起</td><td>新興雲端商，單價較低但毛利率較佳</td></tr><tr><td>ASIC 伺服器放量</td><td>2026 下半年</td><td>預計倍數成長，毛利率優於 GPU 伺服器</td></tr></tbody></table></div>
+<blockquote>📝 <strong>NeoCloud</strong>：有別於微軟、Google 等傳統大型 CSP，是新興的雲端算力供應商（如 CoreWeave），同樣大量購買 AI 伺服器。</blockquote>
+<blockquote>📝 <strong>ASIC（Application-Specific Integrated Circuit，特定應用積體電路）</strong>：為特定工作（如 AI 推理）客製化設計的晶片，由 Google TPU、Amazon Trainium 等為代表，毛利率通常優於組裝 NVIDIA GPU 系統。</blockquote>
+<h3>管理層與護城河</h3>
+<ul><li><strong>林百里（創辦人暨董事長）</strong>：公司靈魂人物，以工程師文化著稱，穩健低調</li><li><strong>護城河</strong>：四大 CSP 長期深度合作關係、完整的 AI 伺服器整合設計能力、全球供應鏈管理規模</li><li><strong>訂單能見度</strong>：延伸至 2027 年後（法說確認）</li></ul>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（近 6 個月）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>營收（億元）</th><th>MoM</th><th>YoY</th></tr></thead><tbody><tr><td>2026/04</td><td><strong>3,399</strong></td><td>-6.3%</td><td><strong>+120.7%</strong></td></tr><tr><td>2026/03</td><td><strong>3,628</strong></td><td>+68.3%</td><td><strong>+88.4%</strong></td></tr><tr><td>2026/02</td><td>2,156</td><td>-6.6%</td><td>+43.2%</td></tr><tr><td>2026/01</td><td>2,308</td><td>-15.3%</td><td>+61.9%</td></tr><tr><td>2025/12</td><td>2,725</td><td>+41.2%</td><td>+94.6%</td></tr><tr><td>2025/11</td><td>1,929</td><td>+11.4%</td><td>+36.5%</td></tr></tbody></table></div>
+<p><strong>來源：Yahoo 股市財務報表，2026-06-05 抓取</strong></p>
+<p><strong>關鍵解讀：</strong></p>
+<ul><li>2026/03 創歷史新高（3,628 億），YoY 持續在 40-120% 高檔</li><li>2026/04 月減主因：季末出貨高峰後正常拉回，YoY 仍高達 120.7%</li><li>2026/02 相對低點是農曆春節工作天數少的季節性因素</li></ul>
+<blockquote>📝 <strong>MoM（Month over Month）</strong>：「月增率」，本月比上個月多/少幾%。</blockquote>
+<blockquote>📝 <strong>YoY（Year over Year）</strong>：「年增率」，本月比去年同月多/少幾%。</blockquote>
+<h3>Q1 2026 財報（法說數據）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>季度營收</td><td>8,092 億元</td><td>年增 +66.6%</td></tr><tr><td>EPS</td><td><strong>5.5 元</strong></td><td>歷年同期新高</td></tr><tr><td>毛利率</td><td><strong>4.78%</strong></td><td>近 15 季低點（上季 6.33%，去年 Q1 7.92%）</td></tr><tr><td>營益率</td><td>2.85%</td><td></td></tr><tr><td>稅後淨利</td><td>211.92 億元</td><td></td></tr></tbody></table></div>
+<blockquote>📝 <strong>EPS（Earnings Per Share，每股盈餘）</strong>：公司賺到的錢平均分給每一股，數字越高代表每股賺越多。5.5 元代表持有一股廣達，Q1 替你賺了 5.5 元。</blockquote>
+<blockquote>📝 <strong>毛利率</strong>：公司收到錢扣掉原料成本後剩多少比例。廣達 4.78% 代表賣 100 元只剩 4.78 元還沒扣其他費用，算是代工業的薄利特性。</blockquote>
+<p><strong>毛利率為何下滑？</strong></p>
+<p>廣達採「Buy & Sell」採購模式，必須自己先買輝達 GPU、HBM 記憶體等高價零組件，再賣給 CSP。因為這些核心零組件利潤被上游廠商（輝達、SK Hynix 等）吃掉，廣達只賺整合組裝的服務費，導致毛利率隨 AI 伺服器比重提升反而被稀釋。</p>
+<p><strong>改善方向：</strong></p>
+<ul><li>下半年部分專案轉為「Consignment（寄售）模式」：CSP 自己提供零組件，廣達只收組裝費，可改善毛利率</li><li>ASIC 伺服器增加：毛利率優於 GPU 伺服器</li></ul>
+<blockquote>📝 <strong>HBM（High Bandwidth Memory）</strong>：高頻寬記憶體，AI 晶片的必要配件，目前供應商主要是 SK Hynix 和三星，價格非常高。</blockquote>
+<blockquote>📝 <strong>Consignment（寄售模式）</strong>：客戶（CSP）自己準備零組件，廣達只負責組裝，這樣廣達就不用吃零組件的成本，毛利率自然提升。</blockquote>
+<h3>年度估值指標（yfinance，2026-06-05）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>股價</td><td><strong>390.5 元</strong></td><td>2026-06-05 收盤</td></tr><tr><td>Trailing PE</td><td><strong>20.65x</strong></td><td>以 TTM EPS 18.91 元計算</td></tr><tr><td>Forward PE</td><td><strong>13.83x</strong></td><td>以預估 EPS 28.23 元計算</td></tr><tr><td>PBR</td><td><strong>7.25x</strong></td><td></td></tr><tr><td>殖利率</td><td><strong>3.22%</strong></td><td>⚠️ 單一來源（yfinance），建議自行覆核</td></tr><tr><td>Trailing EPS</td><td><strong>18.91 元</strong></td><td></td></tr><tr><td>Forward EPS</td><td><strong>28.23 元</strong></td><td>元大預估 2026 EPS 25.56 元 / 富邦 26.02 元</td></tr><tr><td>毛利率（TTM）</td><td><strong>6.07%</strong></td><td>TTM 含較高毛利的舊季度，Q1 單季 4.78%</td></tr><tr><td>ROE</td><td><strong>36.84%</strong></td><td></td></tr><tr><td>自由現金流</td><td><strong>-981.9 億元</strong></td><td>負數，大幅資本支出擴廠中</td></tr><tr><td>負債比（D/E）</td><td><strong>224.2</strong></td><td>高槓桿，反映寄售前的高存貨融資需求</td></tr><tr><td>流動比率</td><td><strong>1.17</strong></td><td>勉強健康（>1 即可）</td></tr><tr><td>52週高</td><td>438 元（yfinance）</td><td></td></tr><tr><td>52週低</td><td>252.5 元（yfinance）</td><td></td></tr></tbody></table></div>
+<p><strong>來源：yfinance 2382.TW，2026-06-05 抓取</strong></p>
+<blockquote>📝 <strong>Trailing PE（本益比 TTM）</strong>：用過去 12 個月實際賺到的 EPS 算出的本益比，數字越低代表現在的股價相對於獲利越便宜。20.65x 代表你用現在的價格買，要等 20.65 年廣達才能用獲利把你的投資「賺回來」（假設獲利不變）。</blockquote>
+<blockquote>📝 <strong>Forward PE（預估本益比）</strong>：用未來 12 個月「分析師預估」的 EPS 算，反映市場對未來成長的期待。13.83x 顯示市場預期廣達獲利今年會大幅成長。</blockquote>
+<blockquote>📝 <strong>PBR（Price-to-Book Ratio，股價淨值比）</strong>：股價 ÷ 每股帳面價值，數字越高代表你買的價格比公司資產貴越多。7.25x 代表偏高，但高成長科技股普遍如此。</blockquote>
+<blockquote>📝 <strong>ROE（Return on Equity，股東權益報酬率）</strong>：公司用股東的錢賺回多少%，36.84% 算非常優秀，代表廣達用股東的錢很有效率地賺錢。</blockquote>
+<blockquote>📝 <strong>D/E（Debt-to-Equity，負債/股東權益比）</strong>：224.2 聽起來很嚇人，但廣達的高負債主要是「存貨融資」（買 GPU 等零組件的應付帳款），不是長期借款，轉 Consignment 後會明顯改善。</blockquote>
+<blockquote>📝 <strong>自由現金流（Free Cash Flow）</strong>：公司賺來的錢扣掉資本支出後還剩多少。負數代表廣達正大量投資擴廠，短期不代表公司有問題，但需持續觀察。</blockquote>
+<hr>
+<h2>3. 估值面</h2>
+<h3>估值方法比較</h3>
+<p><strong>方法 A：歷史 PE 區間法（保守）</strong></p>
+<p>廣達歷史 PE 中位數約 13-15x（代工電子股屬性）。</p>
+<p>以 Forward EPS 28.23 元 × 15x = <strong>合理價約 423 元</strong></p>
+<p>以 Forward EPS 25.56 元（元大預估）× 15x = <strong>保守合理價約 383 元</strong></p>
+<p><strong>方法 B：PEG 估值法（成長股視角）</strong></p>
+<blockquote>📝 <strong>PEG（Price/Earnings to Growth ratio）</strong>：本益比 ÷ 獲利成長率，PEG = 1 通常認為合理定價，< 1 偏便宜，> 1 偏貴。這個方法適合成長股，因為普通 PE 對高成長股不公平。</blockquote>
+<p>Forward PE 13.83x ÷ 預估獲利成長率 49%（從 EPS 18.91 到 28.23）= PEG <strong>0.28x</strong>（極便宜）</p>
+<p>→ 以 PEG 視角，廣達相對獲利成長性定價偏低，但這方法對代工廠可能過於樂觀。</p>
+<h3>法人目標價彙整</h3>
+<div class="table-wrap"><table><thead><tr><th>機構</th><th>2026/05 後目標價</th><th>評等</th></tr></thead><tbody><tr><td>元大投顧</td><td><strong>385 元</strong></td><td>買進</td></tr><tr><td>富邦投顧</td><td><strong>416 元</strong></td><td>買進</td></tr><tr><td>凱基 / 台系均值</td><td><strong>405 元</strong>（5/29 單一券商）</td><td>看多</td></tr><tr><td>美系外資</td><td><strong>385 元</strong>（從 400 元調降）</td><td>中性</td></tr></tbody></table></div>
+<p><strong>法人 2026/2027 EPS 預估：</strong></p>
+<ul><li>元大：25.56 / 30.5 元</li><li>富邦：26.02 / 35.75 元</li></ul>
+<h3>估值結論</h3>
+<div class="table-wrap"><table><thead><tr><th>比較基準</th><th>合理/目標價</th><th>現價 390.5 元的位置</th></tr></thead><tbody><tr><td>Forward PE 15x（保守）</td><td>383-423 元</td><td>位於合理區下緣至中段</td></tr><tr><td>法人目標價均值</td><td>385-416 元</td><td>接近目標價下緣</td></tr><tr><td>52 週高</td><td>438 元</td><td>距高點 -10.8%</td></tr></tbody></table></div>
+<p><strong>結論</strong>：現價 390.5 元基本在「合理上緣」，並非顯著低估。若毛利率能在下半年回升至 6-7%，法人目標價有上調空間；但若毛利率遲遲無法改善，現在的估值偏高風險存在。</p>
+<hr>
+<h2>4. 技術面</h2>
+<p><strong>來源：technical_indicators.py，2026-06-05</strong></p>
+<h3>技術數據</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>收盤價</td><td>390.5 元</td><td>今日下跌 -3.34%（-13.5 元）</td></tr><tr><td>MA5</td><td>396.9 元</td><td>股價跌破五日線</td></tr><tr><td>MA10</td><td>357.7 元</td><td>股價在十日線上方</td></tr><tr><td>MA20</td><td>337.3 元</td><td>股價在月線上方</td></tr><tr><td>MA60</td><td>317.2 元</td><td>股價在季線上方 +23.1%</td></tr><tr><td>MA120</td><td>299.2 元</td><td>股價在半年線上方</td></tr><tr><td>MA240</td><td>288.9 元</td><td>股價在年線上方</td></tr><tr><td>RSI（14）</td><td><strong>65.83</strong></td><td>偏強，接近超買警戒（70）</td></tr><tr><td>KD（K）</td><td>74.19</td><td>K > D 偏多</td></tr><tr><td>KD（D）</td><td>74.14</td><td></td></tr><tr><td>MACD 柱狀</td><td>+9.67</td><td>零軸上方，多頭格局</td></tr><tr><td>黃金交叉</td><td>4 天前（2026-06-01）</td><td>短線轉多訊號</td></tr><tr><td>均線排列</td><td><strong>多頭排列</strong></td><td>所有均線向上排列</td></tr><tr><td>52 週位置</td><td>83.9%（極高位）</td><td>距 52 週高 438 元 -10.8%</td></tr><tr><td>技術評分</td><td><strong>3.5/5（多頭）</strong></td><td></td></tr></tbody></table></div>
+<blockquote>📝 <strong>均線多頭排列</strong>：MA5 > MA10 > MA20 > MA60 > MA120 > MA240，短期均線在長期均線上面，代表股價一路向上、趨勢強健。</blockquote>
+<blockquote>📝 <strong>RSI（Relative Strength Index，相對強弱指數）</strong>：衡量股票是超買還是超賣的指標，一般認為 70 以上超買、30 以下超賣。65.83 接近超買，但還沒到明確賣出訊號。</blockquote>
+<blockquote>📝 <strong>黃金交叉</strong>：短期均線（如 MA5）從下往上穿越長期均線（如 MA20），通常是買進訊號，代表近期動能轉強。廣達 4 天前（6/1）才剛出現。</blockquote>
+<blockquote>📝 <strong>MACD 柱狀體</strong>：動能指標，柱狀為正且在零軸上代表多頭動能，數字變大代表動能增強。</blockquote>
+<h3>技術面重點解讀</h3>
+<p><strong>正面</strong>：</p>
+<ul><li>均線多頭排列，趨勢強健</li><li>剛出現黃金交叉（4 天），短線轉多訊號</li><li>MACD 正柱，多頭動能維持</li></ul>
+<p><strong>注意</strong>：</p>
+<ul><li>RSI 65.83 接近超買，短線已屬偏高</li><li>今日大跌 -3.34%，跌破 MA5，短線出現回檔</li><li>股價在 52 週 83.9% 高位，追高風險高</li><li>近期成交量（68,605 張）低於 5 日均量（94,461 張），量能稍縮</li></ul>
+<p><strong>支撐/壓力參考（技術面）</strong>：</p>
+<ul><li>支撐：MA10 約 357 元 → MA20 約 337 元</li><li>壓力：52 週高 438 元</li></ul>
+<hr>
+<h2>5. 籌碼面</h2>
+<p><strong>來源：Yahoo 股市法人買賣超頁面，2026-06-05 抓取</strong></p>
+<h3>近 5 日三大法人買賣超</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資（張）</th><th>投信（張）</th><th>自營商（張）</th><th>合計（張）</th></tr></thead><tbody><tr><td>2026/06/04</td><td><strong>-32,713</strong></td><td>+33,871</td><td>-50</td><td>+1,108</td></tr><tr><td>2026/06/03</td><td>-24,200</td><td>+33,419</td><td>-901</td><td>+8,318</td></tr><tr><td>2026/06/02</td><td>-14,582</td><td>+37,188</td><td>-712</td><td>+21,894</td></tr><tr><td>2026/06/01</td><td>-2,613</td><td>+7,281</td><td>+206</td><td>+4,874</td></tr><tr><td>2026/05/29</td><td>+1,857</td><td>+15,430</td><td>+1,139</td><td>+18,427</td></tr></tbody></table></div>
+<p><strong>籌碼解讀：</strong></p>
+<ul><li><strong>外資：連 4 賣</strong>，且賣超量持續擴大（從 -2,613 到 -32,713），是主要賣壓</li><li><strong>投信：連 11 買</strong>，且每日買超量維持在 7,000~37,000 張，是主要支撐力道</li><li><strong>三大法人合計：連 5 買</strong>，但主要靠投信撐盤，外資退場是結構性隱憂</li></ul>
+<blockquote>📝 <strong>外資</strong>：外國機構投資人，資金規模大，是台股最重要的籌碼指標之一。外資連續賣超通常代表對股票的看法趨於保守。</blockquote>
+<blockquote>📝 <strong>投信</strong>：台灣國內的基金公司，例如元大投信、富邦投信。投信買超通常代表基金經理人看好，但資金規模比外資小。</blockquote>
+<p><strong>融資融券（TWSE）</strong>：❌ 2026-06-05 TWSE 維護中，無法取得。建議 Minna 自行查詢 TWSE 融資餘額（近期搜尋顯示融資增加 2,487 張，⚠️ 需驗證）。</p>
+<p><strong>籌碼面評估</strong>：</p>
+<p>外資賣超 + 投信接棒是近期典型的「高位換手」格局。外資賣壓若持續擴大，中期偏空；若外資止賣甚至轉買，則股價有望重新上攻。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p><strong>數據來源：yfinance 2026-06-05 抓取，法說新聞補充</strong></p>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>廣達（2382）</th><th>鴻海（2317）</th><th>緯創（3231）</th></tr></thead><tbody><tr><td>股價</td><td><strong>390.5 元</strong></td><td>284.5 元</td><td>171.0 元</td></tr><tr><td>市值</td><td>約 1.5 兆</td><td>約 3.98 兆</td><td>約 0.54 兆</td></tr><tr><td>Trailing PE</td><td>20.65x</td><td>21.25x</td><td>20.36x</td></tr><tr><td>Forward PE</td><td><strong>13.83x</strong></td><td>13.25x</td><td>9.79x</td></tr><tr><td>PBR</td><td>7.25x</td><td>2.24x</td><td>2.86x</td></tr><tr><td>殖利率</td><td>3.22%</td><td>1.98%</td><td>3.13%</td></tr><tr><td>毛利率（TTM）</td><td>6.07%</td><td><strong>6.16%</strong></td><td>5.62%</td></tr><tr><td>Q1 單季毛利率</td><td>4.78%</td><td><strong>6.18%</strong></td><td>—</td></tr><tr><td>ROE</td><td><strong>36.84%</strong></td><td>11.81%</td><td>27.22%</td></tr><tr><td>營收 YoY</td><td><strong>+66.6%</strong></td><td>+28.9%</td><td>+144.3%</td></tr><tr><td>EPS（TTM）</td><td><strong>18.91 元</strong></td><td>13.39 元</td><td>8.40 元</td></tr></tbody></table></div>
+<p><strong>同業比較重點：</strong></p>
+<p><strong>廣達 vs 鴻海</strong>：</p>
+<ul><li>廣達毛利率（4.78%）低於鴻海（6.18%），法說後市場非常在意</li><li>差異在於鴻海採客戶供料（Consignment）模式，廣達自行採購高價零組件</li><li>廣達 ROE（36.84%）遠優於鴻海（11.81%），資產運用效率高</li><li>鴻海市值是廣達的 2.6 倍，但 EPS 成長性不如廣達</li></ul>
+<p><strong>廣達 vs 緯創</strong>：</p>
+<ul><li>緯創 YoY（+144.3%）成長更激進（緯穎子公司功不可沒）</li><li>緯創 Forward PE（9.79x）便宜，但整體規模和訂單能見度不如廣達</li><li>摩根士丹利（大摩）5 月評析：Vera Rubin 受惠 AI 伺服器台鏈排序 <strong>緯創 > 廣達 > 鴻海</strong></li><li>廣達雖非排名最高，但四大 CSP 全拿、長期夥伴關係是優勢</li></ul>
+<p><strong>結論</strong>：三家各有優劣。單純估值來看緯創（Forward PE 9.79x）最便宜，但廣達訂單深度與訂單能見度業界最強；鴻海毛利率最健康。以 Minna 現持廣達來說，相對三者屬中間偏上的選擇。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>狀態</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>Vera Rubin 首批樣品交付 CSP</td><td>進行中</td><td>2026 年 7 月（規劃）</td><td><strong>極高</strong></td></tr><tr><td>Computex：黃仁勳親訪廣達、宣示 Vera Rubin 加速</td><td>已發生（6/2）</td><td>已反映</td><td>高</td></tr><tr><td>下半年 ASIC 伺服器出貨量倍增</td><td>確認中</td><td>H2 2026</td><td>高（毛利率改善關鍵）</td></tr><tr><td>NeoCloud 客戶訂單出貨</td><td>確認中</td><td>H2 2026</td><td>中高</td></tr><tr><td>Consignment 模式轉換 → 毛利率改善</td><td>推進中</td><td>H2 2026 起</td><td>中高</td></tr><tr><td>Q2 2026 財報（優於預期可能）</td><td>待觀察</td><td>2026 年 8 月公布</td><td>中</td></tr><tr><td>月營收公告（5 月份）</td><td>待公布</td><td>2026 年 6 月 10 日前後</td><td>中</td></tr><tr><td>全年 AI 伺服器三位數成長驗證</td><td>進行中</td><td>持續</td><td>高</td></tr></tbody></table></div>
+<blockquote>📝 <strong>Computex</strong>：每年在台北舉辦的全球最大電腦展，2026 年 6 月初舉辦，是科技業重要新聞發布場合。</blockquote>
+<h3>反催化劑（可能讓股價下跌的事件）</h3>
+<div class="table-wrap"><table><thead><tr><th>風險事件</th><th>時間點</th><th>影響程度</th></tr></thead><tbody><tr><td>Q2 毛利率持續低迷（未見改善）</td><td>8 月財報</td><td>高</td></tr><tr><td>CSP 削減資本支出</td><td>隨時</td><td>極高</td></tr><tr><td>外資持續賣超擴大</td><td>持續中</td><td>中</td></tr></tbody></table></div>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>說明</th></tr></thead><tbody><tr><td><strong>毛利率結構性下滑</strong></td><td>高（短期）</td><td>高</td><td>AI 伺服器 GPU 組件利潤歸上游，廣達代工利潤薄，若 Consignment 轉換進度不如預期，毛利率難反彈</td></tr><tr><td><strong>CSP 資本支出縮減</strong></td><td>低~中</td><td>極高</td><td>微軟/Google/AWS 任何一家削減 AI 投資都直接衝擊廣達訂單，這是最黑天鵝的情境</td></tr><tr><td><strong>負自由現金流持續擴大</strong></td><td>中</td><td>中</td><td>擴廠（美國加州、泰國）+ 高存貨，若需求轉弱現金壓力大</td></tr><tr><td><strong>外資持續出走</strong></td><td>目前進行中</td><td>中</td><td>連 4 賣，若加速擴大可能壓制股價，需觀察是否止賣</td></tr><tr><td><strong>匯率（台幣升值）</strong></td><td>中</td><td>中</td><td>廣達以美元計價收入為主，台幣升值直接侵蝕毛利</td></tr><tr><td><strong>Vera Rubin 延遲量產</strong></td><td>低~中</td><td>高</td><td>若 NVIDIA 晶片生產進度延後，廣達下半年出貨不如預期</td></tr><tr><td><strong>FOMO 追高風險（特定提醒）</strong></td><td>已發生</td><td>個人層面</td><td>進場點在 409.5 元（漲停跟買），現價 390.5 元已下跌，此時需更理性評估</td></tr></tbody></table></div>
+<blockquote>📝 <strong>CSP 資本支出（CapEx）</strong>：雲端大廠花大錢買伺服器、蓋機房的錢，是廣達最重要的需求來源。若 AI 投資熱潮降溫，廣達營收會直接受衝擊。</blockquote>
+<blockquote>📝 <strong>FOMO（Fear of Missing Out，錯過恐懼）</strong>：害怕錯過漲勢而在高點追進的心理，容易造成高買低賣。</blockquote>
+<p><strong>最大風險情境</strong>：毛利率 Q2 仍在 5% 以下 + 外資持續賣超加速 → 股價可能測試 MA20（337 元）甚至 MA60（317 元）支撐。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>針對現持股情況的分析</h3>
+<p>目前現價 390.5 元，相較進場點 409.5 元，處於小幅虧損狀態（約 -4.6%）。以下為客觀操作框架：</p>
+<ul><li><strong>結論</strong>：持有</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li></ul>
+<p><strong>信心為何只有 3/5？</strong></p>
+<ul><li>基本面（AI 訂單、成長性）紮實：+1 分</li><li>技術面多頭格局、黃金交叉：+1 分</li><li>外資連 4 賣、毛利率未改善、短線超買：-1 分</li><li>現價在合理價值上緣，非明顯低估：-1 分</li></ul>
+<ul><li><strong>建議倉位</strong>：維持現有波段倉位，不追加</li><li><strong>進場條件</strong>：</li><li>若想加碼：等毛利率改善訊號（Q2 財報 > 5.5%）+ 外資止賣轉買同時出現</li><li>價格上：MA20（337 元）附近回調是更好的進場點</li><li><strong>停損參考</strong>：跌破 MA60（季線）317 元且週收盤確認，考慮出場（約較現價再跌 -18%）</li><li>短線停損參考：跌破 350 元</li><li><strong>加碼條件</strong>：</li></ul>
+<ol><li>Q2 2026 財報毛利率回升至 5.5% 以上</li><li>外資由賣轉買（連 3 買以上）</li><li>股價回測 MA20（337-350 元）後出現止跌訊號</li></ol>
+<ul><li><strong>觀察指標</strong>：</li></ul>
+<ol><li><strong>每月月營收公告</strong>（6/10 前後）：YoY 是否維持 80%+</li><li><strong>外資買賣超</strong>：是否止賣</li><li><strong>毛利率月更動</strong>：Consignment 轉換進度（下半年財報驗證）</li><li><strong>Vera Rubin 出貨進度</strong>：7 月樣品交付是否如期</li><li><strong>CSP CapEx 新聞</strong>：微軟/Google/AWS 任何削減訊號</li></ol>
+<ul><li><strong>下次檢視</strong>：6 月 10 日前後（5 月份月營收公告）；最晚 8 月 Q2 財報</li></ul>
+<h3>現持股客觀建議</h3>
+<p>廣達基本面長期沒問題，AI 訂單可見度強。目前最大隱憂是「高位買進 + 毛利率未改善 + 外資出走」三重壓力。在這個局面，<strong>持有等待下半年毛利率改善驗證</strong>是合理策略，但要控制心態預期：</p>
+<ul><li>短期：可能繼續震盪下修，MA20（337 元）是重要支撐</li><li>中期（H2 2026）：若毛利率回升、Vera Rubin 順利放量，有機會重回 400-430 元</li><li>停損設在 317 元（季線）：這是嚴格的安全底線</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2382.TW" target="_blank" rel="noopener">Yahoo 股市 - 廣達 2382 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2382.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 廣達 2382 月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/2382.TW/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 - 廣達 2382 法人買賣超</a></li><li><a href="https://news.cnyes.com/news/id/6458871" target="_blank" rel="noopener">鉅亨網 - 廣達法說：Q1 EPS 5.5 元創同期高</a></li><li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605160008/" target="_blank" rel="noopener">今周刊 - 廣達法說後股價重摔逾 8%！毛利率分析</a></li><li><a href="https://news.cnyes.com/news/id/6481149" target="_blank" rel="noopener">鉅亨網 - COMPUTEX：黃仁勳親臨廣達，Vera Rubin 加速生產</a></li><li><a href="https://vocus.cc/article/6a066f7efd8978000190dcfb" target="_blank" rel="noopener">Vocus - 廣達 2026 Q1 法說會備忘錄</a></li><li>yfinance API 2382.TW（本機 Python 抓取，2026-06-05）</li><li>technical_indicators.py 腳本（本機計算，2026-06-05）</li></ul>
+</div>
+</body>
+</html>

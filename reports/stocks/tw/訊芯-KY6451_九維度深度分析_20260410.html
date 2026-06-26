@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>訊芯-KY（6451）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>訊芯-KY（6451）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>訊芯-KY（6451）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>說明</th></tr></thead><tbody><tr><td>v2.0</td><td>2026-04-10</td><td>九維度完整重建，含雙軌估值與進場區間</td></tr><tr><td>v1.0</td><td>2026-03-06</td><td>初版分析（盤中數據，無進場區間）</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-04-10（台灣時間，已收盤）</td></tr><tr><td>台股資料</td><td>已收盤（4/10 收盤價 432 元，漲停）</td></tr><tr><td>美股資料</td><td>4/9 已收盤</td></tr><tr><td>技術指標</td><td>technical_indicators.py 本地計算（4/10）</td></tr><tr><td>月營收</td><td>Yahoo 股市 WebFetch（最新至 2026/03）</td></tr><tr><td>財報數據</td><td>CMoney + UAnalyze WebFetch（2025Q4）</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【觀望，等待進場機會】— 產業趨勢強勁但股價已達 52 週高點（432 元），今日漲停、RSI 76.8 過熱，現貨大幅超出合理進場區，等回調後再進場。</p>
+<p>信心程度：⭐⭐⭐☆☆（3 星）</p>
+<p>適合操作：中線波段，等技術面冷卻後分批布局</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位</h3>
+<p><strong>全名</strong>：訊芯科技控股股份有限公司（ShunSin Technology Holdings Limited）</p>
+<p><strong>股票代號</strong>：6451.TW（上市，KY 股→開曼島設立）</p>
+<p><strong>母公司</strong>：鴻海集團（持股超過六成）</p>
+<p><strong>一句話定位</strong>：負責把雷射晶片、光學元件「封裝」成可直接插入 AI 伺服器使用的光收發模組，屬於光通訊供應鏈的中下游製造端。</p>
+<h3>產業鏈位置</h3>
+<p>```</p>
+<p>雷射晶片（上游）         → Coherent、Lumentum</p>
+<p>↓</p>
+<p>CPO 晶片設計             → 博通（Broadcom）、Marvell</p>
+<p>↓</p>
+<p>封裝 / 組裝【訊芯在此】  → 訊芯-KY（6451）、眾達-KY（4977）</p>
+<p>↓</p>
+<p>光收發模組出貨</p>
+<p>↓</p>
+<p>AI 伺服器 / 資料中心</p>
+<p>```</p>
+<h3>營收結構（2025 年）</h3>
+<div class="table-wrap"><table><thead><tr><th>產品線</th><th>說明</th><th>占比</th></tr></thead><tbody><tr><td>高速光纖收發模組</td><td>400G / 800G / 1.6T Transceiver 封裝</td><td>63%</td></tr><tr><td>SiP 系統級封裝 / 感測器</td><td>System-in-Package、MEMS 感測器</td><td>31%</td></tr><tr><td>電源管理模組</td><td>Power module</td><td>6%</td></tr></tbody></table></div>
+<p>白話說明：</p>
+<ul><li>光纖收發模組：把數位訊號轉成光訊號、讓資料在光纖裡高速跑的元件，AI 資料中心大量使用</li><li>SiP 系統級封裝：把多顆晶片塞進同一個模組，體積小、效能高</li><li>訊芯角色：<strong>製造端</strong>（把別人設計好的晶片組裝封裝），不是設計端</li></ul>
+<h3>生產基地</h3>
+<div class="table-wrap"><table><thead><tr><th>廠區</th><th>地點</th><th>主要產品</th></tr></thead><tbody><tr><td>河內廠</td><td>越南</td><td>100G / 200G 光收發模組</td></tr><tr><td>光州廠</td><td>越南北江</td><td>400G / 800G 模組、SiP 封裝</td></tr><tr><td>云中廠</td><td>越南北江</td><td>SiP 封裝（預計 2026 Q1 量產）</td></tr><tr><td>蘇州廠</td><td>中國</td><td>服務中國客戶（CSP）</td></tr></tbody></table></div>
+<h3>主要客戶</h3>
+<div class="table-wrap"><table><thead><tr><th>客戶 / 類型</th><th>關係說明</th></tr></thead><tbody><tr><td>博通（Broadcom）</td><td>CPO 晶片設計龍頭，訊芯為其封裝合作夥伴</td></tr><tr><td>北美雲廠（CSP）</td><td>51.2T CPO 出貨客戶，具體名稱未公開</td></tr><tr><td>中國雲廠（CSP）</td><td>51.2T CPO 出貨客戶，蘇州廠供應</td></tr><tr><td>鴻海集團內部</td><td>母公司持股逾六成，集團內部資源保障</td></tr></tbody></table></div>
+<p><strong>風險提醒</strong>：客戶集中在 AI 資料中心領域，博通是已知核心合作夥伴，但多數雲廠客戶名稱未公開，集中度風險存在。</p>
+<h3>管理層</h3>
+<ul><li>董事長<strong>蔣尚義</strong>：前台積電研發副總，業界地位高，主導 CPO 技術路線與博通合作</li><li>總經理<strong>徐文一</strong>：2025 年法說會表示看好 2026 年營收年增雙位數</li><li>管理層技術背景強，但過去 2 年擴廠決策積極，財務壓力明顯</li></ul>
+<p><strong>護城河評估（中強）</strong>：</p>
+<ul><li>技術門檻：CPO 先進封裝具相當技術壁壘，且已有量產出貨紀錄</li><li>客戶關係：博通合作關係難以短期複製</li><li>集團資源：鴻海越南廠房與供應鏈資源加持</li><li>弱點：封裝業本質上仍是製造端，毛利率上限有天花板</li></ul>
+<p><strong>來源</strong>：UAnalyze WebFetch、CMoney WebFetch、經濟日報 WebSearch</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（最近 12 個月）</h3>
+<p>來源：Yahoo 股市 WebFetch（2026-04-10）</p>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收（仟元）</th><th>月增率（MoM）</th><th>年增率（YoY）</th></tr></thead><tbody><tr><td>2026/03</td><td>573,471</td><td>+57.60%</td><td>-25.39%</td></tr><tr><td>2026/02</td><td>363,869</td><td>-40.93%</td><td>-45.37%</td></tr><tr><td>2026/01</td><td>616,041</td><td>-8.04%</td><td>+13.61%</td></tr><tr><td>2025/12</td><td>669,934</td><td>-1.00%</td><td>-5.93%</td></tr><tr><td>2025/11</td><td>676,677</td><td>-6.40%</td><td>+56.14%</td></tr><tr><td>2025/10</td><td>722,915</td><td>+41.14%</td><td>+31.76%</td></tr><tr><td>2025/09</td><td>512,183</td><td>+10.91%</td><td>+8.98%</td></tr><tr><td>2025/08</td><td>461,819</td><td>-36.16%</td><td>+1.99%</td></tr><tr><td>2025/07</td><td>723,439</td><td>+35.57%</td><td>+64.52%</td></tr><tr><td>2025/06</td><td>533,619</td><td>-10.32%</td><td>+13.40%</td></tr><tr><td>2025/05</td><td>595,003</td><td>-9.78%</td><td>+94.80%</td></tr><tr><td>2025/04</td><td>659,508</td><td>-14.19%</td><td>+53.43%</td></tr></tbody></table></div>
+<p><strong>關鍵觀察</strong>：</p>
+<ul><li>2025 年全年合計營收約 75.32 億元，年增 45.18%（來源：CMoney WebFetch）</li><li>2026 年 1-3 月 YoY 轉為衰退（-25% ~ -45%），主因 2025 年同期高基期效應，以及農曆年節影響</li><li>Q4 2025 單季營收創歷史新高（20.7 億元），顯示業務動能仍在</li><li>3 月 YoY -25% 需關注是否持續，或只是季節性波動</li></ul>
+<h3>EPS 趨勢（季別）</h3>
+<p>來源：CMoney WebFetch（2026-04-10）</p>
+<div class="table-wrap"><table><thead><tr><th>季別</th><th>EPS（元）</th><th>備註</th></tr></thead><tbody><tr><td>2023 Q1</td><td>0.52</td><td></td></tr><tr><td>2023 Q2</td><td>0.76</td><td></td></tr><tr><td>2023 Q3</td><td>1.26</td><td></td></tr><tr><td>2023 Q4</td><td>1.56</td><td></td></tr><tr><td><strong>2023 全年</strong></td><td><strong>4.10</strong></td><td>峰值年</td></tr><tr><td>2024 Q1</td><td>-0.81</td><td>新廠成本衝擊</td></tr><tr><td>2024 Q2</td><td>0.84</td><td></td></tr><tr><td>2024 Q3</td><td>0.08</td><td></td></tr><tr><td>2024 Q4</td><td>0.29</td><td></td></tr><tr><td><strong>2024 全年</strong></td><td><strong>0.40</strong></td><td>大幅衰退</td></tr><tr><td>2025 Q1</td><td>-1.05</td><td>谷底</td></tr><tr><td>2025 Q2</td><td>-0.59</td><td></td></tr><tr><td>2025 Q3</td><td>1.00</td><td>轉正</td></tr><tr><td>2025 Q4</td><td>0.90</td><td>季增 210%（YoY）</td></tr><tr><td><strong>2025 全年</strong></td><td><strong>0.26</strong></td><td>年減 35%</td></tr></tbody></table></div>
+<p>白話說明：EPS（每股盈餘）= 公司幫每一張股票賺了多少錢。訊芯 2023 年每股賺 4.1 元，2024-2025 年擴廠帶來的折舊與成本拖累獲利，全年仍虧少賺，但 Q3-Q4 已明顯回升，爬出谷底的軌跡清晰。</p>
+<p><strong>近 4 年平均 EPS</strong>（2022-2025 估計）：</p>
+<ul><li>2022 年：資料未取得（❌）</li><li>2023 年：4.10 元</li><li>2024 年：0.40 元</li><li>2025 年：0.26 元</li><li>近 3 年平均 EPS：約 <strong>1.59 元</strong>（⚠️ 受低谷期拖累，代表性較低）</li></ul>
+<h3>毛利率趨勢</h3>
+<p>來源：CMoney WebFetch、UAnalyze WebFetch</p>
+<div class="table-wrap"><table><thead><tr><th>季別 / 年度</th><th>毛利率</th><th>營業利益率</th></tr></thead><tbody><tr><td>2024 全年</td><td>13.2%</td><td>—</td></tr><tr><td>2025 Q1</td><td>6.20%</td><td>-6.63%</td></tr><tr><td>2025 Q2</td><td>14.53%</td><td>-1.16%</td></tr><tr><td>2025 Q3</td><td>23.88%</td><td>7.61%</td></tr><tr><td>2025 Q4</td><td>20.81%</td><td>—</td></tr><tr><td><strong>2025 全年</strong></td><td><strong>約 16.1%</strong></td><td>—</td></tr><tr><td>2026 法人預估</td><td><strong>22.4%</strong></td><td>—</td></tr></tbody></table></div>
+<p><strong>毛利率波動原因</strong>：</p>
+<ol><li>越南新廠（光州、云中）初期規模未達損益兩平，折舊攤提重</li><li>SiP 高毛利產品佔比下滑時整體毛利被拉低</li><li>Q3 2025 回到 23.88% 是近年最佳，規模效益開始顯現</li><li>2025 Q4 毛利率 20.81% 仍健康，顯示改善趨勢在延續</li></ol>
+<h3>財務結構</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>每股淨值</td><td>61.48 元（2025Q4）</td><td>CMoney WebFetch</td></tr><tr><td>負債比率</td><td>約 64%</td><td>WebSearch 綜合</td></tr><tr><td>2025 全年 EPS</td><td>0.26 元</td><td>CMoney WebFetch</td></tr><tr><td>現金股利</td><td>0.36 元（2025 年）</td><td>WebSearch</td></tr><tr><td>自由現金流（FCF）</td><td>❌ 未取得精確數據</td><td>建議查季報</td></tr></tbody></table></div>
+<p><strong>負債比率說明</strong>：64% 屬偏高但有合理解釋——越南第三、四座廠投資需要舉債，屬擴產性負債。若業績如期放量，屬可控風險；若需求不如預期，資金壓力會放大。</p>
+<h3>健康體檢</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>衰退 → 回升中</td><td>2023 峰值後衰退，但 Q3-Q4 2025 已回正</td></tr><tr><td>營收趨勢</td><td>成長</td><td>2025 全年年增 45%，Q4 創歷史新高</td></tr><tr><td>毛利率趨勢</td><td>波動</td><td>從最低 6% 到最高 24%，但趨勢向上</td></tr><tr><td>負債健康度</td><td>注意</td><td>64%，擴廠舉債，需關注</td></tr><tr><td>自由現金流</td><td>❌ 未取得</td><td>建議自行查季報現金流量表</td></tr><tr><td>護城河強度</td><td>中</td><td>CPO 技術門檻 + 鴻海資源，但仍是製造端</td></tr></tbody></table></div>
+<hr>
+<h2>3. 估值面</h2>
+<h3>股票類型判定</h3>
+<p>訊芯-KY 特殊情況：EPS 僅 0.26 元（近虧損），但 2026 年法人預估毛利率回升、業績放量，屬<strong>成長轉機型</strong>。</p>
+<p>決策樹判定：近 4 季 EPS 合計偏低但轉正，且 2026 年確認成長趨勢 → 適用 <strong>TYPE_D（轉機股）</strong> 雙軌估值框架。</p>
+<p>方法 A：PS 營收比法（TYPE_D 回顧型）</p>
+<p>方法 B：技術面支撐法（TYPE_D 前瞻型）</p>
+<h3>雙軌估值計算</h3>
+<p><strong>方法 A：PS 營收比法（回顧型）</strong></p>
+<p>白話說明：PS ratio = 市值 ÷ 年營收，用於虧損 / 轉機股。數字代表市場願意用幾倍的年營收來買這家公司。</p>
+<p>```</p>
+<p>數據：</p>
+<ul><li>2025 年全年營收：75.32 億元</li><li>流通股本：約 1.05 億股（市值 432 × 1.05 億 ≈ 454 億）</li><li>每股年營收：75.32 億 ÷ 1.05 億股 ≈ 71.7 元</li></ul>
+<p>同業 PS ratio 參考：</p>
+<ul><li>眾達-KY（4977）：市值約 213 億 / 年營收（需查）→ ❌ 精確 PS 未取得</li><li>上詮（3363）：市值 87 億 / 年營收（需查）→ ❌ 精確 PS 未取得</li><li>光通訊封裝同業 PS 中位數：業界估計約 4~6x（⚠️ 單一來源，WebSearch 估算）</li></ul>
+<p>合理計算：</p>
+<p>fair_value_a = 同業 PS 中位數 5x × 每股年營收 71.7 元 = 358.5 元</p>
+<p>```</p>
+<p><strong>⚠️ 降級說明</strong>：同業 PS 精確數值未能 WebFetch 取得，採業界估算中位數 5x，可信度「單一來源，建議自行覆核」。</p>
+<p><strong>方法 B：技術面支撐法（前瞻型）</strong></p>
+<p>```</p>
+<p>數據（technical_indicators.py，4/10）：</p>
+<ul><li>MA60（季線）：214.93 元</li><li>MA120（半年線）：183.69 元</li><li>MA20（月線）：302.68 元</li></ul>
+<p>fair_value_b = MA120 × 技術面合理溢價（CPO 題材股通常享有半年線 1.3~1.5x 溢價）</p>
+<p>= 183.69 × 1.4 = 257 元（⚠️ 技術面估值，僅供參考）</p>
+<p>保守取值：fair_value_b = MA60 × 1.0 = 214.93 元（季線為中期支撐）</p>
+<p>```</p>
+<p><strong>⚠️ 降級說明</strong>：方法 B 為純技術面，無基本面錨定，代表市場多空中性的均衡價格。</p>
+<h3>差距判定與進場區間</h3>
+<p>```</p>
+<p>fair_value_a = 358.5 元（PS 法）</p>
+<p>fair_value_b = 214.93 元（MA60 支撐）</p>
+<p>差距 = |358.5 - 214.93| / 214.93 = 66.8%</p>
+<p>→ 差距 > 40%，取較低者 + 標 ⚠️ 估值分歧大</p>
+<p>anchor = min(358.5, 214.93) = 214.93 元</p>
+<p>```</p>
+<p>TYPE_D 進場區間：</p>
+<p>```</p>
+<p>entry_high = 214.93 × 0.90 = 193.4 元 ≈ 193 元</p>
+<p>entry_low  = 214.93 × 0.80 = 171.9 元 ≈ 172 元</p>
+<p>```</p>
+<p><strong>技術面微調</strong>：現價 432 元遠高於 entry_high（193 元）超過 15%，標注「等回調」。</p>
+<p><strong>估值結論</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>合理價</th><th>公式</th></tr></thead><tbody><tr><td>方法 A（PS 營收比法）</td><td>358.5 元</td><td>同業 PS 中位數 5x × 每股年營收 71.7 元</td></tr><tr><td>方法 B（MA60 技術支撐）</td><td>214.93 元</td><td>MA60 季線現值</td></tr><tr><td>差距</td><td>66.8%</td><td>分歧極大</td></tr><tr><td>錨定價</td><td>214.93 元</td><td>取較低者（⚠️ 估值分歧大，保守為上）</td></tr><tr><td>進場區間</td><td>172 ~ 193 元</td><td>anchor × 80%~90%</td></tr><tr><td>現價 432 元</td><td>超出進場區</td><td>高出進場上限約 124%，等大幅回調</td></tr></tbody></table></div>
+<p><strong>⚠️ 重要提醒</strong>：訊芯現在是「本夢比」定價模式——現價 432 元反映的是 2026~2027 年 CPO 業務大量放量、毛利率回升到 22%+ 的預期。若依傳統估值，現價明顯偏貴；但若 CPO 如期兌現，長期潛力仍大。投資人要問自己：「我是在買現在的公司，還是在賭未來的故事？」</p>
+<hr>
+<h2>4. 技術面</h2>
+<p>數據來源：technical_indicators.py（本地計算，4/10 收盤後）</p>
+<h3>基本數據</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>收盤價（4/10）</td><td>432.0 元（漲停 +9.92%）</td></tr><tr><td>昨收</td><td>393.0 元</td></tr><tr><td>開盤</td><td>412.5 元</td></tr><tr><td>最高 / 最低</td><td>432.0 / 396.0 元</td></tr><tr><td>52 週高點</td><td>432.0 元（今日觸及）</td></tr><tr><td>52 週低點</td><td>117.21 元</td></tr><tr><td>52 週位置</td><td>100%（站在年度最高點）</td></tr></tbody></table></div>
+<h3>均線數據</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>股價位置</th></tr></thead><tbody><tr><td>MA5（週線）</td><td>360.6 元</td><td>股價上方</td></tr><tr><td>MA10</td><td>342.95 元</td><td>股價上方</td></tr><tr><td>MA20（月線）</td><td>302.68 元</td><td>股價上方</td></tr><tr><td>MA60（季線）</td><td>214.93 元</td><td>股價上方 +101%</td></tr><tr><td>MA120（半年線）</td><td>183.69 元</td><td>股價上方</td></tr><tr><td>MA240（年線）</td><td>165.23 元</td><td>股價上方</td></tr></tbody></table></div>
+<p>均線排列：<strong>多頭排列</strong>（短線在上，長線在下）</p>
+<h3>技術指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號解讀</th></tr></thead><tbody><tr><td>RSI(14)</td><td>76.8</td><td>過熱區（>70），留意回調壓力</td></tr><tr><td>KD K 值</td><td>84.84</td><td>超買區，偏多但有回調風險</td></tr><tr><td>KD D 值</td><td>73.71</td><td>K > D，偏多方向</td></tr><tr><td>MACD 柱狀</td><td>+8.75（正）</td><td>多頭格局，動能仍在</td></tr><tr><td>黃金交叉</td><td>17 天前（3/16）</td><td>MA5 上穿 MA20</td></tr></tbody></table></div>
+<p>白話說明：</p>
+<ul><li>RSI：股價「體溫計」，76.8 = 高燒，短期可能需要退燒</li><li>KD：短線紅綠燈，K>D 且 K=84 = 超買但仍偏多</li><li>MACD：動能「加速器」，柱狀為正 = 還在加速向上</li></ul>
+<h3>技術面綜合評分</h3>
+<p><strong>評分：2.0（中性偏多）</strong></p>
+<div class="table-wrap"><table><thead><tr><th>因子</th><th>加分</th></tr></thead><tbody><tr><td>RSI 過熱</td><td>-1</td></tr><tr><td>KD 偏多</td><td>+0.5</td></tr><tr><td>MACD 柱狀正</td><td>+1</td></tr><tr><td>均線多頭排列</td><td>+1</td></tr><tr><td>黃金交叉</td><td>+0.5</td></tr></tbody></table></div>
+<p><strong>技術面小結</strong>：中性偏多格局，但今日漲停已站上 52 週新高，短期過熱明顯（RSI 76.8）。短線有拉回修正的需求，但中期多頭趨勢完整。適合等待 RSI 回落至 50~60 區間後再考慮布局。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<p>數據來源：HiStock WebFetch（2026-04-10）</p>
+<h3>當日籌碼</h3>
+<div class="table-wrap"><table><thead><tr><th>法人</th><th>今日買賣超（4/10）</th></tr></thead><tbody><tr><td>外資</td><td>-532 張</td></tr><tr><td>投信</td><td>+81 張</td></tr><tr><td>自營商</td><td>-166 張</td></tr><tr><td>合計</td><td>-617 張</td></tr></tbody></table></div>
+<p><strong>觀察</strong>：今日漲停但三大法人合計賣超，顯示漲停可能由散戶或融資追捧推動，法人未積極跟進，需留意籌碼質量。</p>
+<h3>近期籌碼動態</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>外資動向</th></tr></thead><tbody><tr><td>3 月中旬</td><td>大幅買進（如 3/18 買超 1,008 張）</td></tr><tr><td>4 月初</td><td>開始轉為賣出</td></tr><tr><td>4/10</td><td>-532 張（賣出）</td></tr></tbody></table></div>
+<p>白話說明：</p>
+<ul><li>外資：佔總持股約 66.87%，是最大主力。3 月中旬大量買入、4 月初開始賣出，籌碼有鬆動跡象</li><li>投信買賣力道弱（±100 張內），影響力有限</li><li>自營商多為避險操作</li></ul>
+<h3>融資融券</h3>
+<p>❌ 精確數據未取得（HiStock 頁面未顯示具體數值）。建議至三竹股市或券商 App 查詢最新融資張數與融資餘額。</p>
+<p><strong>重點提醒</strong>：漲停日若融資大增，代表散戶追高、籌碼不穩，是需要特別留意的負面訊號。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p>數據來源：Yahoo 股市 WebFetch（4/10 收盤後）</p>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>訊芯-KY（6451）</th><th>眾達-KY（4977）</th><th>上詮（3363）</th></tr></thead><tbody><tr><td>主要業務</td><td>光收發模組封裝 + CPO</td><td>SFP/QSFP 傳統光模組</td><td>矽光子光纖陣列（FAU）</td></tr><tr><td>現價（4/10）</td><td>432 元</td><td>203 元</td><td>784 元</td></tr><tr><td>市值（約）</td><td>454 億元</td><td>213 億元</td><td>87 億元</td></tr><tr><td>本益比（PE）</td><td>1,661x（近虧損失真）</td><td>42.76x</td><td>4,768x（失真）</td></tr><tr><td>股價淨值比（PBR）</td><td>7.03x</td><td>—</td><td>—</td></tr><tr><td>52 週位置</td><td>100%（漲停新高）</td><td>接近中段</td><td>強勢</td></tr><tr><td>2025 年 EPS</td><td>0.26 元</td><td>推估正常獲利</td><td>推估小量獲利</td></tr><tr><td>CPO 卡位</td><td>51.2T 量產中</td><td>傳統模組為主</td><td>1.6T FAU 技術對接台積電</td></tr><tr><td>競爭優勢</td><td>鴻海資源 + 蔣尚義 + 越南廠</td><td>成熟客戶，穩定出貨</td><td>台積電矽光子生態系唯一入列</td></tr><tr><td>主要風險</td><td>財務仍弱，估值偏高</td><td>成長性不如訊芯</td><td>市值小，流動性低</td></tr></tbody></table></div>
+<p><strong>三者定位差異</strong>：</p>
+<ul><li>眾達：穩健型，主做成熟規格，PE 合理，適合偏保守投資人</li><li>訊芯：成長押注型，CPO 佈局最激進，鴻海背景，高風險高潛力</li><li>上詮：技術路線最前沿（台積電矽光子生態），但市值小波動大，適合有把握的人</li></ul>
+<p><strong>如果只能選一檔</strong>：訊芯整體佈局最完整（CPO 量產、越南多廠、鴻海資源、蔣尚義人脈），但現價估值已偏高，眾達 PE 合理但成長性較弱，投資人需依據自身風險偏好選擇。對 Minna 的配置（穩健偏成長）而言，<strong>等訊芯回調至合理區間</strong>後是更優選擇。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>已確認催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>云中廠 SiP 量產</td><td>已確認</td><td>2026 Q1（可能已開始）</td><td>高</td></tr><tr><td>Q1 2026 月營收公告</td><td>定期</td><td>2026 年 4 月（本月）</td><td>高</td></tr><tr><td>800G 模組主流化</td><td>進行中</td><td>2026 全年</td><td>高</td></tr><tr><td>光通訊供應鏈持續升溫</td><td>產業趨勢</td><td>持續</td><td>中高</td></tr></tbody></table></div>
+<h3>潛在催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>102.4T CPO 客戶驗證通過</td><td>潛在</td><td>2026 H1</td><td>極高</td></tr><tr><td>北美大客戶訂單明確化</td><td>潛在</td><td>2026 年中</td><td>極高</td></tr><tr><td>博通 CPO ASIC 量產</td><td>潛在</td><td>2026 年底</td><td>高</td></tr><tr><td>越南第四廠正式量產</td><td>已確認方向</td><td>2026 Q2-Q4</td><td>高</td></tr><tr><td>1.6T 規格商業量產</td><td>潛在</td><td>2026-2027</td><td>中高</td></tr><tr><td>法說會正面展望</td><td>定期</td><td>2026 Q2</td><td>中</td></tr></tbody></table></div>
+<p><strong>關鍵觀察點</strong>：</p>
+<ul><li>CPO 市場 2024-2030 年複合年增率預估 146%（來源：UAnalyze）</li><li>AI 資料中心持續擴張，光通訊需求明確</li><li>2026 年是「從驗證轉向實質營收貢獻的關鍵年」（法人評語）</li></ul>
+<p><strong>今日漲停催化劑（4/10）</strong>：疑似受到光通訊族群整體升溫帶動，1.6T 矽光子革命題材熱度上升，加上大盤反彈帶來信心回升。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險項目</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th></tr></thead><tbody><tr><td>CPO 商業化時程延遲</td><td>中</td><td>極高</td><td>Q2-Q3 月營收未見加速，或法說會缺乏訂單訊息</td></tr><tr><td>2026 年月營收持續年減</td><td>中高</td><td>高</td><td>4-6 月 YoY 連續 -20%+</td></tr><tr><td>毛利率再度惡化</td><td>中</td><td>高</td><td>Q1 毛利率 < 15%</td></tr><tr><td>客戶集中度風險</td><td>低中</td><td>高</td><td>博通或主要客戶減少訂單的消息</td></tr><tr><td>財務槓桿壓力</td><td>中</td><td>中高</td><td>負債比率超過 70%，或利息費用大幅增加</td></tr><tr><td>地緣政治風險（美中貿易戰）</td><td>中</td><td>中</td><td>美國對台股 / 光通訊新制裁措施</td></tr><tr><td>小型股流動性風險</td><td>低中</td><td>中</td><td>法人大量出清時散戶難以脫手</td></tr><tr><td>競爭加劇</td><td>低</td><td>中</td><td>同業量產 CPO 且搶走博通訂單</td></tr></tbody></table></div>
+<h3>致命風險（需特別標示）</h3>
+<p><strong>CPO 商業化延遲</strong>：若 102.4T CPO 驗證失敗或主要客戶轉向競爭對手，現價的「未來想像空間」消失，股價可能腰斬。現價 432 元的合理性，建立在 2026-2027 年業績兌現的假設上。</p>
+<h3>可控 vs 不可控風險</h3>
+<ul><li><strong>可控</strong>：擴廠節奏、毛利率管理、客戶開發</li><li><strong>不可控</strong>：美中貿易政策、博通 CPO 戰略調整、整體 AI 資料中心建置速度</li></ul>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望 — 等待回調</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3 星）</li></ul>
+<p>判定依據：6 項 health 已填（但 FCF 未取得精確值），存在 2 個重大不確定因素（CPO 時程兌現、2026 月營收是否轉正），且估值雙軌分歧達 66.8%（信心降級）。</p>
+<ul><li><strong>建議倉位</strong>：等回調至進場區後，佔總台股資金 <strong>10~15%</strong>（以約 20 萬計，約 2~3 萬元）</li><li><strong>高風險提醒</strong>：訊芯屬題材股，不建議超過總資金 15%</li></ul>
+<hr>
+<h3>進場條件（雙軌估值 SOP）</h3>
+<p><strong>方法 A</strong>（PS 營收比法）：合理價 <strong>358.5 元</strong>（同業 PS 中位數 5x × 每股年營收 71.7 元）⚠️ 單一來源，建議自行覆核</p>
+<p><strong>方法 B</strong>（MA60 技術支撐）：合理價 <strong>214.93 元</strong>（季線現值）</p>
+<p><strong>差距</strong>：66.8% → 取較低者 + ⚠️ 估值分歧大</p>
+<p><strong>錨定價</strong>：214.93 元</p>
+<p><strong>進場區間</strong>：<strong>172 ~ 193 元</strong>（anchor × 80% ~ 90%）</p>
+<p><strong>備註</strong>：現價 432 元高出進場上限 124%，等大幅回調。若因 CPO 重大利多再度上漲，可設定「突破前高後回測不破 → 進場」的條件。</p>
+<hr>
+<h3>停損參考</h3>
+<ul><li><strong>技術面停損</strong>：進場後跌破 MA20（月線）10%，即出場</li><li><strong>基本面停損</strong>：Q2 2026 月營收 YoY 持續 -30%+，或毛利率跌破 12%，代表基本面改善假設不成立</li><li>建議設定：進場成本 -12% ~ -15% 硬性停損</li></ul>
+<hr>
+<h3>加碼條件</h3>
+<p>以下訊號<strong>同時出現 2 個以上</strong>時可考慮加碼：</p>
+<ol><li>月營收 YoY 轉正並連續 2 個月年增 20%+</li><li>Q1 2026 毛利率 > 20%</li><li>102.4T CPO 客戶驗證通過消息</li><li>外資連續 5 日以上買超</li></ol>
+<hr>
+<h3>觀察指標（後續追蹤）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>重要度</th><th>追蹤頻率</th></tr></thead><tbody><tr><td>每月營收 YoY</td><td>★★★★★</td><td>每月 10 日公告後</td></tr><tr><td>毛利率（季報）</td><td>★★★★★</td><td>每季</td></tr><tr><td>外資籌碼動向</td><td>★★★★</td><td>每週</td></tr><tr><td>CPO 客戶驗證進展</td><td>★★★★</td><td>法說會 / 重大消息</td></tr><tr><td>RSI 回落至 50-60 區間</td><td>★★★</td><td>每週技術面掃描</td></tr><tr><td>越南新廠量產時程</td><td>★★★</td><td>季報 / 法說會</td></tr></tbody></table></div>
+<hr>
+<h3>波段操作附加項目（觀察清單標的）</h3>
+<ol><li><strong>止盈參考</strong>：進場後 +15% 先出 1/2，+25% 全出（CPO 題材波動大，不宜久抱）</li><li><strong>分批進場計畫</strong>：建議分 3 批</li></ol>
+<ul><li>第 1 批（1/3）：確認站穩 185 元以上（MA120 附近）</li><li>第 2 批（1/3）：確認月營收 YoY 轉正</li><li>第 3 批（1/3）：CPO 訂單訊息明確化後</li></ul>
+<ol><li><strong>技術面出場信號</strong>：KD 死叉 + RSI 跌破 45 + 跌破 MA20 → 出場</li><li><strong>最長持有期限</strong>：3 個月波段，到期重新評估</li></ol>
+<hr>
+<h3>下次檢視時間</h3>
+<ul><li><strong>近期</strong>：4 月 10 日公告 3 月營收後（今日或明日）→ 驗證 YoY 是否有改善跡象</li><li><strong>中期</strong>：2026 Q1 財報公告後（約 5 月）→ 確認毛利率與 EPS 軌跡</li><li><strong>長期</strong>：2026 年法說會（時間未確認）→ CPO 訂單與 800G 放量進度</li></ul>
+<hr>
+<h2>同業橫向比較表</h2>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>訊芯-KY（6451）</th><th>眾達-KY（4977）</th><th>上詮（3363）</th></tr></thead><tbody><tr><td>現價</td><td>432 元</td><td>203 元</td><td>784 元</td></tr><tr><td>市值</td><td>~454 億</td><td>~213 億</td><td>~87 億</td></tr><tr><td>PE</td><td>1,661x（失真）</td><td>42.76x（合理）</td><td>4,768x（失真）</td></tr><tr><td>2025 全年 EPS</td><td>0.26 元</td><td>推估正常</td><td>推估小量</td></tr><tr><td>護城河</td><td>中強（CPO+鴻海）</td><td>中（客戶穩定）</td><td>中強（台積電生態）</td></tr><tr><td>CPO 進度</td><td>51.2T 量產</td><td>傳統模組</td><td>1.6T FAU 2026Q3</td></tr><tr><td>目前建議</td><td>觀望 / 等回調</td><td>可關注（PE 合理）</td><td>觀望（流動性低）</td></tr></tbody></table></div>
+<p><strong>如果只能選一檔（在不考慮現價過高的前提下）</strong>：訊芯的長期布局最完整，一旦股價回到合理區間，是三者中最優先考慮的。</p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/6451.TW" target="_blank" rel="noopener">Yahoo 股市 - 訊芯-KY 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/6451.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 訊芯-KY 月營收</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE BWIBBU_d - 台股估值指標</a></li><li><a href="https://cmnews.com.tw/article/cmoneyaicurator-5ecd6a2c-1f8f-11f1-b168-b0da55982ec1" target="_blank" rel="noopener">CMoney - 訊芯-KY Q4 財報公告</a></li><li><a href="https://uanalyze.com.tw/articles/9286212491" target="_blank" rel="noopener">UAnalyze - 訊芯-KY CPO 業務分析</a></li><li><a href="https://histock.tw/stock/chips.aspx?no=6451" target="_blank" rel="noopener">HiStock - 訊芯-KY 三大法人</a></li><li><a href="https://money.udn.com/money/story/5710/9155338" target="_blank" rel="noopener">經濟日報 - 訊芯 2026 年拚績增兩位數</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/1-6T..." target="_blank" rel="noopener">永豐金豐雲學堂 - 1.6T 矽光子革命與 Spectrum-X</a></li><li><a href="https://www.ftnn.com.tw/news/503696" target="_blank" rel="noopener">FTNN - 矽光子族群分析</a></li><li><a href="https://tw.stock.yahoo.com/quote/4977.TW" target="_blank" rel="noopener">Yahoo 股市 - 眾達-KY（4977）</a></li><li><a href="https://tw.stock.yahoo.com/quote/3363.TW" target="_blank" rel="noopener">Yahoo 股市 - 上詮（3363）</a></li><li>technical_indicators.py 本地計算（2026-04-10）</li></ul>
+</div>
+</body>
+</html>

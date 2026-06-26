@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯電（2303）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>聯電（2303）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>聯電（2303）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-05-31</td><td>首次建立九維度深度分析，基於 2026 Q1 法說會數據與最新市場行情</td></tr></tbody></table></div>
+<hr>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026-05-31（台灣時間，週六，市場休市）</td></tr><tr><td>台股市場狀態</td><td>休市（最近交易日：2026-05-29）</td></tr><tr><td>美股市場狀態</td><td>未適用</td></tr><tr><td>股價來源</td><td>Yahoo 股市（2026-05-29 收盤）⚠️ 單一來源，建議自行覆核</td></tr><tr><td>本益比/殖利率/PBR</td><td>TWSE BWIBBU_d（2026-05-29）</td></tr><tr><td>EPS（季度）</td><td>Yahoo 股市 EPS 頁面</td></tr><tr><td>月營收</td><td>Yahoo 股市 revenue 頁面（最新至 2026/04）</td></tr><tr><td>法人數據</td><td>Yahoo 股市法人買賣（2026/05/25-05/29）</td></tr><tr><td>技術指標</td><td>technical_indicators.py 腳本計算（資料日期：2026-05-29）</td></tr><tr><td>財務比率</td><td>HiStock 嗨投資（ROE）、WebSearch（毛利率/營業利益率）</td></tr><tr><td>待補充</td><td>融資融券明細（TWSE MI_MARGN 需另行查詢）</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 題材面轉型確實存在（成熟製程漲價 + 矽光子布局），但股價從 52 元急漲至 144 元已漲幅達 177%，RSI 81 嚴重過熱、PE 36 倍創歷史偏高，短線追高風險極高，等待回調至合理進場區再評估。</p>
+<p><strong>信心程度：⭐⭐⭐☆☆（3/5）</strong></p>
+<blockquote>評分說明：基本面轉型方向明確（值 4 星），但當前股價已充分反映多數好消息、技術面過熱、法人（外資+投信）近期轉為賣超，故壓至 3 星，不建議在現價追高。</blockquote>
+<p>適合操作：中線題材波段（等回調後評估）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司概覽</h3>
+<p>聯電（聯華電子）成立於 1980 年，是全球第二大的晶圓代工廠，台股掛牌代號 2303。主要業務是幫助設計型半導體公司（Fabless 廠）將晶片設計圖「製造」出來，不自行設計晶片。</p>
+<blockquote>📝 <strong>晶圓代工（Foundry）</strong>：就是「晶片代工廠」，客戶拿設計圖來，聯電負責生產。概念類似「OEM 工廠」，但製造的是晶圓。</blockquote>
+<blockquote>📝 <strong>Fabless</strong>：只做設計、不蓋工廠的晶片公司。對 Fabless 廠來說，聯電就是他們的「製造部門」。</blockquote>
+<h3>業務重點</h3>
+<p>聯電的核心強項在<strong>成熟製程</strong>（28 奈米及以上），區別於台積電跑向 2 奈米先進製程的路線。主要服務的應用領域：</p>
+<ul><li><strong>通訊晶片</strong>：手機周邊元件（射頻、電源管理）</li><li><strong>消費性電子</strong>：IoT、家電晶片</li><li><strong>工業/汽車</strong>：高壓驅動晶片、車用感測器</li><li><strong>AI 邊緣運算</strong>：AI 推論晶片（成長題材）</li></ul>
+<blockquote>📝 <strong>成熟製程</strong>：14 奈米以上（數字越大越老）的晶圓製造技術。技術門檻雖低於先進製程，但需求極廣（大多數日用品的晶片都走成熟製程），且不需要投入數千億美元的 EUV 設備。</blockquote>
+<h3>競爭地位</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>聯電</th><th>說明</th></tr></thead><tbody><tr><td>全球市占排名</td><td>第 3 名（28nm+ 成熟製程）</td><td>台積電第 1、三星第 2</td></tr><tr><td>22 奈米製程比重</td><td>14%（Q1 創歷史新高）</td><td>持續向高階成熟製程遷移</td></tr><tr><td>英特爾合作</td><td>12 奈米 FinFET 合作開發中</td><td>2026 完成 PDK，2027 量產</td></tr><tr><td>矽光子布局</td><td>進入試產階段</td><td>12 吋矽光子平台；新加坡廠 22/28nm 結合矽光子</td></tr></tbody></table></div>
+<blockquote>📝 <strong>FinFET（鰭式場效電晶體）</strong>：電晶體的一種立體設計，在相同面積下能塞進更多電路、省電又快。12 奈米 FinFET 是目前成熟製程的較高端版本。</blockquote>
+<blockquote>📝 <strong>矽光子（Silicon Photonics）</strong>：用光（光子）取代電（電子）來傳輸訊號的技術。AI 資料中心需要極高速的晶片間通訊，矽光子是其中一個解法，也被稱為 CPO（共封裝光學）。</blockquote>
+<blockquote>📝 <strong>PDK（製程設計套件）</strong>：晶圓廠提供給客戶的設計工具包，確認 PDK 就代表製程規格已定案，客戶可以開始設計晶片。</blockquote>
+<h3>管理層評估</h3>
+<ul><li>現任總經理王石（Jason Wang）任期穩健，法說會揭露度佳</li><li>2026 Q1 法說會主動揭露下半年漲價策略，市場溝通透明</li><li>全年資本支出（CapEx）維持 15 億美元，不激進擴產，財務紀律尚可</li></ul>
+<blockquote>📝 <strong>資本支出（CapEx，Capital Expenditure）</strong>：企業花在建廠、買設備等固定資產的錢。晶圓代工廠動輒花上百億美元蓋新廠，CapEx 水準反映擴產意圖。</blockquote>
+<p><strong>利多</strong>：成熟製程全球老大（台積電）逐步退出 8 吋產能，聯電是主要受益者之一。</p>
+<p><strong>利空</strong>：聯電長年被定位為「不能往更先進製程走」，天花板較台積電低；中國晶圓代工廠（中芯、華虹）的成熟製程競爭仍是隱憂。</p>
+<p>來源：WebSearch（產業背景）、豐雲學堂 Q1 法說摘要</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>近期 EPS 趨勢（官方來源：Yahoo 股市 EPS 頁面）</h3>
+<div class="table-wrap"><table><thead><tr><th>季別</th><th>EPS（元）</th><th>季增率</th><th>年增率</th></tr></thead><tbody><tr><td>2026 Q1</td><td><strong>1.29</strong></td><td>+59.3%</td><td>+107.9%</td></tr><tr><td>2025 Q4</td><td>0.81</td><td>-32.5%</td><td>+19.1%</td></tr><tr><td>2025 Q3</td><td>1.20</td><td>+69.0%</td><td>+3.5%</td></tr><tr><td>2025 Q2</td><td>0.71</td><td>+14.5%</td><td>-36.0%</td></tr><tr><td>2025 Q1</td><td>0.62</td><td>-8.8%</td><td>-26.2%</td></tr><tr><td>2024 Q4</td><td>0.68</td><td>-41.4%</td><td>-36.5%</td></tr><tr><td>2024 Q3</td><td>1.16</td><td>+4.5%</td><td>-10.1%</td></tr><tr><td>2024 Q2</td><td>1.11</td><td>+32.1%</td><td>-12.6%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>EPS（每股盈餘，Earnings Per Share）</strong>：公司賺的錢除以流通股數，代表「你持有一股能分到多少獲利」。EPS 越高代表獲利能力越強。</blockquote>
+<p><strong>觀察</strong>：EPS 在 2024 全年低點後，2025 Q3 開始復甦，2026 Q1 達到近 8 季高點 1.29 元。年增率達 108%，回升幅度強勁。若 Q2 法說指引毛利率回到 30%，全年 EPS 有機會挑戰 4.5~5 元（推估，非官方）。</p>
+<h3>2025 全年財務概覽</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數據</th><th>說明</th></tr></thead><tbody><tr><td>年度 EPS</td><td>3.34 元</td><td>鉅亨網、豐雲學堂（可信度：多方交叉驗證）</td></tr><tr><td>年度營收</td><td>2,375.5 億元</td><td>YoY +2.3%（⚠️ 單一來源：WebSearch）</td></tr><tr><td>毛利率</td><td>29.0%</td><td>YoY -3.6pp，Q4 回升至 30.7%（⚠️ 單一來源）</td></tr><tr><td>營業利益率</td><td>18.5%</td><td>YoY -3.7pp（⚠️ 單一來源）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>pp（百分點）</strong>：「比較率的差值」單位。例如毛利率從 32% 降到 29%，就說「下降了 3 個百分點（3pp）」，而不是「下降 3%」（後者會被誤解成乘法）。</blockquote>
+<h3>近 6 個月月營收（官方來源：Yahoo 股市 revenue 頁面）</h3>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>月營收（億元）</th><th>MoM</th><th>YoY</th></tr></thead><tbody><tr><td>2026/04</td><td>226.6</td><td>+8.8%</td><td>+10.8%</td></tr><tr><td>2026/03</td><td>208.3</td><td>+7.7%</td><td>+4.9%</td></tr><tr><td>2026/02</td><td>193.5</td><td>-7.3%</td><td>+6.3%</td></tr><tr><td>2026/01</td><td>208.6</td><td>+8.2%</td><td>+5.3%</td></tr><tr><td>2025/12</td><td>192.8</td><td>-9.2%</td><td>+1.7%</td></tr><tr><td>2025/11</td><td>212.3</td><td>-0.3%</td><td>+5.9%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>MoM（Month over Month）</strong>：「與上個月相比」的增減率。YoY（Year over Year）：「與去年同月相比」的增減率。</blockquote>
+<p><strong>觀察</strong>：YoY 從 2025 底的個位數加速到 2026/04 的 10.8%，月營收絕對值 226.6 億元為近期新高，漲價效應與需求回溫同步反映。</p>
+<h3>ROE 趨勢（官方來源：HiStock 嗨投資）</h3>
+<blockquote>📝 <strong>ROE（股東權益報酬率，Return on Equity）</strong>：代表「你投入 100 元，公司幫你賺了幾元」，越高代表公司替股東賺錢越有效率。台灣一般認為 ROE 大於 15% 才算優秀。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>全年趨勢</th></tr></thead><tbody><tr><td>2022</td><td>6.9%</td><td>7.3%</td><td>9.1%</td><td>5.9%</td><td>最高年</td></tr><tr><td>2023</td><td>4.7%</td><td>4.7%</td><td>4.7%</td><td>3.7%</td><td>大幅衰退</td></tr><tr><td>2024</td><td>2.8%</td><td>3.8%</td><td>4.0%</td><td>2.3%</td><td>谷底</td></tr><tr><td>2025</td><td>2.0%</td><td>2.4%</td><td>4.3%</td><td>2.7%</td><td>低位持平</td></tr></tbody></table></div>
+<p><strong>觀察</strong>：ROE 長期偏低（2~4%），遠低於台積電（~25~30%）。這是聯電「成熟製程天花板」的結構性問題，也是其估值長年被壓制的主因。2026 Q1 EPS 大幅改善，若維持，ROE 有望回升至 4~5% 區間，但仍屬低值。</p>
+<h3>財務健康評估</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>評估</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>成長（V 型反轉中）</td><td>Q1 YoY +108%</td></tr><tr><td>營收趨勢</td><td>成長（溫和）</td><td>YoY +5~11%，不算爆發</td></tr><tr><td>毛利率趨勢</td><td>穩定偏波動</td><td>29~30%，Q2 指引回 30%</td></tr><tr><td>負債健康</td><td>健康</td><td>CapEx 穩定，無異常財務槓桿跡象</td></tr><tr><td>自由現金流</td><td>正（推估）</td><td>CapEx 15 億美元受控，但需官方財報確認</td></tr></tbody></table></div>
+<hr>
+<h2>3. 估值面</h2>
+<h3>現價估值指標（官方來源：TWSE BWIBBU_d，2026-05-29）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數據</th><th>說明</th></tr></thead><tbody><tr><td>股價（2026-05-29 收盤）</td><td><strong>144.5 元</strong></td><td>Yahoo 股市</td></tr><tr><td>本益比（PE）</td><td><strong>36.31 倍</strong></td><td>TWSE，財報基期 2026 Q1</td></tr><tr><td>殖利率</td><td><strong>1.80%</strong></td><td>TWSE（⚠️ 配息率低，主要為 26 年漲價後期待值，單一來源）</td></tr><tr><td>股價淨值比（PBR）</td><td><strong>4.47 倍</strong></td><td>TWSE</td></tr></tbody></table></div>
+<blockquote>📝 <strong>本益比（PE，Price-to-Earnings Ratio）</strong>：「你花幾年的獲利來買這張股票」。PE=36 代表現在買進，假設獲利不變，要 36 年才能回本。數字越小通常越便宜。</blockquote>
+<blockquote>📝 <strong>股價淨值比（PBR，Price-to-Book Ratio）</strong>：股價相對公司帳面價值的倍數。PBR=4.47 代表你花 4.47 倍的「公司資產帳面值」買進這公司。製造業 PBR>3 算偏高。</blockquote>
+<blockquote>📝 <strong>殖利率（Dividend Yield）</strong>：股息除以股價的百分比。1.80% 代表你每年拿回的現金除以你買股票花的錢是 1.8%，偏低。</blockquote>
+<h3>估值評估</h3>
+<p>聯電歷史 PE 帶通常在 12~20 倍之間（景氣循環股本質，景氣好時 PE 反而下降，因為獲利成長更快）。目前 PE 36.31 倍屬於偏高，原因是：</p>
+<ol><li>股價已從 2026 年初 52 元飆漲至 144 元（漲幅 +177%），漲幅遠超 EPS 成長幅度</li><li>市場正在為「矽光子題材」和「成熟製程漲價」進行估值重評（re-rating）</li><li>外資最樂觀目標價（摩根士丹利）138 元，目前收盤價 144.5 元已超過多數法人目標價</li></ol>
+<blockquote>📝 <strong>估值重評（Re-rating）</strong>：股票的「本益比基準」被市場調高的過程。以前市場只把聯電看成「景氣循環代工股」給 15 倍 PE；現在如果被視為有 AI 矽光子成長潛力，市場願意給 25~35 倍 PE。這個過程就叫 re-rating。</blockquote>
+<h3>法人目標價共識</h3>
+<div class="table-wrap"><table><thead><tr><th>機構</th><th>評等</th><th>目標價</th><th>備註</th></tr></thead><tbody><tr><td>摩根士丹利</td><td>買進</td><td>138 元（樂觀情境 200 元）</td><td>成熟製程短缺題材</td></tr><tr><td>瑞銀</td><td>—</td><td>108 元</td><td>早期目標，現股價已超越</td></tr><tr><td>群益投顧</td><td>—</td><td>120 元</td><td>國內券商</td></tr></tbody></table></div>
+<p><strong>結論</strong>：目前股價 144.5 元已超出所有主流目標價（除摩根士丹利樂觀情境 200 元）。以 2026 全年 EPS 推估 5 元計算，Forward PE 約 28.9 倍，仍屬偏貴。</p>
+<blockquote>📝 <strong>Forward PE（預估本益比）</strong>：用「未來預估的 EPS」計算的本益比，比歷史 PE 更能反映市場預期。</blockquote>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>所有技術指標來源：technical_indicators.py 腳本（資料日期 2026-05-29）</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>收盤價</td><td>144.5 元</td><td>—</td></tr><tr><td>52 週高點</td><td>144.5 元</td><td>今日為 52 週最高</td></tr><tr><td>52 週低點</td><td>40.4 元</td><td>從低點上漲幅度：+257%</td></tr><tr><td>52 週位置</td><td><strong>100%</strong></td><td>站在 52 週最頂端</td></tr><tr><td>MA5</td><td>137.1 元</td><td>股價在 MA5 上方 +5.4%</td></tr><tr><td>MA10</td><td>124.75 元</td><td>股價在 MA10 上方 +15.8%</td></tr><tr><td>MA20</td><td>110.35 元</td><td>股價在 MA20 上方 +31.0%</td></tr><tr><td>MA60</td><td>79.14 元</td><td>股價在季線上方 <strong>+82.6%</strong></td></tr><tr><td>MA120</td><td>67.67 元</td><td>股價在半年線上方 +113.6%</td></tr><tr><td>MA240</td><td>55.57 元</td><td>股價在年線上方 +160.0%</td></tr><tr><td>RSI（14 日）</td><td><strong>81.23</strong></td><td>嚴重過熱區（>80）</td></tr><tr><td>KD_K</td><td>86.91</td><td>超買區（>80）</td></tr><tr><td>KD_D</td><td>86.40</td><td>超買區</td></tr><tr><td>KD 黃金交叉</td><td>4 天前（K=84.3）</td><td>高檔黃金交叉，參考意義有限</td></tr><tr><td>MACD</td><td>柱狀 3.02（正）</td><td>多頭格局，但需留意 MACD 背離</td></tr><tr><td>均線排列</td><td>多頭排列</td><td>全線多頭，短中長線齊升</td></tr><tr><td>成交量</td><td>3.6 億股（5/29）</td><td>為 20 日均量 2.8 億股的 1.27 倍</td></tr><tr><td>技術評分</td><td>2/5（中性偏多）</td><td>腳本綜合評分</td></tr></tbody></table></div>
+<blockquote>📝 <strong>RSI（相對強弱指數）</strong>：衡量股票短期漲跌力道的技術指標，介於 0-100。70 以上算「過熱」、80 以上算「嚴重過熱」，代表短線追高風險高，可能面臨回調。30 以下算「超賣」，可能是低接時機。</blockquote>
+<blockquote>📝 <strong>KD 黃金交叉</strong>：KD 指標中，K 線從下往上穿越 D 線，視為「短期買進訊號」。但若交叉發生在高位（KD 都 >80），代表股價已過熱，訊號可靠性較低。</blockquote>
+<blockquote>📝 <strong>均線多頭排列</strong>：MA5 > MA10 > MA20 > MA60 > MA120 > MA240，代表所有時間週期的趨勢都向上，是強勢格局的技術特徵。</blockquote>
+<p><strong>技術面小結</strong>：</p>
+<ul><li><strong>利多</strong>：均線完美多頭排列，趨勢強勁；MACD 正柱，多頭動能持續</li><li><strong>利空</strong>：RSI 81（嚴重過熱）、KD 都在 86 以上（超買）、52 週最高點位置，短線回調機率極高</li><li><strong>操作含義</strong>：從技術面來看，現在是不適合追高的時間點。等 RSI 回落至 50~60 才是相對安全的介入時機，對應股價可能在 100~120 元區間。</li></ul>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>近 5 日三大法人買賣超（官方來源：Yahoo 股市法人頁面）</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資（張）</th><th>投信（張）</th><th>自營商（張）</th><th>合計（張）</th></tr></thead><tbody><tr><td>2026/05/29</td><td>-28,218</td><td>-28,690</td><td>+831</td><td><strong>-56,077</strong></td></tr><tr><td>2026/05/28</td><td>+59</td><td>-34,484</td><td>+2,338</td><td>-32,087</td></tr><tr><td>2026/05/27</td><td>+21,530</td><td>-19,011</td><td>-598</td><td>+1,921</td></tr><tr><td>2026/05/26</td><td>+71,870</td><td>-19,692</td><td>+353</td><td>+52,531</td></tr><tr><td>2026/05/25</td><td>+48,520</td><td>-21,406</td><td>+5,723</td><td>+32,837</td></tr></tbody></table></div>
+<h3>近期連續動向</h3>
+<div class="table-wrap"><table><thead><tr><th>法人</th><th>近況</th><th>說明</th></tr></thead><tbody><tr><td>外資</td><td>連 4 買後轉 1 日賣</td><td>5/29 賣超 2.8 萬張，出現兌現壓力</td></tr><tr><td>投信</td><td>連 7 賣（-17.4 萬張累計）</td><td><strong>明確且持續的賣超訊號，籌碼最大警訊</strong></td></tr><tr><td>自營商</td><td>連 2 買（小量）</td><td>方向偏多但量小，影響有限</td></tr><tr><td>三大法人合計</td><td>近 2 日轉為賣超</td><td>上周大買，本週轉賣</td></tr></tbody></table></div>
+<blockquote>📝 <strong>三大法人</strong>：台股的三大機構投資者：「外資」（外國法人）、「投信」（本地基金公司）、「自營商」（券商用自己資金交易）。法人大量賣超通常代表機構獲利了結或對後市看法轉保守。</blockquote>
+<blockquote>📝 <strong>籌碼面</strong>：分析「誰在買、誰在賣」的角度。如果大戶/法人在買，通常被視為正面訊號；若散戶追高、法人出貨，則是警訊。</blockquote>
+<p><strong>籌碼面小結</strong>：</p>
+<p>投信連 7 天賣超（累計 -17.4 萬張）是本次分析最大警訊。投信通常在題材兌現後獲利了結，連續大量賣超代表基金已開始「借高點出貨」。外資近期也轉為賣超。整體籌碼面呈現「機構兌現」特徵，對短線多頭不利。</p>
+<p>融資融券明細：❌ 未取得（TWSE MI_MARGN 需個別查詢，建議至 TWSE 官網或 籌碼 K 線查看）</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p>以下數據為最近交易日（2026-05-29）官方收盤資料（Yahoo 股市）。</p>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>聯電 2303</th><th>世界先進 5347</th><th>力積電 6770</th></tr></thead><tbody><tr><td>最新股價（元）</td><td><strong>144.5</strong></td><td>168.0</td><td>88.7</td></tr><tr><td>本益比（倍）</td><td>36.31</td><td>40.48</td><td>50.11</td></tr><tr><td>殖利率</td><td>1.80%</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>製程優勢</td><td>22/28nm 最大規模</td><td>與台積電製程接軌、轉單題材</td><td>3D 堆疊、邊緣 AI</td></tr><tr><td>2026 Q1 EPS（元）</td><td>1.29</td><td>1.18</td><td>❌ 未取得</td></tr><tr><td>近期漲幅（52W）</td><td>257%（40.4→144.5）</td><td>—</td><td>53%（近 7 日）</td></tr><tr><td>題材重心</td><td>漲價+矽光子+英特爾合作</td><td>台積電轉單、台美結盟</td><td>3D 堆疊、記憶體整合</td></tr></tbody></table></div>
+<p><strong>同業比較小結</strong>：</p>
+<ul><li>三家都在受惠「成熟製程供需改善」，但各有特色</li><li>聯電規模最大、矽光子布局最完整、英特爾合作具有話題性</li><li>世界先進與台積電製程相容度高，轉單可見度較強，PE 40 倍略高於聯電</li><li>力積電 PE 50 倍最貴，但近期靠 3D 堆疊題材帶動更大漲幅</li><li><strong>如果只能選一檔</strong>：就成熟製程漲價受惠程度+矽光子長期想像空間，聯電規模和戰略布局較完整，但三家都在偏貴估值區，均需等回調再評估</li></ul>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期已確認題材</h3>
+<div class="table-wrap"><table><thead><tr><th>題材</th><th>確認程度</th><th>預期時間</th></tr></thead><tbody><tr><td>下半年晶圓代工漲價 5~15%</td><td>✅ 已正式通知客戶（Q1 法說確認）</td><td>2026 H2</td></tr><tr><td>22 奈米製程比重創高（14%）</td><td>✅ 已公告</td><td>持續</td></tr><tr><td>英特爾 12nm FinFET 合作</td><td>🟡 PDK 開發中</td><td>2026 完成 PDK，2027 量產</td></tr><tr><td>矽光子進入試產</td><td>🟡 試產階段</td><td>2027 年量產目標</td></tr><tr><td>台積電退出 8 吋產能</td><td>✅ 已確認（TSMC 計劃 2027 前）</td><td>聯電受益持續</td></tr><tr><td>摩根士丹利升評至「買進」目標 138 元</td><td>✅ 已發布</td><td>—</td></tr></tbody></table></div>
+<blockquote>📝 <strong>CPO（共封裝光學，Co-Packaged Optics）</strong>：把光學傳輸模組和晶片封裝在一起的技術，減少 AI 伺服器的訊號延遲和能耗。矽光子是 CPO 的核心技術之一，聯電正積極布局。</blockquote>
+<h3>潛在催化劑（尚未發生）</h3>
+<ol><li><strong>Q2 財報公布</strong>（約 2026/07）：若毛利率達 30%、EPS 超預期（>1.4 元），可能帶動第二波上漲</li><li><strong>漲價效益兌現</strong>：H2 漲價若 10% 成功落地，Q3/Q4 毛利率有機會重回 32~33%</li><li><strong>英特爾合作細節公告</strong>：若 12nm PDK 提前完成，或大客戶流片訂單公告</li><li><strong>矽光子量產里程碑</strong>：若提前宣布客戶名單或量產時間表</li><li><strong>AI 基礎設施訂單</strong>：PMIC 等成熟製程 AI 相關訂單加速</li></ol>
+<h3>風險事件時間表</h3>
+<ul><li><strong>2026/07</strong>：Q2 法說會 — 漲價落實程度、產能利用率是否站穩 80%+</li><li><strong>2027/Q1</strong>：英特爾 12nm 合作能否如期量產</li><li><strong>2026 底</strong>：矽光子試產結果是否達市場預期</li></ul>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險列表（風險優先）</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>機率</th><th>影響</th><th>說明</th></tr></thead><tbody><tr><td>股價急漲後修正（技術面過熱）</td><td>高</td><td>中高</td><td>RSI 81、52 週高點，短線回調 20~30% 是正常</td></tr><tr><td>投信連續賣超持續</td><td>中高</td><td>中</td><td>7 天連賣，籌碼鬆動，若外資也持續轉賣，壓力大</td></tr><tr><td>成熟製程漲價不如預期</td><td>中</td><td>高</td><td>客戶若拒絕漲價或轉單中國，Q3/Q4 毛利率可能不升反降</td></tr><tr><td>中國晶圓代工競爭（中芯、華虹）</td><td>中</td><td>中</td><td>中國持續補貼成熟製程，長期壓制聯電定價能力</td></tr><tr><td>矽光子進程延遲</td><td>中</td><td>中</td><td>若試產問題多，2027 量產目標推遲，題材退潮</td></tr><tr><td>全球宏觀衰退/關稅戰升級</td><td>中</td><td>高</td><td>半導體景氣高度依賴全球需求，一旦科技支出縮減，成熟製程需求同步下滑</td></tr><tr><td>英特爾財務惡化（合作方風險）</td><td>低中</td><td>中</td><td>英特爾近年虧損，若削減研發或改變策略，12nm 合作可能有變</td></tr></tbody></table></div>
+<h3>最壞情境分析</h3>
+<p>若 H2 漲價不如預期（僅 3~5%）、Q2/Q3 毛利率停在 29%、矽光子進展延遲，市場估值重評反轉，PE 從 36 倍壓縮回 20~22 倍，對應股價約 90~110 元（以 2026E EPS 5 元估算），下行空間 25~40%。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：0%（現價不追高）；等進場條件觸發後再評估 3~5%（小倉波段）</li></ul>
+<ul><li><strong>進場條件（擇一）</strong>：</li><li><strong>條件 A（技術面等回調）</strong>：股價回落至 100~115 元，RSI 降至 50~60，均線多頭格局仍維持</li><li><strong>條件 B（基本面確認）</strong>：2026 Q2 財報公布後，EPS > 1.4 元且毛利率達 30% 以上，在財報公布後當天或次日進場</li></ul>
+<ul><li><strong>停損參考</strong>：進場後若跌破 MA20（目前約 110 元，未來需根據進場時動態調整），考慮出場，停損幅度約 10~12%</li></ul>
+<ul><li><strong>加碼條件</strong>：H2 漲價落地成功（毛利率達 32%+）、矽光子宣布大客戶訂單，可考慮提升至 5~8%</li></ul>
+<ul><li><strong>觀察指標</strong>：</li></ul>
+<ol><li>投信買賣超是否止賣轉買（連賣警報是否解除）</li><li>2026/07 Q2 法說會毛利率指引</li><li>H2 漲價客戶接受程度（10%+ 是否落地）</li><li>矽光子試產良率與量產時程更新</li></ol>
+<ul><li><strong>下次檢視時間</strong>：2026/07（Q2 法說會前後）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2303.TW" target="_blank" rel="noopener">Yahoo 股市 - 聯電（2303）即時股價</a></li><li><a href="https://tw.stock.yahoo.com/quote/2303.TW/eps" target="_blank" rel="noopener">Yahoo 股市 - 聯電（2303）EPS</a></li><li><a href="https://tw.stock.yahoo.com/quote/2303.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 聯電（2303）月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/2303.TW/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 - 聯電（2303）法人買賣</a></li><li><a href="https://www.twse.com.tw/zh/trading/exchange/BWIBBU_d.html" target="_blank" rel="noopener">TWSE 個股本益比表（2026-05-29）</a></li><li><a href="https://histock.tw/stock/2303/報酬率" target="_blank" rel="noopener">HiStock 嗨投資 - 聯電 ROE</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E8%81%AF%E9%9B%BB-2303-%E5%81%9A%E4%BB%80%E9%BA%BC-Q1%E6%B3%95%E8%AA%AA%E9%87%8D%E9%BB%9E%E6%9C%89%E5%93%AA%E4%BA%9B-%E9%A6%96%E5%AD%A3EPS1-29%E5%85%83%E5%B9%B4%E5%A2%9E%E9%80%BE%E5%80%8D" target="_blank" rel="noopener">豐雲學堂 - 聯電 Q1 法說重點（EPS 1.29、毛利率 29.2%）</a></li><li><a href="https://wantrich.chinatimes.com/news/20260513900004-420101" target="_blank" rel="noopener">旺得富 - 聯電矽光子 26 年百元分析</a></li><li><a href="https://tw.stock.yahoo.com/news/%E5%A4%A7%E6%91%A9%E5%8D%87%E8%A9%95%E5%96%8A%E8%B2%B7-%E6%9C%80%E9%AB%98%E7%9B%AE%E6%A8%99%E5%83%B9%E7%B5%A6200%E5%85%83" target="_blank" rel="noopener">今周刊 - 大摩升評聯電目標價 138 元</a></li><li><a href="https://www.bnext.com.tw/article/90812/umc-2026-q1" target="_blank" rel="noopener">數位時代 - 聯電 2026 Q1 法說重點</a></li><li><a href="https://www.businessweekly.com.tw/business/blog/3021455" target="_blank" rel="noopener">商業周刊 - 成熟製程三雄比較</a></li><li>[technical_indicators.py 腳本輸出（本機執行，2026-05-29 資料）]</li></ul>
+</div>
+</body>
+</html>

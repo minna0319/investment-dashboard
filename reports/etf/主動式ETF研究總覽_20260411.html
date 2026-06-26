@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台灣主動式 ETF 研究總覽</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html" class="nav-active">報告庫</a><a href="../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>台灣主動式 ETF 研究總覽</h1>
+</div>
+<div class="report-body">
+<h1>台灣主動式 ETF 研究總覽</h1>
+<p>資料日期：2026-04-11</p>
+<p>資料來源：臺灣證券交易所、MoneyDJ、StockFeel 股感、Yahoo 股市、口袋學堂、旺得富、聯合報</p>
+<blockquote><strong>信任層級說明</strong></blockquote>
+<blockquote>- 無標記 = 已由 MoneyDJ 或官方來源交叉驗證</blockquote>
+<blockquote>- ⚠️ = 來自媒體報導或推論分析，僅供參考，建議自行查證</blockquote>
+<blockquote>- ❌ 未取得 = 公開資料中找不到，非編造</blockquote>
+<hr>
+<h2>Part 1：主動式 ETF 基礎教育</h2>
+<h3>1-1 主動式 vs 被動式 ETF，差在哪裡？</h3>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>被動式 ETF</th><th>主動式 ETF</th></tr></thead><tbody><tr><td>運作邏輯</td><td>追蹤特定指數（如 0050 追蹤台灣50指數）</td><td>由基金經理人主動選股</td></tr><tr><td>選股決策</td><td>機器自動依指數成分調整</td><td>人工 + 量化模型決策</td></tr><tr><td>費用率</td><td>較低（0050 約 0.46%）</td><td>較高（台灣主動式約 1.0%~1.4%）</td></tr><tr><td>績效目標</td><td>貼近指數報酬</td><td>目標超越大盤（超額報酬）</td></tr><tr><td>透明度</td><td>定期揭露持股</td><td>台灣規定「每日揭露實際投資組合」</td></tr><tr><td>換股頻率</td><td>低（跟著指數調整）</td><td>高（經理人隨時可換）</td></tr></tbody></table></div>
+<p><strong>一句話比喻：</strong> 被動式 ETF 像「跟著地圖走的司機」，主動式 ETF 像「有豐富經驗自己判斷路線的老司機」。老司機可能比地圖快，也可能走錯路。</p>
+<h3>1-2 費用結構說明</h3>
+<p>台灣主動式 ETF 主要費用：</p>
+<ul><li><strong>經理費</strong>：每年 0.75%~1.4%，是給基金公司的管理費</li><li><strong>保管費</strong>：每年 0.035%~0.15%，是給保管銀行的費用</li><li><strong>交易成本</strong>：換股時的手續費、證交稅（由基金內部承擔）</li><li><strong>規模階梯</strong>：部分投信設計「規模越大、費率越低」的機制（如 00992A：規模越大，費率從 1.2% 降至 1.0%）</li></ul>
+<blockquote>注意：費用是「每年從基金淨值中扣除」，不是另外付。買進時看到的 ETF 價格已反映扣費後的淨值。</blockquote>
+<h3>1-3 主動式 ETF 的風險特性</h3>
+<p><strong>潛在優勢：</strong></p>
+<ul><li>市場失靈時，好的經理人可以快速避開地雷股</li><li>可以靈活配置，押注特定趨勢（如 AI 供應鏈）</li><li>在快速輪動的台股市場，主動選股有更大發揮空間</li></ul>
+<p><strong>潛在風險：</strong></p>
+<ul><li><strong>經理人風險</strong>：績效高度依賴個別經理人能力，換人就變</li><li><strong>費用拖累</strong>：每年 1%+ 的費用需要靠超額報酬覆蓋</li><li><strong>集中風險</strong>：台灣主動式 ETF 普遍重押電子科技（約 85-90%），板塊修正時傷害大</li><li><strong>換股風險</strong>：頻繁換股可能帶來更高隱性交易成本</li><li><strong>短期績效陷阱</strong>：過去好不代表未來好，需持續追蹤</li></ul>
+<h3>1-4 台灣主動式 ETF 發展現況</h3>
+<p><strong>重要里程碑：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th></tr></thead><tbody><tr><td>2023年9月</td><td>投信投顧公會開始研擬主動式 ETF 規範</td></tr><tr><td>2025年5月</td><td>台灣第一檔主動式 ETF（00980A 野村臺灣優選）正式掛牌</td></tr><tr><td>2025年7月底</td><td>已有 6 檔主動式 ETF 掛牌，總規模突破 240 億元</td></tr><tr><td>2025年8月</td><td>主動式 ETF 總規模突破 400 億元</td></tr><tr><td>2025年12月</td><td>元大 00990A 募集，打破紀錄吸金 199.85 億元</td></tr><tr><td>2026年3月底</td><td>主動式 ETF 總規模突破 1,500 億元</td></tr><tr><td>2026年4月</td><td>00997A 群益美國增長掛牌，已有 13+ 檔</td></tr></tbody></table></div>
+<p><strong>台灣市場特點：</strong></p>
+<ul><li>全透明規定：每個交易日結算後「必須在官網揭露當日實際投資組合」，比美國主動式 ETF 透明度更高</li><li>2025 年被稱為「主動式 ETF 元年」</li><li>00981A 統一台股增長受益人數快速成長：截至 2025/12/26 達 21 萬人，截至 2026/03/27 已達約 39.8 萬人（來源：Yahoo 股市），展現市場熱度</li></ul>
+<p><strong>資料來源：</strong> <a href="https://www.twse.com.tw/market_insights/zh/detail/8a8216d697fc438f0198c55cfd800334" target="_blank" rel="noopener">臺灣證券交易所 - 台灣主動式ETF發展現況</a></p>
+<hr>
+<h2>Part 2：13 檔主動式 ETF 總覽（2026 Q1 績效排行）</h2>
+<blockquote>績效排行為 2026 Q1（約 2025年12月底至2026年3月底），數據來源：各財經媒體報導</blockquote>
+<h3>第一梯隊：台股成長型（績效領先）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>投信</th><th>上市日期</th><th>規模（億）</th><th>Q1績效</th><th>成分股數</th><th>配息</th></tr></thead><tbody><tr><td>00992A</td><td>主動群益科技創新</td><td>群益</td><td>2025/12/30</td><td>約200億</td><td>+19.75%</td><td>約30檔</td><td>季配</td></tr><tr><td>00981A</td><td>主動統一台股增長</td><td>統一</td><td>2025/05/27</td><td>約998億</td><td>+17.56%</td><td>38檔</td><td>季配</td></tr><tr><td>00985A</td><td>主動野村台灣50</td><td>野村</td><td>2025/07/08</td><td>約87.6億</td><td>+16.18%</td><td>❌未取得</td><td>季配</td></tr><tr><td>00987A</td><td>主動台新優勢成長</td><td>台新</td><td>2025/12/30</td><td>❌未取得</td><td>+13.85%</td><td>30-50檔</td><td>季配</td></tr><tr><td>00991A</td><td>主動復華未來50</td><td>復華</td><td>2025/12/18</td><td>約104.69億</td><td>+12.23%</td><td>50檔</td><td>季配</td></tr><tr><td>00980A</td><td>主動野村臺灣優選</td><td>野村</td><td>2025/05/05</td><td>❌未取得</td><td>+11.42%</td><td>❌未取得</td><td>季配</td></tr><tr><td>00984A</td><td>主動安聯台灣高息</td><td>安聯</td><td>2025/07/14</td><td>❌未取得</td><td>+10.61%</td><td>❌未取得</td><td>季配</td></tr><tr><td>00982A</td><td>主動群益台灣強棒</td><td>群益</td><td>2025年</td><td>❌未取得</td><td>+9.87%</td><td>❌未取得</td><td>季配</td></tr></tbody></table></div>
+<h3>第二梯隊：全球創新型</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>投信</th><th>上市日期</th><th>規模（億）</th><th>Q1績效</th><th>成分股數</th><th>配息</th></tr></thead><tbody><tr><td>00988A</td><td>主動統一全球創新</td><td>統一</td><td>2025/11/05</td><td>約133.2億</td><td>+17.56%</td><td>45檔</td><td>年配（首配2026/10）</td></tr><tr><td>00990A</td><td>主動元大AI新經濟</td><td>元大</td><td>2025/12/22</td><td>約199.85億募集</td><td>+10.68%</td><td>❌未取得</td><td>不配息</td></tr></tbody></table></div>
+<h3>第三梯隊：海外科技型（警示區）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>投信</th><th>上市日期</th><th>規模（億）</th><th>Q1績效</th><th>成分股數</th><th>配息</th></tr></thead><tbody><tr><td>00986A</td><td>主動台新龍頭成長</td><td>台新</td><td>2025/08月</td><td>❌未取得</td><td>-3.04%</td><td>30-50檔</td><td>年配</td></tr><tr><td>00989A</td><td>主動摩根美國科技</td><td>摩根</td><td>2025/10/22</td><td>約16.62億</td><td>-13.07%</td><td>68檔</td><td>季配</td></tr><tr><td>00983A</td><td>主動中信ARK創新</td><td>中信</td><td>2025/06/18</td><td>約29.91億</td><td>-16.50%</td><td>40檔</td><td>年配</td></tr></tbody></table></div>
+<h3>各檔簡介</h3>
+<p><strong>00992A 群益科技創新（+19.75%）</strong></p>
+<p>Q1 績效冠軍。聚焦台股科技供應鏈，以半導體（41.75%）和電子零組件（23.47%）為主力，採三層篩選策略：負向剔除→量化動能→質化精選。成立才約 3 個月就交出最高績效，表現亮眼。</p>
+<p><strong>00988A 統一全球創新（+17.56%）</strong></p>
+<p>全球布局型，以美國（51.93%）為主要市場，同時涵蓋日本、台灣、德國等。投資全球六大創新領域，含光通訊、儲能、國防等多元題材，是第三梯隊以外成績最好的全球型 ETF。</p>
+<p><strong>00981A 統一台股增長（+17.56%）</strong></p>
+<p>台灣主動式 ETF 規模最大王。成立以來績效突出（⚠️ 2025 約 7 個月估算約 +70%，非完整年度績效），2026 Q1 繼續強勢。投資台股市值前 300 大創新企業，前十大含台積電、台光電、台達電等 AI 供應鏈核心。</p>
+<p><strong>00985A 野村台灣50（+16.18%）</strong></p>
+<p>結合野村量化策略，從市值前 150 大企業靈活調整權重，相較純被動 ETF 有更多靈活度。</p>
+<p><strong>00987A 台新優勢成長（+13.85%）</strong></p>
+<p>台新投信 2025 年 12 月底最新掛牌，投資台股優質成長股。</p>
+<p><strong>00991A 復華未來50（+12.23%）</strong></p>
+<p>從台股市值 51-150 名選 50 檔潛力股，鎖定中型成長股，AI 供應鏈布局。</p>
+<p><strong>00980A 野村臺灣優選（+11.42%）</strong></p>
+<p>台灣第一檔主動式 ETF，量化模型加上經理人優化，聚焦 AI 與成長股。</p>
+<p><strong>00990A 元大AI新經濟（+10.68%）</strong></p>
+<p>全球 AI 主題，聚焦 AI 基礎建設與 AI 應用雙主軸。不配息設計，收益再投入。台積電、輝達、Google 等全球 AI 龍頭為主力。</p>
+<p><strong>00984A 安聯台灣高息（+10.61%）</strong></p>
+<p>安聯投信進台灣 ETF 市場的首檔。高息策略加成長配置，兼顧配息與資本利得。</p>
+<p><strong>00982A 群益台灣強棒（+9.87%）</strong></p>
+<p>群益旗下台股主動 ETF，中小型成長股為主，年化配息率約 8%，配息率較高。</p>
+<p><strong>00986A 台新龍頭成長（-3.04%）</strong></p>
+<p>全球龍頭企業布局，美股佔 76.5%、科技佔 51.5%，重押微軟、輝達、博通等。Q1 受美股科技股回調拖累，小幅下跌。</p>
+<p><strong>00989A 摩根美國科技（-13.07%）</strong></p>
+<p>摩根 J.P. Morgan 首檔在台主動 ETF，聚焦美國大型科技股，規模約 16.62 億。Q1 受 DeepSeek 衝擊、關稅疑慮影響，大型科技股估值修正。</p>
+<p><strong>00983A 中信ARK創新（-16.50%）</strong></p>
+<p>與 ARK Invest（木頭姊 Cathie Wood）合作，投資顛覆式創新企業，含特斯拉、Palantir、Roku 等高風險成長股。Q1 特斯拉大跌（YTD 約 -20%+）是主要拖累。</p>
+<hr>
+<h2>Part 4：綜合比較分析</h2>
+<h3>4-1 第一梯隊 vs 第三梯隊：績效差異歸因</h3>
+<p><strong>第一梯隊（台股成長型）為何 Q1 強勢？</strong></p>
+<ol><li><strong>台股 AI 供應鏈主題持續發燒</strong>：台光電（光通訊連接器）、奇鋐（散熱）、欣興（PCB）等 AI 基建相關股 Q1 大漲</li><li><strong>選股精準押注贏家</strong>：00981A、00992A 同時重壓台光電、台達電、奇鋐等，這些股票 Q1 大幅上漲</li><li><strong>台幣計價優勢</strong>：台股以台幣計價，無匯率損耗</li><li><strong>集中押注帶來高報酬</strong>：前十大持股佔比 50-60%，持股集中，漲時加速</li></ol>
+<p><strong>第三梯隊（海外科技型）為何 Q1 重挫？</strong></p>
+<ol><li><strong>DeepSeek 衝擊（2026年1月）</strong>：DeepSeek 以極低成本達到 AI 效能，引發市場對美國 AI 基建過度投資的疑慮。輝達單日暴跌約 17%，市值蒸發約 US$589B（來源：CNBC、Bloomberg）</li><li><strong>川普關稅政策</strong>：2026 年初關稅加徵疑慮導致美股高估值科技股拋售</li><li><strong>特斯拉重挫（針對 00983A）</strong>：特斯拉 Q1 交車數低於預期，疊加 Elon Musk 形象問題，YTD 跌幅約 20%+（精確值依截止日而異）</li><li><strong>高估值修正壓力</strong>：美國大型科技股在2025年大漲後，本益比偏高，Q1 進行估值修正</li><li><strong>美元走弱</strong>：美元相對台幣走弱，投資美元資產的 ETF 以台幣計算報酬更差</li></ol>
+<p><strong>核心結論：台股主題在地利勝全球主題</strong></p>
+<div class="table-wrap"><table><thead><tr><th>因素</th><th>台股成長型</th><th>海外科技型</th></tr></thead><tbody><tr><td>地域</td><td>台灣（台幣）</td><td>美國（美元）</td></tr><tr><td>主題</td><td>AI 供應鏈硬體</td><td>AI 應用/顛覆創新</td></tr><tr><td>估值</td><td>相對合理</td><td>Q1 前偏高</td></tr><tr><td>匯率影響</td><td>無</td><td>美元走弱不利</td></tr><tr><td>主要衝擊</td><td>幾乎無</td><td>DeepSeek + 關稅</td></tr></tbody></table></div>
+<h3>4-2 換股中值得關注的個股靈感</h3>
+<p>從各主動式 ETF 的共同持股和換股動作，整理出以下值得關注的個股方向：</p>
+<p><strong>多檔 ETF 同時重押（市場共識標的）：</strong></p>
+<ul><li>台積電（2330）：00981A（9.11%）、00992A（6.63%）、00988A 均持有，AI 晶片核心</li><li>台光電（2383）：00981A（8.08%）、00992A（4.54%）均持有，光通訊連接器受惠 AI 資料中心</li><li>奇鋐（3017）：00981A（5.66%）、00992A（3.45%）、00988A（3.0%）均持有，AI 散熱龍頭</li><li>智邦（2345）：00981A（5.52%）、00992A（4.01%）均持有，AI 交換器</li><li>欣興（3037）：00981A（4.82%）、00992A（3.35%）均持有，ABF 載板</li></ul>
+<p><strong>只有特定 ETF 持有（差異化配置）：</strong></p>
+<ul><li>旺矽（6223）：00981A + 00992A，矽晶圓、探針卡題材</li><li>穎崴（6515）：00988A + 00992A，測試介面板</li><li>健策（3653）：00981A，電動車 / AI 伺服器銅散熱</li><li>貿聯-KY（3665）：00981A，電動車連接器</li><li>Lumentum（LITE）：00988A 持有 8.86%，光通訊元件（全球供應商）</li><li>Furukawa Electric（5801.JP）：00988A，日本光纖製造商</li></ul>
+<p><strong>從海外 ETF 持股看全球視角：</strong></p>
+<ul><li>00983A 的 Tempus AI（TEM）、Palantir（PLTR）代表 AI 醫療/數據分析方向</li><li>00988A 的 GE Vernova（GEV）代表能源轉型 / 電力設備方向（配合 AI 電力需求）</li></ul>
+<hr>
+<blockquote>以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+<p><strong>參考來源：</strong></p>
+<ul><li><a href="https://www.twse.com.tw/market_insights/zh/detail/8a8216d697fc438f0198c55cfd800334" target="_blank" rel="noopener">臺灣證券交易所 - 主動式ETF發行現況</a></li><li><a href="https://www.stockfeel.com.tw/%E4%B8%BB%E5%8B%95%E5%9E%8Betf-etf-%E5%9F%BA%E9%87%91-%E6%8A%95%E8%B3%87/" target="_blank" rel="noopener">StockFeel 股感 - 主動型ETF是什麼</a></li><li><a href="https://tw.stock.yahoo.com/news/%E4%B8%BB%E5%8B%95%E5%BC%8Fetf%E6%87%B6%E4%BA%BA%E5%8C%85%EF%BC%81%E4%B8%80%E6%96%87%E6%8E%8C%E6%8F%A1%E5%8F%B0%E8%82%A1%E6%89%80%E6%9C%89%E4%B8%BB%E5%8B%95etf%E3%80%81%E7%AD%96%E7%95%A5%E8%88%87%E7%89%B9%E8%89%B2%EF%BC%88%E4%B8%8D%E6%96%B7%E6%9B%B4%E6%96%B0%EF%BC%89-032823776.html" target="_blank" rel="noopener">Yahoo 股市 - 主動式ETF懶人包</a></li><li>MoneyDJ 各 ETF 基本資料頁</li></ul>
+</div>
+</body>
+</html>

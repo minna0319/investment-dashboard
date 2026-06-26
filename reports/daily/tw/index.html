@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股日報 — Minna 報告庫</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.idx-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.idx-header h1{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.idx-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.search-bar{margin:0 0 16px;display:flex;align-items:center;gap:8px}
+#reportSearch{flex:1;padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:0.85rem;outline:none;transition:border-color 0.2s}
+#reportSearch:focus{border-color:var(--accent)}
+#reportSearch::placeholder{color:var(--text2)}
+.search-hint{font-size:0.75rem;color:var(--text2);white-space:nowrap}
+.category{margin-bottom:12px}
+.category details{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.category details[open]{border-color:var(--accent)}
+.category summary{padding:10px 14px;cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none;display:flex;align-items:center;gap:8px;user-select:none}
+.category summary::-webkit-details-marker{display:none}
+.category summary::before{content:"▸";color:var(--accent);font-size:0.8rem;transition:transform 0.2s;flex-shrink:0}
+.category details[open] summary::before{transform:rotate(90deg)}
+.category summary:hover{background:rgba(255,255,255,0.02)}
+.cat-count{font-size:0.75rem;color:var(--text2);font-weight:400}
+.cat-summary-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.density-bar-wrap{width:60px;height:6px;background:var(--border);border-radius:3px;overflow:hidden;flex-shrink:0}
+.density-bar{height:100%;background:var(--accent);border-radius:3px;transition:width 0.3s}
+.report-list{padding:4px 14px 10px}
+.report-item{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-radius:6px;transition:background 0.15s}
+.report-item:hover{background:var(--surface2)}
+.report-item a{color:var(--text);text-decoration:none;font-size:0.84rem;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.report-item a:hover{color:var(--accent)}
+.report-date{color:var(--text2);font-size:0.75rem;flex-shrink:0;margin-left:10px}
+.new-badge{display:inline-block;padding:1px 6px;border-radius:4px;font-size:0.65rem;font-weight:700;background:rgba(52,211,153,0.18);color:var(--green);margin-left:6px;vertical-align:middle;flex-shrink:0}
+.report-item.hidden{display:none}
+.category.all-hidden{opacity:0.3}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="idx-header">
+<h1>台股日報</h1>
+<div class="idx-meta">共 61 份 | <a href="../../../reports/index.html" style="color:var(--accent)">← 回報告庫</a></div>
+</div>
+<div class="category">
+<div class="report-list">
+<div class="report-item"><a href="台股日報_20260626.html">台股日報_20260626</a><span class="report-date">2026/06/26</span></div><div class="report-item"><a href="台股日報_20260527.html">台股日報_20260527</a><span class="report-date">2026/05/27</span></div><div class="report-item"><a href="台股日報_20260526.html">台股日報_20260526</a><span class="report-date">2026/05/26</span></div><div class="report-item"><a href="台股日報_20260525.html">台股日報_20260525</a><span class="report-date">2026/05/25</span></div><div class="report-item"><a href="台股日報_20260522.html">台股日報_20260522</a><span class="report-date">2026/05/22</span></div><div class="report-item"><a href="台股日報_20260521.html">台股日報_20260521</a><span class="report-date">2026/05/21</span></div><div class="report-item"><a href="台股日報_20260520.html">台股日報_20260520</a><span class="report-date">2026/05/20</span></div><div class="report-item"><a href="台股日報_20260519.html">台股日報_20260519</a><span class="report-date">2026/05/19</span></div><div class="report-item"><a href="台股日報_20260518.html">台股日報_20260518</a><span class="report-date">2026/05/18</span></div><div class="report-item"><a href="台股日報_20260515.html">台股日報_20260515</a><span class="report-date">2026/05/15</span></div><div class="report-item"><a href="台股日報_20260514.html">台股日報_20260514</a><span class="report-date">2026/05/14</span></div><div class="report-item"><a href="台股日報_20260513.html">台股日報_20260513</a><span class="report-date">2026/05/13</span></div><div class="report-item"><a href="台股日報_20260512.html">台股日報_20260512</a><span class="report-date">2026/05/12</span></div><div class="report-item"><a href="台股日報_20260511.html">台股日報_20260511</a><span class="report-date">2026/05/11</span></div><div class="report-item"><a href="台股日報_20260508.html">台股日報_20260508</a><span class="report-date">2026/05/08</span></div><div class="report-item"><a href="台股日報_20260507.html">台股日報_20260507</a><span class="report-date">2026/05/07</span></div><div class="report-item"><a href="台股日報_20260506.html">台股日報_20260506</a><span class="report-date">2026/05/06</span></div><div class="report-item"><a href="台股日報_20260505.html">台股日報_20260505</a><span class="report-date">2026/05/05</span></div><div class="report-item"><a href="台股日報_20260504.html">台股日報_20260504</a><span class="report-date">2026/05/04</span></div><div class="report-item"><a href="台股日報_20260430.html">台股日報_20260430</a><span class="report-date">2026/04/30</span></div><div class="report-item"><a href="台股日報_20260429.html">台股日報_20260429</a><span class="report-date">2026/04/29</span></div><div class="report-item"><a href="台股日報_20260428.html">台股日報_20260428</a><span class="report-date">2026/04/28</span></div><div class="report-item"><a href="台股日報_20260427.html">台股日報_20260427</a><span class="report-date">2026/04/27</span></div><div class="report-item"><a href="台股日報_20260424.html">台股日報_20260424</a><span class="report-date">2026/04/24</span></div><div class="report-item"><a href="台股日報_20260423.html">台股日報_20260423</a><span class="report-date">2026/04/23</span></div><div class="report-item"><a href="台股日報_20260422.html">台股日報_20260422</a><span class="report-date">2026/04/22</span></div><div class="report-item"><a href="台股日報_20260421.html">台股日報_20260421</a><span class="report-date">2026/04/21</span></div><div class="report-item"><a href="台股日報_20260420.html">台股日報_20260420</a><span class="report-date">2026/04/20</span></div><div class="report-item"><a href="台股日報_20260417.html">台股日報_20260417</a><span class="report-date">2026/04/17</span></div><div class="report-item"><a href="台股日報_20260416.html">台股日報_20260416</a><span class="report-date">2026/04/16</span></div><div class="report-item"><a href="台股日報_20260415.html">台股日報_20260415</a><span class="report-date">2026/04/15</span></div><div class="report-item"><a href="台股日報_20260414.html">台股日報_20260414</a><span class="report-date">2026/04/14</span></div><div class="report-item"><a href="台股日報_20260413.html">台股日報_20260413</a><span class="report-date">2026/04/13</span></div><div class="report-item"><a href="台股日報_20260410.html">台股日報_20260410</a><span class="report-date">2026/04/10</span></div><div class="report-item"><a href="台股日報_20260409.html">台股日報_20260409</a><span class="report-date">2026/04/09</span></div><div class="report-item"><a href="台股日報_20260408.html">台股日報_20260408</a><span class="report-date">2026/04/08</span></div><div class="report-item"><a href="台股日報_20260407.html">台股日報_20260407</a><span class="report-date">2026/04/07</span></div><div class="report-item"><a href="台股日報_20260402.html">台股日報_20260402</a><span class="report-date">2026/04/02</span></div><div class="report-item"><a href="台股日報_20260401.html">台股日報_20260401</a><span class="report-date">2026/04/01</span></div><div class="report-item"><a href="台股日報_20260331.html">台股日報_20260331</a><span class="report-date">2026/03/31</span></div><div class="report-item"><a href="台股日報_20260330.html">台股日報_20260330</a><span class="report-date">2026/03/30</span></div><div class="report-item"><a href="台股日報_20260327.html">台股日報_20260327</a><span class="report-date">2026/03/27</span></div><div class="report-item"><a href="台股日報_20260326.html">台股日報_20260326</a><span class="report-date">2026/03/26</span></div><div class="report-item"><a href="台股日報_20260325.html">台股日報_20260325</a><span class="report-date">2026/03/25</span></div><div class="report-item"><a href="台股日報_20260324.html">台股日報_20260324</a><span class="report-date">2026/03/24</span></div><div class="report-item"><a href="台股日報_20260323.html">台股日報_20260323</a><span class="report-date">2026/03/23</span></div><div class="report-item"><a href="台股日報_20260320.html">台股日報_20260320</a><span class="report-date">2026/03/20</span></div><div class="report-item"><a href="台股日報_20260319.html">台股日報_20260319</a><span class="report-date">2026/03/19</span></div><div class="report-item"><a href="台股日報_20260318.html">台股日報_20260318</a><span class="report-date">2026/03/18</span></div><div class="report-item"><a href="台股日報_20260317.html">台股日報_20260317</a><span class="report-date">2026/03/17</span></div><div class="report-item"><a href="台股日報_20260316.html">台股日報_20260316</a><span class="report-date">2026/03/16</span></div><div class="report-item"><a href="台股日報_20260313.html">台股日報_20260313</a><span class="report-date">2026/03/13</span></div><div class="report-item"><a href="台股日報_20260312.html">台股日報_20260312</a><span class="report-date">2026/03/12</span></div><div class="report-item"><a href="台股日報_20260311.html">台股日報_20260311</a><span class="report-date">2026/03/11</span></div><div class="report-item"><a href="台股日報_20260310.html">台股日報_20260310</a><span class="report-date">2026/03/10</span></div><div class="report-item"><a href="台股日報_20260309.html">台股日報_20260309</a><span class="report-date">2026/03/09</span></div><div class="report-item"><a href="台股日報_20260306.html">台股日報_20260306</a><span class="report-date">2026/03/06</span></div><div class="report-item"><a href="台股日報_20260305.html">台股日報_20260305</a><span class="report-date">2026/03/05</span></div><div class="report-item"><a href="台股日報_20260304.html">台股日報_20260304</a><span class="report-date">2026/03/04</span></div><div class="report-item"><a href="台股日報_20260303.html">台股日報_20260303</a><span class="report-date">2026/03/03</span></div><div class="report-item"><a href="台股日報_20260302.html">台股日報_20260302</a><span class="report-date">2026/03/02</span></div>
+</div>
+</div>
+</body>
+</html>
