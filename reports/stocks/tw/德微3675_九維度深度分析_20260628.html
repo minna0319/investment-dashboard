@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>德微（3675）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>德微（3675）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>德微（3675）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<blockquote>四欄（版本／日期／當時股價／主要更新）。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-28</td><td>NT$359.5</td><td>首次分析（以 2026-06-26 收盤數據為準，全新建立）</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>所有帶單位數字來自 WebFetch 官方來源（TPEX / Yahoo Finance）。找不到標「❌ 未取得」。</blockquote>
+<blockquote>資料時間：2026-06-26 收盤｜資料來源見文末</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$359.5（-26元 / -6.74%）</td></tr><tr><td>市值</td><td>約 190.7 億元</td></tr><tr><td>PE 本益比</td><td>127.48 倍（TTM，TPEX 官方）</td></tr><tr><td>PB 股價淨值比</td><td>7.46 倍（TPEX 官方）</td></tr><tr><td>EPS（近 4 季合計）</td><td>2.82 元（Q1 2026: +1.51 / Q4 2025: +1.14 / Q3 2025: +1.06 / Q2 2025: -0.89）</td></tr><tr><td>殖利率</td><td>1.11%（TPEX 官方）</td></tr><tr><td>ROE</td><td>5.7%（TTM 計算值；前瞻估計 ~12%）</td></tr><tr><td>毛利率</td><td>38.28%（2026 Q1 損益表，趨勢向上）</td></tr><tr><td>營收 YoY（2026/05）</td><td>+24.42%</td></tr><tr><td>營收 MoM（2026/05）</td><td>+5.20%</td></tr><tr><td>52 週高 / 低</td><td>445.5 / 120.0</td></tr><tr><td>技術位置</td><td>MA20=359.3（現價貼近）/ MA60=279.3，RSI=53.01（中性），KD 死叉（中位）</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 基本面改善清晰、前瞻估值合理，但 6/26 單日急跌 -6.74% 後 KD 死叉、技術動能轉弱，建議等待 320–340 回測支撐或股價重新站回 MA5（約 380 元）後確認方向再進場。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段（3–6 個月），等待 Q2 財報兌現</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>商業模式</h3>
+<p>德微科技（代號 3675，上櫃）是台灣功率半導體廠商，核心產品線涵蓋整流二極體、</p>
+<blockquote>📝 <strong>整流二極體</strong>：將交流電轉成直流電的基礎半導體元件，幾乎所有電子設備都需要用到。</blockquote>
+<blockquote>📝 <strong>MOSFET</strong>：金氧半場效電晶體（Metal-Oxide-Semiconductor Field-Effect Transistor）——一種功率開關元件，電源供應器、馬達控制器常用。</blockquote>
+<blockquote>📝 <strong>ESD 保護元件</strong>：靜電放電保護元件（Electrostatic Discharge）——防止靜電損壞晶片的小元件，AI 伺服器每個 I/O 接口都需要一顆。</blockquote>
+<blockquote>📝 <strong>IGBT</strong>：絕緣閘雙極電晶體（Insulated Gate Bipolar Transistor）——中高功率應用的開關元件，用於電動車、工業設備、伺服器電源。</blockquote>
+<p>MOSFET、ESD / TPS 保護元件，以及近年重點布局的小型 IGBT 與 800V 高壓直流（HVDC）元件。</p>
+<p><strong>集團架構（「三足鼎立」策略）</strong>：</p>
+<ul><li><strong>德微</strong>（3675）：負責功率元件的後端封裝與品牌業務</li><li><strong>亞昕科技</strong>：德微轉投資的晶圓代工子公司，負責前端製造；2026 年 5 月法說會宣布預計 <strong>2026 年 10 月獨立 IPO</strong></li><li><strong>喜可士</strong>：品牌銷售端</li></ul>
+<blockquote>📝 <strong>IPO</strong>：首次公開發行（Initial Public Offering），即一家未上市公司透過掛牌方式讓一般投資人買賣其股票。</blockquote>
+<p><strong>策略轉型「汰弱留強」</strong>：公司刻意縮減低毛利的標準型二極體比重，集中資源在高毛利產品群：</p>
+<ul><li>Local ESD：毛利率超過 60%</li><li>AI 相關保護元件（TPS / ESD）：毛利率約 50%</li><li>小型 IGBT / 軍規產品：毛利率 40–60%</li><li>標準型二極體（逐步汰除）：毛利率相對低</li></ul>
+<h3>AI 需求連結</h3>
+<p>AI 伺服器的每個新 I/O 接口（Input/Output，資料進出的接點）都需要獨立的 TPS 與 ESD 保護元件，NVIDIA 等廠商每推出新架構（如 Blackwell 系列）就需要更多顆保護元件。</p>
+<blockquote>📝 <strong>Blackwell</strong>：NVIDIA 最新一代 AI 晶片平台，2024–2025 年推出，是目前高端 AI 伺服器的核心算力來源。</blockquote>
+<blockquote>📝 <strong>TPS</strong>：暫態電壓抑制器（Transient Voltage Suppressor），保護電路不受瞬間電壓突波損壞，AI 保護元件的重要品項。</blockquote>
+<p>德微 2026/05 法說會指出，AI 架構演進帶動保護元件需求呈 4–16 倍增長，產能利用率已從 60–70% 提升至 90%，交期拉長至 20–40 週，訂單能見度直達 2027 年底。</p>
+<h3>OOC 轉單效益</h3>
+<blockquote>📝 <strong>OOC（Out of China）</strong>：非中國供應鏈，意指客戶（尤其是美國品牌廠）要求採購非中國生產的零件，以規避地緣政治風險或法規限制。</blockquote>
+<p>中美關係緊張促使國際大廠推動 OOC 策略，加上中國競爭對手（安世半導體、揚杰科技）遭美國制裁，轉單效應直接流入德微。</p>
+<h3>管理層信心</h3>
+<p>CEO 於 2026/05 法說會公開宣示毛利率 40% 為未來常態，並提出亞昕科技的 IPO 時間表，顯示管理層對業務能見度有一定把握。</p>
+<h3>小結</h3>
+<p>德微從傳統二極體廠轉型為「AI 功率保護元件」利基廠商，疊加 OOC 轉單與同業制裁紅利，是此輪上漲的核心邏輯；需觀察轉型執行速度。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>季度損益趨勢（官方來源：Yahoo Finance 損益表）</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>營收（仟元）</th><th>毛利率</th><th>營業利益率</th><th>淨利率</th><th>單季 EPS</th></tr></thead><tbody><tr><td>2026 Q1</td><td>684,598</td><td>38.28%</td><td>14.94%</td><td>12.06%</td><td>1.51 元</td></tr><tr><td>2025 Q4</td><td>682,699</td><td>36.50%</td><td>9.03%</td><td>9.32%</td><td>1.14 元</td></tr><tr><td>2025 Q3</td><td>685,489</td><td>31.89%</td><td>8.08%</td><td>8.68%</td><td>1.06 元</td></tr><tr><td>2025 Q2</td><td>643,184</td><td>32.61%</td><td>3.35%</td><td>-7.44%</td><td>-0.89 元</td></tr></tbody></table></div>
+<p>三個關鍵觀察：</p>
+<ol><li><strong>毛利率三連升</strong>：31.89% → 36.50% → 38.28%，且法說會宣告 4 月已突破 40%，結構性改善而非單季偶發</li><li><strong>Q2 2025 是谷底</strong>：虧損 -0.89 元/股，整個財務低點已過</li><li><strong>費用率收斂</strong>：毛利率與營益率的差距從 2025 Q2 的 29% 縮窄至 Q1 2026 的 23%，顯示固定費用逐漸被更高營收攤平</li></ol>
+<blockquote>📝 <strong>毛利率</strong>：（營收 - 直接生產成本）÷ 營收，反映一家公司賺的「第一層錢」有多少，越高代表產品越有定價能力。</blockquote>
+<blockquote>📝 <strong>營業利益率（OPM）</strong>：扣掉所有運營費用後的利潤率，更接近「真正的獲利能力」。</blockquote>
+<h3>月營收趨勢（官方來源：Yahoo Finance 月營收頁）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收（百萬元）</th><th>MoM</th><th>YoY</th></tr></thead><tbody><tr><td>2026/05</td><td>267.1</td><td>+5.20%</td><td><strong>+24.42%</strong></td></tr><tr><td>2026/04</td><td>253.9</td><td>+6.66%</td><td>+19.10%</td></tr><tr><td>2026/03</td><td>238.0</td><td>+5.52%</td><td>+12.52%</td></tr><tr><td>2026/02</td><td>225.6</td><td>+2.08%</td><td>+6.72%</td></tr><tr><td>2026/01</td><td>221.0</td><td>+0.72%</td><td>+9.21%</td></tr><tr><td>2025/12</td><td>219.4</td><td>-4.69%</td><td>-1.14%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>MoM（Month over Month）</strong>：與上個月比較的成長率；<strong>YoY（Year over Year）</strong>：與去年同月比較的成長率。</blockquote>
+<p>月營收逐月加速成長，YoY 從年初 +9% 推升至 5 月 +24%，顯示下游需求持續擴大，並非季節性反彈。</p>
+<p><strong>Q2 2026 季收估算</strong>：依 4月（253.9M）＋ 5月（267.1M）＋ 6月估約 280M（保守），Q2 季收約 <strong>801M 元</strong>，較 Q1 的 685M 季增約 <strong>+17%</strong>。若毛利率維持 40%，季收成長加上利潤率提升的雙重乘數，Q2 EPS 有機會達 2.0–2.5 元。</p>
+<h3>資產負債健康度（官方來源：Yahoo Finance 資產負債表）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>2026 Q1</th><th>趨勢</th></tr></thead><tbody><tr><td>總資產</td><td>47.95 億元</td><td>逐季增加</td></tr><tr><td>股東權益</td><td>26.31 億元</td><td>逐季增加</td></tr><tr><td>負債比率</td><td>45.12%</td><td>逐季下降（46.42% → 45.77% → 45.12%）</td></tr><tr><td>流動比率</td><td>1.58</td><td>健康（>1.5 為安全線）</td></tr><tr><td>負債/權益比</td><td>58.4%</td><td>中等，無過度槓桿風險</td></tr></tbody></table></div>
+<blockquote>📝 <strong>流動比率</strong>：流動資產 ÷ 流動負債，代表公司用短期資產還短期負債的能力，>1 代表不會週轉不靈。</blockquote>
+<blockquote>📝 <strong>負債比率</strong>：總負債 ÷ 總資產，45% 屬於製造業的正常範圍，不算危險。</blockquote>
+<h3>歷年 EPS（官方來源：Goodinfo）</h3>
+<div class="table-wrap"><table><thead><tr><th>年份</th><th>EPS（元）</th></tr></thead><tbody><tr><td>2022</td><td>10.26</td></tr><tr><td>2023</td><td>6.73</td></tr><tr><td>2024</td><td>8.34</td></tr><tr><td>2025</td><td>2.67</td></tr><tr><td>2026E（估計）</td><td>~8–10 元（月營收成長趨勢外推）</td></tr></tbody></table></div>
+<p>2025 年因去庫存衝擊觸底（EPS 僅 2.67 元），2026 年回升幅度將接近 2022 高峰水準。</p>
+<blockquote>📝 <strong>自由現金流（FCF）</strong>：❌ 未取得（Yahoo Finance 現金流量表未能成功抓取，建議至財報狗或公開說明書查詢）</blockquote>
+<h3>小結</h3>
+<p>財務面呈現「V 型反彈」，毛利率、月營收、EPS 三者同步改善，負債比率持續降低；Q2 2026 財報是驗證轉型是否成功的關鍵時間點。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>目前估值概況</h3>
+<p>以 2026-06-26 收盤價 359.5 元計算：</p>
+<ul><li><strong>TTM PE = 127.48 倍</strong>（表觀極貴，因 Q2 2025 虧損拉低 TTM EPS 至 2.82 元）</li><li><strong>前瞻 PE（Forward PE）≈ 36–45 倍</strong>（若 FY2026E EPS = 8–10 元）</li><li><strong>PB = 7.46 倍</strong>（高於同業，但成長溢價可部分解釋）</li></ul>
+<blockquote>📝 <strong>TTM PE（本益比）</strong>：Trailing Twelve Months，用過去 12 個月的獲利計算本益比；若最近幾季出現一次性虧損，TTM PE 會虛高。</blockquote>
+<blockquote>📝 <strong>前瞻 PE（Forward PE）</strong>：用未來 12 個月的「預估獲利」計算本益比，對於轉型股更有參考價值。</blockquote>
+<blockquote>📝 <strong>PB（股價淨值比）</strong>：股價 ÷ 每股帳面價值（Total Equity ÷ 股數），PB=7.46 意思是市場願意用 7.46 倍的帳面價格購買德微的資產，代表市場預期盈利能力遠高於帳面。</blockquote>
+<h3>估值方法 A：前瞻 PE 法（主要參考）</h3>
+<p>假設 FY2026E EPS 為 8–10 元（基於月營收加速成長 + 毛利率突破 40%）：</p>
+<ul><li>同業平均 PE：強茂 56 倍、台半 53.5 倍、富鼎 42 倍 → 均值約 50 倍</li><li>德微擁有更高毛利率（38–40%）+ AI 題材溢價，給予 45–50 倍合理 PE</li><li><strong>保守合理股價：8 元 × 45 倍 = 360 元</strong>（≈ 現價，表示下行保護已到位）</li><li><strong>基案合理股價：9 元 × 50 倍 = 450 元</strong>（+25% 上行空間）</li><li><strong>樂觀合理股價：10 元 × 50 倍 = 500 元</strong>（+39% 上行空間）</li></ul>
+<blockquote>📝 <strong>PEG 法</strong>：PE 除以盈利成長率，PEG < 1 通常代表估值合理。德微 2026 EPS YoY 成長率高達 +200–300%（從 2.67 → 8–10 元），PEG 遠低於 1，從 PEG 角度相當吸引。但 PEG 在轉型年、基期效應下要謹慎解讀。</blockquote>
+<blockquote>📝 <strong>PEG</strong>：本益成長比（Price/Earnings to Growth），用來判斷高 PE 是否有盈利成長支撐。</blockquote>
+<h3>估值方法 B：PB 相對估值法（輔助參考）</h3>
+<ul><li>帳面每股價值：2,630,894K ÷ 53.1M 股 ≈ 49.5 元/股</li><li>同業 PB 均值：約 4.3 倍（強茂 4.61、台半 3.54、富鼎 4.74）</li><li>給德微成長溢價：目標 PB = 5–6 倍</li><li><strong>合理股價 B：49.5 × 5.5 倍 = 272–297 元</strong></li><li>PB 法偏低（未反映盈利回升動能），僅供極端悲觀情境下的安全邊際參考</li></ul>
+<p><strong>結論：Method A 前瞻 PE 法為主要估值依據。</strong></p>
+<p>現價 359.5 元已貼近保守合理價（360 元），基案目標 450 元仍有 25% 上行空間，前提是 Q2/Q3 財報如期兌現。</p>
+<h3>小結</h3>
+<p>TTM PE 127 倍是轉型期光學假象；用前瞻 PE 看，359.5 元已落在「保守估值支撐區（~360 元）」，基案合理價為 450 元，估值不算離譜，但 EPS 兌現是最大變數。</p>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>技術數據來源：<code>technical_indicators.py 3675.TWO</code>，資料日期 2026-06-26</blockquote>
+<h3>均線系統</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>現價 vs 均線</th></tr></thead><tbody><tr><td>MA5</td><td>401.7</td><td>現價跌破，短線轉弱</td></tr><tr><td>MA10</td><td>366.1</td><td>現價跌破，注意支撐</td></tr><tr><td>MA20</td><td><strong>359.3</strong></td><td>現價 (359.5) 貼近，關鍵支撐</td></tr><tr><td>MA60</td><td>279.3</td><td>現價大幅高於，季線多頭支撐</td></tr><tr><td>MA120</td><td>221.3</td><td>趨勢強力支撐</td></tr><tr><td>MA240</td><td>181.5</td><td>長期均線仍在低位</td></tr></tbody></table></div>
+<blockquote>📝 <strong>MA（移動平均線）</strong>：過去 N 日收盤價的平均值；MA20 ≈ 月線，MA60 ≈ 季線，MA240 ≈ 年線。股價在這些均線上方代表多頭趨勢，跌破則轉弱。</blockquote>
+<p>均線排列：<strong>多頭排列</strong>（短期均線 > 長期均線），長線趨勢完整。但 6/26 單日急跌 -6.74%，股價從 MA5（401.7）直接跌穿 MA10（366.1）到 MA20 支撐（359.3），為重要警訊。</p>
+<h3>振盪指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>RSI 14</td><td>53.01</td><td>中性區（50–60），多空均可</td></tr><tr><td>K 值</td><td>61.03</td><td>—</td></tr><tr><td>D 值</td><td>66.29</td><td>—</td></tr><tr><td>KD 交叉</td><td><strong>死亡交叉（中位）</strong></td><td>今日剛形成，中線賣出參考</td></tr><tr><td>MACD 柱狀</td><td>+1.01</td><td>正值，零軸上方，多頭格局維持</td></tr><tr><td>黃金交叉</td><td>3 天前（6/23）</td><td>剛確認就急跌，可信度存疑</td></tr></tbody></table></div>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：K 線向下穿越 D 線，是短線賣出訊號；若發生在高檔（K > 80）代表更強烈，此次在中位（K=61）殺傷力較小，但仍需注意。</blockquote>
+<blockquote>📝 <strong>黃金交叉</strong>：短期均線向上穿越長期均線，是買入訊號。此次黃金交叉（6/23）形成後 3 天就遭遇大跌，訊號可信度下降。</blockquote>
+<blockquote>📝 <strong>MACD</strong>：指數平滑移動平均線（Moving Average Convergence Divergence），柱狀為正且在零軸上方代表多頭格局仍在。</blockquote>
+<h3>52 週定位</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>52 週高點</td><td>445.5 元</td></tr><tr><td>52 週低點</td><td>120.0 元</td></tr><tr><td>現價位置</td><td>52 週 73.6% 分位（中上段）</td></tr><tr><td>距 52 週高點回調</td><td>-19.3%</td></tr><tr><td>距 52 週低點漲幅</td><td>+199.6%（從 120 漲到 359.5）</td></tr></tbody></table></div>
+<p>股票從低點漲近 3 倍後出現回調屬正常，但幅度和速度仍需觀察。</p>
+<h3>成交量</h3>
+<p>6/26 成交量 600 張，低於 5 日均量 3,475 張、20 日均量 2,019 張，顯示<strong>量縮急跌</strong>，可能是大單砸盤而非散戶恐慌性賣壓。</p>
+<h3>支撐 / 壓力參考</h3>
+<div class="table-wrap"><table><thead><tr><th>位置</th><th>價格</th><th>說明</th></tr></thead><tbody><tr><td>短期支撐 1</td><td>~359 元</td><td>MA20，現已貼近</td></tr><tr><td>短期支撐 2</td><td>~330–340 元</td><td>前波整理區間</td></tr><tr><td>季線支撐</td><td>~279 元</td><td>MA60，長線多頭底部</td></tr><tr><td>短期壓力</td><td>~366–380 元</td><td>MA10 / MA5 區間</td></tr><tr><td>52 週高</td><td>445.5 元</td><td>前高壓力</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>技術面出現 KD 死叉且股價急跌至 MA20 支撐，短線動能轉弱；若 MA20（359）守不住，下一支撐在 330–340 元。MACD 正柱與多頭排列顯示中長線結構未破，此波回調屬中期調整性質。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>外資</h3>
+<ul><li><strong>持股比例</strong>：59.73%（31,694 張，2026-06-26，Goodinfo）</li><li>外資是最大股東，持股比例極高，代表外資動向主導股價</li></ul>
+<p>近期外資動向（WebSearch 數據）：</p>
+<ul><li>2026/05/28 附近：外資買超 +805 張（積極建倉）</li><li>2026/06/10 附近：外資賣超 -1,292 張（5 日合計）</li><li>2026/06/26 當日：外資買超僅 +1 張（幾乎中立）</li></ul>
+<p><strong>外資由買轉賣</strong>是 6 月上旬以來的主要壓力來源，股價從 420 元以上的階段高點拉回至 360 元附近的軌跡與外資賣超吻合。</p>
+<h3>投信</h3>
+<ul><li>近期持倉及買賣超：❌ 未取得詳細數據（TPEX 投信持倉明細未能抓取）</li><li>6/26 當日：買賣超 0 張（無動作）</li></ul>
+<h3>自營商</h3>
+<ul><li>6/26 當日：買超 +14 張（小量布局）</li></ul>
+<h3>融資融券（籌碼結構）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值（2026-06-26）</th><th>變化</th></tr></thead><tbody><tr><td>融資餘額</td><td>2,470 張</td><td>-148 張（減少）</td></tr><tr><td>融券餘額</td><td>89 張</td><td>-70 張（大幅減少）</td></tr><tr><td>券資比</td><td>3.6%</td><td>偏低</td></tr></tbody></table></div>
+<blockquote>📝 <strong>融資</strong>：向券商借錢買股票，俗稱「開槓桿」；融資增加代表散戶做多，減少代表散戶獲利了結或停損。</blockquote>
+<blockquote>📝 <strong>融券</strong>：向券商借股票賣出（做空），融券餘額少代表市場對此股放空意願低。</blockquote>
+<blockquote>📝 <strong>券資比</strong>：融券 ÷ 融資，比率低代表放空力量弱、股票不易遭逼空，也代表多方籌碼相對乾淨。</blockquote>
+<p>觀察：</p>
+<ul><li>融資減少 148 張：散戶正在降槓桿，短線籌碼整理中</li><li>融券大幅減少 70 張（幾乎減半）：空頭回補，放空壓力降低</li><li>券資比僅 3.6%：空方力量薄弱，外資才是主要操控力量</li></ul>
+<h3>股本與流通性</h3>
+<ul><li>股本：5.31 億元（約 5,310 萬股）</li><li>每日成交量 600 張（6/26 低量日）顯示流動性尚可但非大型股，大戶買賣容易影響股價</li></ul>
+<h3>小結</h3>
+<p>外資持股近 60%、主導性強，6 月以來由積極買超轉為中立偏賣是本波下跌主因；融券比低、融資在降槓桿，籌碼正在洗牌，等待下一輪方向確認。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<h3>比較對象</h3>
+<p>德微（功率半導體二極體 / ESD）同業：<strong>強茂（2481）</strong>、<strong>台半（5425）</strong>、<strong>富鼎（8261）</strong></p>
+<blockquote>📝 <strong>功率半導體</strong>：專門處理高電壓、大電流的半導體元件，功率管理（電源轉換、開關控制）是核心應用，廣泛用於電動車、伺服器、工業設備。</blockquote>
+<h3>同業比較表</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>德微 3675</th><th>強茂 2481</th><th>台半 5425</th><th>富鼎 8261</th></tr></thead><tbody><tr><td>市場</td><td>上櫃（TWO）</td><td>上市（TW）</td><td>上櫃（TWO）</td><td>上市（TW）</td></tr><tr><td>現價（元）</td><td>359.5</td><td>175.0</td><td>114.5</td><td>244.0</td></tr><tr><td>市值（億）</td><td>190.7</td><td>668.7</td><td>280.0</td><td>290.1</td></tr><tr><td>TTM PE（倍）</td><td>127.48</td><td>56.27</td><td>53.50</td><td>42.00</td></tr><tr><td>PB（倍）</td><td>7.46</td><td>4.61</td><td>3.54</td><td>4.74</td></tr><tr><td>EPS TTM（元）</td><td>2.82</td><td>3.11</td><td>2.07</td><td>5.81</td></tr><tr><td>殖利率</td><td>1.11%</td><td>❌ 未取得</td><td>1.77%</td><td>❌ 未取得</td></tr><tr><td>ROE（TTM）</td><td>5.7%</td><td>8.87%</td><td>10.43%</td><td>11.67%</td></tr><tr><td>毛利率（最新）</td><td><strong>38.28%</strong></td><td>31.85%</td><td>30.5%</td><td>37.65%</td></tr><tr><td>技術評分</td><td>1.5 中性偏多</td><td><strong>4.0 多頭</strong></td><td>2.0 中性偏多</td><td>1.5 中性偏多</td></tr></tbody></table></div>
+<p>數據來源：TPEX、Yahoo Finance 損益表、yfinance API；台半殖利率來自 TPEX 官方</p>
+<h3>關鍵差異解析</h3>
+<p><strong>毛利率</strong>：德微 38.28% 是同業最高（富鼎 37.65% 次之，強茂台半均在 30–32%）。「汰弱留強」策略有效，且法說會確認 4 月已突破 40%，結構性領先。</p>
+<p><strong>估值</strong>：德微 TTM PE 最高（127 倍）是轉型期的光學效應；若以 2026E EPS ≈ 9–10 元計算前瞻 PE 約 36–40 倍，反而低於強茂（56 倍）和台半（53.5 倍），接近富鼎水準（42 倍）。</p>
+<p><strong>ROE</strong>：德微 TTM ROE 5.7% 是同業最低，亦因 Q2 2025 虧損所致；前瞻 ROE 約 12–13% 將接近台半（10.43%）和富鼎（11.67%），但目前尚未兌現。</p>
+<p><strong>技術面</strong>：強茂是同業中技術評分最強（4.0 多頭），德微技術面最弱（KD 死叉，1.5 分）；若選純技術面，強茂更強。</p>
+<p><strong>催化劑差異</strong>：德微有亞昕 IPO（2026/10）、AI 保護元件、OOC 轉單三大催化劑；其他同業較無獨特題材加持。</p>
+<h3>如果只選一檔</h3>
+<p>若投資期間為 6 個月以上、著重基本面轉型：<strong>德微</strong>（毛利率最高、AI 催化劑最明確、前瞻估值最便宜）。</p>
+<p>若投資期間較短（1–3 個月）、技術面主導：<strong>強茂</strong>（技術評分最強、趨勢最確定、ROE 已相對穩定）。</p>
+<h3>小結</h3>
+<p>德微毛利率同業第一且仍在上升，前瞻估值已不貴；技術動能落後強茂，若看好 AI 題材、有耐心等 Q2 財報驗證，德微是同業中「高風險高回報」的選項。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期催化劑（6 個月內）</h3>
+<p><strong>1. 亞昕科技 IPO（預計 2026 年 10 月）</strong></p>
+<p>德微持股亞昕科技，亞昕 IPO 後將：</p>
+<ul><li>釋放亞昕隱含價值（亞昕目標三年內營收突破 10 億，IPO 估值可觀）</li><li>建立「中立代工」角色，吸引更多國際客戶（現在由德微旗下製造，客戶顧慮較多）</li><li>催生母子公司雙上市的市值重估</li></ul>
+<p><strong>2. Q2 2026 財報（預計 2026 年 8 月公布）</strong></p>
+<p>月營收已確認 Q2 季收 ~800M（估），若毛利率站穩 40%+，Q2 EPS 可望 2.0–2.5 元。財報兌現將使「前瞻 PE 便宜」的論述更有力，是最重要的近期催化劑。</p>
+<p><strong>3. AI 伺服器出貨加速（持續性催化劑）</strong></p>
+<p>NVIDIA Blackwell 系列出貨加速，每台伺服器需大量 ESD/TPS 保護元件；AI 算力需求確定性高，訂單能見度直達 2027 年底。</p>
+<p><strong>4. 競爭對手制裁持續生效</strong></p>
+<p>安世半導體（荷商，中國背景）、揚杰科技（中國廠）持續受制裁，轉單紅利維持。但此為外部因素，存在政策逆轉風險（見維度 8）。</p>
+<p><strong>5. 月營收連月創高</strong></p>
+<p>若 6 月月營收持續成長（目標 280M+），將觸發市場對 H2 業績的更積極預期。月營收公布時間通常在每月 10 日前後。</p>
+<h3>中期主題（6–18 個月）</h3>
+<ul><li><strong>HVDC 800V 超高壓電源</strong>：鎖定 1,000W–1,600W 以上的頂級 AI 伺服器電源，客戶含國際大廠</li><li><strong>軍規/汽車應用</strong>：毛利率 40–60%，長期穩定的高毛利訂單</li><li><strong>IGBT 擴產</strong>：單一型號月產能從 300 萬顆擴至 3,000 萬顆（10 倍），已有訂單支撐</li></ul>
+<blockquote>📝 <strong>HVDC（High Voltage DC）</strong>：高壓直流電，AI 超算機房大量採用 800V HVDC 架構提升效率，需要能承受高電壓的專用功率元件。</blockquote>
+<h3>小結</h3>
+<p>短期（3 個月內）最重要的催化劑是「Q2 財報兌現」，若 EPS ≥ 2 元且毛利率 ≥ 40%，可觸發估值重估；亞昕 IPO（10 月）是中期最大想像空間。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險</h3>
+<p><strong>風險 1：EPS 兌現風險（高機率 × 高影響）</strong></p>
+<p>TTM PE 127 倍代表市場已充分預期盈利大幅回升；若 Q2/Q3 EPS 低於市場預期（例如毛利率未能維持 40%，或月營收成長放緩），股價可能大幅修正。</p>
+<ul><li>觸發點：月營收年增轉負、毛利率回跌至 35% 以下</li><li>預估下行空間：300 元以下（前瞻 PE 回落至 40–45 倍 × 保守 7 元 EPS）</li></ul>
+<p><strong>風險 2：亞昕 IPO 不確定性（中機率 × 中影響）</strong></p>
+<p>亞昕 IPO 若延遲、撤案，或 IPO 估值不如預期，市場對母公司德微的期待將打折扣。</p>
+<ul><li>亞昕預計 10 月 IPO，目前仍是「管理層承諾」階段，尚未有正式送件新聞</li></ul>
+<p><strong>風險 3：OOC / 制裁政策逆轉（低機率 × 高影響）</strong></p>
+<p>若美中貿易關係轉趨緩和，安世半導體等競爭對手制裁被解除，轉單效應可能減弱。</p>
+<p><strong>風險 4：AI 資本支出縮減（低機率 × 高影響）</strong></p>
+<p>若 NVIDIA、Meta、Google 等 AI 大廠放緩伺服器採購，保護元件需求成長率將明顯下降。</p>
+<ul><li>目前所有公開訊號均指向持續擴張，短期此風險較低</li></ul>
+<p><strong>風險 5：技術面仍在回調（高機率 × 低影響）</strong></p>
+<p>從 52W 高點 445.5 元回調 -19%，短線趨勢仍不明確；若跌破 MA20（359 元），下一支撐在 330–340 元。</p>
+<ul><li>此為短線價格風險，不影響基本面邏輯</li></ul>
+<p><strong>風險 6：產業庫存調整（中機率 × 中影響）</strong></p>
+<p>功率半導體曾在 2023–2025 年歷經嚴重庫存調整（EPS 從 10.26 跌至 2.67）。若客戶再次超量備貨而後砍單，營收成長性將大打折扣。</p>
+<h3>風險總結</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>機率</th><th>影響</th><th>緩解因素</th></tr></thead><tbody><tr><td>EPS 未兌現</td><td>中</td><td>高</td><td>月營收趨勢正向、法說會指引保守</td></tr><tr><td>亞昕 IPO 延遲</td><td>中</td><td>中</td><td>即使延遲，本業改善不受影響</td></tr><tr><td>制裁政策逆轉</td><td>低</td><td>高</td><td>地緣政治結構性轉變，短期不易逆轉</td></tr><tr><td>AI 資本支出縮減</td><td>低</td><td>高</td><td>大廠 CapEx 指引仍上升</td></tr><tr><td>技術面回調</td><td>高</td><td>低</td><td>MA60（279）是強力支撐底線</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>最大尾部風險是「AI 資本支出縮減 + EPS 未兌現雙擊」，但目前基本面訊號均正向；近期最值得監控的是月營收是否維持 YoY +20% 以上。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：【觀望】</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：初始 5–8%（基本面確認後可加碼至 10–12%）</li><li><strong>適合操作</strong>：中線波段（目標持有 3–6 個月，等 Q2 財報與亞昕 IPO 進度）</li></ul>
+<hr>
+<p><strong>進場條件（A / B 二擇一）</strong></p>
+<ul><li><strong>條件 A（等回測）</strong>：股價回測 320–340 元區間（MA10 支撐下方），且當週出現止跌收紅（K 線下影線）</li><li>進場機制：分批布局，320–330 佈 50%，330–340 佈 50%</li><li><strong>條件 B（等確認）</strong>：股價重新收盤站回 MA5（目前約 380 元），且 KD 完成黃金交叉確認</li><li>等待動能回復後再買，進場成本較高但確定性較高</li><li>適合不想承擔進一步回調的操作風格</li></ul>
+<p><strong>停損參考</strong></p>
+<ul><li>短期停損：跌破並收盤站穩 279 元（MA60 季線），代表中線趨勢受損</li><li>基本面停損：月營收 YoY 轉為負成長，或 Q2 毛利率跌回 35% 以下</li></ul>
+<p><strong>加碼條件</strong></p>
+<p>以下任一條件出現可考慮加碼：</p>
+<ul><li>Q2 2026 財報 EPS ≥ 2.0 元，且毛利率 ≥ 40%</li><li>月營收 YoY 加速至 +30% 以上（連續 2 個月）</li><li>亞昕科技 IPO 正式送件，亮出估值數字</li></ul>
+<p><strong>觀察指標 / 時間點</strong></p>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>觀察事項</th></tr></thead><tbody><tr><td>2026 年 7 月 10 日前後</td><td>6 月月營收（是否繼續 +5% MoM、YoY > +20%）</td></tr><tr><td>2026 年 8 月中旬</td><td>Q2 2026 財報（EPS / 毛利率兌現驗證）</td></tr><tr><td>2026 年 9–10 月</td><td>亞昕科技 IPO 進度（是否正式遞件上市）</td></tr><tr><td>每月持續</td><td>月營收公布（成長性是否維持）</td></tr></tbody></table></div>
+<p><strong>下次檢視時間</strong>：2026 年 8 月 15 日（Q2 財報公布後）</p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis" target="_blank" rel="noopener">TPEX 上櫃個股本益比殖利率股價淨值比（2026-06-26）</a></li><li><a href="https://tw.stock.yahoo.com/quote/3675.TWO" target="_blank" rel="noopener">Yahoo Finance 德微股票行情（3675.TWO）</a></li><li><a href="https://tw.stock.yahoo.com/quote/3675.TWO/revenue" target="_blank" rel="noopener">Yahoo Finance 德微月營收（3675.TWO/revenue）</a></li><li><a href="https://tw.stock.yahoo.com/quote/3675.TWO/eps" target="_blank" rel="noopener">Yahoo Finance 德微每股盈餘（3675.TWO/eps）</a></li><li><a href="https://tw.stock.yahoo.com/quote/3675.TWO/income-statement" target="_blank" rel="noopener">Yahoo Finance 德微損益表（3675.TWO/income-statement）</a></li><li><a href="https://tw.stock.yahoo.com/quote/3675.TWO/balance-sheet" target="_blank" rel="noopener">Yahoo Finance 德微資產負債表（3675.TWO/balance-sheet）</a></li><li><a href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=3675" target="_blank" rel="noopener">Goodinfo 台灣股市資訊網 - 德微（3675）歷年 EPS / 法人買賣超</a></li><li><a href="https://vocus.cc/article/6a18e3f2fd897800016bdf07" target="_blank" rel="noopener">vocus 德微2026/05/28 法說會重點摘要</a></li><li>技術指標：<code>python3 投資理財/scripts/technical_indicators.py 3675.TWO</code>（2026-06-26）</li><li>同業數據：yfinance API（強茂 2481.TW、台半 5425.TWO、富鼎 8261.TW）</li></ul>
+</div>
+</body>
+</html>

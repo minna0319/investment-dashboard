@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>富采（3714）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>富采（3714）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>富采（3714）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote>一檔股票只留這一份檔案，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v2.0</td><td>2026-06-28</td><td>NT$61.6</td><td>升級最新模板，取代 20260531 舊版。全部數據重抓：技術指標/法人籌碼/月營收更新至 5 月。新增：6/30 除息事件、現金減資進度、聚積 3527 同業加入比較。結論維持觀望，信心 2→3 星（股價已修正至前次分析進場目標區，但技術面惡化）</td></tr><tr><td>v1.0</td><td>2026-05-31</td><td>NT$72.8</td><td>首次分析</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>所有帶單位數字來自 WebFetch 官方來源，找不到標「❌ 未取得」，不可留空或猜測。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$61.6（漲跌 -8.74%）</td></tr><tr><td>市值</td><td>約 467.8 億元</td></tr><tr><td>PE 本益比</td><td>N/A（近 4 季 EPS 為負，不適用）</td></tr><tr><td>PB 股價淨值比</td><td>1.09 倍（每股淨值 NT$56.68）</td></tr><tr><td>EPS（近 4 季合計，Q2'25–Q1'26）</td><td>約 -3.28 元</td></tr><tr><td>殖利率</td><td>1.46%（公積配息 0.9 元；除息日 2026/06/30）</td></tr><tr><td>ROE</td><td>-2.63%（2026 Q1）</td></tr><tr><td>毛利率</td><td>11.1%（2026 Q1）</td></tr><tr><td>營收 YoY（2026/05，最新月）</td><td>+8.12%</td></tr><tr><td>營收 MoM（2026/05）</td><td>-0.50%</td></tr><tr><td>52 週高 / 低</td><td>81.4 / 30.6（yfinance）</td></tr><tr><td>技術位置</td><td>股價跌破 MA5(68.66)/MA20(67.54)/MA60(67.97)；RSI 40.72；KD 死亡交叉（6/26）</td></tr></tbody></table></div>
+<p>資料時間：2026-06-26（已收盤，當週最後交易日）｜資料來源見文末</p>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 股價從高點修正 25% 已接近帳面淨值，但技術面已跌破四條均線、法人持續賣超，且基本面仍連虧；等除息（6/30）後局勢明朗、Q2 財報確認方向再評估進場。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：高風險波段（能承受 20–30% 回撤、等候 1–2 年者）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司靠什麼賺錢？</h3>
+<p>富采控股（3714）是台灣 LED 產業整合旗艦控股公司，由晶電（原 2448）與隆達整合而來，主要業務三塊：</p>
+<ul><li><strong>LED 磊晶片與晶粒</strong>（化合物半導體，GaAs / GaN / InP 基底）：最上游，決定 LED 品質</li><li><strong>LED 封裝與模組</strong>：Mini LED 背光源（供蘋果 iPad、MacBook 等）</li><li><strong>化合物半導體新應用</strong>：VCSEL、InP DFB 雷射、Micro LED（AI 光通訊轉型主軸）</li></ul>
+<blockquote>📝 <strong>磊晶片（Epitaxial Wafer）</strong>：LED 的原始材料，就像麵團——廠商先在基板上一層層長出半導體材料，後續再切割成一顆顆 LED 晶粒，是整個 LED 供應鏈的最上游。</blockquote>
+<blockquote>📝 <strong>VCSEL（垂直共振腔面射型雷射）</strong>：一種高速雷射二極體，AI 機房內短距光通訊的主流元件，傳輸速度快、功耗低。</blockquote>
+<blockquote>📝 <strong>InP（磷化銦）</strong>：製造高速光通訊元件的化合物半導體材料，全球供應商極少、目前供不應求，是富采轉型的核心切入點。</blockquote>
+<h3>產業鏈定位</h3>
+<p>```</p>
+<p>化合物半導體基板（GaAs/InP/GaN）</p>
+<p>↓</p>
+<p>[富采] 磊晶製造 ← 核心位置（MOCVD 設備規模全球前三）</p>
+<p>↓</p>
+<p>LED 晶粒 / 光通訊晶粒</p>
+<p>↓</p>
+<p>LED 封裝模組 / 光模組廠</p>
+<p>↓</p>
+<p>品牌廠（蘋果 Mini LED、AI 伺服器廠）</p>
+<p>```</p>
+<blockquote>📝 <strong>MOCVD（有機金屬化學氣相沉積機台）</strong>：製造 LED 和光通訊晶片的核心設備，一台造價數千萬台幣。富采的 MOCVD 設備數量全球名列前茅，是進入光通訊市場最重要的有形壁壘。</blockquote>
+<h3>轉型主軸：AI 光通訊（三技術並行）</h3>
+<div class="table-wrap"><table><thead><tr><th>技術</th><th>材料</th><th>應用</th><th>預估時程</th></tr></thead><tbody><tr><td>VCSEL</td><td>GaAs（砷化鎵）</td><td>800G 光模組短距傳輸</td><td>最快先放量</td></tr><tr><td>CW DFB 雷射</td><td>InP（磷化銦）</td><td>AI 資料中心長距光通訊</td><td>2027 年後</td></tr><tr><td>Micro LED + CPO</td><td>GaN（氮化鎵）</td><td>共同封裝光學模組</td><td>2027 H2+</td></tr></tbody></table></div>
+<blockquote>📝 <strong>CPO（Co-Packaged Optics，共同封裝光學）</strong>：把光訊號處理元件直接放在 AI 晶片旁邊（距離縮短到 1 公分以內），大幅降低能耗與延遲，是 AI 伺服器架構的下一代方向。</blockquote>
+<h3>管理層評估</h3>
+<ul><li>2026 Q1 法說會方向清晰，轉型路徑可信</li><li>但 Mini LED 訂單曾多次未達預期，管理層「畫大餅」歷史需留意</li><li>已通過現金減資 45.79%（退還 4.58 元）+ 公積配息 0.9 元，顯示有股東回報意識</li></ul>
+<h3>小結</h3>
+<p>富采握有全球規模最大的 MOCVD 磊晶設備，是台灣進入 AI 光通訊最重要的製造基礎建設；轉型方向明確，但客戶尚未落地、管理層執行力需持續觀察，是基本面最大的隱患。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（最新至 2026/05，來源：Yahoo 股市）</h3>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>月營收</th><th>MoM</th><th>YoY</th></tr></thead><tbody><tr><td><strong>2026/05</strong></td><td><strong>20.90 億</strong></td><td>-0.50%</td><td><strong>+8.12%</strong></td></tr><tr><td>2026/04</td><td>21.00 億</td><td>+11.03%</td><td>+4.27%</td></tr><tr><td>2026/03</td><td>18.92 億</td><td>+29.14%</td><td>-6.51%</td></tr><tr><td>2026/02</td><td>14.65 億</td><td>-22.47%</td><td>-17.01%</td></tr><tr><td>2026/01</td><td>18.89 億</td><td>+3.47%</td><td>+2.47%</td></tr><tr><td>2025/12</td><td>18.26 億</td><td>+7.95%</td><td>+0.03%</td></tr><tr><td>2025/09</td><td>17.90 億</td><td>—</td><td>-12.18%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>YoY（年增率）</strong>：今年這個月跟去年同月相比長了多少，比 MoM 更能代表真實成長趨勢（排除季節性波動）。</blockquote>
+<p><strong>觀察</strong>：</p>
+<ul><li>YoY 趨勢連三個月轉正：-6.5%（3月）→ +4.3%（4月）→ <strong>+8.1%（5月）</strong>，方向確認</li><li>累計前五月 94.35 億，YoY -1.5%（接近轉正）</li><li>5 月 MoM -0.5% 基本持平，無明顯淡季崩跌</li></ul>
+<h3>損益表趨勢（來源：Yahoo 股市）</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>季營收</th><th>毛利率</th><th>稅後淨利</th><th>單季 EPS</th></tr></thead><tbody><tr><td><strong>2026 Q1</strong></td><td>52.45 億</td><td><strong>+11.1%</strong></td><td>-1.38 億</td><td><strong>-0.20 元</strong></td></tr><tr><td>2025 Q4</td><td>52.08 億</td><td><strong>-2.6%</strong></td><td>-7.06 億</td><td>-1.06 元</td></tr><tr><td>2025 Q3</td><td>56.03 億</td><td>+5.7%</td><td>-6.16 億</td><td>-0.83 元</td></tr><tr><td>2025 Q2</td><td>57.40 億</td><td>+6.9%</td><td>-8.93 億</td><td>-1.19 元</td></tr></tbody></table></div>
+<blockquote>📝 <strong>毛利率（Gross Margin）</strong>：每賣 100 元扣掉直接生產成本後剩幾元。毛利率為負代表連成本都回不來；LED 業健康水準應在 20% 以上。</blockquote>
+<p><strong>觀察</strong>：</p>
+<ul><li>2026 Q1 毛利率從 -2.6% 大幅反彈至 +11.1%（季增 13.8 個百分點），近 6 季最佳</li><li>單季虧損收窄 80%：Q4 -7.06 億 → Q1 -1.38 億</li><li>但<strong>仍在虧損</strong>：營業利益 -3.07 億，費用端（研發/管銷）仍重壓</li><li>法說會揭露 EBITDA 率回升至 10.4%（⚠️ 單一來源，豐雲學堂）</li></ul>
+<blockquote>📝 <strong>EBITDA</strong>：比淨利更能看出本業賺不賺錢，把折舊等非現金費用加回去，排除會計方法干擾。</blockquote>
+<h3>財務健康度（2026 Q1，來源：Yahoo 股市）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>總資產</td><td>約 524.8 億元</td></tr><tr><td>總負債</td><td>約 97.0 億元</td></tr><tr><td>股東權益</td><td>約 427.8 億元</td></tr><tr><td>負債比率</td><td><strong>約 18.5%（健康）</strong></td></tr><tr><td>每股淨值</td><td>NT$56.68</td></tr><tr><td>自由現金流（FCF）</td><td>❌ 未取得（建議至公開資訊觀測站查現金流量表）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>自由現金流（FCF，Free Cash Flow）</strong>：公司實際賺到、可以自由運用的現金，比帳面利潤更真實；FCF 為正代表公司不需要靠外部融資也能活下去。</blockquote>
+<h3>小結</h3>
+<p>營收 YoY 連三個月改善（現達 +8.12%），毛利率大幅反彈，財務結構穩健（負債比 18.5%）；但公司連六季虧損，毛利率 11.1% 距 LED 業健康水準（20%+）仍有差距，財務面是「正在好轉」而非「已轉正」。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>估值數據（來源：Yahoo 股市、Goodinfo）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>備註</th></tr></thead><tbody><tr><td>收盤價（2026/06/26）</td><td>NT$61.6</td><td>跌破法人目標價 65 元</td></tr><tr><td>每股淨值（BPS）</td><td>NT$56.68</td><td>Goodinfo</td></tr><tr><td>股價淨值比（PB）</td><td><strong>1.09 倍</strong></td><td>股價僅高出淨值 9%</td></tr><tr><td>PE 本益比</td><td>N/A</td><td>近 4 季 EPS -3.28，虧損中</td></tr><tr><td>殖利率（公積配息）</td><td>1.46%</td><td>除息日 6/30，每股 0.9 元</td></tr><tr><td>52 週高/低分位</td><td><strong>61% 分位</strong></td><td>(61.6-30.6)/(81.4-30.6)</td></tr></tbody></table></div>
+<blockquote>📝 <strong>股價淨值比（PB）</strong>：股價 ÷ 每股淨值，代表市場願意為公司資產付多少溢價。PB = 1.09 意思是市場只願意用帳面價值的 1.09 倍來買，接近「打折」水位。</blockquote>
+<h3>現金減資後的估值重構（重要）</h3>
+<p>富采已通過 45.79% 現金減資（每股退還 4.58 元），<strong>基準日尚未公告</strong>。</p>
+<p>除減資參考價估算（台灣通用公式）：</p>
+<p>```</p>
+<p>除減資參考價 = (除減資前股價 - 每股退還現金) ÷ (1 - 減資比率)</p>
+<p>= (61.6 - 4.58) ÷ (1 - 0.4579)</p>
+<p>= 57.02 ÷ 0.5421</p>
+<p>≈ NT$105（⚠️ 依減資基準日當天收盤價重新計算）</p>
+<p>```</p>
+<ul><li><strong>這不代表資產變多</strong>，只是「同樣一塊蛋糕切成更少片、每片更大」</li><li>但對每股 EPS、ROE、BPS 等指標有顯著「提升」效果（每股數字變好看）</li><li>減資後每股淨值估計約 NT$98.5（原 56.68 元大幅提升）</li></ul>
+<h3>相對估值參考</h3>
+<p><strong>法人目標價</strong>（⚠️ 來源為豐雲學堂/工商時報報導，建議自行確認）：</p>
+<ul><li>樂觀目標：<strong>65 元</strong>（部分券商轉「買進」）</li><li>悲觀目標：<strong>42 元</strong>（中立分析師）</li><li>目前股價 61.6 元：<strong>首次跌破多數法人看多目標價（65 元）</strong></li></ul>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>目標價</th><th>距目前</th></tr></thead><tbody><tr><td>樂觀（法人轉買進）</td><td>65 元</td><td>+5.5%</td></tr><tr><td>帳面淨值（安全邊際）</td><td>56.7 元</td><td>-7.9%</td></tr><tr><td>悲觀（法人中立）</td><td>42 元</td><td>-31.8%</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>股價跌破法人目標價、PB 壓縮至 1.09 倍接近帳面淨值，估值壓力比 5 月大幅降低；但真正的「便宜」需等到 EPS 轉正後才能用 PE 衡量，現在只能用 PB 估底部，不代表不會繼續跌。</p>
+<hr>
+<h2>4. 技術面</h2>
+<h3>技術指標摘要（來源：technical_indicators.py，基準日：2026-06-26）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>收盤價</td><td>61.6 元</td><td>—</td></tr><tr><td><strong>MA5</strong></td><td><strong>68.66 元</strong></td><td>⚠️ 股價跌破 MA5（下方 -10.2%）</td></tr><tr><td>MA10</td><td>67.14 元</td><td>⚠️ 股價跌破 MA10</td></tr><tr><td><strong>MA20（月線）</strong></td><td><strong>67.54 元</strong></td><td>⚠️ 股價跌破月線</td></tr><tr><td><strong>MA60（季線）</strong></td><td><strong>67.97 元</strong></td><td>⚠️ 股價跌破季線</td></tr><tr><td>MA120（半年線）</td><td>53.24 元</td><td>股價在上方 +15.7%</td></tr><tr><td>MA240（年線）</td><td>44.43 元</td><td>股價在上方 +38.6%</td></tr><tr><td>RSI(14)</td><td><strong>40.72</strong></td><td>偏弱（40–50 區間，尚未超賣）</td></tr><tr><td>KD（K/D）</td><td>41.5 / 54.61</td><td>—</td></tr><tr><td><strong>KD 交叉</strong></td><td><strong>死亡交叉（6/26 今日）</strong></td><td>⚠️ 賣出訊號</td></tr><tr><td>MACD</td><td>-0.67（信號線 -0.47）</td><td>—</td></tr><tr><td>MACD 柱狀</td><td><strong>-0.20</strong></td><td>空頭格局</td></tr><tr><td>技術評分</td><td><strong>-2.0（中性偏空）</strong></td><td>KD 死亡 -1、MACD 負 -1、黃金交叉 +0.5</td></tr></tbody></table></div>
+<blockquote>📝 <strong>月線（MA20）、季線（MA60）</strong>：把過去 20 天/60 天的收盤價取平均。股價同時跌破月線和季線，是技術上的顯著空頭警示，代表中期多頭趨勢瓦解。</blockquote>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：K 值從上方穿過 D 值往下，是短線賣出訊號。今天（6/26）剛發生，K=41.5 屬中間區，若 K 線下探 20 以下才進入超賣（有反彈機會）。</blockquote>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：衡量超買/超賣，70+ 是超買、30- 是超賣。目前 40.72 偏弱但尚未超賣，未到「技術反彈」的觸發點。</blockquote>
+<h3>與 5 月分析的對比</h3>
+<div class="table-wrap"><table><thead><tr><th>時間點</th><th>股價</th><th>技術評分</th><th>季線位置</th><th>KD 狀況</th></tr></thead><tbody><tr><td>2026/05/31（舊版）</td><td>72.8 元</td><td>-0.5</td><td>季線上方 +19.9%</td><td>死亡交叉（1天前）</td></tr><tr><td><strong>2026/06/26（本版）</strong></td><td><strong>61.6 元</strong></td><td><strong>-2.0</strong></td><td><strong>季線下方 -9.4%</strong></td><td><strong>死亡交叉（今日）</strong></td></tr></tbody></table></div>
+<p><strong>重大技術破壞</strong>：股價從「季線上方」變成「跌破四條均線」，技術格局完全逆轉。</p>
+<h3>關鍵支撐與壓力</h3>
+<ul><li><strong>支撐區</strong>：53–57 元（MA120=53.24 + 每股淨值 56.68）</li><li><strong>壓力區</strong>：67–68 元（MA20/MA60 叢林，需收復才算技術修復）</li></ul>
+<h3>小結</h3>
+<p>技術面已全面轉為空頭格局：股價跌破四條均線、KD 死亡交叉、MACD 負值，短線看不到止跌訊號；RSI 40.72 尚未超賣，意味著技術面還有繼續下探的空間，最近支撐在 MA120（53 元）附近。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>法人動向（2026/06/26，來源：Yahoo 股市）</h3>
+<div class="table-wrap"><table><thead><tr><th>法人</th><th>當日買賣超（張）</th><th>近況</th></tr></thead><tbody><tr><td>外資</td><td><strong>-1,678</strong></td><td>連 3 賣</td></tr><tr><td>投信</td><td>0</td><td>連 17 日零動作</td></tr><tr><td>自營商</td><td><strong>-357</strong></td><td>連 3 賣</td></tr><tr><td><strong>三大法人合計</strong></td><td><strong>-2,035</strong></td><td>連 3 賣</td></tr></tbody></table></div>
+<ul><li>近 5 日三大法人累計：<strong>-7,862 張</strong>（量體顯著）</li><li>外資持股比例：<strong>10.58%</strong>（5/31 為 11.45%，持續下滑）</li><li>投信：連 17 日觀望，毫無動靜</li></ul>
+<blockquote>📝 <strong>三大法人買賣超</strong>：外資（外國機構投資人）、投信（台灣基金公司）、自營商（券商自有資金）的每日買賣方向。三大法人持續賣超，代表機構資金在撤退，散戶在接盤。</blockquote>
+<h3>融資融券對比（來源：Yahoo 股市）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>2026/06/26</th><th>2026/05/31</th><th>變化</th></tr></thead><tbody><tr><td>融資餘額</td><td><strong>31,536 張</strong></td><td>37,688 張</td><td>↓ -16.3%</td></tr><tr><td>融資使用率</td><td>18.89%</td><td>22.57%</td><td>↓ 改善</td></tr><tr><td>融券餘額</td><td><strong>0 張</strong></td><td>406 張</td><td>↓ 歸零</td></tr><tr><td>券資比</td><td>0.00%</td><td>1.08%</td><td>—</td></tr></tbody></table></div>
+<blockquote>📝 <strong>融資餘額下降</strong>：散戶解除槓桿（還錢給券商），降低了「股價下跌→融資斷頭→急殺」的連鎖風險，對股價是相對正面的清洗效果。</blockquote>
+<blockquote>📝 <strong>融券</strong>：向券商借股票來賣出（做空）。融券歸零代表沒有空方壓制，目前的下跌純粹是多方出逃，而非空方打壓。</blockquote>
+<h3>籌碼面小結</h3>
+<p>三大法人連賣且外資持股持續滑落，機構資金仍在撤退；但融資清洗了 16%，籌碼結構比 5 月稍乾淨，融券歸零也消除空方壓制——整體籌碼中性偏空，少了主動買盤。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>富采（3714）</th><th>億光（2393）</th><th>聚積（3527）</th></tr></thead><tbody><tr><td>現價（6/26）</td><td>NT$61.6</td><td>NT$67.6</td><td>NT$63.5</td></tr><tr><td>本益比（PE）</td><td><strong>N/A（虧損）</strong></td><td><strong>16.13 倍</strong></td><td>N/A</td></tr><tr><td>PB</td><td><strong>1.09 倍</strong></td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>近月 YoY 營收（5月）</td><td>+8.12%</td><td><strong>+10.21%</strong></td><td><strong>+15.91%</strong></td></tr><tr><td>全年配息 / 估 EPS</td><td>0.9 元（公積）</td><td><strong>4.14 元</strong></td><td>❌ 未取得</td></tr><tr><td>現金殖利率</td><td>1.46%</td><td><strong>~6.1%</strong></td><td>❌ 未取得</td></tr><tr><td>52 週高/低</td><td>81.4 / 30.6</td><td>68.9 / 67.3（波動極窄）</td><td>66.6 / 63.0</td></tr><tr><td>是否獲利</td><td>❌ 連虧 6 季</td><td>✅ 穩定獲利</td><td>❌ 尚未確認</td></tr><tr><td>主題</td><td>AI 光通訊轉型</td><td>照明穩健 + 高殖利率</td><td>LED 驅動 IC + Micro LED</td></tr></tbody></table></div>
+<blockquote>⚠️ 資料說明：富采數據來自 Yahoo 股市 + Goodinfo；億光、聚積數據來自 Yahoo 股市即時抓取（有欄位取得限制，❌ 未取得部分建議自行確認）。</blockquote>
+<h3>定性比較</h3>
+<p><strong>億光（2393）— 穩健基本面型</strong></p>
+<ul><li>LED 族群罕見的穩定獲利公司，PE 16 倍、殖利率 ~6%，適合收息型投資人</li><li>5 月 YoY +10.21%，傳統 LED 照明需求回暖中</li><li>52 週高低差極小（67.3–68.9 元），說明市場認為它已是成熟穩定股</li><li>對比富采：安全性高、少了 AI 光通訊的想像空間</li></ul>
+<p><strong>聚積（3527）— LED 驅動 IC 小眾型</strong></p>
+<ul><li>業務是 LED 驅動 IC 設計（不是磊晶，是控制晶片，與富采不直接競爭）</li><li>5 月 YoY +15.91% 成長最強，但成交量極低（272 張），流動性風險高</li><li>Micro LED + 車用題材，規模小</li></ul>
+<h3>如果只能選一檔（此情境下）</h3>
+<ul><li>追求<strong>穩健獲利 + 配息</strong>：億光（2393）</li><li>押注<strong>高風險 AI 光通訊轉型</strong>：富采（3714）是唯一選項，但需接受長期虧損等待期</li></ul>
+<h3>小結</h3>
+<p>億光是「穩健選手」、富采是「高風險轉型押注」，投資邏輯完全不同；資金有限時，應先確認自己的風險預算再決定比重，不建議混為一談。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期最重要事件</h3>
+<p><strong>1. 除息：2026/06/30（本週一，後天）</strong> ⭐⭐</p>
+<ul><li>配發公積現金 0.9 元，除息後理論股價：61.6 - 0.9 = <strong>約 60.7 元</strong></li><li>2025 年同樣除息 0.9 元，填息僅花 2 天（但當時股價約 35.5 元，填息容易）</li><li>風險：若市場對基本面信心不足，除息後填息時間拉長，短線可能持續弱勢</li></ul>
+<p><strong>2. 現金減資 45.79%（基準日待公告）</strong> ⭐⭐⭐</p>
+<ul><li>股東會 5/26 已通過，申報主管機關生效後公告基準日（預計 2026 Q3）</li><li>每股退還 NT$4.58 現金，股本從 73.79 億元降至 40 億元</li><li>除減資後理論參考價大幅提升：若當日股價 61.6 元 → 除減資參考價約 <strong>NT$105 元</strong></li><li>注意：這是等值交換，不是「免費漲價」；但對 EPS、ROE 等每股指標有提升效果</li></ul>
+<blockquote>📝 <strong>現金減資</strong>：公司退還股東資金，同時減少股票總量。「同一塊蛋糕切成更少片」，每片面額更大，但總蛋糕大小不變。減資後每股淨值、每股 EPS 等數字都會「看起來更好」。</blockquote>
+<h3>中期催化劑時程表（3–12 個月）</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>重要性</th></tr></thead><tbody><tr><td>2026/06/30</td><td>除息（0.9 元公積）</td><td>⭐⭐</td></tr><tr><td>2026 Q3</td><td><strong>現金減資基準日公告</strong></td><td>⭐⭐⭐</td></tr><tr><td><strong>2026/08</strong></td><td><strong>Q2 財報公告（最關鍵）</strong></td><td>⭐⭐⭐⭐</td></tr><tr><td>2026 H2</td><td>Micro LED 量產開始</td><td>⭐⭐⭐</td></tr><tr><td>2026 Q3 法說</td><td>是否宣布 EPS 轉正</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>2027 H1</td><td>AI 光通訊客戶合作宣布</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>2027 H2</td><td>AI 光通訊實質營收貢獻</td><td>⭐⭐⭐⭐⭐</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>最近的題材是除息（6/30）和現金減資基準日（待定）；真正能改變基本面的催化劑（Q2 財報 EPS 轉正、AI 光通訊客戶落地）最快 Q3 才有機會出現，短線題材面較貧乏。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險清單</h3>
+<p><strong>1. 技術面持續破壞（中高機率，中衝擊）</strong></p>
+<ul><li>股價已跌破所有短中期均線（MA5/10/20/60）</li><li>下一支撐在 MA120（53.24 元）；若跌破，下探帳面淨值（56.68 元）乃至 50 元</li><li>除息後（6/30）若市場無買盤支撐，短線可能加速下探</li></ul>
+<p><strong>2. 題材不兌現（高機率，高衝擊）</strong></p>
+<ul><li>AI 光通訊實際訂單最快 2027 H2 才有實質營收</li><li>股價 2026 年先行反映 2–3 年想像，若進展落後，30–40% 回撤空間仍存</li><li>競爭風險：ams OSRAM 等國際大廠資源更強，中國 LED 廠持續低價競爭</li></ul>
+<p><strong>3. 基本面仍在虧損（當下現實，中高機率中衝擊）</strong></p>
+<ul><li>連六季虧損，毛利率 11.1% 距 LED 業健康水準（20%+）有距離</li><li>2026 Q2 若毛利率未站穩 12–15%，市場失望性出貨風險</li><li>費用端（研發/管銷）尚未隨毛利回升而改善</li></ul>
+<p><strong>4. 外資持續撤退（中高機率，中衝擊）</strong></p>
+<ul><li>外資持股：15.86%（4月）→ 11.45%（5月底）→ 10.58%（6/26），下滑趨勢明確</li><li>若持股跌破 8%，主要機構資金基本退場，缺乏機構支撐</li></ul>
+<p><strong>5. 除息後填息壓力（中機率，低衝擊）</strong></p>
+<ul><li>0.9 元除息對股價影響小，但若填息遙遙無期，心理面偏負面</li></ul>
+<p><strong>6. 現金減資不確定性（低機率，高衝擊）</strong></p>
+<ul><li>基準日尚未公告，存在等待期間的時間成本</li><li>申請主管機關核准雖通常是形式審查，但仍有不確定性</li></ul>
+<blockquote>📝 <strong>CapEx（資本支出）</strong>：公司花大錢買設備、蓋廠房的支出。轉型期通常 CapEx 很高，要確認現金夠不夠撐過去；富采自由現金流未取得，無法確認。</blockquote>
+<h3>風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>機率</th><th>衝擊</th><th>綜合判定</th></tr></thead><tbody><tr><td>技術面繼續走弱，跌至 53 元</td><td>中高</td><td>中</td><td>⚠️ 近期最值得監控</td></tr><tr><td>題材不兌現（2027 未如期）</td><td>高</td><td>高</td><td>❌ 最大長期風險</td></tr><tr><td>Q2 財報毛利率未改善</td><td>中</td><td>中高</td><td>⚠️ 8 月最重要觀察點</td></tr><tr><td>外資持股跌破 8%</td><td>中</td><td>中</td><td>⚠️ 需每週追蹤</td></tr><tr><td>現金減資申請受阻</td><td>低</td><td>高</td><td>📌 背景風險</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>風險結構比 5 月更複雜——原有的「題材不兌現」和「基本面虧損」之外，新增了「技術面全面破壞」；唯一的正面緩解是估值已壓縮至 PB 1.09，接近帳面淨值的安全邊際，但安全邊際不代表不能繼續跌。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li></ul>
+<blockquote>信心 3 星原因：股價從高點修正 25%，首次跌破法人目標價，PB 接近帳面淨值，進場的「性價比」確實比 5 月好；但技術面全面轉空、法人連續賣超、基本面仍在虧損，缺乏「現在就進場」的明確依據，觀望等待更清晰訊號。</blockquote>
+<ul><li><strong>建議倉位</strong>：佔總資金 <strong>3–5%</strong>（高風險題材股，控制損失上限）</li></ul>
+<ul><li><strong>進場條件（以下擇一，不追漲）</strong>：</li><li><strong>條件 A（財報確認法）</strong>：2026 Q2 財報（8 月公告）EPS 轉正，且毛利率站穩 15%+，再考慮入場，對應法人目標價 65 元</li><li><strong>條件 B（技術止穩法）</strong>：除息後（7 月以後），若股價在 58–62 元止穩、成交量縮小、KD 出現黃金交叉，可小額試倉（不超過 2%）</li><li><strong>條件 C（現金減資催化法）</strong>：減資基準日公告後，等股價反應穩定（通常除減資前後 3–5 個交易日），再評估進場</li></ul>
+<ul><li><strong>停損參考</strong>：</li><li>技術面：跌破 MA120（53.24 元）超過 3 個交易日 → 考慮出場</li><li>基本面：Q2 財報 EPS 仍虧且毛利率未站上 13% → 重新評估持有邏輯</li><li>金額面：持倉損失達 20% → 執行停損</li></ul>
+<ul><li><strong>加碼條件</strong>：</li><li>EPS 連續兩季正值（基本面轉折確認）</li><li>AI 光通訊大客戶合作正式宣布</li><li>外資持股從低點反轉，連續買超超過 5 日</li></ul>
+<ul><li><strong>觀察指標</strong>（每月/每季追蹤）：</li><li>月營收 YoY（目標：穩定維持 +10% 以上）</li><li>2026 Q2 財報毛利率（目標：站穩 13–15%）</li><li>外資持股比例（警戒線：跌破 8%）</li><li>現金減資基準日公告時間</li><li>InP / VCSEL 客戶合作消息</li></ul>
+<ul><li><strong>下次檢視</strong>：2026 年 8 月（Q2 財報公告後）；若現金減資基準日提早公告，提前檢視</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/3714.TW" target="_blank" rel="noopener">Yahoo 股市 - 富采 3714.TW 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/3714.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 富采月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/3714.TW/income-statement" target="_blank" rel="noopener">Yahoo 股市 - 富采損益表</a></li><li><a href="https://tw.stock.yahoo.com/quote/3714.TW/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 - 富采法人買賣</a></li><li><a href="https://tw.stock.yahoo.com/quote/3714.TW/margin" target="_blank" rel="noopener">Yahoo 股市 - 富采融資融券</a></li><li><a href="https://tw.stock.yahoo.com/quote/2393.TW" target="_blank" rel="noopener">Yahoo 股市 - 億光 2393.TW</a></li><li><a href="https://tw.stock.yahoo.com/quote/3527.TW" target="_blank" rel="noopener">Yahoo 股市 - 聚積 3527.TW</a></li><li><a href="https://goodinfo.tw/tw/StockDividendSchedule.asp?STOCK_ID=3714" target="_blank" rel="noopener">Goodinfo - 富采股利發放時程</a></li><li><a href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=3714" target="_blank" rel="noopener">Goodinfo - 富采股價概況（PB/每股淨值）</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%AF%8C%E9%87%87%E6%B3%95%E8%AA%AA%E6%9C%83-Q1%E6%AF%9B%E5%88%A9%E7%8E%87%E5%BC%B7%E5%BD%88%E9%80%BE13%E5%80%8B%E7%99%BE%E5%88%86%E9%BB%9E-Micro-LED%E4%B8%8B%E5%8D%8A%E5%B9%B4%E7%94%A2%E8%83%BD%E5%88%B0%E4%BD%8D%E6%8B%9A%E7%87%9F%E6%94%B6%E7%BF%BB%E5%80%8D-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69fd9f168e7a7f00bab9e788" target="_blank" rel="noopener">豐雲學堂 - 富采 Q1 法說會報導</a></li><li><a href="https://www.ctee.com.tw/news/20260410700967-430201" target="_blank" rel="noopener">工商時報 - 富采擬減資 45%</a></li><li><a href="https://wantrich.chinatimes.com/news/20260410900401-420101" target="_blank" rel="noopener">旺得富 - 法人兩原因不買帳</a></li><li><a href="https://readmo.cmoney.tw/article/f40d4635-f478-40d6-808f-3ba8260d8fe9" target="_blank" rel="noopener">ReadMo CMoney - 富采股價腰斬後分析</a></li><li><a href="https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=da277393-b827-421e-b05d-096e35ca8a9f" target="_blank" rel="noopener">MoneyDJ - 富采現金減資公告</a></li><li>technical_indicators.py（本機腳本，yfinance 資料，基準日 2026-06-26）</li></ul>
+</div>
+</body>
+</html>

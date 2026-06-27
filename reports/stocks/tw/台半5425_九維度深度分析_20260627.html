@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台半（5425）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>台半（5425）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>台半（5425）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-27</td><td>NT$114.5</td><td>首次分析（以 2026-06-26 收盤價為基準，新模板打樣）</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>⚠️ 這一區是「<strong>該看的數字</strong>」，資料來源集中到文末。</blockquote>
+<blockquote>所有帶單位數字均來自 WebFetch 官方來源，找不到標「❌ 未取得」。</blockquote>
+<blockquote>資料以 2026-06-26 收盤為基準（今日 2026-06-27 為週六，市場休市）。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$114.5（-9.84%）</td></tr><tr><td>市值</td><td>301.69 億元</td></tr><tr><td>PE 本益比</td><td>49.69 倍</td></tr><tr><td>PB 股價淨值比</td><td>3.68 倍</td></tr><tr><td>EPS（近 4 季合計）</td><td>2.30 元</td></tr><tr><td>殖利率</td><td>1.77%</td></tr><tr><td>ROE</td><td>❌ 未取得（估算約 7%，見維度 2）</td></tr><tr><td>毛利率</td><td>31.29%（Q1 2026）</td></tr><tr><td>營收 YoY（2026/05）</td><td>+11.80%</td></tr><tr><td>營收 MoM</td><td>+7.65%</td></tr><tr><td>52 週高 / 低</td><td>134.0 / 43.16</td></tr><tr><td>技術位置</td><td>MA20 108.08 上方，RSI 56.73</td></tr></tbody></table></div>
+<p>資料時間：2026-06-26（已收盤）</p>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 轉型題材具吸引力，但股價自 4 月低點漲幅已逾 160%、PE 49.69 倍充分反映樂觀預期，短線 KD 死叉且連三跌，建議等回測 MA20 支撐（約 108 元附近）後確認多頭格局，再評估分批進場。</p>
+<p><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</p>
+<p><strong>適合操作</strong>：中線波段（等待回測後進場）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司是什麼、靠什麼賺錢</h3>
+<p>台半（台灣半導體股份有限公司）成立逾 50 年，是台灣功率半導體的老字號</p>
+<blockquote>📝 <strong>IDM（Integrated Device Manufacturer）</strong>：自己設計 + 自己製造的半導體公司，不像很多小廠只設計、把製造外包給台積電。</blockquote>
+<blockquote>📝 <strong>功率半導體</strong>：負責控制電力「開關」和「轉換」的晶片，家電、電動車、充電器、伺服器電源裡都有。</blockquote>
+<p><strong>核心產品</strong>（傳統業務）：</p>
+<ul><li>二極體（Diode）：讓電流只往一個方向流</li><li>整流橋（Bridge Rectifier）：把交流電轉成直流電</li><li>MOSFET：高效率電力開關元件</li></ul>
+<blockquote>📝 <strong>MOSFET（Metal-Oxide-Semiconductor Field-Effect Transistor）</strong>：最常見的功率開關元件，就像電路裡的「水龍頭」，控制電流通或斷。功率越高的版本，能承受的電壓越高、效率越好。</blockquote>
+<h3>轉型方向（2026 關鍵年）</h3>
+<p>台半在 2026 年明確宣示從「傳統二極體廠」轉型為「高功率半導體解決方案商」：</p>
+<ol><li><strong>車用市場</strong>：40V/60V 車用二極體與 MOSFET，切入電動車電池管理系統（BMS）、車載充電器（OBC）、ADAS</li><li><strong>AI 伺服器電源</strong>：研發 SuperJunction MOSFET，已進入 Nvidia Rubin 平台電源供應鏈</li></ol>
+<blockquote>📝 <strong>SuperJunction MOSFET（超結 MOSFET）</strong>：高壓版本的 MOSFET，效率更高，適合需要高電壓的 AI 伺服器電源。Nvidia 最新的 AI 晶片系統（Rubin 平台）需要這種高效率電源元件。</blockquote>
+<blockquote>📝 <strong>Nvidia Rubin 平台</strong>：Nvidia 下一世代 AI 運算平台（接在 Blackwell 之後），資料中心、AI 伺服器將大量使用。台半切入其電源供應鏈是重大里程碑。</blockquote>
+<ol><li><strong>SiC（碳化矽）</strong>：布局 650V～1200V 產品線，最快 2026 年量產出貨</li></ol>
+<blockquote>📝 <strong>SiC（Silicon Carbide，碳化矽）</strong>：「第三代半導體」材料，耐高溫、高壓、高效率。適合電動車高壓充電（800V 架構）和 AI 資料中心高壓直流（HVDC）架構。比傳統矽材料能處理更高電壓、發熱更少。</blockquote>
+<h3>產業地位評估</h3>
+<ul><li>台灣功率半導體中生代廠商，規模中等（市值 301億）</li><li>屬於 IDM 模式，擁有自有晶圓廠是護城河，但資本支出負擔重</li><li>毛利率 31.29%（Q1 2026）在同業中屬中段（見維度 6 同業比較）</li><li>品牌與技術積累深，但高端產品（SiC、SuperJunction）仍在量產初期</li></ul>
+<p><strong>護城河強度：中</strong></p>
+<ul><li>優：50 年積累的製程技術、客戶關係、自有晶圓廠</li><li>弱：產品差異化有限、SiC/SuperJunction 仍追趕日本大廠（富士電機、英飛凌）</li></ul>
+<h3>小結</h3>
+<p>台半是一家擁有深厚製程根基的老牌 IDM，2026 年正式啟動從「傳統二極體廠」轉向「高功率半導體解決方案商」的關鍵轉型，切入點是 AI 伺服器電源（SuperJunction）與電動車高壓市場（SiC），但高端產品仍在量產初期，護城河強度中等，轉型能否成功是投資這檔股票的核心問題。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>近期獲利能力（Q1 2026）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>單季營收</td><td>43.9 億元（1,373,706 千元毛利 / 4,390,420 千元收入）</td></tr><tr><td>毛利率</td><td>31.29%</td></tr><tr><td>營業利益率</td><td>8.65%</td></tr><tr><td>淨利率</td><td>7.06%</td></tr><tr><td>單季 EPS</td><td>0.70 元（YoY +49%，QoQ -17%）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>毛利率</strong>：賣出產品後，扣掉直接製造成本，剩下多少百分比。越高代表產品越有附加價值。31% 在功率半導體中是「中規中矩」，同業龍頭可達 38%。</blockquote>
+<blockquote>📝 <strong>YoY（Year-over-Year）</strong>：與去年同期相比的成長率。YoY +49% 代表比去年同季賺了多 49%，成長很強勁。</blockquote>
+<h3>月營收趨勢（2026/05 最新）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收</th><th>MoM</th><th>YoY</th></tr></thead><tbody><tr><td>2026/01</td><td>14.65 億</td><td>—</td><td>—</td></tr><tr><td>2026/02</td><td>13.22 億（季節性低谷）</td><td>-9.75%</td><td>—</td></tr><tr><td>2026/03</td><td>16.04 億</td><td>+21.31%</td><td>—</td></tr><tr><td>2026/04</td><td>16.42 億</td><td>+2.35%</td><td>—</td></tr><tr><td>2026/05</td><td>17.67 億</td><td>+7.65%</td><td>+11.80%</td></tr><tr><td>累計前 5 月</td><td>78.0 億</td><td>—</td><td>—</td></tr></tbody></table></div>
+<blockquote>📝 <strong>MoM（Month-over-Month）</strong>：與上個月相比的成長率。</blockquote>
+<p>月營收自 2 月低谷以來連續反彈，5 月達到本段新高，成長動能持續。</p>
+<h3>EPS 近四季</h3>
+<div class="table-wrap"><table><thead><tr><th>季別</th><th>EPS</th></tr></thead><tbody><tr><td>2026 Q1</td><td>0.70 元</td></tr><tr><td>2025 Q4</td><td>0.84 元</td></tr><tr><td>2025 Q3</td><td>0.60 元</td></tr><tr><td>2025 Q2</td><td>0.17 元</td></tr><tr><td><strong>近 4 季合計</strong></td><td><strong>2.30 元</strong></td></tr></tbody></table></div>
+<p>EPS 成長趨勢向上，從 2025 Q2 的 0.17 元成長到 2026 Q1 的 0.70 元，但 Q4→Q1 略有季減（-17%），需持續觀察。</p>
+<h3>ROE 估算</h3>
+<blockquote>📝 <strong>ROE（Return on Equity，股東權益報酬率）</strong>：用股東的錢賺了多少比例的回報。例如 ROE = 10% 表示每 100 元股東資金，一年能賺 10 元。</blockquote>
+<p>❌ ROE 未能從官方來源直接取得。依現有數據粗估：</p>
+<ul><li>近 4 季淨利：2.30 元 × 2.64 億股 = 約 6.07 億元</li><li>股東權益（估算）：31.11 元/股 × 2.64 億股 ≈ 82 億元</li><li><strong>推算 ROE ≈ 7.4%（trailing 12M）</strong></li><li>⚠️ 此數字為估算，建議自行至公開資訊觀測站確認</li></ul>
+<p>7.4% 的 ROE 偏低，顯示目前獲利相對股東資本投入仍不算高效。隨著轉型產品量產，若毛利率持續提升，ROE 有望逐步改善。</p>
+<h3>財務健康度</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>狀態</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>成長</td><td>近 4 季逐步向上</td></tr><tr><td>營收趨勢</td><td>成長</td><td>YoY +11.8%、MoM 連續正成長</td></tr><tr><td>毛利率趨勢</td><td>穩定（偏低）</td><td>31%，轉型品量產後有望改善</td></tr><tr><td>負債健康</td><td>❌ 未取得</td><td>需查債務比率</td></tr><tr><td>自由現金流</td><td>正值</td><td>每股 FCF 約 6.54 元（財報狗數據）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>自由現金流（FCF, Free Cash Flow）</strong>：公司實際賺到可以自由使用的現金，比帳面獲利更能反映公司是否「真的賺錢」。正值代表財務較健康。</blockquote>
+<h3>小結</h3>
+<p>營收與 EPS 均呈成長趨勢（YoY +49%、月營收連續新高），自由現金流為正，財務動能轉強；但毛利率 31% 在同業中偏低，ROE 估算僅約 7%，顯示目前獲利效率尚未進入「高品質成長」階段，需持續觀察 SiC 量產後的毛利率改善能否兌現。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>核心估值指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>台半（5425）</th><th>說明</th></tr></thead><tbody><tr><td>PE 本益比</td><td>49.69 倍</td><td>用 49.69 年的獲利才能把股票買回來</td></tr><tr><td>PB 股價淨值比</td><td>3.68 倍</td><td>股價是每股帳面價值的 3.68 倍</td></tr><tr><td>殖利率</td><td>1.77%</td><td>以年股利 2.02 元計算，報酬偏低</td></tr></tbody></table></div>
+<blockquote>📝 <strong>PE 本益比（Price-to-Earnings）</strong>：「用多少年的獲利能把股票買回來」，數字越小代表越便宜。一般製造業 15-20 倍算合理，49.69 倍偏高，表示市場對台半抱有很大的成長期待。</blockquote>
+<blockquote>📝 <strong>PB 股價淨值比（Price-to-Book）</strong>：股價相對公司帳面資產的比例。3.68 倍代表投資人願意用 3.68 倍的溢價持有台半資產，反映對轉型成功後獲利改善的預期。</blockquote>
+<h3>估值定性分析</h3>
+<p>台半目前的高估值（PE 49.69 倍）是「成長股溢價」，反映市場對以下幾點的期待：</p>
+<ol><li>SiC 產品量產後毛利率大幅提升（可能從 31% → 38%+）</li><li>SuperJunction MOSFET 打入 AI 伺服器供應鏈</li><li>車用比重持續提升</li></ol>
+<p><strong>風險：</strong> 若轉型進度不如預期，或 SiC 量產延遲，股價承受調整壓力大。Win.invest 和 Anue 的估值模型均顯示「目前股價位於偏高區間（紅色警戒）」。</p>
+<p><strong>合理估值參考（估算）：</strong></p>
+<ul><li>若轉型順利、2026 全年 EPS 達 3.0 元（Q1 × 4 大約合理）：合理 PE 30-35 倍 → 約 90-105 元</li><li>若市場維持成長溢價、PE 40 倍：合理股價約 120 元</li><li>⚠️ 單一來源估算，供參考，不構成定論</li></ul>
+<h3>小結</h3>
+<p>PE 49.69 倍是「轉型溢價」定價，Anue 與 Win.invest 估值模型均已亮起紅色警戒，保守估算合理區間落在 90-120 元之間，現價 114.5 元已在合理區間上緣；若轉型不如預期，估值重定價的下跌空間顯著，不宜在目前位置追高買進。</p>
+<hr>
+<h2>4. 技術面</h2>
+<h3>均線與趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>MA5（5日）</td><td>127.60</td><td>現價 114.5 已跌破 MA5</td></tr><tr><td>MA20（20日）</td><td>108.08</td><td>現價在 MA20 上方，維持支撐</td></tr><tr><td>MA60（季線）</td><td>82.67</td><td>現價遠高於季線（+38.5%）</td></tr><tr><td>MA120（半年線）</td><td>71.27</td><td>多頭格局確認</td></tr><tr><td>均線排列</td><td>多頭排列</td><td>MA5 > MA20 > MA60 > MA120</td></tr></tbody></table></div>
+<blockquote>📝 <strong>均線多頭排列</strong>：短期均線在上、長期均線在下，代表近期買氣比歷史強，技術面偏多頭。</blockquote>
+<h3>關鍵技術指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>RSI（14日）</td><td>56.73</td><td>中性偏多（50-70 屬健康區間）</td></tr><tr><td>KD 值</td><td>K=64.35, D=72.04</td><td>當日死亡交叉（K 下穿 D）</td></tr><tr><td>MACD 柱狀</td><td>+1.23（零軸上方）</td><td>多頭格局，但動能在觀察中</td></tr><tr><td>黃金交叉</td><td>6 天前（2026-06-17）</td><td>短線多頭訊號，但後續需確認</td></tr><tr><td>技術綜合評分</td><td>2.0/5（中性偏多）</td><td>—</td></tr></tbody></table></div>
+<blockquote>📝 <strong>RSI（Relative Strength Index，相對強弱指數）</strong>：衡量最近一段時間漲跌力道的比例，0-100。超過 70 代表「超買」（可能過熱），低於 30 代表「超賣」（可能跌深）。56.73 屬正常區間。</blockquote>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：K 線從上往下穿過 D 線，是短線賣出的技術訊號。當 KD 在 50-80 的「中位」死叉，訊號強度中等（不是超買區死叉那麼強烈的賣訊）。</blockquote>
+<blockquote>📝 <strong>MACD（Moving Average Convergence Divergence）</strong>：觀察兩條均線之間差距的變化，柱狀為正且在零軸上方代表多頭格局。</blockquote>
+<h3>技術面小結</h3>
+<div class="table-wrap"><table><thead><tr><th>面向</th><th>狀況</th><th>評語</th></tr></thead><tbody><tr><td>中長線趨勢</td><td>多頭</td><td>均線多頭排列，季線上方 +38.5%</td></tr><tr><td>短線動能</td><td>偏弱</td><td>連3跌、跌破 MA5、KD 死叉</td></tr><tr><td>關鍵支撐</td><td>108（MA20）</td><td>守住 = 多頭修正；跌破 = 需提高警戒</td></tr><tr><td>關鍵壓力</td><td>127-130（MA5 區域）</td><td>需收復才能再創新高</td></tr></tbody></table></div>
+<p><strong>目前位置解讀：</strong> 股價在 MA20（108）與 MA5（127.6）之間整理，連3跌後量縮，若量縮整理後止穩，為短線觀察進場點。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<blockquote>📝 <strong>籌碼面</strong>：觀察「誰在買、誰在賣」，掌握大戶、外資、投信等有影響力的資金動向。</blockquote>
+<h3>法人動向</h3>
+<p>近期重大籌碼事件：</p>
+<ul><li><strong>5/28 前後</strong>：外資單日大買超 7,260 張，三大法人合計 7,696 張，驅動股價爆量飆漲 26%+</li><li>股價從 4 月底 62.8 元漲至 5 月底，最高到 134 元（波段漲幅超 113%）</li><li><strong>近 5 日主力買賣超比率：+5.5%</strong>（偏多）</li><li><strong>近 20 日主力買賣超比率：+4.6%</strong>（偏多）</li><li><strong>官股</strong>：逢高調節，呈現反向減碼</li></ul>
+<p><strong>6/24（大盤重挫日）後的籌碼解讀：</strong></p>
+<ul><li>6/24 台股外資賣超創史上最大（1,774 億），大盤暴跌 1,057 點</li><li>台半連3跌（-14.55%）可能是市場系統性賣壓，不完全是個股利空</li><li>6/26 量縮至 12,882 張（前5日均量約 42,567 張），量縮代表賣壓暫時釋放</li></ul>
+<h3>籌碼面小結</h3>
+<div class="table-wrap"><table><thead><tr><th>面向</th><th>狀況</th></tr></thead><tbody><tr><td>外資</td><td>先前積極買進（超萬張），近期隨大盤修正</td></tr><tr><td>投信</td><td>❌ 未取得個別數據</td></tr><tr><td>融資融券</td><td>❌ 未取得（上櫃股需至 TPEX 查詢）</td></tr><tr><td>主力動向</td><td>20 日累計仍偏多，但市場修正中</td></tr></tbody></table></div>
+<p>⚠️ 上櫃股（TPEX）的即時法人買賣超數據較難取得，建議至<a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank" rel="noopener">證交所三大法人查詢</a>或<a href="https://tw.stock.yahoo.com/quote/5425.TWO" target="_blank" rel="noopener">台半個股頁面</a>確認最新數字。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p>台半屬於<strong>功率半導體（分離式元件）族群</strong>，主要同業為富鼎（8261）、強茂（2481）、大中（6435）。</p>
+<blockquote>📝 <strong>分離式元件</strong>：每一個功能用一顆獨立的晶片實現（對比 IC，把很多功能整合在一顆晶片）。功率半導體的二極體、MOSFET 多屬此類。</blockquote>
+<h3>同業比較表（2026-06-26 收盤）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>台半（5425）</th><th>富鼎（8261）</th><th>強茂（2481）</th><th>大中（6435）</th></tr></thead><tbody><tr><td>股市</td><td>TPEX（上櫃）</td><td>TWSE（上市）</td><td>TWSE（上市）</td><td>TPEX（上櫃）</td></tr><tr><td>現價</td><td>NT$114.5</td><td>NT$244.0</td><td>NT$175.0</td><td>NT$332.0</td></tr><tr><td>PE 本益比</td><td>49.69 倍</td><td>41.78 倍</td><td>55.56 倍</td><td>30.80 倍</td></tr><tr><td>Q1 2026 毛利率</td><td>31.29%</td><td>38.07%</td><td>32.74%</td><td>26.78%</td></tr><tr><td>市值</td><td>301.69 億</td><td>約 290 億</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>特色</td><td>轉型 SuperJunction + SiC</td><td>鴻海/國巨資源，高階 MOSFET</td><td>車用+資料中心，IDM</td><td>MOSFET 自有品牌，PC/NB</td></tr></tbody></table></div>
+<p>資料時間：2026-06-26（⚠️ 單一來源，建議自行覆核）</p>
+<h3>各家特色解析</h3>
+<p><strong>富鼎（8261）— 毛利率最高，估值最合理</strong></p>
+<ul><li>背靠鴻海、國巨集團，資源豐沛</li><li>毛利率 38.07% 顯著優於台半（31.29%）</li><li>PE 41.78 倍低於台半（49.69 倍）</li><li>定位：現階段「同族群中最強 CP 值」</li></ul>
+<p><strong>強茂（2481）— 成功切入資料中心</strong></p>
+<ul><li>中高壓 MOSFET 已進入資料中心供應鏈</li><li>毛利率 32.74%（Q1 2026），略優於台半</li><li>PE 55.56 倍偏高，Q1 EPS 僅 0.75 元（成長動能待觀察）</li><li>6/26 也下跌 8.85%，與台半同受市場賣壓</li></ul>
+<p><strong>大中（6435）— 便宜但品質最弱</strong></p>
+<ul><li>PE 30.80 倍最低，估值最便宜</li><li>但毛利率 26.78% 也是最低</li><li>Q1 EPS 3.67 元（年增 54.85%）成長快，但現價 332 元較高</li><li>定位：MOSFET 傳統市場反彈轉機股</li></ul>
+<h3>同業比較小結</h3>
+<p><strong>若純看估值（CP 值）：富鼎（8261）> 台半（5425）> 大中（6435）> 強茂（2481）</strong></p>
+<ul><li>富鼎在毛利率、PE 都優於台半，競爭力更強</li><li>台半的優勢在於「轉型故事」（SiC 量產、Rubin 進供應鏈），若轉型成功，估值有追趕空間</li></ul>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期主要催化劑</h3>
+<ol><li><strong>SiC 650V～1200V 新品量產（2026H2）</strong></li></ol>
+<ul><li>已開始小量出貨給歐美 Tier 2 客戶</li><li>量產後毛利率有望大幅改善（SiC 售價通常是傳統矽元件 2-5 倍）</li><li>觸發點：月報中 SiC 相關營收占比開始放大</li></ul>
+<blockquote>📝 <strong>Tier 2 客戶</strong>：供應鏈中的次級供應商，先供給他們再間接進入一線大廠（Tier 1）的系統。是進入大廠供應鏈的前期驗證步驟。</blockquote>
+<ol><li><strong>SuperJunction MOSFET 進入 Nvidia Rubin 平台電源供應鏈</strong></li></ol>
+<ul><li>AI 資料中心轉向高壓直流（HVDC、800VDC）架構，高耐壓功率元件需求爆發</li><li>若正式量產確認，是重大里程碑</li></ul>
+<blockquote>📝 <strong>HVDC（High Voltage Direct Current，高壓直流）</strong>：新一代資料中心的電力傳輸架構，比傳統低壓交流效率更高，但需要能承受更高電壓的功率元件。</blockquote>
+<ol><li><strong>電動車市場復甦</strong></li></ol>
+<ul><li>若 2026 年 EV 滲透率持續提升，車用二極體/MOSFET 需求增加</li><li>台半車用比重目標超過 30%（目前狀況未明）</li></ul>
+<ol><li><strong>功率半導體族群資金輪動效應</strong></li></ol>
+<ul><li>AI 伺服器電力架構升級帶動整族群關注</li><li>外資曾單日大買超萬張，顯示有主題性資金進入</li></ul>
+<h3>時間點風險提示</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>預估時間</th><th>確定性</th></tr></thead><tbody><tr><td>SiC 量產出貨</td><td>2026H2</td><td>中（公司指引，未正式確認）</td></tr><tr><td>SuperJunction 量產確認</td><td>2026H2-2027Q1</td><td>低（仍在驗證階段）</td></tr><tr><td>Q2 2026 財報</td><td>約 2026-08</td><td>確定（固定時程）</td></tr><tr><td>6 月月報（檢視是否站穩 17 億）</td><td>2026-07-10 前後</td><td>確定</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>最強催化劑是 2026 下半年 SiC 量產出貨與 SuperJunction 正式進入 Nvidia Rubin 供應鏈，兩者若同時兌現將是業績與股價的雙重驅動力；最近可追蹤的硬指標是 2026-07-10 前後的 6 月月報，確認月營收能否持續站穩 17 億以上。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險清單</h3>
+<div class="table-wrap"><table><thead><tr><th>風險類型</th><th>描述</th><th>機率</th><th>衝擊</th></tr></thead><tbody><tr><td>高估值修正</td><td>PE 49.69 偏高，若轉型不如預期，快速殺估值</td><td>中</td><td>高</td></tr><tr><td>轉型失敗風險</td><td>SiC/SuperJunction 若量產延遲或客戶驗證失敗</td><td>中低</td><td>高</td></tr><tr><td>毛利率改善不如預期</td><td>目前 31.29%，若無法提升，支撐不了高估值</td><td>中</td><td>中</td></tr><tr><td>市場系統性風險</td><td>半導體族群整體修正（如 6/24 外資大賣超）</td><td>中</td><td>中高</td></tr><tr><td>同業競爭加劇</td><td>富鼎、日本大廠（英飛凌、富士電機）持續搶單</td><td>中</td><td>中</td></tr><tr><td>電動車需求不如預期</td><td>車用比重若無法提升，缺乏新成長動力</td><td>中</td><td>中</td></tr><tr><td>ROE 偏低</td><td>估算約 7%，股本使用效率不佳</td><td>低（現況如此）</td><td>低（慢性稀釋）</td></tr></tbody></table></div>
+<h3>最壞情況情境</h3>
+<p>若 SiC 量產延遲至 2027 年、AI 伺服器電源需求不如預期：</p>
+<ul><li>2026 全年 EPS 可能回落至 2.0-2.2 元（近 2025 年水準）</li><li>市場重新定價 PE 35-40 倍</li><li>合理估值回落至 70-88 元（目前 114.5 元下跌空間 -23% 至 -39%）</li></ul>
+<p><strong>下跌情境機率：約 25-30%（個人判斷，僅供參考）</strong></p>
+<h3>風險控制建議</h3>
+<ol><li>不追高：在近 160% 的波段漲幅之後不宜重倉追進</li><li>設好停損：避免被轉型故事「黏住」而硬抱</li><li>分批布局：等訊號確認再入場，不賭一次</li></ol>
+<h3>小結</h3>
+<p>最大風險是「高估值遇轉型延遲」的雙重夾擊——若 SiC 延遲量產且 AI 需求不如預期，股價下跌空間達 -23% 至 -39%；在轉型尚未完全驗證前，不追高、設好停損是當前最重要的紀律。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>結論摘要</h3>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>理由</strong>：轉型故事具吸引力，Rubin 供應鏈 + SiC 是實質催化劑，但股價自 4 月低點（43.16 元）已漲逾 165%，PE 49.69 倍充分反映樂觀預期，短線 KD 死叉 + 連3跌顯示多頭動能暫歇，需等待更好的進場時機。</li></ul>
+<h3>具體操作參數</h3>
+<ul><li><strong>建議倉位</strong>：佔總資金 5-8%（高成長、高波動標的，不宜重倉）</li><li><strong>進場條件</strong>：</li><li>優先：股價回測 MA20（約 108 元）且量縮止穩，RSI 回落至 45-50 區間</li><li>次選：月營收連續 2 個月維持 17 億以上，確認成長動能後進場</li><li>強觸發：SiC 量產出貨消息正式公告（可稍高點進場）</li><li><strong>停損參考</strong>：收盤跌破 MA60（目前約 82.67 元），跌幅 -28%，或設定從進場成本 -15% 為初始停損</li><li><strong>加碼條件</strong>：</li><li>回測 108 進場後，股價收復 MA5（127.6）且量能放大</li><li>2026 Q2 財報 EPS ≥ 0.85 元（超越 Q4 2025），確認成長斜率持續</li></ul>
+<h3>觀察指標（接下來追什麼）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>頻率</th><th>觀察重點</th></tr></thead><tbody><tr><td>月營收</td><td>每月 10 日前後</td><td>是否持續站穩 17 億以上</td></tr><tr><td>Q2 2026 財報</td><td>約 2026-08</td><td>EPS 是否超越 Q4 2025（0.84 元）</td></tr><tr><td>SiC 量產公告</td><td>隨時</td><td>台半官網法說會、公告</td></tr><tr><td>SuperJunction 出貨確認</td><td>隨時</td><td>法說會或媒體報導</td></tr><tr><td>毛利率趨勢</td><td>每季</td><td>是否突破 33-35% 往同業靠攏</td></tr><tr><td>技術面</td><td>每週</td><td>MA20（108）支撐是否守住</td></tr></tbody></table></div>
+<ul><li><strong>下次檢視時間</strong>：2026 年 7 月月報出爐後（約 7 月 10 日）、以及 Q2 財報季（2026 年 8 月）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/5425.TWO" target="_blank" rel="noopener">Yahoo 股市 — 台半5425 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/5425.TWO/revenue" target="_blank" rel="noopener">Yahoo 股市 — 台半5425 月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/5425.TWO/eps" target="_blank" rel="noopener">Yahoo 股市 — 台半5425 EPS</a></li><li><a href="https://tw.stock.yahoo.com/quote/5425.TWO/income-statement" target="_blank" rel="noopener">Yahoo 股市 — 台半5425 損益表</a></li><li><a href="https://www.cnyes.com/twstock/5425" target="_blank" rel="noopener">鉅亨網 — 台半5425 總覽</a>（PE/PB/殖利率/市值/毛利率來源）</li><li><a href="https://statementdog.com/analysis/5425/pb" target="_blank" rel="noopener">財報狗 — 台半5425 股價淨值比</a></li><li><a href="https://www.moneyweekly.com.tw/ArticleData/Info/article/227526" target="_blank" rel="noopener">理財周刊 — AI伺服器電力架構升級！台半轉型 SuperJunction 與 SiC</a></li><li><a href="https://www.cmoney.tw/forum/article/176138597" target="_blank" rel="noopener">股市爆料同學會 — 台半基本面與投資價值評估</a></li><li><a href="https://cmnews.com.tw/article/newsyoudeservetoknow-d71eddc6-5b07-11f1-bdcc-14c4df00e5ab" target="_blank" rel="noopener">CMoney 投資網誌 — 外資狂掃台半逾萬張</a></li><li><a href="https://www.moneyweekly.com.tw/ArticleData/Info/Article/233226" target="_blank" rel="noopener">理財周刊 — AI 時代的下一個戰場：功率半導體</a></li><li>[technical_indicators.py 腳本輸出] — MA/RSI/KD/MACD/技術評分（資料日期 2026-06-26）</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大中（6435）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>大中（6435）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>大中（6435）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<blockquote>四欄（版本／日期／<strong>當時股價</strong>／主要更新）。「當時股價」記下每次分析當下的收盤價。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-28</td><td>NT$332</td><td>首次分析：全套 WebFetch 官方數據抓取（TPEX/Goodinfo/Fugle 法說會）+ 九維度完整建立；重大背景事件：2026-06-27 國巨陳泰銘接任大中董事長</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>⚠️ 所有帶單位數字均來自 WebFetch 官方來源，找不到標「❌ 未取得」，不可留空或猜測。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$332（-6.08%，2026-06-26 收盤）</td></tr><tr><td>市值</td><td>NT$124.37 億</td></tr><tr><td>PE 本益比</td><td>30.80 倍（TTM）</td></tr><tr><td>PB 股價淨值比</td><td>6.53 倍</td></tr><tr><td>EPS（近 4 季合計 TTM）</td><td>約 10.78 元（以 PE 逆推；Q1 2026 單季確認值 3.67 元）</td></tr><tr><td>殖利率</td><td>2.26%（已公告現金股利 7.50 元）</td></tr><tr><td>ROE</td><td>27.8%（2026 Q1 年化）</td></tr><tr><td>毛利率</td><td>26.78%（2026 Q1）</td></tr><tr><td>營收 YoY（2026/05）</td><td>+22.20%</td></tr><tr><td>營收 MoM（2026/05）</td><td>+2.44%</td></tr><tr><td>52 週高 / 低</td><td>NT$362.0 / NT$88.54</td></tr><tr><td>技術位置</td><td>MA20=298.48、MA60=234.43，RSI=63.07</td></tr></tbody></table></div>
+<p>資料時間：2026-06-26（已收盤）｜資料來源見文末</p>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 成長性強且 PE 同業最低，但股價一年內已大漲 3 倍，KD 高檔死亡交叉出現，等技術回測確認支撐後再評估進場。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段（等拉回後進場）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司概覽</h3>
+<p>大中積體電路（6435）成立於 2008 年，前身為茂達電子（6138）功率元件設計部門，因業務壯大獨立分割上市，目前為<strong>泛國巨集團</strong>體系一員。</p>
+<blockquote>📝 <strong>Fabless</strong>：「無晶圓廠 IC 設計公司」，只做晶片設計，不自建工廠，把製造委外給晶圓廠（如台積電子公司）。好處是資本支出低、彈性高；壞處是對製造廠的產能有依賴。</blockquote>
+<p>公司採 <strong>Fabless</strong> 模式，核心能力集中在功率半導體設計。</p>
+<h3>主要產品</h3>
+<blockquote>📝 <strong>MOSFET（金氧半場效電晶體）</strong>：一種常見的電晶體，負責在電路中「開關電流」，廣泛用在電腦、手機充電器、伺服器電源等地方。幾乎任何有電源轉換的裝置都需要它。</blockquote>
+<blockquote>📝 <strong>IGBT（絕緣閘雙極電晶體）</strong>：比 MOSFET 更能承受高電壓的開關元件，主要用在電動車、工業設備、大型電源系統等高功率場合。</blockquote>
+<ul><li><strong>MOSFET</strong>：大中的核心主力產品，佔主要營收</li><li><strong>IGBT</strong>：高壓應用，如電動車與工業電源</li><li><strong>高壓積體電路（HVIC）</strong>：搭配 MOSFET 一起銷售的周邊控制 IC</li></ul>
+<h3>應用端分布（2026 Q1，來源：富果法說會備忘錄）</h3>
+<div class="table-wrap"><table><thead><tr><th>應用類別</th><th>2026 Q1 佔比</th><th>2023 年佔比</th><th>趨勢</th></tr></thead><tbody><tr><td>PC/NB</td><td>41.3%</td><td>63.6%</td><td>持續下降</td></tr><tr><td>伺服器散熱風扇</td><td>36.4%</td><td>8.1%</td><td>快速成長</td></tr><tr><td>電池管理（BMS）</td><td>5.7%</td><td>1.4%</td><td>穩步提升</td></tr><tr><td>電源供應器、網通等</td><td>~16.6%</td><td>~27%</td><td>結構調整</td></tr></tbody></table></div>
+<blockquote>📝 <strong>BMS（電池管理系統）</strong>：管理電池充放電的大腦，鋰電池必備，電動車、行動電源、UPS 都用得到。大中的 MOSFET 在 BMS 的應用是近年新成長點。</blockquote>
+<h3>護城河分析</h3>
+<blockquote>📝 <strong>SGT 技術（屏蔽閘極溝槽技術）</strong>：大中的核心製程技術，可以讓 MOSFET 在開關時能量損耗更少、速度更快，在高效能 PC 和 AI 伺服器應用上有技術門檻。</blockquote>
+<ol><li><strong>SGT 製程優勢</strong>：屏蔽閘極溝槽技術讓大中的 MOSFET 效率優於一般同業，高端 PC/伺服器市場的進入門檻</li><li><strong>茂達「大腦+肌肉」綑綁銷售</strong>：茂達（母公司）提供電源管理 IC（大腦），大中提供 MOSFET（肌肉），兩者合賣給客戶，提升客戶黏性</li><li><strong>泛國巨集團加持</strong>：國巨（全球被動元件龍頭）持股茂達達 22.13%，旗下同欣電、旺詮等也持股；2026-06-27 國巨創辦人<strong>陳泰銘接任茂達與大中雙董事長</strong>，集團整合加速，可借助國巨全球通路拓展車用、工業市場認證</li></ol>
+<h3>管理層近期動向</h3>
+<p>2026-06-27（分析前一日），工商時報報導：國巨創辦人陳泰銘正式接任茂達與大中雙董事長，原董事長王志信轉任副董事長兼執行長。這是重大股東結構事件，意味著泛國巨集團將更深度整合電源管理 IC（茂達）和功率 MOSFET（大中），戰略方向是打造「完整電源解決方案」。</p>
+<h3>小結</h3>
+<p>大中是台灣功率半導體設計的中堅廠，PC 基本盤穩固、伺服器 AI 散熱需求結構性成長，泛國巨集團整合是未來通路與客戶拓展的重要推力，護城河屬於技術+通路複合型。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>EPS 成長趨勢（確認數據）</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>EPS（元）</th><th>成長率</th></tr></thead><tbody><tr><td>2024 全年</td><td>6.09</td><td>—</td></tr><tr><td>2025 全年</td><td>9.52</td><td>+56.3%</td></tr><tr><td>2026 Q1（單季）</td><td>3.67</td><td>+55% YoY</td></tr></tbody></table></div>
+<blockquote>📝 <strong>EPS（每股盈餘）</strong>：公司賺的錢除以股票總數，每股分到多少利潤。越高越好，成長中更好。</blockquote>
+<p>2026 Q1 單季 EPS 3.67 元，是大中歷史單季新高。若以 Q1 推算全年成長趨勢，2026 全年 EPS 保守估計約 13-14 元（詳見估值面）。</p>
+<h3>毛利率與獲利能力</h3>
+<blockquote>📝 <strong>毛利率</strong>：賣出產品後，扣掉直接製造成本，剩下多少佔收入的比率。愈高代表產品愈有定價力。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>2024 全年</th><th>2025 全年</th><th>2026 Q1</th></tr></thead><tbody><tr><td>毛利率</td><td>20.9%</td><td>22.4%</td><td>26.78%</td></tr><tr><td>營業利益率</td><td>8.49%</td><td>11.0%</td><td>15.88%</td></tr><tr><td>淨利率</td><td>8.32%</td><td>10.4%</td><td>14.5%</td></tr><tr><td>ROE</td><td>13.0%</td><td>18.4%</td><td>27.8%（年化）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>ROE（股東權益報酬率）</strong>：公司用股東的錢賺了多少回來。27.8% 表示每投入 100 元股東資金，這一年可以賺約 27.8 元，是優質公司的標準（一般 > 15% 就算不錯）。</blockquote>
+<p>毛利率從 2024 的 20.9% 大幅提升至 2026 Q1 的 26.78%，主因是伺服器散熱風扇用 MOSFET（高毛利）佔比快速提升，以及 12 吋晶圓製程成本持續下降。</p>
+<h3>月營收趨勢（連續 18 個月成長）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收（千元）</th><th>YoY</th><th>MoM</th></tr></thead><tbody><tr><td>2026/05</td><td>317,877</td><td>+22.20%</td><td>+2.44%</td></tr><tr><td>2026/04</td><td>310,312</td><td>+13.49%</td><td>+1.25%</td></tr><tr><td>2026/03</td><td>306,481</td><td>+11.01%</td><td>+0.42%</td></tr><tr><td>2026/02</td><td>305,210</td><td>+1.39%</td><td>-9.12%</td></tr><tr><td>2026/01</td><td>335,851</td><td>+0.43%</td><td>+8.92%</td></tr></tbody></table></div>
+<p>2026 年 1-5 月累計 15.76 億，YoY +9.04%（累計 YoY 低於 5 月單月係因 1-2 月基期較低，3 月後加速上行）。</p>
+<h3>資本結構</h3>
+<blockquote>📝 <strong>Fabless 的現金流優勢</strong>：因為不用蓋工廠，資本支出（買機器設備）遠低於一般半導體廠，現金流通常較健康。</blockquote>
+<ul><li>每股帳面價值（2026 Q1）：50.83 元</li><li>股本：3.75 億元（3,746 萬股 × 10 元面額）</li><li>負債比：❌ 未取得（建議至 Goodinfo 財務比率表查詢）</li><li>自由現金流（FCF）：❌ 未取得（Fabless 模式資本支出低，推估為正，建議自行至財報狗確認）</li></ul>
+<blockquote>📝 <strong>FCF（自由現金流）</strong>：公司的「實際落袋現金」，等於本業賺到的錢減掉買設備/投資的支出。FCF 為正代表公司真的有在賺錢，不只是帳面利潤。</blockquote>
+<h3>小結</h3>
+<p>EPS 兩年連翻、毛利率持續擴張、月營收連 18 個月成長，財務面是九維度中最強的一塊，成長動能明確。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>與同業 PE 比較</h3>
+<blockquote>📝 <strong>PE（本益比）</strong>：「用多少年的獲利把這支股票買回來」，30.8 倍表示以目前獲利速度，需 30.8 年。通常 PE 越低越「便宜」，但高成長公司可以給更高的 PE。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>PE（TTM）</th></tr></thead><tbody><tr><td>大中 6435</td><td>30.80x</td></tr><tr><td>富鼎 8261</td><td>41.78x</td></tr><tr><td>台半 5425</td><td>53.50x</td></tr><tr><td>強茂 2481</td><td>55.56x</td></tr></tbody></table></div>
+<p>大中 PE 為同業四家中<strong>最低</strong>，且 EPS 成長速度最快（+55% YoY），暗示市場對其成長性的定價仍有低估空間。</p>
+<blockquote>📝 <strong>PEG 比率</strong>：PE ÷ EPS 成長率，判斷「用多少本益比買到多少成長」。< 1 通常視為被低估。大中 PEG = 0.53，遠低於 1，成長定價具吸引力。</blockquote>
+<p>Goodinfo 顯示大中 PEG = 0.53，遠低於 1，在成長型半導體股中屬於低估區間。</p>
+<h3>估值方法 A：Forward PE 法</h3>
+<blockquote>📝 <strong>Forward PE（前瞻本益比）</strong>：用「未來預估 EPS」計算的本益比，比 TTM PE 更能反映公司未來賺錢能力。</blockquote>
+<ul><li>2026E EPS 估算（保守基案）：約 13.5～14 元</li><li>根據：Q1 2026 已實現 3.67 元，月營收連升且伺服器應用佔比持續提升</li><li>若 Q2-Q4 各季平均 3.3-3.5 元（保守不激進）→ 全年約 13.5 元</li><li>合理 PE 區間：25～30x（功率半導體成長股，考量 AI 伺服器題材）</li><li>合理股價範圍：</li><li>保守（25x × 13.5）= <strong>338 元</strong></li><li>中性（27.5x × 14）= <strong>385 元</strong></li><li>樂觀（30x × 14.5）= <strong>435 元</strong></li></ul>
+<p>以中性基案 385 元為「Forward PE 合理中值」，目前 332 元<strong>低於合理中值約 14%</strong>，有相對上行空間。</p>
+<h3>估值方法 B：股利殖利率法</h3>
+<ul><li>2026 年已公告現金股利：7.50 元</li><li>大中歷史平均殖利率：約 3%（近 5 年平均現金殖利率 ~3%）</li><li>以 3% 目標殖利率反推合理股價：7.50 ÷ 0.03 = <strong>250 元</strong></li></ul>
+<p>目前股價 332 元遠高於殖利率法合理價（250 元），意味著市場已給予相當的「成長溢價」，若成長腳步不如預期，股價下行空間可觀。</p>
+<h3>估值小結</h3>
+<p>兩種方法給出截然不同的訊號：Forward PE 法顯示仍有上行空間（+14%），殖利率法顯示已明顯溢價（+33%）。差異在於市場是否承認「AI 伺服器 MOSFET 成長」的合理性。</p>
+<h3>小結</h3>
+<p>TTM PE 30.8x 是功率半導體同業最低，PEG 0.53 暗示成長被低估；但殖利率法顯示股價已超越傳統估值舒適區，兩者分歧下宜以 Forward PE 合理中值 385 元作為目標價參考。</p>
+<hr>
+<h2>4. 技術面</h2>
+<p>資料來源：<code>technical_indicators.py</code>，2026-06-26 收盤後計算</p>
+<h3>均線結構</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>價位</th><th>意義</th></tr></thead><tbody><tr><td>MA5（5 日均線）</td><td>350.9</td><td>極短線方向</td></tr><tr><td>MA10（10 日均線）</td><td>319.2</td><td>近期支撐</td></tr><tr><td>MA20（月線）</td><td>298.48</td><td>中期支撐（關鍵位）</td></tr><tr><td>MA60（季線）</td><td>234.43</td><td>中長期趨勢</td></tr><tr><td>MA120（半年線）</td><td>187.12</td><td>長期方向</td></tr><tr><td>MA240（年線）</td><td>144.25</td><td>基本面反映</td></tr></tbody></table></div>
+<blockquote>📝 <strong>MA20（月線）</strong>：把最近 20 個交易日（約一個月）的收盤價平均，形成一條線。股價在月線上方 = 中期多頭，月線也常作為「拉回後的支撐」。</blockquote>
+<p>均線呈現<strong>完整多頭排列</strong>（MA5 > MA10 > MA20 > MA60），意味著中長期趨勢仍是多方。</p>
+<h3>技術指標</h3>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：衡量漲勢或跌勢的「過熱程度」。70 以上=超買（可能要回調）、30 以下=超賣（可能要反彈）。63.07 屬偏強但尚未進入危險超買區。</blockquote>
+<blockquote>📝 <strong>KD 指標（隨機指標）</strong>：衡量近期收盤價在高低區間的相對位置。K 線向下穿越 D 線叫「死亡交叉」（賣訊）、向上穿越叫「黃金交叉」（買訊）。</blockquote>
+<blockquote>📝 <strong>MACD（指數平滑異同移動平均線）</strong>：追蹤短中期均線的差距。柱狀值為正且在零軸上方 = 多頭格局，負值 = 空頭。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>RSI（14）</td><td>63.07</td><td>偏強，未至超買</td></tr><tr><td>KD：K / D</td><td>71.51 / 75.93</td><td><strong>高檔死亡交叉（今日剛發生）⚡</strong></td></tr><tr><td>MACD / Signal</td><td>27.6 / 23.08</td><td>柱狀 +4.51，多頭格局</td></tr><tr><td>黃金交叉</td><td>6 天前（2026-06-17）</td><td>短線剛轉多</td></tr><tr><td>成交量 vs 5日均量</td><td>199.8 萬 vs 170.6 萬</td><td>放量大跌，注意</td></tr></tbody></table></div>
+<blockquote>📝 <strong>黃金交叉</strong>：短期均線（如 MA20）由下往上穿越長期均線（如 MA60），通常視為多頭啟動訊號。大中在 6/17 出現黃金交叉，但 6/26 當天出現 KD 死亡交叉，兩訊號拉鋸。</blockquote>
+<h3>當日走勢分析（2026-06-26）</h3>
+<ul><li>收盤 332 元，單日 -6.08%（-21.5 元），爆量 199.8 萬張（是近 20 日均量的 2 倍）</li><li>KD 在高檔（K=71.51，D=75.93）今日發生死亡交叉，為<strong>強烈短線賣訊</strong></li><li>股價從近期高點 362 元已回落 -8.3%</li></ul>
+<h3>重要支撐與壓力位</h3>
+<ul><li>近期阻力：350 元（MA5），362 元（近期高點）</li><li>近期支撐：319 元（MA10），298 元（MA20，關鍵支撐）</li><li>更強支撐：234 元（MA60）</li></ul>
+<h3>小結</h3>
+<p>均線多頭排列中線趨勢完好，但 KD 高檔死亡交叉 + 爆量大跌是明確短線警訊，宜觀察是否跌破 MA10（319）或 MA20（298），這兩個位置決定後續走勢強弱。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>三大法人近期動向（來源：HiStock）</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資</th><th>投信</th><th>自營</th><th>合計</th></tr></thead><tbody><tr><td>2026-06-26</td><td>-190 張</td><td>0</td><td>+70</td><td><strong>-120 張</strong></td></tr><tr><td>2026-06-24</td><td>-224 張</td><td>—</td><td>—</td><td>—</td></tr><tr><td>2026-06-11</td><td>+117 張</td><td>—</td><td>—</td><td>—</td></tr><tr><td>2026-06-08</td><td>+184 張</td><td>—</td><td>—</td><td>—</td></tr><tr><td>2026-05-25</td><td>+424 張</td><td>—</td><td>—</td><td>—</td></tr><tr><td>2026-05-27</td><td>+361 張</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div>
+<p>整體趨勢：5 月底外資有兩日大量買超（+424、+361 張），但 6 月後法人偏向賣超，與股價從高點 362 回落同步。外資在高點附近減持，是籌碼面的短線隱憂。</p>
+<h3>融資融券</h3>
+<p>❌ 融資餘額 / 融資增減數據未取得。建議至 <a href="https://www.tpex.org.tw" target="_blank" rel="noopener">TPEX 籌碼資訊</a> 或 <a href="https://goodinfo.tw" target="_blank" rel="noopener">Goodinfo 融資融券頁面</a> 查詢最新數字。</p>
+<h3>小結</h3>
+<p>5 月底法人有明顯買盤護進，但 6 月後轉為逢高減碼，配合今日大跌，籌碼面短線偏弱；需觀察後續是否有法人回補訊號。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<blockquote>比較標的：台半（5425）、富鼎（8261）、強茂（2481）</blockquote>
+<h3>基本資料比較</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>大中 6435</th><th>台半 5425</th><th>富鼎 8261</th><th>強茂 2481</th></tr></thead><tbody><tr><td>市場別</td><td>上櫃</td><td>上櫃</td><td>上市</td><td>上市</td></tr><tr><td>主要產品</td><td>MOSFET/IGBT</td><td>MOSFET/功率IC</td><td>MOSFET/驅動IC</td><td>二極體/整流器</td></tr><tr><td>股價（6/26）</td><td>NT$332</td><td>NT$114.5</td><td>NT$244</td><td>NT$175</td></tr><tr><td>PE（TTM）</td><td><strong>30.80x</strong></td><td>53.50x</td><td>41.78x</td><td>55.56x</td></tr><tr><td>PB</td><td>6.53x</td><td>3.54x</td><td>3.32x</td><td>1.45x</td></tr><tr><td>殖利率</td><td><strong>2.26%</strong></td><td>1.77%</td><td>~2.05%</td><td>~1.03%</td></tr><tr><td>毛利率 Q1 2026</td><td><strong>26.78%</strong></td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>EPS YoY Q1 2026</td><td><strong>+55%</strong></td><td>❌</td><td>❌</td><td>❌</td></tr></tbody></table></div>
+<blockquote>備註：台半、富鼎、強茂的 Q1 2026 毛利率與 EPS 成長率未從官方來源取得，❌ 標記。</blockquote>
+<h3>定性比較</h3>
+<div class="table-wrap"><table><thead><tr><th>維度</th><th>大中 6435</th><th>台半 5425</th><th>富鼎 8261</th><th>強茂 2481</th></tr></thead><tbody><tr><td>AI 伺服器曝險</td><td><strong>高（36%）</strong></td><td>低</td><td>低</td><td>低</td></tr><tr><td>技術護城河</td><td>SGT 技術</td><td>一般</td><td>一般</td><td>產品多元化</td></tr><tr><td>集團加持</td><td>泛國巨集團</td><td>無</td><td>無</td><td>無</td></tr><tr><td>股利增長</td><td>4.3→7.5 元</td><td>穩定</td><td>穩定</td><td>低殖利率</td></tr><tr><td>規模（市值）</td><td>中（124億）</td><td>❌</td><td>❌</td><td>❌</td></tr></tbody></table></div>
+<h3>如果只能選一檔</h3>
+<p>在四家功率半導體股中，大中具備以下三重優勢：</p>
+<ol><li><strong>PE 最低</strong>（30.8x，其他三家 41~55x）</li><li><strong>成長最快</strong>（Q1 EPS +55%）</li><li><strong>AI 伺服器曝險最高</strong>（伺服器散熱佔比已達 36.4%，其餘三家均未見同等程度）</li></ol>
+<p>若以「成長性與估值性價比」為標準，大中是四家中最值得優先研究的標的，但需注意 PB（6.53x）是同業最高，代表股價對帳面價值有較高溢價。</p>
+<h3>小結</h3>
+<p>功率半導體四強中，大中在「成長性 + 估值性價比」雙維度領先，AI 伺服器曝險獨一無二，但 PB 偏高意味股價已反映強烈預期，後勁取決於伺服器應用持續增長的確認度。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近中期催化劑清單</h3>
+<p><strong>1. AI 伺服器散熱 MOSFET 需求（持續性，核心驅動）</strong></p>
+<p>AI 伺服器（尤其 GPU 伺服器）的散熱需求遠高於傳統伺服器，散熱風扇馬達需要大量高效率 MOSFET。大中伺服器應用比重從 2023 年 8.1% 快速升至 2026 Q1 的 36.4%，且還在增長中。</p>
+<blockquote>📝 <strong>Dr. MOS（數位電源控制晶片）</strong>：整合了 MOSFET 和控制電路的模組化電源元件，是下一代伺服器電源的趨勢。大中正在開發此產品，若推出成功，可進一步提升伺服器市場份額。</blockquote>
+<p><strong>2. 國巨陳泰銘接任大中董事長（2026-06-27，超新鮮消息）</strong></p>
+<p>這是本次分析最重要的近期事件。泛國巨集團整合茂達-大中，可能的影響：</p>
+<ul><li>借助國巨全球通路加速車規 MOSFET 客戶認證（歐美日車廠）</li><li>與茂達 PMIC 更深度整合形成「一站式電源解決方案」競爭力</li><li>集團資源（資金、人才、客戶）向下支持大中成長</li></ul>
+<p>市場尚未完全消化此消息（2026-06-26 收盤後才發布，次一個交易日 6/30 週一可能有反應）。</p>
+<p><strong>3. GaN 量產啟動（2025 底試產）</strong></p>
+<blockquote>📝 <strong>GaN（氮化鎵）</strong>：下一代功率半導體材料，比傳統矽基 MOSFET 效率更高、頻率更快，可做出更小體積的電源供應器。65W 快充充電器大多是 GaN 元件。大中 GaN 平台若順利量產，可打入快充、資料中心 PSU 等高階市場。</blockquote>
+<p>大中 GaN 平台 2025 底開始試產，若 2026-2027 年正式量產，可打入快充充電器、AI 資料中心高效電源供應器等高附加價值市場，帶動毛利率進一步提升。</p>
+<p><strong>4. Q2 2026 財報（預計 2026 年 8 月公布）</strong></p>
+<p>若 Q2 EPS 維持在 3.5 元以上，2026 年全年 EPS 預估升級，將成為股價重評估的契機。</p>
+<p><strong>5. 月營收（每月 10 日前公布）</strong></p>
+<p>下次 6 月月營收公布約在 2026-07-10，若 YoY 維持 20%+ 增長，可確認成長動能延續。</p>
+<h3>小結</h3>
+<p>催化劑量多且時間點清晰（月營收 7 月、財報 8 月、GaN 量產進度、國巨整合效益），短期內最關注的是 6 月月營收和 6/30 市場對陳泰銘接任的反應。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>影響程度</th><th>發生機率</th><th>說明</th></tr></thead><tbody><tr><td>股價已大漲，短線過熱</td><td>高</td><td>高</td><td>52 週從 88 漲至 362，漲幅 +308%；KD 高檔死亡交叉已出現</td></tr><tr><td>PC 應用仍佔 41%</td><td>中</td><td>中</td><td>全球 PC 市場復甦若停滯，大宗收入受壓</td></tr><tr><td>原料成本通膨</td><td>中</td><td>中</td><td>法說會提及 2025 底起原材料成本壓力持續</td></tr><tr><td>功率半導體去庫存</td><td>中</td><td>低~中</td><td>客戶端庫存若再度堆積，訂單可能快速放緩</td></tr><tr><td>競爭加劇（日韓）</td><td>中</td><td>中</td><td>英飛凌、瑞薩、三星等大廠積極投資功率半導體，長期技術代差可能縮小</td></tr><tr><td>集團整合不確定性</td><td>低~中</td><td>低</td><td>國巨接任董事長是利多，但整合期間若有人事震盪或策略模糊，短期擾動</td></tr></tbody></table></div>
+<h3>最壞情況分析</h3>
+<p>若 AI 伺服器散熱需求 2026 下半年趨緩（例如 GPU 訂單急凍）且 PC 市場未見起色：</p>
+<ul><li>月營收可能轉為持平甚至微跌</li><li>EPS 難以維持 Q1 的高速成長</li><li>市場對 PE 30x 的容忍度降低</li><li>技術面若跌破 MA20（298）→ 目標修正至 MA60（234），跌幅約 -30%</li></ul>
+<h3>小結</h3>
+<p>最大風險不在於基本面惡化，而是「預期已大量 Price In（提前反映）」——股價從 88 漲至 332，很大程度上反映了 AI 伺服器題材的樂觀預期，若任何一個催化劑落空，修正幅度可能超過想像。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：目前不建議進場；等確認進場條件後，初始倉位 3-5%</li><li><strong>進場條件</strong>：</li><li>主要條件：股價回測 MA20 區間（295-315 元）後，KD 出現黃金交叉，確認支撐有效</li><li>次要觸發：6 月月營收（7 月 10 日前公布）維持 YoY +20% 以上，確認成長動能延續</li><li><strong>停損參考</strong>：進場後若收盤跌破 290 元（MA20 下方緩衝），考慮出場觀望</li><li><strong>加碼條件</strong>：Q2 2026 EPS ≥ 3.5 元（年化進度達標）且伺服器應用佔比升破 40%</li><li><strong>觀察指標</strong>：</li></ul>
+<ol><li>月營收 YoY（核心，每月追蹤）</li><li>法人買賣超是否從賣轉買（籌碼面轉強訊號）</li><li>GaN 量產時間表更新</li><li>國巨集團整合具體措施（通路/客戶）</li><li>KD 指標是否由死亡交叉恢復為黃金交叉</li></ol>
+<ul><li><strong>下次檢視時間</strong>：2026-07-10（6 月月營收公布後）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis" target="_blank" rel="noopener">TPEX 上櫃本益比/殖利率資料（2026-06-26）</a></li><li><a href="https://tw.stock.yahoo.com/quote/6435.TWO" target="_blank" rel="noopener">Yahoo 台股 - 大中 6435.TWO 行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/6435.TWO/revenue" target="_blank" rel="noopener">Yahoo 台股 - 大中 月營收</a></li><li><a href="https://goodinfo.tw/tw/StockBzPerformance.asp?STOCK_ID=6435" target="_blank" rel="noopener">Goodinfo - 大中 財務比率</a></li><li><a href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=6435" target="_blank" rel="noopener">Goodinfo - 大中 股票總覽</a></li><li><a href="https://blog.fugle.tw/post/earnings-call-6435-2026-04-27" target="_blank" rel="noopener">富果直送 - 大中法說會備忘錄 2026-04-27</a></li><li><a href="https://histock.tw/stock/chips.aspx?no=6435" target="_blank" rel="noopener">HiStock - 大中 三大法人買賣超</a></li><li><a href="https://winvest.tw/Stock/Symbol/Comment/6435" target="_blank" rel="noopener">Win 投資 - 大中 可以買嗎？</a></li><li><a href="https://www.chinatimes.com/newspapers/20260627000277-260206" target="_blank" rel="noopener">工商時報 - 國巨入主茂達陳泰銘任董座（2026-06-27）</a></li><li><a href="https://www.moneyweekly.com.tw/ArticleData/Info/Article/233739" target="_blank" rel="noopener">理財周刊 - MOSFET 概念股 AI 電力革命</a></li><li><a href="https://tw.stock.yahoo.com/quote/8261.TW" target="_blank" rel="noopener">Yahoo 台股 - 富鼎 8261.TW 行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2481.TW" target="_blank" rel="noopener">Yahoo 台股 - 強茂 2481.TW 行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/5425.TWO" target="_blank" rel="noopener">Yahoo 台股 - 台半 5425.TWO 行情</a></li><li>技術指標：<code>投資理財/scripts/technical_indicators.py 6435</code>（2026-06-26 收盤後計算）</li></ul>
+</div>
+</body>
+</html>

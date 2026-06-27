@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尼克森（3317）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>尼克森（3317）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>尼克森（3317）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-28</td><td>NT$90.0</td><td>首次分析。重抓股價/PE/EPS/月營收/法人籌碼/技術指標/競爭對手；ROE 與官方 PB 無法取得（TPEX API 路徑 404），以推算值代替並標記</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>所有帶單位數字來自 WebFetch 官方來源（Yahoo Finance/TPEX/公司公告），找不到標「❌ 未取得」。</blockquote>
+<blockquote>資料時間：2026-06-26 已收盤。資料來源見文末。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$90.0（-3.02% / -2.8元）</td></tr><tr><td>市值</td><td>81 億元（9,000 萬股）</td></tr><tr><td>PE 本益比</td><td>48.91 倍</td></tr><tr><td>PB 股價淨值比</td><td>~2.48 倍（⚠️ 推算：基於 Q3 2025 每股淨值 35.69 元 + EPS 調整，非官方數字）</td></tr><tr><td>EPS（近 4 季合計）</td><td>1.90 元（Q1 2026: 0.84 / Q4 2025: -0.17 / Q3 2025: 0.63 / Q2 2025: 0.60）</td></tr><tr><td>殖利率</td><td>0.44%（現金股利 0.40 元 ÷ 90 元）</td></tr><tr><td>ROE</td><td>❌ 未取得</td></tr><tr><td>毛利率</td><td>29.35%（2026 Q1，單季）</td></tr><tr><td>營收 YoY（5 月）</td><td>-13.08%</td></tr><tr><td>營收 MoM（5 月）</td><td>-19.21%</td></tr><tr><td>52 週高 / 低</td><td>97.1 / 36.74</td></tr><tr><td>技術位置</td><td>MA20 83.23 / MA60 69.14 / RSI 60.6 / 均線多頭排列</td></tr></tbody></table></div>
+<p>資料時間：2026-06-26（已收盤）｜資料來源見文末</p>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 題材面豐富（SiC MOSFET 切入 AI 伺服器 + GaN 布局），但 PE 接近 49 倍、5 月營收年減 13%、技術面接近 52 週高點，題材尚未轉化為財報驗證，暫等更佳進場點。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：題材觀察、中線波段</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司簡介</h3>
+<p>尼克森微電子（3317.TWO）成立於 1998 年 10 月，2007 年 8 月於臺灣上櫃，董事長楊惠強。公司定位為<strong>功率半導體類比 IC 設計公司</strong>（Fabless，自己設計、委外製造），主要產品為 MOSFET（金屬氧化物半導體場效電晶體，功率開關元件）與類比積體電路，主要應用於 PC、NB、伺服器等電源管理領域。</p>
+<blockquote>📝 <strong>MOSFET（金屬氧化物半導體場效電晶體）</strong>：就是電路裡的「智慧開關」，負責高效率地控制電流的開與關，廣泛用於電源供應器、充電器、電動車等需要控制電力的場合。</blockquote>
+<blockquote>📝 <strong>Fabless（無廠設計公司）</strong>：只負責設計晶片、不自己蓋晶圓廠，把生產外包給台積電等代工廠。好處是資本輕、彈性高；缺點是沒有製程掌控權，受制於代工廠產能與技術。</blockquote>
+<h3>現有業務結構</h3>
+<ul><li><strong>傳統主力</strong>：MOSFET + 類比 IC → PC/NB 電源管理（成熟產品、市場競爭激烈）</li><li><strong>成長方向</strong>：</li></ul>
+<ol><li><strong>SiC MOSFET</strong>：切入 AI 伺服器 Power Supply（電源供應器），目前處於「小量出貨 / 工程驗證」階段</li><li><strong>GaN 功率元件</strong>：投入研發，預計支撐 2027 年後動能</li><li><strong>功率模組</strong>：整合多個元件的模組化產品，毛利率較高</li></ol>
+<blockquote>📝 <strong>SiC MOSFET（碳化矽 MOSFET）</strong>：相較於傳統矽（Si）材料，碳化矽耐高溫、耐高壓、效率更好，特別適合 AI 伺服器、電動車這類需要高電壓高電流的應用。單價比傳統 MOSFET 高出許多，毛利率也更好。</blockquote>
+<blockquote>📝 <strong>GaN（氮化鎵）</strong>：另一種新材料的功率半導體，切換速度更快，適合快充充電器和高頻率應用。尼克森目前仍在研發，尚未量產。</blockquote>
+<h3>競爭定位</h3>
+<ul><li><strong>優勢</strong>：採自行銷售（不透過代理商），較能直接掌握客戶關係；中小型設計公司彈性大</li><li><strong>轉單機會</strong>：中國安世半導體（Nexperia）近期受中國政府限制出口，已有個位數台灣客戶向尼克森詢問 MOSFET 替代料，但尚未形成大規模轉單</li><li><strong>弱勢</strong>：Fabless 模式無製程護城河；傳統 MOSFET 市場競爭激烈；SiC 客戶未公開具體 Tier 1 品牌；技術門檻相對同業不突出</li></ul>
+<h3>小結</h3>
+<p>尼克森是傳統功率 MOSFET 設計公司，正在轉型切入 SiC/GaN 高毛利題材，但目前仍處「小量出貨/工程驗證」的早期階段，基本面需等財報驗證才能確認轉型成效。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>當月營收（億元）</th><th>YoY</th><th>MoM</th></tr></thead><tbody><tr><td>2026/05</td><td>2.14</td><td><strong>-13.08%</strong></td><td>-19.21%</td></tr><tr><td>2026/04</td><td>2.65</td><td>+10.81%</td><td>+6.00%</td></tr><tr><td>2026/03</td><td>2.50</td><td>+12.55%</td><td>+34.41%</td></tr></tbody></table></div>
+<ul><li>2026 年 1-5 月累計：11.87 億元，累計年增 +6.48%</li><li>2025 年全年：27.06 億元</li></ul>
+<blockquote>⚠️ 5 月單月數據年增轉為 -13.08%，是近期重要轉折點。原因尚待公司說明（可能受到 PC 拉貨節奏或客戶庫存調整影響）。</blockquote>
+<h3>EPS 走勢</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>EPS（元）</th><th>說明</th></tr></thead><tbody><tr><td>2026 Q1</td><td>0.84</td><td>+14% YoY、+594% QoQ（從虧轉盈）</td></tr><tr><td>2025 Q4</td><td>-0.17</td><td><strong>單季虧損</strong></td></tr><tr><td>2025 Q3</td><td>0.63</td><td>正常獲利</td></tr><tr><td>2025 Q2</td><td>0.60</td><td>正常獲利</td></tr><tr><td><strong>近 4 季合計</strong></td><td><strong>1.90</strong></td><td>TTM EPS</td></tr></tbody></table></div>
+<blockquote>📝 <strong>TTM EPS（近 12 個月每股盈餘）</strong>：把最近四季的 EPS 加起來，代表公司「過去一年的賺錢能力」，是計算本益比最常用的基礎。</blockquote>
+<ul><li>2026 Q1 大幅反彈（季增 594%）是主要亮點，但 Q4 2025 虧損說明業績仍有季節性波動</li><li>2026 年前兩季展望：若 Q2 能維持 Q1 水準（0.8 元以上），全年 EPS 有望達到 2.5~3.0 元</li></ul>
+<h3>獲利能力</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>毛利率（2026 Q1）</td><td>29.35%</td></tr><tr><td>2026 Q1 營業利益年增率</td><td>+33.09%</td></tr><tr><td>ROE</td><td>❌ 未取得</td></tr></tbody></table></div>
+<blockquote>📝 <strong>毛利率</strong>：賣出產品後扣掉生產成本，剩下多少比例是毛利。例如毛利率 29% 代表賺 100 元的收入，生產成本花了 71 元，還剩 29 元可以繼續支付管銷費用和賺取利潤。對功率半導體設計公司而言，30% 以上算不錯，SiC 產品的毛利率通常高於傳統 MOSFET。</blockquote>
+<ul><li>29.35% 的毛利率屬於功率半導體設計公司的偏低端，顯示傳統 MOSFET 競爭激烈</li><li>管理層預期 SiC 小量出貨後可拉高整體毛利率，但尚未在財報中顯著體現</li></ul>
+<h3>財務健康</h3>
+<ul><li>股本：9 億元（9,000 萬股）</li><li>市值：81 億元（小型股）</li><li>現金股利：0.40 元（2025 年度配發，近五年填息率 100%）</li><li>2025 年全年 EPS：1.66 元</li></ul>
+<blockquote>📝 <strong>填息率 100%</strong>：配股利後股價下跌（除息），之後如果股價漲回來填補跌幅，叫做「填息」。100% 的意思是過去五年每次配息後股價都漲回來填息，代表這家公司的股息配發有一定品質。</blockquote>
+<h3>小結</h3>
+<p>財務面出現分歧訊號：2026 Q1 EPS 強勁反彈且營業利益大增，但 5 月月營收年減 13% 打斷了成長動能；整體財務尚屬健康，但仍需觀察 Q2 財報能否持續 Q1 的強度。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>當前估值</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>現價</td><td>90.0 元</td><td>2026-06-26 收盤</td></tr><tr><td>PE（TTM）</td><td>48.91 倍</td><td>以近 4 季 EPS 1.90 元計</td></tr><tr><td>PB</td><td>~2.48 倍</td><td>⚠️ 推算值，非官方（基於 Q3 2025 每股淨值 35.69 元）</td></tr><tr><td>殖利率</td><td>0.44%</td><td>現金股利 0.40 元</td></tr></tbody></table></div>
+<blockquote>📝 <strong>PE 本益比（Price-to-Earnings Ratio）</strong>：用股價除以每股盈餘，代表「你花幾年的盈利能把股票買回來」。PE 48.91 表示若盈利不變，要近 49 年才能回本，代表市場對這家公司的未來成長有高度期待。台股半導體股 PE 普遍較高，但 49 倍仍屬偏貴。</blockquote>
+<h3>合理估值試算</h3>
+<p><strong>方法 A：預估 PE 法</strong></p>
+<ul><li>假設 2026 全年 EPS 預估區間：</li><li>保守估：2.4 元（Q1 季速率較低 × 4）</li><li>樂觀估：3.0 元（若 SiC 小量出貨開始貢獻）</li><li>功率半導體成長股合理 PE 參考：30~40 倍</li></ul>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>預估 EPS</th><th>目標 PE</th><th>合理股價</th></tr></thead><tbody><tr><td>保守</td><td>2.4 元</td><td>30 倍</td><td><strong>72 元</strong></td></tr><tr><td>中性</td><td>2.7 元</td><td>35 倍</td><td><strong>94.5 元</strong></td></tr><tr><td>樂觀</td><td>3.0 元</td><td>40 倍</td><td><strong>120 元</strong></td></tr></tbody></table></div>
+<p>以「中性情境 94.5 元」對比現價 90 元，<strong>當前股價已接近合理估值上緣</strong>（距 94.5 元僅 +5%）。</p>
+<blockquote>📝 <strong>Forward PE（預估本益比）</strong>：用分析師預估的未來盈利計算的本益比，比 TTM PE 更能反映市場對未來的期待。這裡的「預估 PE 法」就是 Forward PE 概念。</blockquote>
+<p><strong>方法 B：技術支撐價位</strong></p>
+<div class="table-wrap"><table><thead><tr><th>支撐位</th><th>價格</th><th>說明</th></tr></thead><tbody><tr><td>第一支撐</td><td>87.1 元</td><td>MA10（短線支撐）</td></tr><tr><td>主要支撐</td><td>83.2 元</td><td>MA20（中線支撐）</td></tr><tr><td>強力支撐</td><td>69.1 元</td><td>MA60（季線，大回調才會測試）</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>PE 48.91 倍已完整反映 2026 Q1 的強勁成長，當前股價接近中性合理估值上緣（94 元），繼續推升需要 SiC 出貨加速或 Q2 財報優於預期的基本面催化，純靠題材已較難再大幅推升。</p>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>數據來源：<code>technical_indicators.py</code> 腳本，資料日期 2026-06-26。</blockquote>
+<h3>均線系統</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>現價 vs 均線</th></tr></thead><tbody><tr><td>MA5</td><td>93.04</td><td>現價低於 MA5（短線轉弱）</td></tr><tr><td>MA10</td><td>87.1</td><td>現價在 MA10 上方（+3.3%）</td></tr><tr><td>MA20</td><td>83.23</td><td>現價在 MA20 上方（+8.1%）</td></tr><tr><td>MA60</td><td>69.14</td><td>現價在 MA60 上方（+30.2%）</td></tr><tr><td>MA120</td><td>58.47</td><td>現價在 MA120 上方（+53.9%）</td></tr><tr><td>MA240</td><td>51.89</td><td>均線多頭排列 ✅</td></tr></tbody></table></div>
+<blockquote>📝 <strong>均線多頭排列</strong>：MA5 > MA10 > MA20 > MA60 > MA120（短期均線全都在長期均線上方），代表股票趨勢向上。就像學校成績，每個月都比前一個月高，代表在進步。</blockquote>
+<blockquote>📝 <strong>黃金交叉</strong>：短期均線（例如 MA20）由下往上穿越長期均線（例如 MA60），這通常被視為「趨勢轉多」的買入信號。</blockquote>
+<h3>技術指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>RSI14</td><td>60.6</td><td>偏強，未超買（超買門檻 70）</td></tr><tr><td>KD（K/D）</td><td>62.17 / 65.92</td><td><strong>死亡交叉（1 天前）⚠️ 短線賣出參考</strong></td></tr><tr><td>MACD</td><td>5.22 / Signal 4.57</td><td>柱狀圖 +0.64，仍為多頭格局</td></tr><tr><td>黃金交叉</td><td>5 天前（2026-06-18）</td><td>短線剛確認轉多</td></tr><tr><td>52 週位置</td><td>88.2%</td><td>接近高點（97.1），壓力區</td></tr></tbody></table></div>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：衡量股票漲跌動能的指標，0~100 之間。通常 70 以上代表「超買」（可能漲過頭要回檔），30 以下代表「超賣」（可能跌過頭要反彈）。60.6 代表偏強但還沒到過熱。</blockquote>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：K 線由上往下穿越 D 線，是短線轉弱的警示信號。和黃金交叉相反——通常代表短線動能在轉弱，但在大多頭趨勢中這個訊號的可靠性打折扣。</blockquote>
+<blockquote>📝 <strong>MACD（移動平均收斂發散指標）</strong>：判斷趨勢強弱和買賣點的技術工具。「柱狀圖為正」代表多頭動能；「在零軸上方」代表整體趨勢偏多。</blockquote>
+<h3>技術評分：2.0 / 5（中性偏多）</h3>
+<p><strong>多頭因素</strong>：均線多頭排列、黃金交叉剛發生（5 天前）、MACD 柱狀正</p>
+<p><strong>空頭因素</strong>：KD 死亡交叉（1 天前）、現價低於 MA5、接近 52 週高點 97.1 元</p>
+<h3>小結</h3>
+<p>技術面呈現「趨勢仍多、短線轉弱」的格局，均線多頭排列提供底部支撐，但 KD 死亡交叉 + 接近 52 週高點代表短期有回調壓力，若跌破 MA10（87.1）要留意。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>三大法人（2026-06-26）</h3>
+<div class="table-wrap"><table><thead><tr><th>法人</th><th>買賣超</th></tr></thead><tbody><tr><td>外資</td><td><strong>-1,072 張</strong>（連續 4 日賣超）</td></tr><tr><td>投信</td><td>0</td></tr><tr><td>自營商</td><td>-31 張</td></tr><tr><td><strong>合計</strong></td><td><strong>-1,103 張</strong></td></tr></tbody></table></div>
+<ul><li>外資持股比例：12.67%</li><li><strong>本月累計（6 月）</strong>：外資累計買超 +1,831 張（顯示本月整體仍為買超，但近幾日轉為獲利了結）</li></ul>
+<h3>融資融券（2026-06-26）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>融資餘額</td><td>3,814 張</td></tr><tr><td>融資使用率</td><td>16.95%</td></tr><tr><td>融券餘額</td><td>47 張</td></tr></tbody></table></div>
+<blockquote>📝 <strong>融資融券</strong>：「融資」是借錢買股票（看多的散戶會用），「融券」是借股票來放空（看空的人會用）。融資餘額高代表散戶借錢追高的程度；融券很少（47 張）代表幾乎沒有人在放空，也暗示股價不容易短期大跌（但也少了空方回補的上漲動力）。</blockquote>
+<ul><li>融資使用率 16.95%：屬合理水位，未到「融資過度集中」的警戒區（通常 >50% 才危險）</li><li>融資餘額從 6/18 高點 4,426 張下降至 3,814 張，顯示部分散戶在近 97 高點附近開始獲利出場</li><li>融券僅 47 張，空方力量極弱</li></ul>
+<h3>籌碼整體評估</h3>
+<p>外資本月整體仍屬買超（+1,831 張），代表本月大方向是認可這波漲勢；但最近連 4 日賣超，加上融資從高點下降，顯示籌碼在接近 52 週高點時出現鬆動，<strong>短線可能需要一段整理期消化浮額</strong>。</p>
+<h3>小結</h3>
+<p>外資本月整體買超但近日轉為短線獲利了結，融資從高點回落但使用率合理，籌碼面偏中性，近期高點 97.1 元附近賣壓較重。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<blockquote>比較對象：台半（5425）、富鼎（8261）、強茂（2481）。數據日期：2026-06-26。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>尼克森 3317</th><th>台半 5425</th><th>富鼎 8261</th><th>強茂 2481</th></tr></thead><tbody><tr><td>市場別</td><td>上櫃</td><td>上市</td><td>上櫃</td><td>上市</td></tr><tr><td>股價（元）</td><td>90.0</td><td>114.5</td><td>244.0</td><td>175.0</td></tr><tr><td>當日漲跌</td><td>-3.02%</td><td>-9.84%</td><td>-4.50%</td><td>-8.85%</td></tr><tr><td>PE 本益比</td><td>48.91 倍</td><td>53.50 倍</td><td>41.78 倍</td><td>55.56 倍</td></tr><tr><td>SiC/GaN 布局</td><td>✅ 小量出貨</td><td>❌ 較少提及</td><td>✅ 有</td><td>✅ 有</td></tr><tr><td>主要應用</td><td>PC/NB/AI 伺服器</td><td>功率元件/IC 設計</td><td>MOSFET/IPM</td><td>MOSFET/整流</td></tr><tr><td>成長題材</td><td>AI 伺服器 + GaN</td><td>工業/消費電子</td><td>工業/EV</td><td>工業/EV/太陽能</td></tr></tbody></table></div>
+<blockquote>📝 <strong>IPM（智慧功率模組）</strong>：把多個功率元件整合在一起的模組，常用在馬達控制，是比單顆 MOSFET 更高階的產品，毛利率通常也更高。富鼎的 IPM 是其競爭優勢之一。</blockquote>
+<h3>估值比較小結</h3>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>PE 倍數</th><th>評論</th></tr></thead><tbody><tr><td>富鼎 8261</td><td><strong>41.78</strong></td><td>四家中估值最低，IPM 產品力強</td></tr><tr><td>尼克森 3317</td><td>48.91</td><td>中間值，SiC AI 伺服器題材支撐</td></tr><tr><td>台半 5425</td><td>53.50</td><td>較高估值</td></tr><tr><td>強茂 2481</td><td>55.56</td><td>四家中估值最高</td></tr></tbody></table></div>
+<p><strong>如果只能選一檔：</strong></p>
+<ul><li>純以 PE 估值和題材清晰度：<strong>富鼎（8261）PE 最低且有 IPM 護城河</strong>，但需自行研究富鼎的財報細節</li><li>尼克森的優勢在於 AI 伺服器 SiC 布局更為明確，若這個題材在未來財報得到驗證，溢價可能合理</li><li>同日四家公司全部大跌（-3% 至 -10%），推測受到宏觀或板塊因素影響，非尼克森個別利空</li></ul>
+<h3>小結</h3>
+<p>尼克森在四家同業中 PE 排名第二低，AI 伺服器 SiC 布局的故事最明確，但仍需注意 PE 接近 49 倍、毛利率 29% 在同業中屬於偏低端，相較富鼎的 IPM 護城河稍弱。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>主要成長驅動力</h3>
+<p><strong>1. SiC MOSFET 切入 AI 伺服器電源（最重要催化劑）</strong></p>
+<ul><li>AI 伺服器（如 Nvidia GB200/GB300 NVL 機架）對電源供應器（PSU）的功率需求大幅提升，SiC MOSFET 是解決高效率、高功率密度的關鍵元件</li><li>尼克森目前處於「小量出貨、工程驗證」階段，尚未進入大規模量產</li><li>關鍵觀察：SiC 相關產品占整體營收比例何時突破 10%？客戶能見度能否從 2 季延伸至 3 季以上？</li></ul>
+<blockquote>📝 <strong>Power Supply（PSU / 電源供應器）</strong>：把交流電（插座的電）轉換成各種電子零件需要的直流電的裝置。AI 伺服器功耗極高（一台可達 3000W 以上），需要高效率的 PSU，SiC MOSFET 就是其中的核心功率元件。</blockquote>
+<p><strong>2. GaN 產品開發（2027 年遠期催化劑）</strong></p>
+<ul><li>GaN 功率元件用於快充、資料中心高效率電源，尼克森目前投入研發</li><li>預計支撐 2027 年以後的營運動能，短期（6~12 個月）尚無財報貢獻</li></ul>
+<p><strong>3. 安世半導體轉單機會</strong></p>
+<ul><li>中國大陸限制安世半導體（Nexperia）出口，已有個位數台灣客戶來詢問 MOSFET 替代料</li><li>尚未確認大規模轉單，屬於機會型（非確定性）催化劑</li></ul>
+<p><strong>4. PC 換機潮 + 伺服器建置週期</strong></p>
+<ul><li>Windows 11 換機需求 + AI PC 題材帶動 PC 電源管理 MOSFET 需求</li><li>企業伺服器汰換週期（2025~2026）有望帶動傳統 MOSFET 出貨</li></ul>
+<h3>催化劑時間表</h3>
+<div class="table-wrap"><table><thead><tr><th>時間點</th><th>催化劑</th><th>重要度</th></tr></thead><tbody><tr><td>2026 Q2 財報（約 2026-08）</td><td>驗證 SiC 出貨是否開始放量、毛利率改善</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>2026 下半年</td><td>AI 伺服器 SiC MOSFET 客戶能見度提升</td><td>⭐⭐⭐⭐</td></tr><tr><td>2026 Q3/Q4</td><td>月營收年增率能否恢復正成長</td><td>⭐⭐⭐⭐</td></tr><tr><td>2027 以後</td><td>GaN 產品量產貢獻</td><td>⭐⭐</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>最關鍵的近期催化劑是 2026 Q2 財報（8 月公布），重點觀察 SiC 產品是否開始對毛利率產生正面影響，以及月營收年增率能否從 5 月的 -13% 恢復正成長。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險清單</h3>
+<p><strong>R1 高估值 / 題材泡沫風險（高）</strong></p>
+<ul><li>PE 48.91 倍，已完全 price in 2026 Q1 強勁成長</li><li>若 Q2 EPS 不如預期，或 SiC 放量進度落後，股價修正幅度可能顯著</li><li>52 週最低 36.74 元距現價跌幅約 59%，題材退燒的下跌空間大</li></ul>
+<blockquote>📝 <strong>price in（已反映 / 已定價）</strong>：市場預期已被納入股價裡了。如果「好消息已被 price in」，代表即使消息兌現，股價也不一定還會大漲，因為早已有人在好消息出來前就買進了。</blockquote>
+<p><strong>R2 月營收 5 月年減 13% 動能轉弱（中）</strong></p>
+<ul><li>可能反映客戶拉貨節奏調整或庫存回補結束</li><li>若 6 月持續年減，基本面將無法支撐近 49 倍的高估值</li></ul>
+<p><strong>R3 SiC 量產時程不確定（中）</strong></p>
+<ul><li>「小量出貨/工程驗證」到「大批量採購」的跨越需要時間</li><li>具體 Tier 1 客戶未公開揭露，進度難以獨立追蹤</li><li>競爭對手眾多（英飛凌、羅姆、意法半導體等國際大廠均有成熟 SiC 產品）</li></ul>
+<p><strong>R4 財報穩定性（中）</strong></p>
+<ul><li>Q4 2025 單季出現虧損（-0.17 元），顯示業績波動性不小</li><li>功率半導體設計公司毛利率偏低（29%），抗景氣衝擊能力有限</li></ul>
+<p><strong>R5 宏觀環境（低~中）</strong></p>
+<ul><li>同日競爭對手全部大跌（台半 -9.84%、強茂 -8.85%）顯示板塊受宏觀因素影響</li><li>若半導體景氣反轉或 AI 資本支出縮減，整個功率半導體板塊可能同步承壓</li></ul>
+<blockquote>📝 <strong>資本支出（CapEx / Capital Expenditure）</strong>：公司花在蓋新廠、買設備等長期投資的錢。AI 雲端廠商（如微軟、AWS、Google）大手筆砸錢建 AI 資料中心，就是大規模的 CapEx，這是帶動伺服器相關供應鏈成長的動力。</blockquote>
+<h3>風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>影響程度</th><th>發生機率</th></tr></thead><tbody><tr><td>高估值修正</td><td>高（可能 -20%~-30%）</td><td>中</td></tr><tr><td>月營收持續轉弱</td><td>中</td><td>中</td></tr><tr><td>SiC 進度落後</td><td>中</td><td>中</td></tr><tr><td>Q4 再度虧損</td><td>中</td><td>低</td></tr><tr><td>宏觀/板塊系統性風險</td><td>高</td><td>低</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>最大風險在於高估值（PE 49 倍）疊加短期營收動能轉弱（5 月年減 13%），題材一旦受到質疑將面臨明顯修正；SiC 量產不確定性是中期最需要追蹤的核心風險。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>結論總評</h3>
+<p><strong>【觀望】— 等待財報驗證 SiC 貢獻，或等更佳進場價位</strong></p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p><strong>信心 3/5 的理由</strong>：</p>
+<ul><li>加分：均線多頭排列、Q1 財報強勁、SiC AI 伺服器題材具有中長期成長邏輯、累計外資買超</li><li>減分：ROE 無法取得、PB 為推算值、5 月營收年減轉弱、PE 偏高、KD 死亡交叉、接近 52 週高點</li><li>整體評估：題材真實但財報驗證尚未到位，性價比在目前價位不突出</li></ul>
+<h3>操作細節</h3>
+<ul><li><strong>建議倉位</strong>：佔總資金 3~5%（小型觀察倉；若等到進場條件成立再建倉）</li><li>尼克森是中小型成長題材股，波動大，不建議重倉</li></ul>
+<ul><li><strong>進場條件（需同時滿足）</strong>：</li><li>條件 A：股價回測 MA20（83~85 元）附近且成交量未異常放大</li><li>條件 B：或 2026 Q2 財報（約 8 月）顯示 EPS 維持 0.7 元以上且毛利率改善</li></ul>
+<ul><li><strong>停損參考</strong>：</li><li>技術停損：收盤價跌破 MA20（83.2 元）且次日確認 → 出場</li><li>基本面停損：Q2 財報 EPS 低於 0.5 元，或月營收連續 3 個月年減 → 重新評估是否出場</li></ul>
+<ul><li><strong>加碼條件</strong>：</li><li>SiC MOSFET 客戶能見度由 2 季延伸至 3 季以上（法說會確認）</li><li>毛利率季增 +2%（代表高毛利 SiC 產品占比提升）</li></ul>
+<ul><li><strong>觀察指標</strong>：</li><li>每月 10 日前公布的月營收（重點看 YoY 能否重回正成長）</li><li>2026 Q2 財報（EPS + 毛利率）</li><li>法說會或法人報告中 SiC 出貨量/客戶認可進度</li></ul>
+<ul><li><strong>下次檢視</strong>：</li><li>短期：2026 年 7 月月營收公布時（7/10 左右）</li><li>中期：2026 Q2 財報（預計 2026 年 8 月）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/3317.TWO" target="_blank" rel="noopener">Yahoo 股市 - 尼克森 3317.TWO 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/3317.TWO/revenue" target="_blank" rel="noopener">Yahoo 股市 - 尼克森 3317.TWO 月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/3317.TWO/eps" target="_blank" rel="noopener">Yahoo 股市 - 尼克森 3317.TWO EPS</a></li><li><a href="https://tw.stock.yahoo.com/quote/3317.TWO/profile" target="_blank" rel="noopener">Yahoo 股市 - 尼克森 3317.TWO 公司資訊</a></li><li><a href="https://goodinfo.tw/tw/ShowBuySaleChart.asp?STOCK_ID=3317&CHT_CAT=DATE" target="_blank" rel="noopener">Goodinfo - 尼克森法人買賣超</a></li><li><a href="https://www.cnyes.com/twstock/Margin.aspx?code=3317" target="_blank" rel="noopener">鉅亨網 - 尼克森融資融券</a></li><li><a href="https://winvest.tw/Stock/Symbol/Comment/3317" target="_blank" rel="noopener">Win 投資 - 尼克森綜合分析</a></li><li><a href="https://readmo.cmoney.tw/article/1654343a-73a4-4197-9fcd-efc3026e91b9" target="_blank" rel="noopener">CMoney - 尼克森 SiC MOSFET 分析</a></li><li><a href="https://readmo.cmoney.tw/article/d491bd60-d538-4687-9990-d915b064850b" target="_blank" rel="noopener">CMoney - 尼克森 AI 伺服器供應鏈定位</a></li><li><a href="https://statementdog.com/analysis/3317/pb" target="_blank" rel="noopener">財報狗 - 尼克森股價淨值比</a></li><li><a href="https://tw.stock.yahoo.com/quote/5425.TW" target="_blank" rel="noopener">Yahoo 股市 - 台半 5425 行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/8261.TWO" target="_blank" rel="noopener">Yahoo 股市 - 富鼎 8261 行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2481.TW" target="_blank" rel="noopener">Yahoo 股市 - 強茂 2481 行情</a></li><li>[技術指標腳本] <code>technical_indicators.py</code>（本機運算，資料來自 yfinance）</li><li>⚠️ PB 為推算值（基於財報狗 Q3 2025 每股淨值 35.69 元）：<a href="https://statementdog.com/analysis/3317/nav" target="_blank" rel="noopener">財報狗 - 尼克森 NAV</a></li></ul>
+</div>
+</body>
+</html>

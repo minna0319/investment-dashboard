@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>強茂（2481）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>強茂（2481）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>強茂（2481）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-28</td><td>NT$175.0</td><td>首次分析（依最新九維度模板建立，基於 2026-06-26 收盤數據）</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>⚠️ 所有帶單位數字均來自 WebFetch 官方來源（TWSE、Yahoo Finance），找不到標「❌ 未取得」，不可留空或猜測。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$175.0（-8.85% / -17 元）</td></tr><tr><td>市值</td><td>約 669 億（股本 38.21 億 ÷ 面值 10 × 股價 175，估算）</td></tr><tr><td>PE 本益比</td><td>55.56 倍</td></tr><tr><td>PB 股價淨值比</td><td>4.61 倍</td></tr><tr><td>EPS（近 4 季合計）</td><td>3.14 元（2025Q2 0.66 ＋ Q3 0.79 ＋ Q4 0.94 ＋ 2026Q1 0.75）</td></tr><tr><td>殖利率</td><td>1.03%</td></tr><tr><td>ROE</td><td>8.76%（近 4 季）</td></tr><tr><td>毛利率</td><td>32.74%（2026Q1）</td></tr><tr><td>營收 YoY（最新月）</td><td>+13.66%（2026/05）</td></tr><tr><td>營收 MoM（最新月）</td><td>-2.16%（2026/05）</td></tr><tr><td>52 週高 / 低</td><td>NT$195（收盤）/ NT$44.53；6/26 盤中觸及 198</td></tr><tr><td>技術位置</td><td>MA5 186.3 / MA20 159.0 / RSI 60.6；均線多頭排列</td></tr></tbody></table></div>
+<p>資料時間：2026-06-26（已收盤）｜資料來源見文末</p>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 功率半導體漲價循環受惠明確，但 PE 55.6 倍已充分定價，6/26 急跌 -8.85% 顯示短期籌碼鬆動，建議等回落至 160-165 元附近再評估進場。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段，等待回落後進場機會</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位</h3>
+<p>強茂（2481）成立於 1990 年，為台灣功率分離元件主要 IDM 廠商之一，股票掛牌於台灣證交所（上市，代號 2481.TW）。</p>
+<blockquote>📝 <strong>IDM（垂直整合半導體廠商）</strong>：Integrated Device Manufacturer，自己同時做「設計 + 製造 + 封測 + 銷售」的半導體公司。相較純設計廠需委外製造，IDM 在景氣漲價循環中議價能力更強，成本控管彈性更大。</blockquote>
+<h3>主要產品結構</h3>
+<div class="table-wrap"><table><thead><tr><th>產品</th><th>營收占比</th><th>主要應用場景</th></tr></thead><tbody><tr><td>二極體（Diode）</td><td>約 44%</td><td>工業電源、消費電子、車用</td></tr><tr><td>MOSFET</td><td>約 33%</td><td>AI 伺服器電源、車用馬達驅動、工業</td></tr><tr><td>保護元件（TVS / ESD）</td><td>約 19%</td><td>網通設備、AI 伺服器防護、消費電子</td></tr><tr><td>其他</td><td>約 4%</td><td>—</td></tr></tbody></table></div>
+<blockquote>📝 <strong>MOSFET（金屬氧化物半導體場效電晶體）</strong>：一種高效率的「開關」元件，控制電流的通斷。AI 伺服器供電密度急速攀升，對 MOSFET 的需求是本波強茂股價大漲的核心驅動力。</blockquote>
+<blockquote>📝 <strong>TVS（瞬態電壓抑制器）</strong>：保護電路不被突波電壓損壞的元件，功能像電路的「避雷針」。AI 伺服器中每台使用量顯著高於一般設備。</blockquote>
+<h3>終端市場結構（2025年）</h3>
+<ul><li>車用電子：約 35%（自 2017 年逐年提升）</li><li>AI 伺服器：約 7%（預計 2026 年升至兩位數）</li><li>工業 / 消費電子 / 其他：其餘</li></ul>
+<h3>五年成長計畫「55 計畫」</h3>
+<p>強茂宣布「55 計畫」：目標 2026～2030 年間，將 MOSFET 營收從目前約 1.5 億美元提升至 5 億美元（超過 3 倍成長）。主要透過 AI 伺服器和車用兩個引擎驅動。</p>
+<h3>集團協同架構</h3>
+<p>強茂整合旗下子公司（虹冠電電阻、興茂科技 IC 設計、熒茂光學、天二科技），形成從元件到系統的完整解決方案，增強與大型客戶的談判籌碼。</p>
+<h3>競爭地位與護城河</h3>
+<blockquote>📝 <strong>護城河</strong>：投資術語，比喻公司保護自己競爭優勢的能力。護城河越深，競爭對手越難搶市場。強茂的護城河包括：車用認證壁壘（通常需 2～3 年才能被認證成替代供應商）、IDM 整合效率、以及多年累積的客戶關係。</blockquote>
+<p>主要競爭對手：Infineon（英飛凌）、安世半導體（Nexperia，NXP 旗下）、On Semi（安森美）；台廠同業：台半 5425、富鼎 8261、大中 6435。</p>
+<h3>小結</h3>
+<p>強茂是台灣功率半導體 IDM 龍頭之一，產品線齊全，車用（35%）+ AI（7%→10%+）是雙主軸，「55 計畫」提供清晰的五年成長路徑，商業模式可信度高，基本面故事完整。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>EPS 趨勢（近 8 季）</h3>
+<div class="table-wrap"><table><thead><tr><th>季別</th><th>EPS（元）</th><th>季增率</th><th>年增率</th></tr></thead><tbody><tr><td>2026 Q1</td><td>0.75</td><td>-20.2%</td><td>+4.2%</td></tr><tr><td>2025 Q4</td><td>0.94</td><td>+19.2%</td><td>+74.1%</td></tr><tr><td>2025 Q3</td><td>0.79</td><td>+19.7%</td><td>+19.7%</td></tr><tr><td>2025 Q2</td><td>0.66</td><td>-8.3%</td><td>-10.8%</td></tr><tr><td>2025 Q1</td><td>0.72</td><td>—</td><td>—</td></tr><tr><td>2024 Q4</td><td>0.54</td><td>—</td><td>—</td></tr><tr><td>2024 Q3</td><td>0.66</td><td>—</td><td>—</td></tr><tr><td>2024 Q2</td><td>0.74</td><td>—</td><td>—</td></tr></tbody></table></div>
+<blockquote>⚠️ 2026Q1 季減 -20.2% 為 Q1 正常淡季（農曆年假停工），年增率仍維持正值 +4.2%，非基本面惡化。</blockquote>
+<p>近 4 季 EPS 合計（TTM）：0.66 + 0.79 + 0.94 + 0.75 = <strong>3.14 元</strong></p>
+<blockquote>📝 <strong>TTM（近四季滾動）</strong>：Trailing Twelve Months，最近 12 個月的累積數字。用來計算「現在」的本益比比用年報更即時。</blockquote>
+<h3>2025 全年財務摘要</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>合併營收</td><td>130.9 億元</td></tr><tr><td>營收 YoY</td><td>+4.4%</td></tr><tr><td>毛利率</td><td>31.3%（YoY +2.6pp）</td></tr><tr><td>營業利益率</td><td>8.5%（YoY +2.0pp）</td></tr><tr><td>稅後淨利</td><td>11.92 億元（YoY +29.7%）</td></tr><tr><td>EPS</td><td>3.12 元</td></tr></tbody></table></div>
+<blockquote>📝 <strong>pp（百分點）</strong>：Percentage Point，毛利率從 28.7% 提升到 31.3%，增加了 2.6pp（不是 2.6%）。兩者說法在財報分析中意義不同。</blockquote>
+<blockquote>📝 <strong>毛利率</strong>：（營收 - 直接生產成本）/ 營收 × 100%。強茂毛利率從 2024 年的 ~26% 穩步升至 2026Q1 的 32.74%，主因是 MOSFET 和車用高毛利品項佔比提升，是財務體質改善的重要訊號。</blockquote>
+<h3>月營收趨勢（2026 年）</h3>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>營收（億元）</th><th>YoY</th><th>MoM</th></tr></thead><tbody><tr><td>2026/05</td><td>12.69</td><td>+13.66%</td><td>-2.16%</td></tr><tr><td>2026/04</td><td>12.97</td><td>+8.76%</td><td>+4.44%</td></tr><tr><td>2026/03</td><td>12.42</td><td>+19.14%</td><td>+32.78%</td></tr><tr><td>2026/02</td><td>9.36</td><td>-0.98%</td><td>-24.75%</td></tr><tr><td>2026/01</td><td>12.43</td><td>+14.68%</td><td>+9.58%</td></tr></tbody></table></div>
+<blockquote>2026/02 MoM 大跌 -24.75% 為農曆春節工作日效應，YoY -0.98% 接近持平。2026 年 1-5 月月均營收約 12.17 億，相比 2025 年月均 ~10.9 億，年化成長約 +11.6%。</blockquote>
+<h3>ROE 與資本效率</h3>
+<blockquote>📝 <strong>ROE（股東權益報酬率）</strong>：Return on Equity，代表公司用股東投入的錢賺了多少。ROE = 稅後淨利 / 股東權益。越高代表賺錢效率越好，15% 以上通常算優秀。</blockquote>
+<ul><li>ROE（近 4 季 TTM）：8.76%</li><li>2026Q1 單季年化 ROE：約 7.7%</li><li>目前 ROE 偏低，但隨獲利結構改善（MOSFET 佔比提升）有機會逐步回升至 12-15% 區間</li></ul>
+<h3>財務健康警示項目</h3>
+<ul><li>FCF（自由現金流）：❌ 未取得</li></ul>
+<blockquote>📝 <strong>FCF（自由現金流）</strong>：Free Cash Flow，扣除廠房、設備等資本支出後，公司真正剩下的可用現金。IDM 廠資本支出重，FCF 的正負值是判斷財務健康的重要指標。</blockquote>
+<ul><li>負債比 / 流動比：❌ 未取得（建議至公開資訊觀測站查詢 2026Q1 財報）</li></ul>
+<h3>小結</h3>
+<p>財務呈「量質雙升」趨勢：月營收年增維持 10%+ 多月、毛利率連續 5 季改善、全年獲利增幅超越營收增幅。2026Q1 季減為淡季效應，不改善成長軌跡；ROE 偏低（8.76%）是目前財務面的主要疑慮。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>現況估值比較</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>強茂現值</th><th>說明</th></tr></thead><tbody><tr><td>本益比 PE</td><td>55.56 倍</td><td>同業台半 53.5x、富鼎 41.8x、大中 30.8x；強茂最高</td></tr><tr><td>股價淨值比 PB</td><td>4.61 倍</td><td>基於 ROE 8.76%，偏高</td></tr><tr><td>殖利率</td><td>1.03%</td><td>很低，本標的不適合存股邏輯</td></tr></tbody></table></div>
+<blockquote>📝 <strong>本益比（PE / P/E Ratio）</strong>：股價 ÷ 每股盈餘，代表「用幾年盈利才能買回這張股票」。55.56 倍代表市場預期未來強茂會持續高速成長，才願意付這麼高的溢價。</blockquote>
+<blockquote>📝 <strong>股價淨值比（PB / P/B Ratio）</strong>：股價 ÷ 帳面淨值，代表「你付了帳面價值的幾倍」。PB 4.61 倍 + ROE 8.76% 的組合，從純價值面看偏貴。</blockquote>
+<h3>合理價試算</h3>
+<p><strong>Method A：同業比較 PE 法</strong></p>
+<ul><li>同業 PE 均值：（台半 53.5 + 富鼎 41.8 + 大中 30.8）÷ 3 ≈ 42 倍</li><li>2026E EPS 估算：管理層指引 Q2 > Q1（0.75元），H2 > H1，保守估算全年 EPS ≈ 3.7 元</li></ul>
+<blockquote>📝 <strong>2026E EPS</strong>：2026 年全年「預估」每股盈餘（E = Estimated，代表預測值，不是已公布數字）。</blockquote>
+<ul><li>合理價 = 42 × 3.7 = <strong>NT$155 元</strong></li></ul>
+<p><strong>Method B：目標 PE 法（含成長溢價）</strong></p>
+<ul><li>考量「55 計畫」和 AI 滲透率成長的確定性，給予 45 倍目標 PE</li><li>合理價 = 45 × 3.7 = <strong>NT$167 元</strong></li></ul>
+<p><strong>估值結論：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>合理價</th></tr></thead><tbody><tr><td>Method A（同業比較）</td><td>NT$155</td></tr><tr><td>Method B（目標 PE）</td><td>NT$167</td></tr><tr><td>兩法平均</td><td>NT$161</td></tr><tr><td>現價 NT$175 溢價幅度</td><td><strong>+8.7%</strong></td></tr></tbody></table></div>
+<blockquote>📝 <strong>溢價（Premium）</strong>：現在市場價格高於估算合理價值的部分。溢價 8.7% 不算離譜，但代表安全邊際有限——基本面必須如期兌現，否則股價容易修正。</blockquote>
+<blockquote>📝 <strong>安全邊際</strong>：買進價格低於估算合理價值的緩衝空間。巴菲特的投資原則之一。安全邊際越大，買貴了或基本面不如預期時，虧損風險越低。</blockquote>
+<p>若 2026E EPS 達到 4.0 元（樂觀情境），45x PE 對應合理價 NT$180，現價 175 仍在合理範圍上緣。</p>
+<h3>小結</h3>
+<p>PE 55.56 倍已充分定價成長預期，同業比較法算出合理區間 155-167 元，現價溢價約 8.7%，安全邊際薄；非便宜機會，但也不到嚴重高估的程度，結論是「偏貴但不離譜」，等回調更值得進場。</p>
+<hr>
+<h2>4. 技術面</h2>
+<h3>均線結構（2026-06-26）</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值（NT$）</th><th>現價相對位置</th></tr></thead><tbody><tr><td>MA5（5 日）</td><td>186.3</td><td>現價已跌破</td></tr><tr><td>MA10（10 日）</td><td>166.5</td><td>現價仍在上方</td></tr><tr><td>MA20（月線）</td><td>159.0</td><td>現價仍在上方</td></tr><tr><td>MA60（季線）</td><td>127.0</td><td>現價在上方 +37.8%</td></tr><tr><td>MA120（半年線）</td><td>107.4</td><td>現價在上方 +63%</td></tr><tr><td>MA240（年線）</td><td>87.9</td><td>現價在上方 +99%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>均線（Moving Average, MA）</strong>：一段時間內股價的平均值，常用的有 MA20（月線）、MA60（季線）。股價在均線上方代表趨勢向上。</blockquote>
+<p>均線狀態：<strong>多頭排列</strong>（短線均線 > 長期均線，由上到下排列）</p>
+<blockquote>📝 <strong>多頭排列</strong>：均線由短到長依序 MA5 > MA10 > MA20 > MA60 排列，代表短中長期趨勢均向上，是技術面的強勢訊號。</blockquote>
+<h3>動能指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>RSI 14</td><td>60.58</td><td>偏強，尚未進入超買區（>70）</td></tr><tr><td>KD（K / D）</td><td>73.81 / 72.32</td><td>5 天前黃金交叉（中位區 K=51 時）</td></tr><tr><td>MACD</td><td>13.99（柱狀值 +2.8）</td><td>多頭，在零軸上方</td></tr><tr><td>均線黃金交叉</td><td>4 天前（2026-06-22）</td><td>短線剛轉多</td></tr></tbody></table></div>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：衡量近期漲跌力道，0-100 分。70 以上算「超買」（可能過熱），30 以下算「超賣」（可能超跌反彈）。目前 60.58 屬強勢但正常區間。</blockquote>
+<blockquote>📝 <strong>KD 黃金交叉</strong>：K 值由下穿越 D 值向上，代表短線動能轉強的買進參考訊號。本次交叉發生在 K=51 中位區，力道屬普通（若在超賣區 K<20 發生，訊號更強）。</blockquote>
+<blockquote>📝 <strong>MACD</strong>：股價動能指標，柱狀值為正代表多頭動能；在零軸上方代表中期趨勢為多頭。</blockquote>
+<blockquote>📝 <strong>均線黃金交叉</strong>：短期均線（如 MA20）由下往上穿越長期均線（如 MA60），是中期趨勢轉多的訊號。4 天前剛發生，技術面轉多訊號仍新鮮。</blockquote>
+<h3>6/26 大跌解析</h3>
+<div class="table-wrap"><table><thead><tr><th>數據</th><th>數值</th></tr></thead><tbody><tr><td>前一收盤</td><td>NT$192</td></tr><tr><td>當日開盤</td><td>NT$189（小幅跳空低開）</td></tr><tr><td>當日最高</td><td>NT$198（盤中新高）</td></tr><tr><td>當日最低</td><td>NT$174（接近跌停 172.8）</td></tr><tr><td>收盤</td><td>NT$175（-8.85%）</td></tr><tr><td>成交量</td><td>13,462 張（5 日均量 42,905 張的 31%）</td></tr></tbody></table></div>
+<p><strong>量縮急跌</strong>型態（量小 + 跌深），通常代表賣壓非恐慌性拋售，而是少數法人調節或短線獲利了結。</p>
+<h3>52 週位置</h3>
+<ul><li>52W 高（收盤）：NT$195 ／ 低：NT$44.53</li><li>低到高漲幅：+338%（近一年超強漲幅）</li><li>現價在 52W 區間的 <strong>86.7%</strong> 高位</li></ul>
+<h3>關鍵支撐與壓力</h3>
+<div class="table-wrap"><table><thead><tr><th>位置</th><th>類型</th><th>說明</th></tr></thead><tbody><tr><td>195-198</td><td>壓力</td><td>前高壓力，突破需放量</td></tr><tr><td>166-170</td><td>支撐一</td><td>MA10 + 心理整數關卡</td></tr><tr><td>159-162</td><td>支撐二（關鍵）</td><td>MA20 月線，跌破需警覺</td></tr><tr><td>127</td><td>強支撐</td><td>MA60 季線，長線持有者依據</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>整體技術面仍為多頭格局（均線多頭排列、MACD 正值、均線黃金交叉），但 6/26 量縮大跌 -8.85% 後已跌破 MA5（186），短線籌碼不穩；MA20（159）是當前最重要的支撐，跌破需重新評估。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>三大法人動向（2026-06-26）</h3>
+<div class="table-wrap"><table><thead><tr><th>法人類型</th><th>買賣超（張）</th></tr></thead><tbody><tr><td>外資</td><td>+314</td></tr><tr><td>投信</td><td>0</td></tr><tr><td>自營商</td><td>-1,972</td></tr><tr><td><strong>合計</strong></td><td><strong>-1,760</strong></td></tr></tbody></table></div>
+<blockquote>📝 <strong>三大法人</strong>：指外資（外國機構投資人）、投信（台灣本土基金公司）、自營商（券商自己的投資部門）。三大法人動向是散戶重要的參考依據，但需觀察連續多日趨勢，單日數字參考性有限。</blockquote>
+<blockquote>📝 <strong>買賣超</strong>：當日買進張數 - 賣出張數。正值 = 淨買入（看多），負值 = 淨賣出（看空）。</blockquote>
+<p><strong>解讀：</strong> 6/26 跌幅的主要來源是自營商賣超 1,972 張（可能是對沖操作或短線獲利了結）；外資仍微幅買超 314 張，顯示外資尚未轉為看空；投信觀望。整體法人賣壓屬輕度，不構成系統性出逃。</p>
+<h3>融資融券</h3>
+<p>❌ 未取得強茂 2481 個股融資融券餘額細項。</p>
+<blockquote>📝 <strong>融資融券</strong>：融資是借錢買股（槓桿）；融券是借股票賣出（做空）。融資餘額大幅攀升通常是散戶樂觀過頭的訊號；融券增加代表有人在看空佈局。此數據建議至台灣證交所或元大、富邦等券商 App 查詢。</blockquote>
+<p>建議自行查詢：<a href="https://www.twse.com.tw/zh/trading/margin/MI_MARGN.html" target="_blank" rel="noopener">TWSE 個股融資融券查詢</a>（輸入 2481）</p>
+<h3>小結</h3>
+<p>籌碼面資訊有限（缺融資融券），6/26 的急跌以自營商短線調節為主，外資仍買超，籌碼面訊號偏中性；建議補查融資餘額趨勢，若融資餘額大增需提高警覺。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<blockquote>📝 <strong>同業比較（Peer Comparison）</strong>：把同產業多家公司並排，判斷誰的估值合理、誰成長潛力大、誰的財務體質更好。這一節的四檔都是台灣功率半導體概念股，同受本波漲價循環催化。</blockquote>
+<h3>核心估值比較（2026-06-26 收盤）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>強茂 2481</th><th>台半 5425</th><th>富鼎 8261</th><th>大中 6435</th></tr></thead><tbody><tr><td>現價（NT$）</td><td>175.0</td><td>114.5</td><td>244.0</td><td>332.0</td></tr><tr><td>當日漲跌幅</td><td><strong>-8.85%</strong></td><td>-9.84%</td><td>+4.50%</td><td>+6.08%</td></tr><tr><td>本益比 PE</td><td><strong>55.56x</strong></td><td>53.50x</td><td>41.78x</td><td>30.80x</td></tr><tr><td>股價淨值比 PB</td><td>4.61x</td><td>❌ 未取得</td><td>4.74x</td><td>❌ 未取得</td></tr><tr><td>殖利率</td><td>1.03%</td><td>~1.76%</td><td>2.05%</td><td>~2.26%</td></tr><tr><td>市場別</td><td>上市</td><td>上市</td><td>上櫃</td><td>上櫃</td></tr></tbody></table></div>
+<blockquote>⚠️ 6/26 同日，強茂與台半大跌，富鼎與大中大漲——顯示同一產業內短線籌碼動向不同，可能反映法人換股操作。</blockquote>
+<h3>業務定位比較</h3>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>代表特色</th><th>車用佔比</th><th>AI 布局方向</th></tr></thead><tbody><tr><td>強茂 2481</td><td>IDM，最廣產品線；二極體+MOSFET+保護元件</td><td>~35%</td><td>55 計畫，主攻 48V MOSFET</td></tr><tr><td>台半 5425</td><td>功率分離元件</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>富鼎 8261</td><td>MOSFET 專業廠，產品規格偏高端</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>大中 6435</td><td>功率 MOSFET，上櫃廠</td><td>❌ 未取得</td><td>❌ 未取得</td></tr></tbody></table></div>
+<blockquote>⚠️ 台半、富鼎、大中的業務細項資料未完整取得，業務描述為市場公開資訊摘要，建議參閱各公司法說會。</blockquote>
+<h3>PE 排名解讀</h3>
+<p>PE 由低至高：<strong>大中（30.8x）→ 富鼎（41.8x）→ 台半（53.5x）→ 強茂（55.6x）</strong></p>
+<p>強茂 PE 最高，意味市場給予最高的成長預期溢價。如果 55 計畫和 AI 滲透如期兌現，高 PE 有支撐；但若成長低於預期，殺估值幅度也會最大。</p>
+<p>相對優勢比較：</p>
+<ul><li>強茂優勢：最廣產品線、IDM 議價能力、集團協同、清晰的量化成長目標（55 計畫）</li><li>大中 / 富鼎優勢：估值相對合理，下行風險較小</li></ul>
+<h3>若只能選一檔</h3>
+<p>現階段（估值偏高 + 技術短線修正期）：<strong>大中 6435 或富鼎 8261 的風險報酬更佳</strong>——同受惠漲價循環，但 PE 分別只有 30.8x 和 41.8x，估值安全邊際較大。若要承接強茂，等回調後相對吸引力才足夠。</p>
+<h3>小結</h3>
+<p>強茂在同業中 PE 最高、殖利率最低，反映最高的「題材溢價」；以風險報酬角度，觀望期間大中或富鼎的相對估值優於強茂，除非強茂出現明顯回調。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>核心題材：功率半導體三重動力疊加</h3>
+<p>2026 年中期，台股功率半導體整體出現「集體噴發」行情，三股力量同時疊加：</p>
+<p><strong>1. AI 伺服器電源架構升級</strong></p>
+<ul><li>伺服器電壓架構從 12V 轉向 48V，MOSFET 規格需從 30V 升至 100V</li><li>每顆 MOSFET 的 ASP（平均售價）顯著提升，強茂受益</li><li>AI 伺服器每台功率元件用量遠高於傳統伺服器</li></ul>
+<blockquote>📝 <strong>ASP（平均售價）</strong>：Average Selling Price，每個產品的平均賣價。架構升級讓每顆 MOSFET 賣更貴，即使出貨量不變，營收也能成長。</blockquote>
+<p><strong>2. 安世半導體（Nexperia）轉單效應</strong></p>
+<ul><li>安世半導體（NXP 旗下歐洲功率半導體大廠）部分品項供應緊縮</li><li>台廠承接轉單，強茂確認：可對應安世約七成料號</li><li>強茂訂單出貨比已達 <strong>1.4-1.5</strong>，訂單能見度至少看到 2027 年中</li></ul>
+<blockquote>📝 <strong>訂單出貨比（B/B Ratio / Book-to-Bill）</strong>：接到的訂單量 ÷ 實際出貨量。大於 1 = 供不應求，需求旺盛。1.4-1.5 是相當高的需求訊號，意味每出貨 1 元，同時又接到 1.4-1.5 元的新訂單。</blockquote>
+<p><strong>3. 歐美大廠帶動漲價空間</strong></p>
+<ul><li>Infineon（英飛凌）2026 年預期 AI 資料中心營收可望倍增至 15 億歐元</li><li>歐美大廠漲價，為台廠提供跟漲的定價空間</li><li>強茂管理層明確指引：2026 年獲利增幅可望高於營收增幅</li></ul>
+<h3>近期催化劑時程</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>潛在影響</th></tr></thead><tbody><tr><td>2026 年 8 月</td><td>Q2 財報公布</td><td>EPS 若 ≥ 0.85 元，確認成長加速</td></tr><tr><td>2026 下半年</td><td>主要 CSP 客戶新一代產品量產開始</td><td>AI 滲透率從 7% 升至兩位數</td></tr><tr><td>持續性</td><td>訂單出貨比動向</td><td>是否維持 ≥ 1.2，決定漲價循環延續</td></tr><tr><td>2030 年</td><td>55 計畫 MOSFET 5 億美元目標</td><td>長線持有者的最終檢驗指標</td></tr></tbody></table></div>
+<blockquote>📝 <strong>CSP（雲端服務提供商）</strong>：Cloud Service Provider，就是建資料中心的 Google、Microsoft Azure、Amazon AWS 等大公司，是 AI 伺服器功率元件的最終需求來源。</blockquote>
+<h3>近期股價走勢背景</h3>
+<p>2026 年 6 月，台股功率半導體概念股出現多日集體漲停行情（包含強茂、台半、德微等「五雄」），強茂一度觸及 198 元盤中新高，累計 52W 漲幅 +338%。6/26 的 -8.85% 急跌是「漲多修正」，而非題材崩解。</p>
+<h3>小結</h3>
+<p>三大動力（AI 架構升級、安世轉單、大廠漲價）同時發酵，是本波股價大漲的核心驅動；Q2 財報（約 2026 年 8 月）是下一個關鍵驗證節點，若 EPS 如管理層指引持續向上，題材有機會延續。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險類型</th><th>說明</th><th>影響程度</th><th>發生機率</th></tr></thead><tbody><tr><td>高估值殺估值</td><td>PE 55.6x，若景氣預期轉弱，倍數壓縮風險大</td><td>⭐⭐⭐⭐⭐ 極高</td><td>⭐⭐⭐ 中</td></tr><tr><td>景氣循環反轉</td><td>漲價循環持續時間難以預測，下行時 EPS 和 PE 雙殺</td><td>⭐⭐⭐⭐⭐ 極高</td><td>⭐⭐ 低中</td></tr><tr><td>中國競爭壓力</td><td>比亞迪半導體、基本半導體等切入低價市場</td><td>⭐⭐⭐ 中高</td><td>⭐⭐⭐ 中</td></tr><tr><td>雙重下單假象</td><td>客戶備貨超量，未來可能取消重複訂單</td><td>⭐⭐⭐⭐ 高</td><td>⭐⭐ 低中</td></tr><tr><td>技術替代（SiC）</td><td>SiC 滲透加速，矽基 MOSFET 高壓應用受衝擊</td><td>⭐⭐⭐ 中</td><td>⭐ 低</td></tr><tr><td>短線技術修正</td><td>52W 漲幅 +338%，獲利了結壓力大</td><td>⭐⭐⭐ 中</td><td>⭐⭐⭐⭐ 高</td></tr></tbody></table></div>
+<blockquote>📝 <strong>殺估值（PE Compression）</strong>：即使 EPS 不變，若市場願意支付的本益比倍數下降，股價也會下跌。例如 PE 從 55x 壓縮到 35x，股價就跌 36%。高 PE 股票在景氣反轉時首當其衝。</blockquote>
+<blockquote>📝 <strong>雙重下單（Double Ordering）</strong>：供應緊張時，客戶同時向多家供應商下單以確保拿到貨。等供應恢復充裕後取消重複訂單，導致訂單短期虛高。半導體景氣循環中的常見陷阱。</blockquote>
+<blockquote>📝 <strong>SiC（碳化矽半導體）</strong>：第三代半導體材料，特性比傳統矽材料（Silicon）更適合高壓/高溫應用，正在滲透電動車驅動系統。長期看，部分矽基 MOSFET 的高壓應用可能逐步被 SiC 取代；但強茂也已在布局 SiC，算是主動應對。</blockquote>
+<h3>最壞情況模擬</h3>
+<p>若景氣循環在 2027 年開始反轉：</p>
+<ul><li>EPS 可能從預期 4 元萎縮至 2-2.5 元</li><li>PE 倍數從 55x 壓縮至 20-25x（半導體下行週期典型）</li><li>理論下行股價：2.2 元 × 22x = NT$48（接近本次 52W 低點）</li><li><strong>這是極端悲觀情境，非基本預期，但說明高 PE + 景氣循環股的潛在下行幅度</strong></li></ul>
+<h3>小結</h3>
+<p>強茂最大風險不在基本面（基本面健康），而是「高估值遇上景氣預期轉向」的雙重殺邏輯；目前市場充分定價漲價循環延續，一旦出現景氣反轉訊號，高 PE 股票首先承壓。與此同時，中國競爭和雙重下單風險是中期需持續追蹤的觀察項目。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：觀望期間 0%；若進場，初次建議 3-5%（高 PE 成長股，倉位不宜過重）</li><li><strong>進場條件</strong>：</li><li>條件一（技術進場）：收盤回落至 160-165 元區間，RSI 跌至 45-50 出現止跌訊號，且量能縮至均量以下後回升</li><li>條件二（事件進場）：Q2 財報（約 2026 年 8 月）EPS ≥ 0.85 元，確認成長加速，且股價位於 165-172 元合理區間</li><li><strong>停損參考</strong>：進場後若收盤跌破 MA20（目前約 NT$159）且 3 日內未回升，出場；或進場後跌幅超過 -8%</li><li><strong>加碼條件</strong>：Q2 財報超預期（EPS ≥ 0.90 元）+ 訂單出貨比仍維持 1.2 以上，可在首批進場成本 ±5% 內追加至 8% 倉位</li><li><strong>觀察指標</strong>：</li></ul>
+<ol><li>每月月營收：YoY 是否維持 10%+（若連續 2 個月跌破，重新評估）</li><li>三大法人累積動向：外資是否轉為持續買超</li><li>訂單出貨比：每季法說會確認是否仍 ≥ 1.2</li><li>Q2、Q3 財報 EPS：是否符合「Q2>Q1、H2>H1」管理層指引</li><li>安世轉單延續時間：若安世恢復供貨，轉單效應消退需重新估值</li></ol>
+<ul><li><strong>下次檢視時間</strong>：2026 年 8 月（Q2 財報公布後，最遲 2026-08-31）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2481.TW" target="_blank" rel="noopener">Yahoo 股市 - 強茂 2481 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2481.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 強茂月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/2481.TW/eps" target="_blank" rel="noopener">Yahoo 股市 - 強茂 EPS</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?stockNo=2481&response=json" target="_blank" rel="noopener">TWSE BWIBBU_d - 強茂 PE / PBR / 殖利率</a></li><li><a href="https://www.wantgoo.com/stock/2481/profitability/profit-margin" target="_blank" rel="noopener">玩股網 - 強茂財報三率</a></li><li><a href="https://www.wantgoo.com/stock/2481/institutional-investors/trend" target="_blank" rel="noopener">玩股網 - 強茂法人買賣超</a></li><li><a href="https://statementdog.com/analysis/2481/eps" target="_blank" rel="noopener">財報狗 - 強茂 EPS 分析</a></li><li><a href="https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=b0c500c7-ddfd-4b43-ac5b-2364b7e39161" target="_blank" rel="noopener">MoneyDJ - 強茂 MOSFET AI 車用成長分析</a></li><li><a href="https://news.cnyes.com/news/id/6320388" target="_blank" rel="noopener">鉅亨網 - 強茂 NEPCON JAPAN 2026 展覽</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/功率元件漲價循環啟動" target="_blank" rel="noopener">豐雲學堂 - 功率元件漲價循環 2026/06</a></li><li>技術指標：<code>python3 投資理財/scripts/technical_indicators.py 2481</code>（2026-06-26 資料）⚠️ 單一來源，建議自行至券商 App 覆核</li><li>富鼎 8261 PE / PBR / 殖利率：TWSE BWIBBU_d（2026-06-26）</li><li>大中 6435、台半 5425：Yahoo Finance（2026-06-26）</li></ul>
+</div>
+</body>
+</html>

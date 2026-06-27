@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>富鼎（8261）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>富鼎（8261）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>富鼎（8261）九維度深度分析</h1>
+<blockquote>市場別：台股上市（TWSE）｜產業：功率半導體（MOSFET / IGBT）</blockquote>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<blockquote>四欄（版本／日期／<strong>當時股價</strong>／主要更新）。「當時股價」記下每次分析當下的最新收盤價。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-28</td><td>NT$244.0（2026-06-26 收盤）</td><td>首次分析（全九維度，含安世轉單催化劑、毛利率改善分析、同業比較）</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>⚠️ 所有帶單位數字皆來自 WebFetch 官方來源（Yahoo Finance / Goodinfo / TWSE），找不到標「❌ 未取得」。</blockquote>
+<blockquote>資料時間：2026-06-26（已收盤）｜詳細資料來源見文末。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$244.0（-4.5%，2026-06-26 收盤）</td></tr><tr><td>市值</td><td>約 290 億（118,878 千股 × NT$244）</td></tr><tr><td>PE 本益比</td><td>41.78 倍（TTM）</td></tr><tr><td>PB 股價淨值比</td><td>4.74 倍（BPS NT$51.49）</td></tr><tr><td>EPS（近 4 季合計）</td><td>5.85 元（Q1'26: 1.57 ＋ Q4'25: 1.68 ＋ Q3'25: 1.93 ＋ Q2'25: 0.67）</td></tr><tr><td>殖利率</td><td>2.05%（2025 年配息 NT$5.0 / 現價 NT$244）</td></tr><tr><td>ROE（2025 年度）</td><td>11.8%</td></tr><tr><td>毛利率（2026 Q1）</td><td>38.1%</td></tr><tr><td>營收 YoY（2026 年 5 月）</td><td>+1.15%</td></tr><tr><td>營收 MoM（2026 年 5 月）</td><td>+4.55%</td></tr><tr><td>52 週高 / 低</td><td>260.0 / 75.3（yfinance 歷史收盤；今日盤中高點 281）</td></tr><tr><td>技術位置</td><td>MA20: 193 / MA60: 151，RSI 68.3，KD 高檔死亡交叉（今日）</td></tr></tbody></table></div>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 基本面持續改善、安世轉單題材催化，但股價自 52 週低點暴漲逾 2 倍、今日出現高檔 KD 死亡交叉與射星 K 線，短線過熱明顯，等技術整理後再評估進場更安全。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段（衛星倉位）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位</h3>
+<p>富鼎先進電子（8261）是台灣功率半導體 Fabless（無晶圓廠）設計公司，核心產品為 MOSFET 與 IGBT，廣泛應用於 AI 伺服器電源供應器、工業控制、消費電子，以及電動車充電系統。</p>
+<blockquote>📝 <strong>MOSFET（金屬氧化物半導體場效電晶體）</strong>：一種電子開關，控制電流通斷與電壓轉換。AI 伺服器裡用來管電源效率；電動車裡用來控制驅動馬達。幾乎所有用電設備都有它。</blockquote>
+<blockquote>📝 <strong>IGBT（絕緣閘雙極電晶體）</strong>：適合 600V 以上高壓、大功率場景的功率半導體，常見於電動車主驅動逆變器、工業變頻器。</blockquote>
+<blockquote>📝 <strong>Fabless（無晶圓廠）</strong>：只設計晶片、不自建工廠，生產全部外包給晶圓代工廠。優點是輕資產、資本支出低；缺點是產能不完全自控。</blockquote>
+<h3>產品結構</h3>
+<div class="table-wrap"><table><thead><tr><th>產品</th><th>主要應用</th><th>成長性</th></tr></thead><tbody><tr><td>低壓 MOSFET（SPS / Dr. MOS）</td><td>AI 伺服器電源管理、消費電子</td><td>高（AI 驅動）</td></tr><tr><td>高壓超結 MOSFET</td><td>工業控制、家電、電源供應器</td><td>中</td></tr><tr><td>IGBT</td><td>車用 OBC、工控</td><td>中</td></tr><tr><td>SiC MOSFET（研發中）</td><td>車用高壓系統（OBC / DC 快充）</td><td>長線（2027+）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>SPS（智慧電源級 / Smart Power Stage）</strong>：AI 伺服器 CPU/GPU 旁的核心電源模組，精確管理對處理器的供電。AI 算力越強 → 用電越大 → 需要越多 SPS，是富鼎切入 AI 供應鏈的主要產品。</blockquote>
+<blockquote>📝 <strong>超結（Super Junction）MOSFET</strong>：高壓 MOSFET 的先進結構技術，相同電壓下比傳統 MOSFET 損耗更低、效率更高，是 600V 以上高壓應用的主流選擇。</blockquote>
+<h3>護城河：雙巨頭通路</h3>
+<p>富鼎核心護城河不在技術領先，而在「策略股東通路網絡」：</p>
+<ul><li><strong>鴻海（2317）</strong>：全球最大電子代工，提供 AI 伺服器、CPO 等系統產品的銷售通路</li><li><strong>國巨（2327）</strong>：全球最大被動元件廠，轉投資漢磊負責晶圓代工，並提供全球通路網絡</li><li>兩家合資成立<strong>國創半導體</strong>，以富鼎產品為核心，攻 AI 伺服器和車用市場</li></ul>
+<p>這套通路護城河是中小型 MOSFET 同業難以複製的優勢。但若大股東策略調整，護城河也可能快速弱化。</p>
+<h3>管理層</h3>
+<p>2025 年股東會，董事長明確表示「下半年優於上半年」，並積極推動從傳統 PC / 消費電子向 AI 伺服器和車用轉型。</p>
+<h3>小結</h3>
+<p>背靠鴻海 + 國巨雙巨頭通路，是富鼎最大競爭優勢；從 PC / 消費電子轉型至 AI / 車用高附加值應用的方向清晰，但技術壁壘相較 Infineon 等國際龍頭仍有明顯差距。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>EPS 趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>期間</th><th>EPS（元）</th><th>年度 ROE</th><th>毛利率</th></tr></thead><tbody><tr><td>2023 年</td><td>2.83</td><td>6.1%</td><td>26.1%</td></tr><tr><td>2024 年</td><td>4.80</td><td>10.4%</td><td>28.6%</td></tr><tr><td>2025 年</td><td>5.73</td><td>11.8%</td><td>37.4%</td></tr><tr><td>2026 Q1</td><td>1.57（季）</td><td>—</td><td>38.1%</td></tr></tbody></table></div>
+<p>EPS 三連漲（2.83 → 4.80 → 5.73），2026 Q1 EPS 1.57 元較去年同期 1.45 元年增 8.28%，成長持續但速度放緩。</p>
+<blockquote>📝 <strong>ROE（股東權益報酬率）</strong>：公司用股東的錢每年賺多少回來。11.8% 代表股東每投入 100 元，一年能賺 11.8 元。超過 15% 通常算優秀，11.8% 屬於中等偏上、持續改善中。</blockquote>
+<h3>毛利率大躍進——核心亮點</h3>
+<p>2023 年 26.1% → 2025 年 37.4% → 2026 Q1 達 38.1%，三年提升逾 12 個百分點，是財務面最大亮點，背後原因：</p>
+<ol><li><strong>庫存週期回歸健康</strong>：2022-2023 半導體下行週期積壓的低價庫存已消化完畢</li><li><strong>高毛利產品佔比提升</strong>：AI 伺服器 SPS、高壓超結 MOSFET 毛利優於傳統 PC MOSFET</li><li><strong>鴻海 / 國巨通路訂單品質提升</strong></li></ol>
+<blockquote>📝 <strong>毛利率</strong>：賣出產品後，扣掉製造成本，剩下多少比例。38.1% 代表賣 100 元的產品，成本約 62 元，毛利 38 元。愈高愈好。</blockquote>
+<h3>月營收趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>營收（千元）</th><th>YoY</th><th>MoM</th></tr></thead><tbody><tr><td>2026/05</td><td>296,825</td><td><strong>+1.15%</strong></td><td>+4.55%</td></tr><tr><td>2026/04</td><td>283,913</td><td>+5.26%</td><td>+5.04%</td></tr><tr><td>2026/03</td><td>270,279</td><td>+10.86%</td><td>+21.53%</td></tr><tr><td>2026/02</td><td>222,389</td><td>-3.33%</td><td>-23.02%</td></tr><tr><td>2026/01</td><td>288,877</td><td>+19.34%</td><td>+25.21%</td></tr></tbody></table></div>
+<p>5 月營收 296,825 千元創<strong>近 46 個月新高</strong>，但 YoY 僅 +1.15%，較 1-3 月高基期下滑，顯示年增率縮窄。</p>
+<blockquote>📝 <strong>YoY（年增率）</strong>：和去年同月相比，成長了多少 %。+1.15% 代表比去年 5 月多賺了 1.15%，成長偏低但仍正值。</blockquote>
+<blockquote>📝 <strong>MoM（月增率）</strong>：和上個月相比，成長了多少 %。+4.55% 代表比 4 月多賺了 4.55%，短線動能持續。</blockquote>
+<h3>資產負債健康度</h3>
+<ul><li>2026 Q1 股東權益：6,121,810 千元</li><li>2026 Q1 總資產：6,898,406 千元</li><li><strong>股東權益比率 = 88.7%</strong>（負債率僅 11.3%，財務體質極為健康）</li><li>FCF（自由現金流）：❌ 未取得詳細數字</li></ul>
+<blockquote>📝 <strong>FCF（自由現金流 / Free Cash Flow）</strong>：公司賺到的錢扣掉資本支出後，真正留在手上的現金。比帳面 EPS 更能反映真實賺錢能力。</blockquote>
+<h3>小結</h3>
+<p>財務體質健康（負債率僅 11.3%），毛利率三年大幅跳升是核心改善驅動力；EPS 三連漲成長趨勢確立，但 5 月 YoY +1.15% 明顯落後同業是警示訊號，後續需觀察是否為高基期暫時現象。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>現行估值</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>富鼎 8261</th><th>台半 5425</th><th>強茂 2481</th><th>大中 6435</th></tr></thead><tbody><tr><td>PE（TTM）</td><td>41.78 倍</td><td>53.50 倍</td><td>55.56 倍</td><td>30.80 倍</td></tr><tr><td>PB</td><td>4.74 倍</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>殖利率</td><td>2.05%</td><td>❌</td><td>❌</td><td>❌</td></tr></tbody></table></div>
+<blockquote>📝 <strong>PE（本益比）</strong>：現在股價是年獲利的幾倍。41.78 倍 = 你付的錢，要花 41.78 年的獲利才能「回本」。數字越低代表越便宜（或成長越慢）。</blockquote>
+<blockquote>📝 <strong>PB（股價淨值比）</strong>：股價是帳面資產的幾倍。4.74 倍代表你多付了 3.74 倍的溢價，反映市場對未來獲利的期待。ROE 越高，PB 理應越高。</blockquote>
+<h3>合理估值計算</h3>
+<p><strong>方法 A：PE 評估（基於 2026 年度預估 EPS）</strong></p>
+<ul><li>2026E EPS 分析師預估：6.42 元（YoY +12%）</li><li>給予合理 PE 範圍：30x（保守）～ 40x（樂觀）</li><li>合理估值：30 × 6.42 = <strong>NT$193</strong>（保守）｜35 × 6.42 = <strong>NT$225</strong>（基準）｜40 × 6.42 = <strong>NT$257</strong>（樂觀）</li></ul>
+<p><strong>方法 B：PB 評估</strong></p>
+<ul><li>每股淨值（BPS）：51.49 元</li><li>合理 PB：3.5x ～ 4.5x（考量 ROE 11.8%，具成長性溢價）</li><li>合理估值：3.5 × 51.49 = <strong>NT$180</strong>｜4.0 × 51.49 = <strong>NT$206</strong>（基準）｜4.5 × 51.49 = <strong>NT$232</strong>（樂觀）</li></ul>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>下緣</th><th>基準</th><th>上緣</th><th>現價 244 位置</th></tr></thead><tbody><tr><td>A（PE）</td><td>193</td><td>225</td><td>257</td><td>介於基準與上緣之間</td></tr><tr><td>B（PB）</td><td>180</td><td>206</td><td>232</td><td>高於上緣</td></tr></tbody></table></div>
+<p>現價 244 元：PE 方法下略高於基準（溢價約 8%），PB 方法下已超出合理上緣。</p>
+<h3>相對估值解讀</h3>
+<p>富鼎 PE 41.78x 在同業四家中屬<strong>最低</strong>，對台半（53.5x）有約 22% 折讓，對強茂（55.6x）有約 25% 折讓。折讓原因可能是市場認為富鼎成長能見度或護城河品質略遜於台半。大中（30.8x）PE 最低，但公司治理剛完成改選，有不確定因素。</p>
+<h3>小結</h3>
+<p>估值處於「偏貴但尚在合理上緣」—— PE 法略溢價 8%、PB 法已超出合理範圍；現價能否撐住，取決於 2026 年下半年 EPS 能否兌現 6.42 元的分析師預估。若達標，Forward PE 降至 38 倍，估值合理；若不達標，有 15-25% 向下修正風險。</p>
+<hr>
+<h2>4. 技術面</h2>
+<h3>均線系統（2026-06-26）</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>現價 244 相對位置</th></tr></thead><tbody><tr><td>MA5</td><td>248.5</td><td><strong>股價跌破均線</strong></td></tr><tr><td>MA10</td><td>219.05</td><td>上方 +11.4%</td></tr><tr><td>MA20</td><td>193.32</td><td>上方 +26.2%</td></tr><tr><td>MA60</td><td>150.52</td><td>上方 +62.1%</td></tr><tr><td>MA120</td><td>123.44</td><td>上方 +97.7%</td></tr><tr><td>MA240</td><td>106.36</td><td>上方 +129.4%</td></tr></tbody></table></div>
+<p>均線呈<strong>完美多頭排列</strong>（MA5 > MA10 > MA20 > MA60 > MA120 > MA240），中長線趨勢強勁健康。但今日收盤已跌破 MA5，短線動能轉弱。</p>
+<blockquote>📝 <strong>均線多頭排列</strong>：短期均線（MA5）在長期均線（MA60）上方，代表趨勢健康——短線跑得比長線快。反之叫「空頭排列」。</blockquote>
+<h3>技術指標解讀</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>RSI</td><td>68.3</td><td>偏強，接近超買區（70+）</td></tr><tr><td>KD（K/D）</td><td>81.3 / 83.8</td><td>⚠️ <strong>今日高檔死亡交叉</strong></td></tr><tr><td>MACD 柱狀</td><td>+6.58</td><td>正值，多頭格局維持</td></tr><tr><td>黃金交叉</td><td>6 天前（6/17）</td><td>已確認，但部分反映</td></tr></tbody></table></div>
+<blockquote>📝 <strong>RSI（相對強弱指數）</strong>：衡量近期漲跌的動能強弱，介於 0-100。70 以上算超買（漲太快，可能回調）；30 以下算超賣。目前 68.3 接近超買。</blockquote>
+<blockquote>📝 <strong>KD 死亡交叉（高檔）</strong>：KD 指標中，K 線從上方向下穿越 D 線，發生在 80 以上的高檔時是強烈短線賣訊，暗示短期動能可能衰退。今日正好發生，且在 81 的高檔位置。</blockquote>
+<blockquote>📝 <strong>黃金交叉</strong>：短期均線從下方穿越長期均線向上，是多頭轉強的確認訊號。6 天前發生，中線趨勢偏多。</blockquote>
+<h3>今日 K 線：射星（Shooting Star）——強烈警示</h3>
+<ul><li>盤中高點：281 元（歷史新高區）</li><li>收盤：244 元（-4.5%，跌破前收盤 255.5）</li><li>上影線長度：約 37 元（長上影線）</li><li>成交量：23,559 張（放量，為 20 日均量 1.99 倍）</li></ul>
+<p>長上影線 + 小實體 + 放量 = 典型<strong>射星（Shooting Star）</strong>，高點無法守住、空方強力反壓。結合 KD 死亡交叉，短線雙重賣訊成立。</p>
+<blockquote>📝 <strong>射星（Shooting Star）</strong>：K 線形態，長長的上影線（代表今天漲很高但被打回來了），小小的實體，像「飛上去又掉下來」。在高點出現時，警示多頭動能可能耗盡，短線可能轉跌。</blockquote>
+<h3>支撐與壓力</h3>
+<div class="table-wrap"><table><thead><tr><th>位置</th><th>價格</th><th>說明</th></tr></thead><tbody><tr><td>近期壓力</td><td>281 元</td><td>今日盤中高點</td></tr><tr><td>短線支撐</td><td>240-248 元</td><td>近期整理區 / MA5</td></tr><tr><td>重要支撐</td><td>219 元</td><td>MA10</td></tr><tr><td>強支撐</td><td>193 元</td><td>MA20</td></tr><tr><td>趨勢支撐</td><td>151 元</td><td>MA60（跌破代表趨勢嚴重受損）</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>中長線多頭趨勢完整健康，但今日射星 K 線 + KD 高檔死亡交叉是雙重短線警訊；短線回測 MA10（219 元）的概率不低，技術面建議避免此時追高，等待整理後再評估。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>三大法人近 5 日動向</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資（張）</th><th>投信（張）</th><th>自營（張）</th><th>合計（張）</th></tr></thead><tbody><tr><td>2026/06/26</td><td>+1,804</td><td>+1</td><td>-13</td><td><strong>+1,791</strong></td></tr><tr><td>2026/06/25</td><td>-2,096</td><td>+7</td><td>-1</td><td><strong>-2,090</strong></td></tr><tr><td>2026/06/24</td><td>+2,616</td><td>0</td><td>-274</td><td><strong>+2,343</strong></td></tr><tr><td>2026/06/23</td><td>+3,507</td><td>+12</td><td>-549</td><td><strong>+2,969</strong></td></tr><tr><td>2026/06/22</td><td>-105</td><td>0</td><td>+493</td><td><strong>+388</strong></td></tr><tr><td><strong>5 日合計</strong></td><td><strong>+5,726</strong></td><td><strong>+20</strong></td><td><strong>-344</strong></td><td><strong>+5,401</strong></td></tr></tbody></table></div>
+<p>外資近 5 日累計買超 <strong>5,726 張</strong>，是推升這波行情的主要力量。</p>
+<h3>籌碼解讀</h3>
+<ul><li><strong>外資</strong>：持股比例 7.19%（相對較低，仍有增持空間）。漲停行情中持續加碼，但 6/25 出現 -2,096 張的單日賣超，暗示部分外資在高點出貨；6/26 今日仍淨買入 1,804 張，但股價大幅拉回，顯示外資買盤力度不足以消化拋壓</li><li><strong>投信</strong>：近 5 日合計僅 +20 張，幾乎沒有動作，這在台股中小型成長股中屬正常現象</li><li><strong>自營商</strong>：近 5 日賣超 344 張，高點出貨行為明顯</li><li><strong>整體</strong>：籌碼面外資主導、自營出貨，今日股價高位反轉說明外資買入力道被其他籌碼的獲利了結抵消</li></ul>
+<h3>其他籌碼</h3>
+<ul><li>外資持股比例：7.19%（⚠️ 單一來源，建議自行覆核）</li><li>融資融券餘額：❌ 未取得（建議至 <a href="https://www.twse.com.tw/zh/trading/margin/MI_MARGN.html" target="_blank" rel="noopener">台灣證交所融資融券查詢</a> 自行查閱）</li></ul>
+<h3>小結</h3>
+<p>外資近 5 日是主要買盤且持股比例偏低仍有空間，但今日高位拉回暗示部分籌碼在高點換手，後續需觀察外資是否繼續增持，或轉為獲利了結模式。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<blockquote>📝 <strong>功率半導體同業</strong>：富鼎、台半、強茂、大中都主攻功率半導體（MOSFET、IGBT 等），差異在於產品組合、客戶群、規模與股東背景。</blockquote>
+<h3>橫向比較表</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>富鼎 8261</th><th>台半 5425</th><th>強茂 2481</th><th>大中 6435</th></tr></thead><tbody><tr><td>市場別</td><td>上市 TWSE</td><td>上櫃 TPEX</td><td>上市 TWSE</td><td>上櫃 TPEX</td></tr><tr><td>股價（6/26）</td><td>NT$244.0</td><td>NT$114.5</td><td>NT$175.0</td><td>NT$332.0</td></tr><tr><td>當日漲跌</td><td>-4.5%</td><td>-9.84%</td><td>❌</td><td>+6.08%</td></tr><tr><td>PE（TTM）</td><td><strong>41.78 倍</strong></td><td>53.50 倍</td><td>55.56 倍</td><td>30.80 倍</td></tr><tr><td>月營收 YoY（5 月）</td><td>+1.15%</td><td>+11.80%</td><td>+13.66%</td><td>❌</td></tr><tr><td>毛利率（最新季）</td><td><strong>38.1%</strong>（Q1'26）</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>市值</td><td>約 290 億</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>最新動態</td><td>安世轉單題材</td><td>AI + 車用雙驅動</td><td>越南擴產 4,500 萬美元</td><td>6/26 董事改選完成</td></tr><tr><td>核心特色</td><td>鴻海/國巨通路護城河</td><td>車用 AEC-Q101 + AI SPS</td><td>目標年營收 10 億美元</td><td>PE 最低，治理調整期</td></tr></tbody></table></div>
+<h3>個別分析</h3>
+<p><strong>台半 5425</strong>（上櫃）：5 月 YoY +11.8% 四家中最強，AI + 車用雙核心成長引擎清晰，但 PE 53.5x 是四家最高，估值已充分反映成長預期。</p>
+<p><strong>強茂 2481</strong>（上市）：5 月 YoY +13.66% 四家第一，越南設廠擴產計畫積極，長期成長潛力大；PE 55.6x 更高，且今日跌幅 -8.85%（資料同期），可能與市場情緒波動有關。</p>
+<p><strong>大中 6435</strong>（上櫃）：PE 30.8x 四家最低，但 2026/6/26 剛完成董事會全面改選（陳泰銘接任董事長），公司治理面臨過渡，短期不確定性較高。</p>
+<h3>關鍵比較觀察</h3>
+<p><strong>富鼎相對優勢</strong>：PE 最低（折讓台半/強茂 22-25%）、毛利率改善幅度最大（近3年 +12pp）、鴻海 / 國巨通路獨特護城河</p>
+<p><strong>富鼎相對劣勢</strong>：5 月 YoY 僅 1.15%，明顯遜於台半（+11.8%）和強茂（+13.7%），月度成長能見度偏弱</p>
+<h3>如果只能選一檔</h3>
+<p>短線題材（安世轉單）首選<strong>富鼎</strong>（PE 最低、催化劑最明確）；中長線成長首選<strong>台半</strong>（YoY 成長最強、AI+車用雙引擎）。</p>
+<h3>小結</h3>
+<p>富鼎 PE 最低有相對折讓，但月營收 YoY 成長率明顯落後同業是最大警示；若 6-7 月 YoY 能回升至 5% 以上，「低估值 + 催化劑」組合的邏輯才能更完整。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期催化劑（已發酵）</h3>
+<p><strong>1. 安世半導體（Nexperia）供應中斷 → 轉單效應</strong></p>
+<p>荷蘭安世半導體是全球 MOSFET 與汽車半導體龍頭。近期因中美貿易摩擦，荷蘭政府對其東莞廠出口實施限制，西方車廠供應缺口出現。富鼎擁有完整高/中/低壓 MOSFET 產品線，且已取得車規 AEC-Q101 認證，可直接替代安世產品接急單，是本週連拉漲停的核心驅動力。</p>
+<blockquote>📝 <strong>AEC-Q101 車規認證</strong>：汽車電子零件的嚴格測試標準（高溫/震動/壽命等）。取得後才能正式供貨給車廠，是進入汽車半導體市場的必要門票。</blockquote>
+<p><strong>2. AI 伺服器電源架構升級（持續進行中）</strong></p>
+<p>AI 算力需求爆炸 → 資料中心用電量暴增 → 電源架構從傳統 48V 升級至 400V / 800V 高壓直流（HVDC）→ 對高性能 MOSFET（SPS / Dr. MOS）的需求持續成長。法人預估今年 SPS 相關應用將是富鼎的主要成長動能。</p>
+<blockquote>📝 <strong>HVDC（高壓直流 / High Voltage DC）</strong>：資料中心新電力架構，把電壓從 48V 提升至 400-800V，減少傳輸損耗。電壓越高 → 需要耐高壓的 MOSFET，富鼎高壓產品正好切中需求。</blockquote>
+<h3>中期催化劑（3-12 個月）</h3>
+<p><strong>3. 下半年傳統旺季 + 管理層指引</strong></p>
+<ul><li>電子零件下半年通常有一波補庫存拉貨</li><li>董事長已明確表示「下半年優於上半年」</li></ul>
+<p><strong>4. 2026 年 Q2 財報兌現（2026 年 8 月）</strong></p>
+<ul><li>分析師預估 2026E EPS 約 6.42 元（YoY +12%）</li><li>Q2 財報是驗證安世轉單效益是否已在業績上顯現的最重要觀察點</li></ul>
+<h3>長線催化劑（2027+）</h3>
+<p><strong>5. 車用 SiC MOSFET 量產</strong></p>
+<p>富鼎第一代、第二代 SiC MOSFET 已完成車規 AEC-Q101 認證，正配合鴻海 MIH 電動車平台進行系統驗證，但預計大規模商業化貢獻落在 2027 年後，目前主要是技術儲備與小量試產階段。</p>
+<blockquote>📝 <strong>SiC（碳化矽）</strong>：第三代半導體材料，比矽基 MOSFET 可耐更高電壓（1200V+）與溫度，特別適合電動車主驅動系統。是目前半導體業最熱門的新材料之一。</blockquote>
+<h3>催化劑時間表</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>預期時間點</th><th>重要度</th></tr></thead><tbody><tr><td>安世轉單訂單入帳</td><td>Q2-Q3 2026（進行中）</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>Q2 2026 財報公布</td><td>2026 年 8 月</td><td>⭐⭐⭐⭐</td></tr><tr><td>月營收 YoY 回升驗證</td><td>每月 10 日</td><td>⭐⭐⭐</td></tr><tr><td>AI 伺服器 SPS 需求持續</td><td>持續進行中</td><td>⭐⭐⭐</td></tr><tr><td>下半年旺季補庫存</td><td>Q3-Q4 2026</td><td>⭐⭐⭐</td></tr><tr><td>SiC 車用規模量產</td><td>2027 年+</td><td>⭐⭐（長線）</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>安世轉單是最即時、最明確的近期催化劑，AI 電源是中期持續主題，SiC 車用是 2027+ 的長線故事——三層架構清晰；但近中期能否兌現為業績數字，需 Q2 財報驗證。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險項目</th><th>可能性</th><th>影響程度</th><th>說明</th></tr></thead><tbody><tr><td>陸系廠商擴產競爭</td><td>高</td><td>中</td><td>中國 MOSFET 廠快速擴產，低壓產品價格持續承壓，YoY 成長率受侵蝕</td></tr><tr><td>安世轉單效益短暫</td><td>中</td><td>高</td><td>若安世供應快速恢復，急單效應退燒，題材驅動的股價溢價將收縮</td></tr><tr><td>估值壓縮</td><td>中</td><td>高</td><td>PE 42x 若 Q2 EPS 不達標，可能快速修正至 30-35x（隱含 15-30% 下行風險）</td></tr><tr><td>短線技術過熱</td><td>高</td><td>中</td><td>今日射星 + KD 高檔死亡交叉，短線回測 MA10（219）概率高</td></tr><tr><td>月營收 YoY 持續落後同業</td><td>中</td><td>中</td><td>5 月 YoY 1.15% 已遜於台半/強茂，若持續落後代表競爭地位弱化</td></tr><tr><td>SiC 商業化延遲</td><td>中</td><td>中</td><td>若 2027 年後才有規模貢獻，提前反映 SiC 預期的股價溢價面臨壓縮</td></tr><tr><td>大股東策略調整</td><td>低</td><td>高</td><td>若鴻海或國巨減持/調整合作策略，最大護城河動搖，市場信心衝擊大</td></tr></tbody></table></div>
+<h3>情境分析</h3>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>概率</th><th>描述</th><th>6 個月目標區間</th></tr></thead><tbody><tr><td>牛市</td><td>30%</td><td>安世轉單效益超預期 + Q2 EPS 超標 + AI 電源需求爆發</td><td>270-300 元</td></tr><tr><td>基準</td><td>50%</td><td>EPS 穩步兌現 ~6.4 元 + 技術回測後反彈</td><td>210-260 元</td></tr><tr><td>熊市</td><td>20%</td><td>安世快速恢復供應 + Q2 EPS 低於預期 + 題材退燒</td><td>160-190 元</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>最大風險是「安世轉單效益比預期短暫，且高估值提前反映了好消息」；若 Q2 財報讓市場失望，雙重殺傷（題材退燒 + 估值壓縮）下跌空間可達 20-30%；反之若安世供應持續受限且 EPS 兌現，下行空間有限、上行空間清楚。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<p><strong>結論</strong>：觀望</p>
+<p><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</p>
+<p><strong>適合操作</strong>：中線波段（衛星倉位）</p>
+<hr>
+<p><strong>建議倉位</strong>：佔總資金 5%</p>
+<p><strong>進場條件</strong>：</p>
+<ul><li><strong>積極進場區</strong>（快速回測）：股價整理至 MA10 附近（約 215-225 元），KD 自高檔回到 70 以下並止跌鈍化</li><li><strong>保守進場區</strong>（較深回調）：回測 MA20 附近（約 190-205 元）止跌，搭配外資連續 3 日回買確認</li></ul>
+<p><strong>停損參考</strong>：進場後若收盤跌破 MA20（現 193 元）且確認為趨勢性跌破，停損參考價 185 元</p>
+<p><strong>加碼條件</strong>：</p>
+<ul><li>Q2 2026 財報（預計 8 月）EPS ≥ 1.8 元（季），確認全年成長軌道</li><li>月營收 YoY 連續兩個月回升至 5% 以上</li></ul>
+<p><strong>觀察指標</strong>：</p>
+<ol><li><strong>每月 10 日前後</strong>月營收公告 → 重點看 YoY 是否追回台半 / 強茂水準</li><li><strong>外資持股比例</strong>（目前 7.19%）→ 若持續增加代表法人持續認可</li><li><strong>安世半導體事件進展</strong> → 若供應恢復 → 轉單題材退潮警示</li><li><strong>KD 指標</strong> → 等待自高檔鈍化後向上反彈，確認短線底部</li></ol>
+<p><strong>下次檢視</strong>：2026-07-28（月營收數據 + 外資動態觀察後）；最遲 Q2 財報公布前（2026 年 8 月）</p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/8261.TW" target="_blank" rel="noopener">Yahoo 股市 - 富鼎 8261 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/8261.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 富鼎 8261 月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/8261.TW/eps" target="_blank" rel="noopener">Yahoo 股市 - 富鼎 8261 EPS 財報</a></li><li><a href="https://tw.stock.yahoo.com/quote/8261.TW/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 - 富鼎 8261 三大法人</a></li><li><a href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=8261" target="_blank" rel="noopener">Goodinfo - 富鼎 8261 股票總覽</a></li><li><a href="https://goodinfo.tw/tw/StockDividendPolicy.asp?STOCK_ID=8261" target="_blank" rel="noopener">Goodinfo - 富鼎 8261 股利政策</a></li><li><a href="https://goodinfo.tw/tw/StockBzPerformance.asp?STOCK_ID=8261" target="_blank" rel="noopener">Goodinfo - 富鼎 8261 財務表現（ROE / 毛利率）</a></li><li><a href="https://cmnews.com.tw/article/3574-8d2fcae2-ae62-11f0-bb8b-648dccb6d659" target="_blank" rel="noopener">CMoney - 富鼎安世半導體轉單分析</a></li><li><a href="https://statementdog.com/analysis/8261/assets" target="_blank" rel="noopener">StatementDog - 富鼎 8261 資產負債</a></li><li><a href="https://statementdog.com/analysis/8261/dividend-policy" target="_blank" rel="noopener">StatementDog - 富鼎 8261 股利政策</a></li><li>技術指標由 <code>投資理財/scripts/technical_indicators.py 8261</code>（yfinance 8261.TW）本機計算，數據日期 2026-06-26</li></ul>
+</div>
+</body>
+</html>

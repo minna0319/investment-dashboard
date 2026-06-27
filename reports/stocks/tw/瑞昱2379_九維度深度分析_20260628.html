@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瑞昱半導體（2379）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>瑞昱半導體（2379）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>瑞昱半導體（2379）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<blockquote>四欄（版本／日期／當時股價／主要更新）。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-28</td><td>NT$740</td><td>首次分析；數據基準 2026-06-26 收盤；六大主軸：AI Ethernet、Wi-Fi 7、車用、H2 能見度不足、成本壓力、6/26 大盤崩跌</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>⚠️ 所有帶單位數字來自 WebFetch 官方來源（market-data skill / 技術指標腳本），找不到標「❌ 未取得」。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$740（-9.09%，2026/06/26 收盤）</td></tr><tr><td>市值</td><td>3,815 億 NT$</td></tr><tr><td>PE 本益比</td><td>26.64 倍</td></tr><tr><td>PB 股價淨值比</td><td>8.44 倍</td></tr><tr><td>EPS（近 4 季合計）</td><td>27.93 元（Q1 2026: 8.44 ＋ Q4 2025: 5.18 ＋ Q3 2025: 6.69 ＋ Q2 2025: 7.62）</td></tr><tr><td>殖利率</td><td>3.38%</td></tr><tr><td>ROE</td><td>~35%（Q1 2026 單季 8.89%，年化估算）</td></tr><tr><td>毛利率</td><td>49.7%（Q1 2026）；~50%（FY2025 全年）</td></tr><tr><td>營收 YoY（最新月）</td><td>+21.87%（2026 年 5 月）</td></tr><tr><td>營收 MoM</td><td>-1.54%（2026 年 5 月）</td></tr><tr><td>52 週高 / 低</td><td>900 / 445</td></tr><tr><td>技術位置</td><td>MA 多頭排列；RSI 55.41（中性）；KD 高檔死叉（2 天前）</td></tr></tbody></table></div>
+<p>資料時間：2026-06-26（已收盤）｜資料來源見文末</p>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 基本面扎實但 H2 能見度不足，現價 740 略高於合理價中位（710-730），等回測 700-720 或 Q2 法說會確認後再進場。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：等待回調後的中線波段；長線存股可分批小量布局</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位：網通 IC 的隱形冠軍</h3>
+<p>瑞昱半導體（Realtek Semiconductor，股票代號 2379）成立於 1987 年，是台灣重要的無晶圓廠 IC 設計公司，2025 年全年合併營收突破 1,200 億 NT$ 創歷史新高。</p>
+<blockquote>📝 <strong>無晶圓廠（Fabless）</strong>：公司只負責晶片設計，製造全部外包給台積電等代工廠。優點是輕資產、毛利率高；缺點是受制於代工廠的產能與成本。</blockquote>
+<p><strong>四大主力產品線：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>產品線</th><th>代表產品</th><th>特色</th></tr></thead><tbody><tr><td>網通 IC</td><td>乙太網路控制器、Wi-Fi 6/7 晶片、網通 SoC</td><td>最大營收來源，AI 時代受益最深</td></tr><tr><td>PC 週邊 IC</td><td>音效晶片、USB/SATA 控制器</td><td>穩定基本盤，Windows 相容認證完整</td></tr><tr><td>消費電子 IC</td><td>數位電視調諧器、影音處理晶片</td><td>成熟市場，低成長但穩定獲利</td></tr><tr><td>車用以太網路</td><td>車用網路晶片（100BASE-T1/1000BASE-T1）</td><td>成長最快的新興引擎</td></tr></tbody></table></div>
+<blockquote>📝 <strong>乙太網路控制器（Ethernet Controller）</strong>：讓電腦連上網路的關鍵晶片。你電腦背後的 RJ45 網路孔裡，就有這顆晶片在工作。</blockquote>
+<blockquote>📝 <strong>SoC（System on Chip，系統單晶片）</strong>：把多個功能整合在單一顆晶片上，例如把 CPU、記憶體控制器、Wi-Fi 都塞進去。可以降低成本與功耗。</blockquote>
+<p><strong>競爭地位評估：</strong></p>
+<ul><li><strong>消費級乙太網路（100M/1G）</strong>：全球市占率前三，與博通（Broadcom）、美信（Marvell）競爭</li><li><strong>Wi-Fi 晶片</strong>：筆電、路由器、IoT 裝置的主要供應商之一</li><li><strong>音效晶片</strong>：PC 音效晶片市場主力，微軟 Windows 完整認證</li><li><strong>AI Ethernet（800G/1.6T）</strong>：正在切入超大規模資料中心市場——這是瑞昱未來成長最重要的新引擎</li></ul>
+<blockquote>📝 <strong>800G/1.6T Ethernet</strong>：下一代超高速網路標準，速度是目前主流（25G/100G）的 8-16 倍。AI 訓練叢集（大量 GPU 組成的機群）需要靠這類晶片互相高速傳遞資料。瑞昱正積極切入這個市場。</blockquote>
+<p><strong>管理層信用評估：</strong></p>
+<p>創辦人蕭道宏技術出身，公司文化穩健。4/30 法說會主動揭露 H2 能見度不足與成本壓力，未刻意美化展望，屬正面治理訊號。上市 28 年，長期穩定配息記錄良好。</p>
+<h3>小結</h3>
+<p>瑞昱在消費/企業網通 IC 擁有深厚護城河，「AI 以太網路」是最強的長期催化劑；但公司產品偏向標準化 IC，定價能力有限，成本轉嫁能力不如高階 IP 型廠商。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>近期財報表現</h3>
+<p><strong>Q1 2026（最新，2026-04-30 法說會）：</strong></p>
+<ul><li>月合計營收：~364 億 NT$（YoY 約 +15%，較 Q4 2025 大幅回升）</li><li>毛利率：49.7%（QoQ +6.6 ppt，YoY -1.9 ppt）</li><li>稅後淨利：43.3 億 NT$（QoQ +63.1%，YoY -9.1%）</li><li>EPS：8.44 元（QoQ +63.1%，YoY -9.1%）</li></ul>
+<blockquote>📝 <strong>ppt（百分點）</strong>：毛利率從 48% 漲到 49.7% 叫「增加 1.7 個百分點（ppt）」，不是「增加 1.7%」。兩者差很多，不要搞混。</blockquote>
+<p><strong>近四季 EPS 趨勢：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>EPS（元）</th><th>QoQ</th><th>背景</th></tr></thead><tbody><tr><td>Q2 2025</td><td>7.62</td><td>—</td><td>半年報，H2 轉保守</td></tr><tr><td>Q3 2025</td><td>6.69</td><td>-12.2%</td><td>H2 需求下滑</td></tr><tr><td>Q4 2025</td><td>5.18</td><td>-22.6%</td><td>全年最低，谷底確認</td></tr><tr><td>Q1 2026</td><td>8.44</td><td>+63.1%</td><td>客戶提前拉貨，強力反彈</td></tr><tr><td><strong>近4季合計（TTM）</strong></td><td><strong>27.93</strong></td><td></td><td></td></tr></tbody></table></div>
+<blockquote>📝 <strong>TTM（Trailing Twelve Months，滾動 12 個月）</strong>：最近 4 季 EPS 相加，代表當前的年化獲利能力，也是本益比計算的基礎。</blockquote>
+<p><strong>Q4 2025 谷底確認 + Q1 2026 強力反彈</strong> 的 V 型特徵明顯；但這個反彈主要是「客戶因擔心記憶體和製造成本上漲而提前拉貨」所推動，而非終端需求的實質改善，因此 H2 2026 能否延續是最大懸念。</p>
+<p><strong>FY2025 全年（參考）：</strong></p>
+<ul><li>年度 EPS：28.77 元</li><li>年度毛利率：~50%</li><li>年度合併營收：1,200 億+ NT$（歷史新高）</li></ul>
+<p><strong>月營收趨勢（最新）：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收</th><th>YoY</th><th>MoM</th></tr></thead><tbody><tr><td>2026 年 4 月</td><td>127.19 億</td><td>+11.28%</td><td>—</td></tr><tr><td>2026 年 5 月</td><td>125.24 億</td><td>+21.87%</td><td>-1.54%</td></tr></tbody></table></div>
+<p>月增略微下滑但年增強勁，符合 H1 旺季節奏。5 月 YoY +21.87% 部分因為去年 5 月基期低（102.7 億），不宜過度解讀。</p>
+<p><strong>毛利率趨勢與壓力：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>期間</th><th>毛利率</th></tr></thead><tbody><tr><td>Q3 2025</td><td>49.68%</td></tr><tr><td>Q4 2025</td><td>約 43.1%（估，因 EPS 大降）</td></tr><tr><td>Q1 2026</td><td>49.7%（回升）</td></tr><tr><td>FY2025</td><td>~50%</td></tr></tbody></table></div>
+<p>毛利率在 49-52% 高水位震盪，但法說會揭露三重成本壓力：</p>
+<ol><li>DDR4 記憶體今年價格幾乎翻倍（+100%）</li><li>封測（OSAT）成為主要供應瓶頸，持續漲價</li><li>晶圓代工成本面臨上行壓力</li><li>台幣升值（NT$ 走強），壓縮以美元計費的毛利</li></ol>
+<blockquote>📝 <strong>封測（OSAT，Outsourced Semiconductor Assembly and Test）</strong>：晶片設計完後的「裝殼測試」工序，外包給日月光、矽格等廠商。成本占 IC 設計總成本的 10-20%。</blockquote>
+<p><strong>現金流與資本配置：</strong></p>
+<ul><li>Fabless 商業模式資本支出（CapEx）極低 → 自由現金流（FCF）充裕</li><li>FY2025 現金股利：25.5 元/股（殖利率 3.38%@740）</li><li>長期穩定配息，2000 年以來未曾停息</li></ul>
+<blockquote>📝 <strong>自由現金流（FCF，Free Cash Flow）</strong>：公司扣掉投資支出後真正可以自由使用的現金。FCF 充裕的公司才有能力穩定配息和進行股票回購。瑞昱 Fabless 模式幾乎不需要蓋廠房，FCF 很健康。</blockquote>
+<h3>小結</h3>
+<p>財務品質優異：毛利率 50% 高水位、月營收 YoY 雙位數成長、自由現金流充裕；核心隱患是 Q1 2026 EPS 仍低於 Q1 2025（YoY -9.1%），且三重成本壓力（記憶體+封測+匯率）將在 H2 形成更明顯考驗。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>目前估值水位</h3>
+<blockquote>📝 <strong>本益比（P/E Ratio）</strong>：「股價 ÷ EPS」，代表你要用幾年的獲利才能買回這張股票。數字越小代表越便宜，但「便宜」要和歷史比、和同業比才有意義。</blockquote>
+<blockquote>📝 <strong>前瞻本益比（Forward P/E）</strong>：用「預估未來 12 個月的 EPS」計算的本益比，比回顧歷史更能反映市場對未來的定價。</blockquote>
+<p><strong>當前估值一覽：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>PE（Trailing）</td><td>26.64 倍</td><td>基於 TTM EPS 27.93</td></tr><tr><td>Forward PE</td><td>~22.9 倍</td><td>基於共識 EPS 32.29 元</td></tr><tr><td>PB</td><td>8.44 倍</td><td>溢價高，反映品牌+技術資產</td></tr><tr><td>殖利率</td><td>3.38%</td><td>中等，具備存股吸引力</td></tr></tbody></table></div>
+<p><strong>分析師共識（FactSet，21 位分析師）：</strong></p>
+<ul><li>2026 年全年 EPS 預估：32.29 元（中位數）</li><li>目標價：587 元（平均）</li><li>範圍：473-650 元</li><li>摩根士丹利 2026 EPS 估計：32.63 元</li></ul>
+<p><strong>歷史估值區間（參考）：</strong></p>
+<ul><li>瑞昱歷史 PE 大約在 18-35 倍間波動</li><li>中位數約 22-25 倍</li><li>目前 Forward PE 22.9 倍 ≈ 歷史中位數，屬「合理」而非「低估」</li></ul>
+<p><strong>雙方法合理價格估算：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>基準</th><th>計算邏輯</th><th>保守</th><th>中立</th><th>樂觀</th></tr></thead><tbody><tr><td><strong>A. Forward PE 法</strong></td><td>共識 EPS 32.29 元</td><td>乘以歷史 PE 倍數</td><td>646（×20）</td><td><strong>710（×22）</strong></td><td>840（×26）</td></tr><tr><td><strong>B. 殖利率還原法</strong></td><td>現金股利 25.5 元/股</td><td>除以目標殖利率</td><td>638（÷4.0%）</td><td><strong>729（÷3.5%）</strong></td><td>850（÷3.0%）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>殖利率還原法</strong>：把配息當做「每年租金」，倒推你願意付多少錢「買這棟房子」的概念。若你期望 3.5% 的報酬率，每年 25.5 元的股息 ÷ 3.5% = 729 元。</blockquote>
+<p><strong>估值結論：</strong></p>
+<ul><li>兩方法落點接近，合理價中位約 <strong>710-730 元</strong></li><li>現價 740 元略高於合理價中位，溢價約 1.5-4%</li><li><strong>沒有明顯折價空間，現在買就是在付「預期 AI 題材的溢價」</strong></li></ul>
+<blockquote>📝 <strong>EPS 下修風險</strong>：若 H2 實際 EPS 低於共識 32 元，例如只達到 27-28 元，則合理價將降至 540-560 元（PE 20x），下行風險顯著。</blockquote>
+<h3>小結</h3>
+<p>Forward PE ~23x，接近歷史合理中位；若 H2 業績符合共識，價格大約合理；若 H2 低於預期，EPS 下修至 27-28 元，則現價有 20-25% 下修風險，這是最大的估值地雷。</p>
+<hr>
+<h2>4. 技術面</h2>
+<h3>近期走勢</h3>
+<blockquote>📝 <strong>均線（MA，Moving Average）</strong>：過去 N 天收盤價的平均值。MA5=5 日線（超短期），MA20=月線，MA60=季線，MA240=年線。均線「多頭排列」（短期均線全在長期均線上方）= 長期趨勢仍向上。</blockquote>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：衡量「超買還是超賣」的工具，0-100 分。70 以上偏超買（小心回跌），30 以下偏超賣（可能即將反彈），50 附近是中性。</blockquote>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：K 值從上方穿越 D 值向下，代表短期動能轉弱，屬賣出訊號。特別是在「高檔（KD > 70）」發生死叉，警示性最強。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>技術指標</th><th>數值</th><th>訊號</th></tr></thead><tbody><tr><td>現價</td><td>740 元</td><td>6/26 收盤，-9.09%</td></tr><tr><td>MA5</td><td>824 元</td><td>跌破，短線偏空</td></tr><tr><td>MA10</td><td>761.4 元</td><td>跌破，中短線壓力</td></tr><tr><td>MA20</td><td>695.8 元</td><td>守住，重要近期支撐</td></tr><tr><td>MA60</td><td>595.3 元</td><td>遠高於，中期多頭格局</td></tr><tr><td>MA120</td><td>543.1 元</td><td>遠高於</td></tr><tr><td>MA240</td><td>534.4 元</td><td>遠高於，長期多頭根基</td></tr><tr><td>RSI（14）</td><td>55.41</td><td>中性偏強，未超賣</td></tr><tr><td>KD（K/D）</td><td>57.05 / 68.81</td><td>死叉（2 天前，高檔 K=74.1）→ 強烈賣訊</td></tr><tr><td>MACD</td><td>60.3 / signal 51.72</td><td>柱狀 +8.58，多頭格局未破</td></tr><tr><td>52 週位置</td><td>64.8%</td><td>中段偏高，非超跌底部區</td></tr><tr><td>成交量</td><td>6,809 張（當日）</td><td>約等於近 5 日均量，非異常放量</td></tr></tbody></table></div>
+<blockquote>📝 <strong>MACD</strong>：用兩條不同期間的均線差距來判斷多空動能。柱狀圖為正代表多頭動能存在；柱狀圖由正轉負代表動能轉弱。目前仍正值，但需觀察是否縮小。</blockquote>
+<p><strong>技術面綜合判斷：</strong></p>
+<p>利多訊號：</p>
+<ul><li>MA 全部多頭排列（MA240 < MA120 < MA60 < MA20 < MA10 < MA5），長期趨勢完整</li><li>MACD 柱狀正值，零軸上方，中期多頭格局維持</li><li>RSI 55 未進入超賣區，非恐慌性投降</li></ul>
+<p>利空訊號：</p>
+<ul><li>KD 在高檔（K=74.1）死亡交叉，2 天前觸發 → 短線賣壓仍在</li><li>6/26 單日 -9.09%，跌破 MA5、MA10</li><li>52 週位置 64.8%，仍在高檔，非「超跌後的底部布局」環境</li></ul>
+<p><strong>關鍵價位：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>類型</th><th>價格</th><th>說明</th></tr></thead><tbody><tr><td>第一壓力</td><td>760-770 元</td><td>MA10 區域</td></tr><tr><td>第二壓力</td><td>820-830 元</td><td>MA5 區域</td></tr><tr><td>第一支撐</td><td>695-710 元</td><td>MA20 附近</td></tr><tr><td>關鍵支撐</td><td>620-630 元</td><td>MA60 下方緩衝，跌破則轉空</td></tr></tbody></table></div>
+<p><strong>6/26 大跌背景說明：</strong></p>
+<p>當日台股加權指數下跌 1,683 點（-3.64%），為史上第三大單日跌點；IC 設計族群重挫（龍頭聯發科跌停至 3,880 元），瑞昱 -9.09% 屬系統性殺盤而非個股特定利空。</p>
+<h3>小結</h3>
+<p>長期多頭格局完整（MA 多頭排列未破），但短線受 6/26 大盤崩跌衝擊，KD 高檔死叉後的賣壓仍需消化；股價目前卡在 MA10（761）與 MA20（695）之間的支撐壓力緩衝區。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<blockquote>📝 <strong>三大法人</strong>：台股的主要機構投資人，分為「外資」（海外基金、投行）、「投信」（台灣本地基金）、「自營商」（券商自己的操盤部門）。追蹤三大法人動向是觀察「大錢方向」的重要方法。</blockquote>
+<blockquote>📝 <strong>融資（Margin Trading）</strong>：向券商借錢買股票，等於用槓桿做多。融資餘額高 = 散戶借了很多錢在押注，一旦股價下跌容易觸發追繳，形成連鎖賣壓。使用率越低越安全。</blockquote>
+<h3>融資融券現況（2026-06-26）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>融資餘額</td><td>2,859 張</td><td>極低水位</td></tr><tr><td>融資使用率</td><td>2.22%</td><td>非常健康，幾乎無散戶槓桿風險</td></tr><tr><td>融券餘額</td><td>37 張</td><td>接近零，幾乎無放空力道</td></tr><tr><td>券資比</td><td>1.29%</td><td>非常低</td></tr><tr><td>融資近期趨勢</td><td>連 3 增轉連減</td><td>散戶已開始去槓桿</td></tr></tbody></table></div>
+<p><strong>籌碼面定性判斷：</strong></p>
+<ul><li>融資使用率僅 2.22% → 幾乎沒有散戶借錢持有 → <strong>追繳風險極低，不會有融資斷頭賣壓</strong></li><li>融券 37 張 → 基本上沒有空頭部位 → 市場對這檔股票做空意願極低</li><li>外資持股：瑞昱長期被外資認可，外資持股比例通常在 60-70%（⚠️ 詳細數字需至 CMoney 法人籌碼頁確認）</li></ul>
+<p><strong>6/26 大盤崩跌籌碼影響：</strong></p>
+<p>當日 IC 設計類股遭外資系統性賣出（聯發科跌停），瑞昱 -9.09% 很可能包含外資調節性賣壓。需追蹤後續幾日外資是否回補。</p>
+<p><strong>外資/三大法人詳細買賣超：❌ 未取得</strong></p>
+<p>建議至 <a href="https://www.cmoney.tw/forum/stock/2379?s=institutional" target="_blank" rel="noopener">CMoney 法人籌碼</a> 或 Yahoo 股市查詢近 5 日外資動向。</p>
+<h3>小結</h3>
+<p>融資水位極低（2.22%），代表沒有散戶追繳的系統性風險；外資是主要持有人，其動向才是股價短期走勢的決定因素，外資近期買賣超數字是最需要跟蹤的籌碼指標。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<blockquote>📝 <strong>驅動 IC（Driver IC）</strong>：驅動螢幕顯示的晶片，例如讓手機螢幕知道每個像素要顯示什麼顏色。聯詠是這個領域的龍頭，和瑞昱做的網通 IC 是完全不同的市場。</blockquote>
+<blockquote>📝 <strong>高速傳輸介面 IC</strong>：USB、DisplayPort、HDMI 等數據傳輸介面背後的控制晶片，譜瑞-KY 就做這個，AI PC 規格升級是直接受益者。</blockquote>
+<h3>同業估值比較表</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>瑞昱 2379</th><th>聯詠 3034</th><th>譜瑞-KY 4966</th><th>聯發科 2454（參考）</th></tr></thead><tbody><tr><td>近4季 EPS（元）</td><td>27.93</td><td>~28.7（估）</td><td>33.73</td><td>~62.8（估）</td></tr><tr><td>PE 本益比</td><td>26.64</td><td>20.86</td><td>~18.8（估）</td><td>61.83</td></tr><tr><td>PB 股價淨值比</td><td>8.44</td><td>4.31</td><td>❌</td><td>15.87</td></tr><tr><td>殖利率</td><td>3.38%</td><td>4.52%</td><td>❌</td><td>1.38%</td></tr><tr><td>毛利率（最新季）</td><td>49.7%（Q1 2026）</td><td>39.1%（Q1 2026）</td><td>❌</td><td>~50%+</td></tr><tr><td>市場</td><td>上市（TW）</td><td>上市（TW）</td><td>上櫃（TWO）</td><td>上市（TW）</td></tr><tr><td>市值（億 NT$）</td><td>3,815</td><td>~2,200（估）</td><td>~180（估）</td><td>超兆</td></tr><tr><td>主要市場</td><td>網通/Wi-Fi/音效</td><td>顯示驅動/TDDI</td><td>USB/DP 介面</td><td>手機 SoC/IoT/AI</td></tr><tr><td>AI/網路受惠度</td><td>高（AI Ethernet）</td><td>低</td><td>中（AI PC 介面）</td><td>高（AI Edge SoC）</td></tr></tbody></table></div>
+<p><strong>數據說明：</strong></p>
+<ul><li>PE、PBR、殖利率：來自 TWSE 官方 BWIBBU 資料（2026/06/26）</li><li>譜瑞-KY（4966）為上櫃股，TWSE BWIBBU 未收錄，PE/PBR/殖利率標 ❌</li><li>聯發科、聯詠 EPS 為部分推估數字，僅供參考</li><li>⚠️ 單一來源（TWSE），建議自行覆核聯詠/聯發科最新財報</li></ul>
+<h3>深度比較分析</h3>
+<p><strong>毛利率品質（越高越好）：</strong></p>
+<ul><li>瑞昱（49.7%）遠高於聯詠（39.1%）→ 瑞昱的網通 IC 技術壁壘更高，定價能力更強</li><li>瑞昱與聯發科毛利率相當，但聯發科規模是瑞昱的 3-5 倍</li></ul>
+<p><strong>估值比較：</strong></p>
+<ul><li>聯詠（20.86x）< 瑞昱（26.64x）< 聯發科（61.83x）</li><li>瑞昱的 PE 溢價來自「AI Ethernet 題材溢價」</li><li>聯詠殖利率（4.52%）優於瑞昱（3.38%），偏好高股息者聯詠更具吸引力</li></ul>
+<p><strong>護城河對比：</strong></p>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>護城河</th><th>主要成長引擎</th><th>主要風險</th></tr></thead><tbody><tr><td>瑞昱</td><td>網通 IC 全球前三</td><td>AI Ethernet + Wi-Fi 7</td><td>H2 需求不確定性</td></tr><tr><td>聯詠</td><td>顯示驅動 IC 龍頭</td><td>AI PC 顯示升級</td><td>面板景氣波動</td></tr><tr><td>譜瑞-KY</td><td>高速介面 IC 精品廠</td><td>AI PC DP/USB 升級</td><td>規模小、集中風險</td></tr><tr><td>聯發科</td><td>手機/IoT SoC 霸主</td><td>AI Edge Computing</td><td>估值過高、成長預期壓力</td></tr></tbody></table></div>
+<p><strong>如果只能在瑞昱與聯詠之間選一檔：</strong></p>
+<ul><li>看 AI/成長題材 → 選<strong>瑞昱</strong>（AI Ethernet 遠比顯示驅動受益更直接）</li><li>看股息殖利率 → 選<strong>聯詠</strong>（4.52% vs 3.38%，且估值較低）</li><li>綜合 → 兩者各有優勢，端看 Minna 更重視「成長」還是「股息穩定性」</li></ul>
+<h3>小結</h3>
+<p>瑞昱在毛利率（50% vs 39%）和 AI 受惠度（AI Ethernet）上顯著優於聯詠，但估值溢價（PE 26.6 vs 20.9）已反映部分題材；若 AI Ethernet 滲透速度不如預期，溢價將難以維持。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>短期催化劑（1-3 個月）</h3>
+<p><strong>1. 6 月月營收公告（預計 7 月 10 日前）</strong></p>
+<p>確認 H2 初期動能是否延續，YoY 是否維持雙位數增長。</p>
+<p><strong>2. Q2 2026 法說會（預計 7 月底至 8 月初）</strong></p>
+<p>這是目前最關鍵的催化劑。管理層對 H2 展望的更新將直接決定股票走向：</p>
+<ul><li>若 Q2 EPS > 8 元 + H2 展望改善 → 股價有望向 780-820 反彈</li><li>若 Q2 EPS < 7 元 + H2 繼續保守 → 下修風險至 650-700</li></ul>
+<p><strong>3. 6/26 大盤崩跌後的技術性反彈機會</strong></p>
+<p>台股史上第三大單日跌點後通常出現技術性反彈，若大盤穩定，瑞昱有機會修復至 760-780 壓力區。</p>
+<h3>中期催化劑（3-12 個月）</h3>
+<p><strong>4. AI Ethernet 800G/1.6T 市場加速</strong></p>
+<p>超大規模雲端服務商（AWS、Google、微軟、Meta）正從 AI 實驗轉向「工業規模 AI 工廠」，帶動 800G 和 1.6T 以太網路交換器需求升溫。瑞昱是直接受益者。</p>
+<blockquote>📝 <strong>超大規模雲端服務商（Hyperscaler）</strong>：亞馬遜 AWS、谷歌 Cloud、微軟 Azure 等。他們的 AI 資料中心是全球最大的算力消費者，也是 AI 網路晶片最大的買家。</blockquote>
+<p><strong>5. Wi-Fi 7 升級週期持續</strong></p>
+<p>2026 年 Wi-Fi 7 在 PC 市場滲透率預計超過 30%（去年 ~15%），商用機種採用最積極。瑞昱是 Wi-Fi 7 晶片的主要供應商之一。</p>
+<p><strong>6. 除息行情（預計 2026 年 8-9 月）</strong></p>
+<p>依前年慣例，8-9 月左右除息，預估現金股利 25-27 元（估），除息前後通常吸引存股型買盤推動填息行情。</p>
+<blockquote>📝 <strong>除息與填息</strong>：公司把現金股利「發」出去後，股價會扣掉股利金額（除息）。「填息」= 股價之後漲回除息前的水準。若填息完成，等於股東同時拿到股利又沒虧到資本利得。</blockquote>
+<p><strong>7. 車用以太網路成長確認</strong></p>
+<p>車用網路規格從 100M 升級至 1G，瑞昱正積極布局，若在主要車廠的採用量開始顯著增加，將提供估值升級空間。</p>
+<h3>催化劑時間表</h3>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>影響方向</th></tr></thead><tbody><tr><td>2026/7 月初</td><td>6 月月營收</td><td>確認 H2 初期動能</td></tr><tr><td>2026/7 月底-8 月初</td><td>Q2 2026 法說會</td><td><strong>最關鍵事件</strong></td></tr><tr><td>2026/8-9 月</td><td>年度除息</td><td>存股買盤護盤</td></tr><tr><td>2026/Q3</td><td>美國半導體關稅政策定案</td><td>影響全行業估值</td></tr><tr><td>2026/Q4</td><td>AI Ethernet 滲透數字</td><td>確認或否定長期題材</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>AI Ethernet（800G/1.6T）和 Wi-Fi 7 是最具說服力的長期催化劑；Q2 法說會是最近期的驗證節點，其 H2 展望是否改善將主導股價短期方向。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>主要風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>影響程度</th><th>發生機率</th><th>說明</th></tr></thead><tbody><tr><td>H1 前拉貨透支 H2 需求</td><td>高</td><td>中-高</td><td>客戶提前備貨動機是規避成本而非終端需求拉動，H2 訂單可能下修</td></tr><tr><td>記憶體+封測成本持續上漲</td><td>中-高</td><td>高</td><td>DDR4 已翻倍，封測供應瓶頸短期難解，H2 毛利率可能跌破 47%</td></tr><tr><td>EPS 共識高估風險</td><td>中-高</td><td>中</td><td>若 H2 每季 EPS 只有 5-6 元，全年 EPS 降至 27-28 元，估值重算</td></tr><tr><td>台幣升值壓縮獲利</td><td>中</td><td>中</td><td>NT$ 走強對美元計費的出口型 IC 設計公司不利</td></tr><tr><td>美國半導體關稅不確定性</td><td>中</td><td>中</td><td>232 條款調查結果未明，若加徵高關稅可能影響客戶采購規劃</td></tr><tr><td>PC 市場 H2 需求下滑</td><td>中</td><td>中-高</td><td>Windows 11 替換潮 + Win 10 終止支援推動 H1 需求，H2 可能回軟</td></tr><tr><td>AI Ethernet 滲透慢於預期</td><td>中</td><td>低-中</td><td>仍在早期，訂單能見度有限，若轉換慢於預期則失去估值溢價</td></tr><tr><td>大盤系統性風險</td><td>不確定</td><td>—</td><td>6/26 大跌顯示台股高位脆弱性，外部衝擊（Fed、地緣）易引發波動</td></tr></tbody></table></div>
+<h3>三種情境</h3>
+<p><strong>熊市情境（概率 20%）：</strong></p>
+<p>Q2 法說會確認 H2 明顯衰退（EPS 下修至 5-6 元/季）+ 成本壓力壓縮毛利率至 45% 以下 → 全年 EPS 只有 25-27 元 → 合理 PE 20x 情境下，目標股價 500-540 元（下行風險 27-32%）。</p>
+<p><strong>基準情境（概率 60%）：</strong></p>
+<p>H2 較 H1 略弱，但 AI Ethernet 和 Wi-Fi 7 部分補位，全年 EPS 維持 30-32 元 → Forward PE 22x → 合理價 660-704 元，現價（740）略偏貴，區間整理。</p>
+<p><strong>牛市情境（概率 20%）：</strong></p>
+<p>AI Ethernet 訂單超預期 + 成本壓力緩解 + Wi-Fi 7 快速滲透 → 全年 EPS 達 34-36 元 → PE 26-28x → 目標價 884-1,008 元（上行潛力 19-36%）。</p>
+<p><strong>停損思考邏輯：</strong></p>
+<ul><li>跌破 695（MA20）且持續站不回 → 短線支撐失守，需注意</li><li>跌破 620-630（MA60 下方）→ 中期多頭格局受損，觸發停損</li><li>Q2 法說會 EPS < 6.5 元 → 重新評估持有邏輯</li></ul>
+<h3>小結</h3>
+<p>最大尾端風險是「H1 前拉貨透支 H2」兌現，屆時股價有 20-30% 下行空間；最大潛在驚喜是 AI Ethernet 需求在 H2 放量加速。現價的「風險/報酬比」並不特別吸引人，值得等更好的進場位。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>適合操作</strong>：中線波段（等回調後分批建倉）；長線存股可極小量分批</li></ul>
+<p><strong>核心理由（一句話）：</strong></p>
+<p>基本面扎實（AI Ethernet 題材、50% 毛利率、穩定配息），但現價 740 略高於合理價（710-730），H2 2026 能見度不足，沒有必要追高——等更好的進場位或等 Q2 財報確認方向。</p>
+<hr>
+<ul><li><strong>建議倉位</strong>：佔總資金 3-5%</li></ul>
+<p>（網通 IC 具 AI 成長性，可適度配置；但 H2 不確定性高，不宜過重）</p>
+<ul><li><strong>進場條件 A（回調進場）</strong>：</li><li>價格回測 700-720 元區間（對應 Forward PE 21.7-22.3x）</li><li>同時確認 MA20（~695 元）尚未跌破</li><li>大盤情緒穩定再操作，不追跌日</li></ul>
+<ul><li><strong>進場條件 B（財報確認後進場）</strong>：</li><li>等待 Q2 2026 法說會（預計 7 月底至 8 月初）</li><li>確認 Q2 EPS > 8 元 且 H2 展望不低於預期</li><li>法說會後進場可接受略高（740-760 元）</li></ul>
+<ul><li><strong>停損參考</strong>：跌破 620-630 元（MA60 下方），代表中期多頭結構受損，須重新評估</li></ul>
+<ul><li><strong>加碼條件</strong>：</li><li>Q2 財報確認 EPS > 8.5 元 + H2 guidance 向上修正</li><li>AI Ethernet 業績開始顯著貢獻（月營收加速成長確認）</li><li>股價站回 780 元以上（突破 MA10 且確認站穩）</li></ul>
+<ul><li><strong>觀察指標</strong>：</li></ul>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>頻率</th><th>重要性</th></tr></thead><tbody><tr><td>月合併營收（YoY/MoM）</td><td>每月 10 日前</td><td>高</td></tr><tr><td>Q2 2026 法說會內容（毛利率、H2 展望）</td><td>7 月底-8 月</td><td>最高</td></tr><tr><td>DDR4 記憶體現貨價格趨勢</td><td>持續追蹤</td><td>高</td></tr><tr><td>外資近 5 日買賣超</td><td>每週</td><td>中</td></tr><tr><td>AI Ethernet 800G 出貨量或客戶公告</td><td>不定期</td><td>高</td></tr><tr><td>台幣兌美元匯率</td><td>持續追蹤</td><td>中</td></tr></tbody></table></div>
+<ul><li><strong>下次檢視</strong>：</li><li>近期：2026-07-10（6 月月營收公告）</li><li>最重要：2026-07-31 前後（Q2 法說會，確認 H2 能見度）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2379.TW" target="_blank" rel="noopener">Yahoo 股市 - 瑞昱即時行情</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d" target="_blank" rel="noopener">台灣證交所 BWIBBU - 本益比/股價淨值比/殖利率（全市場）</a></li><li><a href="https://tw.stock.yahoo.com/quote/2379.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 瑞昱月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/2379.TW/margin" target="_blank" rel="noopener">Yahoo 股市 - 瑞昱融資融券</a></li><li><a href="https://histock.tw/stock/2379/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank" rel="noopener">HiStock - 瑞昱近4季 EPS</a></li><li><a href="https://histock.tw/stock/2379/%E5%A0%B1%E9%85%AC%E7%8E%87" target="_blank" rel="noopener">HiStock - 瑞昱 ROE</a></li><li><a href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=2379" target="_blank" rel="noopener">Goodinfo - 瑞昱市值/股本/BPS</a></li><li><a href="https://news.cnyes.com/news/id/6085226" target="_blank" rel="noopener">鉅亨網 - 瑞昱 Q2 法說會（EPS 7.62元，下半年保守）</a> ⚠️ 此文為 2025 Q2 法說會記錄</li><li><a href="https://money.udn.com/money/story/5710/9475089" target="_blank" rel="noopener">經濟日報 - 瑞昱 2026 年 H2 能見度有限（4/30 法說會後）</a></li><li><a href="https://vocus.cc/article/6a3e2bccfd89780001ab613a" target="_blank" rel="noopener">vocus.cc - 2026 年 6 月 26 日台股盤後（史上第三大跌點）</a></li><li><a href="https://statementdog.com/analysis/3034/profit-margin" target="_blank" rel="noopener">財報狗 - 聯詠 Q3 2025 毛利率</a></li><li>技術指標：<code>python3 投資理財/scripts/technical_indicators.py 2379</code> 執行結果（2026-06-26）</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>捷敏-KY（6525）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>捷敏-KY（6525）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>捷敏-KY（6525）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<blockquote>四欄（版本／日期／<strong>當時股價</strong>／主要更新）。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-06-28</td><td>NT$146.00</td><td>首次分析（資料基準日 2026-06-26，上市代號 6525.TW 確認）</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>⚠️ 所有帶單位數字來自 WebFetch 官方來源（TWSE / Yahoo Finance / yfinance 技術指標腳本），找不到標「❌ 未取得」，不可留空或猜測。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$146.00（漲跌 <strong>-5.19%</strong>，-NT$8.00）</td></tr><tr><td>市值</td><td>約 <strong>NT$188 億</strong>（股本 12.9 億，約 1.29 億股 × $146）</td></tr><tr><td>PE 本益比</td><td><strong>24.05 倍</strong>（來源：TWSE BWIBBU_d）</td></tr><tr><td>PB 股價淨值比</td><td><strong>4.30 倍</strong>（來源：TWSE BWIBBU_d）</td></tr><tr><td>EPS（近 4 季合計）</td><td><strong>NT$6.07 元</strong>（Q2'25：1.10 ＋ Q3'25：1.85 ＋ Q4'25：1.51 ＋ Q1'26：1.62）</td></tr><tr><td>殖利率</td><td><strong>3.42%</strong>（2025 配息 NT$5.00，配發率 85%）</td></tr><tr><td>ROE</td><td><strong>16.5%</strong>（2025 年全年）</td></tr><tr><td>毛利率</td><td><strong>26.7%</strong>（2025 年全年；2024 年 22.7%）</td></tr><tr><td>營收 YoY（2026/05）</td><td><strong>+18.95%</strong></td></tr><tr><td>營收 MoM（2026/05）</td><td><strong>+1.65%</strong></td></tr><tr><td>52 週高 / 低</td><td><strong>NT$170.50 / NT$62.86</strong></td></tr><tr><td>技術位置</td><td>MA20 $130.76 ／ MA60 $107.01 ／ RSI14 <strong>60.07</strong>（偏強）</td></tr></tbody></table></div>
+<p>資料時間：2026-06-26（已收盤）｜資料來源見文末</p>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 基本面持續改善、估值合理，但股價已從 52 週低點大漲逾 100%，6/26 大跌 -5.19% 且 KD 高檔死亡交叉，短線賣壓未除，等技術面整理至 130-140 元區間再評估進場。</p>
+<p><strong>信心程度：⭐⭐⭐☆☆（3/5）</strong></p>
+<p><strong>適合操作：中線波段（整理後進場）</strong></p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位</h3>
+<p>捷敏-KY 是一家專注於<strong>功率半導體封裝測試</strong>的委外封測廠（OSAT）。</p>
+<blockquote>📝 <strong>OSAT（委外封裝測試廠）</strong>：半導體製造鏈上的後段加工廠——晶圓廠把晶片做好之後，交給 OSAT 負責「切割、封裝、測試」，讓晶片變成可以放進電子產品的成品。捷敏就是做這個的，本身不設計、不製造晶圓。</blockquote>
+<p>主要服務產品：</p>
+<ul><li><strong>Power MOSFET</strong>（金屬氧化半導體場效電晶體，簡單說是電路開關元件）</li><li><strong>IGBT</strong>（絕緣柵雙極電晶體，高壓功率應用的關鍵元件）</li><li>功率二極體（Diode）</li><li>功率模組（Power Module，多個功率元件整合成一個封裝）</li></ul>
+<p>服務模式為 <strong>Turnkey</strong>（一條龍服務）：客戶給晶圓，捷敏負責從封裝到測試全包交貨。</p>
+<h3>生產規模</h3>
+<div class="table-wrap"><table><thead><tr><th>廠區</th><th>地點</th><th>年產能</th></tr></thead><tbody><tr><td>主力廠</td><td>中國上海</td><td>約 50 億顆/年</td></tr><tr><td>第二廠</td><td>中國合肥</td><td>約 22 億顆/年</td></tr><tr><td><strong>合計</strong></td><td>—</td><td><strong>約 72 億顆/年</strong></td></tr></tbody></table></div>
+<p>⚠️ 所有生產基地均在中國，地緣政治風險請見維度 8。</p>
+<h3>股權架構</h3>
+<ul><li>上市地點：台灣證券交易所（上市，代號 6525.TW）</li><li>法定登記：開曼群島（KY 股，股東以外幣計算報酬時需注意匯差）</li><li>母公司：<strong>聯鈞（3450.TW）</strong>，持有捷敏多數股權，並具備 GaN（氮化鎵）磊晶片技術，上下游垂直整合潛力值得關注</li></ul>
+<blockquote>📝 <strong>GaN（氮化鎵）</strong>：比傳統矽更耐高壓、效率更高的第三代半導體材料。手機快充充電器就常用到 GaN，車用逆變器和伺服器電源也在導入。</blockquote>
+<h3>營收結構（2025 年）</h3>
+<div class="table-wrap"><table><thead><tr><th>應用領域</th><th>佔比</th></tr></thead><tbody><tr><td>消費性電子</td><td>40%</td></tr><tr><td>PC/NB</td><td>19%</td></tr><tr><td>工業應用</td><td>18%</td></tr><tr><td>車用/混合動力</td><td>13%</td></tr><tr><td>通訊</td><td>10%</td></tr></tbody></table></div>
+<p>消費性電子仍是大宗，但公司積極推動工業、車用、AI 伺服器占比提升。</p>
+<h3>技術差異化</h3>
+<p>捷敏最值得關注的技術壁壘是 <strong>Clip 封裝</strong>（金屬夾片封裝）：</p>
+<blockquote>📝 <strong>Clip 封裝</strong>：傳統封裝用細金屬線連接晶片，Clip 封裝改用金屬夾片，導電面積更大、散熱更好，特別適合大電流、高功率的功率元件——這是功率半導體封測最高附加價值的工法之一。</blockquote>
+<p>捷敏已可提供「底部 / 頂部 / 雙面散熱」三層次熱管理封裝方案，目前進入量產，直接對準 AI 伺服器高功率密度需求。</p>
+<h3>2026 年資本支出（CapEx）計畫</h3>
+<blockquote>📝 <strong>CapEx（資本支出）</strong>：公司花錢買設備、蓋廠房的投資。CapEx 增加代表公司看好未來需求、願意擴張產能。</blockquote>
+<p>董事會核准 2026 年資本支出 <strong>USD 2,440 萬</strong>（約折合 NT$7.9 億），<strong>較前一年倍增</strong>，其中約 60% 用於車用、工控及 AI PC 領域，顯示管理層對需求復甦的信心。</p>
+<h3>小結</h3>
+<p>全球前三大功率半導體 OSAT，年產能 72 億顆，Clip 散熱封裝技術壁壘明確；母公司聯鈞具備 GaN 能力，上下游整合為中長期隱形題材；唯所有產能集中中國，地緣政治是核心風險。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>年度財務趨勢（2022-2025）</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>營收（億元）</th><th>YoY</th><th>EPS（元）</th><th>毛利率</th><th>營業利益率</th><th>ROE</th></tr></thead><tbody><tr><td>2022</td><td>52.2</td><td>—</td><td><strong>7.21</strong></td><td>24.0%</td><td>16.6%</td><td>22.0%</td></tr><tr><td>2023</td><td>44.2</td><td>-15.3%</td><td>4.39</td><td>21.6%</td><td>14.1%</td><td>13.3%</td></tr><tr><td>2024</td><td>46.7</td><td>+5.7%</td><td>5.15</td><td>22.7%</td><td>14.6%</td><td>15.3%</td></tr><tr><td>2025</td><td><strong>53.3</strong></td><td>+14.3%</td><td><strong>5.88</strong></td><td><strong>26.7%</strong></td><td><strong>19.6%</strong></td><td><strong>16.5%</strong></td></tr></tbody></table></div>
+<blockquote>📝 <strong>ROE（股東權益報酬率）</strong>：用每 100 元股東的錢，能賺回多少元。ROE 16.5% 代表每 100 元自有資金一年賺了 16.5 元，越高越好。</blockquote>
+<p><strong>關鍵觀察：</strong></p>
+<ol><li><strong>毛利率大幅改善</strong>：2023 年 21.6% → 2025 年 26.7%，上升了 5.1 個百分點。主因是「稼動率提升」（設備利用率越高，固定成本被分攤，毛利率自然上升）。</li><li><strong>EPS 連續回升</strong>：從 2023 年谷底 4.39 元，每年成長 17-14%，2025 年達近年次高 5.88 元（2022 年高點 7.21 元）。</li><li><strong>ROE 明顯改善</strong>：從 13.3% 持續提升至 16.5%，顯示獲利能力實質改善。</li></ol>
+<h3>近期季度 EPS 明細</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>EPS（元）</th><th>季增率</th><th>年增率</th></tr></thead><tbody><tr><td>2024 Q3</td><td>1.14</td><td>—</td><td>—</td></tr><tr><td>2024 Q4</td><td>1.54</td><td>+35.1%</td><td>—</td></tr><tr><td>2025 Q1</td><td>1.42</td><td>-7.8%</td><td>—</td></tr><tr><td>2025 Q2</td><td>1.10</td><td>-22.5%</td><td>—</td></tr><tr><td>2025 Q3</td><td>1.85</td><td>+68.2%</td><td>+62.3%</td></tr><tr><td>2025 Q4</td><td>1.51（推算）</td><td>-18.4%</td><td>-2.0%</td></tr><tr><td><strong>2026 Q1</strong></td><td><strong>1.62</strong></td><td><strong>+7.3%</strong></td><td><strong>+14.1%</strong></td></tr></tbody></table></div>
+<p>2026 Q1 EPS 1.62 元，年增 14%，季增 7.3%，趨勢向上確認。</p>
+<h3>月營收近況（2026 年）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>營收（百萬元）</th><th>YoY</th><th>MoM</th></tr></thead><tbody><tr><td>2026/01</td><td>461.8</td><td>+19.85%</td><td>—</td></tr><tr><td>2026/02</td><td>400.6</td><td>+3.53%</td><td>-13.26%</td></tr><tr><td>2026/03</td><td>494.9</td><td>+11.93%</td><td>+23.55%</td></tr><tr><td>2026/04</td><td>539.7</td><td>+18.29%</td><td>+9.05%</td></tr><tr><td><strong>2026/05</strong></td><td><strong>548.6</strong></td><td><strong>+18.95%</strong></td><td><strong>+1.65%</strong></td></tr></tbody></table></div>
+<p>前五個月累計：NT$24.5 億，按此節奏年化約 <strong>NT$58-60 億</strong>（vs 2025 年 NT$53.3 億），全年有望創歷史新高。</p>
+<h3>現金股利與配發率</h3>
+<div class="table-wrap"><table><thead><tr><th>配息年度</th><th>現金股利（元）</th><th>配發率</th></tr></thead><tbody><tr><td>2023</td><td>4.16</td><td>~95%</td></tr><tr><td>2024</td><td>4.43</td><td>~86%</td></tr><tr><td><strong>2025</strong></td><td><strong>5.00</strong></td><td><strong>~85%</strong>（近年最高）</td></tr></tbody></table></div>
+<p>NT$5.00 現金股利是近年最高紀錄，配發率 85% 顯示管理層對現金流的信心。</p>
+<h3>負債狀況 / 自由現金流</h3>
+<blockquote>📝 <strong>FCF（自由現金流）</strong>：公司賺到的錢，扣掉擴廠設備花費後剩下多少。剩越多代表公司越有能力還債、配息、回購。</blockquote>
+<p>精確債務比率與 FCF 數字：❌ 未取得（建議至 Goodinfo 或財報狗財務報表頁面自行核實），但依高配息率（85%）推論現金流充裕，短期償債能力無虞。</p>
+<h3>小結</h3>
+<p>財務面全線向好：毛利率從 22.7% 升至 26.7%，EPS 三連升，月營收 YoY 連續在 11-19% 之間，2026 年有望再創營收新高；高股利配發率（85%）顯示現金流品質良好。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>現值估值</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>捷敏-KY（6525）</th><th>說明</th></tr></thead><tbody><tr><td>PE（TTM）</td><td><strong>24.05x</strong></td><td>本益比，現價 / 近 4 季 EPS</td></tr><tr><td>PB</td><td><strong>4.30x</strong></td><td>股價淨值比，現價 / 每股淨值</td></tr><tr><td>殖利率</td><td><strong>3.42%</strong></td><td>現金股利 $5 / 現價 $146</td></tr></tbody></table></div>
+<blockquote>📝 <strong>PE（本益比）</strong>：現在買這家公司，用幾年的盈餘才買得回來。PE 24 倍，代表按目前獲利水準，24 年的盈餘才等於現在的股價。</blockquote>
+<h3>同業 PE 比較</h3>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>PE</th></tr></thead><tbody><tr><td>台半（5425）</td><td>53.5x</td></tr><tr><td>富鼎（8261）</td><td>41.78x</td></tr><tr><td>強茂（2481）</td><td>55.56x</td></tr><tr><td><strong>捷敏-KY（6525）</strong></td><td><strong>24.05x</strong></td></tr></tbody></table></div>
+<p>捷敏 PE 24x，是同業中<strong>最低</strong>，折價幅度達 40-60%。</p>
+<p>原因分析：</p>
+<ol><li>純 OSAT 業務模式（服務費 vs 產品定價），毛利率天花板較 IDM/Fabless 廠低</li><li>所有產能在中國，市場給予「中國製造風險溢價」折扣</li><li>消費性電子 40% 結構被視為偏週期性</li></ol>
+<p>但這也意味著：若毛利率持續改善、高附加價值應用占比提升，PE 折價有收斂空間。</p>
+<h3>合理股價估算</h3>
+<p><strong>方法 A — Forward PE（前瞻本益比）</strong></p>
+<blockquote>📝 <strong>Forward PE（前瞻本益比）</strong>：用「預估未來一年 EPS」來計算的本益比，比回看 TTM 更能反映成長性。</blockquote>
+<ul><li>2026E EPS 保守估計：NT$7.5（Q1 已達 1.62，H2 車用回溫有望加速）</li><li>合理 PE：20x（OSAT 成長期給法）</li><li><strong>合理股價 A = NT$150</strong></li></ul>
+<p><strong>方法 B — 殖利率還原法</strong></p>
+<ul><li>現金股利：NT$5.00</li><li>目標殖利率：3.5%（過去市場對此類股票可接受的合理水準）</li><li><strong>合理股價 B = NT$5.00 ÷ 3.5% = NT$143</strong></li></ul>
+<p><strong>綜合評估</strong></p>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>合理股價</th><th>現價 $146 相對位置</th></tr></thead><tbody><tr><td>Forward PE 法（保守）</td><td>NT$150</td><td>折價 2.7%</td></tr><tr><td>殖利率還原法</td><td>NT$143</td><td>溢價 2.1%</td></tr><tr><td><strong>中位數</strong></td><td><strong>NT$146.5</strong></td><td><strong>幾乎等於現價</strong></td></tr></tbody></table></div>
+<p><strong>結論：現價已充分反映保守情境，缺乏安全邊際（Margin of Safety）。</strong></p>
+<p>若 2026E EPS 達到 $9-10（偏樂觀），以 20-22x PE 計算目標價約 $180-220，但這需要 AI 散熱 + 車用同步大幅放量。</p>
+<h3>小結</h3>
+<p>PE 24x 是同業最低、隱含 OSAT 折價，但以保守估值計算現價已屆公允（合理股價約 $143-150），Forward PE 19.5x 吸引力猶存，上檔需等基本面實現高端情境才能支撐溢價。</p>
+<hr>
+<h2>4. 技術面</h2>
+<h3>均線結構</h3>
+<blockquote>📝 <strong>MA（移動平均線）</strong>：把股價在一段時間內的平均值連成線，用來判斷股價趨勢。MA20 = 近 20 天平均，MA60 = 近 60 天（季線）。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>與現價關係</th></tr></thead><tbody><tr><td>MA5（週線）</td><td>NT$158.3</td><td>現價 <strong>跌破 MA5</strong>（偏弱訊號）</td></tr><tr><td>MA10</td><td>NT$144.85</td><td>現價在 MA10 上方，+0.8%</td></tr><tr><td>MA20（月線）</td><td>NT$130.76</td><td>現價在 MA20 上方，+11.6%</td></tr><tr><td>MA60（季線）</td><td>NT$107.01</td><td>現價在 MA60 上方，+36.4%</td></tr><tr><td>MA120（半年線）</td><td>NT$91.59</td><td>現價在 MA120 上方，+59.4%</td></tr></tbody></table></div>
+<p>均線排列：MA5 > MA10 > MA20 > MA60 > MA120，仍呈<strong>多頭排列</strong>（下方均線支撐強健）。</p>
+<p>但關鍵點：<strong>6/26 大跌後，現價已跌破 MA5</strong>，顯示短線趨勢轉弱。</p>
+<h3>技術指標</h3>
+<p><strong>RSI14 = 60.07（偏強區間，未達超買）</strong></p>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：0-100 的數字，代表股票最近的強弱程度。70 以上叫超買（可能漲太多了），30 以下叫超賣（可能跌太多了），60 代表目前偏強但未過熱。</blockquote>
+<p><strong>KD：K=69.93，D=79.39，⚡ 死亡交叉（1天前，K 在高檔穿越 D 向下）</strong></p>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：K 線從高位往下穿過 D 線，是短線賣出訊號——尤其在 70 以上的「高檔」出現，訊號更強烈。這裡同時在高檔（K≈82、D≈79 時交叉），被技術分析視為「強烈賣訊」。</blockquote>
+<p><strong>MACD：柱狀值 2.24（正值），零軸上方</strong></p>
+<blockquote>📝 <strong>MACD</strong>：兩條均線的差值，若 MACD 柱狀在零軸上方（正值）代表多頭格局；若開始縮小，則暗示動能轉弱。目前柱狀正值但 KD 已死叉，兩指標出現分歧。</blockquote>
+<h3>52 週走勢位置</h3>
+<ul><li>52 週高：NT$170.5</li><li>52 週低：NT$62.86</li><li>現價 $146 在 52 週區間的 <strong>77.2%</strong> 位置（偏高）</li><li>從低點 $62.86 到高點 $170.5，累計漲幅 171%；現價較高點回落約 <strong>-14%</strong></li></ul>
+<h3>關鍵支撐與壓力</h3>
+<div class="table-wrap"><table><thead><tr><th>位置</th><th>說明</th></tr></thead><tbody><tr><td><strong>NT$144-145</strong>（強支撐）</td><td>MA10 + 下影線低點 $145.5，跌破需注意</td></tr><tr><td><strong>NT$130-132</strong>（中期支撐）</td><td>MA20 附近，此區若守住多頭格局仍完整</td></tr><tr><td><strong>NT$107</strong>（季線強支撐）</td><td>MA60，非重大利空下不太容易跌到這</td></tr><tr><td><strong>NT$154-157</strong>（近期壓力）</td><td>前一日高點區，反彈首先面對此壓力</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>均線多頭排列顯示中長線趨勢健康，但 6/26 跌破 MA5 加上 KD 高檔死亡交叉是明確短線警訊；最近 1-2 週市場可能繼續測試 MA10（144元）甚至 MA20（130元）支撐，若守住 MA10 則技術面傷害有限。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>融資融券（2026-06-26）</h3>
+<blockquote>📝 <strong>融資</strong>：用錢向券商借錢買股票（槓桿）。<strong>融券</strong>：向券商借股票賣出，預期跌後低價買回（放空）。<strong>資券比</strong>：融資總額 ÷ 融券總額，數字越大代表借錢做多的人遠多於放空的人。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>融資餘額</td><td>32,261 千元（約 NT$3,226 萬）</td><td>相對市值（NT$188億）僅佔 <strong>0.17%</strong>，極低</td></tr><tr><td>融資增減</td><td>+545 千元（小幅增加）</td><td>下跌日融資輕微加碼，有人逢低承接</td></tr><tr><td>融券餘額</td><td>27 張</td><td><strong>近乎掛零</strong>，放空力量極小</td></tr><tr><td>資券比</td><td>約 1,195:1</td><td>空方幾乎缺席</td></tr></tbody></table></div>
+<h3>法人動向</h3>
+<p>三大法人（外資 / 投信 / 自營商）買賣超明細：❌ 未取得（本次未抓 TWSE 三大法人當日資料）</p>
+<p><strong>建議</strong>：進場前先至 <a href="https://www.twse.com.tw/rwd/zh/fund/T86" target="_blank" rel="noopener">TWSE 三大法人查詢</a> 確認近 5 日法人動向，若外資持續賣超請再觀察。</p>
+<h3>籌碼解讀</h3>
+<ul><li>融資籌碼極乾淨（0.17%），不存在融資斷頭踩踏風險</li><li>融券少到幾乎可忽略，沒有大量軋空潛力也沒有空頭壓力</li><li>下跌日融資小幅增加，顯示有部分資金逢低買進，但規模很小</li></ul>
+<h3>小結</h3>
+<p>融資佔市值 0.17%、融券 27 張近乎掛零，籌碼結構乾淨不雜亂；法人動向未取得，是本次分析最重要的缺漏，建議補查 TWSE 法人資料後再做進場決定。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<blockquote>⚠️ 重要說明：台半、富鼎、強茂屬於 IDM（整合元件製造商，自己設計+製造功率元件），捷敏-KY 是純 OSAT（封測代工）。<strong>兩種業務模式本質不同，比較時需注意這個結構差異</strong>，就像拿台積電跟聯發科比毛利率，意義是有限的。</blockquote>
+<blockquote>📝 <strong>IDM（整合元件製造商）</strong>：自己設計電路、自己製造晶圓、自己封裝測試，全包全做。相比 OSAT，IDM 通常毛利率更高但資本密集度也更高。</blockquote>
+<h3>主要指標橫向比較（2026-06-26）</h3>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>代號</th><th>業務類型</th><th>現價</th><th>PE</th><th>毛利率</th><th>殖利率</th></tr></thead><tbody><tr><td><strong>捷敏-KY</strong></td><td>6525.TW</td><td>純 OSAT</td><td>NT$146</td><td><strong>24.05x</strong></td><td>26.7%（2025 年）</td><td>3.42%</td></tr><tr><td>台半</td><td>5425.TWO</td><td>IDM</td><td>NT$114.5</td><td>53.5x</td><td>31.3%（Q1'26）</td><td>❌ 未取得</td></tr><tr><td>富鼎</td><td>8261.TW</td><td>IDM</td><td>NT$244</td><td>41.78x</td><td>38.1%（Q1'26）</td><td>~2.05%</td></tr><tr><td>強茂</td><td>2481.TW</td><td>IDM</td><td>NT$175</td><td>55.56x</td><td>32.7%（Q1'26）</td><td>~1.03%</td></tr></tbody></table></div>
+<blockquote>⚠️ 數據單一來源（Yahoo Finance / 財報狗），建議自行覆核 PB 比較數字</blockquote>
+<h3>各家競爭優勢小評</h3>
+<p><strong>台半（5425）</strong>：專攻車用 40V/60V 分離式元件與車用逆變器，H2 2026 車用回溫是催化劑，PE 53.5x 已反映高成長預期。</p>
+<p><strong>富鼎（8261）</strong>：背靠鴻海、國巨集團資源，高階 MOSFET 直接受惠伺服器與工控升級，毛利率 38.1% 是四家中最高，股本較小更具靈活度。</p>
+<p><strong>強茂（2481）</strong>：車用二極體與中高壓 MOSFET 切入資料中心，訂單出貨比已拉高至 1.4-1.5，能見度至今年底，PE 55.56x 反映市場高度期待。</p>
+<p><strong>捷敏-KY（6525）</strong>：唯一純 OSAT，在同業中 PE 最低（24.05x），但毛利率（26.7%）也是最低。競爭優勢在於：(1) 封測規模全球前三，年產能 72 億顆；(2) Clip 散熱封裝技術是高功率封測壁壘；(3) 搭配功率元件廠出貨，受益整體產業復甦。</p>
+<h3>OSAT 角度近似對標</h3>
+<p><strong>朋程（電源 MOSFET 半製品封裝）</strong> 及 <strong>菱生（二極體封裝）</strong>：❌ 未取得即時財務數據（建議自行至 TWSE 或 goodinfo 查詢），但從同業分析角度，捷敏的規模優勢（72 億顆產能）遠大於同類型小型 OSAT，護城河相對較寬。</p>
+<h3>如果只選一檔？</h3>
+<p><strong>純就成長性/估值比（CP 值）</strong>：富鼎（8261）毛利率最高、PE 中等（42x）、護城河明確（IDM 產品定價權 > OSAT 服務費報價）；若偏好 PE 最低且受惠整體量增：捷敏（6525）有值得關注的空間，但中國風險需自行評估。</p>
+<h3>小結</h3>
+<p>捷敏 PE 24x 在同業中最低，反映 OSAT 業務模式折價與中國製造風險溢價；但若功率半導體景氣持續好轉，捷敏作為最大量的封測承包商，營收彈性最直接——核心問題是 OSAT 業務能否獲得市場 PE 重評（re-rating）。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>主要成長題材</h3>
+<p><strong>題材 1：AI 伺服器電源散熱（當前熱度最高）</strong></p>
+<p>AI GPU（繪圖處理器）每一代算力翻倍，但功耗也等比放大。每個 AI 伺服器機架的用電量從傳統 10kW 暴增至 100kW+，這對<strong>功率元件</strong>（負責把電轉換成 GPU 需要的電壓）和<strong>散熱封裝</strong>的需求形成直接拉力。</p>
+<p>捷敏的 Clip 雙面散熱封裝已進入相關客戶的合格供應商清單，2025 年就已拿到訂單增量，2026 年預計繼續成長。</p>
+<p><strong>題材 2：車用電子 H2 回溫（待驗證）</strong></p>
+<p>2025 年車用景氣疲軟（全球 EV 銷售成長放緩、中國車廠庫存調整），管理層在 2026/03 法說會指出「H2 2026 車用需求將逐步回溫」。目前車用佔捷敏營收 13%，若回溫至 18-20%，將同時提升營收和毛利率（車用封裝附加價值較高）。</p>
+<p><strong>題材 3：SiC 模組客戶認證進展</strong></p>
+<blockquote>📝 <strong>SiC（碳化矽）</strong>：比傳統矽效率更高的第三代半導體材料，在高電壓、高溫環境下更省電，是電動車充電系統、工業電源的未來主流。封裝難度比傳統功率元件高很多，因此附加價值更高。</blockquote>
+<p>捷敏正與客戶合作進行 SiC 模組的封裝認證（qualification）。一旦某客戶認可通過，訂單就會持續進來——這是目前最具爆發力的未來題材，但時間點不確定。</p>
+<p><strong>題材 4：母公司聯鈞 GaN EPI 合作</strong></p>
+<p>母公司聯鈞（3450.TW）具備 GaN 磊晶片能力，若 GaN 封測訂單導入捷敏，為垂直整合創造上下游協同效益。</p>
+<h3>時間軸</h3>
+<div class="table-wrap"><table><thead><tr><th>時間點</th><th>可能發生的事</th></tr></thead><tbody><tr><td>2026/07（預計）</td><td>2025 配息除權息（NT$5/股）</td></tr><tr><td>2026/08（預計）</td><td>Q2 2026 法說會 / 財報；若 YoY > 15% 為正面確認</td></tr><tr><td>2026 H2</td><td>車用訂單逐步回溫，季度 EPS 趨勢觀察</td></tr><tr><td>持續進行中</td><td>SiC 客戶認證進展，任一正面消息即為催化劑</td></tr><tr><td>2026-2027</td><td>AI 伺服器散熱封裝訂單放量擴大</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>AI 散熱、車用回溫、SiC 認證三大催化劑邏輯清晰，AI 散熱題材已在現實中兌現，車用回溫和 SiC 仍是未來驗證題材；最近一個硬催化劑是 Q2 法說會（預計 2026/08）。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<h3>風險矩陣</h3>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>影響程度</th><th>發生機率</th><th>說明</th></tr></thead><tbody><tr><td>中國廠集中風險</td><td>★★★★★ 極高</td><td>★★★ 中</td><td>台海情勢、中美貿易戰加劇均直接衝擊產能</td></tr><tr><td>消費性電子景氣循環</td><td>★★★ 中</td><td>★★★ 中</td><td>40% 來自消費性電子，景氣反轉就首當其衝</td></tr><tr><td>車用回溫節奏不如預期</td><td>★★★ 中</td><td>★★★ 中</td><td>管理層指引 H2 回溫，但全球 EV 需求仍不確定</td></tr><tr><td>KY 公司匯率風險</td><td>★★★ 中</td><td>★★ 低中</td><td>中國廠以人民幣計算成本，報告貨幣是台幣；CNY 升值有利，CNY 貶值侵蝕獲利</td></tr><tr><td>中國本土 OSAT 競爭</td><td>★★★ 中</td><td>★★★ 中</td><td>長電科技、通富微電等中國大廠積極擴張，可能搶走低毛利訂單</td></tr><tr><td>KY 公司治理揭露不足</td><td>★★ 低中</td><td>★★ 低中</td><td>開曼群島設立公司資訊揭露略少，但高配息率暗示治理尚可</td></tr><tr><td>客戶集中度</td><td>❌ 未取得</td><td>—</td><td>主要客戶名稱與集中度數據未能自公開資料確認，建議閱讀年報確認</td></tr></tbody></table></div>
+<h3>中國廠集中風險詳述（最關鍵）</h3>
+<p>捷敏 100% 生產設施在中國（上海、合肥），若遭遇以下情境，衝擊難以迴避：</p>
+<ul><li>台海軍事緊張升高 → 客戶移轉訂單</li><li>美國對中國 OSAT 廠實施出口管制（目前尚無，但風險存在）</li><li>工廠停工（自然災害、勞資糾紛、COVID 類型衝擊）</li></ul>
+<p><strong>緩解措施</strong>：公司目前無明確遷廠計畫，純靠地理風險溢價折扣反映在股價上（PE 24x vs 同業 42-56x 的部分原因）。</p>
+<h3>小結</h3>
+<p>中國廠集中是最大且最難規避的結構性風險，市場已將此風險部分反映在 PE 折價（24x vs 同業 42-56x）；消費性電子週期與車用回溫節奏是中短期最需要追蹤的經營風險。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li>基本面確立（+1），但技術面 KD 高檔死叉（-1），現價等於估值中位數沒有安全邊際（-0.5），法人動向資料缺（-0.5）→ 剩 3/5</li><li><strong>建議倉位</strong>：整理完成後進場，初次建倉 <strong>3-5%</strong>；確認動能恢復後可加至上限 <strong>7%</strong></li><li><strong>進場條件（擇一）</strong>：</li><li>A. 股價拉回 <strong>NT$130-140</strong> 區間（MA20 支撐附近），且 KD 從超賣區回升（K<30 後黃金交叉）</li><li>B. 股價若強勢守穩 MA10（$145），同時 Q2 2026 法說會（8 月）確認 YoY > 15% + 法人回補跡象</li><li><strong>停損參考</strong>：收盤跌破 <strong>NT$125</strong>（MA60 下方明顯破位），確認止損出場</li><li><strong>加碼條件</strong>：Q2 2026 EPS 季增 > 5%（確認成長動能持續）+ 車用訂單明確回溫數字出現 + SiC 客戶認證宣告</li><li><strong>觀察指標</strong>（優先順序排列）：</li></ul>
+<ol><li>每月月營收 YoY 維持 > 15%（每月 10 日）</li><li>三大法人買賣超動向（TWSE 每日，特別是外資動向）</li><li>KD 技術位置是否從低檔再度黃金交叉</li><li>車用訂單 H2 回暖具體數字（法說會）</li><li>SiC 客戶認證進展公告</li></ol>
+<ul><li><strong>下次檢視</strong>：<strong>2026-08-15</strong>（Q2 2026 法說會前後）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/6525.TW" target="_blank" rel="noopener">Yahoo Finance - 捷敏-KY (6525.TW) 即時行情</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE BWIBBU_d - 全市場 PE/PB/殖利率</a></li><li><a href="https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN" target="_blank" rel="noopener">TWSE MI_MARGN - 融資融券資料</a></li><li><a href="https://tw.stock.yahoo.com/quote/6525.TW/revenue" target="_blank" rel="noopener">Yahoo Finance - 捷敏-KY 月營收</a></li><li><a href="https://blog.fugle.tw/post/earnings-call-6525-2026-03-10" target="_blank" rel="noopener">富果直送 - 捷敏-KY 法說會重點 20260310</a></li><li><a href="https://goodinfo.tw/tw/StockBzPerformance.asp?STOCK_ID=6525&RPT_CAT=M_YEAR" target="_blank" rel="noopener">Goodinfo - 捷敏-KY 歷年績效</a></li><li><a href="https://histock.tw/stock/6525/%E6%AF%8F%E8%82%A1%E7%9B%88%E9%A4%98" target="_blank" rel="noopener">HiStock - 捷敏-KY EPS 季報</a></li><li><a href="https://statementdog.com/analysis/6525/eps" target="_blank" rel="noopener">財報狗 - 捷敏-KY EPS 近四季</a></li><li><a href="https://news.cnyes.com/news/id/6374166" target="_blank" rel="noopener">鉅亨網 - 捷敏切入 AI 伺服器散熱訂單</a></li><li><a href="https://n.yam.com/Article/20260623340747" target="_blank" rel="noopener">蕃新聞 - 捷敏-KY 目標價 200 元以上</a></li><li><a href="https://wantrich.chinatimes.com/news/20260623900235-420101" target="_blank" rel="noopener">旺得富 - 功率半導體四大廠比較</a></li><li><a href="https://tw.stock.yahoo.com/quote/5425.TWO" target="_blank" rel="noopener">Yahoo Finance - 台半 5425</a></li><li><a href="https://tw.stock.yahoo.com/quote/8261.TW" target="_blank" rel="noopener">Yahoo Finance - 富鼎 8261</a></li><li><a href="https://tw.stock.yahoo.com/quote/2481.TW" target="_blank" rel="noopener">Yahoo Finance - 強茂 2481</a></li><li><code>投資理財/scripts/technical_indicators.py 6525</code> — yfinance 技術指標腳本（2026-06-26 收盤數據）</li></ul>
+<p>⚠️ 個股數據均取自單一來源（Yahoo Finance / TWSE），建議交叉核實。融資融券、法人買賣超數字建議至 TWSE 官方系統確認最新數據。</p>
+</div>
+</body>
+</html>
