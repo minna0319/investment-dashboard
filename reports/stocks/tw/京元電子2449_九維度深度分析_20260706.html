@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>京元電子（2449）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>京元電子（2449）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>京元電子（2449）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v2.0</td><td>2026-07-06</td><td>NT$363（⚠️盤中 +8.36%）</td><td>封測族群轉強、盤中大漲近漲停創 52 週新高。<strong>重抓</strong>：股價/量、PE/PB/殖利率（TWSE 7/3）、5 月營收、融資融券（TWSE 7/3）、技術指標（腳本盤中）、FactSet 目標價/EPS 共識。<strong>新增</strong>：PB 7.53、Google TPU v7p/v8x 後段測試訂單、封測轉強脈絡（台積電 capex 破 500 億美元 + CoWoS 缺口 >20% 外溢）、5 月營收。<strong>沿用</strong>：基本面/護城河、Q1 財報結構、風險框架。整併並取代 <code>京元電子2449_個股分析_20260314.md</code>（3/14 舊格式檔已刪，其「先進製程測試複雜度上升」「CoWoS 月產能」觀點已吸收）</td></tr><tr><td>v1.0</td><td>2026-06-05</td><td>NT$309.5</td><td>首次建立九維度深度分析，取代舊版 3/14 舊格式，整合 Q1 2026 財報、四家外資目標價、技術指標腳本</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<blockquote>⚠️ 這一區是「該看的數字」，資料來源集中在文末。所有帶單位數字來自 WebFetch 官方來源，找不到標「❌ 未取得」。</blockquote>
+<blockquote><strong>今日（2026-07-06）台股盤中，股價/量為盤中即時值，僅供參考。</strong> PE/PB/殖利率/融資券為 TWSE 官方最近交易日（2026-07-03 收盤 335 元）基準。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$363（⚠️盤中 +28.0 元／+8.36%，近漲停）</td></tr><tr><td>市值</td><td>約 4,420 億（推算：約 12.19 億股 × 363，⚠️盤中）</td></tr><tr><td>PE 本益比</td><td>45.45 倍（TWSE 7/3 收盤 335 基準；以盤中 363 計約 49 倍）</td></tr><tr><td>PB 股價淨值比</td><td>7.53 倍（TWSE 7/3）</td></tr><tr><td>EPS（近 4 季合計）</td><td>約 7.37 元（推算，與 TWSE PE 45.45 × 335 交叉驗證吻合）</td></tr><tr><td>殖利率</td><td>0.45%（TWSE 7/3，⚠️與歷史配息推算落差大，建議自行覆核）</td></tr><tr><td>ROE</td><td>約 16.6%（由 PB 7.53 ÷ PE 45.45 推算，近 4 季滾動）</td></tr><tr><td>毛利率</td><td>39.74%（2026 Q1，Vocus 引公開資訊觀測站）</td></tr><tr><td>營收 YoY（最新月 2026/05）</td><td>+36.61%</td></tr><tr><td>營收 MoM（2026/05）</td><td>+0.91%</td></tr><tr><td>52 週高 / 低</td><td>365 / 97.19（今日盤中觸及 52 週新高）</td></tr><tr><td>技術位置</td><td>均線多頭排列、股價季線上方 +19.6%、RSI 63.5、技術評分 4.0（多頭）</td></tr></tbody></table></div>
+<p>資料時間：2026-07-06（⚠️盤中，台股尚未收盤）｜資料來源見文末</p>
+<h2>結論</h2>
+<p>【觀望】— 基本面與題材強勁且技術轉多頭，但今日盤中近漲停暴漲、股價創 52 週新高、PE 盤中已達約 49 倍，追高風險偏大，等急漲後回檔至月線/季線（約 305～315 元）確認支撐再評估進場。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段，不追高、等拉回</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位</h3>
+<p>京元電子（King Yuan Electronics，KYEC）成立於 1987 年，是台灣最大的<strong>純 IC 測試廠</strong>，全球獨立測試服務商中規模數一數二。</p>
+<blockquote>📝 <strong>OSAT（Outsourced Semiconductor Assembly and Test）</strong>：外包半導體封裝與測試廠的統稱。晶圓製造完後，負責後段「封裝＋測試」的代工廠。京元電只做測試、不做封裝，是更專注的純測試廠。</blockquote>
+<p><strong>在半導體產業鏈的位置：</strong></p>
+<p>```</p>
+<p>晶圓製造（台積電）→ 先進封裝（CoWoS/SoIC）→ IC 測試（京元電）→ 成品出貨</p>
+<p>```</p>
+<blockquote>📝 <strong>CoWoS（Chip on Wafer on Substrate）</strong>：台積電的先進封裝技術，把多顆晶片疊在一起增加效能，是 AI GPU（如 NVIDIA H100/H200/Rubin）的核心封裝方式。封裝後的晶片必須通過測試才能出貨，這就是京元電的業務切入點。</blockquote>
+<h3>業務結構（2025 年）</h3>
+<div class="table-wrap"><table><thead><tr><th>業務類型</th><th>營收佔比</th></tr></thead><tbody><tr><td>成品測試（Final Test）</td><td>約 58%</td></tr><tr><td>晶圓針測（Wafer Probe）</td><td>約 40%</td></tr><tr><td>其他</td><td>約 2%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>晶圓針測（Wafer Probe）</strong>：晶圓切割成單顆晶片前，先用細針戳接做電性測試，篩掉不良品，省去後段封裝成本。</blockquote>
+<h3>主要客戶</h3>
+<ul><li><strong>NVIDIA</strong>：AI GPU 測試，核心大客戶，取得 <strong>Rubin 平台獨家測試訂單</strong></li><li><strong>Google</strong>：新取得 <strong>TPU v7p、v8x 產品後段測試（FT）訂單</strong>（2026 新催化劑）</li></ul>
+<blockquote>📝 <strong>TPU（Tensor Processing Unit）</strong>：Google 自研的 AI 運算晶片，類似 NVIDIA 的 GPU，專門跑機器學習任務。</blockquote>
+<blockquote>📝 <strong>FT（Final Test，成品測試）</strong>：晶片封裝完成後的最終電性與功能測試，確認良率再出貨，是京元電營收占比最高（約 58%）的業務。</blockquote>
+<ul><li><strong>聯發科</strong>：手機 SoC 測試</li><li><strong>超微（AMD）</strong>、<strong>Broadcom</strong>、<strong>Marvell</strong> 等 ASIC 客戶</li></ul>
+<blockquote>📝 <strong>ASIC（Application-Specific Integrated Circuit）</strong>：為特定用途設計的客製化晶片，例如 Google 的 TPU 就是一種 ASIC。相較通用 GPU，測試更複雜、單價更高。</blockquote>
+<h3>核心競爭優勢（護城河）</h3>
+<ol><li><strong>技術壁壘</strong>：自製高功率預燒老化（Burn-in）測試機台，AI GPU/HBM 測試需要極高電性測試頻率與溫度控管，京元電已通過 NVIDIA、Google 認證。</li></ol>
+<blockquote>📝 <strong>Burn-in 測試（預燒老化）</strong>：讓晶片在高溫高壓下長時間運作，篩出潛在不良品。AI 晶片因功耗極高，這關特別難做。</blockquote>
+<ol><li><strong>規模壁壘</strong>：全台最大純測試廠，採購測試機台（ATE）議價能力強，固定成本攤提效率高。</li><li><strong>客戶黏著度</strong>：IC 測試需要數月「製程認證（qualification）」，認證過後客戶極少更換。</li><li><strong>CoWoS 生態綁定</strong>：台積電 CoWoS 封裝後成品都需測試，京元電是主要承接商，CoWoS 產能擴張直接拉動訂單。CoWoS 月產能 2026 年底預估達 13～14 萬片。</li><li><strong>先進製程結構性利多</strong>：3nm／2nm 製程下，測試項目增加、測試時間拉長（AI 晶片測試時間預估增加 100%～200%、單價擴增 50%～100%），「測試成本佔晶片製造成本比重」持續上升，對純測試廠是長線結構利多。</li></ol>
+<p><strong>管理層評估</strong>：管理層在 AI 測試需求高漲時積極擴產，資本支出上修至 500 億元歷史天量，顯示高度信心，但也代表高槓桿押注風險。</p>
+<h3>小結</h3>
+<p>全台最大純測試廠，Burn-in 自製技術＋NVIDIA/Google 雙認證構成清晰護城河；Google TPU v7p/v8x 新訂單與 Rubin 獨家測試訂單讓 AI 動能延伸至 2026 下半年，是封測轉強的核心指標股。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（來源：Yahoo 奇摩股市，2026-07-06 抓取）</h3>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>月營收（億元）</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody><tr><td>2026/05</td><td>37.77</td><td>+0.91%</td><td><strong>+36.61%</strong></td></tr><tr><td>2026/04</td><td>37.43</td><td>+4.03%</td><td>+34.56%</td></tr><tr><td>2026/03</td><td>35.98</td><td>+11.58%</td><td>+36.06%</td></tr><tr><td>2026/02</td><td>32.25</td><td>-4.30%</td><td>+41.04%</td></tr><tr><td>2026/01</td><td>33.70</td><td>+3.54%</td><td>+41.28%</td></tr><tr><td>2025/12</td><td>32.54</td><td>-1.16%</td><td>+33.04%</td></tr></tbody></table></div>
+<p><strong>2025 全年營收</strong>：349.34 億元，年增 30.08%</p>
+<p><strong>2026 前 5 月</strong>：年增率持續維持 34%～41%，成長動能未見疲態，連續 14 個月以上 YoY 30%+。</p>
+<h3>Q1 2026 獲利關鍵指標（來源：Vocus 財報分析，引用公開資訊觀測站數據）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>年增率</th></tr></thead><tbody><tr><td>毛利率</td><td>39.74%</td><td>+6.25 個百分點</td></tr><tr><td>營業利益率</td><td>27.20%</td><td>+6.38 個百分點</td></tr><tr><td>營業利益</td><td>27.72 億元</td><td>+82.04%</td></tr><tr><td>歸母淨利</td><td>22.86 億元</td><td><strong>-46.71%</strong></td></tr><tr><td>EPS</td><td>1.87 元</td><td><strong>-46.72%</strong></td></tr><tr><td>營業現金流</td><td>37.42 億元</td><td>+280.34%</td></tr><tr><td>自由現金流</td><td><strong>約 -30.44 億元</strong></td><td>—</td></tr><tr><td>現金部位</td><td>144.42 億元</td><td>—</td></tr><tr><td>負債比</td><td>51.90%</td><td>+15.05 個百分點</td></tr><tr><td>金融借款</td><td>306.17 億元</td><td>—</td></tr></tbody></table></div>
+<blockquote>📝 <strong>自由現金流（FCF，Free Cash Flow）</strong>：公司賺到的錢扣掉擴廠投資後剩多少。負數代表目前大量花錢蓋廠，短期帳面不好看，但長期若投資回收就會轉正。</blockquote>
+<p><strong>⚠️ EPS 年減 47% 特別說明（重要）</strong>：本業實際大幅改善（營業利益年增 82%），年減主因是——</p>
+<ol><li><strong>基期效應</strong>：2025 Q1 認列出售蘇州廠的業外收益，墊高去年同期基數（推算 2025 Q1 EPS 約 3.51 元）</li><li><strong>折舊提前認列</strong>：新廠房擴建中尚未量產，折舊費用先計入</li><li>純財務結構調整，不代表競爭力下滑。四家外資 Q1 財報後全數調升目標價，顯示市場已理解此解釋。</li></ol>
+<h3>EPS 歷史與預估</h3>
+<div class="table-wrap"><table><thead><tr><th>期間</th><th>EPS</th></tr></thead><tbody><tr><td>2024 全年</td><td>6.36 元</td></tr><tr><td>2025 全年</td><td>9.01 元（歷史新高）</td></tr><tr><td>近 4 季合計（滾動）</td><td>約 7.37 元</td></tr><tr><td>2026 全年（FactSet 共識）</td><td>9.77 元（前值 9.9，最高 10.79／最低 9.08）</td></tr><tr><td>2026 全年（部分法人樂觀）</td><td>10.40 元</td></tr><tr><td>2027 全年（法人預估）</td><td>14.26～15.2 元</td></tr></tbody></table></div>
+<blockquote>📝 <strong>EPS（每股盈餘）</strong>：公司全年賺的錢除以股票總數，是評估股票有多賺錢最常用的指標。EPS 越高通常代表越賺錢。</blockquote>
+<h3>財務健康評估</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>評估</th><th>說明</th></tr></thead><tbody><tr><td>收益趨勢</td><td>成長</td><td>本業利潤率創新高（營業利益 +82%）</td></tr><tr><td>營收趨勢</td><td>成長</td><td>YoY 持續 30%+</td></tr><tr><td>毛利率趨勢</td><td>穩定偏升</td><td>39.74%，YoY +6.25pp，AI 高單價效應</td></tr><tr><td>負債健康</td><td>注意</td><td>負債比 51.9%、金融借款 306 億、自由現金流轉負</td></tr><tr><td>自由現金流</td><td>負（擴廠期）</td><td>因資本支出達 500 億，屬策略性投資</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>營收動能強勁（5 月 YoY +36.6%）、毛利率創高，但 Q1 EPS 因基期與折舊年減 47%（本業實則 +82%）；500 億擴產使負債比升至 51.9%、FCF 轉負，是財務面的主要壓力點。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>目前估值（來源：TWSE BWIBBU_d 2026-07-03、Yahoo 盤中）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>備註</th></tr></thead><tbody><tr><td>盤中價</td><td>363 元</td><td>2026-07-06 盤中 +8.36%</td></tr><tr><td>本益比（PE）</td><td>45.45 倍</td><td>TWSE 7/3 收盤 335 基準；盤中 363 約 49 倍</td></tr><tr><td>股價淨值比（PB）</td><td>7.53 倍</td><td>TWSE 7/3</td></tr><tr><td>殖利率</td><td>0.45%</td><td>TWSE 7/3，⚠️需覆核</td></tr><tr><td>52 週高 / 低</td><td>365 / 97.19</td><td>今日觸及 52 週新高</td></tr></tbody></table></div>
+<blockquote>📝 <strong>本益比（PE Ratio）</strong>：股價除以每股盈餘，代表「花多少年的獲利才能把股票價值買回來」。PE 45 倍意思是以目前獲利水準約 45 年回本。同業力成約 42 倍、欣銓約 37 倍，京元電估值在測試三雄中偏高。</blockquote>
+<h3>目標價匯整（FactSet 14 位分析師 + 法人報告）</h3>
+<div class="table-wrap"><table><thead><tr><th>來源</th><th>目標價</th><th>備註</th></tr></thead><tbody><tr><td>FactSet 分析師中位數</td><td>362.5 元</td><td>由 350 上修 3.57%，共 14 位</td></tr><tr><td>FactSet 最高／最低</td><td>435／268 元</td><td>分歧大</td></tr><tr><td>理財周刊法人</td><td>380 元</td><td>買入</td></tr><tr><td>優分析</td><td>400 元</td><td>2026 EPS 14.26 × 28 倍</td></tr></tbody></table></div>
+<p><strong>共識中位約 362.5 元，相對盤中 363 元幾乎已達標</strong>——短線股價已快速追上分析師中位目標價，這是「觀望、勿追高」的重要訊號。</p>
+<h3>估值評估</h3>
+<p>以 FactSet 2026 EPS 共識 9.77 元計算：</p>
+<ul><li><strong>Forward PE</strong>：363 ÷ 9.77 = <strong>約 37.2 倍</strong></li></ul>
+<blockquote>📝 <strong>Forward PE（預估本益比）</strong>：用未來（預估）EPS 算本益比，比用過去數據更能反映未來成長。37 倍 Forward PE 在 AI 供應鏈股中屬中上偏高。</blockquote>
+<p>歷史 PE 約在 20～45 倍浮動，目前 Forward PE 已來到 37 倍高檔區。若看 2027 EPS 14 元以上，長線仍有想像空間，但短線估值已不便宜、且今日一天暴漲 8%+ 把估值再往上推。</p>
+<p><strong>⚠️ 單一來源警告</strong>：法人目標價來自 FactSet、工商時報、優分析整理，建議自行至各券商平台覆核。</p>
+<h3>小結</h3>
+<p>盤中價 363 幾乎追平 FactSet 中位目標價 362.5、Forward PE 升至約 37 倍、PE 盤中約 49 倍，估值已充分反映甚至透支短線題材，追高性價比低。</p>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>以下由 <code>technical_indicators.py</code> 腳本計算，資料日期：2026-07-06（⚠️盤中）。</blockquote>
+<h3>即時股價（2026-07-06 盤中）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>盤中價</td><td>363 元（腳本快照 365）</td></tr><tr><td>開盤</td><td>360 元</td></tr><tr><td>最高</td><td>367.5 元</td></tr><tr><td>最低</td><td>350 元</td></tr><tr><td>成交量</td><td>約 30,725 張（盤中）</td></tr><tr><td>漲跌</td><td>+28.0 元（+8.36%，近漲停）</td></tr></tbody></table></div>
+<h3>均線系統</h3>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值</th><th>股價關係</th></tr></thead><tbody><tr><td>MA5</td><td>343.2 元</td><td>股價在上方</td></tr><tr><td>MA10</td><td>333.0 元</td><td>股價在上方</td></tr><tr><td>MA20（月線）</td><td>311.12 元</td><td>股價在上方 +16.7%</td></tr><tr><td>MA60（季線）</td><td>305.15 元</td><td>股價在上方 +19.6%</td></tr><tr><td>MA120（半年線）</td><td>296.33 元</td><td>股價在上方</td></tr><tr><td>MA240（年線）</td><td>234.77 元</td><td>股價在上方</td></tr></tbody></table></div>
+<blockquote>📝 <strong>MA（Moving Average，均線）</strong>：一段時間的平均股價，用來判斷趨勢。MA60 又叫「季線」，是中期趨勢的常用參考。股價全數站上均線且多頭排列，代表趨勢明確偏多。</blockquote>
+<p><strong>均線排列</strong>：<strong>多頭排列</strong>（短均線在上、長均線在下依序排列），趨勢強勁。但股價已遠離季線 +19.6%，短線乖離偏大，回檔壓力隨之升高。</p>
+<h3>技術指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>訊號解讀</th></tr></thead><tbody><tr><td>RSI（14 日）</td><td>63.5</td><td>偏強，尚未過熱（<70）</td></tr><tr><td>K 值</td><td>78.27</td><td>偏高</td></tr><tr><td>D 值</td><td>71.06</td><td>—</td></tr><tr><td>KD 交叉</td><td><strong>黃金交叉</strong>（4 天前，中位）</td><td>買進參考</td></tr><tr><td>MACD</td><td>11.84</td><td>正值，零軸上方</td></tr><tr><td>MACD 信號線</td><td>6.95</td><td>柱狀 +4.89（強）</td></tr><tr><td>黃金交叉（均線）</td><td>9 天前（2026-06-23）</td><td>短線轉多確立</td></tr></tbody></table></div>
+<blockquote>📝 <strong>KD 黃金交叉</strong>：K 值從下方向上穿越 D 值，是短期上漲的參考訊號。目前 K=78 已偏高，續漲空間縮小。</blockquote>
+<blockquote>📝 <strong>MACD（指數平滑異同移動平均）</strong>：用兩條不同速度均線相減判斷趨勢動能。柱狀 +4.89 且零軸上方，代表多頭動能強。</blockquote>
+<blockquote>📝 <strong>黃金交叉（均線）</strong>：短期均線由下向上穿越長期均線，傳統上是「買進」訊號。此次已確立 9 天。</blockquote>
+<p><strong>技術面綜合評分</strong>：4.0 分（多頭）——多頭排列、MACD 正、KD 黃金交叉、黃金交叉齊備。<strong>唯一警訊是短線乖離過大</strong>（季線上方 +19.6%）與 K 值 78 偏高，追高易套在短線高點。</p>
+<p><strong>關鍵支撐</strong>：月線 311、季線 305（第一/第二支撐）；半年線 296。</p>
+<p><strong>近期壓力</strong>：52 週新高 365 附近（前無套牢區，屬價格發現）。</p>
+<h3>小結</h3>
+<p>技術面全面轉多頭（評分 4.0），趨勢確立；但股價遠離季線 +19.6%、今日近漲停，短線過熱、追高風險高，理想作法是等回測月線/季線再找進場點。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<h3>融資融券（來源：TWSE MI_MARGN，2026-07-03）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th><th>變化</th></tr></thead><tbody><tr><td>融資餘額</td><td>22,676 張</td><td>較前日 +534 張（增加）</td></tr><tr><td>融券餘額</td><td>364 張</td><td>較前日 -73 張（減少）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>融資</strong>：用自己的錢加上跟券商借的錢買股票，放大報酬也放大風險。融資餘額上升代表散戶用借貸持股增加，若股價急跌會有斷頭賣壓。</blockquote>
+<p><strong>觀察</strong>：融資小幅增加、融券減少，散戶偏多方，但融資 2.27 萬張相對外資動輒單週掃貨逾 3 萬張仍屬小量，籌碼主導權在外資。</p>
+<h3>法人動向（定性）</h3>
+<div class="table-wrap"><table><thead><tr><th>法人類別</th><th>近期動向</th></tr></thead><tbody><tr><td>外資</td><td>近期積極買超，曾單週掃貨逾 3 萬張帶動股價創高；FactSet 目標價中位由 350 上修至 362.5 元</td></tr><tr><td>外資持股比例</td><td>❌ 未取得（建議至鉅亨網個股外資進出或富邦 eBroker 查詢）</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>外資是主要推手（單週曾掃逾 3 萬張、目標價上修），融資小增但量相對外資有限；籌碼偏多，但股價已被買到接近目標價中位，追買者宜留意外資是否轉為調節。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<blockquote>比較對象：日月光投控（3711，封測一條龍龍頭）、力成（6239，封測混合廠）、欣銓（3264，純測試）</blockquote>
+<h3>橫向比較表</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>京元電（2449）</th><th>日月光（3711）</th><th>力成（6239）</th><th>欣銓（3264）</th></tr></thead><tbody><tr><td>業務特色</td><td>純測試，AI 佔比最高</td><td>封裝+測試一條龍龍頭</td><td>封裝+測試混合</td><td>晶圓針測為主（88%）</td></tr><tr><td>本益比（PE）</td><td>45.45 倍</td><td>約 42 倍（法人估）</td><td>約 42 倍</td><td>約 37 倍</td></tr><tr><td>近月營收 YoY</td><td>+36.61%（5 月）</td><td>由平行分析 agent 負責</td><td>由平行分析 agent 負責</td><td>❌ 未取得</td></tr><tr><td>2026 法人 EPS 估</td><td>9.77～10.40 元</td><td>約 14.2 元</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>法人目標價</td><td>362.5～435 元</td><td>上看 600 元</td><td>❌ 未取得</td><td>❌ 未取得</td></tr><tr><td>護城河</td><td>Burn-in 自製＋NVIDIA/Google 認證</td><td>一條龍規模最大、承接 CoWoS 外溢</td><td>封裝為主</td><td>規模較小、專注針測</td></tr></tbody></table></div>
+<blockquote>註：矽格（6257，RF 測試為主）、超豐（2441，封裝為主）客群或業務不同，非直接可比對手。</blockquote>
+<h3>如果只能選一檔</h3>
+<p><strong>看純 AI 測試彈性 → 京元電最純粹</strong>：AI 晶片測試比重最高、Burn-in 自製技術護城河、NVIDIA + Google 雙核心大客戶。缺點是 PE 三雄最高、FCF 轉負，屬「高成長＋高估值」成長股。</p>
+<p><strong>看一條龍規模與 CoWoS 外溢承接 → 日月光</strong>（另由平行分析），法人喊上 600 元、EPS 基數大、波動相對京元電低，較適合平衡型投資者當封測核心部位。京元電則更適合作為 AI 測試題材的衛星波段部位。</p>
+<h3>小結</h3>
+<p>京元電是三雄中 AI 測試最純、成長最猛但估值最貴的一檔；若求穩健核心可看日月光，京元電定位為高彈性衛星波段。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>近期正向催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>說明</th><th>時間點</th></tr></thead><tbody><tr><td>Google TPU v7p/v8x 後段測試訂單</td><td>新確認訂單，擴大 ASIC 測試營收</td><td>2026 已啟動</td></tr><tr><td>NVIDIA Rubin 平台獨家測試訂單</td><td>下一代 GPU 功耗更高、測試更難，京元電獨家承接</td><td>2026 逐步放量</td></tr><tr><td>台積電 capex 破 500 億美元</td><td>CoWoS 2026 產能缺口 >20%，訂單外溢至 OSAT</td><td>2026 全年</td></tr><tr><td>資本支出上修至 500 億</td><td>法人解讀為對需求高度信心</td><td>已確認</td></tr><tr><td>Q2 毛利率挑戰 40%</td><td>若站上代表 AI 高單價持續發酵</td><td>2026 Q2 財報（約 7 月下旬）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>Rubin（Vera Rubin GPU）</strong>：NVIDIA 下一代 AI GPU 架構，Blackwell 的後繼者，功耗更高、測試難度更大，對 Burn-in 測試廠尤其有利。</blockquote>
+<blockquote>📝 <strong>Blackwell</strong>：NVIDIA 目前主力 AI GPU 架構（如 B100、B200），對應 AI 訓練主力產品線。</blockquote>
+<h3>封測族群轉強脈絡（本次更新重點）</h3>
+<p>台積電 2026 資本支出上看 500 億美元、CoWoS 產能仍缺口 >20%，部分訂單開始外溢至日月光等 OSAT 廠的「類 CoWoS」技術，帶動封測三雄（日月光、京元電、力成）集體資本支出暴衝與股價轉強。京元電作為「純測試轉強指標大廠」，是這波族群行情中 AI 測試彈性最高的標的。</p>
+<h3>觀察指標</h3>
+<ol><li>月營收 YoY 是否維持 30%+（低於 25% 需重新評估）</li><li>Q2 2026 毛利率能否站穩 40%</li><li>NVIDIA Rubin 正式量產時間</li><li>500 億擴廠進度，折舊壓力何時反轉為產能優勢</li></ol>
+<h3>小結</h3>
+<p>Google TPU 新訂單 + Rubin 獨家 + CoWoS 外溢是三大實質催化劑，族群行情正熱；但多數利多已反映在近期漲勢，下一個實質驗證點是 7 月下旬 Q2 財報的毛利率。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險類型</th><th>說明</th><th>嚴重程度</th><th>機率</th></tr></thead><tbody><tr><td>⚠️ 追高風險</td><td>盤中近漲停、創 52 週新高、季線乖離 +19.6%，短線過熱</td><td>高</td><td>已發生</td></tr><tr><td>⚠️ 估值偏高</td><td>PE 盤中約 49 倍、Forward PE 37 倍、已追平目標價中位</td><td>高</td><td>中</td></tr><tr><td>⚠️ 資本支出壓力</td><td>500 億遠超年營收，負債比 51.9%、FCF 轉負</td><td>高</td><td>已發生</td></tr><tr><td>客戶集中</td><td>NVIDIA + Google 佔比高，單一客戶轉單或內製化衝擊大</td><td>高</td><td>低</td></tr><tr><td>台幣升值</td><td>收入美元計價、成本台幣，台幣升值壓縮毛利</td><td>中</td><td>中</td></tr><tr><td>AI 資本支出週期反轉</td><td>若 2027 AI 需求降溫，訂單能見度快速惡化</td><td>中</td><td>低（尾部風險）</td></tr><tr><td>地緣政治</td><td>台灣地緣風險，外資持股折價因素</td><td>中</td><td>持續存在</td></tr></tbody></table></div>
+<p><strong>最壞情境</strong>：AI 資本支出 2027 年提前降溫，500 億擴廠成本提前認列而需求不足，毛利率下滑且估值壓縮（雙殺），股價可能回落至 250 元以下。</p>
+<p><strong>此情境機率評估</strong>：低（約 15%），但若發生衝擊嚴重，是嚴守停損的主因。近期更立即的風險是短線追高後的技術性回檔。</p>
+<h3>小結</h3>
+<p>最迫切的是「追高後回檔」的短線風險（股價急漲、估值透支）；中長線最大尾部風險仍是 500 億擴產押注遇上 AI 週期反轉的雙殺，機率低但需以季線為停損防線。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：佔總資金 5%～8%（衛星波段部位，高成長高估值不宜重倉；若提前佈局先以 1/3 試單）</li><li><strong>進場條件</strong>：</li><li><strong>不追高</strong>：今日盤中近漲停、股價創新高且遠離季線 +19.6%，不宜在急漲當天追進</li><li><strong>保守型</strong>：等股價回檔至月線 MA20（約 311 元）或季線 MA60（約 305 元）附近，連續 2～3 日守穩再分批進場</li><li><strong>積極型</strong>：若 Q2 財報（約 7 月下旬）確認毛利率站上 40%、EPS 符合預期，且股價回檔後重新沿 5 日線走強，可試單</li><li><strong>停損參考</strong>：</li><li>進場後跌破季線 MA60（305 元）→ 減碼；跌破半年線 MA120（296 元）→ 出場重新評估</li><li>或月營收 YoY 連續 2 個月低於 25% → 出場</li><li><strong>加碼條件</strong>：</li><li>毛利率 Q2 確認 ≥ 40% + 外資持續買超 + 股價回檔後重新帶量突破前高 365 元</li><li><strong>觀察指標</strong>：</li></ul>
+<ol><li>每月 10 日月營收：維持 YoY 30%+ 為關鍵線</li><li>Q2 財報（約 2026 年 7 月下旬）：毛利率能否站上 40%、EPS</li><li>技術面：回檔是否守穩月線 311／季線 305</li><li>NVIDIA Rubin 量產、Google TPU 訂單進度</li><li>外資買賣超是否由買轉調節</li></ol>
+<ul><li><strong>下次檢視時間</strong>：2026-07 Q2 財報公布後，或股價回檔至季線附近時</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2449.TW" target="_blank" rel="noopener">Yahoo 奇摩股市 - 京元電子 2449.TW 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2449.TW/revenue" target="_blank" rel="noopener">Yahoo 奇摩股市 - 京元電子月營收</a></li><li><a href="https://www.twse.com.tw/exchangeReport/BWIBBU_d" target="_blank" rel="noopener">TWSE 證交所 - 個股本益比/殖利率/股價淨值比 BWIBBU_d</a></li><li><a href="https://www.twse.com.tw/exchangeReport/MI_MARGN" target="_blank" rel="noopener">TWSE 證交所 - 融資融券餘額 MI_MARGN</a></li><li><a href="https://vocus.cc/article/6a0be6dbfd8978000138d79b" target="_blank" rel="noopener">Vocus - 2026 年第一季財報分析：京元電子 2449.TW</a></li><li><a href="https://www.ftnn.com.tw/news/556163" target="_blank" rel="noopener">FTNN 新聞網 - AI 訂單接到手軟！封測指標大廠擴產搶單、資本支出衝 500 億</a></li><li><a href="https://news.cnyes.com/news/id/6452351" target="_blank" rel="noopener">鉅亨網 - FactSet 最新調查：京元電子目標價調升至 362.5 元</a></li><li><a href="https://today.line.me/tw/v3/article/ZarLVVO" target="_blank" rel="noopener">鉅亨網/LINE TODAY - FactSet：京元電子 EPS 預估下修至 9.77 元、目標價 370 元</a></li><li><a href="https://uanalyze.com.tw/articles/2294440537" target="_blank" rel="noopener">優分析 UAnalyze - 2026 AI 超級循環：日月光、京元電、力成</a></li><li><a href="https://wantrich.chinatimes.com/news/20260614900001-420101" target="_blank" rel="noopener">旺得富理財網 - 封測三雄誰最有肉？官股法人目標價、EPS</a></li><li><a href="https://tw.stock.yahoo.com/news/台積電cowos急單爆量-這3檔-封測供應鏈受惠最大-京元電ai訂單滿手看到2026-072000482.html" target="_blank" rel="noopener">Yahoo 股市 - 台積電 CoWoS 急單爆量！封測供應鏈受惠</a></li><li>技術指標：<code>/Users/minnalee/Desktop/NA/投資理財/scripts/technical_indicators.py</code>（2026-07-06 盤中執行）</li></ul>
+</div>
+</body>
+</html>

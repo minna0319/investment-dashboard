@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光通訊產業趨勢分析（2026/07 更新版）</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html" class="nav-active">報告庫</a><a href="../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>光通訊產業趨勢分析（2026/07 更新版）</h1>
+</div>
+<div class="report-body">
+<h1>光通訊產業趨勢分析（2026/07 更新版）</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026/07/06（台灣時間）</td></tr><tr><td>承接舊報告</td><td><code>光通訊產業趨勢與風險分析_20260305.md</code>（PREST/風險矩陣架構沿用）、<code>2026光通訊產業鏈全景圖_20260309.md</code>（產業鏈結構沿用）、<code>矽光子族群產業分析_20260301.md</code>（台股鏈沿用）</td></tr><tr><td>帶單位數字來源</td><td>LITE / COHR 股價、市值、本益比、營收 → WebFetch Yahoo Finance + stockanalysis.com（2026/07/02 美股收盤價，最新一個交易日；7/3-7/6 為美股週末+國慶假期，無新收盤價）</td></tr><tr><td>質性資訊來源</td><td>WebSearch（財報新聞、股癌節目筆記、產業媒體），已標註來源，不涉及精確數字</td></tr><tr><td>觸發脈絡</td><td>股癌 Podcast EP675（7/1）、EP676（7/4）提及海外光通訊標的 Lumentum、Coherent</td></tr></tbody></table></div>
+<hr>
+<h2>一句話總結</h2>
+<p>Lumentum、Coherent 基本面在 3 月至今持續兌現（雙位數到 9 成 YoY 營收成長、NVIDIA 投資與訂單能見度延伸至 2028），但股價從 5 月起經歷至少 4 波「AI 光學股估值修正」（5/7、5/29、6/23、7/2，單日跌 7~17%），最新一次（7/2）COHR、LITE 同步重挫近 9-10%；股癌 EP676 也點出目前市場資金焦點在被動/功率/封測/台積電，光通訊「基本面沒問題但沒資金關愛」，現階段適合列入觀察與研究名單、等待資金回流訊號或更深回檔再評估進場，而非追高。</p>
+<hr>
+<h2>與 3 月舊版相比的關鍵變化</h2>
+<div class="table-wrap"><table><thead><tr><th>面向</th><th>3/5 舊版</th><th>7/6 現況</th><th>變化意義</th></tr></thead><tbody><tr><td>NVIDIA 投資</td><td>3 月宣布對 COHR、LITE 各投資 20 億美元（合計 40 億美元）+ 多年採購承諾</td><td>投資已到位，雙方陸續公布 Q2-Q3 FY2026 財報，訂單能見度延伸至 2028（COHR）</td><td>從「消息面」進入「財報兌現期」，基本面驗證已開始</td></tr><tr><td>LITE 股價</td><td>未附精確股價（僅提及題材）</td><td>$728.32（7/2 收盤，較 52 週低點 $88.93 漲逾 7 倍；52 週高點 $1,085.68，目前已從高點回落約 33%）</td><td>股價波動劇烈，YTD 仍約 +98%，但近期修正明顯</td></tr><tr><td>COHR 股價</td><td>未附精確股價</td><td>$333.36（7/2 收盤，52 週高點 $440.00，已從高點回落約 24%；YTD 約 +80.6%）</td><td>同上，估值已大幅消化樂觀預期後又修正</td></tr><tr><td>財報驗證</td><td>尚未有具體 Q2/Q3 財報數字</td><td>LITE Q3 FY2026 營收 $808M（YoY +90%），Q4 財測 $960M-$1.01B；COHR Q3 FY2026 營收 $1.81B（YoY +21%），資料中心/通訊部門占營收 75%、YoY +41%，Q4 財測 $1.91B-$2.05B</td><td>業績確實在加速兌現 NVIDIA 訂單，不是純題材</td></tr><tr><td>股價驅動因子</td><td>題材驅動為主</td><td>5-7 月出現至少 4 次「AI 光學股整體性重挫」（非個股利空），24/7 Wall St 稱之為「估值修正/reset」，NVDA、INTC 同步走弱</td><td>從單純上漲轉為高波動雙向震盪，顯示市場對估值的敏感度提高</td></tr><tr><td>股癌觀點</td><td>未提及</td><td>EP675（7/1）：LITE、COHR 因 NVIDIA 投資成為 AI 資料中心光通訊供應鏈鎖定標的；EP676（7/4）：光通訊基本面健全但「沒資金關愛」，建議跟資金流向而非搶進沒有法人動能的題材</td><td>提醒：基本面強不代表股價立刻反應，資金面才是短中期股價的關鍵</td></tr><tr><td>台股鏈（簡要）</td><td>聯亞、上詮估值已高，建議等回調</td><td>WebSearch 顯示聯亞毛利率已衝上約 48%（豐雲學堂 2026/06，未經官方財報 WebFetch 驗證，僅供參考）；NVIDIA 對光通訊供應鏈的投資持續帶動矽光子行情</td><td>台股鏈業績持續兌現，但估值風險未解除，維持舊版「等回調」判斷</td></tr></tbody></table></div>
+<hr>
+<h2>LITE vs COHR 比較</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>Lumentum (LITE)</th><th>Coherent (COHR)</th></tr></thead><tbody><tr><td>股價（7/2 收盤）</td><td>$728.32（-9.09%）</td><td>$333.36（-9.57%）</td></tr><tr><td>市值</td><td>約 $56.66B</td><td>約 $65.22B</td></tr><tr><td>52 週區間</td><td>$88.93 - $1,085.68</td><td>$84.35 - $440.00</td></tr><tr><td>本益比（trailing）</td><td>約 128-138 倍</td><td>約 139-159 倍</td></tr><tr><td>本益比（forward）</td><td>約 46 倍</td><td>約 44.6 倍</td></tr><tr><td>最新季營收成長</td><td>Q3 FY2026 YoY +90%（$808M）</td><td>Q3 FY2026 YoY +21%（$1.81B，TTM +18%）</td></tr><tr><td>業務定位</td><td>較純粹的光學/雷射公司，聚焦 EML、CW Laser、高功率 InP 光源，800G/1.6T 核心上游</td><td>業務更多元（雷射、材料、半導體等舊業務+資料中心光通訊），資料中心/通訊占營收 75%</td></tr><tr><td>訂單能見度</td><td>OCS（光電路交換）業務 backlog 超 $4 億，目標 2027 年達 10 億美元營收run rate</td><td>AI 光收發器需求已排到 2028 年</td></tr><tr><td>Beta / 波動性</td><td>未附精確 Beta，但 YTD +98% 且近期單日跌幅常達雙位數，波動性同樣極高</td><td>Beta 2.04（明確高波動）</td></tr><tr><td>下次財報</td><td>2026/08/11</td><td>2026/08/12</td></tr><tr><td>分析師共識</td><td>買進（25 位分析師），目標價 $1,111.29（隱含上行約 53%）</td><td>買進（21 位分析師），目標價 $387.36（隱含上行約 16%）</td></tr></tbody></table></div>
+<p><strong>一句話比較：</strong> LITE 是「更純粹的 AI 光學成長股」，波動性和潛在漲幅都更大；COHR 業務更分散、營收基數更大，資料中心業務占比穩定提升但仍非 100% 曝險，相對抗震一些，但估值同樣高昂。兩者都已高度綁定 NVIDIA 的資本開支週期。</p>
+<hr>
+<h2>風險評估（延續 3 月風險矩陣，新增/更新項目）</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>3 月狀態</th><th>7 月更新</th></tr></thead><tbody><tr><td>估值過高（R4 延伸）</td><td>台股鏈本益比 50 倍以上示警</td><td>美股標的 trailing PE 達 128-159 倍，即使 forward PE 已收斂至約 45 倍，仍屬「用未來兩三年高成長換現在的高股價」，任何成長不如預期都可能引發大幅修正——5-7 月已連續 4 次驗證此風險</td></tr><tr><td>CPO/矽光子技術路線變化（R9）</td><td>技術路線分歧風險</td><td>无重大變化，NVIDIA Spectrum-X Ethernet CPO 仍規劃 2026 下半年商用、1.6T 光模組出貨預估從 2025 年 180 萬顆躍升至 2026 年逾 3,000 萬顆（WebSearch，未經官方數字覆核）；若 CPO 滲透速度超預期，傳統可插拔光模組（LITE/COHR 現階段主力產品）長期恐被稀釋，但兩者也都有 CPO/矽光子布局，屬轉型中而非被淘汰</td></tr><tr><td>客戶集中度 / AI CapEx 反轉（R1、R6）</td><td>已列示</td><td>未解除。COHR、LITE 營收成長高度綁定 NVIDIA 採購承諾與超大規模業者資本支出，若 AI 建設週期放緩，兩者股價彈性最大</td></tr><tr><td>資金面/籌碼面風險（新增）</td><td>未提及</td><td>股癌 EP676 指出光通訊目前「沒有資金關愛」——市場資金焦點在被動元件、功率元件、封測、台積電。即使基本面持續兌現，若無法人/資金持續進場，股價可能維持區間震盪或持續挨打，這是純基本面分析容易忽略的「資金面風險」</td></tr><tr><td>高波動性對 Minna 配置的意義（新增）</td><td>未提及</td><td>Minna 定位是「美股為輔」的衛星配置，LITE/COHR 屬於高 Beta、單日可上下 10% 的高波動標的，若要納入配置，倉位應顯著小於核心持股，且需要能承受劇烈帳面波動的心理準備</td></tr></tbody></table></div>
+<hr>
+<h2>精選標的與理由</h2>
+<div class="table-wrap"><table><thead><tr><th>優先序</th><th>標的</th><th>理由</th></tr></thead><tbody><tr><td>1</td><td><strong>Lumentum (LITE)</strong></td><td>最純粹的 AI 光學成長股，Q3 YoY 營收 +90%，NVIDIA 直接投資 + 採購承諾綁定，OCS 新業務具備第二成長曲線，適合深入拆解成長动能與估值合理性</td></tr><tr><td>2</td><td><strong>Coherent (COHR)</strong></td><td>業務多元度較高、資料中心營收占比持續提升且訂單能見度到 2028 年，適合評估「多元業務 vs 純光學暴露」的風險報酬取捨，也是股癌節目點名的主要海外標的之一</td></tr><tr><td>3（可選，台股鏈觀察）</td><td><strong>聯亞 (3081)</strong></td><td>台灣 InP 磊晶代工龍頭之一，是 LITE/COHR 上游關鍵材料的台廠對應標的，毛利率據報已提升至約 48%（WebSearch，未經官方數字驗證），可作為美股主標的之外的台股鏈延伸觀察，暫不建議列入本次九維度深度分析主力，僅供追蹤</td></tr></tbody></table></div>
+<p><strong>建議動作：</strong> 對 LITE、COHR 各做一份九維度深度分析，重點放在「NVIDIA 訂單能見度的持續性」「估值消化速度」「資金面/法人動向」三個變數；聯亞維持觀察清單追蹤即可，不急著展開深度分析。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://finance.yahoo.com/quote/LITE" target="_blank" rel="noopener">Lumentum (LITE) - Yahoo Finance</a> — WebFetch，2026/07/02 收盤數據</li><li><a href="https://finance.yahoo.com/quote/COHR" target="_blank" rel="noopener">Coherent (COHR) - Yahoo Finance</a> — WebFetch，2026/07/02 收盤數據</li><li><a href="https://stockanalysis.com/stocks/lite/" target="_blank" rel="noopener">Lumentum (LITE) - stockanalysis.com</a> — WebFetch，財務數據</li><li><a href="https://stockanalysis.com/stocks/cohr/" target="_blank" rel="noopener">Coherent (COHR) - stockanalysis.com</a> — WebFetch，財務數據</li><li><a href="https://247wallst.com/investing/2026/07/02/applied-optoelectronics-plunges-17-coherent-and-lumentum-sink-10-as-photonics-stocks-reset/" target="_blank" rel="noopener">Applied Optoelectronics Plunges 17%, Coherent and Lumentum Sink 10% as Photonics Stocks Reset - 24/7 Wall St. (2026/07/02)</a></li><li><a href="https://247wallst.com/investing/2026/06/23/applied-optoelectronics-plunges-13-coherent-drops-9-lumentum-falls-8-has-an-optics-valuation-reckoning-begun/" target="_blank" rel="noopener">Applied Optoelectronics Plunges 13%, Coherent Drops 9%, Lumentum Falls 8% - 24/7 Wall St. (2026/06/23)</a></li><li><a href="https://247wallst.com/investing/2026/05/29/applied-optoelectronics-tumbles-9-coherent-sinks-8-lumentum-falls-4-as-optics-stocks-cool-off/" target="_blank" rel="noopener">Applied Optoelectronics Tumbles 9%, Coherent Sinks 8%, Lumentum Falls 4% - 24/7 Wall St. (2026/05/29)</a></li><li><a href="https://247wallst.com/investing/2026/05/07/applied-optoelectronics-crashes-14-coherent-slides-10-lumentum-falls-7-as-optics-trade-cools/" target="_blank" rel="noopener">Applied Optoelectronics Crashes 14%, Coherent Slides 10%, Lumentum Falls 7% - 24/7 Wall St. (2026/05/07)</a></li><li><a href="https://www.aol.com/articles/lumentum-lite-q3-2026-earnings-152922863.html" target="_blank" rel="noopener">Lumentum (LITE) Q3 2026 Earnings Transcript - AOL</a></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/assessing-coherent-cohr-valuation-record-120653286.html" target="_blank" rel="noopener">Assessing Coherent (COHR) Valuation After Record Q3 Results And US$2b NVIDIA AI Optics Investment - Yahoo Finance</a></li><li><a href="https://simplywall.st/stocks/us/tech/nyse-cohr/coherent/news/coherent-cohr-is-up-119-after-nvidia-backs-its-ai-datacenter" target="_blank" rel="noopener">Coherent (COHR) Is Up 11.9% After Nvidia's AI Optics Deal - Simply Wall St</a></li><li><a href="https://vocus.cc/article/6a48ebb9fd89780001c2da85" target="_blank" rel="noopener">股癌EP676筆記整理 - Vocus</a></li><li><a href="https://vocus.cc/article/6a44fff9fd8978000106a2da" target="_blank" rel="noopener">2026-07-01-股癌-EP675-重點整理 - Vocus</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E8%BC%9D%E9%81%94%E7%A0%B8-400-%E5%84%84%E5%85%A5%E8%82%A1-%E8%81%AF%E4%BA%9E%E6%AF%9B%E5%88%A9%E8%A1%9D%E4%B8%8A-48-%E2%80%94%E2%80%942026-%E5%85%89%E9%80%9A%E8%A8%8A%E4%BE%9B%E6%87%89%E9%8F%88%E5%AE%8C%E6%95%B4%E8%A7%A3%E6%9E%90-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69c4dab0b0f90e634837502f" target="_blank" rel="noopener">輝達砸400億入股、聯亞毛利衝上48%——2026光通訊供應鏈完整解析 - 豐雲學堂 (2026/06)</a></li><li><a href="https://www.sinotrade.com.tw/richclub/industry/%E7%BE%8E%E8%82%A1%E5%85%89%E9%80%9A%E8%A8%8A%E6%A6%82%E5%BF%B5%E8%82%A1%E6%9C%89%E5%93%AA%E4%BA%9B-AAOI-Coherent-Lumentum-%E5%A6%82%E4%BD%95%E5%8F%97%E6%83%A0-AI-%E8%B3%87%E6%96%99%E4%B8%AD%E5%BF%83%E5%82%B3%E8%BC%B8%E5%8D%87%E7%B4%9A-%E4%B8%80%E6%96%87%E7%9C%8B%E6%87%82-CPO-%E5%95%86%E6%A9%9F-%E7%BE%8E%E8%82%A1%E7%94%A2%E6%A5%AD-6a13efc729df111fa5e2f192" target="_blank" rel="noopener">美股光通訊概念股有哪些？AAOI、Coherent、Lumentum 如何受惠 AI 資料中心傳輸升級 - 豐雲學堂 (2026/07)</a></li><li>舊版報告（結構沿用）：<code>光通訊產業趨勢與風險分析_20260305.md</code>、<code>2026光通訊產業鏈全景圖_20260309.md</code>、<code>矽光子族群產業分析_20260301.md</code></li></ul>
+<hr>
+<blockquote>以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>

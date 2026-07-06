@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>被動元件產業趨勢分析（2026/07 掃描版）</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html" class="nav-active">報告庫</a><a href="../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>被動元件產業趨勢分析（2026/07 掃描版）</h1>
+</div>
+<div class="report-body">
+<h1>被動元件產業趨勢分析（2026/07 掃描版）</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026/07/06（台灣時間，盤中約 10:15，台股尚未收盤）</td></tr><tr><td>觸發脈絡</td><td>股癌 Podcast EP675（7/1）「七月起被動元件與 MOSFET 將迎來全面漲價潮」；EP676（7/4）「被動與功率元件率先反彈」</td></tr><tr><td>帶單位數字來源</td><td>個股股價/漲跌幅 → WebFetch Yahoo 股市個股頁（2026/07/06 盤中）+ TWSE STOCK_DAY_ALL（2026/07/03 官方收盤，用於交叉驗證）；月營收 → WebFetch Yahoo 股市 revenue 頁（最新至 2026/05）</td></tr><tr><td>質性資訊來源</td><td>WebSearch（產業媒體、豐雲學堂、經濟日報、今周刊），已標註來源，不涉及精確數字</td></tr><tr><td>參考舊分析</td><td><code>04_個股分析/台股/國巨2327_九維度深度分析_20260531.md</code>（v2.0，5/31 股價 738 元時的完整分析，本次不重做，僅更新最新股價與處置股狀態）</td></tr><tr><td>⚠️ 待補</td><td>今日（7/6）盤中 Yahoo 個股頁部分收盤價欄位解析異常（國巨、華新科出現明顯不合理數字），已改用「昨收+漲跌%」交叉驗證，並以 7/3 TWSE 官方收盤價為錨定基準；正式收盤數字建議收盤後（14:30 後）重新확認</td></tr></tbody></table></div>
+<hr>
+<h2>一句話總結</h2>
+<p>這波被動元件行情是「AI 伺服器結構性用量升級」與「漲價循環啟動」兩股力量疊加，法人與媒體普遍認為與 2018 年純消費電子拉貨循環不同、預期缺貨可持續到 2027 年；但股價與籌碼面已明顯搶跑——國巨、禾伸堂、大毅等多檔已被交易所列為處置股，本益比普遍飆升到 64～127 倍的歷史高檔，代表短期漲價題材已被市場高度反映，此時應優先挑選「相對還沒被過度炒作、且有獨特利基題材」的標的做深度研究，而非追高族群龍頭。</p>
+<hr>
+<h2>產業趨勢：這波是漲價循環還是 AI 用量升級？</h2>
+<h3>判斷：兩者疊加，且法人認為結構性成分更重</h3>
+<p><strong>支持「AI 用量結構性升級」的證據：</strong></p>
+<ul><li>NVIDIA GB200 機櫃 MLCC 用量達 44 萬顆，是傳統伺服器（約 2,200 顆）的 200 倍以上；NVIDIA 新一代 Vera Rubin 平台單一機架高階 MLCC 需求估達 430 萬顆（WebSearch，鉅亨網／豐雲學堂）</li><li>村田製作所表示 AI 伺服器元件詢問量已達產能兩倍，高階 MLCC 稼動率維持在 90%～95%（WebSearch，2026/07 豐雲學堂）</li><li>AI 伺服器對穩壓、耐高溫的要求，使鉭質電容、TLVR 電感、高壓 MLCC 等特殊規格供不應求，缺的是「高門檻特規品」而非能被低階產能補上的一般消費型規格</li></ul>
+<p><strong>支持「漲價循環啟動」的證據（近期具體調漲事件，已發生）：</strong></p>
+<ul><li>國巨旗下美商基美（KEMET）自 2026/06 起對部分電容產品調漲 5%～65%</li><li>國巨自 2026/07/01 起調漲電容器全系列產品線（MLCC、鋁電解電容、鉭質電容、高分子鋁電容、薄膜電容、超級電容）</li><li>日本村田 4 月宣布電感漲價、太陽誘電 5 月調漲 MLCC/電感/RF 元件、松下擬 7 月調漲部分電容產品</li><li>中國被動元件廠風華高科因訂單滿載，已暫停接 0402/0603 規格晶片電阻與 MLCC 訂單（產能排擠效應）</li></ul>
+<p><strong>與 2018 年缺貨潮的關鍵差異（WebSearch，多方觀點一致）：</strong></p>
+<p>2018 年缺貨潮主要由消費電子拉貨潮 + 景氣循環驅動，國巨股價曾飆上 1,310 元天價後快速崩跌（拆股前口徑），事後證明是短期供需失衡。這次多數法人認為需求結構不同——AI 伺服器與車用電子驅動的是「高壓、高階特規品」的結構性升級，不是低階消費電子產能能補位的部分，因此循環延續時間預期較長（多份報告估到 2027 年），但<strong>這不代表股價不會重演 2018 年的暴漲暴跌模式</strong>——2018 年的崩跌很大程度也是「估值透支」造成，而非單純基本面反轉，這點在下方風險評估會再強調。</p>
+<h3>時間線</h3>
+<div class="table-wrap"><table><thead><tr><th>時間維度</th><th>內容</th></tr></thead><tbody><tr><td>短期（0-6 個月）</td><td>國巨 7/1 全系列調漲已生效；多檔個股 6 月底以來因短期漲幅過猛被列處置股，短線波動風險升高；股癌 EP676 提及功率元件（MOSFET）7 月將密集出現漲價信號，資金可能在被動元件與功率元件間輪動</td></tr><tr><td>中期（6 個月-2 年）</td><td>高階 MLCC/鋁電容/鉭電容供給缺口「短期難解」，多家券商預期漲價循環延燒至 2027 年；NVIDIA Vera Rubin 平台放量將是下一個驗證點</td></tr><tr><td>長期（2-5 年）</td><td>車用電子化（EV/ADAS 用量是燃油車 3-5 倍）+ AI 資料中心液冷/HVDC 架構是結構性長期需求，但被動元件本質仍是景氣循環產業，長期仍會有供需修正的波動</td></tr></tbody></table></div>
+<hr>
+<h2>名單查證說明</h2>
+<p><strong>奇力新（2456）已於 2022/01/05 下市，全數併入國巨</strong>（2021 年宣布股份轉換，換股比例 1 股奇力新換 0.2002 股國巨，2021/12/30 完成整併），因此奇力新不再是獨立可交易標的，其電感/磁性元件業務已完全併入國巨營收（貢獻約 15%），本次比較不再列出。</p>
+<hr>
+<h2>各公司比較</h2>
+<blockquote>⚠️ 以下股價為 2026/07/06 盤中數字（Yahoo 股市，資料時間約 10:15，台股尚未收盤，波動仍在進行中），本益比為當下股價對應的 TTM 本益比；7/3 官方收盤價（TWSE STOCK_DAY_ALL）列於備註欄供交叉驗證。月營收為最新至 2026/05 官方數字（Yahoo 股市 revenue）。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>公司</th><th>代號</th><th>定位</th><th>7/3 官方收盤</th><th>7/6 盤中漲跌幅</th><th>本益比(TTM)</th><th>2026/05 營收YoY</th><th>處置股狀態</th></tr></thead><tbody><tr><td>國巨</td><td>2327</td><td>全品類龍頭（MLCC+鉭電+電阻+電感+感測器）</td><td>1,045 元</td><td>+4.78%（盤中數字有雜訊，方向為漲）</td><td>82.28x</td><td>+47.46%</td><td>⚠️ 已列處置股（6/26 起）</td></tr><tr><td>華新科</td><td>2492</td><td>MLCC 純度最高，台廠第二大</td><td>563 元</td><td>+2.66%</td><td>107.85x</td><td>+16.48%（2 月曾轉負 -3.73%）</td><td>未列</td></tr><tr><td>禾伸堂</td><td>3026</td><td>利基型客製化高壓高頻 MLCC</td><td>988 元</td><td>+9.21%</td><td>127.32x</td><td>+21.34%</td><td>⚠️ 已二度列處置股</td></tr><tr><td>大毅</td><td>2478</td><td>晶片電阻，波動大</td><td>238 元</td><td>+9.66%</td><td>64.15x</td><td>+16.47%（2 月曾 -20.21%）</td><td>⚠️ 已列處置股</td></tr><tr><td>信昌電</td><td>6173（上櫃）</td><td>高壓 MLCC「黑馬」，訂單暴量</td><td>318.5 元（盤中）</td><td>+9.13%</td><td>93.97x</td><td>+25.63%</td><td>未取得（❌ 需查 TPEX 公告）</td></tr><tr><td>臺慶科</td><td>3357（上櫃）</td><td>AI 伺服器供電模組用 TLVR 電感</td><td>288.5 元（盤中）</td><td>+1.20%（族群中明顯落後）</td><td><strong>30.04x（族群最低）</strong></td><td><strong>+37.77%（族群最高）</strong></td><td>未取得</td></tr><tr><td>光頡</td><td>3624</td><td>晶片電阻二線廠</td><td>151.5 元（盤中）</td><td>+2.26%</td><td>74.88x</td><td>❌ 未取得（未查）</td><td>未取得</td></tr><tr><td>立隆電</td><td>2472</td><td>固態鋁電容，唯一確認打入 NVIDIA Vera Rubin 板端供電供應鏈</td><td>425 元（盤中昨收）</td><td>+4.35%</td><td><strong>49.13x</strong></td><td>+29.96%</td><td>未取得</td></tr></tbody></table></div>
+<blockquote>📝 <strong>處置股</strong>：交易所發現某檔股票短期漲跌幅或週轉率異常，強制採取「分盤交易」等措施降溫的機制。被列處置不代表公司變差，但代表監理機關認定「短期投機性交易過熱」，通常伴隨流動性下降、波動加劇。國巨、禾伸堂、大毅同時被列處置，是這波被動元件行情「短線炒作程度」的重要訊號。</blockquote>
+<blockquote>📝 <strong>TLVR 電感</strong>：Total Loss Voltage Regulator 電感，AI 處理器（GPU）供電穩定專用的高規格電感元件，是 AI 伺服器機櫃內電源模組的必備零件。</blockquote>
+<hr>
+<h2>需求驅動總結</h2>
+<ol><li><strong>AI 伺服器</strong>：GB200/GB300 機櫃 MLCC 用量暴增（44 萬顆 vs 傳統 2,200 顆），Vera Rubin 平台單機架高階 MLCC 需求估達 430 萬顆；HVDC（高壓直流）架構帶動高壓 MLCC、鉭電容、TLVR 電感需求</li><li><strong>液冷散熱</strong>：AI 伺服器轉向液冷技術，帶動熱敏電阻（感測器）需求</li><li><strong>車用電子化</strong>：EV/ADAS 每輛車被動元件用量是燃油車 3-5 倍，長期結構性成長（CAGR 約 6.9%，WebSearch）</li><li><strong>日系產能排擠</strong>：村田/太陽誘電/TDK 產能全面轉向 AI 與車用高階規格，中低階/消費型產能釋出，台廠（含二線廠）接轉單</li><li><strong>漲價已從高階品擴散至標準品</strong>：國巨晶片電阻 2 月漲價 10-20%，7/1 電容器全系列再漲，代表漲價廣度在擴大，不只是特規品</li></ol>
+<hr>
+<h2>漲價是否已反映在股價？—— 核心判斷</h2>
+<p><strong>結論：族群龍頭（國巨、禾伸堂）已高度反映甚至超前反映；二線利基股（臺慶科、信昌電、立隆電）反映程度相對較低，是現階段值得深入研究的區間。</strong></p>
+<p>證據：</p>
+<ul><li>國巨本益比 82x、禾伸堂 127x、大毅 64x，均遠高於歷史合理區間（被動元件景氣循環股歷史合理 PE 約 9-30x，參考國巨舊分析 v2.0）</li><li>國巨、禾伸堂、大毅同時被列為處置股，代表短期漲幅已觸發監理警戒</li><li>相對地，臺慶科本益比僅 30x，且 7/6 盤中漲幅（+1.2%）明顯落後整個族群（其他個股普遍漲 4-10%），但其 5 月營收年增率（+37.77%）是本次掃描中最強——這種「基本面最強、股價漲幅卻最弱」的落差，正是最值得深入研究的標的</li><li>立隆電本益比 49x，且具備「唯一確認打入 NVIDIA Vera Rubin 供應鏈」的差異化題材（固態鋁電容板端供電），相對於已經被充分定價的 MLCC 主流廠商，題材尚未被市場完全消化</li></ul>
+<hr>
+<h2>風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>嚴重程度</th><th>風險分數</th><th>早期警訊</th></tr></thead><tbody><tr><td>循環股追高：族群 PE 普遍飆破歷史區間 2-4 倍</td><td>高</td><td>高</td><td>9</td><td>外資轉為連續賣超、處置股數量持續增加</td></tr><tr><td>2018 式暴漲暴跌重演（估值透支而非基本面反轉）</td><td>中</td><td>高</td><td>6</td><td>國巨股價／族群指標股單日重挫超過 5%</td></tr><tr><td>漲價證實度風險：部分需求為 Overbooking（提前備貨）而非真實終端需求</td><td>中</td><td>中高</td><td>6</td><td>銀價/原料價回落後訂單快速萎縮</td></tr><tr><td>處置股流動性風險：分盤交易導致買賣價差擴大</td><td>高（已發生）</td><td>中</td><td>6</td><td>已列處置的個股成交量驟減</td></tr><tr><td>資金輪動風險：股癌 EP676 指出資金正往功率元件（MOSFET）流動</td><td>中</td><td>中</td><td>4</td><td>被動元件個股量縮、MOSFET/功率元件族群量增</td></tr><tr><td>AI 資本支出縮減（雲端廠商削減伺服器投資）</td><td>低中</td><td>高</td><td>6</td><td>Meta/Google/Microsoft 財報下修資本支出指引</td></tr><tr><td>日系大廠大幅擴產，供給缺口提前緩解</td><td>低中</td><td>高</td><td>6</td><td>村田/TDK/太陽誘電宣布擴產計畫</td></tr><tr><td>二線利基股資訊揭露較少、流動性較薄（如光頡成交量僅 252 張）</td><td>中</td><td>中</td><td>4</td><td>成交量長期偏低，買賣困難</td></tr></tbody></table></div>
+<h3>情境規劃</h3>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>定義</th><th>對族群影響</th></tr></thead><tbody><tr><td>🟢 最佳情況</td><td>漲價全面兌現至 Q3/Q4 財報、Vera Rubin 放量帶動高階 MLCC 需求再升級</td><td>二線利基股（臺慶科、信昌電、立隆電）補漲空間最大，龍頭股維持高檔震盪</td></tr><tr><td>🟡 基準情況</td><td>漲價持續但股價已提前反應，Q3 財報符合預期、無驚喜</td><td>族群整理消化獲利了結賣壓，處置股陸續解除後波動降溫</td></tr><tr><td>🔴 最差情況</td><td>現貨報價鬆動、部分為 Overbooking 被證實，外資轉賣</td><td>龍頭股（PE 已飆破 80-127x）修正幅度可能達 40-50%（參考國巨舊分析）</td></tr><tr><td>⚫ 黑天鵝</td><td>2018 式估值透支引發全族群系統性重挫（不需基本面惡化即可觸發）</td><td>高本益比、高波動的處置股首當其衝，流動性快速枯竭</td></tr></tbody></table></div>
+<hr>
+<h2>精選標的與理由</h2>
+<div class="table-wrap"><table><thead><tr><th>優先序</th><th>標的</th><th>理由</th></tr></thead><tbody><tr><td>1</td><td><strong>臺慶科（3357）</strong></td><td>族群中本益比最低（30x）、5 月營收年增率最強（+37.77%），但 7/6 盤中漲幅明顯落後族群（+1.2% vs 其他普遍 4-10%）。這種「基本面最強但股價反應最弱」的落差需要深入研究：是尚未被市場注意到的補漲機會，還是有基本面隱憂（如客戶集中度、TLVR competition）拖累評價？值得優先排入九維度分析</td></tr><tr><td>2</td><td><strong>信昌電（6173）</strong></td><td>高壓 MLCC 「黑馬」定位獨特，不與國巨、華新科在主流規格上正面競爭；5 月營收年增 25.63%、動能持續向上，7/6 盤中漲幅 +9.13% 顯示市場也開始注意到此標的，但目前本益比（93.97x）仍低於禾伸堂（127x），且尚未進入處置股名單，適合趁族群輪動初期切入研究</td></tr><tr><td>3</td><td><strong>立隆電（2472）</strong></td><td>唯一確認打入 NVIDIA Vera Rubin 平台板端供電供應鏈（固態鋁電容），提供與主流 MLCC 廠商不同的差異化題材；本益比 49x 遠低於國巨/禾伸堂/華新科，題材尚未被市場充分定價，5 月營收年增 29.96% 動能穩健，適合作為「AI 被動元件」主題中風險相對可控的入門標的</td></tr></tbody></table></div>
+<h3>落選者與原因</h3>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>落選原因</th></tr></thead><tbody><tr><td><strong>國巨（2327）</strong></td><td>已有既有九維度深度分析（<code>國巨2327_九維度深度分析_20260531.md</code>，v2.0），結論為「持有但高度警戒，不加碼」；現已進一步飆升並列入處置股，重複分析意義有限，維持既有結論並持續追蹤即可</td></tr><tr><td><strong>華新科（2492）</strong></td><td>本益比高達 107.85x，5 月營收年增雖有 16.48%，但 2 月曾轉負（-3.73%），波動性大；WebSearch 顯示市場觀點認為其「短多長慎」、續航力不如禾伸堂等利基型競爭者，此時介入的風險報酬不如其他二線標的</td></tr><tr><td><strong>禾伸堂（3026）</strong></td><td>本益比 127.32x 為全族群最高，且已二度被列為處置股——代表交易所認定短期炒作程度最嚴重，此時做「該不該進場」的基本面深度分析意義有限，建議列為觀察名單追蹤處置股解除後的走勢，而非現在展開九維度分析</td></tr><tr><td><strong>大毅（2478）</strong></td><td>晶片電阻定位，月營收波動劇烈（近 6 個月 YoY 從 -20.21% 到 +37.97% 大幅震盪），基本面穩定性不足，且已列處置股，短線投機屬性較重，較不適合現階段做長期基本面判斷</td></tr><tr><td><strong>光頡（3624）</strong></td><td>7/6 盤中成交量僅 252 張，流動性明顯偏低，買賣價差可能較大，即使基本面題材成立，操作上的進出場風險也偏高，暫不列入優先研究</td></tr></tbody></table></div>
+<p><strong>建議動作：</strong> 對臺慶科（3357）、信昌電（6173）、立隆電（2472）各排入九維度深度分析，重點放在「客戶集中度與訂單能見度」「本益比偏低是否代表市場尚未定價，還是有隱藏風險」「處置股解除後族群資金是否回流二線標的」三個變數；國巨維持既有結論追蹤，華新科/禾伸堂/大毅/光頡列觀察名單，不急著展開深度分析。</p>
+<hr>
+<h2>資料來源</h2>
+<h3>股價與財務數據（WebFetch）</h3>
+<ul><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY_ALL?response=json" target="_blank" rel="noopener">TWSE STOCK_DAY_ALL（2026/07/03 官方收盤）</a></li><li><a href="https://tw.stock.yahoo.com/quote/2327.TW" target="_blank" rel="noopener">Yahoo 股市 - 國巨(2327)個股頁</a>／<a href="https://tw.stock.yahoo.com/quote/2327.TW/revenue" target="_blank" rel="noopener">月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/2492.TW" target="_blank" rel="noopener">Yahoo 股市 - 華新科(2492)個股頁</a>／<a href="https://tw.stock.yahoo.com/quote/2492.TW/revenue" target="_blank" rel="noopener">月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/3026.TW" target="_blank" rel="noopener">Yahoo 股市 - 禾伸堂(3026)個股頁</a>／<a href="https://tw.stock.yahoo.com/quote/3026.TW/revenue" target="_blank" rel="noopener">月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/2478.TW" target="_blank" rel="noopener">Yahoo 股市 - 大毅(2478)個股頁</a>／<a href="https://tw.stock.yahoo.com/quote/2478.TW/revenue" target="_blank" rel="noopener">月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/6173.TWO" target="_blank" rel="noopener">Yahoo 股市 - 信昌電(6173)個股頁</a>／<a href="https://tw.stock.yahoo.com/quote/6173.TWO/revenue" target="_blank" rel="noopener">月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/3357.TWO" target="_blank" rel="noopener">Yahoo 股市 - 臺慶科(3357)個股頁</a>／<a href="https://tw.stock.yahoo.com/quote/3357.TWO/revenue" target="_blank" rel="noopener">月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/3624.TW" target="_blank" rel="noopener">Yahoo 股市 - 光頡(3624)個股頁</a></li><li><a href="https://tw.stock.yahoo.com/quote/2472.TW" target="_blank" rel="noopener">Yahoo 股市 - 立隆電(2472)個股頁</a>／<a href="https://tw.stock.yahoo.com/quote/2472.TW/revenue" target="_blank" rel="noopener">月營收</a></li></ul>
+<h3>質性研究與新聞（WebSearch）</h3>
+<ul><li><a href="https://vocus.cc/article/6a44fff9fd8978000106a2da" target="_blank" rel="noopener">2026-07-01-股癌-EP675-重點整理 - Vocus</a></li><li><a href="https://vocus.cc/article/6a48ebb9fd89780001c2da85" target="_blank" rel="noopener">股癌EP676筆記整理 - Vocus</a></li><li><a href="https://blog.growin.tv/passive-components-stocks/" target="_blank" rel="noopener">被動元件概念股 2026 全解析｜AI 伺服器引爆漲價潮 - growin.tv</a></li><li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202606180019/" target="_blank" rel="noopener">國巨可以買？股價670→1080元漲停「9天飆6成」- 今周刊</a></li><li><a href="https://money.udn.com/money/story/12040/9549175" target="_blank" rel="noopener">AI 需求百倍大增，同樣被動元件大行情，國巨、華新科卻是兩種方向不同命？ - 經濟日報</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E7%AC%AC%E4%B8%80%E6%B3%A2-AI-%E4%BC%BA%E6%9C%8D%E5%99%A8-%E7%AC%AC%E4%BA%8C%E6%B3%A2-AI-PC-%E8%A2%AB%E5%8B%95%E5%85%83%E4%BB%B6%E7%BC%BA%E8%B2%A8%E9%82%84%E6%B2%92%E5%88%B0%E9%A0%82-MLCC-%E8%88%87%E6%99%B6%E7%89%87%E9%9B%BB%E9%98%BB%E6%BC%B2%E5%83%B9%E5%85%A8%E8%A7%A3%E6%9E%90-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-6a3cd2e6199469d0fdf0ad93" target="_blank" rel="noopener">第一波 AI 伺服器、第二波 AI PC，被動元件缺貨還沒到頂 - 豐雲學堂 2026/07</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/2026-%E5%B9%B4-MLCC-%E9%89%AD%E8%B3%AA%E9%9B%BB%E5%AE%B9-SP-CAP-%E5%85%A8%E9%9D%A2%E6%BC%B2%E5%83%B9%E7%BC%BA%E8%B2%A8%E8%A7%A3%E6%9E%90-%E5%85%88%E7%9C%8B%E6%87%82-2018-%E5%B9%B4%E8%B6%85%E7%B4%9A%E8%A1%8C%E6%83%85%E8%88%87%E9%80%99%E6%AC%A1%E7%9A%84%E6%A0%B9%E6%9C%AC%E5%B7%AE%E7%95%B0-%E5%86%8D%E8%A9%95%E4%BC%B0-Panasonic-%E8%AA%BF%E6%BC%B2-%E5%9C%8B%E5%85%A7%E5%A4%96%E5%A4%A7%E5%BB%A0%E5%AE%8C%E6%95%B4%E5%8F%97%E7%9B%8A%E6%A0%BC%E5%B1%80-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-6a1ce522ab26abbf4ced0cef" target="_blank" rel="noopener">2026 年 MLCC、鉭質電容、SP-CAP 全面漲價缺貨解析：先看懂 2018 年超級行情與這次的根本差異 - 豐雲學堂 2026/06</a></li><li><a href="https://tw.stock.yahoo.com/news/%E8%A2%AB%E5%8B%95%E5%85%83%E4%BB%B6%E9%A3%86%E5%A4%AA%E5%BF%AB-%E5%9C%8B%E5%B7%A8-%E7%A6%BE%E4%BC%B8%E5%A0%82%E7%AD%89%E5%90%8C%E5%88%9710%E6%AA%94%E8%A2%AB-%E6%8A%93%E5%8E%BB%E9%97%9C-%E4%BD%8E%E8%BB%8C%E8%A1%9B%E6%98%9F%E9%80%99%E6%AA%94-231500195.html" target="_blank" rel="noopener">被動元件飆太快！國巨、禾伸堂等同列10檔被「抓去關」 - Yahoo 股市新聞</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E8%99%95%E7%BD%AE%E8%82%A1%E8%BF%BD%E8%B9%A4-0526-%E4%BB%8A%E6%97%A5%E6%96%B0%E5%A2%9E-10-%E6%AA%94-%E5%9C%8B%E5%B7%A8-%E5%A4%A7%E6%AF%85-%E6%98%87%E9%81%94%E7%A7%91%E9%A6%96%E5%85%A5%E5%88%97-%E7%A6%BE%E4%BC%B8%E5%A0%82-%E5%A4%A7%E9%87%8F%E5%86%8D%E9%81%AD%E4%BA%8C%E5%BA%A6%E8%99%95%E7%BD%AE-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-6a14ee379997291927d787c2" target="_blank" rel="noopener">處置股追蹤 0526／今日新增 10 檔，國巨、大毅、昇達科首入列 - 豐雲學堂 2026/06</a></li><li><a href="https://tw.stock.yahoo.com/news/2%E8%A1%A8%E7%9C%8B-%E5%87%B1%E7%BE%8E-%E7%A6%BE%E4%BC%B8%E5%A0%82-%E5%A0%A1%E9%81%94-%E7%AB%8B%E9%9A%86%E9%9B%BB-045035002.html" target="_blank" rel="noopener">2表看》凱美、禾伸堂、堡達、立隆電…被動元件全線噴發，唯一攻進輝達Rubin鏈是他 - Yahoo 股市新聞</a></li><li><a href="https://tw.stock.yahoo.com/news/%E5%A5%87%E5%8A%9B%E6%96%B01-5%E4%B8%8B%E5%B8%82%E4%BD%B5%E5%85%A5%E5%9C%8B%E5%B7%A8-%E5%8F%AF%E6%9C%9B%E5%B8%B6%E5%8B%95%E5%9C%8B%E5%B7%A8%E7%89%B9%E6%AE%8A%E5%93%81%E6%AF%94%E9%87%8D%E4%B8%8A%E7%9C%8B%E5%85%AB%E6%88%90-020628843.html" target="_blank" rel="noopener">奇力新1/5下市併入國巨（2022 年已完成，不再是獨立標的） - Yahoo 股市新聞</a></li></ul>
+<h3>舊分析（不重複、僅引用）</h3>
+<ul><li><code>04_個股分析/台股/國巨2327_九維度深度分析_20260531.md</code>（v2.0，估值/風險/歷史 PE 區間分析沿用）</li></ul>
+<hr>
+<blockquote>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，被動元件為景氣循環股，且本次掃描標的多數本益比已處於歷史高檔，波動風險顯著高於一般個股，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>
