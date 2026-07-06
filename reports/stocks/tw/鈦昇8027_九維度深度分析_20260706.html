@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鈦昇（8027）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>鈦昇（8027）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>鈦昇（8027）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-07-06</td><td>NT$239.0</td><td>首次分析。收盤價/漲跌、TPEX 官方 PB/PE/殖利率（2026-07-03）、Yahoo 月營收（至 6 月）、季 EPS、技術指標（technical_indicators.py）、本業營收結構、監理狀態全數重抓；引用《載板與玻璃基板產業趨勢分析_20260706》產業定位</td></tr></tbody></table></div>
+<h2>關鍵指標快照</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$239.0（漲跌 -4.02%，昨收 249.0）</td></tr><tr><td>市值</td><td>約 276 億元（275.9 億，Yahoo 2026-07-06）</td></tr><tr><td>PE 本益比</td><td><strong>N/A（虧損，本益比無意義）</strong>（TPEX 2026-07-03 官方揭示 N/A）</td></tr><tr><td>PB 股價淨值比</td><td><strong>9.55 倍</strong>（TPEX 2026-07-03 官方）</td></tr><tr><td>EPS（近 4 季合計）</td><td><strong>約 -0.57 元（虧損）</strong>（2025Q2 -1.13、Q3 +0.12、Q4 +0.66、2026Q1 -0.22）</td></tr><tr><td>殖利率</td><td>0%（不分派股利，DividendPerShare=0，TPEX 官方）</td></tr><tr><td>ROE</td><td>負值（近四季合計虧損，ROE 為負）</td></tr><tr><td>毛利率</td><td>❌ 未取得（建議查 MOPS 財報／財報狗）</td></tr><tr><td>營收 YoY（最新月 6 月）</td><td>+58.48%</td></tr><tr><td>營收 MoM（6 月）</td><td>+10.70%</td></tr><tr><td>52 週高 / 低</td><td>293.0 / 77.6</td></tr><tr><td>技術位置</td><td>MA20 235.7、MA60 220.59（站上季線 +8.3%）、RSI 51.15（中性）</td></tr></tbody></table></div>
+<p>資料時間：2026-07-06（台股已收盤）｜估值為 TPEX 2026-07-03 官方最近揭示日｜資料來源見文末</p>
+<h2>結論</h2>
+<p>【觀望】— 技術真有獨門壁壘、營收動能強，但公司本業仍在虧損、PB 9.55 倍屬純題材溢價，連 4 日暴漲後追高風險大，宜等回檔並看到獲利轉正訊號再談佈局。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：觀望等待（若佈局，僅適合極小倉位的高風險衛星部位）</p>
+<hr>
+<h2>1. 基本面</h2>
+<p><strong>這家公司靠什麼賺錢？</strong> 鈦昇科技（8027）成立於 1994 年、2015 年上櫃，主業是自動化與雷射加工設備的設計製造。依最新營收結構，<strong>雷射設備約占 52.9%、SMD 包裝材料約 18.5%、其他營運事業部約 18.4%</strong>（StockFeel 股感彙整）——本質上是一家「雷射設備廠」，不是純半導體公司。</p>
+<p><strong>在產業裡的位置？</strong> 這正是市場最看重的一點：鈦昇是台灣少數同時具備 <strong>TGV 玻璃基板鑽孔＋雷射解膠＋電漿清洗</strong>一站式方案的設備廠，並主導「E-Core System 玻璃基板大聯盟」，串聯 Manz（電鍍）、群翊（烘烤）、長廣（壓膜），讓大客戶「只要找鈦昇就能拿到 Total Solution（整套解決方案）」。它已切入台積電主導的 CoPoS 供應鏈，被市場公認為「最純」的 TGV 題材股。</p>
+<blockquote>📝 <strong>TGV（Through Glass Via，玻璃通孔）</strong>：在玻璃基板上鑽出數百萬個微小導通孔，讓電訊號能穿過玻璃層互相連接。玻璃是脆性材料，機械鑽孔會碎裂、傳統雷射熱影響區太大會產生裂紋，所以這是整條玻璃基板產業鏈技術門檻最高的一關。</blockquote>
+<blockquote>📝 <strong>CoPoS</strong>：台積電的玻璃基板先進封裝技術，簡單說就是「把圓形晶圓換成方形玻璃面板」來封裝晶片，面積更大、更平整，是現行 CoWoS 的下一代升級版。</blockquote>
+<blockquote>📝 <strong>賣水人（設備廠）角色</strong>：淘金熱時真正穩賺的往往不是淘金者，而是賣鏟子、賣水的人。鈦昇不自己做玻璃基板，而是賣「鑽孔設備」給所有想做玻璃基板的廠商，因此不受單一面板／載板廠盈虧稀釋——這是它的差異化定位。</blockquote>
+<p><strong>管理層與技術積累</strong>：董事長王明慶、總經理陳坤山。公司長期深耕雷射加工，TGV 鑽孔速度已從每秒 1,500 孔進化到 <strong>每秒 8,000 孔</strong>、精準度維持 5μm（微米）內，達到量產經濟規模。技術路徑是「先用雷射改變玻璃內部分子結構，再送入化學藥水濕蝕刻」，屬於真材實料的製程 know-how，不是純概念。</p>
+<h3>小結</h3>
+<p>鈦昇是一家「雷射設備廠」轉身卡位玻璃基板鑽孔的公司，TGV 技術是市場公認最純的題材，但要記住：目前雷射設備＋SMD 包材仍是營收主體，TGV 是「想像空間」而非「已放量的獲利來源」。</p>
+<h2>2. 財務面</h2>
+<p><strong>賺錢能力如何？</strong> 這是最需要 Minna 冷靜看的地方——<strong>鈦昇目前是虧損的</strong>。近四季單季 EPS 為 2025Q2 -1.13 元、Q3 +0.12 元、Q4 +0.66 元、2026Q1 -0.22 元，<strong>近四季合計約 -0.57 元（虧損）</strong>（Yahoo 股市 EPS 頁）。這代表本益比（PE）根本算不出來，TPEX 官方也直接揭示為 N/A。</p>
+<blockquote>📝 <strong>EPS（每股盈餘）</strong>：公司每一股在一段期間內賺了多少錢。負的 EPS 代表「虧損」，這時候「本益比」（股價 ÷ EPS）會變成負數而失去意義，所以官方直接標 N/A。</blockquote>
+<p><strong>營收趨勢卻是強勁向上</strong>：這正是這檔股票的矛盾魅力——獲利還沒轉正，但營收動能非常猛。</p>
+<ul><li>6 月營收 2.47 億元，MoM +10.70%、<strong>YoY +58.48%</strong></li><li>5 月營收 2.23 億元，<strong>YoY +140.18%</strong>（族群最亮眼的數字，也是股癌提到的重點）</li><li>1~6 月累計營收 10.09 億元，<strong>累計 YoY +46.41%</strong></li></ul>
+<p>（以上皆 Yahoo 股市月營收官方頁）</p>
+<p><strong>現金夠不夠 / 財務結構</strong>：本次未取得完整資產負債與現金流數據（毛利率、負債比、自由現金流標 ❌ 未取得）。但從「營收暴衝卻仍虧損」可推論——公司正處於「投入研發＋設備擴產的燒錢卡位期」，營收放大尚未反映到獲利，這在早期成長型設備廠很常見，但也代表財務體質仍需盯緊。</p>
+<h3>小結</h3>
+<p>營收動能（YoY +58%~140%）與獲利（近四季虧損 -0.57 元）嚴重背離——這是一檔「營收先衝、獲利未到」的成長期設備股，能不能把營收轉成實質獲利，是後續最關鍵的觀察點。</p>
+<h2>3. 估值面</h2>
+<p><strong>目前股價貴不貴？</strong> 用傳統估值看，這檔股票「貴到無法用本益比衡量」：</p>
+<ul><li><strong>PE：N/A</strong>——因為虧損，沒有 E（獲利）可以除。</li><li><strong>PB（股價淨值比）9.55 倍</strong>（TPEX 2026-07-03 官方）——這是重點：一家<strong>還在虧損</strong>的公司，股價卻是每股淨值的 9.55 倍，代表市場完全是用「未來玻璃基板放量的想像」在定價，而非現有資產或獲利。</li></ul>
+<blockquote>📝 <strong>PB（Price-to-Book，股價淨值比）</strong>：股價 ÷ 每股淨值（公司清算後每股值多少）。PB 1 倍代表股價等於帳面價值，9.55 倍代表市場願意付帳面價值近 10 倍的價格——對一家獲利尚未轉正的公司來說，這是很高的溢價，全押在成長故事上。</blockquote>
+<p><strong>成長性有沒有被合理定價？</strong> 若 TGV 題材如市場期待在 2027~2029 年放量、獲利大幅轉正，現在的高 PB 事後看可能是「便宜」；但若放量遞延或不如預期，9.55 倍 PB 沒有獲利或資產作安全墊，向下修正的空間會很大。這是典型「高賠率、高風險」的題材股定價。</p>
+<h3>小結</h3>
+<p>PE 因虧損而無意義、PB 9.55 倍是純題材溢價——這檔股票沒有估值安全邊際，買它等於買「2027 年後玻璃基板會放量」這個假設，本身沒有便宜可言。</p>
+<h2>4. 技術面</h2>
+<p>（技術指標來自 <code>technical_indicators.py</code>，資料截至 2026-07-06 收盤）</p>
+<ul><li><strong>均線</strong>：MA5 236.3、MA10 229.0、MA20 235.7、MA60 220.59、MA120 165.82、MA240 127.93。股價 239 站上季線（MA60）約 +8.3%，長期均線（半年線、年線）大幅上彎，中長多格局明確，但短均線糾結（235~239 交錯），短線方向未定。</li><li><strong>RSI 14：51.15</strong>——中性區間，既不超買也不超賣，多空皆有可能。</li><li><strong>KD</strong>：K 68.82／D 55.04，4 天前在低檔（K=23.9）出現黃金交叉，屬短線買訊。</li><li><strong>MACD</strong>：柱狀 -0.16、位於零軸下方，仍屬空頭動能未完全轉正。</li><li><strong>量能</strong>：今日成交約 6,040 張，但 5 日均量／20 日均量比僅 0.68，代表近幾日量能相對縮小。</li><li><strong>綜合技術評分：1.0（中性）</strong>。</li></ul>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：衡量股價「漲多了還是跌多了」，0~100，通常 >70 過熱、<30 過冷。51 代表中性、沒有極端訊號。</blockquote>
+<blockquote>📝 <strong>KD 黃金交叉</strong>：K 線由下往上穿過 D 線，尤其在低檔出現時是短線轉強訊號；但單一訊號不能保證趨勢，要搭配量能與大盤看。</blockquote>
+<p><strong>位置提醒</strong>：52 週高 293、低 77.6，現價 239 位於 52 週區間約 74.9%（距高點 -18.4%）。也就是說股價從去年低點已漲近 2 倍，目前在相對高檔區，且今日單日 -4.02%、盤中最高 254 摜到收 239，顯示追高買盤套牢、短線有獲利了結壓力。</p>
+<h3>小結</h3>
+<p>長多、短糾結——中長期均線多頭排列但短線在高檔震盪且今日長黑，KD 低檔金叉是唯一短多訊號，量能卻縮，技術面偏中性，不是明確的進場點。</p>
+<h2>5. 籌碼面</h2>
+<ul><li><strong>監理狀態（重要）</strong>：查 TPEX 官方「處置股」與「注意股」清單，當下（2026-07-06）<strong>均無 8027 鈦昇</strong>——目前不是處置股、非注意股。但小型飆股隨時可能因短期漲跌幅過大被列注意／處置，Minna 若要進場前，務必自行到 TPEX 官網「資訊公告」再確認當下狀態。</li><li><strong>股本與流通性</strong>：股本僅約 10.98 億元、發行股數約 1.10 億股，屬<strong>小型股</strong>。小型股籌碼集中、單一大戶進出就能造成劇烈波動，這也是它能連 4 日暴漲、也能單日重挫的結構性原因。</li><li><strong>三大法人買賣超、融資融券明細</strong>：❌ 未取得（本次未抓到當日法人／融資券官方明細）。建議 Minna 到 TPEX 或券商軟體查當日三大法人買賣超與融資餘額變化，作為籌碼是否過熱的判斷。</li></ul>
+<blockquote>📝 <strong>注意股／處置股</strong>：交易所對短期漲跌過猛、成交量爆量的股票的警示機制。「注意股」是黃燈提醒；「處置股」更嚴重，會被限制交易（如分盤撮合、預收款券），流動性與波動風險都會升高。小型飆股常見。</blockquote>
+<h3>小結</h3>
+<p>目前非處置／注意股，但小型股（股本僅 11 億）籌碼集中、波動天生偏大；法人與融資明細未取得，進場前務必自行查當下監理與籌碼狀態。</p>
+<h2>6. 同業比較</h2>
+<p>鈦昇在玻璃基板鑽孔設備的定位特殊，同業可分兩類對照：</p>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>角色</th><th>現價</th><th>估值</th><th>與鈦昇的差異</th></tr></thead><tbody><tr><td><strong>鈦昇 8027</strong></td><td>TGV 雷射鑽孔設備（最純題材）</td><td>239.0 元</td><td>PE N/A（虧損）、PB 9.55x</td><td>純設備賣水人、營收 YoY +58%、但本業虧損</td></tr><tr><td><strong>欣興 3037</strong></td><td>ABF 載板龍頭＋自建 TGV 試產線</td><td>924.43 元</td><td>PE 142.5x</td><td>有穩健 ABF 主業獲利撐底，TGV 是加分；確定性高於鈦昇</td></tr><tr><td><strong>群創 3481</strong></td><td>面板廠跨 FOPLP 封裝</td><td>68.12 元</td><td>PE 600x</td><td>故事最具體（傳 SpaceX），但同樣本業薄、估值極高</td></tr><tr><td><strong>德國 LPKF</strong></td><td>國際雷射鑽孔設備廠（真正對手）</td><td>（海外未列）</td><td>—</td><td>已被多家驗證出貨的老牌雷射鑽孔設備商，是鈦昇「獨門」說法的最大變數</td></tr></tbody></table></div>
+<p><strong>關鍵競爭洞察</strong>：市場稱鈦昇 TGV「獨門」需要打折看待——<strong>德國 LPKF 是實質已被多家驗證、有出貨紀錄的雷射鑽孔設備廠</strong>，是鈦昇真正的國際競爭者。鈦昇的差異化在於「本土化＋一站式 E-Core 聯盟」的整合服務，而非全球唯一的鑽孔技術。這一點決定了它是「小而美的技術卡位者」而非「壟斷者」。</p>
+<p><strong>如果只能選一檔（同族群）</strong>：以「確定性」為優先的話，欣興（有 ABF 主業獲利撐底＋TGV 布局）風險報酬比優於鈦昇；鈦昇的價值在於「純度與爆發力」，適合已理解高風險、想用極小倉位賭 TGV 賽道的投資人，不適合當核心持股。</p>
+<h3>小結</h3>
+<p>鈦昇是族群裡最純、最有爆發力的一檔，但「獨門」要打折（德國 LPKF 是實質對手），且沒有主業獲利撐底；論穩健度輸欣興，論題材具體度與群創各有千秋。</p>
+<h2>7. 題材與催化劑</h2>
+<p><strong>核心題材</strong>：AI 先進封裝「由圓（晶圓）轉方（玻璃面板）」的世代升級，鈦昇卡在技術門檻最高的「玻璃鑽孔」環節。</p>
+<p><strong>具體催化劑與時間點</strong>：</p>
+<ol><li><strong>Intel／美系客戶驗證與交機</strong>：已完成美系客戶設備驗證並開始交機，預期 2026 年進入小量產階段，訂單能見度延伸至 2027 年（多篇媒體，⚠️ 非官方公告）。</li><li><strong>台積電 CoPoS 供應鏈</strong>：台積電規劃 2027 年小批量試產、2028~2029 年大規模量產，鈦昇作為鑽孔設備供應者可望隨之受惠。</li><li><strong>E-Core System 聯盟擴張</strong>：整套解決方案接單模式若成形，可提升接單黏著度與話語權。</li><li><strong>月營收持續驗證</strong>：6 月 YoY +58%、5 月 +140%，後續每月營收是否延續高年增，是題材能否轉化為基本面的即時觀察窗。</li></ol>
+<p><strong>時間差提醒</strong>：產業共識玻璃基板／TGV 真正放量在 <strong>2027 下半年至 2028~2029 年</strong>，2026 是「商業化驗證元年」。也就是說，題材與實質獲利之間還有 1.5~3 年的時間差，這段期間股價會被「進度消息」與「營收數字」牽動而劇烈波動。</p>
+<h3>小結</h3>
+<p>題材紮實且有 Intel／台積電 CoPoS 背書，但放量在 2027~2029 年、還有 1.5~3 年時間差；短期股價靠消息與月營收驅動，是「等得起才玩得起」的長線題材。</p>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險項目</th><th>說明</th><th>機率／影響</th></tr></thead><tbody><tr><td><strong>本業虧損、獲利未轉正</strong></td><td>近四季 EPS -0.57 元，PB 9.55x 卻是純題材定價，一旦市場轉為要求「看獲利」，缺乏安全墊</td><td>🔴 高</td></tr><tr><td><strong>追高風險（短線過熱）</strong></td><td>從 52 週低 77.6 漲到 239（近 2 倍），連 4 日暴漲後今日 -4.02%、盤中摜壓，短線籌碼鬆動</td><td>🔴 高</td></tr><tr><td><strong>小型股波動</strong></td><td>股本僅 11 億、籌碼集中，易被大戶進出放大波動，也易被列注意／處置股</td><td>🟠 中高</td></tr><tr><td><strong>「獨門」被打折</strong></td><td>德國 LPKF 是實質有出貨的雷射鑽孔對手，若國際大廠採用 LPKF，鈦昇市占想像會收斂</td><td>🟠 中高</td></tr><tr><td><strong>題材放量遞延</strong></td><td>玻璃基板真正量產在 2027~2029，若技術良率／成本卡關，時間表遞延將直接壓縮股價的想像空間</td><td>🟠 中高</td></tr><tr><td><strong>消息真實性</strong></td><td>Intel 合作、訂單能見度多來自媒體與法人轉述，未經官方正式公告，需保守看待</td><td>🟡 中</td></tr></tbody></table></div>
+<p><strong>情境規劃</strong>：</p>
+<ul><li>🟢 最佳：TGV 如期於 2026 下半年小量產、營收持續 YoY 高成長並帶動獲利轉正，2027 隨台積電 CoPoS 放量——高 PB 事後被證明合理。</li><li>🟡 基準（最可能）：營收維持高年增但獲利轉正緩慢，股價在題材消息與月營收之間高檔劇烈震盪。</li><li>🔴 最差：玻璃基板放量遞延或 AI capex（資本支出）降溫，題材退燒，缺乏獲利支撐的股價大幅回檔。</li><li>⚫ 黑天鵝：TGV 技術路線出現良率／成本無法商用化的重大瓶頸，或國際對手（LPKF）拿下關鍵大單，重新定價。</li></ul>
+<h3>小結</h3>
+<p>這是四檔中最投機的一檔——虧損＋高 PB＋小型股＋短線過熱四重風險疊加，賠率高但風險同樣高，最該守的紀律是「倉位要小、絕不追高」。</p>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：<strong>佔總資金 0~3%（上限 3%）</strong>。這是明顯偏保守的建議，原因是：Minna 是投資新手、屬平衡型風險、採核心衛星策略——鈦昇這種「本業虧損＋PB 9.55x＋小型飆股」只能歸在「衛星部位中的高風險小賭注」，絕不能當核心。即使決定佈局，也建議單筆金額小到「全部歸零也不影響生活與整體資產配置」的程度，並嚴守單一標的不超過總資金 3% 的上限。</li><li><strong>進場條件</strong>：不追高。等以下任一出現再考慮小量分批——①股價回檔至季線（MA60 約 220）附近且守穩不破；②月營收連續維持 YoY 高成長且看到單季 EPS 轉正的訊號；③大盤／族群回檔後量縮止穩、非在單日暴漲當下追進。</li><li><strong>停損參考</strong>：若進場，跌破季線（MA60 約 220）且量增下殺，或跌破前波整理低點，應嚴格停損（小型高波動股建議停損紀律比一般股更嚴，例如 -10%~-15% 機械式執行，不凹單）。</li><li><strong>加碼條件</strong>：僅在「獲利實質轉正（單季 EPS 由負轉正）＋ TGV 訂單有官方或財報層級的具體揭露」同時成立時，才考慮小幅加碼，且加碼後總倉位仍不逾 3% 上限。</li><li><strong>觀察指標</strong>：①每月 10 號前後的月營收（YoY 是否延續 +50% 以上）；②季報 EPS 是否轉正、毛利率變化；③TPEX 注意／處置股清單（進場前必查當下狀態）；④三大法人與融資餘額（籌碼是否過熱）；⑤台積電 CoPoS 與 Intel 合作的官方進度公告。</li><li><strong>下次檢視</strong>：2026-08 月營收（8/10 前後）公布後，或 2026 Q2 財報公布後，重新評估獲利是否有轉正跡象；若股價急殺回季線亦可提前檢視。</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<h3>WebFetch／官方數據</h3>
+<ul><li><a href="https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis" target="_blank" rel="noopener">TPEX 上櫃股票本益比、殖利率及股價淨值比（openapi，2026-07-03）</a>：8027 PE N/A、PB 9.55x、殖利率 0%、每股股利 0</li><li><a href="https://www.tpex.org.tw/openapi/v1/tpex_disposal_information" target="_blank" rel="noopener">TPEX 處置有價證券資訊（openapi）</a>：當下無 8027</li><li><a href="https://tw.stock.yahoo.com/quote/8027.TWO" target="_blank" rel="noopener">Yahoo 股市 鈦昇 8027.TWO 行情</a>：收盤 239.0、-4.02%</li><li><a href="https://tw.stock.yahoo.com/quote/8027.TWO/revenue" target="_blank" rel="noopener">Yahoo 股市 鈦昇 8027 月營收</a>：6 月 YoY +58.48%、5 月 +140.18%、累計 +46.41%</li><li><a href="https://tw.stock.yahoo.com/quote/8027.TWO/eps" target="_blank" rel="noopener">Yahoo 股市 鈦昇 8027 EPS</a>：近四季合計約 -0.57 元</li><li><a href="https://tw.stock.yahoo.com/quote/8027.TWO/profile" target="_blank" rel="noopener">Yahoo 股市 鈦昇 8027 基本資料</a>：市值約 276 億、股本 10.98 億、發行股數 1.10 億股</li><li>技術指標：<code>投資理財/scripts/technical_indicators.py 8027</code>（2026-07-06 收盤）</li></ul>
+<h3>WebSearch（質性趨勢與新聞，非數字依據）</h3>
+<ul><li><a href="https://www.moneyweekly.com.tw/ArticleData/Info/Article/225803" target="_blank" rel="noopener">理財周刊｜AI 封裝由圓轉方 鈦昇擁 TGV 關鍵技術搶佔 CoPoS</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E9%88%A6%E6%98%87-8027" target="_blank" rel="noopener">豐雲學堂｜鈦昇 8027 是做什麼的？TGV 玻璃基板關鍵設備全解析</a></li><li><a href="https://www.stockfeel.com.tw/financial/?stock=8027" target="_blank" rel="noopener">StockFeel 股感｜鈦昇做什麼的？競爭對手有誰（營收結構、LPKF）</a></li><li><a href="https://www.threads.com/@georytyy/post/DWgN2BtEUVX/" target="_blank" rel="noopener">Threads｜玻璃基板供應鏈 鈦昇 TGV 每秒 8000 孔技術彙整</a></li></ul>
+<h3>已引用之既有分析</h3>
+<ul><li><code>投資理財/05_產業研究/載板與玻璃基板產業趨勢分析_20260706.md</code>（2026-07-06）</li></ul>
+<p></content></p>
+<p></invoke></p>
+</div>
+</body>
+</html>

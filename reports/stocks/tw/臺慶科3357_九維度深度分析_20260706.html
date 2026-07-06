@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>臺慶科（3357）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>臺慶科（3357）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>臺慶科（3357）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v1.0</td><td>2026-07-06</td><td>NT$284.0</td><td>首次分析。被動元件產業掃描精選標的（族群最低 PE ~29x、5 月營收 YoY +37.8% 最強、但股價落後族群）。全維度數據首抓：TPEX 官方估值（PE 29.22/PBR 3.29/殖利率 1.79%）、技術面（死亡交叉、中性偏空）、法人（外資連 5 賣）、確認不在 7/6 上櫃處置名單</td></tr></tbody></table></div>
+<h2>關鍵指標快照</h2>
+<blockquote>⚠️ 這一區是「該看的數字」，資料來源集中於文末。帶單位數字均來自 WebFetch 官方來源。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$284.0（漲跌 <strong>-2.74%</strong>，-8.00 元；當日連 4 跌、累計 -10.97%）</td></tr><tr><td>市值</td><td>約 326 億（114,936,971 股 × 284；Yahoo 頁另顯示約 340 億，採不同基準）</td></tr><tr><td>PE 本益比</td><td><strong>29.22 倍</strong>（TPEX 官方 7/6；被動元件族群最低）</td></tr><tr><td>PB 股價淨值比</td><td>3.29 倍（TPEX 官方 7/6）</td></tr><tr><td>EPS</td><td>近 4 季合計 10.63 元（含 2026Q1）／2025 全年 10.26 元</td></tr><tr><td>殖利率</td><td>1.79%（TPEX 官方 7/6；現金股利 5.08 元）</td></tr><tr><td>ROE</td><td>約 12%（推算：近四季 EPS ÷ 每股淨值約 86 元，非官方揭露）</td></tr><tr><td>毛利率</td><td>❌ 未取得（Yahoo/Winvest 頁未揭露，建議查財報狗或公開資訊觀測站）</td></tr><tr><td>營收 YoY（2026/05）</td><td><strong>+37.77%</strong>（族群最高）</td></tr><tr><td>營收 MoM（2026/05）</td><td>+0.75%</td></tr><tr><td>52 週高 / 低</td><td>342.11 / 90.93（現價在 52 週高下方約 17.0%）</td></tr><tr><td>技術位置</td><td>MA20 302.9（跌破）、MA60 240.3（上方 +18%）、RSI 48.6（中性）、KD 死亡交叉、綜合評分 -2 中性偏空</td></tr></tbody></table></div>
+<p>資料時間：2026-07-06（台股已收盤）｜資料來源見文末</p>
+<h2>結論</h2>
+<p>【觀望】— 族群估值最低（PE ~29x）＋營收動能最強（YoY +37.8%）的 AI 電感潛力股，但技術面正回檔（死亡交叉、外資連 5 賣），等落底訊號再分批布局。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段（衛星部位），現階段觀望等落底，非追高</p>
+<hr>
+<h2>1. 基本面</h2>
+<p><strong>公司在做什麼</strong>：臺慶科是台灣<strong>電感（線圈）</strong>專業廠，主力產品為功率電感、訊號電感、共模濾波器、晶片電感與網路變壓器，應用橫跨車用電子、AI 伺服器、PC、網通與消費電子。它是全球 Tier 1 車廠與北美 CSP（雲端服務商）伺服器供應鏈的認證供應商。</p>
+<blockquote>📝 <strong>電感（Inductor）</strong>：被動元件的一種，功能是「穩定電流、濾除雜訊」。跟國巨、華新科做的 MLCC（電容，負責儲能濾波）是不同零件——這很關鍵：這波被動元件漲價潮的主角是「電容（MLCC）」，臺慶科做的是「電感」，兩者題材與供需節奏不完全同步。</blockquote>
+<blockquote>📝 <strong>TLVR 電感（Total/Trans-inductor Voltage Regulator）</strong>：AI 處理器（GPU）供電模組專用的高規格電感，負責在極高電流下穩定 GPU 的供電電壓，是 AI 伺服器機櫃電源模組的必備零件，技術門檻與單價都遠高於一般消費型電感。</blockquote>
+<blockquote>📝 <strong>CSP（Cloud Service Provider，雲端服務商）</strong>：指 Google、Amazon、Microsoft、Meta 等自建資料中心、大量採購 AI 伺服器的雲端巨頭，是 AI 伺服器供應鏈最上游的買家。</blockquote>
+<p><strong>產業定位</strong>：臺慶科目前正從「透過代工廠（白牌伺服器）間接導入」升級為「直接與美系原廠（GPU 大廠＋CSP）共同開發下一代 AI 伺服器 TLVR」，目標趕上客戶 2026 Q3 量產。這是它在被動元件族群中最獨特的利基——不與國巨、華新科在 MLCC 主流規格上正面競爭，而是切入「AI 供電電感」這條門檻較高的細分賽道。</p>
+<p><strong>多引擎成長結構</strong>（依 2026 年公司展望，來源：鉅亨網、MoneyDJ）：</p>
+<ul><li><strong>AI 伺服器</strong>：TLVR 為核心題材，2025 年 AI 相關營收佔比約 10%，2026 年目標拉升</li><li><strong>AI PC</strong>：AI PC 的電感用量比傳統 PC 多 20~30%，帶動電腦應用雙位數成長</li><li><strong>車用</strong>：胎壓偵測共模濾波器隨歐美客戶放量＋中國新客加入，車用營收目標雙位數成長</li><li><strong>DDR5 滲透</strong>：記憶體規格升級推升電感出貨</li></ul>
+<h3>小結</h3>
+<p>臺慶科是「電感（不是電容）」利基廠，靠 TLVR 切入 AI 伺服器供電鏈、加上車用 Tier1 認證與 AI PC/DDR5 多引擎，但 AI 營收佔比目前仍僅約 10%，題材含金量高、但兌現度仍待 Q3 量產驗證。</p>
+<hr>
+<h2>2. 財務面</h2>
+<p><strong>營收動能（族群最強）</strong>：2026/05 單月營收 7.09 億元，MoM +0.75%、<strong>YoY +37.77%</strong>——這是本次被動元件掃描 8 檔中年增率最高的一檔。近三個月年增率呈<strong>加速</strong>態勢：2026/03 +12.06% → 04 +15.42% → 05 +37.77%（來源：Yahoo 股市月營收）。2026 年前 5 月累計營收約 31.49 億元、累計年增約 17.31%。</p>
+<p><strong>獲利穩健成長</strong>：單季 EPS 走勢——2025Q2 3.11 → 2025Q3 2.53 → 2025Q4 2.48 → 2026Q1 2.51 元，近四季合計 10.63 元；2025 全年 EPS 10.26 元、2026Q1 年增約 14%（來源：Yahoo EPS 頁、Winvest）。獲利趨勢向上且波動不大。</p>
+<p><strong>配息穩定</strong>：現金股利 5.08 元（近五年平均約 5.52 元），穩定配息代表現金流健康、自由現金流推斷為正。</p>
+<blockquote>📝 <strong>EPS（每股盈餘）</strong>：公司每一股在一段期間內賺到的淨利。近四季合計越高、且逐季走升，代表獲利能力越強。</blockquote>
+<p><strong>待補</strong>：毛利率、負債比正式數字本次未從官方頁取得（❌ 未取得），建議至公開資訊觀測站或財報狗覆核；ROE 以近四季 EPS ÷ 每股淨值（約 86 元）推算約 12%，非官方揭露值。</p>
+<h3>小結</h3>
+<p>營收年增率族群第一（+37.8%）且逐月加速、EPS 逐季穩健、配息穩定——基本面是這份分析最強的一環；唯獨毛利率/負債比未取得，需自行覆核。</p>
+<hr>
+<h2>3. 估值面</h2>
+<p><strong>PE 29.22 倍，被動元件族群最低</strong>。對照同族群（產業分析 7/6 數據）：國巨 82x、華新科 108x、禾伸堂 127x、大毅 64x、信昌電 94x、立隆電 49x——臺慶科 ~29x 是全族群最便宜，且是唯一貼近被動元件景氣循環股「歷史合理區間 9~30x」上緣的一檔。</p>
+<p><strong>PB 3.29 倍</strong>、每股淨值約 86 元，殖利率 1.79%（相對偏低，屬成長股而非存股標的）。</p>
+<p><strong>PE 30 倍到底是「市場還沒發現」還是「有隱藏風險」？——核心判斷</strong>：兩者都有，比重約各半。</p>
+<ul><li><strong>合理的一半</strong>：臺慶科做的是「電感」不是「電容」，這波漲價潮的敘事主軸是 MLCC 漲價（國巨 7/1 電容全系列調漲），電感沒有被貼上同一張「漲價股」標籤；且 AI 營收佔比目前僅約 10%，公司獲利結構仍以車用/網通/消費為主，市場理性地用「一般電感廠」的評價（~30x）而非「AI 漲價股」的評價（80~127x）來定價它。</li><li><strong>被低估的一半</strong>：若 TLVR 2026 Q3 順利量產、AI 營收佔比從 10% 往上跳，市場對它的評價框架可能從「電感廠」切換為「AI 供電概念股」，屆時有<strong>評價重估（re-rating）</strong>空間。這是潛在的上檔催化。</li></ul>
+<blockquote>📝 <strong>評價重估（Re-rating）</strong>：市場對一家公司「願意給的本益比倍數」整體上調。例如原本只肯給 30 倍，因為 AI 題材兌現改給 45 倍，即使獲利不變、股價也會大漲——這是成長股最主要的爆發來源。</blockquote>
+<p><strong>簡易合理價估算</strong>：以 2026 年市場預估 EPS 約 10.5~11 元 × 保守合理 PE 25 倍 ≈ 262~275 元；現價 284 元略高於此保守估值，代表「不算便宜、但也沒有像族群龍頭那樣估值透支」。若給予 AI 重估後 PE 28~30 倍 × EPS 11 → 308~330 元才是樂觀情境目標。</p>
+<p>⚠️ 提醒：WebSearch 可查到的舊券商目標價（195~200 元）明顯低於現價，研判為股價噴發前的過時估值，參考性有限，本報告不採用該數字。</p>
+<h3>小結</h3>
+<p>PE ~29x 是族群最低、估值相對健康（沒有龍頭股 80~127x 的透支），但現價 284 略高於保守合理價（262~275）；上檔靠 TLVR 量產帶動「評價重估」，而非現在就便宜。</p>
+<hr>
+<h2>4. 技術面</h2>
+<p><strong>目前位置：中期上升趨勢中的回檔段，短線轉空。</strong>（technical_indicators.py 7/6）</p>
+<ul><li><strong>股價</strong>：284 元，當日 -2.74%，<strong>連 4 跌、累計 -10.97%</strong>，已跌破 MA5/10/20（月線 302.9）</li><li><strong>均線</strong>：MA20 302.9、MA60（季線）240.3、MA120 198.7——股價仍在季線上方 +18%，中期多頭結構未破，但短均線已下彎糾結</li><li><strong>死亡交叉</strong>：短均線於 <strong>7/2（2 天前）下穿長均線</strong>，KD 亦於 9 天前死亡交叉——短線轉空訊號明確</li><li><strong>RSI 48.6</strong>：中性區間，多空未定，尚未進入超賣</li><li><strong>KD</strong>：K=15.98 已落入超賣區（<20），留意技術性反彈；但 D=23.2、方向仍偏空</li><li><strong>MACD</strong>：柱狀體翻負 -6.34，動能轉弱</li><li><strong>量能</strong>：5 日均量約 5,055 張、20 日均量約 10,264 張，量縮（5/20 量比 0.49）——回檔伴隨量縮，屬「賣壓不重的獲利了結」而非「爆量出貨」，相對健康</li><li><strong>綜合評分 -2（中性偏空）</strong></li></ul>
+<blockquote>📝 <strong>死亡交叉</strong>：短期均線由上往下穿過長期均線，代表短線動能轉弱、偏空訊號。相對地「黃金交叉」是短均線上穿長均線、偏多。</blockquote>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：0~100 衡量近期漲跌力道，>70 過熱、<30 超賣、50 附近為多空平衡。48.6 屬中性。</blockquote>
+<blockquote>📝 <strong>季線（MA60）</strong>：最近 60 個交易日的平均成本，是判斷「中期多空」的重要分界；股價在季線之上通常視為中期偏多。</blockquote>
+<h3>小結</h3>
+<p>中期仍在季線上方（多頭未破）、但短線死亡交叉＋MACD 翻負，正處回檔；量縮回檔性質偏健康，KD 超賣可能有技術反彈，但尚無明確落底訊號，追進風險偏高。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<p><strong>外資連 5 賣、投信按兵不動</strong>（Yahoo 法人買賣，至 7/6）：</p>
+<ul><li>7/6：外資 -105 張（連 5 賣）、投信 0、自營 -39 張</li><li>7/3：外資 -106 張、投信 0、自營 -9 張</li><li>7/2：外資 -276 張、投信 +5 張、自營 -15 張</li></ul>
+<p>外資近一週持續賣超、投信幾乎零操作、自營亦偏賣——籌碼面偏空，與技術面回檔相互印證。這是「觀望」結論的重要支撐：在外資轉為買超、或投信回頭進場之前，缺乏中大型資金承接的訊號。</p>
+<p><strong>融資融券</strong>：❌ 未取得明細，建議至 Goodinfo 或 HiStock 覆核；但成交量已從 20 日均量萬張級縮到 5 日均量 5 千張級，投機熱度已明顯降溫。</p>
+<h3>小結</h3>
+<p>外資連 5 賣、投信不動、量縮，籌碼面缺乏積極承接力道——是現階段不宜追進、宜等法人回補的核心理由。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p>（數據來源：被動元件產業趨勢分析 20260706，皆為 7/6 官方/盤中口徑）</p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>臺慶科 3357</th><th>國巨 2327</th><th>立隆電 2472</th><th>禾伸堂 3026</th></tr></thead><tbody><tr><td>定位</td><td>AI 供電 TLVR 電感</td><td>全品類 MLCC 龍頭</td><td>固態鋁電容（Rubin 鏈）</td><td>利基高壓高頻 MLCC</td></tr><tr><td>PE(TTM)</td><td><strong>29.2x（最低）</strong></td><td>82.3x</td><td>49.1x</td><td>127.3x</td></tr><tr><td>2026/05 營收 YoY</td><td><strong>+37.8%（最高）</strong></td><td>+47.5%</td><td>+30.0%</td><td>+21.3%</td></tr><tr><td>處置股</td><td>未列</td><td>曾列（7/2 解除）</td><td>未取得</td><td>曾二度列（已解除）</td></tr><tr><td>差異化題材</td><td>AI 電感/車用 Tier1</td><td>全系列漲價</td><td>NVIDIA Vera Rubin 板端供電</td><td>客製化高壓 MLCC</td></tr></tbody></table></div>
+<p><strong>觀察</strong>：臺慶科的「基本面最強（營收 YoY 第一）＋估值最低（PE 最低）」組合在族群中最具落差修復潛力；但它與國巨/禾伸堂的差異在於「不是這波漲價潮的直接受惠者」（做電感不是電容），故重估需靠自身 TLVR 量產獨立催化，而非搭族群漲價順風車。立隆電則是另一個值得並列觀察的差異化標的（唯一確認打入 NVIDIA Vera Rubin 供電鏈）。</p>
+<p><strong>如果只能從被動元件族群選一檔「估值＋基本面性價比」</strong>：臺慶科在「便宜＋高成長＋未過熱（未列處置）」三項上最均衡，適合作為衛星波段研究標的；但需接受它題材兌現節奏比 MLCC 漲價股慢、且短線技術面正回檔。</p>
+<h3>小結</h3>
+<p>臺慶科是族群中「估值最低＋營收最強＋投機度最低」最均衡的一檔，但它的上漲要靠 TLVR 自身催化，不能靠 MLCC 漲價族群順風車。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>內容</th><th>時間點</th></tr></thead><tbody><tr><td><strong>TLVR AI 伺服器量產</strong></td><td>與美系 GPU 大廠＋CSP 共同開發新一代 TLVR，目標趕上客戶 Q3 量產</td><td>2026 Q3（核心催化）</td></tr><tr><td><strong>7 月營收公布</strong></td><td>驗證 AI 動能是否延續（5 月 YoY 已 +37.8%）</td><td>約 2026/08/10</td></tr><tr><td><strong>AI PC 換機潮</strong></td><td>AI PC 電感用量比傳統 PC 多 20~30%</td><td>2026 全年</td></tr><tr><td><strong>車用放量</strong></td><td>胎壓偵測共模濾波器歐美放量＋中國新客加入</td><td>2026 全年</td></tr><tr><td><strong>馬來西亞新廠</strong></td><td>產能開出支撐車用/AI 訂單（產業掃描與研究提及）</td><td>2026 逐步</td></tr><tr><td><strong>DDR5 滲透</strong></td><td>記憶體規格升級推升電感出貨</td><td>持續</td></tr></tbody></table></div>
+<p>最關鍵的觀察點是 <strong>2026 Q3 TLVR 量產是否如期兌現</strong>——這是把「AI 營收佔比從 10% 往上推」、進而觸發估值重估的樞紐事件。若 Q3 財報與月營收確認 AI 佔比躍升，是最強的上檔催化；反之若量產遞延，則是最主要的失望性賣壓來源。</p>
+<h3>小結</h3>
+<p>最強催化是 2026 Q3 TLVR 量產（決定 AI 營收佔比能否跳升、觸發重估），8 月的 7 月營收與 Q2 財報是最近的驗證窗口。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>嚴重程度</th><th>早期警訊</th></tr></thead><tbody><tr><td><strong>訂單能見度/量產兌現風險</strong>：AI 營收佔比仍僅約 10%，TLVR Q3 量產若遞延，題材落空</td><td>中</td><td>高</td><td>月營收 AI 貢獻不如預期、公司下修財測</td></tr><tr><td><strong>客戶集中度風險</strong>：AI 供電高度綁定少數美系 GPU/CSP，單一客戶調整訂單衝擊大</td><td>中</td><td>中高</td><td>大客戶資本支出下修、砍單傳聞</td></tr><tr><td><strong>技術面續弱</strong>：死亡交叉＋外資連 5 賣，回檔可能未結束</td><td>中高</td><td>中</td><td>跌破季線 240、外資賣超擴大</td></tr><tr><td><strong>被動元件景氣循環</strong>：電感本質仍是循環產業，終端需求反轉會壓縮量價</td><td>中</td><td>高</td><td>車用/PC 終端轉弱、稼動率下滑</td></tr><tr><td><strong>族群系統性回檔</strong>：被動元件龍頭 PE 80~127x 若估值透支引爆全族群修正，臺慶科難獨善其身</td><td>中</td><td>中高</td><td>國巨/禾伸堂單日重挫 >5%</td></tr><tr><td><strong>毛利率/負債比未取得</strong>：財務全貌尚有盲點</td><td>—</td><td>中</td><td>覆核後若毛利率走弱需下修評價</td></tr></tbody></table></div>
+<p><strong>最壞情況</strong>：TLVR Q3 量產遞延＋族群估值透支同時發生，股價可能回測季線 240（-15%）甚至前波平台以下。<strong>相對安慰</strong>：因它 PE 只有 29x（非 80~127x）、且未列處置股，估值透支的下殺幅度理論上小於族群龍頭。</p>
+<h3>小結</h3>
+<p>最大風險是「Q3 量產兌現度＋客戶集中度」——題材尚未完全落地；但估值低、未過熱，下檔風險相對族群龍頭可控。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：衛星波段部位，建議 ≤ 總資金 5%（單一景氣循環個股，分批進出控制風險）</li><li><strong>進場條件</strong>：不追高。等以下任一落底訊號再分批——(1) 股價回檔至 <strong>240~265 元</strong>區間（季線 240 支撐～本益比法保守合理價 265）且技術止穩（KD 低檔黃金交叉/MACD 柱狀翻正）；(2) 外資由連賣轉為買超、投信進場；(3) TLVR Q3 量產或 7 月營收確認 AI 動能延續。首批建議僅動用計畫倉位的 1/3～1/2，確認站穩再加。</li><li><strong>停損參考</strong>：跌破季線 240 且量增走弱 → 中期趨勢轉弱，控制在進場價 -8~10% 出場（例如 260 進、跌破 238 停損）</li><li><strong>加碼條件</strong>：TLVR Q3 量產確認兌現、AI 營收佔比明顯跳升，且股價站回月線（MA20）之上、外資回補</li><li><strong>觀察指標</strong>：外資買賣超（連賣是否止住）、7 月營收（約 8/10）、Q2 財報毛利率、季線 240 支撐、TLVR 量產進度、國巨等族群龍頭是否系統性回檔</li><li><strong>下次檢視</strong>：2026-08-11（7 月營收公布後）或 TLVR Q3 量產進度出現明確消息時，以較早者為準</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，被動元件為景氣循環股，本檔短線技術面正回檔且外資連續賣超，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<h3>股價與財務數據（WebFetch 官方/交易所來源）</h3>
+<ul><li><a href="https://www.tpex.org.tw/www/zh-tw/afterTrading/peQryDate" target="_blank" rel="noopener">TPEX 上櫃個股本益比/殖利率/股價淨值比查詢（3357，2026/07/06）</a></li><li><a href="https://www.tpex.org.tw/www/zh-tw/bulletin/disposal" target="_blank" rel="noopener">TPEX 上櫃處置有價證券公告（2026/07/06，確認 3357 未列）</a></li><li><a href="https://tw.stock.yahoo.com/quote/3357.TWO" target="_blank" rel="noopener">Yahoo 股市 - 臺慶科(3357) 個股行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/3357.TWO/revenue" target="_blank" rel="noopener">Yahoo 股市 - 臺慶科(3357) 月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/3357.TWO/eps" target="_blank" rel="noopener">Yahoo 股市 - 臺慶科(3357) EPS</a></li><li><a href="https://tw.stock.yahoo.com/quote/3357.TWO/profile" target="_blank" rel="noopener">Yahoo 股市 - 臺慶科(3357) 公司資料/市值</a></li><li><a href="https://tw.stock.yahoo.com/quote/3357.TWO/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 - 臺慶科(3357) 法人買賣</a></li><li>技術指標：<code>投資理財/scripts/technical_indicators.py 3357</code>（yfinance 3357.TWO，2026/07/06）</li></ul>
+<h3>質性研究與新聞（WebSearch，不涉精確數字）</h3>
+<ul><li><a href="https://news.cnyes.com/news/id/5878839" target="_blank" rel="noopener">臺慶科切入美系原廠 共同開發下一代 AI 伺服器 TLVR - 鉅亨網</a></li><li><a href="https://ieknet.iek.org.tw/ieknews/news_open.aspx?nsl_id=af11b69a74404b0d82ce79262f0cae8c" target="_blank" rel="noopener">臺慶科攻 AI 業績添翼 - IEK 產業情報網</a></li><li><a href="https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=3578be8c-394e-4701-b4cf-9c2d1dfb8919" target="_blank" rel="noopener">臺慶科看好車用/AI 應用攀升 積極推廣衝市佔 - MoneyDJ</a></li><li><a href="https://winvest.tw/Stock/Symbol/Comment/3357" target="_blank" rel="noopener">臺慶科 (3357) 可以買嗎？EPS/營收/配息/合理價 - Win 投資</a></li><li><a href="https://news.cnyes.com/news/id/5694382" target="_blank" rel="noopener">臺慶科 Q3 營運向上 美系客戶擴大合作 AI 伺服器應用 - 鉅亨網</a></li></ul>
+<h3>產業層引用（不重做）</h3>
+<ul><li><code>投資理財/05_產業研究/被動元件產業趨勢分析_20260706.md</code>（族群比較、漲價循環、風險評估沿用）</li></ul>
+<p></content></p>
+<p></invoke></p>
+</div>
+</body>
+</html>

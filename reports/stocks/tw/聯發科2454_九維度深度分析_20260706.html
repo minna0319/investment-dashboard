@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯發科（2454）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>聯發科（2454）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>聯發科（2454）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v2.0</td><td>2026-07-06</td><td>NT$4,125</td><td>全面重寫：距上版近 3 個月、股價大漲 +162%（1,575→4,125）、市場已把聯發科重估為 AI ASIC 成長股。<strong>重抓</strong>收盤價/PE/殖利率/PBR/月營收/技術指標/EPS/毛利率；<strong>新增</strong> Meta ASIC 訂單（第二大客戶）、ASIC 目標上修至 20 億美元、Google TPU v9「Triggerfish」獨家接單、高盛目標價 6,800 元、雲端 ASIC 市場 700-800 億美元；<strong>沿用</strong>商業模式/護城河架構（並更新營收結構）。結論由【持有等加碼】改為【觀望】。取代 04-10 舊版。</td></tr><tr><td>v1.1</td><td>2026-04-25</td><td>NT$1,575</td><td>風險評估新增股癌 NBLM EP655 觀點：「行情大好時要先想潛在威脅」的持股心理提醒</td></tr><tr><td>v1.0</td><td>2026-04-10</td><td>NT$1,575</td><td>首次完整九維度分析，補設停損線與進場區間</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$4,125（-70，-1.67%）</td></tr><tr><td>市值</td><td>6.62 兆（鉅亨）</td></tr><tr><td>PE 本益比</td><td>65.74 倍（TWSE 官方；Yahoo 顯示 66.85）</td></tr><tr><td>PB 股價淨值比</td><td>16.87 倍</td></tr><tr><td>EPS（近 4 季合計）</td><td>62.90 元</td></tr><tr><td>殖利率</td><td>1.30%</td></tr><tr><td>ROE</td><td>❌ 未取得（歷史區間約 20-25%，來源標示不明確故不採用）</td></tr><tr><td>毛利率</td><td>46.30%</td></tr><tr><td>營收 YoY（2026/05）</td><td>+4.99%</td></tr><tr><td>營收 MoM（2026/05）</td><td>+1.49%</td></tr><tr><td>52 週高 / 低</td><td>4,640 / 1,123</td></tr><tr><td>技術位置</td><td>現價低於 MA20（4,274）、高於 MA60（3,547）+16.3%；RSI 49.66（中性）</td></tr></tbody></table></div>
+<p>資料時間：2026-07-06（已收盤）｜資料來源見文末</p>
+<blockquote>⚠️ <strong>今日盤面背景</strong>：IC 設計特選指數 -3.19%，同族群創意 -7.04%、世芯 -6.02% 重挫，聯發科相對抗跌（-1.67%）。台積電 7/16 法說會前，資金在 ASIC 設計股與台積電/記憶體間換手。</blockquote>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 公司體質與 ASIC 題材俱佳，但股價已把 2027-2028 年 ASIC 完美執行提前反映，近四季 EPS 換算 PE 高達 65.74 倍，現價亦高於多數外資目標價，估值透支，等回調或 ASIC 營收實質兌現再進場。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：觀望等待（既有持有者可續抱、逢高審視倉位）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司靠什麼賺錢</h3>
+<p>聯發科（MediaTek）是全球最大的手機晶片設計公司之一，主要設計「系統單晶片（SoC）」，自己不生產，交給台積電代工。近 3 個月最大的變化是：市場的定價邏輯已從「手機晶片龍頭」轉為「AI ASIC 設計服務新星」。</p>
+<blockquote>📝 <strong>SoC（系統單晶片）</strong>：把 CPU、GPU、記憶體控制器、數據機全塞進一顆晶片。手機、平板的「大腦」通常就是一顆 SoC。</blockquote>
+<blockquote>📝 <strong>ASIC（應用特定積體電路）</strong>：為特定用途量身打造的晶片。相對於 NVIDIA 通用型 GPU，Google、Meta 這些雲端大廠找設計公司幫他們做「只跑自家 AI」的專用晶片，性價比更高——這就是聯發科現在最熱的成長引擎。</blockquote>
+<p><strong>產業鏈位置：</strong></p>
+<p>```</p>
+<p>ARM（IP授權）→ 聯發科（晶片設計）→ 台積電（代工製造）</p>
+<p>↓</p>
+<p>手機：小米/OPPO/vivo　｜　ASIC：Google TPU、Meta AI 加速器 → 終端</p>
+<p>```</p>
+<h3>營收結構（2026 更新，含 ASIC 題材權重上升）</h3>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>現況佔比（估）</th><th>趨勢</th></tr></thead><tbody><tr><td>手機 SoC（天璣系列）</td><td>約 50-55%</td><td>穩盤為主，2026 為「艱苦年」，毛利率有壓</td></tr><tr><td>智慧家居/IoT</td><td>約 15%</td><td>穩定</td></tr><tr><td>電源管理 IC</td><td>約 10%</td><td>穩定</td></tr><tr><td>車用晶片</td><td>約 8%</td><td>成長</td></tr><tr><td>雲端 ASIC（Google + Meta）</td><td>約 3-5%（快速攀升）</td><td><strong>市場焦點</strong>，高盛估 2027 佔比可達 49%</td></tr></tbody></table></div>
+<blockquote>⚠️ 佔比為市場估算方向，非官方精確揭露；ASIC 佔比的樂觀預估（2027 達 49%、2028 達 69%）來自高盛，屬最激進假設，需後續法說會驗證。</blockquote>
+<h3>競爭優勢（護城河）</h3>
+<p><strong>強度：強</strong>（沿用 v1.0 架構，更新 ASIC 進展）</p>
+<ol><li><strong>手機 SoC 全球市占近 40%</strong>：中低階與中高階稱霸，與高通兩強分食</li><li><strong>SerDes 高速互連技術</strong>：ASIC 業務的關鍵 IP，護城河核心；法人指「技術已追上博通」</li><li><strong>客戶黏性高</strong>：晶片深度整合客戶開機程式，換供應商成本極高</li><li><strong>台積電先進製程優先權</strong>：長期大客戶，2nm 產能取得有優勢</li><li><strong>ASIC 客戶名單擴張</strong>：Google TPU（含 v9 加強版 Triggerfish 獨家接單）+ 近期幾乎確定拿下 Meta AI 加速器，成為 Google 以外第二大客戶</li></ol>
+<blockquote>📝 <strong>Triggerfish</strong>：郭明錤指出，這是 Google TPU v9 的加強版晶片，聯發科獨家接單。預計 2027 年底投產、2028 年底放量，生命週期出貨約 100-200 萬顆——這是把 ASIC 故事從「2026 兌現」延伸到「2028 放大」的關鍵。</blockquote>
+<h3>管理層品質</h3>
+<ul><li>董事長蔡明介（「農夫哲學」深耕）、執行長蔡力行（前台積電總裁），業界公信力高</li><li>蔡力行 4/30 法說會主動上修 ASIC 營收目標至 20 億美元，並揭露雲端 ASIC 市場 2027 上看 700-800 億美元，資訊透明度佳</li><li>⚠️ 管理層評估仍多來自媒體轉述，建議觀察後續法說會言行一致性</li></ul>
+<h3>小結</h3>
+<p>聯發科最該記住的一點：它是四大 IC 設計股中唯一「手機本業安全墊 + ASIC 成長題材」雙引擎的公司，護城河強，但當前股價的多數想像來自尚未完全兌現的 ASIC 業務。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>月營收趨勢（最新 6 個月，來源：Yahoo 股市 2026/07/06）</h3>
+<div class="table-wrap"><table><thead><tr><th>年月</th><th>月營收（億元）</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody><tr><td>2026/05</td><td>474.34</td><td>+1.49%</td><td>+4.99%</td></tr><tr><td>2026/04</td><td>467.37</td><td>-26.07%</td><td>-4.14%</td></tr><tr><td>2026/03</td><td>632.19</td><td>+62.29%</td><td>+12.90%</td></tr><tr><td>2026/02</td><td>389.54</td><td>-17.08%</td><td>-15.63%</td></tr><tr><td>2026/01</td><td>469.77</td><td>-8.37%</td><td>-8.15%</td></tr><tr><td>2025/12</td><td>512.66</td><td>+9.32%</td><td>+22.99%</td></tr></tbody></table></div>
+<p><strong>解讀</strong>：月營收年增率在 +5% 上下擺盪，<strong>本業成長溫和、談不上爆發</strong>。這是關鍵矛盾——股價已用 ASIC 成長股的估值定價（PE 65 倍），但目前財報數字（YoY +5%）反映的還是手機本業的緩成長格局。ASIC 放量要到 2026 下半年至 2027 才會明顯灌進營收。</p>
+<blockquote>📝 <strong>YoY（年增率）</strong> vs <strong>MoM（月增率）</strong>：YoY 和去年同月比、看趨勢；MoM 和上月比、易受季節干擾（如 3 月農曆年後補貨會爆量）。</blockquote>
+<h3>關鍵財務指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>近四季 EPS</td><td>62.90 元</td><td>鉅亨</td></tr><tr><td>毛利率</td><td>46.30%</td><td>鉅亨</td></tr><tr><td>淨利率</td><td>16.34%</td><td>鉅亨</td></tr><tr><td>ROE</td><td>❌ 未取得（歷史約 20-25%）</td><td>來源標示不明確，不採用</td></tr><tr><td>自由現金流</td><td>❌ 未取得</td><td>建議查公司官網財報</td></tr></tbody></table></div>
+<p><strong>毛利率</strong>：46.30%，延續近年從 53%（2022）緩降的結構性壓力。管理層已預告 2026 Q3 起產品漲價約 5%（反映晶圓代工/封測/元件成本上揚），能否守住毛利是重點觀察。</p>
+<blockquote>📝 <strong>毛利率</strong>：每賣 100 元晶片，扣掉設計與代工成本後留下多少。46.3% 對 IC 設計是中上水準，但聯發科手機佔比高，天花板被壓抑。</blockquote>
+<h3>健康體檢</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>判定</th><th>說明</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>⏳ 持平</td><td>近四季 62.90 元，與 2025 全年 66 元相當</td></tr><tr><td>營收趨勢</td><td>⏳ 持平</td><td>YoY 在 +5% 上下，溫和</td></tr><tr><td>毛利率趨勢</td><td>⚠️ 波動</td><td>46.3%，結構性下滑但暫穩，Q3 漲價待觀察</td></tr><tr><td>負債健康度</td><td>⏳ 注意</td><td>❌ 未取得正式數據，歷史體質保守</td></tr><tr><td>自由現金流</td><td>✅ 正數（推估）</td><td>高毛利+高淨利率支撐，正式數字未取得</td></tr><tr><td>護城河強度</td><td>✅ 強</td><td>SerDes + 市占 + ASIC 客戶擴張</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>財報現況（EPS 持平、營收 YoY +5%、毛利率有壓）尚未跟上股價的想像——這是「本業穩、題材貴」的典型錯位，ASIC 營收兌現的時間點是財務面能否追上估值的關鍵。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>股票類型判定</h3>
+<ul><li>EPS > 0、近四季 62.90 元，本業 YoY 約 +5%，但 ASIC 帶來未來加速成長預期</li><li>殖利率僅 1.30%（股價大漲後殖利率被壓低）</li><li>判定：<strong>TYPE_A 成長股（題材溢價偏高型）</strong>——市場已改用 2027-2028 前瞻獲利定價</li></ul>
+<h3>目前估值（來源：TWSE BWIBBU_d 2026/07/06）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>4,125 元</td></tr><tr><td>本益比（PE）</td><td>65.74x（官方）／66.85x（Yahoo）</td></tr><tr><td>股息殖利率</td><td>1.30%</td></tr><tr><td>股價淨值比（PBR）</td><td>16.87x</td></tr><tr><td>52 週高點</td><td>4,640 元</td></tr><tr><td>52 週低點</td><td>1,123 元</td></tr><tr><td>目前位置</td><td>52 週區間約 85%（高檔）</td></tr></tbody></table></div>
+<p><strong>對照 4/10 版</strong>：PE 從 23.87x → 65.74x，PBR 從 6.28x → 16.87x，殖利率從 3.40% → 1.30%。三項估值指標同步大幅拉高，確認市場已完成「手機股 → ASIC 成長股」的重新定價。</p>
+<h3>雙軌估值（進場價格 SOP）</h3>
+<p><strong>基本數據：</strong></p>
+<ul><li>近四季 EPS：62.90 元；2026 Forward EPS 市場預估約 68 元</li><li>歷史 PE（ASIC 重估前）區間約 9-29x，中位約 19x；ASIC 重估後市場願給 30x 以上前瞻 PE</li></ul>
+<hr>
+<p><strong>方法 A（本業錨定法，2026 Forward EPS × ASIC 調整後 PE 30x）：</strong></p>
+<p>```</p>
+<p>合理價 = Forward EPS 68 × 30x（承認 ASIC 溢價但不採最激進假設）= 2,040 元</p>
+<p>```</p>
+<p>（若用重估前歷史中位 19x，僅 1,292 元——顯示現價相對本業獲利極度昂貴）</p>
+<p><strong>方法 B（外資目標價共識法，排除最激進值）：</strong></p>
+<p>```</p>
+<p>外資目標價分歧極大：花旗/麥格理 2,800、大摩 2,988、瑞銀 3,400（部分報導 6,500）、高盛 6,800</p>
+<p>取「非最激進」次高群中位 → 約 3,200 元</p>
+<p>```</p>
+<p><strong>差距與錨定：</strong></p>
+<p>```</p>
+<p>方法 A 2,040 vs 方法 B 3,200，差距 > 20% → 不取平均</p>
+<p>採較樂觀的方法 B 3,200 元為主錨（因市場已進入 ASIC 定價模式）</p>
+<p>現價 4,125 元 → 仍高於主錨約 29%</p>
+<p>```</p>
+<p><strong>進場區間（觀察用）：</strong></p>
+<p>```</p>
+<p>以主錨 3,200 × 0.85~0.90 = 2,720 ~ 2,880 元（估值錨定）</p>
+<p>技術參考：MA60 季線 3,547 元為較近的技術支撐</p>
+<p>→ 綜合觀察進場區：3,200 ~ 3,550 元（估值+季線交集帶）</p>
+<p>```</p>
+<blockquote>📝 <strong>前瞻本益比（Forward PE）</strong>：用「未來一年預估 EPS」算的本益比。ASIC 股常用它，因為現在的獲利還沒反映未來成長。但預估愈遠、變數愈大——高盛用 2028 年 EPS 406 元算目標價，等於押注 3 年後 ASIC 全面放量。</blockquote>
+<p><strong>估值結論：</strong></p>
+<p>現價 4,125 元同時滿足「近四季 PE 65.74 倍偏貴」與「高於多數外資目標價」兩個警訊。只有高盛（6,800）、瑞銀（6,500）兩家最激進的目標價高於現價，其餘券商目標價（2,800-3,400）都低於現價 17-32%。這代表現價已充分甚至過度反映樂觀情境，追高的風險報酬比不佳。</p>
+<h3>小結</h3>
+<p>PE 65.74 倍（近四季）＋現價高於多數外資目標——估值已把 2027-2028 的 ASIC 成功提前買單，安全邊際低，不是新資金的好進場點。</p>
+<hr>
+<h2>4. 技術面</h2>
+<p>（來源：technical_indicators.py，2026/07/06 資料）</p>
+<h3>現價位置</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>現價</td><td>4,125 元（-1.67%）</td><td>—</td></tr><tr><td>MA5</td><td>4,249 元</td><td>現價低於 -2.9%</td></tr><tr><td>MA10</td><td>4,217 元</td><td>現價低於 -2.2%</td></tr><tr><td>MA20</td><td>4,274 元</td><td>現價低於 -3.5%</td></tr><tr><td>MA60</td><td>3,547 元</td><td>現價高於 +16.3%（季線支撐仍遠）</td></tr><tr><td>MA120</td><td>2,600 元</td><td>現價高於 +58.7%</td></tr><tr><td>MA240</td><td>1,968 元</td><td>現價高於 +109.6%</td></tr><tr><td>52W 高點</td><td>4,640 元</td><td>距高點 -11.1%</td></tr><tr><td>52W 低點</td><td>1,123 元</td><td>距低點 +267%</td></tr><tr><td>52W 位置</td><td>約 85%（高檔）</td><td>—</td></tr></tbody></table></div>
+<h3>技術指標</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>RSI(14)</td><td>49.66</td><td>中性區間，多空均可</td></tr><tr><td>KD K值</td><td>42.53</td><td>2 天前中位黃金交叉（買進參考）</td></tr><tr><td>KD D值</td><td>41.49</td><td>—</td></tr><tr><td>MACD</td><td>80.59</td><td>零軸上方，但柱狀翻負</td></tr><tr><td>MACD 柱狀</td><td>-60.56</td><td>負值，動能轉弱</td></tr><tr><td>死亡交叉</td><td>6 天前（06/26 短均下穿長均）</td><td>短線轉空</td></tr><tr><td>綜合評分</td><td>-0.5（中性）</td><td>KD 金叉+1、MACD 柱負-1、死叉-0.5</td></tr></tbody></table></div>
+<blockquote>📝 <strong>RSI</strong>：股價溫度計，49.66 屬中性，沒過熱也沒超賣。</blockquote>
+<blockquote>📝 <strong>MACD 柱狀翻負</strong>：上漲動能減弱的訊號。MACD 線雖仍在零軸上（中期偏多餘威），但柱狀轉負代表短線衝勁在退。</blockquote>
+<blockquote>📝 <strong>死亡交叉</strong>：短期均線由上跌破長期均線，短線偏空訊號；6 天前才發生，配合股價跌破 MA5/10/20，顯示近期在高檔回檔整理。</blockquote>
+<h3>技術面解讀</h3>
+<p>現價 4,125 元剛跌破 MA5/MA10/MA20（4,217-4,274），呈高檔回檔；但仍高於季線 MA60（3,547）達 16.3%，中長多頭結構未破。KD 中位金叉是短線止跌參考，但 MACD 柱狀翻負 + 6 天前死亡交叉，顯示上攻動能暫歇。量能萎縮（近 5 日均量 940 萬 < 20 日均量 1,179 萬，量縮比 0.8），屬漲多後的觀望整理。<strong>關鍵支撐在季線 3,547 元</strong>，跌破則回檔擴大。</p>
+<h3>小結</h3>
+<p>高檔回檔整理中，短線動能轉弱（MACD 柱翻負+死叉），但季線（3,547）以上多頭結構仍在——技術面偏中性，追高勝率低，等回測季線附近再看。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<p>（來源：TWSE MI_MARGN／Yahoo 法人買賣）</p>
+<h3>三大法人</h3>
+<p>❌ 本次未逐日 WebFetch 三大法人買賣超明細，建議至 <a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank" rel="noopener">TWSE 三大法人查詢</a> 補齊。已知背景：外資對聯發科集體上修評等（FactSet 統計多位分析師轉正面），為本波重估主力；但股價創高後需留意法人是否轉為調節。</p>
+<blockquote>📝 <strong>三大法人</strong>：外資（國際基金）、投信（台灣基金）、自營商（券商自營）。外資是聯發科最大持股者，其動向最具指標性。</blockquote>
+<h3>融資融券</h3>
+<p>❌ 本次未取得 07/06 最新融資融券明細（4/10 舊版數據已過期，不沿用），建議至 <a href="https://www.twse.com.tw/zh/trading/margin/MI_MARGN.html" target="_blank" rel="noopener">TWSE 融資融券</a> 查詢。千金股融資成本高、散戶參與度相對低，通常籌碼較集中於法人。</p>
+<h3>小結</h3>
+<p>籌碼明細本次未取得，最需盯的是「外資是否在創高後由買轉調節」——這是判斷本波重估是否進入獲利了結階段的關鍵訊號，建議自行覆核。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p>（同族群數據來源：IC 設計族群產業趨勢分析 2026/07/06）</p>
+<div class="table-wrap"><table><thead><tr><th>比較項目</th><th>聯發科 2454</th><th>創意 3443</th><th>世芯-KY 3661</th></tr></thead><tbody><tr><td>現價（07/06）</td><td>4,125 元</td><td>4,685 元</td><td>4,370 元</td></tr><tr><td>今日漲跌</td><td><strong>-1.67%（最抗跌）</strong></td><td>-7.04%</td><td>-6.02%</td></tr><tr><td>PE 本益比</td><td><strong>65.74x（相對最低）</strong></td><td>151.62x（最貴）</td><td>68.15x</td></tr><tr><td>近四季 EPS</td><td>62.90 元</td><td>33.24 元</td><td>68.61 元</td></tr><tr><td>毛利率</td><td>46.30%</td><td>27.20%</td><td><strong>50.18%（最高）</strong></td></tr><tr><td>2026/05 月營收 YoY</td><td>+4.99%</td><td><strong>+132.13%（最強）</strong></td><td>-33.45%</td></tr><tr><td>ASIC 客戶/題材</td><td>Google TPU + Meta（第二大客戶）</td><td>Google TPU（Turnkey）</td><td>AWS Trainium 3（唯一供應商）</td></tr><tr><td>安全墊</td><td><strong>手機 SoC 本業（唯一有）</strong></td><td>無，純設計服務</td><td>無，純設計服務</td></tr></tbody></table></div>
+<blockquote>📝 <strong>Turnkey</strong>：設計服務業的「一條龍代工」——客戶把晶片設計、投片、封裝測試全包給你。創意就是 Google/台積電生態系的 Turnkey 主力。</blockquote>
+<p><strong>競爭格局解讀：</strong></p>
+<ul><li><strong>估值</strong>：聯發科 PE 65.74x 是三檔中相對最低，且有手機本業支撐，市場尚未把它當「純題材股」定價，估值邏輯較穩健。</li><li><strong>業績兌現</strong>：創意月營收 YoY +132% 最猛，但估值也最貴（PE 151x）；世芯毛利率最高但月營收仍衰退（客戶交接期）。</li><li><strong>今日抗跌</strong>：族群重挫日聯發科僅跌 1.67%，驗證「本業安全墊」在回檔時提供保護。</li></ul>
+<h3>小結</h3>
+<p>在 ASIC 三雄中聯發科估值相對合理、抗跌性最佳、有手機本業墊底——是族群裡「相對穩健」的選擇，但「相對」不等於「便宜」，PE 65 倍在絕對值上仍屬高估值。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>ASIC 全年營收目標上修至 20 億美元</td><td>已確認（4/30 法說會）</td><td>2026 全年</td><td>高</td></tr><tr><td>拿下 Meta AI 加速器訂單（第二大客戶）</td><td>幾乎確定（7/2 傳出）</td><td>2026-2027</td><td>高</td></tr><tr><td>Google TPU v9「Triggerfish」獨家接單</td><td>已確認</td><td>2027 底投產、2028 放量</td><td>高（長線）</td></tr><tr><td>高盛目標價上修至 6,800 元</td><td>已發生（7/2）</td><td>—</td><td>中（情緒）</td></tr><tr><td>台積電法說會</td><td>已確認</td><td>2026/07/16</td><td>中（產業風向）</td></tr><tr><td>聯發科自家 Q2 法說會</td><td>待定</td><td>約 2026/07-08</td><td>高（ASIC 進度驗證）</td></tr><tr><td>天璣 9600（2nm）旗艦晶片</td><td>已確認</td><td>2026 H2 發布</td><td>中</td></tr><tr><td>產品漲價約 5%</td><td>已預告</td><td>2026 Q3 起</td><td>中（護毛利）</td></tr><tr><td>雲端 ASIC 市場 2027 達 700-800 億美元</td><td>管理層揭露</td><td>2027</td><td>高（長線 TAM）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>TAM（潛在市場總規模）</strong>：整個市場的餅有多大。雲端 ASIC 2027 上看 700-800 億美元，聯發科分到的比例決定 ASIC 業務的天花板。</blockquote>
+<p><strong>關鍵時間軸：</strong></p>
+<ul><li><strong>2026/07/16</strong>：台積電法說會——AI 資本支出與 ASIC 產能風向球</li><li><strong>2026 Q2 法說會（7-8 月）</strong>：聯發科自家 ASIC 進度、20 億美元目標達成率、毛利率指引——<strong>最重要的近期驗證點</strong></li><li><strong>2027-2028</strong>：Triggerfish 投產放量、ASIC 營收倍增能否兌現高盛的樂觀假設</li></ul>
+<h3>小結</h3>
+<p>題材密度極高且多為「已確認/幾乎確定」等級（Meta 訂單、20 億美元目標、Triggerfish），但多數利多已反映在股價；下一個實質催化劑是自家 Q2 法說會的 ASIC 進度驗證。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th></tr></thead><tbody><tr><td>高估值回檔（PE 65x 已透支未來）</td><td>中-高</td><td>高</td><td>單日跌幅放大、ASIC 族群同步修正</td></tr><tr><td>ASIC 訂單/放量進度不如預期</td><td>低-中</td><td>高</td><td>法說會下修 20 億美元目標或延後</td></tr><tr><td>客戶集中（Google+Meta 主導 ASIC）</td><td>中</td><td>高</td><td>單一大客戶轉單或縮減委外</td></tr><tr><td>手機本業「艱苦年」+ 記憶體短缺衝擊</td><td>中</td><td>中</td><td>月營收連續 YoY 轉負、毛利率指引下修</td></tr><tr><td>美中科技戰升級、出口管制擴大</td><td>中</td><td>高</td><td>美國商務部新增 Entity List</td></tr><tr><td>台積電先進製程產能排擠</td><td>中</td><td>中</td><td>法說會提及製程/封裝吃緊</td></tr><tr><td>高盛式樂觀假設落空（2028 EPS 406 元）</td><td>中</td><td>高</td><td>ASIC 佔比未如期攀升</td></tr></tbody></table></div>
+<p><strong>⚠️ 致命風險：</strong></p>
+<ol><li><strong>估值與獲利錯位修正</strong>：現價用 2027-2028 ASIC 定價，若任一年進度延遲，PE 65x 會快速向本業合理估值（30-40x）收斂，跌幅可觀。</li><li><strong>ASIC 關鍵客戶流失</strong>：Google 或 Meta 縮減/轉單，成長故事崩解。</li></ol>
+<h3>📡 股癌觀點補充（沿用 v1.1，仍高度適用）</h3>
+<blockquote>來源：股癌 NBLM EP655（心理提醒）＋ EP675/EP676（2026/07 族群觀察）</blockquote>
+<ul><li>EP655：「<strong>聯發科行情大好時，投資人反而要先思考潛在威脅</strong>」——現價創高、PE 65 倍，正是這句提醒最該想起的時刻。</li><li>EP675/676：IC 設計大頭站上關鍵均線，但要觀察「誰率先衝出、或資金回流台積電」。今日（7/6）盤面已初步驗證：ASIC 設計股獲利了結、資金部分回流台積電/記憶體。</li></ul>
+<h3>小結</h3>
+<p>最大風險不是公司變壞，而是「估值跑太快」——PE 65 倍留給任何 ASIC 進度失望的容錯空間極小，這正是把結論定在【觀望】的核心理由。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>綜合判斷</h3>
+<div class="table-wrap"><table><thead><tr><th>維度</th><th>評分</th><th>說明</th></tr></thead><tbody><tr><td>基本面</td><td>✅</td><td>護城河強、ASIC 客戶擴張至 Meta</td></tr><tr><td>財務面</td><td>⏳</td><td>EPS/營收持平、毛利率有壓，本業成長溫和</td></tr><tr><td>估值面</td><td>❌</td><td>PE 65.74x 偏貴、現價高於多數外資目標</td></tr><tr><td>技術面</td><td>⏳</td><td>高檔回檔、動能轉弱，季線以上多頭仍在</td></tr><tr><td>籌碼面</td><td>⚠️</td><td>明細未取得，留意外資是否轉調節</td></tr><tr><td>催化劑</td><td>✅</td><td>題材密集但多已反映，Q2 法說會為近期驗證點</td></tr></tbody></table></div>
+<hr>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li>六維度方向明確、催化劑強，但估值與本業獲利嚴重錯位，兩面性高（進度兌現則續強、失望則回檔），故給中等信心</li><li><strong>建議倉位</strong>：核心衛星架構下歸「衛星／觀察」，目前不建議新進；若未來回落至合理區布局，單一個股上限 ≤ 8-10%</li></ul>
+<p><strong>進場條件（等回調）：</strong></p>
+<ul><li>估值錨定進場區：<strong>2,720 ~ 2,880 元</strong>（外資次高群目標價 × 0.85-0.90）</li><li>綜合觀察進場區：<strong>3,200 ~ 3,550 元</strong>（估值錨與季線 MA60 交集帶）</li><li>事件觸發：Q2 法說會確認 ASIC 20 億美元目標達成率符合預期 + 月營收 YoY 連 3 月轉強</li></ul>
+<p><strong>停損參考（供既有持有者）：</strong></p>
+<ul><li>技術面：跌破季線 MA60（3,547 元）且收盤站不回 → 減碼評估</li><li>基本面：ASIC 目標下修或毛利率跌破 44% → 重新評估</li><li>絕對支撐：MA120（2,600 元）為中線重要防線</li></ul>
+<blockquote>💡 <strong>千金股倉位現實提醒（新手重要）</strong>：聯發科 4,125 元/股，<strong>一張（1,000 股）要 412.5 萬元</strong>，遠超單一個股合理配置。若未來想進場，<strong>只能走零股</strong>：例如 10 股約 4.1 萬、30 股約 12.4 萬。買零股要控制在單一個股倉位上限內，避免一檔就吃掉大半可投入資金、破壞分散原則。</blockquote>
+<blockquote>📝 <strong>零股交易</strong>：不用湊滿 1,000 股（一張），可以買 1-999 股。盤中零股與整股同步交易，是小資參與高價股的唯一實際管道。</blockquote>
+<p><strong>加碼條件（既有持有者）：</strong></p>
+<ol><li>股價回測季線 3,547 元附近 + KD 金叉且量能回穩</li><li>Q2 法說會 ASIC 進度超預期、上修全年目標</li><li>月營收 YoY 連續 3 個月加速成長（ASIC 開始灌入）</li></ol>
+<p><strong>觀察指標：</strong></p>
+<ol><li>每月 10 日月營收：ASIC 是否開始拉高 YoY</li><li>2026 Q2 法說會（7-8 月）：ASIC 目標達成率 + 毛利率指引</li><li>台積電 7/16 法說會：AI/ASIC 產能與資本支出風向</li><li>外資動向：創高後是否由買轉調節</li><li>同族群（創意/世芯）估值修正是否外溢至聯發科</li></ol>
+<p><strong>下次檢視時間</strong>：2026 年 Q2 法說會後（約 7-8 月），或股價回測季線 3,547 元時</p>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2454.TW" target="_blank" rel="noopener">Yahoo 股市 - 聯發科 2454 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2454.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 聯發科 2454 月營收</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?stockNo=2454&response=json" target="_blank" rel="noopener">TWSE - 個股本益比/殖利率/PBR（BWIBBU_d）2026/07/06</a></li><li><a href="https://www.cnyes.com/twstock/2454" target="_blank" rel="noopener">鉅亨網 - 聯發科 2454 財務數據</a></li><li>[technical_indicators.py 腳本輸出（2026/07/06）]</li><li>[IC 設計族群產業趨勢分析 2026/07/06（本機檔案）]</li><li><a href="https://money.udn.com/money/story/5612/9486368" target="_blank" rel="noopener">經濟日報 - 聯發科股價飆、蔡力行 CPO 布局就緒</a></li><li><a href="https://abmedia.io/mediatek-reportedly-secures-meta-as-asic-customer-after-tpu" target="_blank" rel="noopener">鏈新聞 ABMedia - 聯發科拿下 Meta AI 加速器訂單，高盛上調目標價至 6,800 元</a></li><li><a href="https://finance.technews.tw/2026/07/02/goldman-sachs-raised-its-target-price-for-mediatek-to-nt6800/" target="_blank" rel="noopener">TechNews - AI ASIC 獲利成長，高盛調升聯發科目標價至 6,800 元</a></li><li><a href="https://www.inside.com.tw/article/41614-mediatek-google-tpu-v9-triggerfish" target="_blank" rel="noopener">INSIDE - 郭明錤：聯發科獨家接單 Google TPU v9 加強版 Triggerfish</a></li><li><a href="https://www.top1markets.com/tw/insights/stocks/mediatek-asic-5000-target-price" target="_blank" rel="noopener">Top1 Markets - 拆解聯發科 5,000 元目標價：三個假設斷點</a></li><li><a href="https://money.udn.com/money/story/5607/9479526" target="_blank" rel="noopener">經濟日報 - 高盛目標價喊 5,000 元、重申買進</a></li><li><a href="https://money.udn.com/money/story/5607/9586714" target="_blank" rel="noopener">經濟日報 - 外資力挺聯發科 目標價喊 6,500</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%A4%96%E8%B3%87%E5%85%A8%E9%9D%A2%E9%87%8D%E4%BC%B0%E8%81%AF%E7%99%BC%E7%A7%91-AI-ASIC%E7%88%86%E7%99%BC%E5%8A%9B%E5%BC%95%E7%88%86%E5%8F%B2%E8%A9%A9%E7%B4%9A%E7%9B%AE%E6%A8%99%E5%83%B9-%E4%BD%95%E6%99%82%E9%85%8D%E6%81%AF-%E5%93%AA%E4%BA%9BETF%E6%8C%81%E6%9C%89%E8%81%AF%E7%99%BC%E7%A7%91--%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69f81d4fa312ed005242f7cb" target="_blank" rel="noopener">豐雲學堂 - 外資全面重估聯發科 AI ASIC</a></li></ul>
+<p></content></p>
+</div>
+</body>
+</html>

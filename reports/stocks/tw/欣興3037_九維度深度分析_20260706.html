@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>欣興（3037）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>欣興（3037）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>欣興（3037）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote><strong>一檔股票只留這一份檔案</strong>，原地更新、不另存舊日期檔——版本演進靠這張表追溯。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v2.0</td><td>2026-07-06</td><td>NT$917.5</td><td>升級為九維度深度分析，取代 03-08 舊版。全數字重抓官方（TWSE 7/6 PE 134.85／PB 12.84／殖利率 0.22%、Yahoo 收盤 917.5、技術指標腳本）。新增：1Q26 EPS 3.28 元創 13 季新高、玻璃基板 TGV 試產線 7 月建置、載板+玻璃基板雙卡位、外資目標價大幅上修（720~1400）。結論由「觀望（估值太貴）」維持「觀望」但理由更新為「三雄最強＋雙題材，惟絕對估值仍高＋短線技術轉弱，等回調分批」</td></tr><tr><td>v1.0</td><td>2026-03-08</td><td>NT$432</td><td>首次分析（舊格式）。基本面最強蘋概＋AI 雙引擎，但 PE 100x＋開年漲 118% 太貴</td></tr></tbody></table></div>
+<h2>關鍵指標快照</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$917.5（漲跌 <strong>-5.17%</strong>，連 4 跌累計 -14.11%）</td></tr><tr><td>市值</td><td>❌ 未取得（Yahoo/TWSE 頁面未揭示，建議券商 App 查詢）</td></tr><tr><td>PE 本益比</td><td>134.85 倍（TWSE 7/6，同業平均 86.26x）</td></tr><tr><td>PB 股價淨值比</td><td>12.84 倍（TWSE 7/6）</td></tr><tr><td>EPS（近 4 季合計）</td><td>約 6.80 元（由 PE 推算；1Q26 單季 3.28 元創 13 季新高）</td></tr><tr><td>殖利率</td><td>0.22%（TWSE 7/6，幾乎無配息）</td></tr><tr><td>ROE</td><td>約 9.5%（TTM，由 PB/PE 推算，屬低基期；forward 顯著更高）</td></tr><tr><td>毛利率</td><td>約 18%（1Q26 整體，券商彙整）</td></tr><tr><td>營收 YoY（最新月 5 月）</td><td>+32.37%</td></tr><tr><td>營收 MoM（5 月）</td><td>+0.91%</td></tr><tr><td>52 週高 / 低</td><td>1,082.78 / 108.44</td></tr><tr><td>技術位置</td><td>跌破 MA20（961.77）、站穩 MA60（885.29）；RSI 46.23（中性）；KD 死亡交叉；MACD 柱翻負</td></tr></tbody></table></div>
+<p>資料時間：2026-07-06（台股已收盤）｜資料來源見文末</p>
+<h2>結論</h2>
+<p>【觀望】— ABF 三雄基本面最強、且是唯一「載板主業＋玻璃基板題材」雙卡位者，但絕對估值仍偏高＋短線技術轉弱，宜等回調分批布局。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：衛星波段，耐心等回調至季線附近分批建倉</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>靠什麼賺錢？</h3>
+<p>欣興是<strong>全球 ABF 載板龍頭</strong>，主力產品是 IC 載板與 PCB。</p>
+<blockquote>📝 <strong>ABF 載板</strong>：CPU／GPU／AI 加速器晶片底下那塊「地基板」，把晶片和電路板連起來。AI 伺服器晶片越強、腳位越多，就越需要高階 ABF 載板，是這波 AI 缺貨潮的核心受惠品。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>業務</th><th>定位</th><th>稼動率</th><th>毛利</th></tr></thead><tbody><tr><td>ABF 載板</td><td>成長引擎，AI 晶片核心基板</td><td>年底前光復／楊梅新線拚滿載</td><td>高</td></tr><tr><td>BT 載板</td><td>手機 SoC／記憶體封裝</td><td>需求吃緊</td><td>中</td></tr><tr><td>PCB</td><td>傳統本業</td><td>穩定</td><td>較低</td></tr></tbody></table></div>
+<blockquote>📝 <strong>稼動率（產能利用率）</strong>：工廠產線開了多少「馬力」在生產。越接近 100% 代表訂單越滿、越賺錢；掉下來就是需求轉弱的警訊。</blockquote>
+<h3>產業鏈定位（引用 7/6 產業報告）</h3>
+<p>```</p>
+<p>晶片設計（NVIDIA / AMD / Google ASIC）</p>
+<p>↓</p>
+<p>台積電（晶圓代工）</p>
+<p>↓</p>
+<p>欣興（ABF 載板 → 晶片封裝地基）</p>
+<p>↓</p>
+<p>日月光（封裝測試） → AI 伺服器 / iPhone</p>
+<p>```</p>
+<h3>雙卡位差異化</h3>
+<p>欣興是 ABF 三雄中<strong>唯一同時明確布局下一代玻璃基板（TGV）技術</strong>的公司：規劃自建 TGV 精密試產線於 2026 年 7 月前後建置完成，啟動樣品送樣與國際大廠（含 Intel）驗證，年底批量裝機。</p>
+<blockquote>📝 <strong>TGV（玻璃通孔）</strong>：在玻璃基板上鑽出數百萬個微小導通孔讓電訊號穿過，是玻璃基板產業鏈技術門檻最高的一關。玻璃基板被視為 ABF 載板的下一代升級（面積更大、更平整、能塞更多晶片），真正放量預估 2027 下半年～2029 年，2026 年是「驗證元年」。</blockquote>
+<h3>小結</h3>
+<p>ABF 載板龍頭地位穩固，且是三雄中唯一「現有主業穩健 ＋ 玻璃基板下一代題材」雙引擎者——確定性與想像空間兼具，這是欣興被列為產業精選的核心理由。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>獲利爆發（1Q26 創 13 季新高）</h3>
+<ul><li>1Q26 稅後淨利 50.43 億元，QoQ +42.66%、YoY <strong>+451%</strong>，EPS <strong>3.28 元</strong>（13 季新高）</li><li>ABF 載板營收 QoQ +14%，1Q26 整體毛利率約 18%（AI 應用占比提升＋季末漲價認列帶動）</li></ul>
+<blockquote>📝 <strong>EPS（每股盈餘）</strong>：公司幫每一股賺了多少錢。1Q26 單季 3.28 元 vs 去年同期幾乎腰斬的基期，YoY +451% 是「從谷底大反彈」。</blockquote>
+<h3>月營收趨勢（近 6 月）— 成長動能持續</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>營收（億元）</th><th>MoM</th><th>YoY</th></tr></thead><tbody><tr><td>2026/05</td><td>140.60</td><td>+0.91%</td><td><strong>+32.37%</strong></td></tr><tr><td>2026/04</td><td>139.33</td><td>+6.53%</td><td>+27.64%</td></tr><tr><td>2026/03</td><td>130.79</td><td>+12.75%</td><td>+23.27%</td></tr><tr><td>2026/02</td><td>116.00</td><td>-9.14%</td><td>+16.18%</td></tr><tr><td>2026/01</td><td>127.67</td><td>+7.99%</td><td>+34.48%</td></tr><tr><td>2025/12</td><td>118.22</td><td>+2.43%</td><td>+26.88%</td></tr></tbody></table></div>
+<p>（資料來源：Yahoo 股市月營收，6 月營收約 7/10 公布尚未出爐）</p>
+<h3>展望</h3>
+<p>法人預期 2Q26 營收 QoQ +10% 以上，毛利率因載板漲價、CCL 原料成本轉嫁客戶、新產能開出而顯著改善。</p>
+<blockquote>📝 <strong>毛利率</strong>：每 100 元營收，扣掉直接生產成本後剩多少。18% 往上走代表「賣得更貴或成本控制更好」，是獲利品質改善的訊號。</blockquote>
+<h3>資本支出</h3>
+<p>2026 年資本預算上修至 254 億元，反映對 ABF ＋ 玻璃基板雙軌布局的高度信心。</p>
+<h3>小結</h3>
+<p>獲利正處於「從谷底陡升」階段，EPS 創 13 季新高、營收 YoY 穩定雙位數、毛利率往上，財務動能是三雄中最強的一檔。</p>
+<hr>
+<h2>3. 估值面</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>說明</th></tr></thead><tbody><tr><td>PE（TTM，TWSE 7/6）</td><td>134.85x</td><td>用「近 4 季合計 6.80 元」算，含大量低基期季度，看起來嚇人</td></tr><tr><td>Forward PE（2026E）</td><td>約 65~79x</td><td>依外資 2026E EPS 11.62~14.13 元</td></tr><tr><td>Forward PE（2027E）</td><td>約 38x</td><td>依外資 2027E EPS 約 23~24 元</td></tr><tr><td>PB</td><td>12.84x</td><td>偏高</td></tr><tr><td>殖利率</td><td>0.22%</td><td>幾乎無配息，屬成長股</td></tr></tbody></table></div>
+<blockquote>📝 <strong>Forward PE（預估本益比）</strong>：用「未來一年預估獲利」算的本益比。ABF 正處獲利爆發期，用過去 4 季（TTM）算會嚴重高估貴度；看 2027E 的 38x 才較能反映真實成長定價。</blockquote>
+<p><strong>估值判斷</strong>：TTM PE 134.85x 是低基期造成的假象，用 2027E 算約 38x，在 AI 載板族群中不算離譜。三雄中欣興 PE 最低（南電 251x、景碩 224x），相對合理。但<strong>絕對估值仍高</strong>，且外資目標價分歧極大（720 元 ~ 1,400 元），現價 917.5 已高於保守目標價、低於樂觀目標價，安全邊際不足。</p>
+<h3>小結</h3>
+<p>用未來獲利看不算離譜、三雄中最低，但絕對估值仍高、目標價分歧大，現價缺乏安全邊際——這是「好公司但不便宜」的典型。</p>
+<hr>
+<h2>4. 技術面</h2>
+<ul><li>收盤 917.5，7/6 單日 <strong>-5.17%</strong>，連 4 跌累計 -14.11%（自 52 週高 1,082.78 回落約 15%）</li><li><strong>均線</strong>：跌破 MA20（961.77），但仍站穩 MA60 季線（885.29，+3.6%），均線仍多頭排列</li><li><strong>RSI 46.23</strong>：中性區間，未超賣</li></ul>
+<blockquote>📝 <strong>RSI（相對強弱指標）</strong>：0~100 衡量近期漲跌力道。>70 過熱、<30 超賣。46 屬中性，代表短線既不過熱也沒超賣，還有續跌空間。</blockquote>
+<ul><li><strong>KD 死亡交叉</strong>（2 天前，K=51.7 中位）→ 短線賣壓訊號</li></ul>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：快線（K）由上往下穿過慢線（D），是短線轉弱的賣出參考訊號。</blockquote>
+<ul><li><strong>MACD 柱狀翻負 -8.29</strong> → 動能開始轉弱</li></ul>
+<blockquote>📝 <strong>MACD</strong>：追蹤中期動能的指標。柱狀由正翻負，代表上漲動能正在衰減。</blockquote>
+<ul><li>10 天前（6/22）出現黃金交叉、季線仍撐住 → 中期趨勢未破壞，但短線 KD＋MACD 同步轉弱，賣壓未止</li></ul>
+<blockquote>📝 <strong>黃金交叉</strong>：短均線由下往上穿過長均線，是中線轉多訊號。目前黃金交叉（中期偏多）與 KD 死叉（短期偏空）並存，代表「中多短空、正在回檔」。</blockquote>
+<h3>小結</h3>
+<p>中期趨勢仍多頭（季線撐住、10 天前黃金交叉），但短線 KD 死叉＋MACD 翻負顯示回檔未完，賣壓尚未止穩，不宜此刻追。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<ul><li>1Q26 財報後多家外資大幅上修目標價，法人態度偏多（近月外資曾連日買超，⚠️ 精確張數未取得）</li><li>融資融券明細：❌ 未取得（建議至 TWSE MI_MARGN 或券商 App 查當日數據）</li><li><strong>風險提醒</strong>：股價自高點連 4 跌、南電同日重挫 -9.28%，顯示族群短線有法人調節、獲利了結賣壓</li></ul>
+<h3>小結</h3>
+<p>法人基本面看法偏多，但族群同步拉回顯示短線籌碼鬆動、獲利了結壓力浮現，精確買賣超與融資融券需自行覆核當日官方數據。</p>
+<hr>
+<h2>6. 同業比較（ABF 載板三雄）</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>欣興 3037</th><th>南電 8046</th><th>景碩 3189</th></tr></thead><tbody><tr><td>現價（7/6）</td><td>917.5</td><td>1,075（-9.28%）</td><td>797（6/28 資料）</td></tr><tr><td>PE（TWSE）</td><td><strong>134.85x（最低）</strong></td><td>251.06x</td><td>224.51x</td></tr><tr><td>PB</td><td>12.84x</td><td>16.39x</td><td>—</td></tr><tr><td>玻璃基板卡位</td><td>✅ TGV 試產線 7 月建置</td><td>❌ 純 ABF</td><td>❌</td></tr><tr><td>1Q26 動能</td><td>EPS 3.28 元創 13 季高</td><td>6 月營收 YoY +50%</td><td>已分析（觀望）</td></tr><tr><td>差異化</td><td>主業＋題材雙卡位</td><td>漲價彈性最大但估值最高</td><td>估值已充分反映</td></tr></tbody></table></div>
+<p><strong>如果三雄只能選一檔</strong>：欣興。理由——估值三雄最低、獲利動能最強、且是唯一同時卡位玻璃基板下一代題材者，兼具確定性與想像空間；南電雖漲價彈性最大但估值最貴且今日重挫，景碩 6/28 分析結論為觀望。</p>
+<h3>小結</h3>
+<p>三雄之中欣興「估值最低＋動能最強＋唯一雙題材」，是族群首選，但首選不等於現在就是好買點。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響</th></tr></thead><tbody><tr><td>ABF 載板供給缺口擴大（2026/27/28 缺口 8%/27%/35%）</td><td>已確認</td><td>持續至 2027 下半年</td><td>高</td></tr><tr><td>ABF 漲價循環（LowCTE 玻布／T-glass 缺料推升）</td><td>已確認</td><td>持續</td><td>高</td></tr><tr><td>2Q26 財報（營收 QoQ +10%、毛利率改善）</td><td>事件</td><td>2026 Q3 公布</td><td>高</td></tr><tr><td>玻璃基板 TGV 試產線建置＋送樣驗證</td><td>潛在</td><td>2026/7 建置、年底裝機</td><td>中高</td></tr><tr><td>光復／楊梅新產能年底滿載</td><td>已確認</td><td>2026 年底</td><td>中</td></tr></tbody></table></div>
+<blockquote>📝 <strong>LowCTE 玻布 / T-glass</strong>：ABF 載板裡的關鍵材料（低熱膨脹玻璃纖維布）。這東西缺貨，反而讓載板供給更緊、推升漲價，對欣興是「缺料反成漲價助力」。</blockquote>
+<h3>小結</h3>
+<p>催化劑密集且明確：ABF 缺貨漲價（現在進行式）＋ 2Q 財報（Q3）＋ 玻璃基板試產（年底），基本面題材面同步發酵，但多數已被市場預期，需靠財報實際兌現才有續攻力。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>機率</th><th>影響</th><th>早期警訊</th></tr></thead><tbody><tr><td>🔴 景氣循環反轉（最大風險）</td><td>中</td><td><strong>致命</strong></td><td>ABF 稼動率下滑、客戶延遲拉貨</td></tr><tr><td>🟠 短線估值回調（已連 4 跌）</td><td>高</td><td>中</td><td>跌破季線 885、族群同步殺盤</td></tr><tr><td>🟡 AI 資本支出降溫</td><td>中</td><td>高</td><td>NVIDIA 指引下修、雲端 CAPEX 縮減</td></tr><tr><td>🟡 玻璃基板題材與實質脫節</td><td>中</td><td>中</td><td>TGV 驗證進度遞延、放量時點後移</td></tr><tr><td>🟡 資本支出 254 億折舊壓力</td><td>低-中</td><td>中</td><td>若需求不如預期侵蝕獲利</td></tr><tr><td>🟡 競爭加劇（IBIDEN 擴產）</td><td>中</td><td>中</td><td>全球 ABF 供給快速增加</td></tr></tbody></table></div>
+<p><strong>致命風險提醒</strong>：2022-2024 年 ABF 載板曾自高點崩跌逾 80%，「供不應求」在上一循環也出現過、後來崩得更快。歷史不必然重演，但成長股在景氣循環反轉時修正極猛，務必嚴設停損。</p>
+<h3>小結</h3>
+<p>最大風險是景氣循環反轉（成長股殺起來很猛），短線最現實的風險是估值回調未完；玻璃基板題材則有「兌現時間差」風險，別把 2027 年後的故事當 2026 的獲利。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：佔總資金 8~12%（衛星波段，分批建倉，單一個股不宜過重）</li><li><strong>進場條件</strong>：</li><li>第一批：回測季線 MA60（約 885 元）附近止穩、KD 低檔轉折向上時分批建倉</li><li>加碼批：若族群續殺至 780~820 元區間（Forward 2027 PE 收斂至約 34x）分批承接</li><li>或等 2Q26 財報（Q3 公布）確認毛利率改善、營收 QoQ +10% 兌現後，回測均線再進場</li><li><strong>停損參考</strong>：跌破 780 元（季線下方支撐帶）、或 ABF 稼動率明顯下滑 → 減碼；有效跌破前波整理平台則出場</li><li><strong>加碼條件</strong>：季報 EPS 連續超預期 ＋ ABF 稼動率維持高檔 ＋ 玻璃基板送樣驗證有實質進展</li><li><strong>觀察指標</strong>：</li></ul>
+<ol><li>每月 10 日月營收（YoY 是否維持 25%+）</li><li>ABF 稼動率與漲價落實度</li><li>2Q26 財報毛利率（是否高於 18%）</li><li>玻璃基板 TGV 試產線／送樣驗證進度</li><li>NVIDIA／AMD 資本支出指引</li></ol>
+<ul><li><strong>下次檢視</strong>：2Q26 財報公告後（約 2026 年 8 月），或股價回測至 885／780 關鍵價位時</li></ul>
+<blockquote>給 Minna 的白話總結：欣興是 ABF 三雄裡「最好的那一檔」——賺錢能力最強、還多卡了玻璃基板下一代題材。但「好公司」不等於「現在買划算」，它今天已經連跌 4 天、短線指標轉弱，且整體族群在殺。你是平衡型＋衛星波段，適合的做法是「先觀察、備好資金」，等它回到季線附近或財報兌現再分批進場，不用急著在下跌途中接刀。</blockquote>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<h3>WebFetch（官方數據）</h3>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/3037.TW" target="_blank" rel="noopener">Yahoo 股市 欣興 3037.TW 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/3037.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 欣興 3037.TW 月營收</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json&date=20260706&selectType=ALL" target="_blank" rel="noopener">TWSE 個股本益比/淨值比 BWIBBU_d（2026-07-06）</a></li><li>技術指標：<code>投資理財/scripts/technical_indicators.py 3037</code>（2026-07-06）</li></ul>
+<h3>WebSearch（質性趨勢與法人觀點，非數字依據）</h3>
+<ul><li><a href="https://tw.stock.yahoo.com/news/%E7%9B%AE%E6%A8%99%E5%83%B9-%E5%8F%A3%E6%B0%A3%E4%B8%8A%E4%BF%AE6%E6%88%90-%E6%AC%A3%E8%88%88q1%E8%B6%85%E9%A0%90%E6%9C%9F-eps%E8%A1%9D%E4%B8%8A3-2%E5%85%83-101000611.html" target="_blank" rel="noopener">Yahoo 股市｜欣興 Q1 超預期 EPS 3.2 元 目標價上修 6 成</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E6%AC%A3%E8%88%88-3037--1Q26-EPS%E7%B9%B3%E5%87%BA3-28%E5%85%83%E6%94%B9%E5%AF%AB13%E5%AD%A3%E6%96%B0%E9%AB%98-T-glass%E7%BC%BA%E6%96%99%E6%8E%A8%E5%8D%87ABF%E6%BC%B2%E5%83%B9%E5%BE%AA%E7%92%B0%E7%9A%84%E9%A0%90%E6%9C%9F%E5%B7%AE%E5%86%8D%E6%94%BE%E5%A4%A7-%E8%B1%90%E5%AD%B8PRIME%E7%9B%A4%E5%BE%8C%E7%B2%BE%E9%81%B8--69f16461f5cc3b01237ecb00" target="_blank" rel="noopener">豐雲學堂｜欣興 1Q26 EPS 3.28 元創 13 季新高、T-glass 缺料推升 ABF 漲價</a></li><li><a href="https://cmnews.com.tw/article/newsyoudeservetoknow-632eb271-5336-11f1-909b-fe5a779bfccf" target="_blank" rel="noopener">CMoney｜欣興 ABF 載板目標價上修至 1225 元，外資預估 2027 EPS 24.03 元</a></li><li><a href="https://insight.senya.com.tw/analysis/47719b5d" target="_blank" rel="noopener">Senya｜ABF 載板供給缺口擴大 外資上修欣興及南電目標價</a></li><li><a href="https://readmo.cmoney.tw/article/8a76d15c-8a9d-4310-8850-e2d0cb248c19" target="_blank" rel="noopener">CMoney readmo｜欣興法說會揭露 ABF、PCB 擴產與 LowCTE 玻布缺貨</a></li></ul>
+<h3>已引用之既有分析</h3>
+<ul><li><code>投資理財/05_產業研究/載板與玻璃基板產業趨勢分析_20260706.md</code>（2026-07-06 產業層）</li><li><code>投資理財/04_個股分析/台股/景碩3189_九維度深度分析_20260628.md</code>（同業對照）</li></ul>
+</div>
+</body>
+</html>
