@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股 CPO／矽光子光通訊「卡脖子」供應鏈地圖 — Serenity 框架版</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html" class="nav-active">報告庫</a><a href="../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>台股 CPO／矽光子光通訊「卡脖子」供應鏈地圖 — Serenity 框架版</h1>
+</div>
+<div class="report-body">
+<h1>台股 CPO／矽光子光通訊「卡脖子」供應鏈地圖 — Serenity 框架版</h1>
+<h2>資料快照</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>狀態</th></tr></thead><tbody><tr><td>分析時間</td><td>2026/07/12（台灣時間）</td></tr><tr><td>承接舊報告</td><td><code>光通訊產業趨勢分析_20260706.md</code>（LITE/COHR 財報兌現期、資金面觀察）、<code>2026光通訊產業鏈全景圖_20260309.md</code>（美股33檔產業鏈結構）、<code>矽光子族群產業分析_20260301.md</code>（台股矽光子鏈核心圖譜）、<code>光通訊產業趨勢與風險分析_20260305.md</code>（PREST/風險矩陣）</td></tr><tr><td>帶單位數字</td><td>本篇<strong>不新增</strong>任何未經 WebFetch 官方來源驗證的精確數字；沿用舊版數字一律標註原始來源與日期，不視為 2026/07/12 即時數據</td></tr><tr><td>質性資訊來源</td><td>WebSearch（Serenity 本人推文/報導、台股 CPO 產業媒體、公司官網定位），僅用於供應鏈定位與題材邏輯，不涉及精確數字</td></tr><tr><td>觸發脈絡</td><td>Minna 想學美股 KOL Serenity（@aleabitoreddit）的「卡脖子(chokepoint)理論」，套用在台股 CPO/矽光子供應鏈選股</td></tr><tr><td>稽核修正(2026/07/12)</td><td>已過 investment-qa-auditor：①眾達-KY 代號 6678→<strong>4977</strong>（原誤植，3 處已修）②SIVE 市值改標原始論文時點+現值($1.4–1.9B)③聯亞 TechNews 引用實為 IET-KY(4971)報導→改正來源並補列 IET-KY 為同賽道候選</td></tr></tbody></table></div>
+<hr>
+<h2>一句話總結 + 使用說明</h2>
+<p>Serenity 的邏輯是「不押 AI 熱潮本身，押 AI 熱潮繞不過去的窄門」——找 CPO（共同封裝光學）供應鏈裡認證期長、技術近獨家、市值還小、市場還沒發現的環節（他最重押「外部光源 CW 雷射」），美股他壓在 SIVE、POET、Celestial AI 這類冷門小廠；這份地圖把同一套四準則套在台股，逐環節列出對應候選、打分「卡脖子符合度」，讓 Minna 判斷哪些是台股裡「真瓶頸」、哪些只是沾邊題材股。<strong>用法：先看「對照表」抓大局，再看「主體」逐環節細節，最後看「深挖候選」決定要不要排九維度分析。</strong></p>
+<hr>
+<h2>Serenity 框架快速複習</h2>
+<p>📝 <strong>卡脖子理論（Chokepoint Theory）</strong>：不押最終產品的大廠（如 NVIDIA），而是押那個大廠「離不開、換不掉」的上游窄門供應商——即使那家公司小到沒人注意。</p>
+<p>四準則：</p>
+<ol><li><strong>客戶認證期長</strong>（12-24 個月，換供應商成本高、一旦卡位很難被踢掉）</li><li><strong>技術近獨家 / 高毛利</strong>（不是誰都做得出來，議價權在供應商手上）</li><li><strong>市值還小、市場還沒發現</strong>（還沒被算進主流敘事的估值裡）</li><li><strong>押注 2027-2028 年 CPO 世代交替</strong>（從「可插拔模組」轉向「共同封裝光學」）</li></ol>
+<p>Serenity 目前最大倉位是瑞典小型股 <strong>SIVE（Sivers Semiconductors）</strong>，理由是 CPO 架構下矽本身不會發光，必須靠「外部光源（ELS，External Laser Source）」用光纖把連續波雷射（CW Laser）從機箱外部導入光引擎——這條路線已成業界共識（早期把雷射直接封在交換器 ASIC 旁邊，會被 GPU 產生的高熱害死雷射壽命，業界因此收斂到「光源外置、可熱插拔更換」的 ELS/ELSFP 架構）。他把 SIVE 定位成「CPO 世代的雷射光源卡王」，並延伸出一條併購／客戶鏈：<strong>SIVE（光源）→ Celestial AI（PIC 設計，被 Marvell 併購）→ Marvell（ASIC）</strong>，以及 SIVE 供光給 Ayar Labs、Lightmatter 等 CPO 新創。除了光源，他也押上游化合物半導體磊晶/基板（IQE、Soitec、AXT）與光子晶圓代工（TSEM、XFAB、GFS）。</p>
+<hr>
+<h2>主體：CPO/矽光子供應鏈環節逐一拆解</h2>
+<h3>環節一：外部光源／CW 雷射（Serenity 最核心押注）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td>Serenity 對應押注美股</td><td><strong>SIVE</strong>（Sivers Semiconductors，CW 雷射光源，Serenity 最大倉位）；O-Net（港股，量產 ELS 供應商，非美股但常與 SIVE 並提）</td></tr><tr><td>台股對應廠商</td><td><strong>聯亞光電 3081</strong>：全球少數能穩定量產 CW 雷射磊晶片的廠商，MOCVD 磊晶技術是 CPO 外置光源（ELS）最上游的原料端，是台股裡跟 SIVE 定位最貼近的標的（定位經多方產業報導交叉驗證，質性非數字）<br><strong>IET-KY 英特磊 4971</strong>：InP／GaSb 磊晶廠，布局 CPO 用 InP、QD 雷射磊晶，與聯亞同屬「外置光源磊晶」賽道的另一候選（來源：TechNews 2026/06/18）<br><strong>聯鈞 3450</strong>：雷射晶片級封裝，是 ELS 的核心封裝環節之一<br><strong>眾達-KY 4977</strong>：綁定博通（Broadcom）陣營，專攻外接光源模組（ELSFP）精密封裝，隨 Tomahawk 6 出貨節奏帶量</td></tr><tr><td>卡脖子符合度評註</td><td>聯亞：<strong>高</strong>——磊晶製程認證期長（客戶要驗證雷射波長/功率穩定性，非短期可換）、技術門檻高（全球僅少數廠商能量產 CW 雷射磊晶片），四準則裡①②④都成立；③（市值小、沒被發現）是唯一打折項——聯亞在台股矽光子族群裡已是核心標的，市場關注度不低，不算「冷門」。<br>IET-KY(4971)：<strong>中</strong>——與聯亞同題材（CPO/InP 雷射磊晶），是同賽道的另一選擇，但客戶卡位程度與矽光子純度待查證。<br>聯鈞：<strong>中</strong>——封裝環節競爭者不只一家，獨佔性不如磊晶端。<br>眾達-KY：<strong>中高</strong>——客戶認證緊綁博通供應鏈，轉換成本存在，但屬於封裝而非光源材料本身，是否「技術近獨家」待更多資料佐證。這是<strong>這份地圖裡跟 Serenity 邏輯最直接對應的環節</strong>。</td></tr></tbody></table></div>
+<h3>環節二：光引擎與 CPO 封裝</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td>Serenity 對應押注美股</td><td>無直接對應（Serenity 押的是光源/材料端，不是封裝平台本身；美股對應概念較接近 Celestial AI、Ayar Labs 等 CPO 新創的封裝技術，但這些非上市或已被併購）</td></tr><tr><td>台股對應廠商</td><td><strong>台積電 2330</strong>：COUPE 技術平台，2026 年整合進 CoWoS 量產，是全球 CPO 光學引擎封裝最先進平台之一（沿用 <code>矽光子族群產業分析_20260301.md</code>）<br><strong>采鈺 6789</strong>：台積電轉投資，矽光子主被動元件製程整合</td></tr><tr><td>卡脖子符合度評註</td><td>台積電：<strong>低（不算卡脖子股，是產業母體）</strong>——市值太大、業務太廣，矽光子貢獻佔比短期有限，不符合④「市值小、沒被發現」；但技術獨佔性是四準則裡最強的（②）。<br>采鈺：<strong>中</strong>——台積電體系新業務，產能規模尚小，符合③④，但商業化進度仍待觀察，屬於「有潛力但還沒驗證出貨量」的階段。</td></tr></tbody></table></div>
+<h3>環節三：光收發模組</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td>Serenity 對應押注美股</td><td>POET（PIC 設計）、AAOI（光收發模組）、LightPath Technologies（用戶原文標 $LPK，經查證應為 <strong>LPTH</strong>）</td></tr><tr><td>台股對應廠商</td><td><strong>華星光 4979</strong>：CW Laser 矽光子光源 + CPO 矽光晶圓代工雙重角色，並透過與 <strong>Marvell</strong> 深度合作切入 AWS 雲端資料中心供應鏈（來源：WebSearch 產業報導，非數字）——這點特別對應 Serenity「Celestial AI 被 Marvell 併購」的邏輯：華星光雖非被併購，但走的是「與 Marvell 客戶深度綁定」的相似路徑<br><strong>光聖 6442</strong>：CPO 光模組研發製造，Google TPU 專用線材（沿用舊版）</td></tr><tr><td>卡脖子符合度評註</td><td>華星光：<strong>高</strong>——同時具備光源與晶圓雙重稀缺性，客戶端是 Marvell/AWS，認證週期長，是主體裡除了聯亞之外符合度最高的標的；③（市值/關注度）同樣打折，已是矽光子族群核心標的非冷門股。<br>光聖：<strong>中</strong>——競爭較激烈，矽光子純度不如光源/晶圓端，偏一般光通訊沾邊題材。</td></tr></tbody></table></div>
+<h3>環節四：矽光子晶片／DSP／ASIC 生態系</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td>Serenity 對應押注美股</td><td>POET、Celestial AI（PIC 設計）；<strong>ASIC 客戶端</strong>：Marvell、<strong>Alchip（世芯-KY）</strong>、<strong>GUC（創意電子）</strong>——Serenity 原文明確點名這兩家台廠是 CPO 生態系的 ASIC 客戶端</td></tr><tr><td>台股對應廠商</td><td><strong>世芯-KY 3661</strong>：IC 設計服務廠（ASIC），與台積電關係密切，客戶含 AWS Trainium 系列<br><strong>創意電子 3443</strong>：台積電轉投資設計服務公司（GUC），先進封裝與記憶體介面 IP 上有護城河，客戶含 Tesla AI5 晶片專案</td></tr><tr><td>卡脖子符合度評註</td><td><strong>待查證（不可視為確定卡脖子）</strong>——世芯-KY、創意電子是 Serenity 明確點名的 ASIC 生態系公司，且都是台積電先進製程/CoWoS 產能的稀缺受益者，四準則②③④方向上成立；但<strong>這份研究未查到兩者是否已具體參與「CPO/矽光子整合型」ASIC 設計案</strong>（目前公開資訊多聚焦在一般 AI ASIC 客製化晶片，非明確綁定 CPO）。若要納入觀察名單，建議先查證這一點再決定是否深挖。台灣在矽光子 PIC 設計本身（對應 POET/Celestial AI）<strong>沒有直接對應的獨立上市公司</strong>，這是台股在此題材上相對於美股的結構性缺口。</td></tr></tbody></table></div>
+<h3>環節五：化合物半導體磊晶／基板（GaAs/InP）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td>Serenity 對應押注美股</td><td>IQE（磊晶片）、Soitec（SOI 基板）、AXT（InP 基板）</td></tr><tr><td>台股對應廠商</td><td><strong>全新光電 2455</strong>：InP + GaAs 雙磊晶，光電子業務佔比持續提升（沿用舊版）<br><strong>穩懋 3105</strong>：GaAs 晶圓代工，全球最大純 GaAs 代工廠<br><strong>聯亞 3081</strong>：（已列於環節一，InP 磊晶同時是此環節核心）</td></tr><tr><td>卡脖子符合度評註</td><td>全新：<strong>中高</strong>——三五族化合物磊晶全球前三大，符合②；但業務含手機 RF 等非光通訊營收，矽光子/CPO 純度不如聯亞。<br>穩懋：<strong>中</strong>——GaAs 代工龍頭，但 GaAs 手機業務佔比大，矽光子敏感度較低，比較接近「沾邊題材」而非核心卡脖子。</td></tr></tbody></table></div>
+<h3>環節六：CoWoS／先進封裝</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td>Serenity 對應押注美股</td><td>無直接對應（Serenity 未特別押先進封裝環節，美股此環節較接近台積電海外對照組 Intel Foundry，非其倉位）</td></tr><tr><td>台股對應廠商</td><td><strong>台積電 2330</strong>（同環節二）、<strong>日月光投控 3711</strong>：CPO 先進封裝測試</td></tr><tr><td>卡脖子符合度評註</td><td>日月光投控：<strong>低</strong>——矽光子/CPO 只是其眾多業務之一，敏感度低，受益於整體先進封裝成長而非純 CPO 題材，不符合③（市值太大、非冷門）。</td></tr></tbody></table></div>
+<h3>環節七：光被動元件／連接器／陶瓷</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td>Serenity 對應押注美股</td><td>無明確對應（Serenity 較少著墨被動元件/連接器層，此環節是台股既有矽光子研究裡的強項，用來補齊 Serenity 框架沒覆蓋到的角落）</td></tr><tr><td>台股對應廠商</td><td><strong>上詮 3363</strong>：光纖陣列(FA)、MT-MPO 跳線，與台積電 COUPE 合作，已送樣 NVIDIA/Cisco（沿用舊版）<br><strong>波若威 3163</strong>：FAU 光纖套件、光纖配線盒，已進入 NVIDIA 矽光子生態系（沿用舊版）<br><strong>貿聯-KY 3665</strong>：AI 高速線纜／電源線材，NVIDIA GB200 認證供應商</td></tr><tr><td>卡脖子符合度評註</td><td>上詮：<strong>高</strong>——CPO 最終連接的關鍵元件，客戶認證直接綁 NVIDIA/台積電體系，轉換成本高，符合①②④；③打折（已是矽光子核心標的）。<br>波若威：<strong>高</strong>——同上邏輯，NVIDIA 直接點名合作，但股價/關注度同樣已不算「市場沒發現」。<br>貿聯-KY：<strong>中</strong>——AI 線纜連接器範疇更廣，非嚴格意義的 CPO 光學卡脖子，屬於周邊受惠。</td></tr></tbody></table></div>
+<hr>
+<h2>重點對照表：Serenity 押的美股環節 → 台股最對應卡脖子候選</h2>
+<div class="table-wrap"><table><thead><tr><th>Serenity 環節</th><th>Serenity 押注美股</th><th>台股最對應卡脖子候選</th><th>對應緊密度</th></tr></thead><tbody><tr><td>CW 雷射／外部光源(ELS)</td><td>SIVE（Sivers Semiconductors）</td><td><strong>聯亞 3081</strong>、IET-KY 4971、聯鈞 3450、眾達-KY 4977</td><td>★★★★★ 最貼近</td></tr><tr><td>光子學／PIC 設計 + Marvell 客戶關係</td><td>POET、Celestial AI(→被 Marvell 併購)、AAOI、LPTH</td><td><strong>華星光 4979</strong>（Marvell/AWS 深度合作，邏輯類比非股權關係）</td><td>★★★★☆ 邏輯類比，非同構</td></tr><tr><td>化合物半導體磊晶／基板</td><td>IQE、Soitec、AXT</td><td>全新 2455、穩懋 3105、聯亞 3081</td><td>★★★☆☆ 方向一致，純度不如聯亞</td></tr><tr><td>光子晶圓代工</td><td>TSEM、XFAB、GFS</td><td>台積電 2330（COUPE）、聯電 2303（iSiPP300）</td><td>★★☆☆☆ 規模量級不同（母體太大）</td></tr><tr><td>ASIC 生態系（CPO 客戶端）</td><td>Marvell、Alchip、GUC</td><td>世芯-KY 3661、創意電子 3443</td><td>★★★☆☆ 公司對應正確，CPO 專屬性待查證</td></tr><tr><td>光被動元件／連接器</td><td>（Serenity 較少著墨）</td><td>上詮 3363、波若威 3163</td><td>台股特有強項，補足 Serenity 框架空白</td></tr></tbody></table></div>
+<hr>
+<h2>收尾：3-5 檔值得 Minna 用九維度深挖的台股卡脖子候選</h2>
+<ol><li><strong>聯亞光電（3081）</strong>——四準則吻合度全地圖最高，是台股裡跟 SIVE 定位最貼近的「CW 雷射磊晶稀缺供應商」，光源端認證門檻與轉換成本都符合卡脖子邏輯，優先順位第一。</li><li><strong>華星光（4979）</strong>——光源+矽光晶圓雙重稀缺，且客戶端 Marvell/AWS 的關係路徑與 Serenity「Celestial AI 被 Marvell 併購」的邏輯相呼應，值得深挖它與 Marvell 合作的具體訂單能見度。</li><li><strong>上詮（3363）</strong>——CPO 最終連接關鍵元件，客戶認證直接綁 NVIDIA/台積電，是台股既有矽光子研究裡卡脖子邏輯最紮實的中游標的。</li><li><strong>眾達-KY（4977）</strong>——ELSFP 精密封裝，綁定博通 Tomahawk 6 出貨節奏，客戶認證轉換成本存在，是這次新納入 Serenity 視角後浮現的候選，值得先做基礎資料核實再排入深挖。</li><li><strong>世芯-KY（3661）／創意電子（3443）</strong>——Serenity 原文明確點名的 ASIC 生態系對應台廠，但<strong>列入觀察前必須先查證兩者是否真的參與 CPO/矽光子整合型設計案</strong>，若查證後仍模糊，應排除在「卡脖子候選」之外、只留在一般 AI ASIC 主題觀察名單。</li></ol>
+<h3>這個題材的風險</h3>
+<ul><li><strong>微型股/沾邊股波動風險</strong>：Serenity 最初押 SIVE 時市值僅約 2.9 億美元（原始論文時點），但截至 2026/07 SIVE 市值已漲到約 US$1.4–1.9B（漲約 7 倍），已非「微型股」——這也提醒：Serenity 點名的標的往往已先漲一大段，跟單者容易買在高點。台股對應標的雖非同等微型股，但矽光子族群本益比已在歷史高位（沿用 <code>矽光子族群產業分析_20260301.md</code> R4 風險：本益比 50 倍以上），一旦題材降溫，回檔 20-40% 屬正常範圍。</li><li><strong>客戶認證未落地風險</strong>：本文多處標「待查證」（尤其世芯-KY、創意電子的 CPO 專屬性、眾達-KY 的技術獨佔程度），卡脖子理論成立的前提是認證已卡位、客戶離不開，若查證後發現只是「有做相關業務」而非「已卡位關鍵客戶」，卡脖子邏輯就不成立，容易變成純題材炒作。</li><li><strong>CPO 商轉時點遞延風險</strong>：Serenity 押注的 2027-2028 世代交替時間表若延後（沿用舊版 R5 風險：良率/散熱問題可能使量產時程延後），現階段布局的「上游卡脖子」標的可能要提前 1-2 年就承受股價波動，卻要等更久才看到業績兌現，資金效率風險需納入考量。</li><li><strong>框架本身的侷限</strong>：Serenity 的美股倉位很多是「還沒被主流發現的冷門小廠」，但本文列出的台股標的（聯亞、上詮、波若威、華星光）多數已是台股矽光子族群裡的知名核心標的、市場關注度不低，嚴格來說不完全符合準則③「市值小、沒被發現」——套用 Serenity 框架時，台股版本更接近「找對的環節」而非「找沒人發現的股票」，這點在决策時要留意，不要誤以為台股這些標的還處於「便宜冷門」階段。</li></ul>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://aleabitoreddit.substack.com/p/sivers-semi-sive-the-cpo-laser-supplier" target="_blank" rel="noopener">Sivers: The Undiscovered CPO Laser Chokepoint + Customer Mapping - Serenity Substack</a></li><li><a href="https://singularityresearchfund.substack.com/p/inside-the-mind-of-serenity-aleabitoreddit" target="_blank" rel="noopener">Inside the Mind of Serenity (@aleabitoreddit) - Singularity Research Fund</a></li><li><a href="https://semiconstocks.com/" target="_blank" rel="noopener">Serenity Tracker — aleabitoreddit's AI supply-chain chokepoint theses</a></li><li><a href="https://serenitytrades.com/universe" target="_blank" rel="noopener">aleabitoreddit's investment universe - Serenity Tracker</a></li><li><a href="https://www.archetype-research.com/p/the-photonics-valuation-problem-sive" target="_blank" rel="noopener">The Photonics Valuation Problem: SIVE, AAOI, and Soitec - Archetype Research</a></li><li><a href="https://www.bloomberg.com/news/articles/2026-05-27/popular-x-account-sparks-massive-rally-in-little-known-chipmaker" target="_blank" rel="noopener">X-Fab Stock (XFAB FP) Rises After Serenity Post on X - Bloomberg</a></li><li><a href="https://picmagazine.net/article/123788/External_light_sources_emerge_as_key_to_scaling_CPO" target="_blank" rel="noopener">External light sources emerge as key to scaling CPO - Photonic Integrated Circuits Magazine</a></li><li><a href="https://www.viksnewsletter.com/p/why-cpo-uses-external-lasers" target="_blank" rel="noopener">Why Co-Packaged Optics Uses External Lasers Instead of Integrated Sources</a></li><li><a href="https://technews.tw/2026/06/18/iet-cpo-inp-els-qd-laser/" target="_blank" rel="noopener">搶攻 CPO 市場，IET-KY 布局 InP、QD 雷射磊晶商機 - TechNews (2026/06/18)</a></li><li><a href="https://www.sinotrade.com.tw/richclub/industry/2026%E5%B9%B4CPO%E5%85%89%E9%80%9A%E8%A8%8A%E5%95%86%E8%BD%89%E5%85%83%E5%B9%B4" target="_blank" rel="noopener">2026年CPO光通訊商轉元年！台廠供應鏈全解析 - 豐雲學堂 (2026/06)</a></li><li><a href="https://www.bnext.com.tw/article/79113/alchip-amazon-strength" target="_blank" rel="noopener">世芯-KY是做什麼的？跟台積電關係是什麼？ - 數位時代</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/ASIC-%E5%AE%A2%E8%A3%BD%E5%8C%96%E6%99%B6%E7%89%87%E7%88%86%E7%99%BC" target="_blank" rel="noopener">ASIC 客製化晶片爆發！台股三雄世芯-KY、智原、創意 - 豐雲學堂 (2026/06)</a></li><li><a href="https://news.cnyes.com/news/id/6262181" target="_blank" rel="noopener">2026年ASIC主升段啟動！創意、世芯-KY、智原 - 鉅亨網</a></li><li>舊版報告（整合精華，結構與數字沿用）：<code>光通訊產業趨勢分析_20260706.md</code>、<code>2026光通訊產業鏈全景圖_20260309.md</code>、<code>矽光子族群產業分析_20260301.md</code>、<code>光通訊產業趨勢與風險分析_20260305.md</code></li></ul>
+<hr>
+<blockquote>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>
