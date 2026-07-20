@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台積電（2330）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>台積電（2330）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>台積電（2330）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v2.0</td><td>2026-07-20</td><td>NT$2,340（⚠️盤中）</td><td>全面重抓：納入 7/16 Q2 2026 法說會覆核（EPS 27.25 元創高、毛利率 67.7%、Q3 財測、資本支出上修至 600-640 億美元、美國加碼投資）；重抓現價/估值/技術面/籌碼面/月營收；沿用基本面商業模式、護城河框架；晶圓代工市占率更新至 72.3%（2026 Q1 TrendForce）</td></tr><tr><td>v1.0</td><td>2026-04-18</td><td>NT$2,030</td><td>首次正統九維度建立，取代 台積電2330深度分析_20260228.md 舊版；納入 Q1 2026 法說會結果（2026/04/16）、3 月月營收創新高、最新技術指標</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$2,340（+50／+2.18%，⚠️盤中數據，尚未收盤）</td></tr><tr><td>市值</td><td>❌ 未取得（Yahoo 股市頁面未揭露，建議自行至 TWSE 個股基本資料查詢）</td></tr><tr><td>PE 本益比</td><td>30.79 倍</td></tr><tr><td>PB 股價淨值比</td><td>10.08 倍</td></tr><tr><td>EPS（近 4 季合計，Q3'25~Q2'26）</td><td>86.28 元（17.44+19.51+22.08+27.25）</td></tr><tr><td>殖利率</td><td>0.96%</td></tr><tr><td>ROE</td><td>10.06%（Q1 2026 單季，未年化；粗略年化約 40%）</td></tr><tr><td>毛利率</td><td>67.7%（Q2 2026 法說會公布，歷史新高）</td></tr><tr><td>營收 YoY（2026/06）</td><td>+67.87%</td></tr><tr><td>營收 MoM（2026/06）</td><td>+6.16%</td></tr><tr><td>52 週高 / 低</td><td>NT$2,510 / NT$1,065.79（目前位於區間 88.2%）</td></tr><tr><td>技術位置</td><td>MA20 2,420／MA60 2,330.84，均線糾結；RSI14 45.43（中性）；KD 死亡交叉（1 天前，中位區）；MACD 柱狀轉負；綜合技術評分 -2.5（中性偏空）</td></tr></tbody></table></div>
+<p>資料時間：2026-07-20（⚠️盤中，台股尚未收盤；估值指標基準為 2026-07-17 收盤）｜資料來源見文末</p>
+<hr>
+<h2>結論</h2>
+<p>【持有】— 7/16 法說會 Q2 財報與 Q3 財測、全年展望三箭齊發創新高，基本面比 4 月更強，但股價已提前反映（法說前外資已喊到 3,000-4,200 元目標價），估值與技術面同時偏高，此刻不宜追高，適合續抱等回檔。</p>
+<p>信心程度：⭐⭐⭐⭐⭐（5/5）</p>
+<p>適合操作：長期核心持有，逢技術面回檔可分批加碼</p>
+<hr>
+<h2>7/16 法說會覆核（獨立結算）</h2>
+<blockquote>📝 <strong>法說會（Earnings Call）</strong>：公司每季公布財報後，管理層與分析師開會說明成績單和對未來的預測，是判斷公司體質最重要的第一手資料。</blockquote>
+<h3>法說前市場預期 vs 實際結果</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>法說前市場預期</th><th>實際結果（2026/07/16 公布）</th><th>是否超標</th></tr></thead><tbody><tr><td>Q2 毛利率</td><td>市場共識 67-68%；小摩喊到 69.5%</td><td><strong>67.7%</strong></td><td>落在樂觀預期區間內，未到小摩激進預測</td></tr><tr><td>Q2 EPS（ADR 換算）</td><td>分析師共識 US$3.81／ADR</td><td>NT$27.25（單季創新高）</td><td>✅ 超標</td></tr><tr><td>Q2 合併營收</td><td>逼近 US$400 億關卡</td><td>US$40.20 億（NT$1兆2703.8億，YoY+36%、QoQ+12%）</td><td>✅ 符合／略超</td></tr><tr><td>2026 全年 EPS 展望</td><td>元大投顧估「逼近百元」</td><td>未直接給 EPS 指引，但營收展望大幅上修</td><td>展望轉更樂觀</td></tr><tr><td>2026 全年營收成長（美元計價）</td><td>前次指引「高於 30%」</td><td><strong>二度上修至「略高於 40%」</strong></td><td>✅ 顯著超預期</td></tr><tr><td>2026 資本支出</td><td>市場預估 550-560 億美元區間</td><td><strong>上修至 600-640 億美元</strong></td><td>✅ 超預期上修</td></tr></tbody></table></div>
+<h3>法說會關鍵要點</h3>
+<ol><li><strong>全年營收展望二度上修</strong>：美元計價全年營收成長指引從「高於 30%」上修至「略高於 40%」，Q3 營收指引 US$446-458 億（中值季增 12%、年增 37%）。</li><li><strong>資本支出再創新高</strong>：2026 年資本支出上修至 600-640 億美元（較年初增加近 100 億美元），管理層表示未來三年資本支出將「比過去三年更加顯著提高」，主因客戶需求增加與設備通膨。</li><li><strong>2 奈米（N2）進度</strong>：已占晶圓營收 3%，進入量產爬坡；預估 2026 下半年因 2nm 爬坡稀釋毛利率 3-4 個百分點（即便如此 Q3 毛利率指引仍達 65-67%，顯示 AI 訂單定價能力足以吸收稀釋）。</li></ol>
+<blockquote>📝 <strong>2 奈米（N2）</strong>：比現行 3 奈米更先進的晶片製程，電晶體更小、效能更高、更省電，是台積電下一階段技術領先的核心武器。</blockquote>
+<ol><li><strong>美國投資大幅加碼</strong>：追加 1,000 億美元投資，總投資額達 2,650 億美元，規劃約 4 座晶圓廠及先進封裝產能，分散地緣政治風險同時綁定美國客戶。</li><li><strong>AI 需求能見度</strong>：管理層強調 AI 需求「可能一路強勁至 2029、2030 年」，但法說會未明確揭露 HPC/AI 營收具體佔比數字（❌ 未取得，僅為定性表態）。</li><li><strong>先進封裝仍供不應求</strong>：CoWoS 等先進封裝需求與供給缺口仍大，公司對外部合作／替代方案保持開放態度。</li><li><strong>法說會未觸及</strong>：地緣政治、半導體 232 關稅相關發言未在本次法說會重點中出現（與 4 月版本相比，此次法說焦點更集中在成長與資本支出，非風險因子）。</li></ol>
+<h3>對股價/倉位的意涵</h3>
+<ul><li>基本面訊號是「五年來最強的一次上修」——營收、毛利率、資本支出三項指標同步上修，顯示 AI 需求不是短期噴出而是結構性擴張。</li><li>但這個好消息<strong>在法說會前就已經被外資大幅計價</strong>：花旗法說前就把目標價上修到 3,800 元（相當於 2027 年預估 EPS 的 25 倍本益比），法說後麥格理更上調至 4,200 元。目前股價 NT$2,340 距離外資目標價中樞（約 3,300-3,500 元）仍有空間，但這代表的是「未來 1-2 年的樂觀假設」，不是「現在買了馬上兌現」。</li><li>短線技術面同時出現 KD 死亡交叉、MACD 轉負、均線糾結，且外資近 7 個交易日連續賣超逾 7 萬張——法說會後的「利多兌現」賣壓與 4 月版本如出一轍，屬於典型模式，不代表基本面反轉。</li></ul>
+<p><strong>來源：</strong> <a href="https://investor.tsmc.com/english/quarterly-results/2026/q2" target="_blank" rel="noopener">TSMC 官方 Q2 2026 財測頁</a> / <a href="https://news.cnyes.com/news/id/6537162" target="_blank" rel="noopener">鉅亨網－九大重點</a> / <a href="https://www.ctee.com.tw/news/20260716701355-430503" target="_blank" rel="noopener">工商時報－Q2財報</a> / <a href="https://technews.tw/2026/07/14/foreign-investors-see-tsmc-2026-q2-and-capex/" target="_blank" rel="noopener">TechNews－外資目標價</a> / <a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%B3%95%E8%AA%AA%E5%80%92%E6%95%B8-%E5%A4%96%E8%B3%87%E9%BD%8A%E5%8D%87%E7%9B%AE%E6%A8%99%E5%83%B9-%E6%9C%80%E9%AB%98%E5%96%8A%E5%88%B03800%E5%85%83-eps%E4%B8%8A%E7%9C%8B198-42%E5%85%83-005000550.html" target="_blank" rel="noopener">Yahoo股市－外資目標價彙整</a> / <a href="https://fantasticnewmedia.com/2026/07/17/334948/" target="_blank" rel="noopener">豐臺新媒－麥格理4200元</a></p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位</h3>
+<p>台積電（Taiwan Semiconductor Manufacturing Company，代號 2330.TW／美股 ADR：TSM）是全球最大的純晶圓代工廠，不自行設計晶片，專注幫客戶（Apple、NVIDIA、AMD 等）把設計圖製造成實體晶片。</p>
+<blockquote>📝 <strong>護城河（Economic Moat）</strong>：指一家公司很難被競爭對手取代的競爭優勢，就像護城河保護城堡一樣。台積電的護城河來自技術領先、規模效益、和客戶高轉換成本三位一體。</blockquote>
+<h3>產業鏈位置</h3>
+<p>```</p>
+<p>[晶片設計]                  [晶圓代工]              [封裝測試]         [終端品牌]</p>
+<p>Apple / NVIDIA              台積電（2330）           日月光（3711）     Apple / Dell</p>
+<p>AMD / Qualcomm  ─────────►  先進製程 3nm/2nm  ────► CoWoS 先進封裝 ─► NVIDIA 伺服器</p>
+<p>MediaTek / Broadcom         全球市占率 72.3%          （台積電自行延伸）</p>
+<p>```</p>
+<p>台積電近年已延伸至先進封裝（CoWoS、SoIC），在 AI 晶片供應鏈中的掌握度進一步強化，法說會確認先進封裝需求缺口依然巨大。</p>
+<h3>主要客戶集中度</h3>
+<div class="table-wrap"><table><thead><tr><th>客戶</th><th>估計佔營收比</th><th>主要產品</th></tr></thead><tbody><tr><td>Apple</td><td>~25%</td><td>A18 Pro / M 系列晶片</td></tr><tr><td>NVIDIA</td><td>~15-20%</td><td>H200 / B200/B300 Blackwell GPU</td></tr><tr><td>AMD</td><td>~10%</td><td>Instinct MI300X / EPYC</td></tr><tr><td>Qualcomm</td><td>~5-8%</td><td>Snapdragon 旗艦系列</td></tr><tr><td>Broadcom</td><td>~5%</td><td>AI ASIC / 網通晶片</td></tr></tbody></table></div>
+<p>⚠️ 客戶佔比為市場估算，非官方公告數字，本次法說會亦未更新明確占比。</p>
+<h3>護城河評估</h3>
+<div class="table-wrap"><table><thead><tr><th>護城河來源</th><th>強度</th><th>說明</th></tr></thead><tbody><tr><td>技術領先</td><td>極強</td><td>3nm 量產穩定、2nm（N2）已占晶圓營收 3% 並快速爬坡</td></tr><tr><td>規模效益</td><td>極強</td><td>全球晶圓代工市占率 <strong>72.3%</strong>（2026 Q1，TrendForce），與第二名三星（6.5%）差距擴大至 65.8 個百分點</td></tr><tr><td>客戶轉換成本</td><td>極強</td><td>設計針對台積電製程優化，換廠需要重新流片驗證，成本極高</td></tr><tr><td>人才與設備生態</td><td>強</td><td>台灣半導體人才密度全球最高，設備商深度配合</td></tr><tr><td>地緣政治</td><td>雙面刃</td><td>全球不可或缺但也是最大風險來源；美國投資加碼至 2,650 億美元有助分散風險但無法完全對沖</td></tr></tbody></table></div>
+<h3>管理層品質</h3>
+<ul><li>現任 CEO 魏哲家（C.C. Wei）執行力持續獲市場肯定，本次法說會二度上修全年展望，指引準確度維持高標</li><li>2026 年資本支出再度上修至 600-640 億美元（原年初指引更低），展現對 AI 需求的極強信心，且明確表態「未來三年資本支出將更顯著提高」</li><li>美國投資加碼至 2,650 億美元，全球佈局（亞利桑那、日本熊本、德國）持續分散地緣政治風險</li></ul>
+<p><strong>來源：</strong> <a href="https://investor.tsmc.com/english/quarterly-results/2026/q2" target="_blank" rel="noopener">TSMC 官方 Q2 2026 法說會</a> / <a href="https://finance.sina.com.cn/tech/digi/2026-06-12/doc-iniccspw9032420.shtml" target="_blank" rel="noopener">TrendForce 市占率報導</a></p>
+<h3>小結</h3>
+<p>台積電的護城河在本季法說會中不但沒有鬆動，反而透過市占率擴大（72.3%）、2nm 順利放量、資本支出再上修三個訊號進一步強化；管理層執行力與指引準確度持續獲市場信任，基本面定位「AI 時代唯一不可或缺的代工廠」未變。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>近 6 個月月營收</h3>
+<blockquote>📝 <strong>YoY（Year-over-Year）</strong>：和去年同月比，增加或減少的幅度，用來判斷公司是否持續成長。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>月營收（NT$ 千元）</th><th>MoM 月增率</th><th>YoY 年增率</th></tr></thead><tbody><tr><td>2026/01</td><td>401,255,128</td><td>+19.78%</td><td>+36.81%</td></tr><tr><td>2026/02</td><td>317,656,613</td><td>-20.83%</td><td>+22.17%</td></tr><tr><td>2026/03</td><td>415,191,699</td><td>+30.70%</td><td>+45.19%</td></tr><tr><td>2026/04</td><td>410,725,118</td><td>-1.08%</td><td>+17.50%</td></tr><tr><td>2026/05</td><td>416,975,163</td><td>+1.52%</td><td>+30.09%</td></tr><tr><td><strong>2026/06</strong></td><td><strong>442,679,969</strong></td><td><strong>+6.16%</strong></td><td><strong>+67.87%</strong></td></tr></tbody></table></div>
+<p><strong>關鍵訊號：</strong> 2026 年 6 月月營收達 NT$4,426.8 億元，創半年新高，年增率飆到 67.87%，是近 6 個月最強，顯示 Q2 法說會的高成長並非曇花一現。</p>
+<p><strong>來源：</strong> Yahoo 股市月營收頁（2330.TW/revenue）</p>
+<h3>Q2 2026 財報（2026/07/16 公布）</h3>
+<blockquote>📝 <strong>毛利率</strong>：賣出晶片的收入扣掉製造成本後剩下的比例，越高代表越能賺錢。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>Q2 2026</th><th>Q1 2026</th><th>YoY</th></tr></thead><tbody><tr><td>合併營收</td><td>NT$1兆2,703.8億（US$40.20 億）</td><td>NT$1.134 兆</td><td>+36%</td></tr><tr><td>毛利率</td><td><strong>67.7%（歷史新高）</strong></td><td>66.2%</td><td>+1.5pp</td></tr><tr><td>營業利益率</td><td>60.3%</td><td>—</td><td>—</td></tr><tr><td>稅後淨利</td><td>NT$7,065.6 億</td><td>NT$572.5 億</td><td>+77.4%（QoQ +23.4%）</td></tr><tr><td>EPS</td><td><strong>NT$27.25（史上最高）</strong></td><td>NT$22.08</td><td>—</td></tr></tbody></table></div>
+<h3>Q3 2026 財測指引</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>Q3 2026 指引</th></tr></thead><tbody><tr><td>營收</td><td>US$446-458 億（中值季增 ~12%、年增 ~37%）</td></tr><tr><td>毛利率</td><td>65.0-67.0%</td></tr><tr><td>營業利益率</td><td>56.0-58.0%</td></tr></tbody></table></div>
+<p><strong>關鍵訊號：</strong> 2026 全年美元營收展望二度上修為「略高於 40%」（4 月版指引為「高於 30%」）。2nm 爬坡預估拖累下半年毛利率 3-4 個百分點，但 Q3 指引仍守在 65-67%，顯示 AI 訂單定價能力強勁。</p>
+<h3>近 6 季 EPS 趨勢</h3>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>EPS（NT$）</th></tr></thead><tbody><tr><td>Q1 2025</td><td>13.95</td></tr><tr><td>Q2 2025</td><td>15.36</td></tr><tr><td>Q3 2025</td><td>17.44</td></tr><tr><td>Q4 2025</td><td>19.51</td></tr><tr><td>Q1 2026</td><td>22.08</td></tr><tr><td><strong>Q2 2026</strong></td><td><strong>27.25（史上最高）</strong></td></tr></tbody></table></div>
+<p><strong>關鍵訊號：</strong> EPS 連續六季成長，近 4 季合計（TTM）達 <strong>86.28 元</strong>，較 4 月版本（TTM 66.25 元）成長逾三成，反映 AI 需求持續加速兌現。</p>
+<blockquote>📝 <strong>EPS（Earnings Per Share）</strong>：公司每發行一張股票（1,000 股）替股東賺了多少錢，數字越大越好。</blockquote>
+<h3>財務體質</h3>
+<blockquote>📝 <strong>資本支出（CapEx）</strong>：公司拿去蓋新廠、買設備等長期投資的錢，反映公司對未來需求的信心程度。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>評估</th></tr></thead><tbody><tr><td>2026 資本支出指引</td><td><strong>600-640 億美元</strong>（較年初再上修近 100 億美元）</td><td>反映對 AI 需求的極強信心，且管理層表態未來三年將更顯著提高</td></tr><tr><td>ROE（Q1 2026 單季）</td><td>10.06%</td><td>單季數字，粗估年化約 40%</td></tr><tr><td>每股淨值（Q1 2026）</td><td>NT$227.17</td><td>—</td></tr><tr><td>融資餘額（2026/07/17）</td><td>33,373 交易單位</td><td>相對總股本極低，籌碼穩定</td></tr></tbody></table></div>
+<p><strong>來源：</strong> TSMC Q2 2026 法說會 / Yahoo 股市財務比率頁</p>
+<h3>小結</h3>
+<p>Q2 財報是連續第六季 EPS 創新高，且加速度未見放緩（TTM EPS 三個月內從 66.25 元跳升到 86.28 元）；全年營收展望上修至「略高於 40%」、資本支出同步上修至 600-640 億美元，財務面訊號比 4 月版本更強，唯一要留意的是 2nm 爬坡對下半年毛利率的 3-4 個百分點稀釋，需觀察 Q3 實際公布數字是否守住指引下緣。</p>
+<hr>
+<h2>3. 估值面</h2>
+<blockquote>📝 <strong>本益比（P/E Ratio）</strong>：「用多少年的獲利能把股票買回來」。P/E = 股價 ÷ EPS。數字越低代表越便宜，但成長股通常 P/E 會較高。</blockquote>
+<blockquote>📝 <strong>遠期本益比（Forward P/E）</strong>：用「預估明年 EPS」算出的本益比，若公司持續高速成長，遠期 P/E 會比現在的 P/E 更低，代表未來更有投資吸引力。</blockquote>
+<h3>即時估值（基準：2026-07-17 收盤）</h3>
+<div class="table-wrap"><table><thead><tr><th>估值指標</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>收盤價（基準）</td><td>NT$2,290</td><td>TWSE BWIBBU_d</td></tr><tr><td>本益比（TTM）</td><td><strong>30.79x</strong></td><td>TWSE BWIBBU_d</td></tr><tr><td>殖利率</td><td><strong>0.96%</strong></td><td>TWSE BWIBBU_d</td></tr><tr><td>股價淨值比（PBR）</td><td><strong>10.08x</strong></td><td>TWSE BWIBBU_d</td></tr><tr><td>TTM EPS（計算基礎）</td><td>NT$86.28</td><td>近 4 季合計（Yahoo + 官方 Q2 數字）</td></tr><tr><td>ROE</td><td>10.06%（單季，未年化）</td><td>Yahoo 股市</td></tr></tbody></table></div>
+<h3>歷史估值區間比較</h3>
+<div class="table-wrap"><table><thead><tr><th>時期</th><th>P/E 區間</th></tr></thead><tbody><tr><td>2022 年熊市低點</td><td>10-15x</td></tr><tr><td>2023-2024 年</td><td>20-30x</td></tr><tr><td>2025 年</td><td>25-35x</td></tr><tr><td>2026 年 4 月</td><td>30.65x</td></tr><tr><td>目前（2026/07）</td><td>30.79x（TTM，與 4 月幾乎持平）</td></tr></tbody></table></div>
+<p>TTM 本益比與 4 月版本幾乎持平（30.65x → 30.79x），但由於 EPS 基期大幅墊高（TTM EPS 從 66.25 元跳到 86.28 元），代表市場願意用同樣的倍數持續給予更高的盈餘水準溢價，本益比並未隨獲利成長而下修，顯示市場對高成長的定價已趨於「合理但不便宜」。</p>
+<h3>分析師目標價彙整（法說會後最新）</h3>
+<div class="table-wrap"><table><thead><tr><th>機構/分析師</th><th>目標價</th><th>備註</th></tr></thead><tbody><tr><td>高盛</td><td>NT$3,000</td><td>重申買進，ADR 目標由 $550 上調至 $600</td></tr><tr><td>花旗</td><td>NT$3,800</td><td>以 2027 年預估 EPS 25 倍評價</td></tr><tr><td>摩根大通</td><td>NT$3,100</td><td>—</td></tr><tr><td>大摩</td><td>NT$2,888</td><td>—</td></tr><tr><td>里昂</td><td>NT$3,330</td><td>—</td></tr><tr><td>麥格理</td><td>NT$4,200</td><td>法說會後上調，外資圈最高</td></tr><tr><td>瑞銀</td><td>NT$3,400</td><td>—</td></tr><tr><td>野村</td><td>NT$3,425</td><td>—</td></tr></tbody></table></div>
+<p><strong>結論：</strong> 相較外資目標價區間（NT$3,000-4,200，中樞約 NT$3,300-3,500），目前股價 NT$2,340 仍有約 30-80% 上漲空間，估值未達泡沫水位，但注意這些目標價多已反映 2027 年展望，並非「現在合理」的區間，短線追高風險與長線空間需分開看待。</p>
+<p><strong>來源：</strong> TWSE BWIBBU_d / Yahoo 股市 / <a href="https://technews.tw/2026/07/14/foreign-investors-see-tsmc-2026-q2-and-capex/" target="_blank" rel="noopener">TechNews 外資目標價彙整</a> / <a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%B3%95%E8%AA%AA%E5%80%92%E6%95%B8-%E5%A4%96%E8%B3%87%E9%BD%8A%E5%8D%87%E7%9B%AE%E6%A8%99%E5%83%B9-%E6%9C%80%E9%AB%98%E5%96%8A%E5%88%B03800%E5%85%83-eps%E4%B8%8A%E7%9C%8B198-42%E5%85%83-005000550.html" target="_blank" rel="noopener">Yahoo股市法說後目標價</a></p>
+<h3>小結</h3>
+<p>TTM 本益比 30.79 倍與 4 月幾乎持平，但這是建立在 EPS 大幅墊高的基礎上，代表「用同樣的倍數買到更多的獲利成長」；外資目標價中樞約 3,300-3,500 元，相對現價仍有空間，但這些目標價多已提前反映 2027 年展望，估值屬於「合理偏樂觀」，不是便宜貨。</p>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>以下技術指標由 <code>technical_indicators.py</code> 腳本計算（2026-07-20 盤中數據，⚠️ 尚未收盤）。</blockquote>
+<h3>關鍵價位</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價（盤中）</td><td>NT$2,340</td></tr><tr><td>前一交易日收盤（7/17）</td><td>NT$2,290</td></tr><tr><td>當日漲跌</td><td>+50（+2.18%）</td></tr><tr><td>52 週高點</td><td>NT$2,510</td></tr><tr><td>52 週低點</td><td>NT$1,065.79</td></tr><tr><td>52 週位置</td><td>88.2%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>52 週高低位置</strong>：過去一年股價高低點的相對位置，88.2% 代表目前股價接近但尚未回到 52 週最高點。</blockquote>
+<h3>均線系統</h3>
+<blockquote>📝 <strong>均線（MA）</strong>：過去幾天平均股價連成的一條線，股價在均線上方代表趨勢向上（多頭），在下方代表空頭。均線彼此交錯、排列不整齊時稱「糾結」，代表方向不明。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>均線</th><th>數值（NT$）</th><th>股價相對位置</th></tr></thead><tbody><tr><td>MA5（5 日）</td><td>2,392.0</td><td>股價低於 MA5</td></tr><tr><td>MA10（10 日）</td><td>2,413.5</td><td>股價低於 MA10</td></tr><tr><td>MA20（月線）</td><td>2,420.0</td><td>股價低於 MA20</td></tr><tr><td>MA60（季線）</td><td>2,330.84</td><td>股價高於季線 +0.4%</td></tr><tr><td>MA120（半年線）</td><td>2,099.77</td><td>股價大幅高於半年線</td></tr><tr><td>MA240（年線）</td><td>1,728.94</td><td>股價大幅高於年線</td></tr><tr><td>均線排列</td><td><strong>糾結（短長均線交錯）</strong></td><td>短期方向不明，長線仍多頭</td></tr></tbody></table></div>
+<p>與 4 月版本的「多頭排列」相比，目前短均線（MA5/10/20）已跌破，股價僅勉強守在季線之上，短期轉為震盪整理格局。</p>
+<h3>動能指標</h3>
+<blockquote>📝 <strong>RSI</strong>：相對強弱指標，0-100 範圍，70 以上偏強、30 以下偏弱、50 以上為多頭。</blockquote>
+<blockquote>📝 <strong>KD 指標</strong>：由 K 值和 D 值組成。K 值由下往上穿越 D 值叫「黃金交叉（買訊）」，由上往下穿越叫「死亡交叉（賣訊）」。在中位區（30-70）的死亡交叉，訊號強度中等。</blockquote>
+<blockquote>📝 <strong>MACD</strong>：衡量短期均線和長期均線差距的指標。柱狀圖翻負代表短期動能轉弱。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>RSI(14)</td><td>45.43</td><td>中性，多空不明</td></tr><tr><td>KD（K/D）</td><td>30.82 / 37.57</td><td>死亡交叉（1 天前形成，中位區）→ 短線偏弱訊號</td></tr><tr><td>MACD 柱狀</td><td>-17.81</td><td>翻負，短期動能轉弱</td></tr><tr><td>綜合技術評分</td><td>-2.5（中性偏空）</td><td>KD 死亡交叉 -1、MACD 柱狀負 -1、死亡交叉 -0.5</td></tr></tbody></table></div>
+<h3>成交量</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>最新量</td><td>31,588 張（盤中）</td></tr><tr><td>5 日均量</td><td>39,766 張</td></tr><tr><td>20 日均量</td><td>32,700 張</td></tr><tr><td>量比（5日/20日）</td><td>1.22（略高於均量）</td></tr></tbody></table></div>
+<h3>支撐與壓力區間</h3>
+<div class="table-wrap"><table><thead><tr><th>區間</th><th>價位</th><th>性質</th></tr></thead><tbody><tr><td>當前位置</td><td>NT$2,340</td><td>52 週高點下方，短均線之下、季線之上</td></tr><tr><td>短線支撐</td><td>NT$2,290-2,330</td><td>MA60 季線 + 近期整數關卡</td></tr><tr><td>中線支撐</td><td>NT$2,100 附近</td><td>MA120（半年線）</td></tr><tr><td>強支撐</td><td>NT$1,729 附近</td><td>MA240（年線）</td></tr><tr><td>52 週高點壓力</td><td>NT$2,510</td><td>前波高點</td></tr><tr><td>分析師目標區</td><td>NT$3,000-4,200</td><td>外資中長線目標區</td></tr></tbody></table></div>
+<p><strong>短線提醒：</strong> 技術面出現 KD 死亡交叉、MACD 轉負、均線糾結三重訊號同步浮現，短線動能明顯轉弱，建議觀察是否守住季線（NT$2,330 附近）。若跌破季線，需留意回檔至半年線（NT$2,100）的可能性。</p>
+<h3>小結</h3>
+<p>技術面從 4 月版本的「多頭排列」轉為「短均線下彎、均線糾結」，KD、MACD 同步轉弱，屬於法說會後常見的獲利了結整理；只要季線（NT$2,330 附近）不破，長線多頭結構仍在，短線不宜追高，適合等回檔訊號明朗再行動。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<blockquote>📝 <strong>三大法人</strong>：外資（外國機構）、投信（國內基金）、自營商（券商自有資金），是觀察市場資金流向的重要指標。法人連續買進通常是好訊號，連續賣超則反映短線調節或看法轉弱。</blockquote>
+<h3>三大法人（近 5 個交易日，2026/07/13-07/17）</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資（張）</th><th>投信（張）</th><th>自營商（張）</th><th>合計（張）</th></tr></thead><tbody><tr><td>07/13</td><td>-2,045</td><td>+530</td><td>+623</td><td>-892</td></tr><tr><td>07/14</td><td>-12,416</td><td>+1,841</td><td>+2,570</td><td>-8,005</td></tr><tr><td>07/15</td><td>-3,427</td><td>-596</td><td>+456</td><td>-3,568</td></tr><tr><td>07/16（法說會當日）</td><td>-4,215</td><td>+528</td><td>+1,061</td><td>-2,625</td></tr><tr><td>07/17（法說會隔日）</td><td><strong>-44,184</strong></td><td>+1,489</td><td>+2,759</td><td>-39,936</td></tr></tbody></table></div>
+<p><strong>解讀：</strong> 外資「連 7 賣」累計約 -83,191 張，法說會隔日（7/17）單日大幅賣超 4.4 萬張，是近期最明顯的一筆調節；相對地投信「連 2 買」、自營商「連 7 買」，呈現外資獲利了結、內資與自營商逢低承接的分歧格局。此模式與 4 月版本「法說會後法人獲利了結」高度相似，屬於「利多出盡」典型現象，而非基本面轉空的訊號——外資長期持股比例仍維持高檔，此次應偏向短線調節。</p>
+<h3>融資融券</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值（2026/07/17）</th></tr></thead><tbody><tr><td>融資餘額</td><td>33,373 交易單位</td></tr><tr><td>融券餘額</td><td>81 交易單位</td></tr><tr><td>董監持股</td><td>❌ 未取得（建議至 MoneyDJ 或公開資訊觀測站查詢）</td></tr></tbody></table></div>
+<p><strong>台積電籌碼特性：</strong> 融資餘額相對總股本極低，籌碼結構仍以外資與法人為主，散戶槓桿效應小，籌碼穩定度高。</p>
+<p><strong>來源：</strong> Yahoo 股市法人買賣（2330.TW/institutional-trading）/ TWSE MI_MARGN</p>
+<h3>小結</h3>
+<p>外資連 7 賣、法說會隔日單日大賣逾 4.4 萬張，是本次分析期間最值得留意的籌碼訊號，但投信與自營商同步進場承接，屬於「法說利多出盡後的短線調節」而非趨勢反轉，建議觀察外資賣超是否持續超過 2 週，若延續才需提高警覺。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p>台積電以海外晶圓代工競爭對手為主要比較對象（台股無同等規模對手）。</p>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>台積電（2330/TSM）</th><th>三星電子（晶圓代工）</th><th>Intel IFS</th><th>GlobalFoundries</th></tr></thead><tbody><tr><td>全球市占率（2026 Q1，TrendForce）</td><td><strong>72.3%</strong></td><td>6.5%</td><td><2%</td><td>~6%</td></tr><tr><td>先進製程</td><td>3nm 穩定量產 / 2nm 已占營收 3% 快速爬坡</td><td>3nm 良率仍偏低</td><td>18A 開發中</td><td>無 7nm 以下</td></tr><tr><td>Q2 2026 毛利率</td><td><strong>67.7%（歷史新高）</strong></td><td>❌ 未揭露（市場估遠低於台積電）</td><td>持續虧損</td><td>不揭露</td></tr><tr><td>AI 晶片主要客戶</td><td>NVIDIA / AMD / Apple / Broadcom</td><td>幾乎無主流 AI 客戶</td><td>少量 AI 初創</td><td>無主流 AI 客戶</td></tr><tr><td>2026 資本支出</td><td><strong>600-640 億美元（再上修，擴張中）</strong></td><td>縮減中</td><td>重組縮減</td><td>維持</td></tr><tr><td>護城河強度</td><td>極強</td><td>中（良率問題持續）</td><td>重建中（高風險）</td><td>弱（成熟製程）</td></tr><tr><td>競爭威脅等級</td><td>低（短中期）</td><td>中長期</td><td>目前不構成威脅</td><td>不重疊</td></tr></tbody></table></div>
+<p><strong>結論：</strong> 與三星的市占率差距從 4 月時的估算進一步拉開（差距擴大至 65.8 個百分點），台積電在先進製程與 AI 客戶結構上的領先優勢持續強化，Intel 重組中、GlobalFoundries 專注成熟製程，均不構成近期威脅。</p>
+<p><strong>來源：</strong> <a href="https://finance.sina.com.cn/tech/digi/2026-06-12/doc-iniccspw9032420.shtml" target="_blank" rel="noopener">TrendForce 市占率報導</a> / TSMC Q2 2026 法說會</p>
+<h3>小結</h3>
+<p>台積電與三星的差距不是縮小而是持續擴大（72.3% vs 6.5%），2nm 已開始貢獻營收且爬坡順利，短中期內在先進製程領域找不到有意義的競爭者，同業比較面向的結論與 4 月版本一致甚至更強化。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<blockquote>📝 <strong>催化劑（Catalyst）</strong>：讓股價有機會上漲的具體事件或題材，就像點火的火柴。</blockquote>
+<h3>已確認催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>時間軸</th><th>影響</th></tr></thead><tbody><tr><td>Q2 2026 財報三項創新高（EPS 27.25、毛利率 67.7%）</td><td>已發生（7/16）</td><td>✅ 正面，短線已部分反映（法說後賣壓）</td></tr><tr><td>全年美元營收展望二度上修至「略高於 40%」</td><td>已宣布（7/16）</td><td>✅ 強烈正面，中長線支撐</td></tr><tr><td>資本支出上修至 600-640 億美元</td><td>已宣布（7/16）</td><td>✅ 正面，反映對需求的高度信心</td></tr><tr><td>2nm（N2）已占營收 3%、快速爬坡</td><td>進行中</td><td>正面，長線毛利率結構支撐</td></tr><tr><td>美國投資加碼至 2,650 億美元</td><td>已宣布（7/16）</td><td>正面，分散地緣政治風險、綁定美系客戶</td></tr><tr><td>CoWoS 先進封裝持續供不應求</td><td>2026 全年</td><td>定價能力強，毛利率撐高</td></tr><tr><td>外資目標價齊聲上調（3,000-4,200 元）</td><td>7/14-7/17</td><td>短線情緒正面，但也代表利多已提前反映</td></tr></tbody></table></div>
+<h3>潛在催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>時間軸</th><th>機率</th><th>影響</th></tr></thead><tbody><tr><td>Q3 2026 財測數字實際公布是否守住 65-67% 毛利率</td><td>2026/10 中旬</td><td>高（確定發生）</td><td>驗證 2nm 稀釋是否可控</td></tr><tr><td>Fed 降息 → 科技股估值修復</td><td>2026 下半年？</td><td>中</td><td>正面，高本益比股受益</td></tr><tr><td>Intel 代工失利、更多客戶轉單</td><td>持續進行中</td><td>高</td><td>正面，市占持續提升</td></tr><tr><td>A16／A14 製程開發進度</td><td>A14 預估 2028 量產</td><td>中</td><td>正面，維持技術領先信心</td></tr></tbody></table></div>
+<h3>短期注意事項</h3>
+<ul><li>法說會未特別著墨半導體 232 關稅與地緣政治，與 4 月版本相比風險論述篇幅減少，但不代表風險已消失</li><li>先進封裝供需缺口仍大，公司對外部合作保持開放態度，是觀察 AI 產能瓶頸是否緩解的指標</li><li>HPC/AI 營收占比本次法說會未明確揭露具體數字（❌ 未取得），僅有定性表態「需求可能持續至 2029-2030 年」</li></ul>
+<p><strong>來源：</strong> <a href="https://investor.tsmc.com/english/quarterly-results/2026/q2" target="_blank" rel="noopener">TSMC Q2 2026 法說會</a> / <a href="https://news.cnyes.com/news/id/6537162" target="_blank" rel="noopener">鉅亨網九大重點</a></p>
+<h3>小結</h3>
+<p>本季最大的催化劑已經發生並公布完畢（Q2 財報 + 全年展望上修 + 資本支出上修），股價短線的表現取決於「利多兌現後的消化速度」；下一個關鍵驗證點是 10 月中旬的 Q3 財報，屆時可確認 2nm 稀釋毛利率的實際幅度是否在可控範圍。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<blockquote>📝 <strong>風險矩陣</strong>：把每個風險的「發生機率」和「影響程度」各分高中低，讓你一眼看出哪些風險最需要注意。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>風險項目</th><th>發生機率</th><th>影響程度</th><th>綜合風險</th><th>早期警訊</th></tr></thead><tbody><tr><td>法說利多兌現後的短線修正</td><td>中高</td><td>中</td><td>中高</td><td>外資連續賣超延續超過 2 週、KD/MACD 持續走弱</td></tr><tr><td>台海地緣政治衝突</td><td>低（短中期）</td><td>極高</td><td>中高</td><td>兩岸緊張升溫、美中外交驟惡</td></tr><tr><td>美國半導體 232 關稅擴大</td><td>中</td><td>中高</td><td>高</td><td>商務部公告、客戶削減中國業務</td></tr><tr><td>AI 需求降溫／超建置</td><td>中</td><td>高</td><td>高</td><td>超大型雲端商資本支出縮減、GPU 庫存積累</td></tr><tr><td>2nm 良率或稀釋幅度不如預期</td><td>低中</td><td>中</td><td>中</td><td>Q3/Q4 毛利率指引下修至 65% 以下</td></tr><tr><td>台幣升值壓縮獲利</td><td>中</td><td>中</td><td>中</td><td>台幣對美元升破前波高點</td></tr><tr><td>競爭者追趕（三星/Intel 突破）</td><td>低（3-5 年內）</td><td>中高</td><td>中</td><td>三星 3nm 良率大幅改善</td></tr><tr><td>全球景氣衰退（晶片需求下滑）</td><td>低（2026）</td><td>中高</td><td>中低</td><td>消費性電子砍單、客戶庫存攀升</td></tr><tr><td>資本支出過度擴張，未來回收壓力</td><td>中</td><td>中</td><td>中</td><td>若 AI 資本支出周期提前見頂</td></tr></tbody></table></div>
+<h3>最需要關注的前三大風險</h3>
+<p><strong>1. 短線「利多出盡」修正是否延續</strong></p>
+<p>法說會後外資連續大賣、技術面 KD 死亡交叉+MACD 轉負，若外資賣超延續超過 2 週或跌破季線（NT$2,330），短線回檔幅度可能擴大至半年線（NT$2,100）附近。</p>
+<p><strong>2. 資本支出持續加碼的回收壓力</strong></p>
+<p>2026 資本支出已上修至 600-640 億美元，且管理層表態「未來三年將更顯著提高」，這是史上最大規模的擴產週期。若 AI 基礎設施投資在 2027-2028 年降溫，台積電龐大的產能將面臨稼動率壓力。觀察指標：NVIDIA／微軟／Google／AWS 資本支出公告。</p>
+<p><strong>3. 台海地緣政治（黑天鵝）</strong></p>
+<p>儘管台積電在美國、日本、德國加碼佈局（美國投資已達 2,650 億美元），台灣本島仍是最核心生產基地。若台海情勢驟然惡化，是不可控的系統性風險。</p>
+<p><strong>來源：</strong> TSMC Q2 2026 法說會 / <a href="https://ec.ltn.com.tw/article/breakingnews/5311074" target="_blank" rel="noopener">4 月版本風險論述沿用</a></p>
+<h3>小結</h3>
+<p>風險結構與 4 月版本大致相同（地緣政治、關稅、AI 需求降溫仍是三大長線風險），但本次新增一個中期觀察重點：資本支出連續兩季上修（560 億 → 600-640 億美元），代表擴產週期規模持續放大，長線報酬與長線風險同步墊高，需要更緊盯 AI 資本支出循環是否見頂的訊號。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<h3>結論</h3>
+<p>【<strong>持有</strong>】— 7/16 法說會交出六季來最強財報，EPS 27.25 元創新高、毛利率 67.7% 創新高、全年營收展望二度上修至「略高於 40%」、資本支出再上修至 600-640 億美元，基本面全面優於 4 月版本；但股價在法說會前已被外資大幅計價（目標價喊到 3,000-4,200 元），加上技術面出現 KD 死亡交叉、外資連 7 賣，短線呈現「利多出盡」的獲利了結格局，核心倉位邏輯不變，續抱為主，不建議此刻追高。</p>
+<ul><li><strong>信心程度：</strong> ⭐⭐⭐⭐⭐（5/5）</li><li><strong>建議倉位：</strong> 佔總資金 20-30%（核心持股，已持有者維持現有倉位）</li></ul>
+<h3>進場條件（現有持有者加碼參考）</h3>
+<p>若考慮加碼，建議等待以下任一條件：</p>
+<div class="table-wrap"><table><thead><tr><th>條件</th><th>參考價位/事件</th></tr></thead><tbody><tr><td>技術面回踩季線</td><td>股價回踩 NT$2,290-2,330（季線附近）並站穩，KD 由低檔回頭向上</td></tr><tr><td>中線深度回檔</td><td>股價回測 MA120（NT$2,100）附近，量縮守住</td></tr><tr><td>基本面加碼訊號</td><td>Q3 2026 財報實際毛利率守在 65% 以上（優於或符合指引）</td></tr></tbody></table></div>
+<h3>停損參考</h3>
+<blockquote>📝 <strong>停損</strong>：提前設定「如果股價跌到某個點，就認賠賣出」的紀律，避免小虧變大虧。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>停損位</th><th>邏輯</th></tr></thead><tbody><tr><td>長線核心持有</td><td>NT$1,729（約 -26% 較現價）</td><td>跌破年線（MA240）才考慮，屬極端情境</td></tr><tr><td>若在高點加碼（NT$2,400+）</td><td>NT$2,100（約 -10%）</td><td>守 MA120 半年線關鍵支撐</td></tr></tbody></table></div>
+<p>核心持倉建議寬鬆停損，不被短線波動嚇出場；台積電基本面尚未出現任何轉空訊號，目前停損參考僅為紀律性設定，非預期會觸發。</p>
+<h3>加碼條件</h3>
+<ul><li>Q3 2026 毛利率實際公布守在 65% 以上（符合或優於指引）</li><li>外資賣超轉為連續買超（累積 5 日轉正）</li><li>KD 由中低檔黃金交叉、MACD 柱狀翻正</li><li>NVIDIA／主要雲端商 2026 下半年資本支出持續加碼確認</li></ul>
+<h3>觀察指標清單</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>觀察方式</th><th>頻率</th></tr></thead><tbody><tr><td>三大法人買賣超</td><td>Yahoo 股市法人 / TWSE</td><td>每週</td></tr><tr><td>月營收公告</td><td>台積電官網（每月 10 日前）</td><td>每月</td></tr><tr><td>NVIDIA／雲端商季報</td><td>Yahoo Finance</td><td>每季</td></tr><tr><td>台積電 Q3 2026 法說會</td><td>TSMC IR 官網</td><td>2026 年 10 月中旬</td></tr><tr><td>毛利率是否守住 65-67% 指引</td><td>法說會</td><td>每季</td></tr><tr><td>半導體 232 關稅進展</td><td>財經新聞</td><td>持續追蹤</td></tr><tr><td>2nm 良率與爬坡進度</td><td>財經新聞／法說會</td><td>每季</td></tr></tbody></table></div>
+<h3>下次檢視時間</h3>
+<ul><li><strong>2026 年 8 月 10 日左右</strong>：7 月月營收公告（確認 Q3 開局動能）</li><li><strong>2026 年 9 月</strong>：主要雲端商財報（AI 資本支出溫度計）</li><li><strong>2026 年 10 月中旬</strong>：台積電 Q3 2026 法說會（下一個關鍵驗證點，確認 2nm 毛利率稀釋幅度是否可控）</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>白話建議</h2>
+<p>台積電這次法說會的成績單，是近六季以來最強的一次——EPS 27.25 元創新高、毛利率 67.7% 創新高、全年營收展望二度上修，連資本支出都再加碼到 600-640 億美元，等於管理層親口說「我對未來需求非常有信心」。基本面比 4 月版本更強，沒有任何轉弱跡象。</p>
+<p>但股價在法說會之前，外資就已經搶先把目標價喊到 3,000-4,200 元，等於「好消息提前被市場買走了」。法說會後外資連續大賣、KD 死亡交叉、均線糾結，是典型的「利多出盡」短線修正，不代表公司基本面出問題。</p>
+<p>如果你已經持有，安心續抱就好，這是長期核心持股該有的位置；如果想加碼，建議等股價回踩季線（NT$2,290-2,330 附近）或更深回檔到半年線（NT$2,100）再考慮分批進場，不要在利多剛公布完的高點追買。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/2330.TW" target="_blank" rel="noopener">Yahoo 股市 - 台積電 2330.TW 即時行情</a></li><li><a href="https://tw.stock.yahoo.com/quote/2330.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 - 台積電月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/2330.TW/eps" target="_blank" rel="noopener">Yahoo 股市 - 台積電近4季EPS</a></li><li><a href="https://tw.stock.yahoo.com/quote/2330.TW/profile" target="_blank" rel="noopener">Yahoo 股市 - 台積電財務比率</a></li><li><a href="https://tw.stock.yahoo.com/quote/2330.TW/institutional-trading" target="_blank" rel="noopener">Yahoo 股市 - 台積電法人買賣</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE BWIBBU_d - PE/殖利率/PBR</a></li><li><a href="https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?response=json" target="_blank" rel="noopener">TWSE MI_MARGN - 融資融券</a></li><li><a href="https://investor.tsmc.com/english/quarterly-results/2026/q2" target="_blank" rel="noopener">TSMC 官方 Q2 2026 法說會/財測</a></li><li><a href="https://news.cnyes.com/news/id/6537162" target="_blank" rel="noopener">鉅亨網 - 法說九大重點</a></li><li><a href="https://www.ctee.com.tw/news/20260716701355-430503" target="_blank" rel="noopener">工商時報 - Q2財報大炸裂</a></li><li><a href="https://technews.tw/2026/07/14/foreign-investors-see-tsmc-2026-q2-and-capex/" target="_blank" rel="noopener">TechNews - 外資法說前目標價</a></li><li><a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E6%B3%95%E8%AA%AA%E5%80%92%E6%95%B8-%E5%A4%96%E8%B3%87%E9%BD%8A%E5%8D%87%E7%9B%AE%E6%A8%99%E5%83%B9-%E6%9C%80%E9%AB%98%E5%96%8A%E5%88%B03800%E5%85%83-eps%E4%B8%8A%E7%9C%8B198-42%E5%85%83-005000550.html" target="_blank" rel="noopener">Yahoo 股市 - 法說後外資目標價彙整</a></li><li><a href="https://fantasticnewmedia.com/2026/07/17/334948/" target="_blank" rel="noopener">豐臺新媒 - 麥格理目標價4200元</a></li><li><a href="https://finance.sina.com.cn/tech/digi/2026-06-12/doc-iniccspw9032420.shtml" target="_blank" rel="noopener">新浪科技 - TrendForce市占率72.3%</a></li><li><code>technical_indicators.py</code> 腳本（2026-07-20 盤中數據）</li></ul>
+</div>
+</body>
+</html>
