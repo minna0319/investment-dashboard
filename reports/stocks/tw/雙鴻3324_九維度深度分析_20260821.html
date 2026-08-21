@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雙鴻科技（3324）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>雙鴻科技（3324）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>雙鴻科技（3324）九維度深度分析</h1>
+<blockquote><strong>信任層級說明</strong></blockquote>
+<blockquote>- 無標記 = 已由官方 WebFetch 來源（TPEX / yfinance）取得並驗證（見數據快照）</blockquote>
+<blockquote>- ⚠️ = 來自媒體報導、WebSearch 或法說會轉述，僅供參考，建議自行查證</blockquote>
+<blockquote>- ❌ 未取得 = 公開資料中找不到，非編造</blockquote>
+<hr>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v3.0</td><td>2026-08-21</td><td>NT$969</td><td><strong>全面重抓</strong>最新官方數據（7月營收YoY+116.70%爆發），<strong>新增</strong>「營收爆發但股價不動」矛盾的量化拆解（PE壓縮 vs EPS成長對沖）、均熱片設計變更傳言事件還原、財務健康度與 CapEx/自由現金流風險重估；<strong>整合</strong>舊版基本面/產品線/護城河精華、產業研究報告的競爭格局定性分析。取代 <code>雙鴻3324_九維度深度分析_20260605.md</code>（v2.1）與 <code>雙鴻3324_九維度深度分析_20260411.md</code>（v1.0）兩份舊檔，本檔為唯一現行版本。</td></tr><tr><td>v2.1</td><td>2026-06-05</td><td>NT$1,110</td><td>技術面週期修正（上櫃股均線週期由美股週期改台股週期），結論觀望</td></tr><tr><td>v2.0</td><td>2026-06-05</td><td>NT$1,110</td><td>納入 2026Q1 財報（EPS 12.61 元創新高）、Rubin ColdPlate 未入選但 NVLink 8/ASIC 新動能</td></tr><tr><td>v1.0</td><td>2026-04-11</td><td>NT$1,005～1,030（區間）</td><td>首次建立，涵蓋 2026Q1 月營收與泰國廠擴產展望</td></tr></tbody></table></div>
+<hr>
+<h2>關鍵指標快照</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$969（8/21收盤，較前日 -2.42%；8/20收盤 NT$983）</td></tr><tr><td>市值</td><td>902 億元</td></tr><tr><td>PE 本益比（TTM）</td><td>22.8 倍（重算；TPEX官方 8/20 為 22.90 倍）</td></tr><tr><td>PB 股價淨值比</td><td>6.8 倍（重算；TPEX官方 8/20 為 6.97 倍）</td></tr><tr><td>Forward PE 前瞻本益比</td><td>12.89 倍</td></tr><tr><td>EPS（近4季合計 TTM）</td><td>42.50 元</td></tr><tr><td>每股淨值</td><td>142.51 元</td></tr><tr><td>殖利率</td><td>1.20%</td></tr><tr><td>ROE</td><td>38.18%</td></tr><tr><td>毛利率</td><td>28.52%</td></tr><tr><td>營益率</td><td>15.98%</td></tr><tr><td>負債權益比</td><td>63.50</td></tr><tr><td>流動比</td><td>1.84</td></tr><tr><td>2026/7 月營收</td><td>37.65 億元</td></tr><tr><td>月營收 YoY</td><td>+116.70%</td></tr><tr><td>月營收 MoM</td><td>+38.54%</td></tr><tr><td>累計營收（1-7月）</td><td>210.14 億元（YoY +83.28%）</td></tr><tr><td>52 週高 / 低</td><td>1,305 元 / 641 元（距52週高 -25.7%）</td></tr><tr><td>今年來報酬</td><td>約 -1%（以8/20價計）</td></tr><tr><td>技術位置</td><td>RSI(14) 48.68 中性；KD 8/16 死亡交叉；均線糾結，季線下方 -2.6%；技術評分 -1.5（中性偏弱）</td></tr><tr><td>近10日三大法人</td><td>合計 +237 張（外資+353、投信+65，量能明顯偏小）</td></tr><tr><td><strong>2026H1 累計 EPS（官方）</strong></td><td><strong>23.01 元</strong></td></tr><tr><td><strong>2026H1 累計營收（官方）</strong></td><td><strong>172.52 億元</strong></td></tr><tr><td><strong>2026H1 毛利率（官方）</strong></td><td><strong>29.03%</strong>（高於 TTM 28.52%，毛利率正在改善）</td></tr><tr><td><strong>2026H1 營益率（官方）</strong></td><td><strong>16.87%</strong>（高於 TTM 15.98%，營益率同步改善）</td></tr><tr><td><strong>2026H1 稅後淨利（官方）</strong></td><td><strong>23.04 億元</strong></td></tr></tbody></table></div>
+<p>資料時間：2026-08-21（已收盤）；法人數據至 2026-08-20｜資料來源見文末</p>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 基本面確實在爆發（7月營收年增116.70%），但這波成長早已被市場消化進股價，加上4-5月均熱片設計變更傳言留下的評價傷疤尚未癒合、籌碼冷清、技術面轉弱，此刻不是最佳進場點。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段，等待技術面確認或財報進一步兌現再進場</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司定位</h3>
+<p>雙鴻科技（股票代號 3324，上櫃 OTC 市場）是台灣散熱產業液冷系統整合的主要廠商之一。主要業務從傳統氣冷元件（熱導管、均熱板）全面轉型為 AI 伺服器液冷系統，2012 年即開始液冷研發，是台股液冷深度最廣的廠商之一，同時具備 Cold Plate（冷板）、CDM（分歧管）、CDU（冷卻液分配單元）完整系統能力。</p>
+<blockquote>📝 <strong>均熱板（Vapor Chamber）</strong>：一種薄片狀散熱元件，內部充填工作液體，利用蒸發冷凝原理將熱源均勻分散，比傳統熱導管導熱效率更高，常見於高階筆電和 AI 晶片散熱。</blockquote>
+<blockquote>📝 <strong>CDU（Coolant Distribution Unit）</strong>：白話說是「AI 伺服器機架的冷卻系統主機」，負責將冷卻液循環分配到每一片 GPU 伺服器板，一台機架通常只需一個 CDU，但單價遠高於其他元件（⚠️ 優分析報導單台 In-row CDU 單價逾 10 萬美元）。</blockquote>
+<h3>主要產品線</h3>
+<div class="table-wrap"><table><thead><tr><th>產品</th><th>說明</th><th>位置</th></tr></thead><tbody><tr><td>熱導管 / 均熱板</td><td>傳統氣冷元件，量的基礎</td><td>成熟期</td></tr><tr><td>Water Block（水冷頭）</td><td>直接貼合 GPU/CPU 的液冷元件</td><td>成長期</td></tr><tr><td>Cold Plate（冷板）</td><td>AI 伺服器液冷板，高附加價值</td><td>高速成長</td></tr><tr><td>CDM / CDU</td><td>系統級冷卻分配元件</td><td>高速成長，2026年首度放量</td></tr><tr><td>In-row CDU（2MW級）</td><td>Computex 2026 展示，1 對 10 機架設計</td><td>⚠️ 2026年首批約2,000台訂單（優分析）</td></tr></tbody></table></div>
+<h3>客戶結構</h3>
+<ul><li>⚠️ 已進入 Meta、AWS、Microsoft 供應鏈，取得 NVIDIA GB300 液冷認證（優分析、CMoney 報導）</li><li>⚠️ GB300 水冷板市佔率約 20-25%（單一來源，建議自行覆核）</li><li>⚠️ 透過泰國新產能拿下 Amazon T3/T4 水冷專案，客戶結構持續分散化，不再單靠 NVIDIA 生態系</li><li>⚠️ ASIC 自研晶片客戶（AWS Trainium、Google TPU、Meta）佔比市場預期 2026H2 明顯提升</li></ul>
+<blockquote>📝 <strong>ASIC（Application Specific Integrated Circuit）</strong>：應用特定積體電路，簡單說就是「為特定用途設計的專用晶片」。AWS 的 Trainium、Google 的 TPU 都是 ASIC，各大雲端廠都在自研晶片、不全靠 NVIDIA，這是雙鴻分散客源的重要方向。</blockquote>
+<blockquote>📝 <strong>CSP（Cloud Service Provider）</strong>：雲端服務提供商，如 AWS、Azure（微軟）、Google Cloud，他們大規模建造 AI 資料中心，是散熱廠的最終買單方。</blockquote>
+<blockquote>📝 <strong>ODM（Original Design Manufacturer）</strong>：代工設計製造商，雙鴻不直接賣給 AWS，而是透過廣達、鴻海等 ODM 廠轉接訂單。</blockquote>
+<h3>競爭護城河</h3>
+<ul><li>技術廣度：台股少數同時具備 Cold Plate + CDM + CDU 完整液冷系統能力的廠商</li><li>研發年資：液冷研發超過 14 年，學習曲線已成熟</li><li>地理分散：台灣主廠 + 泰國廠（一期滿載，二期土建已完成，逐步開出產能）</li><li>⚠️ 董事長 2026 股東會上將 2026 年營收成長目標由原本五成上修至七成，主因 ASIC 伺服器散熱訂單湧入（經濟日報，2026）</li></ul>
+<p><strong>護城河強度評估：中</strong>（產品廣度領先同業，但技術壁壘不如健策的均熱片專利深度——健策毛利率 40%+ vs 雙鴻/奇鋐約 20-29%，反映的正是護城河深淺差異）</p>
+<h3>小結</h3>
+<p>雙鴻的基本面故事沒有變壞，反而持續兌現：客戶結構從 NVIDIA 單一生態系擴散到 AWS/Meta/Google 的 ASIC 陣營，董事長甚至主動上修全年營收目標。基本面是這份分析中最沒有疑慮的一塊。</p>
+<hr>
+<h2>2. 財務面</h2>
+<h3>最新財務數據</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>毛利率（TTM，8/21）</td><td>28.52%</td><td>yfinance</td></tr><tr><td>營益率（TTM，8/21）</td><td>15.98%</td><td>yfinance</td></tr><tr><td>2026Q1 毛利率</td><td>29.66%（季增3.27pp，年增2.3pp，為歷史次高）</td><td>財報狗</td></tr><tr><td>2026Q1 營益率</td><td>17.77%</td><td>財報狗</td></tr><tr><td>2026Q1 淨利率</td><td>14.80%</td><td>財報狗</td></tr><tr><td>2026Q1 EPS</td><td>12.61 元（季增25.31%，年增122.79%）</td><td>財報狗</td></tr><tr><td>EPS TTM（8/21）</td><td><strong>42.50 元</strong></td><td>yfinance</td></tr><tr><td>EPS TTM（6/5 舊版）</td><td>34.65 元</td><td>財報狗（沿用）</td></tr><tr><td>ROE</td><td>38.18%</td><td>yfinance</td></tr></tbody></table></div>
+<blockquote>📝 <strong>毛利率</strong>：「賣一樣東西，扣掉製造成本後剩下多少比例」。毛利率 28.52% 代表賣 100 元的散熱元件，扣掉材料和製造成本後還剩約 28.5 元。</blockquote>
+<blockquote>📝 <strong>營益率（營業利益率）</strong>：毛利率再扣掉研發、銷售、管理等營運費用後的獲利比率，反映公司「本業真正賺多少」。</blockquote>
+<blockquote>📝 <strong>TTM（Trailing Twelve Months）</strong>：「過去 12 個月累計數字」，比單季數字更能平滑季節性波動。</blockquote>
+<h3>【本次分析重點問題 2】營益率為何遠低於毛利率？是否惡化？</h3>
+<p>毛利率 28.52% 與營益率 15.98% 之間有約 <strong>12.5 個百分點</strong>的費用缺口。拆解 Q1 單季數據可看到相同結構：毛利率 29.66% → 營益率 17.77%，缺口 11.89 個百分點——<strong>與 TTM 缺口幾乎一致，代表這不是新出現的惡化，而是雙鴻長期以來的費用結構常態</strong>。</p>
+<p>對照財報狗歷史資料，2024Q3 營業費用率約 13.47%，與目前推算出的 12～12.5% 費用缺口落在同一區間。費用主要來自：</p>
+<ul><li>泰國二廠開出初期的營運與人力費用（新產能爬坡期效率尚未最大化）</li><li>CDU/CDM 等新產品線的研發投入（技術複雜度高於傳統氣冷元件）</li><li>客戶認證（NVIDIA GB300、ASIC 客戶）相關驗證支出</li></ul>
+<p><strong>與健策（3653）毛利率 40%+ 相比</strong>，差距主要來自產品結構而非效率問題：健策主力是均熱片這種技術壁壘極深的單一高毛利專利產品；雙鴻則是系統整合商，產品組合裡包含 CDU 外殼、管路、快接頭等相對低毛利的機構/系統件，拉低了綜合毛利率。這是商業模式的選擇，不是雙鴻「做得比較差」。</p>
+<h3>月營收與累計營收</h3>
+<div class="table-wrap"><table><thead><tr><th>期間</th><th>數值</th><th>YoY</th><th>MoM</th></tr></thead><tbody><tr><td>2026/7</td><td>37.65 億元</td><td>+116.70%</td><td>+38.54%</td></tr><tr><td>累計 1-7 月</td><td>210.14 億元</td><td>+83.28%</td><td>—</td></tr></tbody></table></div>
+<p>公司備註：「成長動能來自 AI 伺服器液冷散熱系統市佔率持續攀升。」（TPEX 官方月營收公告）</p>
+<p><strong>基期效應提醒：</strong> 用 YoY +116.70% 反推，2025 年 7 月單月營收約 17.4 億元，明顯低於 2025 年 11-12 月（24.4～28.2 億元）的水準——代表 2025 年中是相對低基期。這解釋了為何 YoY 數字特別驚人，但 <strong>MoM +38.54% 是月對月的環比成長，不受基期干擾，這代表 7 月的成長是真實的環比放量，不只是基期堆出來的數字</strong>。</p>
+<h3>財務健康度</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>評估</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>成長（TTM 從 6/5 的 34.65 元升至 8/21 的 42.50 元，+22.6%）</td></tr><tr><td>營收趨勢</td><td>成長（7月YoY三位數，累計YoY維持 83%+）</td></tr><tr><td>毛利率趨勢</td><td>穩定微降（Q1 29.66% → TTM 28.52%，差距不大）</td></tr><tr><td>負債健康</td><td>注意（負債權益比 63.50，見第8節風險評估）</td></tr><tr><td>自由現金流</td><td>⚠️ 2025Q4 為 -10.5 億元（財報狗現金流頁，單一來源建議覆核），反映擴產期資本支出偏高</td></tr></tbody></table></div>
+<blockquote>📝 <strong>自由現金流（Free Cash Flow）</strong>：公司賺到的錢扣掉維持營運與擴廠所需的資本支出後，實際剩下能自由運用的現金。負值代表擴產花的錢比營運賺回來的現金還多，成長股擴產期常見，但需持續觀察是否收斂。</blockquote>
+<h3>小結</h3>
+<p>財務面的核心結論是：<strong>成長是真的（EPS/營收雙雙加速），但費用結構本來就吃掉一部分毛利，不是新的警訊</strong>；真正該留意的是擴產期的現金流壓力，而非營益率缺口本身。</p>
+<hr>
+<h2>3. 估值面</h2>
+<h3>當前估值</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>PE（TTM，重算）</td><td>22.8 倍</td></tr><tr><td>PE（TPEX官方，8/20）</td><td>22.90 倍</td></tr><tr><td>Forward PE</td><td>12.89 倍</td></tr><tr><td>PB</td><td>6.8 倍</td></tr><tr><td>殖利率</td><td>1.20%</td></tr></tbody></table></div>
+<blockquote>📝 <strong>本益比（P/E Ratio）</strong>：「用多少年的獲利能把股票買回來」，股價除以 EPS。22.8 倍表示若公司每年賺的跟現在一樣，需要 22.8 年回本。</blockquote>
+<blockquote>📝 <strong>Forward PE（前瞻本益比）</strong>：用「市場預估的未來 EPS」而非過去 EPS 算出的本益比，能反映市場對未來成長的定價。12.89 倍代表：以股價 969 元反推，市場預期的前瞻 EPS 約為 969 ÷ 12.89 ≈ <strong>75.2 元</strong>（此為兩個官方數字的算術推算，非另行查找的新數字）。若這個預期兌現，現在的股價其實相對便宜。</blockquote>
+<h3>【本次分析核心問題】營收爆發、股價卻不動——估值面給出最關鍵的量化解答</h3>
+<p>把兩個時間點的 PE 與 EPS 放在一起看，答案就很清楚：</p>
+<div class="table-wrap"><table><thead><tr><th>時間點</th><th>股價</th><th>TTM EPS</th><th>PE</th></tr></thead><tbody><tr><td>2026-06-05（舊版分析時）</td><td>1,110 元</td><td>34.65 元</td><td>32.03 倍</td></tr><tr><td>2026-08-21（本次分析）</td><td>969 元</td><td>42.50 元</td><td>22.8 倍</td></tr><tr><td>變化</td><td><strong>-12.7%</strong></td><td><strong>+22.6%</strong></td><td><strong>-28.8%</strong></td></tr></tbody></table></div>
+<p><strong>這組數字說明了一切：EPS 成長了 22.6%，但市場願意付的本益比倍數下修了 28.8%，兩者相減，股價自然是跌的（-12.7%）。</strong></p>
+<p>這是典型的「<strong>估值重定價（re-rating 的反向：de-rating）</strong>」——不是市場沒看到成長，而是市場看到成長之後，<strong>降低了對這個成長的定價信心</strong>，用更低的倍數去消化更高的獲利。換句話說：不是「被錯殺」，而是市場正在為某個風險付出評價折讓（詳見第7節「均熱片設計變更傳言」事件，時間點正好落在這段區間內）。</p>
+<h3>估值情境</h3>
+<div class="table-wrap"><table><thead><tr><th>情境</th><th>基準（Forward EPS）</th><th>本益比假設</th><th>合理股價</th></tr></thead><tbody><tr><td>保守（若市場繼續給偏低倍數）</td><td>42.50（TTM）</td><td>20 倍</td><td>850 元</td></tr><tr><td>中性（回到歷史正常區間）</td><td>42.50（TTM）</td><td>25 倍</td><td>1,063 元</td></tr><tr><td>樂觀（Forward EPS 兌現 + 評價回升）</td><td>75.2（隱含Forward）</td><td>15 倍</td><td>1,128 元</td></tr></tbody></table></div>
+<p><strong>現價 969 元落在保守與中性情境之間</strong>，估值面本身不貴（Forward PE 12.89 倍甚至偏低），但要等市場重新願意給回較高的倍數，通常需要具體事件催化（如財報兌現、傳言澄清）。</p>
+<h3>小結</h3>
+<p>估值面不是「貴不貴」的問題，而是「市場現在只願意用便宜的倍數買帳」——PE 從 32 倍壓縮到 22.8 倍，是股價停滯的直接數學原因。這代表現在的股價已經反映了相當程度的謹慎，下檔空間有限，但要止跌回升需要評價信心的修復，而非更多的營收數字。</p>
+<hr>
+<h2>4. 技術面</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>收盤價</td><td>969 元（-2.42%）</td><td>8/20 至 8/21 續跌</td></tr><tr><td>52 週高 / 低</td><td>1,305 元 / 641 元</td><td>距52週高 -25.7%</td></tr><tr><td>RSI(14)</td><td>48.68</td><td>中性，無超買超賣訊號</td></tr><tr><td>KD</td><td>8/16 死亡交叉，K=69.4</td><td>短線轉弱訊號</td></tr><tr><td>MACD 柱狀</td><td>-0.7（翻負）</td><td>動能由多轉弱</td></tr><tr><td>均線排列</td><td>糾結（短長均線交錯）</td><td>方向不明確</td></tr><tr><td>黃金交叉</td><td>12 天前（8/5）後又轉弱</td><td>短暫多頭訊號未能延續</td></tr><tr><td>季線位置</td><td>季線下方 -2.6%</td><td>收盤價已跌破季線</td></tr><tr><td>技術評分</td><td>-1.5（中性偏弱）</td><td>綜合技術指標偏空</td></tr><tr><td>5日/20日均量比</td><td>0.54（明顯量縮）</td><td>市場參與度低</td></tr></tbody></table></div>
+<blockquote>📝 <strong>KD 死亡交叉</strong>：K 值從上方穿越 D 值，是短線可能轉弱的訊號（白話：「快指標跌破慢指標」）。8/16 剛發生，需留意後續是否持續走弱。</blockquote>
+<blockquote>📝 <strong>MACD 柱狀（Histogram）</strong>：MACD 線和訊號線的差值，翻負代表短期動能轉弱。</blockquote>
+<blockquote>📝 <strong>黃金交叉 / 死亡交叉</strong>：短期均線由下往上穿越長期均線稱黃金交叉（偏多訊號）；反之為死亡交叉（偏空訊號）。本次 8/5 才剛黃金交叉，8/16 KD 又死叉，顯示技術面反覆拉鋸、尚未站穩方向。</blockquote>
+<blockquote>📝 <strong>季線（MA60）</strong>：60 個交易日均線，法人常用來判斷中期趨勢。跌破季線通常代表中期偏弱。</blockquote>
+<p><strong>技術面綜合評估：</strong> 均線糾結 + 跌破季線 + KD 死叉 + 量能萎縮，技術面目前偏弱勢整理格局，並未顯示止跌訊號。距52週高 -25.7%，但距52週低（641元）仍有約 51% 空間，尚未進入超跌區。</p>
+<h3>小結</h3>
+<p>技術面目前沒有給進場訊號——季線之下、量縮、KD死叉，是典型的「盤整尋底」格局，追高或摸底都不是好時機，等待量價配合的訊號更穩健。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>近10交易日外資</td><td>+353 張（買超）</td></tr><tr><td>近10交易日投信</td><td>+65 張（買超）</td></tr><tr><td>近10交易日三大法人合計</td><td><strong>+237 張</strong>（買超，量能極小）</td></tr><tr><td>對比：6/5 舊版同期10日合計</td><td>+5,034 張</td></tr></tbody></table></div>
+<p><strong>籌碼面是回答「股價為何不動」的另一塊重要拼圖：</strong> 近10日三大法人合計只買超 237 張，相對於雙鴻約 93,000 張的總股數（市值902億÷股價969元），占比僅約 0.25%，幾乎是「無感」的量級。對比 6 月初同樣觀察窗（10日合計 +5,034 張）差距懸殊。</p>
+<p>這代表：市場並非「大戶正在倒貨」（外資、投信仍是小幅買超，非賣超），而是<strong>法人對這檔股票的關注度和資金投入意願都明顯降溫</strong>——沒有大量資金進駐去反映7月營收的驚人數字，才是股價原地踏步的直接籌碼面原因。</p>
+<blockquote>📝 <strong>三大法人</strong>：外資、投信（本土基金公司）、自營商（券商自己的操盤部門）的合稱，是台股籌碼面觀察的核心指標。</blockquote>
+<h3>融資融券</h3>
+<ul><li>❌ 未取得（TPEX API 本次查詢無回應）</li><li>建議自查：<a href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=3324" target="_blank" rel="noopener">Goodinfo 雙鴻融資融券</a></li></ul>
+<h3>小結</h3>
+<p>籌碼面沒有出現主力出貨的訊號，但也沒有進駐的訊號——量縮 + 法人小額買超，代表市場現在對這檔股票「觀望情緒濃厚」，跟基本面的火熱程度形成明顯落差。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<blockquote>依規範，本報告不重新開啟其他個股的獨立數據檔（3017/3653），以下為 WebSearch 取得的定性比較，精確即時數字請另行查閱各股獨立分析報告。</blockquote>
+<h3>台股散熱三雄定性比較</h3>
+<div class="table-wrap"><table><thead><tr><th>面向</th><th>雙鴻（3324）</th><th>奇鋐（3017）</th><th>健策（3653）</th></tr></thead><tbody><tr><td>核心強項</td><td>系統級液冷整合（Cold Plate+CDM+CDU）</td><td>整機熱管理解決方案，規模最大</td><td>均熱片專利技術，毛利率最高</td></tr><tr><td>毛利率量級</td><td>⚠️ 約 20-29%</td><td>⚠️ 約 20%</td><td>⚠️ 40%+</td></tr><tr><td>護城河強度</td><td>中（廣度領先）</td><td>中（規模最大）</td><td>高（專利深度最強）</td></tr><tr><td>客戶集中度</td><td>中（NVIDIA+ASIC多元客戶分散化中）</td><td>較分散（四大CSP+ODM）</td><td>較集中（高度依賴NVIDIA平台決策）</td></tr><tr><td>近期共同事件</td><td><strong>同步受4-5月「均熱片單片式設計」傳言衝擊，股價自高點回落逾兩成</strong></td><td>同上，並已發重訊澄清「未對外發布財務預測」</td><td>同上，且曾連兩日跌停，波動最劇烈</td></tr></tbody></table></div>
+<p><strong>數據來源：</strong> <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605080009/" target="_blank" rel="noopener">今周刊 健策股價7天崩30%</a>、<a href="https://www.sinotrade.com.tw/richclub/hotstock/散熱三雄-奇鋐-雙鴻-健策四月營收-市場傳言引起股價下跌-調整設計有可能嗎-後市觀察重點-股市話題-69fc3b528e7a7f00baaa2a94" target="_blank" rel="noopener">Sinotrade 散熱三雄傳言分析</a></p>
+<h3>比較分析</h3>
+<p><strong>若只能選一檔（純分析角度，非投資建議）：</strong></p>
+<ul><li><strong>雙鴻</strong>：估值目前 TTM PE 22.8 倍、Forward PE 12.89 倍，三檔中估值相對最保守，系統整合廣度最完整，ASIC 客戶分散化空間最大；劣在技術護城河深度不如健策。</li><li><strong>奇鋐</strong>：規模最大、客戶最分散，但已公開澄清市場謠傳的財測下修並非公司說法，代表其股價波動更多來自「傳聞干擾」而非基本面惡化。</li><li><strong>健策</strong>：毛利率結構最強（40%+），但股價對傳言最敏感（曾連兩日跌停），屬於「預期交易」性質最重的一檔。</li></ul>
+<p><strong>結論：</strong> 散熱三雄近期的股價弱勢是<strong>產業性事件（均熱片設計傳言）</strong>造成的族群性回檔，並非雙鴻個別基本面出問題。這也呼應了估值面的結論——現在的低本益比反映的是「傳言帶來的信心折讓」，而非「成長故事被推翻」。</p>
+<h3>小結</h3>
+<p>雙鴻在三雄中估值相對最便宜、客戶多元化程度較高，但技術護城河不如健策深，三檔近期股價走勢高度連動，顯示這輪回檔是產業性的評價修正，不是雙鴻獨有的問題。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>已驗證催化劑</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>時間點</th><th>狀態</th></tr></thead><tbody><tr><td>7月營收爆發（YoY+116.70%）</td><td>已發生（2026/7）</td><td>已驗證（TPEX官方公告）</td></tr><tr><td>2026營收目標上修至+70%</td><td>2026股東會</td><td>⚠️ 經濟日報報導，公司主動說明</td></tr><tr><td>泰國二廠產能開出</td><td>進行中</td><td>⚠️ 土建已完成，逐步爬坡</td></tr><tr><td><strong>2026H1 財報公布</strong></td><td><strong>已發生（官方已揭露）</strong></td><td><strong>✅ 已驗證：EPS 23.01 元、毛利率 29.03%、營益率 16.87%，雙率均較 TTM 改善</strong></td></tr><tr><td>In-row CDU 2,000台首批訂單</td><td>2026年</td><td>⚠️ 優分析報導，單一來源</td></tr><tr><td>Q2/H1財報公布</td><td>約2026年8月</td><td>待兌現，關鍵檢視點</td></tr></tbody></table></div>
+<h3>【本次分析重點問題】液冷 2026 Q4 放量的說法查證結果</h3>
+<p>任務中提到「液冷散熱 2026 Q4 放量」的市場說法，本次查證結果：<strong>❌ 未取得官方或具名法人明確指向「Q4 單獨放量」的公開聲明</strong>。目前查到的公司口徑是「2026 全年液冷佔比挑戰 55%、營收成長目標上修至 70%」（全年展望，非特定季度），以及「Vera Rubin 平台 2026H2（下半年）開始放量」屬於產業層級的通用時間表，並非雙鴻專屬、也非精確到 Q4 的官方指引。</p>
+<p><strong>⚠️ 重要提醒：市場流傳資料不可靠。</strong> 任務說明中提及 Minna 收到一份坊間流傳的 AI 生成資料，其中多數個股數字已證實錯誤——這正是本節「Q4 放量」說法查無實據的一個案例。散熱族群近期已經歷過一次「均熱片單片式設計」傳言重挫股價、事後供應鏈與公司澄清的教訓（見下方事件還原），這說明<strong>未經具名法人或公司官方公告背書的傳聞，即便聽起來很具體（精確到某季度、某百分比），也可能是市場猜測或錯誤資訊的以訛傳訛</strong>。任何帶單位的具體數字，若只查得到單一未具名來源，都應標記存疑，不宜作為進出場依據。</p>
+<h3>事件還原：均熱片設計變更傳言（4-5月，股價de-rating的起點）</h3>
+<p>2026年4-5月間，供應鏈傳出 NVIDIA 下一代 Rubin GPU 的均熱片設計將「從雙片式改回單片式」，加上市場流傳奇鋐調降第二季業績展望，引爆散熱股利空：</p>
+<ul><li>健策連兩日跌停，股價7天內回落約30%</li><li>奇鋐、雙鴻同步走跌，三雄自高點回落均逾兩成</li><li>奇鋐已於公開資訊觀測站發布重訊澄清：「本公司並無對外發布財務預測，報導中所述之內容，均為媒體或法人之推測」</li></ul>
+<blockquote>📝 <strong>重訊澄清</strong>：上市櫃公司對市場流傳的重大消息，透過公開資訊觀測站發布正式聲明澄清或說明，是台股法規要求的處理程序，具有一定公信力。</blockquote>
+<p><strong>這個事件的時間點，正好對應第3節估值面觀察到的 PE 從 32 倍壓縮到 22.8 倍的起點</strong>——目前股價走勢很可能仍帶著這次傳言留下的評價傷疤，即便傳言本身已遭部分當事公司否認。</p>
+<h3>小結</h3>
+<p>雙鴻的基本面催化劑（ASIC訂單、CDU放量、泰國產能）都持續兌現中，但「Q4放量」這類精確到季度的傳聞查無實據，加上族群才剛經歷一次未經證實傳言重挫股價的教訓，題材面的訊息需要更嚴格地篩選來源可信度。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險因素</th><th>說明</th><th>嚴重度</th><th>機率</th></tr></thead><tbody><tr><td><strong>評價信心尚未修復</strong></td><td>PE已從32倍壓至22.8倍，若無具體事件（財報兌現/傳言澄清）催化，倍數可能持續壓抑</td><td>中高</td><td>中</td></tr><tr><td><strong>均熱片設計變更等傳言重演</strong></td><td>產業對規格變動的傳聞敏感度高，即使多為未證實猜測，仍可能再次衝擊股價</td><td>中</td><td>中</td></tr><tr><td><strong>客戶/訂單集中度</strong></td><td>ASIC客戶佔比預期持續提升，代表對少數CSP自研晶片進度的依賴度也在提高</td><td>中</td><td>中</td></tr><tr><td><strong>財務槓桿與現金流壓力</strong></td><td>負債權益比63.50，搭配CapEx創新高（⚠️預估25-30億元）與2025Q4自由現金流轉負，代表擴產期靠舉債/營運現金流支應，若訂單成長不如預期會加大還款壓力</td><td>中高</td><td>中</td></tr><tr><td><strong>基期效應遞減</strong></td><td>隨2025下半年基期墊高，未來YoY百分比會自然收斂，不代表成長減速，但市場解讀時可能誤判為「動能趨緩」</td><td>低中</td><td>高（必然發生）</td></tr><tr><td><strong>同業競爭與議價力</strong></td><td>系統整合毛利率結構性低於健策的專利技術產品，議價力相對較弱</td><td>中</td><td>中</td></tr><tr><td><strong>CSP資本支出下修</strong></td><td>若AWS/Google/Microsoft削減AI伺服器投資，直接衝擊訂單</td><td>高</td><td>低</td></tr><tr><td><strong>技術面短線走弱</strong></td><td>季線下方、KD死叉、量縮，短線可能持續整理</td><td>中</td><td>中高</td></tr></tbody></table></div>
+<p><strong>最大尾部風險（最壞情況）：</strong> CSP大幅削減AI CapEx + ASIC訂單延後兌現 + 現金流壓力升溫 → 股價可能進一步測試52週低641元附近。此情境目前機率偏低，但擴產期的財務槓桿讓下檔風險不能忽視。</p>
+<h3>小結</h3>
+<p>雙鴻目前最大的風險不是「基本面轉壞」，而是「評價信心何時修復」與「擴產期的財務彈性夠不夠」——這兩點都需要接下來1-2季的財報和現金流數據來驗證，屬於「需要時間證明」的風險，而非立即的危險訊號。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：若決定進場，建議不超過總投資資金的 5%（高波動成長股）</li><li><strong>進場條件（擇一）</strong>：</li><li>條件 A：股價拉回測試季線或年線附近並止穩，且成交量明顯放大確認買盤回籠</li><li>條件 B：~~Q2/H1 財報（約2026年8月）公布，毛利率維持28%以上、營益率不再進一步下滑~~ → <strong>✅ 已達成（2026-08-21 主控端稽核補正）</strong>：TPEX 官方綜合損益表顯示 2026H1 毛利率 <strong>29.03%</strong>（>28% 門檻）、營益率 <strong>16.87%</strong>（不僅未下滑，較 TTM 15.98% 反而改善 0.89 個百分點）、EPS 23.01 元。<strong>本條進場條件已客觀成立。</strong></li><li>條件 C：均熱片設計變更傳言若有官方或具名法人明確澄清雙鴻不受影響，可視為評價修復的催化劑</li><li><strong>停損參考</strong>：進場後跌破 900 元（今年箱型區間下緣、心理關卡），或明確跌破52週低641元前的支撐帶，考慮停損或減碼</li><li><strong>加碼條件</strong>：8月營收年增率若維持三位數、且法人買超連續轉強（10日合計重回千張以上量級），可考慮加碼</li><li><strong>觀察指標</strong>：</li><li>每月10日公布的月營收（8月數字是否延續三位數YoY）</li><li>~~Q2/H1財報：毛利率、營益率是否止穩~~ → 已驗證止穩且改善（見上）；改追蹤 Q3 財報（約11月）是否延續</li><li>均熱片設計變更傳言後續是否有官方明確表態</li><li>三大法人買賣超力道是否重新放大（目前10日僅+237張）</li><li>技術面是否重新站回季線並出現KD黃金交叉</li><li><strong>下次檢視時間</strong>：H1 財報已公布並驗證通過（見條件B），改為 <strong>2026-09-10（8月營收公布）</strong>——觀察 YoY 是否延續三位數成長</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<hr>
+<h2>資料來源</h2>
+<ul><li><a href="https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap06_O_ci" target="_blank" rel="noopener">TPEX 證券櫃檯買賣中心 - 綜合損益表 API（2026Q2 累計，官方財報）</a></li></ul>
+<p><strong>數據層（官方，已由主控端 WebFetch 驗證）：</strong></p>
+<ul><li>TPEX 上櫃本益比分析、TPEX 月營收公告（mopsfin_t187ap05_O）、TPEX 三大法人買賣超</li><li>yfinance（3324.TWO）：股價、市值、PE/PB/ROE/毛利率/營益率/負債權益比/流動比、52週高低</li><li>technical_indicators.py（3324.TWO）：RSI/KD/MACD/均線/技術評分</li></ul>
+<p><strong>定性分析層（WebSearch，已標註信任層級）：</strong></p>
+<ul><li><a href="https://money.udn.com/money/story/11074/9517814" target="_blank" rel="noopener">經濟日報 雙鴻2026年營收拚增70% 毛利率有信心站穩三成</a></li><li><a href="https://statementdog.com/analysis/3324/profit-margin" target="_blank" rel="noopener">財報狗 雙鴻毛利率分析</a></li><li><a href="https://statementdog.com/analysis/3324/eps-growth-rate" target="_blank" rel="noopener">財報狗 雙鴻EPS成長率</a></li><li><a href="https://statementdog.com/analysis/3324/cash-flow-statement" target="_blank" rel="noopener">財報狗 雙鴻現金流量表</a></li><li><a href="https://blog.fugle.tw/post/earnings-call-3324-1" target="_blank" rel="noopener">富果 雙鴻法說會重點備忘錄 2026-03-12</a></li><li><a href="https://uanalyze.com.tw/articles/8506951688" target="_blank" rel="noopener">優分析 COMPUTEX直擊 雙鴻2MW CDU</a></li><li><a href="https://news.cnyes.com/news/id/6423986" target="_blank" rel="noopener">鉅亨網 2026液冷滲透率直衝76%</a></li><li><a href="https://www.sinotrade.com.tw/richclub/hotstock/散熱三雄-奇鋐-雙鴻-健策四月營收-市場傳言引起股價下跌-調整設計有可能嗎-後市觀察重點-股市話題-69fc3b528e7a7f00baaa2a94" target="_blank" rel="noopener">Sinotrade 散熱三雄傳言與後市觀察</a></li><li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605080009/" target="_blank" rel="noopener">今周刊 健策股價7天崩30%怎麼了</a></li><li><a href="https://wantrich.chinatimes.com/news/20260331900395-420101" target="_blank" rel="noopener">旺得富 散熱股真的涼了？黃仁勳親口認了這技術不需要</a></li><li><a href="https://cmnews.com.tw/article/newsyoudeservetoknow-3120562f-0478-11f1-9b43-cb97cd6aef10" target="_blank" rel="noopener">CMoney 雙鴻受惠AI液冷營收創新高，2026年水冷佔比挑戰55%</a></li><li>Goodinfo 雙鴻融資融券（建議自查，本次未取得）：https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=3324</li></ul>
+<p><strong>舊版整合來源：</strong></p>
+<ul><li><code>雙鴻3324_九維度深度分析_20260605.md</code>（基本面/產品線/護城河描述基礎）</li><li><code>雙鴻3324_九維度深度分析_20260411.md</code>（首次建立版本）</li><li><code>散熱族群產業分析_20260411.md</code>（產業鏈地圖、同業定性比較背景）</li></ul>
+</div>
+</body>
+</html>
