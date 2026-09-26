@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>士電（1503）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>士電（1503）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>士電（1503）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<blockquote>一檔股票原則上只留一份檔案。本次為格式升級＋全面重建，舊檔 <code>士電_1503_九維度深度分析_20260304.md</code> 暫時保留未刪（刪檔需 Minna 同意），精華已整合進本檔。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v2.0</td><td>2026-09-26</td><td>NT$196.0（9/24 收盤；9/25 中秋休市）</td><td>升級為正統九維度模板，取代 03-04 舊版。<strong>重抓</strong>：股價/PE/PB/殖利率、月營收（1–8 月）、2026 上半年財報、季 EPS、資產負債、現金流、法人 5 日、融資、外資持股、技術指標、4 年歷史 PE 區間、同業 3 檔。<strong>新增</strong>：9/10 法說會（在手訂單逾 600 億、T4 廠 2027/9 投產）、「營收為何沒跟上題材」拆解、雙軌估值。<strong>更正舊版錯誤</strong>：2024 營收應為 350.71 億（舊版誤寫約 316 億）；T4 廠投產是 2027 年 9 月（舊版誤寫 2026 H2，2025/9 投產的是 T3）</td></tr><tr><td>v2.0-稽核</td><td>2026-09-26</td><td>NT$196.0（9/24 收盤）</td><td><strong>稽核記錄</strong>（investment-qa-auditor 獨立重抓 TWSE/OpenAPI/法說簡報）：①維度 1 事業表「重電（電力配電）」→「電力配電（重電＋開關）」並補低壓開關產品；「四大事業」改為官方口徑（重電／開關／電裝品／自動化，來源：士電 2026 法說簡報 p.公司簡介＋富果 9/10）。其餘快照數字（收盤/PE/PB/殖利率/52 週高低/8 月營收/H1 EPS 與毛利率/法人/融資/外資持股）與官方逐一比對無誤</td></tr><tr><td>v1.1</td><td>2026-03-04</td><td>NT$201.5（盤中）</td><td>大盤暴跌 -1,232 點，估值修正，舊結論「條件式買進」（舊格式）</td></tr><tr><td>v1.0</td><td>2026-03-01</td><td>NT$236.0（2/26 收盤）</td><td>初版分析，舊結論「觀望」（舊格式）</td></tr></tbody></table></div>
+<p><strong>股價軌跡</strong>：236（2/26）→ 201.5（3/4）→ 52 週高 269.5（6/5）→ 196（9/24）</p>
+<h2>關鍵指標快照</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$196.00（9/24 當日 -0.50 元，-0.25%）</td></tr><tr><td>市值</td><td>約 1,021.1 億（發行股數 520,972,223 股 × 收盤價，推算）</td></tr><tr><td>PE 本益比</td><td>27.00 倍</td></tr><tr><td>PB 股價淨值比</td><td>2.64 倍</td></tr><tr><td>EPS（近 4 季合計）</td><td>7.26 元（2025Q3 1.41 + Q4 0.81 + 2026Q1 2.79 + Q2 2.25）</td></tr><tr><td>殖利率</td><td>2.55%（2025 年度現金股利 5.0 元）</td></tr><tr><td>ROE</td><td>約 9.8%（近 4 季 EPS ÷ 每股淨值 74.28 元，推算）</td></tr><tr><td>毛利率</td><td>23.05%（2026 上半年）</td></tr><tr><td>營收 YoY（最新月 8 月）</td><td>-0.38%（1–8 月累計 +9.54%）</td></tr><tr><td>營收 MoM</td><td>-4.21%</td></tr><tr><td>52 週高 / 低</td><td>269.50（2026-06-05）/ 160.50（2025-11-19）</td></tr><tr><td>技術位置</td><td>股價在 MA20（201.3）、MA60（203.6）、MA120（207.3）之下，貼近年線 MA240（197.8）；RSI 43.3；KD 15.6/18.2</td></tr></tbody></table></div>
+<p>資料時間：2026-09-24（已收盤；9/25 中秋休市）｜資料來源見文末</p>
+<h2>結論</h2>
+<p>【持有】— 公司真的在賺更多（上半年 EPS +24%、在手訂單逾 600 億排到 2028），但工廠滿載讓今年營收只能成長一成左右、真正放量要等 2027–2028；股價已回到自己 4 年來本益比的低標附近，適合續抱等營收再加速，不急著加碼。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：中線波段續抱（等季報與月營收驗證再決定加碼）</p>
+<hr>
+<h2>1. 基本面</h2>
+<h3>公司在做什麼</h3>
+<p>士林電機（1503）1955 年創立，資本額約 52 億、2025 年合併營收 372 億、員工 4,080 人（來源：士電 2026 法說會簡報）。官方四大事業為重電、開關、電裝品、自動化；其中重電＋開關合稱「電力配電事業群」：</p>
+<div class="table-wrap"><table><thead><tr><th>事業</th><th>主要產品</th><th>2026 上半年營收占比</th></tr></thead><tbody><tr><td>電力配電（重電＋開關）</td><td>電力變壓器、配電變壓器、配電盤、GIS、電廠／公共工程統包、太陽能／儲能案場；低壓開關（無熔線斷路器、ACB、VCB 等）</td><td>約 72%</td></tr><tr><td>電裝品</td><td>汽機車電裝品、EV 控制器與馬達、充電樁</td><td>約 15%</td></tr><tr><td>自動化</td><td>變頻器、伺服、PLC、儲能變流器（PCS）</td><td>約 10%</td></tr><tr><td>其他</td><td>—</td><td>約 3%</td></tr></tbody></table></div>
+<p>⚠️ 占比來自法說會內容整理（富果直送 2026-09-10），單一來源、簡報 PDF 未載，建議自行覆核。</p>
+<blockquote>📝 <strong>重電</strong>：高電壓、大型的電力設備，例如把高壓電降成工廠能用的電的「變壓器」、控制電流開關的「配電盤」。電網、半導體廠、AI 資料中心都少不了。</blockquote>
+<blockquote>📝 <strong>GVA（十億伏安）</strong>：變壓器的「容量單位」，可以想成工廠一年能做出多少「搬電能力」。士電目前總產能 15 GVA，數字越大代表能接越多單。</blockquote>
+<h3>產業鏈位置</h3>
+<p>```</p>
+<p>上游：銅、矽鋼片、絕緣材料</p>
+<p>↓</p>
+<p>中游：士電（變壓器／配電盤／開關）← 你在這</p>
+<p>↓</p>
+<p>下游：台電（強韌電網）、半導體／記憶體廠、AI 資料中心、北美電力公司</p>
+<p>```</p>
+<ul><li>國內客戶結構（法說會口述，MoneyDJ 2026-09-10 轉述）：科技業（半導體、封裝、記憶體）約占國內營收 25%，台電約 25%。</li><li>外銷占重電產品約 15–20%，市場為東南亞、美國、加拿大，未來擴展日本（法說會口述，工商時報／MoneyDJ／富果三方一致）。</li><li>主要技術合作夥伴：三菱電機、Mitsuba、Panasonic、Hitachi ABB、Siemens（法說會簡報）。</li></ul>
+<h3>護城河</h3>
+<div class="table-wrap"><table><thead><tr><th>來源</th><th>強度</th><th>說明</th></tr></thead><tbody><tr><td>認證與交期壁壘</td><td>強</td><td>電力級變壓器要通過台電與大客戶認證，全球交期 2–3 年，新進者短期擠不進來</td></tr><tr><td>產能＝接單上限</td><td>中</td><td>變壓器產能是稀缺資源，但重電四雄（士電、華城、中興電、亞力）都在擴產，不是獨占</td></tr><tr><td>事業多元</td><td>中</td><td>車電／自動化分散風險，但也稀釋「純電網股」的題材純度</td></tr></tbody></table></div>
+<h3>管理層</h3>
+<ul><li>2025/9 T3 廠如期投產（產能 10→15 GVA），T4 廠 2027/9 投產的時程在 2026 年 3 月（FTNN 3/3 報導）與 9 月法說會口徑一致，<strong>沒有延後</strong>。</li><li>儲能目標原訂 300 MW 已達成，上調到 500 MW，公司說 2027–2028 是爆發期（法說會口述）。</li><li>配息穩定：近 3 年現金股利 3.0 → 4.5 → 5.0 元，配發率 67% → 78% → 80%（法說會簡報）。</li><li>公司自承最大瓶頸是「缺工」，已提前一年招募培訓、導入自動化（法說會口述）。</li></ul>
+<h3>小結</h3>
+<p>士電是「賣鏟子給電網」的老牌重電廠，重電占營收七成，認證和產能是護城河，但四雄都在擴產，護城河評為「中」。</p>
+<hr>
+<h2>2. 財務面</h2>
+<blockquote>📝 <strong>EPS（每股盈餘）</strong>：公司賺的錢平均分到每一股是多少元。EPS 越高＝每股賺越多。</blockquote>
+<blockquote>📝 <strong>營業利益 vs 營業外收支</strong>：營業利益是「本業」賺的（賣變壓器）；營業外收支是本業以外的（利息、匯兌、投資收益），比較不穩定、不能年年期待。</blockquote>
+<h3>月營收（單位：億元）</h3>
+<div class="table-wrap"><table><thead><tr><th>月份</th><th>營收</th><th>MoM</th><th>YoY</th></tr></thead><tbody><tr><td>2026/01</td><td>44.84</td><td>+10.11%</td><td>+5.55%</td></tr><tr><td>2026/02</td><td>28.45</td><td>-36.56%</td><td>-2.62%</td></tr><tr><td>2026/03</td><td>42.30</td><td>+48.72%</td><td>+35.34%</td></tr><tr><td>2026/04</td><td>34.04</td><td>-19.52%</td><td>+32.53%</td></tr><tr><td>2026/05</td><td>30.50</td><td>-10.42%</td><td>+8.35%</td></tr><tr><td>2026/06</td><td>31.09</td><td>+1.95%</td><td>-10.58%</td></tr><tr><td>2026/07</td><td>29.71</td><td>-4.42%</td><td>+15.10%</td></tr><tr><td>2026/08</td><td>28.46</td><td>-4.21%</td><td>-0.38%</td></tr><tr><td><strong>1–8 月累計</strong></td><td><strong>269.39</strong></td><td>—</td><td><strong>+9.54%</strong></td></tr></tbody></table></div>
+<p>來源：TWSE OpenAPI 月營收（8 月）＋ Yahoo 股市營收頁（1–7 月）。</p>
+<p>用季度加總看趨勢更清楚（依官方月營收與年增率推算）：</p>
+<div class="table-wrap"><table><thead><tr><th>期間</th><th>2026</th><th>2025</th><th>YoY</th></tr></thead><tbody><tr><td>Q1</td><td>115.59 億</td><td>102.95 億</td><td>+12.3%</td></tr><tr><td>Q2</td><td>95.63 億</td><td>88.60 億</td><td>+7.9%</td></tr><tr><td>7–8 月</td><td>58.18 億</td><td>54.39 億</td><td>+7.0%</td></tr></tbody></table></div>
+<p>→ <strong>成長一直是正的，但從雙位數放慢到 7–8% 左右</strong>。</p>
+<h3>2026 上半年損益（單位：百萬元，來源：士電 2026 法說會簡報、TWSE OpenAPI）</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>2026 H1</th><th>2025 H1</th><th>成長</th></tr></thead><tbody><tr><td>營收</td><td>21,122</td><td>19,155</td><td>+10.3%</td></tr><tr><td>營業毛利</td><td>4,867</td><td>4,451</td><td>+9.4%</td></tr><tr><td>毛利率</td><td>23.05%</td><td>23.24%（推算）</td><td>微降</td></tr><tr><td>營業利益</td><td>3,124</td><td>2,831</td><td>+10.4%</td></tr><tr><td>營業利益率</td><td>14.79%</td><td>14.78%（推算）</td><td>持平</td></tr><tr><td>營業外收支</td><td>+239</td><td>-153</td><td>由負轉正</td></tr><tr><td>稅後淨利</td><td>2,727</td><td>2,175</td><td>+25.4%</td></tr><tr><td>EPS</td><td>5.04 元</td><td>4.05 元</td><td>+24.4%</td></tr></tbody></table></div>
+<p><strong>關鍵觀察</strong>：EPS 成長 24%，但<strong>本業（營業利益）只成長 10%</strong>。稅前利益增加的 684 百萬裡，有 392 百萬（約 57%）來自營業外收支由負轉正。營業外收支的明細（匯兌？投資收益？）❌ 未取得，需等 Q3 季報附註確認。這部分不能當作每年都會有。</p>
+<h3>年度 EPS 與股利（來源：法說會簡報）</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>EPS</th><th>現金股利</th><th>配發率</th></tr></thead><tbody><tr><td>2023</td><td>4.51 元</td><td>3.0 元</td><td>67%</td></tr><tr><td>2024</td><td>5.81 元</td><td>4.5 元</td><td>78%</td></tr><tr><td>2025</td><td>6.27 元</td><td>5.0 元</td><td>80%</td></tr><tr><td>2026 H1</td><td>5.04 元</td><td>—</td><td>—</td></tr></tbody></table></div>
+<p>季 EPS 有明顯季節性：Q1 最高、Q4 最低（2025：2.35 / 1.71 / 1.41 / 0.81 元，來源 Yahoo 股市 EPS 頁）。所以<strong>不能拿上半年 ×2 估全年</strong>。</p>
+<h3>資產負債與現金流</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>負債比</td><td>38.1%（負債 243.9 億 ÷ 資產 639.9 億）</td><td>TWSE OpenAPI 資產負債表 2026Q2，推算</td></tr><tr><td>每股淨值</td><td>74.28 元</td><td>同上</td></tr><tr><td>近 4 季自由現金流</td><td>約 +20.6 億（2025Q3 +8.10、Q4 +15.25、2026Q1 -16.41、Q2 +13.69 億）</td><td>Yahoo 股市現金流量表，⚠️單一來源</td></tr></tbody></table></div>
+<blockquote>📝 <strong>自由現金流（FCF）</strong>：公司做完生意、付完擴廠等投資後，口袋真正剩下的錢。正數＝自己養得活自己。</blockquote>
+<p>2026Q1 營業現金流是負的（-13.3 億），可能是為了消化訂單而先備料、存貨增加，但原因 ❌ 未經官方確認。</p>
+<h3>健康體檢</h3>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>判定</th></tr></thead><tbody><tr><td>EPS 趨勢</td><td>成長（5.81 → 6.27 → 近 4 季 7.26）</td></tr><tr><td>營收趨勢</td><td>成長（近 6 月 YoY 4 正 2 負，累計 +9.54%）</td></tr><tr><td>毛利率趨勢</td><td>穩定（23.24% → 23.05%，變動不到 1 個百分點）</td></tr><tr><td>負債健康度</td><td>健康（38.1%）</td></tr><tr><td>自由現金流</td><td>正（近 4 季約 +20.6 億）</td></tr><tr><td>護城河強度</td><td>中</td></tr></tbody></table></div>
+<p>→ 正面 5 項，基本面通過。</p>
+<h3>小結</h3>
+<p>賺錢能力在變好（上半年 EPS +24%、財務穩健、負債低），但本業只成長一成，EPS 有一半的加速靠業外，<strong>毛利率也還沒看到漲價效果</strong>。</p>
+<hr>
+<h2>3. 估值面</h2>
+<blockquote>📝 <strong>本益比（PE）</strong>：股價 ÷ 每年 EPS，意思是「照現在的賺錢速度，幾年能回本」。數字越高越貴。</blockquote>
+<blockquote>📝 <strong>PEG</strong>：本益比 ÷ EPS 成長率。考慮成長後到底貴不貴，1 左右合理、超過 2 偏貴。</blockquote>
+<h3>現在的估值</h3>
+<ul><li>PE 27.00 倍、PB 2.64 倍、殖利率 2.55%（TWSE 9/24）</li><li>PEG：27.0 ÷ 近 4 季 EPS 成長 16.2% ≈ <strong>1.67</strong>（合理偏貴）；若只用本業成長 10.4% 算，PEG ≈ <strong>2.6</strong>（偏貴）</li></ul>
+<h3>跟自己的歷史比（TWSE 個股本益比日資料，2022/10–2026/9 共 965 個交易日）</h3>
+<div class="table-wrap"><table><thead><tr><th>年度</th><th>PE 中位數</th><th>PE 區間（最低–最高）</th></tr></thead><tbody><tr><td>2022（10–12 月）</td><td>15.1 倍</td><td>14.1–16.0</td></tr><tr><td>2023</td><td>26.3 倍</td><td>15.4–40.9</td></tr><tr><td>2024</td><td>40.8 倍</td><td>25.0–76.4</td></tr><tr><td>2025</td><td>29.5 倍</td><td>19.5–37.3</td></tr><tr><td>2026（至 9/24）</td><td>31.2 倍</td><td>26.7–39.9</td></tr><tr><td><strong>4 年整體</strong></td><td><strong>30.5 倍</strong>（低標 26.7／高標 36.2）</td><td></td></tr></tbody></table></div>
+<p>→ <strong>現在的 27.00 倍，已經是 2026 年全年的最低區，也接近 4 年低標 26.7 倍</strong>。以「士電自己過去的市場給價」來看，不貴。</p>
+<h3>雙軌估值（依標準化 SOP，TYPE_A 成長股）</h3>
+<ul><li>方法 A（歷史 PE 區間法）：合理價 <strong>221.1</strong>（近 4 季 EPS 7.26 × 4 年 PE 中位數 30.46）；便宜價 193.6（× 低標 26.67）、昂貴價 262.6（× 高標 36.17）</li><li>方法 B（PEG 估值法）：合理價 <strong>117.6</strong>（合理 PE 16.2 倍 ＝ EPS 成長率 16.2% × 1，× 7.26）</li><li>差距：88.0% → 超過 40%，依規則取較低者</li><li>錨定價：117.6</li><li>進場區間（公式值）：100.0 ~ 105.9</li><li>備註：⚠️ 估值分歧大。方法 B 使用近 4 季 EPS（非預估值，因無官方預估）。PEG 法會把「成長率 10–16% 的重電股」壓得很低，而市場近 4 年從沒給過士電 16 倍（最低 14.1 倍只出現在題材發酵前的 2022）。現價遠高於公式進場上緣超過 15% → 公式上屬「等回調」；技術支撐 160.5–181 遠高於公式值。<strong>實務上較有參考意義的是方法 A 的便宜價 193.6，現價 196 就在附近</strong>。</li></ul>
+<p>媒體引述法人預估 2026 EPS 8.10 元、目標價 250–278 元（旺得富／FTNN 等，多為 2026 年 2–3 月報導），⚠️ 非官方且日期偏舊，不納入估值；9 月後最新法人目標價 ❌ 未取得。</p>
+<h3>小結</h3>
+<p>跟自己歷史比，PE 27 倍已在低標、不貴；但用成長率校正（PEG 1.7–2.6）還談不上便宜。兩種方法差很大，代表「市場願意給重電題材溢價」這件事本身就是估值的關鍵變數。</p>
+<hr>
+<h2>4. 技術面</h2>
+<blockquote>📝 <strong>均線（MA）</strong>：過去 N 天的平均價。MA20＝月線、MA60＝季線、MA120＝半年線、MA240＝年線。股價在均線下＝最近買的人多半虧錢。</blockquote>
+<blockquote>📝 <strong>RSI</strong>：漲跌溫度計，>70 過熱、<30 過冷。<strong>KD</strong>：短線紅綠燈，K 往上穿過 D＝轉綠燈（偏多）。<strong>MACD 柱狀體</strong>：火車加速度，負的＝還在減速。</blockquote>
+<h3>目前位置（9/24 收盤 196，依 Yahoo 日線資料計算）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>解讀</th></tr></thead><tbody><tr><td>MA5 / MA10</td><td>197.5 / 197.5</td><td>股價略低</td></tr><tr><td>MA20</td><td>201.3</td><td>股價在下</td></tr><tr><td>MA60</td><td>203.6</td><td>股價在下</td></tr><tr><td>MA120</td><td>207.3</td><td>股價在下</td></tr><tr><td>MA240（年線）</td><td>197.8</td><td>股價剛好跌到年線下方一點</td></tr><tr><td>RSI(14)</td><td>43.3</td><td>偏弱但不到超賣</td></tr><tr><td>KD(9)</td><td>K 15.6 / D 18.2</td><td>低檔區，K 仍在 D 下方，還沒出現黃金交叉</td></tr><tr><td>MACD 柱狀體</td><td>-0.55（前一日 -0.56）</td><td>負值、縮小中，跌勢在減速</td></tr><tr><td>量能（5 日均量 ÷ 20 日均量）</td><td>0.50</td><td>明顯量縮，近 5 日均量約 714 張</td></tr><tr><td>52 週位置</td><td>距高點 -27.3%，位在區間 32.6% 處</td><td>中下段</td></tr></tbody></table></div>
+<h3>走勢脈絡</h3>
+<p>2026/3 底一度跌到 178.5 → 6/5 衝上 269.5（52 週高）→ 7 月後回落，8–9 月在 195–215 之間盤整（近 1 月低 195、高 215）。2025 年度現金股利 5 元已除息（除息日 ❌ 未取得），52 週高點是除息前未還原價格，實際跌幅略小於帳面的 -27%。</p>
+<h3>支撐與壓力</h3>
+<div class="table-wrap"><table><thead><tr><th>區域</th><th>價位</th><th>意義</th></tr></thead><tbody><tr><td>壓力 2</td><td>215</td><td>近 1 月高點</td></tr><tr><td>壓力 1</td><td>201–207</td><td>月線、季線、半年線三線糾結區</td></tr><tr><td><strong>現價</strong></td><td><strong>196</strong></td><td>年線附近</td></tr><tr><td>支撐 1</td><td>195</td><td>近 1 月低點</td></tr><tr><td>支撐 2</td><td>181</td><td>近 3 月低點</td></tr><tr><td>支撐 3</td><td>160.5</td><td>52 週低點</td></tr></tbody></table></div>
+<p>綜合評分：<strong>中性偏空</strong>（均線空頭排列、MACD 負，但 KD 低檔、量縮、跌勢減速，屬「盤整築底中」）。</p>
+<h3>小結</h3>
+<p>股價在所有中期均線下方、量縮盤整，短線還沒轉強；195 是眼前防線，站回 207 以上才算脫離整理區。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<blockquote>📝 <strong>三大法人</strong>：外資、投信（國內基金）、自營商（券商自有資金）。<strong>融資</strong>：散戶借錢買股，太多時下跌容易連環賣。</blockquote>
+<h3>三大法人 5 日（9/18–9/24，單位：張，TWSE T86）</h3>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資</th><th>投信</th><th>三大法人合計</th></tr></thead><tbody><tr><td>9/18</td><td>-201.3</td><td>+74.0</td><td>-109.5</td></tr><tr><td>9/21</td><td>-10.5</td><td>-4.0</td><td>-4.1</td></tr><tr><td>9/22</td><td>-119.8</td><td>0</td><td>-126.8</td></tr><tr><td>9/23</td><td>-53.0</td><td>+6.0</td><td>-60.2</td></tr><tr><td>9/24</td><td>-77.5</td><td>-1.0</td><td>-80.6</td></tr><tr><td><strong>5 日合計</strong></td><td><strong>-462.2</strong></td><td><strong>+75.0</strong></td><td>—</td></tr></tbody></table></div>
+<h3>其他籌碼（9/24）</h3>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th><th>來源</th></tr></thead><tbody><tr><td>外資持股比率</td><td>30.63%</td><td>TWSE MI_QFIIS</td></tr><tr><td>融資餘額</td><td>2,746 張（前日 2,736）</td><td>TWSE MI_MARGN</td></tr><tr><td>融券餘額</td><td>9 張</td><td>同上</td></tr></tbody></table></div>
+<ul><li>外資連 5 天小賣，量不大（5 日合計約為 5 日均量的 13%），屬「慢慢調節」而非倒貨。</li><li>融資餘額 2,746 張，比 3 月舊版記錄的約 1,531 張（⚠️舊版為單一來源）多了不少，散戶借錢買的人變多，若跌破支撐要留意賣壓。</li><li>大戶持股比例、董監持股變化 ❌ 未取得（可到集保結算所「股權分散表」查）。</li></ul>
+<h3>小結</h3>
+<p>外資溫和賣、投信小買、融資偏增，籌碼沒有惡化到危險，但也看不到法人回頭積極買的訊號。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p>資料時間一律 2026-09-24（股價／PE／PB／殖利率／法人）、2026/08（月營收）、2026 H1（財報），來源 TWSE。</p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>士電 1503</th><th>中興電 1513</th><th>華城 1519</th><th>亞力 1514</th></tr></thead><tbody><tr><td>收盤價</td><td>196.00</td><td>166.00</td><td>699.00</td><td>102.00</td></tr><tr><td>PE</td><td>27.00</td><td><strong>18.67</strong></td><td>45.75</td><td>27.95</td></tr><tr><td>PB</td><td><strong>2.64</strong></td><td>3.94</td><td>23.99</td><td>4.39</td></tr><tr><td>殖利率</td><td>2.55%</td><td><strong>3.61%</strong></td><td>1.72%</td><td>2.16%</td></tr><tr><td>8 月營收 YoY</td><td>-0.38%</td><td>+8.93%</td><td>+12.50%</td><td>-26.52%</td></tr><tr><td>1–8 月累計 YoY</td><td><strong>+9.54%</strong></td><td>+4.21%</td><td>-1.77%</td><td>+7.94%</td></tr><tr><td>H1 營收</td><td><strong>211.2 億</strong></td><td>140.2 億</td><td>102.1 億</td><td>53.5 億</td></tr><tr><td>H1 毛利率</td><td>23.05%</td><td>27.30%</td><td><strong>43.55%</strong></td><td>19.28%</td></tr><tr><td>H1 營業利益率</td><td>14.79%</td><td>19.35%</td><td><strong>21.68%</strong></td><td>9.84%</td></tr><tr><td>H1 EPS</td><td>5.04 元</td><td>4.50 元</td><td>6.52 元</td><td>1.65 元</td></tr><tr><td>負債比</td><td><strong>38.1%</strong></td><td>56.3%</td><td>71.6%</td><td>54.6%</td></tr><tr><td>外資 5 日</td><td>-462.2 張</td><td><strong>+1,399.3 張</strong></td><td>-27.2 張</td><td>+412.3 張</td></tr><tr><td>定位</td><td>規模最大、最穩、事業多元</td><td>估值最低、殖利率最高</td><td>外銷美國最直接、毛利最高、最貴</td><td>規模最小、波動大</td></tr></tbody></table></div>
+<p>（負債比依 TWSE OpenAPI 資產負債表推算）</p>
+<h3>誰比較值得持有？</h3>
+<ul><li><strong>士電</strong>：營收規模最大、累計成長在四家裡最好、負債最低、PB 最低，是「最穩的那一檔」；弱點是毛利率明顯低於華城和中興電（事業組合含車電、自動化），題材純度較低。</li><li><strong>中興電</strong>：PE 最低、殖利率最高、毛利率比士電高 4 個百分點、外資正在買，單看 CP 值勝過士電（詳見平行產出的中興電分析）。</li><li><strong>華城</strong>：毛利率 43.55% 最漂亮，但 PE 45.75 倍、負債比 71.6%，是四家裡最貴也最槓桿的。</li><li><strong>亞力</strong>：8 月營收 YoY -26.52%，基本面波動最大。</li></ul>
+<h3>小結</h3>
+<p>在重電四雄中，士電是「穩健型」：成長與財務最平衡但毛利最薄；若純論估值 CP 值，中興電目前比士電划算。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<h3>重點問題：題材這麼熱，營收為什麼沒跟上？</h3>
+<p>答案是「<strong>工廠滿了、錢要等裝好才入帳、大單排在後年</strong>」三件事疊在一起，不是訂單變差：</p>
+<ol><li><strong>產能卡住（最主要）</strong>：T1＋T2＋T3 合計約 15 GVA，T3 利用率已接近九成（法說會口述，工商時報／富果）。工廠做不出更多，營收就只能跟著產能慢慢長。下一波產能 T4（+5 GVA，總產能到 20 GVA）要 <strong>2027 年 9 月</strong>才投產，2028 年才開始貢獻、2029 年才貢獻全年。</li><li><strong>認列時點晚</strong>：重電產品常要等「安裝、送電完成」才能認列營收，時間可能超過一年（法說會內容，富果整理）。所以接單熱 ≠ 當月營收熱，月營收會很「跳」。</li><li><strong>訂單排在 2027–2028</strong>：在手訂單逾 600 億元（約是 2025 年全年營收 372 億的 1.6 倍），但<strong>主要集中在 2027–2028 年交貨</strong>，已開始接 2029–2030 年的單（法說會口述，MoneyDJ／鉅亨網）。</li><li><strong>基期效應讓單月看起來更糟</strong>：2025 年 6 月基期偏高（約 34.8 億，推算）、7 月偏低（約 25.8 億，推算），造成今年 6 月 -10.58%、7 月 +15.10% 的大幅擺盪。看累計或季度才準：Q1 +12.3% → Q2 +7.9% → 7–8 月 +7.0%。</li><li><strong>非重電事業稀釋</strong>：電裝品＋自動化約占 25%，不吃電網題材，拉低整體成長率。</li><li><strong>外銷還小</strong>：外銷只占重電產品 15–20%，美國變壓器缺貨的紅利目前對士電營收的直接貢獻有限，要等 T4（345kV 規格）開出後拉高外銷比重。</li></ol>
+<blockquote>📝 <strong>345kV</strong>：變壓器能處理的電壓等級，越高代表能做越大型、單價越高的電網設備。T4 升級到 345kV、200 MVA，是打北美與日本大型案的門票。</blockquote>
+<p>白話講：<strong>士電的訂單是「預約到後年的餐廳」，但廚房只有這麼大，所以今年的營業額只能慢慢長；真正翻桌率提升，要等 2027 年底新廚房（T4）開幕。</strong></p>
+<h3>催化劑時間表</h3>
+<div class="table-wrap"><table><thead><tr><th>催化劑</th><th>類型</th><th>預計時間</th><th>影響程度</th></tr></thead><tbody><tr><td>9 月營收公布</td><td>已確認</td><td>10/10 前</td><td>中（看 Q3 是否維持 7%+）</td></tr><tr><td>2026 Q3 季報</td><td>已確認</td><td>11/14 前</td><td>高（毛利率有沒有反映漲價、業外是否持續）</td></tr><tr><td>台電強韌電網後續標案</td><td>潛在</td><td>持續</td><td>中</td></tr><tr><td>儲能 500 MW 目標推進</td><td>潛在</td><td>2027–2028 爆發期（公司說法）</td><td>中</td></tr><tr><td>T4 廠投產（+5 GVA，產能 +30%）</td><td>已確認</td><td>2027/9 投產、2028 貢獻</td><td>高（但時間很遠）</td></tr><tr><td>美國對台重電設備關稅走向</td><td>潛在</td><td>❌ 最新結論未取得</td><td>中（影響外銷擴張）</td></tr></tbody></table></div>
+<h3>小結</h3>
+<p>營收沒跟上題材不是訂單出問題，而是「產能滿載＋裝好才認列＋訂單排在 2027–2028」；<strong>2026 年營收成長大概就在一成左右，真正的放量故事在 2028 年</strong>。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>發生機率</th><th>影響程度</th><th>早期警訊</th><th>可控性</th></tr></thead><tbody><tr><td>等待期太長，資金失去耐心（題材輪動走人）</td><td>中</td><td>中</td><td>月營收連 2–3 個月 YoY 轉負、外資持續賣超</td><td>不可控</td></tr><tr><td>業外收益不再，EPS 成長回落到 10% 左右</td><td>中</td><td>中</td><td>Q3 季報營業外收支轉負</td><td>不可控</td></tr><tr><td>毛利率未提升（漲價跟不上銅／矽鋼片成本）</td><td>中</td><td>中</td><td>Q3 毛利率跌破 22%</td><td>部分可控</td></tr><tr><td>T4 延後或缺工導致產能開不出來</td><td>低–中</td><td>高</td><td>公司更新 T4 時程、缺工相關說明</td><td>部分可控</td></tr><tr><td>美國關稅不利，外銷擴張卡關</td><td>中</td><td>中</td><td>對等關稅／232 條款對變壓器的最新公告</td><td>不可控</td></tr><tr><td>台電財務壓力影響發包節奏</td><td>低</td><td>中</td><td>台電標案延後或縮減</td><td>不可控</td></tr><tr><td>重電族群估值集體修正</td><td>中</td><td>高</td><td>族群同步跌破年線、法人同步賣超</td><td>不可控</td></tr></tbody></table></div>
+<blockquote>📝 <strong>232 條款</strong>：美國可以用「國家安全」為由對進口品加關稅的法律。鋼、鋁、銅的衍生品曾被納入，是否涵蓋變壓器、稅率多少，本次 ❌ 未查到最新官方結論。</blockquote>
+<h3>最壞情況</h3>
+<p>題材退燒＋業外消失：EPS 回到約 6.3–6.5 元（2025 年水準附近），PE 壓到 2025 年最低的 19.5 倍，股價約 123–127 元（推算，非預測）。<strong>目前沒有看到這個情境的早期警訊</strong>，列出來是提醒下檔空間。</p>
+<p>「致命風險」：本檔沒有腰斬級單一風險，財務（負債 38%、自由現金流為正）撐得住。</p>
+<h3>小結</h3>
+<p>最大風險不是公司倒，而是「等太久」——營收真正放量在 2028，中間兩年股價可能跟著族群情緒大幅震盪。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<ul><li><strong>結論</strong>：持有</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li>依據：健康體檢 6 項都有填、5 項正面；但有 2 個重大不確定：雙軌估值分歧 88%、EPS 加速有一半靠業外</li><li><strong>建議倉位</strong>：個股波段層單檔不超過總資金 10%；Minna 已持有中，現階段<strong>維持現有部位</strong>，不追加</li><li><strong>進場條件</strong>（給尚未持有或想加碼時參考）：</li><li>公式進場區 100.0–105.9（⚠️ 估值分歧大，僅供參考，實務上很難到）</li><li>實務參考價：歷史 PE 低標便宜價約 193.6；現價 196 就在附近，但技術面尚未轉強，<strong>要等下方加碼條件至少兩項成立再動作</strong></li><li><strong>停損參考</strong>（提醒式，是否動作由 Minna 決定）：</li><li>警戒線 181（近 3 月低點，約 -7.7%）：跌破代表盤整轉弱，提醒重新檢視</li><li>檢視線 170（約 -13.3%）：連 3 日站不回，提醒檢討是否調整部位</li><li><strong>加碼條件</strong>（至少兩項同時成立）：</li></ul>
+<ol><li>9 月營收（10/10 前）與 10 月營收，1 月起累計 YoY 維持 ≥ 8%</li><li>Q3 季報（11/14 前）毛利率 ≥ 23.5%（開始看到漲價效果），且營業利益 YoY 維持雙位數</li><li>股價站回 207（半年線）以上且外資轉為連續買超</li></ol>
+<ul><li><strong>觀望條件</strong>（出現時暫停任何加碼、提高警覺）：</li><li>累計營收 YoY 掉到 5% 以下</li><li>Q3 營業外收支轉負且營業利益成長低於 5%</li><li>族群同步跌破年線、法人同步賣超</li><li><strong>觀察指標</strong>：</li></ul>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>看什麼</th><th>去哪看</th></tr></thead><tbody><tr><td>每月 10 日前</td><td>累計營收 YoY 是否 ≥ 8%</td><td>公開資訊觀測站／Yahoo 股市</td></tr><tr><td>11/14 前</td><td>Q3 毛利率、營業利益、業外明細</td><td>公開資訊觀測站</td></tr><tr><td>每週</td><td>外資買賣超、融資餘額變化</td><td>TWSE</td></tr><tr><td>持續</td><td>美國對台變壓器關稅、台電標案</td><td>經貿辦／台電公告</td></tr><tr><td>2027</td><td>T4 投產進度</td><td>公司公告／法說會</td></tr></tbody></table></div>
+<ul><li><strong>下次檢視</strong>：2026 年 11 月中（Q3 季報公布後）；若 10/10 的 9 月營收累計 YoY 跌破 5% 則提前檢視</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<p><strong>官方數據（帶單位數字）</strong></p>
+<ul><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?response=json&date=20260924&type=ALLBUT0999" target="_blank" rel="noopener">TWSE 每日收盤行情 MI_INDEX（2026-09-24）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE 本益比／殖利率／股價淨值比 BWIBBU_d（2026-09-24）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU?response=json&date=20260901&stockNo=1503" target="_blank" rel="noopener">TWSE 個股歷史本益比 BWIBBU（1503，2022/10–2026/9 逐月）</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap05_L" target="_blank" rel="noopener">TWSE OpenAPI 月營收 t187ap05_L</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap06_L_ci" target="_blank" rel="noopener">TWSE OpenAPI 綜合損益表 t187ap06_L_ci（2026Q2）</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap07_L_ci" target="_blank" rel="noopener">TWSE OpenAPI 資產負債表 t187ap07_L_ci（2026Q2）</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap14_L" target="_blank" rel="noopener">TWSE OpenAPI 每股盈餘 t187ap14_L</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap17_L" target="_blank" rel="noopener">TWSE OpenAPI 營益分析 t187ap17_L（毛利率／營業利益率）</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap45_L" target="_blank" rel="noopener">TWSE OpenAPI 股利分派 t187ap45_L</a></li><li><a href="https://www.twse.com.tw/rwd/zh/fund/T86?response=json&date=20260924&selectType=ALL" target="_blank" rel="noopener">TWSE 三大法人買賣超 T86（9/18–9/24 逐日）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN?response=json&date=20260924&selectType=ALL" target="_blank" rel="noopener">TWSE 融資融券 MI_MARGN（2026-09-24）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/fund/MI_QFIIS?response=json&date=20260924&selectType=ALLBUT0999" target="_blank" rel="noopener">TWSE 外資持股 MI_QFIIS（2026-09-24）</a></li><li><a href="https://www.seec.com.tw/Content/Messagess/contents.aspx?SiteID=10&MmmID=655617024476060631" target="_blank" rel="noopener">士林電機 2026 法人說明會簡報（公司官網 PDF）</a></li></ul>
+<p><strong>備援來源（market-data 指定備援）</strong></p>
+<ul><li><a href="https://tw.stock.yahoo.com/quote/1503.TW/eps" target="_blank" rel="noopener">Yahoo 股市 士電 季 EPS</a></li><li><a href="https://tw.stock.yahoo.com/quote/1503.TW/revenue" target="_blank" rel="noopener">Yahoo 股市 士電 月營收</a></li><li><a href="https://tw.stock.yahoo.com/quote/1503.TW/cash-flow-statement" target="_blank" rel="noopener">Yahoo 股市 士電 現金流量表</a>（⚠️ 單一來源）</li><li><a href="https://query1.finance.yahoo.com/v8/finance/chart/1503.TW?range=2y&interval=1d" target="_blank" rel="noopener">Yahoo Finance Chart API 1503.TW（日線，技術指標自行計算）</a></li></ul>
+<p><strong>定性資訊（法說會內容轉述、產業背景）</strong></p>
+<ul><li><a href="https://blog.fugle.tw/post/earnings-call-1503-2026-09-10" target="_blank" rel="noopener">富果直送 — 士電法說會重點備忘錄（2026-09-10）</a></li><li><a href="https://tw.stock.yahoo.com/news/%E5%A3%AB%E9%9B%BB%E5%9C%A8%E6%89%8B%E8%A8%82%E5%96%AE%E9%80%BE600%E5%84%84-%E4%B8%BB%E8%A6%81%E9%9B%86%E4%B8%AD%E6%96%BC%E6%98%8E%E5%BE%8C%E5%B9%B4%E4%BA%A4%E8%B2%A8-085900594.html" target="_blank" rel="noopener">MoneyDJ via Yahoo — 士電在手訂單逾 600 億，主要集中於明後年交貨（2026-09-10）</a></li><li><a href="https://www.ctee.com.tw/news/20260911700584-430201" target="_blank" rel="noopener">工商時報 — 士電擴產搶攻 AI 與電網商機 在手訂單逾 600 億元（2026-09-11）</a></li><li><a href="https://news.cnyes.com/news/id/6603651" target="_blank" rel="noopener">鉅亨網 — 士電在手訂單超過 600 億元 已開始承接 2029 至 2030 年訂單</a></li><li><a href="https://tw.stock.yahoo.com/news/ai%E5%90%83%E9%9B%BB%E6%80%AA%E7%8D%B8%E9%BB%9E%E7%81%AB-%E5%A3%AB%E9%9B%BB%E8%A8%82%E5%96%AE-%E8%B7%AF%E6%8E%92%E5%88%B02029%E5%B9%B4-%E8%AE%8A%E5%A3%93%E5%99%A8%E5%BB%A0%E5%85%A8%E9%80%9F%E9%96%8B%E8%B7%91-%E9%87%8D%E9%9B%BB%E8%B6%85%E7%B4%9A%E5%BE%AA%E7%92%B0%E4%BE%86%E4%BA%86-074500506.html" target="_blank" rel="noopener">FTNN via Yahoo — AI 吃電怪獸點火！士電訂單一路排到 2029 年（2026-03-03）</a></li><li><a href="https://wantrich.chinatimes.com/news/20260221900001-420101" target="_blank" rel="noopener">旺得富 — 重電不只 1 年行情 EPS、目標價一次看清楚（2026-02-21）</a></li><li><a href="https://twustariff.ey.gov.tw/" target="_blank" rel="noopener">臺美關稅談判及產業支持方案（行政院）</a></li></ul>
+<p><strong>❌ 未取得</strong>：營業外收支明細、除息日、大戶／董監持股變化、9 月後最新法人目標價、美國對台變壓器關稅最新結論、2026Q1 營業現金流轉負的官方原因。</p>
+</div>
+</body>
+</html>

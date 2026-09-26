@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股電力族群產業分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../index.html">首頁</a><a href="../../dashboard.html">儀表板</a><a href="../../cards.html">決策卡</a><a href="../../reports/index.html" class="nav-active">報告庫</a><a href="../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>台股電力族群產業分析</h1>
+</div>
+<div class="report-body">
+<h1>台股電力族群產業分析</h1>
+<blockquote><strong>信任層級說明</strong></blockquote>
+<blockquote>- 無標記 = 官方來源交叉驗證的精確數字（TWSE/TPEX API、Yahoo Finance）</blockquote>
+<blockquote>- ⚠️ = 媒體報導、推論分析，或數據來源本身標記異常，僅供參考</blockquote>
+<blockquote>- ❌ 未取得 = 查無資料，非編造</blockquote>
+<p><strong>分析日期：</strong> 2026-09-26</p>
+<p><strong>股價/財務數據日：</strong> 2026-09-24（週四收盤；09-25 中秋休市，09-26 為週六）</p>
+<p><strong>月營收數據：</strong> 最新至 2026/08</p>
+<p><strong>三大法人 5 日合計：</strong> 2026-09-18～2026-09-24</p>
+<p><strong>輸入來源：</strong> <code>電力族群_定性研究_20260926.md</code>（定性）＋ <code>電力族群_數據層_20260926.md</code>（官方數字）</p>
+<hr>
+<h2>一、一屏結論</h2>
+<ol><li>這波「電力題材」本質是 AI 資料中心用電暴增外溢到台股的兩條線：<strong>接台電標案的傳統重電/電纜</strong>，以及<strong>賣電源、液冷、電池零件給 AI 伺服器的新供應鏈</strong>。</li><li>官方月營收顯示，真正在賺錢的是後者——台達電、貿聯-KY、新盛力、高力、松川精密、光寶科 8 月營收年增普遍落在 <strong>+25%～+126%</strong>；反觀媒體最愛講的「重電四雄」，8 月除中興電外全面轉弱或翻負（士電 -0.38%、亞力 -26.52%、華城近三個月兩個月負成長）。</li><li>「重電四雄」是這波題材中<strong>故事講最早、營收證據卻最薄弱</strong>的一群，估值也不便宜（華城 PE 45.75 倍、PB 23.99 倍，且 52 週高低數字疑似受除權息干擾）。</li><li>太陽能兩檔（元晶、聯合再生）月營收持續衰退，跟 AI 用電核心邏輯關聯薄弱，屬題材邊緣。</li><li>現在進場的風險在於：AI 電源/散熱鏈估值同樣已不便宜（多檔 PE 30～100+ 倍），且已出現法人獲利了結跡象；重電族群則是題材與營收落差尚未收斂——兩邊都不是「安全的低點」，值得追蹤但不急著追高。</li></ol>
+<hr>
+<h2>二、產業鏈分層地圖（15 檔）</h2>
+<h3>A. 重電／變壓器與配電盤（俗稱「重電四雄」，台電標案 + 美國變壓器缺貨外銷）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>一句話定位</th></tr></thead><tbody><tr><td>1503</td><td>士電</td><td>變壓器/配電盤主力，在手訂單破 600 億元，外銷（含美國）占比約 15-20%</td></tr><tr><td>1514</td><td>亞力</td><td>配電盤與開關設備，入列台電近百億標案</td></tr><tr><td>1513</td><td>中興電</td><td>訂單能見度延伸至 2028-2032，四雄中本益比相對低</td></tr><tr><td>1519</td><td>華城</td><td>變壓器交期拉長至 2 年半~3 年，訂單能見度看到 2029～2030 年</td></tr></tbody></table></div>
+<h3>B. 電線電纜（台電標案 + 銅價轉嫁 + AI 資料中心線纜）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>一句話定位</th></tr></thead><tbody><tr><td>1609</td><td>大亞</td><td>電線電纜龍頭，電力電纜約占營收 95%，正將銅加工費轉嫁客戶</td></tr><tr><td>1605</td><td>華新</td><td>電纜業市值最大者，握台電史上最大 193 億電纜標案概念股，同步調升加工費報價</td></tr></tbody></table></div>
+<h3>C. AI 伺服器電源與 800V HVDC（Nvidia 高壓直流架構直接受惠）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>一句話定位</th></tr></thead><tbody><tr><td>2308</td><td>台達電</td><td>電源供應器龍頭，800VDC 布局最全面，Q3 已同步出貨 ±400VDC 與 800VDC，但放量要等 2027</td></tr><tr><td>2301</td><td>光寶科</td><td>AI 伺服器 PSU/BBU/液冷已占營收 54%，800VDC Power Rack 8 月送樣、估 11 月量產</td></tr></tbody></table></div>
+<h3>D. BBU 備援電池／鋰電池模組（AI 機櫃斷電保護）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>一句話定位</th></tr></thead><tbody><tr><td>4931</td><td>新盛力</td><td>電動工具電池/工業 UPS 起家轉型 BBU，已切入 CSP 客戶，計畫 Q4 推 HVDC 高壓產品</td></tr><tr><td>6781</td><td>AES-KY</td><td>鋰電池模組廠，BBU 為核心成長引擎，同時卡位 Nvidia 下世代平台 HVDC 商機</td></tr></tbody></table></div>
+<h3>E. 連接器線束（AI 伺服器/HPC 高速傳輸與供電）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>一句話定位</th></tr></thead><tbody><tr><td>3665</td><td>貿聯-KY</td><td>全球連接線束龍頭，HPC+半導體營收占比破 51%，推 800VDC 電源與 MGX 高效能連接方案</td></tr></tbody></table></div>
+<h3>F. 液冷／熱交換</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>一句話定位</th></tr></thead><tbody><tr><td>8996</td><td>高力</td><td>傳統板式熱交換器廠切入 AI 伺服器液冷 CDU，另有燃料電池零件業務</td></tr></tbody></table></div>
+<h3>G. 太陽能／綠能（政策/內需題材，非 AI 電力直接受惠，目前產業逆風）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>一句話定位</th></tr></thead><tbody><tr><td>6443</td><td>元晶</td><td>台灣唯一垂直整合太陽能廠，全球供給過剩，靠屋頂型汰舊換新內需題材撐盤</td></tr><tr><td>3576</td><td>聯合再生</td><td>台灣最大太陽能模組廠，押注鈣鈦礦疊層電池技術突圍</td></tr></tbody></table></div>
+<h3>H. 零組件供應商（跨足電力/儲能/車用，非電力設備本業）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>一句話定位</th></tr></thead><tbody><tr><td>7788</td><td>松川精密</td><td>主業是繼電器（Relay）／高壓直流交流接觸器，靠零件切入 AI 伺服器電源、儲能 ESS、電動車四大應用；與「電力」關係是間接的（賣零件給電源/儲能設備，非電力設備本身）</td></tr></tbody></table></div>
+<hr>
+<h2>三、族群一覽表（15 檔，資料日 2026-09-24）</h2>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>收盤價</th><th>距52週高%</th><th>PE</th><th>PB</th><th>殖利率%</th><th>近3月營收YoY(6月/7月/8月)</th><th>法人5日買賣超(外資/投信,張)</th><th>舊分析至今漲跌</th></tr></thead><tbody><tr><td>1503</td><td>士電</td><td>196.00</td><td>-27.3%</td><td>27.00</td><td>2.64</td><td>2.55</td><td>-10.58% / +15.10% / -0.38%</td><td>-462.2 / +75.0</td><td>-2.7%⚠️（舊價為盤中價）</td></tr><tr><td>1514</td><td>亞力</td><td>102.00</td><td>-30.4%⚠️</td><td>27.95</td><td>4.39</td><td>2.16</td><td>+39.69% / +6.51% / -26.52%</td><td>+412.3 / +4.0</td><td>-6.4%</td></tr><tr><td>1513</td><td>中興電</td><td>166.00</td><td>-17.4%</td><td>18.67</td><td>3.94</td><td>3.61</td><td>+8.31% / +3.83% / +8.93%</td><td>+1,399.3 / +827.9</td><td>+9.2%</td></tr><tr><td>1519</td><td>華城</td><td>699.00</td><td>-31.0%⚠️</td><td>45.75</td><td>23.99</td><td>1.72</td><td>-25.78% / -8.32% / +12.50%</td><td>-27.2 / +12.0</td><td>-24.2%⚠️（疑似受除權息影響，非單純股價下跌）</td></tr><tr><td>1609</td><td>大亞</td><td>37.85</td><td>-24.3%</td><td>13.97</td><td>1.59</td><td>1.85</td><td>+22.67% / +11.53% / +34.84%</td><td>+1,899.7 / 0.0</td><td>+17.7%</td></tr><tr><td>1605</td><td>華新</td><td>36.65</td><td>-21.2%</td><td>11.11</td><td>0.79</td><td>1.36</td><td>+29.34% / +10.08% / +14.97%</td><td>-4,215.1 / -268.3</td><td>+19.2%</td></tr><tr><td>2308</td><td>台達電</td><td>1,910.00</td><td>-26.1%</td><td>60.79</td><td>16.89</td><td>0.61</td><td>+55.43% / +47.75% / +34.95%</td><td>+3,315.0 / +5,645.5</td><td>+9.1%</td></tr><tr><td>2301</td><td>光寶科</td><td>287.00</td><td>-12.5%</td><td>33.57</td><td>6.80</td><td>1.74</td><td>+36.98% / +37.61% / +25.20%</td><td>-2,961.8 / -962.4</td><td>無（無舊檔）</td></tr><tr><td>4931</td><td>新盛力</td><td>241.50</td><td>-16.1%</td><td>40.52</td><td>9.83</td><td>1.04</td><td>+145.09% / +159.52% / +125.87%</td><td>-1,679.1 / 0.0</td><td>+70.1%⚠️（舊價為約略值）</td></tr><tr><td>6781</td><td>AES-KY</td><td>1,005.00</td><td>-35.4%</td><td>23.77</td><td>4.85</td><td>1.90</td><td>+25.58% / +28.24% / +26.64%</td><td>-180.1 / 0.0</td><td>-6.1%⚠️（期間疑似由上櫃轉上市）</td></tr><tr><td>3665</td><td>貿聯-KY</td><td>2,340.00</td><td>-22.3%</td><td>42.97</td><td>9.21</td><td>0.65</td><td>+63.79% / +59.59% / +53.99%</td><td>-445.5 / +593.1</td><td>+34.1%⚠️（舊價為盤中價）</td></tr><tr><td>8996</td><td>高力</td><td>1,530.00</td><td>-8.9%</td><td>103.03</td><td>27.78</td><td>0.30</td><td>+37.56% / +57.63% / +112.84%</td><td>+205.3 / +616.5</td><td>+66.1%⚠️（舊價原檔標記為估計值）</td></tr><tr><td>6443</td><td>元晶</td><td>28.25</td><td>-50.0%</td><td>—</td><td>4.35</td><td>0.00</td><td>-11.71% / -1.67% / -22.98%</td><td>-10,615.8 / 0.0</td><td>-37.2%</td></tr><tr><td>3576</td><td>聯合再生</td><td>18.25</td><td>-34.8%</td><td>33.80</td><td>2.30</td><td>0.00</td><td>-9.51% / +72.75% / -13.03%</td><td>+8,701.0 / +0.1</td><td>-16.1%⚠️（舊價為約略值）</td></tr><tr><td>7788</td><td>松川精密</td><td>289.50</td><td>-16.6%</td><td>34.84</td><td>3.69</td><td>0.69</td><td>+65.66% / +99.38% / +66.41%</td><td>+72.7 / 0.0</td><td>無（無舊檔）</td></tr></tbody></table></div>
+<blockquote>⚠️ 標記說明：亞力、華城的「距52週高%」來自 Yahoo Finance API 原始回傳，兩檔 52 週高低出現非整數小數，研判可能與除權息/股票股利還原調整有關，本層未查證確切除權事件，僅照實呈現。士電、貿聯-KY 舊分析股價為盤中價非收盤價；新盛力、AES-KY、聯合再生舊分析股價為約略區間值；AES-KY 期間疑似由上櫃轉上市，漲跌幅基準可能失真；光寶科、松川精密本機無既有分析檔。</blockquote>
+<hr>
+<h2>四、催化劑（附來源日期）</h2>
+<ol><li><strong>台電強韌電網計畫</strong>：10 年投資 5,645 億元強化電網韌性（台電官網說明資料）。2026-02 台電發出約 94 億元變壓器/GIS 標案，中興電、華城、士電、亞力全數入列（Sinotrade，2026-06）；2026-08 台電發出史上最大 193 億元 161kV 電纜標案（Sinotrade，2026-08）。</li><li><strong>美國變壓器全球性缺貨</strong>：變壓器價格指數 2 年大漲 60%（Sinotrade，2026-09）；交期從 12-18 個月拉長到至少 24 個月起跳，美國個案甚至要等 60 個月（Yahoo 奇摩股市）；士電在手訂單破 600 億元（TechNews，2026-09-11）；華城訂單能見度到 2029～2030 年（Yam，2026-07-11）。</li><li><strong>NVIDIA 800V HVDC 架構</strong>：Nvidia 更新 800VDC 藍圖，第一階段 800VDC 機櫃預計 2026 下半年推出，2027 年導入排級電源中心（Sinotrade，2026-09）。台達電 Q3 同步出貨 ±400VDC/800VDC、2027 年放量；光寶科 8 月送樣、估 11 月量產（工商時報 2026-08-18；TechNews 2026-07-20）；貿聯-KY 於 GTC 2026 推 800VDC 電源與 MGX 連接方案（經濟日報）。</li><li><strong>BBU 市場放量</strong>：GB200/300 伺服器機櫃出貨預估 2026 年 6-7 萬櫃（2025 年 2.7-2.8 萬櫃）；BBU 市場規模估 2026 年上看新台幣 400 億元（口袋學堂）；新盛力測試 UL9540A 高壓認證、規劃 Q4 推 HVDC 產品（鉅亨網）；AES-KY 估 2026 下半年量產（經濟日報）。</li><li><strong>銅價上漲、線纜報價轉嫁</strong>：精煉銅加工費從每公噸 95 美元漲至 200 多美元，業界估 2026 年可能漲至 300 美元以上；華新已通知客戶 2026 年起加工費調漲（工商時報 2026-01-12）。</li><li><strong>松川精密業績驗證題材熱度</strong>：2026H1 營收 41.17 億元（年增 27%）、稅後淨利 4.38 億元（年增 803%），法說會揭露 HVDC、儲能、車用「三箭齊發」（工商時報 2026-09-09）。</li></ol>
+<hr>
+<h2>五、題材 vs 營收落差分析（本報告核心）</h2>
+<h3>5.1 兩組數字對比</h3>
+<div class="table-wrap"><table><thead><tr><th>分組</th><th>代號</th><th>8月YoY</th><th>7月YoY</th><th>6月YoY</th></tr></thead><tbody><tr><td><strong>AI 電源/散熱/BBU/連接器鏈</strong></td><td>台達電 2308</td><td>+34.95%</td><td>+47.75%</td><td>+55.43%</td></tr><tr><td></td><td>貿聯-KY 3665</td><td>+53.99%</td><td>+59.59%</td><td>+63.79%</td></tr><tr><td></td><td>新盛力 4931</td><td>+125.87%</td><td>+159.52%</td><td>+145.09%</td></tr><tr><td></td><td>高力 8996</td><td>+112.84%</td><td>+57.63%</td><td>+37.56%</td></tr><tr><td></td><td>松川精密 7788</td><td>+66.41%</td><td>+99.38%</td><td>+65.66%</td></tr><tr><td></td><td>光寶科 2301</td><td>+25.20%</td><td>+37.61%</td><td>+36.98%</td></tr><tr><td></td><td>AES-KY 6781</td><td>+26.64%</td><td>+28.24%</td><td>+25.58%</td></tr><tr><td><strong>重電四雄</strong></td><td>士電 1503</td><td>-0.38%</td><td>+15.10%</td><td>-10.58%</td></tr><tr><td></td><td>亞力 1514</td><td>-26.52%</td><td>+6.51%</td><td>+39.69%</td></tr><tr><td></td><td>中興電 1513</td><td>+8.93%</td><td>+3.83%</td><td>+8.31%</td></tr><tr><td></td><td>華城 1519</td><td>+12.50%</td><td>-8.32%</td><td>-25.78%</td></tr></tbody></table></div>
+<p><strong>落差有多大：</strong> AI 電源/散熱/BBU/連接器鏈 7 檔近 3 個月營收年增率區間落在 <strong>+25%～+160%</strong>；重電四雄近 3 個月合計 12 個月份數字中，有 <strong>5 個月是負成長</strong>（士電 6 月與 8 月、亞力 8 月、華城 6-7 月），僅中興電三個月都維持正成長但幅度僅個位數（3.8%~8.9%）。也就是說，<strong>媒體與定性研究最先聚焦、故事講得最響亮的「重電四雄」，恰好是目前 15 檔中營收證據最弱的一群</strong>；反而定性研究中定位為「次要」或未特別強調的松川精密、新盛力、高力，營收年增率遠超重電四雄。</p>
+<h3>5.2 為什麼會有這個落差</h3>
+<ul><li><strong>訂單認列時間差</strong>：重電四雄的「利多」多半是「在手訂單」「訂單能見度到 2029～2032 年」這類<strong>未來式</strong>敘事，變壓器交期本身就拉長到 2-3 年，訂單簽約與營收認列之間有結構性的長落後期；AI 電源/散熱/BBU 鏈的客戶是 AI 伺服器 ODM/CSP，出貨週期短，訂單能更快反映在當月營收。</li><li><strong>產業週期位置不同</strong>：AI 電源/散熱/BBU 鏈已進入「業績兌現期」（月營收數字持續且大幅成長）；重電四雄仍停在「題材期」（story 已講一年多，但月營收尚未系統性放量），2024 年強韌電網計畫公布時就已經漲過一輪，目前股價（尤其華城 PE 45.75 倍、PB 23.99 倍）某種程度上是提前反映未來訂單，而非反映已實現營收。</li><li><strong>電纜族群（大亞、華新）介於中間</strong>：8 月 YoY 也有 +14.97%~+34.84% 的成長，但驅動力主要是<strong>銅加工費轉嫁</strong>與台電標案認列，不是 AI 用電需求的直接映射，題材純度跟 AI 電源鏈不同。</li></ul>
+<h3>5.3 注意：AI 電源/散熱鏈也不是照單全收</h3>
+<p>即使營收數字亮眼，法人動作已出現分歧：光寶科近 5 日外資賣超 2,961.8 張、投信賣超 962.4 張；新盛力近 5 日外資賣超 1,679.1 張。兩者共同點是估值已墊高（光寶科 PE 33.57 倍、新盛力 PE 40.52 倍，新盛力股價較舊分析已上漲約 70%），且光寶科 800VDC 量產時程仍在 11 月才開始，屬於「營收已經在漲、但最大放量還沒到」的階段——營收數字好看不等於沒有落袋壓力。</p>
+<hr>
+<h2>六、風險</h2>
+<ol><li><strong>利多是否已反映</strong>：重電股 2024 年已因強韌電網計畫大漲一輪，估值分歧明顯——華城 PE 45.75 倍、PB 23.99 倍，中興電僅 PE 18.67 倍（相對「便宜」）；市場也有聲音提醒重電股「不能只看基本面」。BBU 族群同樣有法人示警估值過熱。</li><li><strong>台電財務體質</strong>：累積虧損逾 4,000 億元，負債比超過 90%；2026 年電價凍漲至年底（10-12月），台電前 7 個月已虧損逾 210 億元，經濟部估若國際燃料價格續居高檔，台電<strong>全年</strong>虧損恐突破 711 億元（此為全年度估計，非上半年實際數字），選後恐面臨補漲壓力（Newtalk，2026-09-19；中央社，2026-09-18）。目前無證據顯示既有標案會因此縮減，但財務壓力是需持續觀察的間接變數。</li><li><strong>銅價雙面刃</strong>：加工費雖可轉嫁客戶，但銅價快速上漲會增加線纜業者（大亞、華新）的備料資金壓力。</li><li><strong>美國關稅不確定性</strong>：台灣重電/電纜對美出口面臨 32% 對等關稅稅率，美國市場占此類產品出口比重達 39%；原本談成的變壓器/發電機關稅豁免，因美國最高法院裁定對等關稅執行方式違法、川普改用 Section 122 對全球加徵 15% 關稅，豁免是否延續尚不明朗，是重電/電纜對美出口敘事中尚未塵埃落定的變數。</li><li><strong>太陽能產業逆風</strong>：全球供給過剩、價格競爭未緩解，元晶、聯合再生月營收持續衰退，「電力」題材純度低。</li><li><strong>AI 電源/散熱鏈估值也不便宜</strong>：多檔 PE 落在 30～100+ 倍區間（高力 103.03 倍、貿聯-KY 42.97 倍、新盛力 40.52 倍），且部分個股 8 月營收 MoM 已轉弱（台達電 MoM -3.71%、松川精密 MoM -11.59%、貿聯-KY MoM -7.67%），加上光寶科、新盛力近期遭法人賣超，短線追高風險不低於重電族群。</li><li><strong>題材輪動風險</strong>：BBU、HVDC 概念股 2026 年多次出現族群齊漲/急殺，顯示短線資金輪動快，追高風險高於基本面驗證速度。</li><li><strong>「訂單能見度」不等於「當期營收」</strong>：重電族群交期拉長至 2-3 年，即使訂單真實存在，反映到營收也需要更長時間，短期股價可能領先基本面太多。</li></ol>
+<hr>
+<h2>七、台股電力 vs 美股電力連動</h2>
+<p>背景：朋友看好電力題材，也在關注美股電力股（如 Vistra、Constellation、GE Vernova），因此需要釐清「台股電力族群」和「美股電力股」是不是同一件事。</p>
+<ul><li><strong>商業模式完全不同</strong>：美股電力股（VST、CEG）是<strong>發電/售電商</strong>（天然氣、核能、再生能源），靠 AI 資料中心簽長約直接賣電賺錢；GE Vernova 是賣燃氣渦輪機、電網設備給電力公司的<strong>設備商</strong>。台股這 15 檔絕大多數是<strong>設備/零組件供應商</strong>（賣變壓器、配電盤、電纜、電源供應器、連接器、繼電器給台電或資料中心），不是發電或售電的公司——位置更接近 GE Vernova（賣鏟子給電力公司），而不是 VST/CEG（自己賣電）。</li><li><strong>連動邏輯</strong>：兩邊背後驅動力都是「AI 資料中心用電量暴增」這同一件事，屬於同一大主題的不同曝險層——美股電力股曝險在「電從哪裡來」，台股電力族群曝險在「電怎麼被輸配、轉換、備援」。訂單傳導有時間差：電網設備/變壓器/電源供應器通常在電廠或資料中心動工前就要下單，因此台股重電/電源供應鏈的訂單見光可能領先或同步於美股電力股的營收認列，但也多了台灣特有的變數（台電標案節奏、電價政策、美國關稅）美股電力股沒有的風險。</li><li><strong>結論</strong>：兩者是<strong>同一大題材下的互補曝險</strong>，不是完全同一支股票的替代品。若想抓「AI 用電需求」這條主線，台股電力族群和美股 VST/CEG/GEV 可以視為同一主線的兩個切入點，但風險結構不同，不能直接互相取代判斷。</li></ul>
+<hr>
+<h2>八、分級與後續追蹤清單</h2>
+<blockquote>依「數據層月營收 YoY 是否真的支撐題材」重新分級，<strong>不沿用定性研究原分級</strong>（原分級把重電四雄全部列為核心受惠，本報告依營收證據調整如下）。</blockquote>
+<h3>核心（營收證據強：近 3 個月 YoY 持續在 +25%～+160% 區間）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>分類</th><th>理由</th></tr></thead><tbody><tr><td>2308</td><td>台達電</td><td>AI 電源/HVDC</td><td>800VDC 布局最全面，營收 3 個月 YoY +35%~+55%，龍頭地位穩固；估值偏貴（PE 60.79）需留意</td></tr><tr><td>3665</td><td>貿聯-KY</td><td>連接器線束</td><td>HPC 營收占比破 51%，3 個月 YoY +54%~+64%，成長最穩定</td></tr><tr><td>4931</td><td>新盛力</td><td>BBU</td><td>3 個月 YoY +126%~+160% 全族群最強，但估值已墊高、近期遭外資賣超</td></tr><tr><td>8996</td><td>高力</td><td>液冷</td><td>3 個月 YoY +38%~+113% 且逐月加速，但 PE 103 倍、PB 27.78 倍偏貴</td></tr><tr><td>7788</td><td>松川精密</td><td>零組件（間接受惠）</td><td>3 個月 YoY +66%~+99%，H1 淨利年增 803% 有財報驗證，但題材純度屬零組件而非電力設備本業</td></tr><tr><td>2301</td><td>光寶科</td><td>AI 電源/HVDC</td><td>3 個月 YoY +25%~+38%，800VDC 11 月量產尚未放量，近期遭法人賣超需觀察</td></tr><tr><td>6781</td><td>AES-KY</td><td>BBU</td><td>3 個月 YoY +26%~+28%，成長最穩定但幅度不如新盛力</td></tr></tbody></table></div>
+<h3>次要（題材存在，但營收證據不足或主要由非 AI 因素驅動）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>分類</th><th>理由</th></tr></thead><tbody><tr><td>1513</td><td>中興電</td><td>重電</td><td>四雄中唯一 3 個月月月正成長，PE 18.67 倍相對四雄最低、殖利率 3.61% 最高，但成長幅度僅個位數</td></tr><tr><td>1609</td><td>大亞</td><td>電纜</td><td>3 個月 YoY +11%~+35%，成長主要來自銅加工費轉嫁與台電標案，非 AI 用電直接驅動</td></tr><tr><td>1605</td><td>華新</td><td>電纜</td><td>3 個月 YoY +10%~+29%，同樣是銅價/標案驅動</td></tr><tr><td>1503</td><td>士電</td><td>重電</td><td>在手訂單破 600 億是最響亮的敘事，但 3 個月營收 -11%~+15% 波動大，8 月轉負</td></tr><tr><td>1519</td><td>華城</td><td>重電</td><td>訂單能見度最長（到 2029-2030），但 3 個月有 2 個月負成長，估值四雄最貴（PE 45.75、PB 23.99）</td></tr><tr><td>1514</td><td>亞力</td><td>重電</td><td>3 個月 YoY 從 +39.69% 一路滑落到 -26.52%，趨勢轉弱最明顯</td></tr></tbody></table></div>
+<h3>邊緣（跟「電力」核心邏輯關係薄弱）</h3>
+<div class="table-wrap"><table><thead><tr><th>代號</th><th>名稱</th><th>理由</th></tr></thead><tbody><tr><td>6443</td><td>元晶</td><td>全球供給過剩，3 個月營收全數負成長</td></tr><tr><td>3576</td><td>聯合再生</td><td>3 個月營收 2 個月負成長，僅 7 月因低基期單月轉正</td></tr></tbody></table></div>
+<h3>後續追蹤清單</h3>
+<ul><li><strong>士電 1503、台達電 2308、中興電 1513</strong>：將另做九維度深度分析（士電為既有持股，台達電/中興電作為對照）。</li><li>持續追蹤士電、華城、亞力月營收能否轉正，驗證重電族群訂單是否開始反映在營收。</li><li>持續追蹤光寶科、新盛力法人買賣超是否止穩，判斷是短線獲利了結還是趨勢轉向。</li><li>持續追蹤美國對台變壓器/發電機關稅豁免最終結論。</li><li>持續追蹤台電 193 億電纜標案後續發包進度與得標分配。</li></ul>
+<hr>
+<h2>九、資料來源</h2>
+<p><strong>數據層（官方來源，2026-09-24）：</strong></p>
+<ul><li>收盤價/漲跌/開高低（14 檔上市）：<code>https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?response=json&type=ALLBUT0999</code></li><li>收盤價（新盛力，上櫃）：<code>https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes</code></li><li>PE／PB／殖利率（14 檔上市）：<code>https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json</code></li><li>PE／PB／殖利率（新盛力）：<code>https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis</code></li><li>52 週高低：Yahoo Finance Chart API <code>https://query1.finance.yahoo.com/v8/finance/chart/{代號}.TW</code></li><li>月營收：<code>https://tw.stock.yahoo.com/quote/{代號}.TW/revenue</code></li><li>三大法人 5 日合計（上市）：<code>https://www.twse.com.tw/rwd/zh/fund/T86?response=json</code></li><li>三大法人 5 日合計（新盛力）：<code>https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php</code></li><li>股票代號/市場別：TWSE/TPEX ISIN 一覽表</li></ul>
+<p><strong>定性研究來源（詳見 <code>電力族群_定性研究_20260926.md</code> 內完整連結）：</strong></p>
+<p>TechNews（2026-09-11 士電訂單）、Sinotrade（2026-06 台電標案、2026-08 電纜標案、2026-09 變壓器價格指數/HVDC）、Yam 蕃新聞（2026-07-11 華城訂單能見度）、工商時報（2026-01-12 銅加工費、2026-08-18 台達電 HVDC、2026-09-09 松川精密法說）、TechNews（2026-07-20 光寶科 HVDC）、經濟日報（貿聯-KY GTC、AES-KY）、鉅亨網（新盛力 BBU）、口袋學堂（BBU 市場規模）、報導者（台電財務）、Newtalk（2026-09-19 台電上半年虧損）、中時（2026-02-23 美國關稅）。</p>
+<p><strong>舊分析比較基準：</strong> <code>投資理財/04_個股分析/台股/</code> 內各代號既有分析檔（檔名與分析日期詳見數據層檔案表四）。</p>
+<hr>
+<h2>十、稽核記錄（investment-qa-auditor，2026-09-26）</h2>
+<p>獨立重抓 TWSE MI_INDEX、BWIBBU_d、TPEX 開放資料、MOPS 月營收公告等官方來源，交叉比對後修正 2 處：</p>
+<ol><li><strong>台電上半年虧損 711 億元 → 全年估計虧損 711 億元</strong>（六、風險 #2）：查證 Newtalk（2026-09-19）、中央社（2026-09-18）原文，711 億元是經濟部對「2026 全年」的估計數字（若國際燃料價格續居高檔），台電<strong>前 7 個月實際虧損僅約 210 億元</strong>，原文誤將全年估計寫成「上半年再虧」，已修正並補來源。</li><li><strong>5.1 段落負成長月份列舉不完整</strong>：文字宣稱「5 個月負成長」，但括號內僅列 4 個月（漏列士電 8 月 -0.38%，該月同樣是負成長）。已補上「士電 6 月與 8 月」，5 個月的總數本身正確，只是原列舉不全。</li></ol>
+<p><strong>重抓並比對相符（未發現問題）：</strong></p>
+<ul><li>收盤價（1519 華城 699.00、4931 新盛力 241.50、7788 松川精密 289.50、6781 AES-KY 1,005.00、1503 士電 196.00、2308 台達電 1,910.00）：TWSE MI_INDEX / TPEX 開放資料逐檔核對，全數精確相符。</li><li>PE／PB／殖利率（同 6 檔）：TWSE BWIBBU_d、TPEX peratio_analysis 核對，全數相符。</li><li>8 月營收 YoY：1519 華城 +12.50%、1503 士電 -0.38% 與 MOPS 月營收公告逐字相符；2308 台達電（報告 34.95% vs MOPS 34.94%）、7788 松川精密（66.41% vs 66.40%）、4931 新盛力（125.87% vs 125.86%）三檔差異僅 0.01 個百分點，屬四捨五入誤差，不影響結論，未修改。</li><li>6781 AES-KY 8 月營收年增 26.64%：因其未列入 MOPS 標準彙總表（推測為外幣功能性貨幣或分類差異），改以公司自結公告（Yahoo 股市新聞轉載，2026-09）交叉驗證，數字相符。</li><li>7788 松川精密、6781 AES-KY 現況皆為「上市」，與報告分類一致。</li><li>華城 52 週高低出現 1,013.636／478.182 等非整數：查證華城已於 2026-08-05 除權息（現金股利 11 元＋股票股利 1 元，除權息參考價 638.18 元），確認是除權息還原調整所致；報告已用 ⚠️ 適當標註為未確認推論而非斷言，判斷正確、不需修改。</li><li>松川精密 2026H1 營收 41.17 億元（年增 27%）、稅後淨利 4.38 億元（年增 803%）：與鉅亨網報導（財報數字）相符。</li><li>台電 94 億元變壓器/GIS 標案（2026-02，中興電/華城/士電/亞力全數入列）、台電 193 億元 161kV 電纜標案（2026-08，華新等 8 檔入列）、Nvidia 800VDC 三階段藍圖（2026H2 電源機架、2027 排級電源中心）：抽查來源皆與報告敘述一致。</li><li>脫敏掃描：無個人成本價、持股張數/金額、家的位置等敏感資訊，「朋友看好電力題材」為泛化敘述未指名或涉及隱私，通過。</li></ul>
+<p><strong>未能獨立驗證（判斷性/資訊限制，不影響結論，供參考）：</strong></p>
+<ul><li>AES-KY「期間疑似由上櫃轉上市，漲跌幅基準可能失真」：查得該股 2021-03-22 即在 TWSE 掛牌，未查到近期由櫃轉市紀錄，此為報告自行標註的推測性⚠️，不構成錯誤斷言，僅供 Minna 判讀舊分析比較基準時參考。</li><li>其餘催化劑/風險條目（美國變壓器缺貨交期數字、銅加工費漲幅、BBU 市場規模估計等）因來源為第三方媒體/研究機構推估，未逐一重新查證，維持原信任層級標記。</li></ul>
+<hr>
+<blockquote>以上分析僅供參考，不構成投資建議，不涉及目標價或買賣指令。投資有風險，請根據個人財務狀況自行判斷。</blockquote>
+</div>
+</body>
+</html>

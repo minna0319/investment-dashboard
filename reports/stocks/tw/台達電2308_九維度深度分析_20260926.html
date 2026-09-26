@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台達電（2308）九維度深度分析</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>台達電（2308）九維度深度分析</h1>
+</div>
+<div class="report-body">
+<h1>台達電（2308）九維度深度分析</h1>
+<h2>更新記錄</h2>
+<div class="table-wrap"><table><thead><tr><th>版本</th><th>日期</th><th>當時股價</th><th>主要更新</th></tr></thead><tbody><tr><td>v2.1</td><td>2026-09-26</td><td>NT$1,910（9/24 收盤，9/25 中秋休市）</td><td>距上版約 5 週。<strong>重抓</strong>：股價/PE/PB/殖利率（TWSE BWIBBU_d）、8 月營收（TWSE t187ap05_L）、5 日法人逐日（TWSE T86）、技術指標（Yahoo 日K自算）、市值（TWSE 已發行股數×收盤）。<strong>新增</strong>：公司 7/30 法說會官方簡報與逐字稿（單季毛利率/事業群占比/AI 與液冷營收占比/HVDC 時程/資本支出/折舊年限縮短）、5/27 高點以來三段下跌原因拆解、9/21 +8.07% 反彈原因、「跟 8/21 版比變了什麼」。<strong>沿用</strong>：公司簡介、治理、國際同業定性、流傳假資料警示。<strong>結論維持觀望，進場區間從 1,260~1,415 上修為 1,600~1,780（分批）</strong></td></tr><tr><td>v2.1-稽核</td><td>2026-09-26</td><td>NT$1,910（9/24 收盤）</td><td><strong>稽核記錄</strong>（investment-qa-auditor 獨立重抓 TWSE/OpenAPI/Yahoo 日K/公司 2Q26 簡報與逐字稿）：①52 週低 848→837（848 是 2025-09-26 收盤，837 才是盤中低，與 52 週高 2,585 取盤中口徑一致；來源 TWSE STOCK_DAY 2025/09）；②1Q26 毛利率 37% 的特殊因素補上「訂單取消一次性收入」（原只寫 DDP；來源 2Q26 逐字稿）；③「董事長說 H2 一定比 H1 好」→「預期 H2 比 H1 好」，EPS「下限約 35 元」→「約 35 元以上（自算推論，非指引）」（來源同上）；④操作建議進場價補標「2027 EPS 57.2 元為單一美系外資預估、非官方」。其餘快照數字與官方逐一比對無誤</td></tr><tr><td>v2.0</td><td>2026-08-21</td><td>NT$1,750</td><td>升級為正統九維度深度分析，取代 2026-03-29 舊格式版。全數重抓官方數據；新增近10日法人籌碼、7月營收、技術面死亡交叉/量縮訊號；新增「外資為何狂賣」專題分析、市場流傳假資料警示</td></tr><tr><td>v1.0（舊格式，已升級）</td><td>2026-03-29</td><td>NT$1,510</td><td>首次分析（舊格式，非九維度模板）</td></tr></tbody></table></div>
+<blockquote>本檔依任務指示<strong>另存新檔</strong>，8/21 版 <code>台達電2308_九維度深度分析_20260821.md</code> 未刪除（資料夾不在版本控制下，是否刪舊檔由 Minna 決定）。</blockquote>
+<h2>關鍵指標快照</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>數值</th></tr></thead><tbody><tr><td>現價</td><td>NT$1,910（9/24 收盤，+0.53%）</td></tr><tr><td>市值</td><td>約 49,613 億元（已發行 2,597,543,329 股 × 1,910，自算）</td></tr><tr><td>PE 本益比</td><td>60.79 倍（TWSE 9/24）</td></tr><tr><td>PB 股價淨值比</td><td>16.89 倍（TWSE 9/24）</td></tr><tr><td>EPS（近 4 季合計）</td><td>31.42 元（3Q25 7.16＋4Q25 6.67＋1Q26 7.91＋2Q26 9.68，公司法說簡報）</td></tr><tr><td>2026H1 EPS</td><td>17.59 元（TWSE 財報開放資料）</td></tr><tr><td>每股淨值</td><td>113.07 元（2026Q2）</td></tr><tr><td>殖利率</td><td>0.61%（TWSE 9/24）</td></tr><tr><td>ROE</td><td>約 31.1%（2026H1 母公司淨利×2 ÷ 期末母公司權益，自算年化）</td></tr><tr><td>毛利率</td><td>2Q26 單季 35.6%／H1 36.27%（1Q26 為 37.0% 歷史新高）</td></tr><tr><td>營益率</td><td>2Q26 單季 16.7%／H1 17.22%</td></tr><tr><td>營收 YoY（2026/08）</td><td>+34.95%（當月 645.86 億元）</td></tr><tr><td>營收 MoM（2026/08）</td><td>-3.71%</td></tr><tr><td>累計營收（1-8 月）</td><td>4,742.68 億元（YoY +41.06%）</td></tr><tr><td>52 週高 / 低</td><td>2,585（2026-05-27 盤中）/ 837（2025-09-26 盤中；當日收盤 848）</td></tr><tr><td>距 52 週高</td><td>-26.1%</td></tr><tr><td>距 7/29 波段低點收盤 1,495</td><td>+27.8%</td></tr><tr><td>今年來報酬</td><td>+98.3%（以 2025-12-31 收盤 963 計，自算）</td></tr><tr><td>5 日法人（9/18~9/24）</td><td>外資 +3,315 張、投信 +5,645.5 張、自營商約 +1,437.6 張、三大法人合計約 +10,398 張</td></tr><tr><td>技術位置</td><td>MA20 1,780、MA60 1,781（兩線幾乎重合、即將黃金交叉），股價在兩線上方約 +7.2%；MA120（半年線）1,941.6 在股價上方；RSI(14) 61.14；KD 78.0/66.0（K 接近 80 過熱區）；MACD 柱狀 +24.18（連續擴大）；5日/20日均量比 1.15</td></tr><tr><td>流動比 / 負債比</td><td>1.60 / 53.6%（2026Q2 資產負債表自算）</td></tr></tbody></table></div>
+<p>資料時間：2026-09-24（已收盤；9/25 中秋休市，9/26 週六）｜資料來源見文末</p>
+<blockquote>📝 <strong>三大法人</strong>：外資、投信（國內基金公司）、自營商（券商自己的錢）。單筆金額大，動向常領先散戶，是台股籌碼面最重要的觀察對象。</blockquote>
+<hr>
+<h2>結論</h2>
+<p>【觀望】— 基本面仍在高速成長，但 9/21 單日大漲 8% 後股價已回到 1,910、本益比 60.8 倍比 8/21 更貴，且 800VDC 放量確定要等 2027，現在追價的賠率不如等回檔到 1,600~1,780 分批。</p>
+<p>信心程度：⭐⭐⭐☆☆（3/5）</p>
+<p>適合操作：長期核心／中線分批布局；不適合在大漲後追價</p>
+<hr>
+<h2>跟 8/21 版比，變了什麼？（先看這段）</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>8/21 版</th><th>9/26 版（本版）</th><th>方向</th></tr></thead><tbody><tr><td>股價</td><td>1,750</td><td>1,910（+9.1%）</td><td>漲</td></tr><tr><td>本益比 PE</td><td>55.7 倍</td><td>60.79 倍</td><td><strong>更貴</strong>（EPS 沒變、股價漲）</td></tr><tr><td>最新月營收 YoY</td><td>7 月 +47.75%</td><td>8 月 +34.95%，MoM -3.71%</td><td><strong>成長降速</strong>（仍高）</td></tr><tr><td>法人籌碼</td><td>近10日外資 -7,673 張</td><td>近5日外資 +3,315、投信 +5,645.5 張</td><td><strong>轉買</strong></td></tr><tr><td>技術面</td><td>KD 死亡交叉、量縮、季線下 -9.8%</td><td>站回月線/季線上方、MACD 擴大、KD 78 偏熱</td><td><strong>轉強但短線偏熱</strong></td></tr><tr><td>800VDC</td><td>「主推技術、若成標準將鞏固定價權」</td><td>公司親口：±400V/800V Q3 開始量產，<strong>今年量不大、±400V 會比 800V 多</strong>；800V 取決於輝達與終端客戶何時採用</td><td><strong>時程確認偏慢</strong></td></tr><tr><td>液冷占比</td><td>❌ 未取得</td><td><strong>公司財務長親口：去年約 10%，今年一定超過 12%</strong></td><td>補齊缺口</td></tr><tr><td>AI 相關營收占比</td><td>無</td><td>公司：今年一定超過 25%</td><td>新增</td></tr><tr><td>毛利率展望</td><td>「維持 35%+ 為加碼條件」</td><td>董事長：35% 左右是合理水準，營收再成長也大概維持；1Q 的 37% 有一次性因素（訂單取消收入＋DDP）</td><td>天花板確認</td></tr><tr><td>折舊</td><td>無</td><td>設備折舊年限縮短為 3 年（公司說明，因應 AI 週期風險）</td><td>新增：短期壓獲利</td></tr><tr><td>資本支出</td><td>無</td><td>H1 已花 275 億元，H2 預計超過 400 億元；明年若成長高可能維持 700 億元以上</td><td>新增</td></tr><tr><td>進場區間</td><td>1,260~1,415（PE 40~45 倍×TTM）</td><td><strong>1,600~1,780 分批</strong>（改用 2027 年預估 EPS 評價，見估值面）</td><td><strong>上修</strong></td></tr><tr><td>結論</td><td>觀望 3/5</td><td>觀望 3/5</td><td>不變</td></tr></tbody></table></div>
+<p><strong>一句話</strong>：公司體質比 8/21 看得更清楚（液冷、AI 占比、HVDC 時程都拿到官方說法），但股價先漲了 9%，所以「好公司、價格不便宜」的判斷沒變，只是等待的價位往上調。</p>
+<hr>
+<h2>1. 基本面</h2>
+<p>台達電是全球交換式電源供應器龍頭，已從電源零件廠轉型成「電源＋資料中心基礎設施＋自動化」的能源管理集團。董事長鄭平、總經理張訓海（TWSE 公司基本資料）。</p>
+<p><strong>事業群結構（官方，2026Q2 單季，公司法說簡報）</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>事業群</th><th>2Q26 營收</th><th>YoY</th><th>營收占比</th><th>部門獲利</th></tr></thead><tbody><tr><td>電源及零組件</td><td>962.96 億元</td><td>+50%</td><td>53%</td><td>201.42 億元（+50%）</td></tr><tr><td>基礎設施（含資料中心、液冷、UPS）</td><td>629.38 億元</td><td>+78%</td><td>34%</td><td>112.57 億元（+121%）</td></tr><tr><td>自動化</td><td>155.13 億元</td><td>+15%</td><td>8%</td><td>虧損 4.43 億元（轉虧）</td></tr><tr><td>交通</td><td>82.42 億元</td><td>-23%</td><td>5%</td><td>虧損 3.86 億元</td></tr></tbody></table></div>
+<p>→ 基礎設施占比從 2Q25 的 28% 升到 34%，而且獲利成長 121%，是 AI 資料中心紅利最直接的地方。自動化與交通兩個部門在虧錢，公司說 H2 出貨正常化後自動化「不應持續虧損」。</p>
+<p><strong>AI 電源四大題材進度（Minna 最關心的部分）</strong>：</p>
+<blockquote>📝 <strong>HVDC / 800VDC</strong>：資料中心供電從交流電改成高壓直流電，減少轉換損耗。800VDC 是輝達主推的下一代規格；±400VDC 是另一種相對溫和的高壓直流方案。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>題材</th><th>最新進度（來源）</th><th>營收占比</th></tr></thead><tbody><tr><td>800VDC / ±400VDC（HVDC）</td><td>公司 7/30 法說：±400V 與 800V <strong>Q3 開始量產</strong>；±400V 推得較積極，800V 由輝達主導、要看終端資料中心何時採用；<strong>今年 HVDC 整體量不大</strong>。工商時報 8/18：兩者均已於 Q3 出貨，明顯放量要等 2027</td><td>❌ 未取得（公司未揭露）</td></tr><tr><td>液冷</td><td>公司財務長：液冷產品<strong>去年約占營收 10%，今年一定超過 12%</strong>；「液對氣」（Liquid-to-Air）產品會用得比市場原本預期更久</td><td>>12%（公司口頭，2026 全年預估）</td></tr><tr><td>BBU（備援電池）</td><td>本次官方簡報與逐字稿未提及 BBU 具體進度</td><td>❌ 未取得</td></tr><tr><td>儲能</td><td>本次官方簡報與逐字稿未提及儲能具體進度</td><td>❌ 未取得</td></tr><tr><td>SST 固態變壓器</td><td>公司：已有客戶在一個較小型資料中心開始採用，資料中心是第一個應用場景</td><td>❌ 未取得</td></tr><tr><td>AI 相關產品合計</td><td>財務長：<strong>今年一定超過營收 25%</strong>（前一次法說目標約 20%）</td><td>>25%（公司口頭）</td></tr></tbody></table></div>
+<blockquote>📝 <strong>BBU（Battery Backup Unit）</strong>：裝在 AI 伺服器機櫃裡的備援電池，停電瞬間接手供電，避免 GPU 運算中斷。</blockquote>
+<blockquote>📝 <strong>SST（固態變壓器）</strong>：用半導體元件取代傳統線圈鐵芯的變壓器，體積小、可直接輸出直流電，是 800VDC 架構的關鍵設備之一。</blockquote>
+<blockquote>📝 <strong>液對氣 vs 液對液</strong>：液冷的兩種做法。液對氣是晶片用液體散熱、最後用風扇把熱排到機房空氣；液對液是整個熱都用液體帶走到外部，效率更高但機房要大改。</blockquote>
+<p><strong>管理層與治理</strong>：老牌集團、專業經理人接班多年，無重大治理爭議紀錄；法說逐字稿中管理層對 HVDC 時程的說法相當保守誠實（主動說「今年量不大」），這是加分。</p>
+<h3>小結</h3>
+<p>台達電是 AI 電力題材布局最完整的台股，液冷（>12%）與 AI 產品（>25%）占比首度有官方口徑，但 800VDC 今年只是開始出貨、2027 才是放量年，BBU 與儲能沒有官方數字。</p>
+<hr>
+<h2>2. 財務面</h2>
+<p><strong>季度趨勢（官方法說簡報）</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>季度</th><th>營收（億元）</th><th>毛利率</th><th>營益率</th><th>EPS（元）</th></tr></thead><tbody><tr><td>2Q25</td><td>1,241</td><td>35.5%</td><td>15.1%</td><td>5.37</td></tr><tr><td>3Q25</td><td>1,503</td><td>34.9%</td><td>16.5%</td><td>7.16</td></tr><tr><td>4Q25</td><td>1,616</td><td>34.6%</td><td>16.3%</td><td>6.67</td></tr><tr><td>1Q26</td><td>1,594</td><td>37.0%</td><td>17.8%</td><td>7.91</td></tr><tr><td>2Q26</td><td>1,832</td><td>35.6%</td><td>16.7%</td><td>9.68</td></tr></tbody></table></div>
+<p>→ 2Q26 營收年增 48%、稅後淨利年增 80%，EPS 9.68 元創單季新高。</p>
+<blockquote>📝 <strong>毛利率 vs 營益率</strong>：毛利率是「賣一件產品扣掉製造成本後剩多少」；營益率是再扣掉研發、行銷、管理費用後的真實本業獲利率。</blockquote>
+<p><strong>毛利率為什麼 2Q 比 1Q 低？</strong> 董事長在法說說明：1Q 的 37% 有兩個特殊因素——一是認列了一筆訂單取消的一次性收入，二是部分液冷產品以 DDP（完稅後交貨，台達代付關稅、再把關稅算進售價）方式出貨，墊高了帳面毛利率但不影響淨利。<strong>董事長明說 35% 左右是合理水準，營收再成長毛利率也大概維持這個水位</strong>，H2 還有零組件短缺與原物料漲價的壓力。所以「毛利率一路往上」不是合理預期。</p>
+<blockquote>📝 <strong>DDP（Delivered Duty Paid）</strong>：賣方負責把貨送到並付清關稅的交易條件。關稅被算進營收和成本，會讓毛利率「看起來」變高。</blockquote>
+<p><strong>費用與折舊</strong>：公司已與會計師協議把設備折舊年限縮短為 3 年（因應 AI 週期風險）——這代表未來幾年每年認列的折舊費用會變多，對帳面獲利是壓力，但也是保守會計的表現。</p>
+<p><strong>資本支出（公司財務長）</strong>：H1 已支出 275 億元（約 6~7 成用於設備），H2 預計超過 400 億元；董事長說若明年成長仍高，資本支出可能維持 700 億元或更高。擴廠是對需求有信心的訊號，但也讓自由現金流短期變薄。</p>
+<blockquote>📝 <strong>資本支出（CapEx）</strong>：公司花在蓋廠房、買設備的錢，是對未來需求的押注。</blockquote>
+<p><strong>財務體質</strong>：2026Q2 流動比 1.60、負債比 53.6%（總負債 4,042 億元 ÷ 總資產 7,544 億元，自算），年化 ROE 約 31.1%。</p>
+<p><strong>月營收</strong>：8 月 645.86 億元（YoY +34.95%、MoM -3.71%），前 8 月累計 4,742.68 億元（YoY +41.06%）。6 月 YoY +55.43% → 7 月 +47.75% → 8 月 +34.95%，<strong>年增率連續兩個月下滑</strong>，部分原因是去年同期基期逐月墊高（2025 年 6/7/8 月營收約 422／454／479 億元，由 TWSE 當月營收與年增率反推，自算），絕對金額仍在歷史高檔。</p>
+<h3>小結</h3>
+<p>獲利仍在創高（2Q EPS 9.68 元），但毛利率已被公司自己定調在 35% 左右、月營收年增率連兩月降速，「成長很快」沒變，「越來越快」的階段可能已經過去。</p>
+<hr>
+<h2>3. 估值面</h2>
+<p><strong>現況</strong>：PE 60.79 倍（TTM EPS 31.42 元）、PB 16.89 倍，比 8/21 的 55.7 倍更貴——因為這段期間沒有新財報、EPS 沒變，但股價漲了 9%。</p>
+<blockquote>📝 <strong>本益比（PE）</strong>：股價 ÷ 每股盈餘，意思是「用現在的獲利要幾年才能賺回股價」。60 倍代表市場願意付 60 年的獲利買它，押的是未來會大幅成長。</blockquote>
+<blockquote>📝 <strong>Forward PE（預估本益比）</strong>：用「未來預估獲利」算的本益比，對高成長股比較有意義。</blockquote>
+<p><strong>用未來獲利算</strong>：</p>
+<ul><li><strong>公司自己的線索</strong>：H1 EPS 17.59 元，董事長說「預期 H2 比 H1 好」（逐字稿原文 “I expect the second half to be better than the first half”，未明指 EPS、也不是保證）→ 若 H2 EPS 不低於 H1，2026 全年 EPS 約 35 元以上（17.59×2，自算推論，非公司指引）。以此計算 2026 年本益比約 54 倍。</li><li><strong>法人預估（⚠️ 媒體轉述，非官方數據，僅作定性參考）</strong>：據 Yahoo 股市 7/23 報導，某美系外資因「800V 部署較慢、零組件成本上升、新專案爬坡慢」把 2026/2027/2028 年 EPS 預估下修至 35.9／57.2／90.3 元，目標價從 2,480 下修至 2,280 元、維持買進。</li><li>以這組 2027 年預估 EPS 57.2 元計，現價 1,910 ≈ <strong>2027 年本益比 33.4 倍</strong>。</li></ul>
+<p><strong>為什麼從 2,585 回落？</strong>（這是 Minna 問的重點）</p>
+<div class="table-wrap"><table><thead><tr><th>階段</th><th>時間與幅度（Yahoo 日K）</th><th>主因（WebSearch，定性）</th></tr></thead><tbody><tr><td>第一段：創高後急殺</td><td>5/27 盤中 2,585 → 6 月底失守 2,000（經濟日報 6/25：不到一個月跌 24.17%，連 11 根黑K）</td><td>全年漲多後資金轉移、三大法人同步賣超；營運面其實正常（5 月營收創同期新高）</td></tr><tr><td>第二段：法說前後探底</td><td>7/23 美系外資下修 → 7/29 收 1,495（盤中最低 1,425）</td><td>800V 導入放緩、零組件成本推升、新專案爬坡慢 → 下修 EPS 與目標價；法說會上公司也證實 HVDC 今年量不大</td></tr><tr><td>第三段：8 月營收利空</td><td>9/10 單日重挫逾 6%（1,795 → 1,675）</td><td>8 月營收較 7 月減 3.7%，月增動能中斷，市場信心受影響（工商時報 9/10）</td></tr><tr><td>反彈</td><td>9/21 單日 +8.07%（1,735 → 1,875），9/24 收 1,910</td><td>歐系外資調升目標價（⚠️ 新目標價數字未取得）、變壓器/AI 供電族群齊漲、費半前一日大漲、美中會面前 AI 管制放鬆預期</td></tr></tbody></table></div>
+<p><strong>估值是否已消化？</strong> 部分消化，但沒有消化完：</p>
+<ul><li>以 2027 年預估算的 33 倍，比 5 月高點時（2,585 ÷ 57.2 ≈ 45 倍，自算）合理很多——這部分已消化。</li><li>但仍高於台達電 2022-2024 年 PE 約 20-30 倍的歷史區間（沿用舊版記錄），且 2027 年 EPS 57 元要成真，需要 800VDC 如期在 2027 放量——這個前提在 7 月剛被法人下修過一次。</li></ul>
+<p><strong>合理價推算（自算，基於上述 ⚠️ 法人 2027 EPS 57.2 元）</strong>：</p>
+<ul><li>28 倍 × 57.2 ≈ 1,602 元</li><li>30 倍 × 57.2 ≈ 1,716 元</li><li>33.4 倍（現價）</li></ul>
+<p>→ 若給 28~31 倍（接近歷史區間上緣、反映高成長），合理價約 1,600~1,780 元。</p>
+<blockquote>⚠️ <strong>市場流傳資料警示（沿用）</strong>：若收到「台達電 435 元、2026 預估 EPS 16.8 元」之類資料，那是嚴重過期或錯誤的數字。決策前以 TWSE / Yahoo 股市即時官方數據為準。</blockquote>
+<h3>小結</h3>
+<p>從 5 月高點回落約 26% 已消化了一部分泡沫，但以 2027 年預估 EPS 算仍約 33 倍、比 8/21 還貴，合理買點大約在 1,600~1,780 元，現價略高於區間上緣。</p>
+<hr>
+<h2>4. 技術面</h2>
+<p>（Yahoo Finance 日K 數據自算；技術指標腳本因本機缺 yfinance 套件未能執行，改以相同公式自算，⚠️ 數值可能與看盤軟體有小幅差異）</p>
+<ul><li><strong>均線</strong>：MA5 1,864、MA20（月線）1,780、MA60（季線）1,781、MA120（半年線）1,941.6、MA240（年線）1,527.7。股價站上月線與季線（+7.2%），但仍在半年線下方 -1.6%。</li><li><strong>月線 vs 季線</strong>：MA20 從 9/17 的 1,750 升到 1,780，MA60 從 1,786 降到 1,781，兩線幾乎重合、<strong>即將出現黃金交叉</strong>。</li><li><strong>RSI(14)</strong>：61.14（中性偏強，未過熱）。</li><li><strong>KD(9)</strong>：K 78.0 / D 66.0，9/18 起黃金交叉向上，K 值接近 80 過熱區。</li><li><strong>MACD</strong>：柱狀 +24.18，連續 5 天由負轉正並擴大（-10.7 → -5.6 → +7.0 → +16.3 → +21.4 → +24.18）。</li><li><strong>量能</strong>：5 日/20 日均量比 1.15，反彈有量。</li></ul>
+<blockquote>📝 <strong>均線（MA）</strong>：過去 N 天收盤價平均。月線＝20 日、季線＝60 日、半年線＝120 日，股價站上代表近期買的人平均賺錢。</blockquote>
+<blockquote>📝 <strong>黃金交叉 / 死亡交叉</strong>：短天期均線（或 K 值）由下往上穿越長天期稱黃金交叉（偏多），反之為死亡交叉（偏空）。</blockquote>
+<blockquote>📝 <strong>RSI</strong>：衡量近期漲跌力道，70 以上偏熱、30 以下偏冷。</blockquote>
+<blockquote>📝 <strong>KD</strong>：看股價在近 9 天高低區間的位置，80 以上偏熱、20 以下偏冷。</blockquote>
+<blockquote>📝 <strong>MACD</strong>：用快慢兩條均線的差距看動能，柱狀由負轉正並放大代表多方動能增強。</blockquote>
+<p><strong>關鍵價位</strong>：</p>
+<ul><li>上方壓力：1,941.6（半年線）、1,965（9/22 盤中高）、2,005（8/17 高）</li><li>下方支撐：1,780（月線/季線交會）、1,620（9/11、9/14 收盤低點）、1,425~1,495（7/29 波段低點）</li></ul>
+<h3>小結</h3>
+<p>技術面比 8/21 明顯轉強（站回月季線、MACD 擴大、有量），但 9/21 急漲後 KD 已接近過熱、上方緊貼半年線壓力，短線追價位置不佳，回測 1,780 附近才是較好的技術買點。</p>
+<hr>
+<h2>5. 籌碼面</h2>
+<p><strong>5 日逐日（TWSE T86，單位：張）</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>日期</th><th>外資</th><th>投信</th><th>自營商</th><th>三大法人合計</th></tr></thead><tbody><tr><td>9/18</td><td>+2,830.3</td><td>-20.1</td><td>+340.2</td><td>+3,150.4</td></tr><tr><td>9/21</td><td>+2,274.2</td><td>+3,392.6</td><td>+899.7</td><td>+6,566.5</td></tr><tr><td>9/22</td><td>-1,323.4</td><td>+1,642.1</td><td>-7.3</td><td>+311.4</td></tr><tr><td>9/23</td><td>-139.0</td><td>+211.0</td><td>+63.3</td><td>+135.3</td></tr><tr><td>9/24</td><td>-327.2</td><td>+420.0</td><td>+141.7</td><td>+234.5</td></tr><tr><td><strong>合計</strong></td><td><strong>+3,315.0</strong></td><td><strong>+5,645.5</strong></td><td><strong>約 +1,437.6</strong></td><td><strong>約 +10,398</strong></td></tr></tbody></table></div>
+<p><strong>解讀</strong>：</p>
+<ul><li><strong>跟 8/21 相比是翻轉</strong>：當時近 10 日外資賣 7,673 張，現在 5 日合計轉買。</li><li><strong>但細看有分歧</strong>：外資只在 9/18、9/21 兩天大買，<strong>9/22~9/24 連三天小賣</strong>，買盤延續性存疑；真正持續在買的是<strong>投信</strong>（連四天買超，9/21 單日 +3,392.6 張）。</li><li>投信連買常與季底作帳、基金加碼權值股有關（定性推測，未有官方證據），10 月後能否延續要觀察。</li></ul>
+<blockquote>📝 <strong>投信作帳</strong>：國內基金在季底前拉抬持股、讓績效好看的現象，季底過後買盤可能消失。</blockquote>
+<p><strong>融資融券</strong>：❌ 未取得（本次未抓 TWSE MI_MARGN，可至 Goodinfo 或券商 App 查詢）。</p>
+<h3>小結</h3>
+<p>籌碼從 8 月「外資狂賣」轉為「投信主導買超」，比 8/21 健康，但外資已連三天小賣、投信買盤可能帶季底作帳色彩，還不能說大戶全面回頭。</p>
+<hr>
+<h2>6. 同業比較</h2>
+<p><strong>台股 AI 電源鏈同業（官方數據，TWSE 9/24 估值、2026H1 財報、8 月營收）</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>台達電 2308</th><th>光寶科 2301</th><th>貿聯-KY 3665</th></tr></thead><tbody><tr><td>主要定位</td><td>電源龍頭＋液冷＋HVDC 全包</td><td>電源供應器轉型 AI 電能管理</td><td>連接器線束龍頭，布局 800VDC 連接方案</td></tr><tr><td>9/24 收盤</td><td>1,910</td><td>287</td><td>2,340</td></tr><tr><td>距 52 週高</td><td>-26.1%</td><td>-12.5%</td><td>-22.3%</td></tr><tr><td>PE</td><td>60.79 倍</td><td>33.57 倍</td><td>42.97 倍</td></tr><tr><td>PB</td><td>16.89 倍</td><td>6.80 倍</td><td>9.21 倍</td></tr><tr><td>殖利率</td><td>0.61%</td><td>1.74%</td><td>0.65%</td></tr><tr><td>2026H1 毛利率</td><td>36.27%</td><td>24.71%</td><td>29.80%</td></tr><tr><td>2026H1 營益率</td><td>17.22%</td><td>12.80%</td><td>16.12%</td></tr><tr><td>2026H1 EPS</td><td>17.59 元</td><td>4.80 元</td><td>26.94 元</td></tr><tr><td>8 月營收 YoY</td><td>+34.95%</td><td>+25.20%</td><td>+53.99%</td></tr><tr><td>5 日外資／投信</td><td>+3,315／+5,645.5 張</td><td>-2,961.8／-962.4 張</td><td>-445.5／+593.1 張</td></tr><tr><td>800VDC 進度（定性）</td><td>Q3 已量產出貨，2027 放量</td><td>8 月送樣、估 11 月量產（TechNews 7/20）</td><td>GTC 2026 推 800VDC 方案</td></tr></tbody></table></div>
+<p><strong>國際同業（沿用舊版定性，財務數字未更新⚠️）</strong>：Vertiv（聚焦 AI 資料中心、產品線較窄）、Schneider Electric（系統整合強）、Eaton（工業客戶廣、AI 非核心）。</p>
+<p><strong>相對優劣</strong>：</p>
+<ul><li>台達電：<strong>獲利率最高、題材最全、法人買盤最強</strong>，但<strong>估值最貴</strong>（PE 60.79 倍是三檔最高）。</li><li>光寶科：估值便宜一半（33.57 倍），但毛利率低 11 個百分點、800VDC 時程落後台達一季以上，外資投信 5 日都在賣。</li><li>貿聯-KY：營收成長最快（8 月 +53.99%），估值居中。</li></ul>
+<p><strong>如果只能選一檔</strong>：若要「AI 電力最完整、品質最好」選台達電，但要接受貴；若更在意估值安全邊際，光寶科便宜但品質與時程都較弱。台達電仍是這三檔裡最適合放進「長期核心」的，但進場價要挑。</p>
+<h3>小結</h3>
+<p>台達電是 AI 電源鏈裡品質最好的一檔（毛利率、營益率、題材完整度都第一），但也是最貴的一檔，「好公司」和「好價格」目前沒有同時出現。</p>
+<hr>
+<h2>7. 題材與催化劑</h2>
+<div class="table-wrap"><table><thead><tr><th>時間</th><th>事件</th><th>對台達電的影響</th></tr></thead><tbody><tr><td>2026-10 上旬（約 10/10 前）</td><td>9 月營收公告</td><td><strong>最近期的驗證點</strong>：MoM 能否回到正成長（公司說 H2 會比 H1 好、9 月出貨可望回升），若再衰退會重演 9/10 的急殺</td></tr><tr><td>2026-10 底／11 初（❌ 確切日期未取得，待公司公告）</td><td>3Q26 財報與法說會</td><td>驗證 H2 > H1、毛利率守 35% 左右、800VDC/±400V 實際出貨量、2027 年展望</td></tr><tr><td>2026 Q4</td><td>±400V 為主、800V 少量的 HVDC 出貨</td><td>今年量不大，重點在客戶採用意願的訊號</td></tr><tr><td>2027</td><td>800VDC 預計顯著放量（工商時報 8/18）、輝達 800VDC 排級電源中心導入（定性研究檔引述 Sinotrade）</td><td>決定法人 2027 年 EPS 預估能否兌現的最大變數</td></tr><tr><td>持續</td><td>CSP 雲端大廠 AI 資本支出、市場對「AI 泡沫」的疑慮</td><td>公司副總在法說提到美國民調有 7 成以上民眾反對 AI 資料中心蓋在家附近，是潛在的建置阻力</td></tr><tr><td>持續</td><td>外資目標價調整</td><td>7/23 美系下修、9/21 歐系調升，短線股價對法人報告高度敏感</td></tr></tbody></table></div>
+<blockquote>📝 <strong>CSP（雲端服務供應商）</strong>：如 AWS、微軟 Azure、Google Cloud，是 AI 資料中心最大的出錢者，他們的資本支出決定整條供應鏈的訂單。</blockquote>
+<h3>小結</h3>
+<p>最近的催化劑是 10 月上旬的 9 月營收與 10 月底的 Q3 法說，中期真正決定股價的是 800VDC 能否在 2027 如期放量。</p>
+<hr>
+<h2>8. 風險評估</h2>
+<div class="table-wrap"><table><thead><tr><th>風險</th><th>影響</th><th>機率</th><th>跟 8/21 比</th></tr></thead><tbody><tr><td>800VDC 放量再度延後（公司已說取決於輝達與終端客戶）</td><td>高（2027 EPS 預估再下修）</td><td>中</td><td>↑ 風險具體化</td></tr><tr><td>月營收持續降速／MoM 再轉負</td><td>中高（9/10 已示範單日跌 6%）</td><td>中</td><td>新增</td></tr><tr><td>估值回到歷史區間（20~30 倍 × TTM 31.42 元 ≈ 628~943 元，自算極端情境）</td><td>極高</td><td>低</td><td>不變</td></tr><tr><td>毛利率被零組件短缺、原物料漲價、折舊縮短侵蝕</td><td>中</td><td>中</td><td>↑ 公司自己示警</td></tr><tr><td>自動化、交通兩部門持續虧損</td><td>低中</td><td>中</td><td>新增</td></tr><tr><td>AI 資本支出降溫／AI 資料中心遭民意反對</td><td>高</td><td>低中</td><td>新增管理層提示</td></tr><tr><td>投信季底作帳結束、買盤消失</td><td>中（短線）</td><td>中</td><td>新增</td></tr><tr><td>多國生產基地（泰國、美國、台灣、中國擴廠）關稅與地緣政治</td><td>中</td><td>中</td><td>不變</td></tr><tr><td>誤信流傳錯誤資料</td><td>中</td><td>持續</td><td>不變</td></tr></tbody></table></div>
+<p><strong>最壞情境</strong>：9 月營收再衰退＋Q3 法說下修 HVDC 時程 → 市場把 2027 EPS 往下砍 → 股價回測 7 月低點 1,425~1,495（距現價約 -22%~-25%）。</p>
+<h3>小結</h3>
+<p>最大風險從「估值太高」具體化為「800VDC 放量時程」——公司自己都說今年量不大，只要 2027 放量再延後，現在的價格就沒有保護。</p>
+<hr>
+<h2>9. 操作建議</h2>
+<blockquote>本段不含個人成本或持股資訊。Minna 的架構是「ETF＋台積電長期」＋「個股波段」兩層，台達電較適合放在<strong>長期核心</strong>的分批布局，而非短線追題材。</blockquote>
+<ul><li><strong>結論</strong>：觀望</li><li><strong>信心程度</strong>：⭐⭐⭐☆☆（3/5）</li><li><strong>建議倉位</strong>：佔總資金 5% 以內，分 2~3 批（單一個股、高估值，不重壓）</li><li><strong>進場條件</strong>（任一成立再動）：</li></ul>
+<ol><li><strong>價格條件</strong>：回檔到 <strong>1,700~1,780</strong>（月線/季線交會、約 2027 預估 30~31 倍）買第一批；跌到 <strong>1,600~1,620</strong>（9 月中低點、約 28 倍）買第二批。⚠️ 倍數換算用的 2027 EPS 57.2 元是<strong>單一美系外資預估（7/23 財訊快報轉述）、非公司官方數字</strong>，若法人再下修，這組價位要跟著重算。</li><li><strong>事件條件</strong>：10 月上旬公布的 9 月營收 <strong>MoM 回正且 YoY ≥30%</strong>，且股價未再急漲超過 2,000 → 可在 1,800~1,900 小量試單第一批。</li><li><strong>財報條件</strong>：Q3 法說確認 3Q26 EPS 高於 2Q 的 9.68 元、毛利率守住 35% 左右、HVDC 2027 放量時程未延後 → 第三批。</li></ol>
+<ul><li><strong>停損參考</strong>：</li><li>波段角度：收盤跌破 <strong>1,425</strong>（7/29 盤中低點、今年波段底）就出場檢討。</li><li>基本面角度：月營收 YoY 連兩個月低於 20%，或 Q3 毛利率跌破 33%，或公司下修 HVDC 時程 → 重新評估持有邏輯。</li><li><strong>加碼條件</strong>：Q3/Q4 法說給出 800VDC 具體出貨量或客戶數、AI 產品占比持續上升、外資重新連續買超（不只投信）。</li><li><strong>觀察指標</strong>：9 月營收（10 月上旬）、Q3 財報與法說（10 月底／11 初）、外資是否從連三賣轉回買、股價能否站穩半年線 1,941.6、KD 是否從 80 附近回落修正。</li><li><strong>下次檢視</strong>：9 月營收公布後（約 2026-10-10 前）做輕度更新；Q3 法說後做完整更新；或股價單邊波動超過 ±15% 時提前檢視。</li></ul>
+<p><strong>舊版建議是否仍成立？</strong></p>
+<ul><li>「觀望、不追高」→ <strong>仍成立</strong>。</li><li>「進場區 1,260~1,415」→ <strong>不再適用</strong>。那是用過去 4 季 EPS × 40~45 倍算的，太嚴苛（7/29 最低 1,425 也沒碰到），改用 2027 年預估 EPS 評價，上修為 1,600~1,780。</li><li>「加碼條件：毛利率維持 35%+」→ <strong>修正</strong>為「守住 35% 左右」，因為公司已說這是天花板附近的合理水準，不該期待持續創高。</li><li>「外資大賣是評價修正＋獲利了結」→ <strong>已驗證</strong>：7 月底探底後籌碼翻轉，基本面確實沒壞。</li></ul>
+<hr>
+<p>⚠️ 以上分析僅供參考，不構成投資建議。投資有風險，請根據個人財務狀況自行判斷。</p>
+<h2>資料來源</h2>
+<p><strong>數據層（官方，數字唯一來源）</strong></p>
+<ul><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?response=json&type=ALLBUT0999" target="_blank" rel="noopener">TWSE 每日收盤行情 MI_INDEX（9/24 收盤）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json" target="_blank" rel="noopener">TWSE 本益比/殖利率/股價淨值比 BWIBBU_d（9/24）</a></li><li><a href="https://www.twse.com.tw/rwd/zh/fund/T86?response=json&date=20260924&selectType=ALL" target="_blank" rel="noopener">TWSE 三大法人買賣超 T86（9/18~9/24 逐日）</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap05_L" target="_blank" rel="noopener">TWSE 開放資料 月營收 t187ap05_L（2026/08）</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap06_L_ci" target="_blank" rel="noopener">TWSE 開放資料 綜合損益表 t187ap06_L_ci（2026Q2 累計）</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap07_L_ci" target="_blank" rel="noopener">TWSE 開放資料 資產負債表 t187ap07_L_ci（2026Q2）</a></li><li><a href="https://openapi.twse.com.tw/v1/opendata/t187ap03_L" target="_blank" rel="noopener">TWSE 開放資料 上市公司基本資料 t187ap03_L（已發行股數）</a></li><li><a href="https://filecenter.deltaww.com/ir/download/calendar/2Q26_Analyst%20Meeting.pdf" target="_blank" rel="noopener">台達電 2Q26 法說會簡報（官方 PDF，2026-07-30）</a></li><li><a href="https://filecenter.deltaww.com/IR/download/calendar/2Q26_Transcript.pdf" target="_blank" rel="noopener">台達電 2Q26 法說會英文逐字稿（官方 PDF）</a></li><li><a href="https://query1.finance.yahoo.com/v8/finance/chart/2308.TW?range=1y&interval=1d" target="_blank" rel="noopener">Yahoo Finance Chart API 2308.TW（52 週高低、日K、技術指標自算）</a></li><li>電力族群數據層彙整（2026-09-26，同批抓取，資料日 9/24）</li></ul>
+<p><strong>定性分析參考（WebSearch/WebFetch，媒體報導）</strong></p>
+<ul><li><a href="https://www.ctee.com.tw/news/20260910701295-430201" target="_blank" rel="noopener">工商時報 2026-09-10：台達電重挫逾6％ 失守1,700元 究竟發生什麼事？</a></li><li><a href="https://www.ctee.com.tw/news/20260922700227-430204" target="_blank" rel="noopener">工商時報 2026-09-22：台達電 三大法人買超</a></li><li><a href="https://www.ctee.com.tw/news/20260818700156-430502" target="_blank" rel="noopener">工商時報 2026-08-18：台達電 HVDC ±400VDC/800VDC 出貨進度</a></li><li><a href="https://money.udn.com/money/story/5710/9587484" target="_blank" rel="noopener">經濟日報 2026-06-25：「台達電一直跌」？創天價後反轉下跌 不到1個月跌幅24%</a></li><li><a href="https://tw.stock.yahoo.com/news/800v%E5%B0%8E%E5%85%A5%E6%94%BE%E7%B7%A9%E6%8B%96%E7%B4%AF%E7%8D%B2%E5%88%A9%E9%A0%90%E4%BC%B0-%E7%BE%8E%E7%B3%BB%E5%A4%96%E8%B3%87%E4%B8%8B%E4%BF%AE%E5%8F%B0%E9%81%94%E9%9B%BB%E7%9B%AE%E6%A8%99%E5%83%B9%E8%87%B32-280%E5%85%83-030756073.html" target="_blank" rel="noopener">Yahoo 股市 2026-07-23：800V導入放緩拖累獲利預估，美系外資下修台達電目標價至2,280元</a>（⚠️ 法人 EPS 預估為媒體轉述，單一來源）</li><li><a href="https://www.cmoney.tw/notes/note-detail.aspx?nid=1271591" target="_blank" rel="noopener">CMoney 2026-09-21：變壓器族群強勢大漲、AI 供電題材</a></li><li><a href="https://cmnews.com.tw/article/cmoney-cc980fa9-b58c-11f1-9761-de56348a83a2" target="_blank" rel="noopener">CMoney：外資調升台達電目標價題材發酵</a>（⚠️ 調升後目標價數字未取得）</li><li><a href="https://vocus.cc/article/6a6c26e2fd89780001fb4eae" target="_blank" rel="noopener">vocus 2026-07-30 法說會整理</a>（僅作交叉比對，數字以官方簡報為準）</li><li><a href="https://technews.tw/2026/07/20/delta-liteon-hvdc-roadmap/" target="_blank" rel="noopener">TechNews 2026-07-20：台達、光寶 HVDC 路線圖</a></li><li>電力族群定性研究（2026-09-26）</li><li>舊版 <code>台達電2308_九維度深度分析_20260821.md</code>（公司簡介、治理、國際同業、流傳資料警示沿用）</li></ul>
+<p><strong>❌ 未取得清單</strong>：HVDC/BBU/儲能/SST 各自營收占比（公司未揭露）、Q3 法說確切日期、融資融券餘額、9/21 歐系外資調升後的目標價、國際同業最新財務數字。</p>
+</div>
+</body>
+</html>
