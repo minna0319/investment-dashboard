@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股日報 — 2026-11-11（週三）</title>
+<style>
+
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#232735;--border:#2d3348;--text:#e4e6f0;--text2:#9499b3;--accent:#6c7cff;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--orange:#fb923c;--blue:#60a5fa;--gray2:#6b7280}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:56px 16px 24px;max-width:900px;margin:0 auto}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--surface);border-bottom:1px solid var(--border);height:40px;display:flex;align-items:center;justify-content:center}
+.nav-inner{display:flex;gap:4px;align-items:center;max-width:900px;width:100%;padding:0 16px;flex-wrap:wrap}
+.top-nav a{color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.top-nav a:hover{background:var(--surface2);color:var(--text)}
+.top-nav a.nav-active{background:rgba(108,124,255,0.15);color:var(--accent);font-weight:600}
+
+.report-header{text-align:center;padding:20px 0 12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.report-header h1{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.report-meta{color:var(--text2);font-size:0.78rem;margin-top:4px}
+.report-body h2{font-size:1.15rem;font-weight:700;color:var(--accent);margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.report-body h3{font-size:1rem;font-weight:600;color:var(--text);margin:18px 0 8px}
+.report-body h4{font-size:0.9rem;font-weight:600;color:var(--text2);margin:14px 0 6px}
+.report-body p{margin:8px 0;font-size:0.88rem;color:var(--text)}
+.report-body strong{color:var(--text);font-weight:600}
+.report-body a{color:var(--accent);text-decoration:none}
+.report-body a:hover{text-decoration:underline}
+.report-body ul,.report-body ol{margin:8px 0 8px 20px;font-size:0.88rem}
+.report-body li{margin:3px 0;color:var(--text)}
+.report-body blockquote{border-left:3px solid var(--accent);padding:8px 14px;margin:10px 0;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text2);font-size:0.85rem}
+.report-body code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-size:0.82rem;color:var(--yellow);font-family:"SF Mono",Monaco,Consolas,monospace}
+.report-body hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+.report-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.82rem}
+.report-body thead{background:var(--surface2)}
+.report-body th{padding:8px 10px;text-align:left;font-weight:600;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap}
+.report-body td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.report-body tr:hover{background:rgba(108,124,255,0.04)}
+.report-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="../../../index.html">首頁</a><a href="../../../dashboard.html">儀表板</a><a href="../../../cards.html">決策卡</a><a href="../../../reports/index.html" class="nav-active">報告庫</a><a href="../../../timeline.html">時間表</a>
+  </div>
+</nav>
+<div class="report-header">
+<h1>美股日報 — 2026-11-11（週三）</h1>
+</div>
+<div class="report-body">
+<h1>美股日報 — 2026-11-11（週三）</h1>
+<h2>大盤</h2>
+<div class="table-wrap"><table><thead><tr><th>指數</th><th>收盤</th><th>漲跌</th><th>漲跌幅</th></tr></thead><tbody><tr><td>道瓊工業</td><td>52,486.49</td><td>+254.60</td><td><strong>+0.49%</strong></td></tr><tr><td>S&P 500</td><td>7,619.38</td><td>+98.45</td><td><strong>+1.31%</strong></td></tr><tr><td>納斯達克</td><td>25,466.19</td><td>+400.32</td><td><strong>+1.60%</strong></td></tr><tr><td>Russell 2000</td><td>2,846.26</td><td>+24.88</td><td><strong>+0.88%</strong></td></tr><tr><td>費半（SOX）</td><td>10,564.11</td><td>+565.78</td><td><strong>+5.66%</strong></td></tr></tbody></table></div>
+<blockquote>漲跌以 Yahoo 11/11 正式收盤 vs 11/10 正式收盤自行計算（S&P、Nasdaq 與 Investing.com 報導一致）。⚠️ <code>us_market_api.py</code> 個股「前收」欄位這次還是對不上（例：NVDA 程式寫 +2.15%，實際 +2.87%；AXTI 程式寫 +18.43%，實際 +19.49%），<strong>本份個股全部改用正式收盤重算</strong>。</blockquote>
+<ul><li><strong>VIX 恐慌指數</strong>：<strong>17.49（-1.97，-10.12%）</strong>——連 3 天在 25 以下，維持「正常」進場規則</li><li><strong>成交量</strong>：—（不採用，指數成交量口徑不穩定）</li><li><strong>一句話</strong>：<strong>正式盤是 AI 反彈日——CoreWeave 財報優於預期＋上修營收展望，帶動晶片股大漲（費半 +5.66%），S&P 500 +1.31%、VIX 降到 17.49；但收盤後《華爾街日報》報導 NVDA 董事會「正準備撤換黃仁勳」，NVDA 盤後 -8.61%，Nasdaq 期貨 -0.84%，白天的反彈晚上就被吐回一部分。</strong></li></ul>
+<h2>類股表現</h2>
+<blockquote>資料來源：S&P 11 大類股 ETF（Yahoo 11/11 收盤報價 vs 11/10 日線收盤自行計算）</blockquote>
+<div class="table-wrap"><table><thead><tr><th>排名</th><th>強勢類股</th><th>漲幅</th><th>弱勢類股</th><th>跌幅</th></tr></thead><tbody><tr><td>1</td><td>科技（XLK）</td><td><strong>+3.23%</strong></td><td>非必需消費（XLY）</td><td><strong>-0.05%</strong></td></tr><tr><td>2</td><td>能源（XLE）</td><td>+1.86%</td><td>房地產（XLRE）</td><td>+0.02%</td></tr><tr><td>3</td><td>工業（XLI）</td><td>+1.33%</td><td>醫療（XLV）</td><td>+0.04%</td></tr></tbody></table></div>
+<ul><li>其餘：通訊服務（XLC）+0.78%、金融（XLF）+0.58%、必需消費（XLP）+0.46%、原物料（XLB）+0.32%、公用事業（XLU）+0.21%</li><li><strong>類股輪動觀察</strong>：<strong>10 紅 1 黑，但漲幅集中在科技一類</strong>（XLK +3.23%，其他多數 <1%），防禦型（醫療、房地產、公用事業）幾乎平盤。這是「AI 單一主題反彈」，不是全面輪動（推論）。前一天被賣的是 NVDA、MSFT 兩檔權值股，今天反過來是<strong>記憶體、光通訊、設備全面大漲</strong>（MU +11.89%、LITE +10.67%、MRVL +9.33%、AMD +7.32%、AMAT +6.05%），<strong>但軟體／平台股繼續弱</strong>（MSFT -2.26%、META -1.97%、AMZN -1.74%）——AI 內部「硬體強、軟體弱」的分化延續。非必需消費小黑跟 AMZN 走弱一致。</li></ul>
+<h2>重點個股</h2>
+<div class="table-wrap"><table><thead><tr><th>個股</th><th>收盤</th><th>漲跌幅</th><th>備註</th></tr></thead><tbody><tr><td><strong>NVDA（持倉）</strong></td><td>$173.73</td><td><strong>+2.87%</strong></td><td>正式盤跟著 AI 反彈；<strong>盤後 $158.78（-8.61%）</strong>：《紐約時報》報導黃仁勳與公司內部一名高管有婚外情、《華爾街日報》報導<strong>董事會正準備撤換他</strong>（CNBC 轉述，公司尚未回應）。11/8 董事會聲明原本是「對黃仁勳有信心、他續任 CEO」，與 WSJ 報導方向相反；眾議院三位委員會主席要求他 11/18 出席閉門簡報（二手報導）。<strong>盤後價離停損 $150（週收盤）只剩約 +5.9%</strong></td></tr><tr><td><strong>AVGO（持倉第一筆）</strong></td><td>$345.22</td><td><strong>+3.99%</strong></td><td>⚡ <strong>收盤站回停損線 $340 上方（+1.5%）</strong>，10/29 以來第一次；盤後再 +2.36% 到 $353.36。20 日線約 $329、50 日線約 $346</td></tr><tr><td><strong>MSFT（持倉）</strong></td><td>$521.12</td><td><strong>-2.26%</strong></td><td>連 2 天跌，跌破 20 日線（約 $531）；據報仍是 Anthropic 推出試算表／辦公室工具的競爭疑慮（Investing.com 單一來源）。離停損 $355 很遠</td></tr><tr><td>CRWV（CoreWeave）</td><td>$60.77</td><td><strong>+24.71%</strong></td><td>今天的領頭羊：財報優於預期＋上修營收展望（CNBC 報導）；盤後 -6.37% 被 NVDA 消息拖累</td></tr><tr><td>MU（美光）</td><td>$811.30</td><td><strong>+11.89%</strong></td><td>記憶體領漲；盤後 -2.80%</td></tr><tr><td>TSM（台積電 ADR）</td><td>$413.35</td><td><strong>+4.25%</strong></td><td>連 2 天收紅；<strong>盤後 -1.95%</strong>（$405.27）。仍在 200 日線（約 $402）上方</td></tr></tbody></table></div>
+<h2>觀察清單技術掃描</h2>
+<blockquote>資料來源：<code>watchlist_scanner.py --market us</code>（11/12 台灣早上跑）。⚠️ 掃描器抓到的仍是 <strong>11/10 收盤價</strong>（Yahoo 日線還沒更新），下表「收盤」欄改填 11/11 正式收盤，評分沿用掃描結果（以 11/10 為準）。</blockquote>
+<div class="table-wrap"><table><thead><tr><th>信號</th><th>標的</th><th>收盤（11/11）</th><th>進場區</th><th>距離（以 11/11 收盤）</th><th>評分</th><th>RSI</th><th>KD</th><th>MACD柱</th><th>均線</th></tr></thead><tbody><tr><td>🟡</td><td>LLY</td><td>$1,437.29</td><td>843-880</td><td>約 +63%（過高）</td><td>3.5</td><td>69.83</td><td>當日金叉</td><td>+5.56</td><td>多頭排列</td></tr><tr><td>⚪</td><td>RKLB</td><td>$66.15</td><td>68-75</td><td>約 -2.7%</td><td>2.5</td><td>—</td><td>—</td><td>正</td><td>—</td></tr><tr><td>⚪</td><td>GOOGL</td><td>$293.45</td><td>320-325（待重評）</td><td>約 -8%</td><td>2</td><td>—</td><td>—</td><td>-1.78</td><td>—</td></tr><tr><td>⚪</td><td>AVGO</td><td>$345.22</td><td>360-380</td><td>約 -4.1%</td><td>-0.5</td><td>—</td><td>—</td><td>-0.60</td><td>空頭排列</td></tr><tr><td>⚪</td><td>PLTR</td><td>$172.40</td><td>約 140</td><td>約 +23%</td><td>1</td><td>—</td><td>—</td><td>-3.59</td><td>—</td></tr><tr><td>⚪</td><td>ASTS</td><td>$36.62</td><td>約 75</td><td>約 -51%</td><td>1.5</td><td>—</td><td>—</td><td>—</td><td>空頭排列</td></tr><tr><td>⚪</td><td>CRWD</td><td>$229.06</td><td>見決策卡</td><td>約 -31%</td><td>-1</td><td>—</td><td>—</td><td>-3.79</td><td>—</td></tr><tr><td>⚪</td><td>其餘 13 檔</td><td>—</td><td>—</td><td>多數遠高於進場區</td><td>≤2.5</td><td>—</td><td>TSLA 高檔死叉</td><td>多數為負</td><td>—</td></tr></tbody></table></div>
+<ul><li>🔴 強烈關注（≥5 分）/ 🟡 值得關注（≥3 分）/ ⚪ 繼續等待</li><li><strong>掃描摘要</strong>：<strong>沒有 🔴；唯一 🟡 是 LLY，但價格比進場區高約 63%，只是動能訊號、不是進場訊號</strong>。RKLB 反彈到離進場區下緣 68 只剩約 -2.7%，可以開始留意動能。</li></ul>
+<h2>總經與政策</h2>
+<ul><li><strong>今日經濟數據</strong>：無重要數據。<strong>11/11 退伍軍人節：股市照常、債市休市</strong>（StockHub 報導），所以殖利率沒有新的現貨收盤</li><li><strong>Fed 動態</strong>：沒有新的官員談話。前一天 CPI 偏熱後，CNBC 引 CME FedWatch 稱 12 月升 1 碼機率約 90%（二手）；Wells Fargo 策略師提醒「通膨黏、升息更多、長天期利率更高」，對這波反彈要保守（CNBC 報導）</li><li><strong>地緣/政治</strong>：沒查到美伊、關稅新進展。<strong>NVDA 事件從「個人醜聞」升級到「可能換 CEO」＋國會要求簡報</strong>，是本週最大的個股／治理風險</li><li>其他：CNBC 提到 Anthropic「即將 IPO」也是 AI 熱度的助力之一（報導，未見官方細節）</li></ul>
+<h2>債匯商品</h2>
+<div class="table-wrap"><table><thead><tr><th>指標</th><th>美盤結算</th><th>漲跌幅</th><th>亞盤即時</th><th>趨勢</th></tr></thead><tbody><tr><td>10 年期公債殖利率</td><td>5.00%</td><td>+2bp（債市休市，參考值）</td><td>—</td><td>—</td></tr><tr><td>5 年期公債殖利率</td><td>4.83%</td><td>+2bp（債市休市，參考值）</td><td>—</td><td>—</td></tr><tr><td>美元指數（DXY）</td><td>102.93</td><td>+0.66%</td><td>102.86</td><td>→</td></tr><tr><td>原油（WTI）</td><td>$86.33</td><td>-0.01%</td><td>$85.78</td><td>↓</td></tr><tr><td>黃金</td><td>$3,992.1</td><td><strong>-1.16%</strong></td><td>$4,000.4</td><td>→</td></tr><tr><td>BTC</td><td>$74,568</td><td>+1.22%</td><td>$73,621</td><td>↓</td></tr></tbody></table></div>
+<blockquote>殖利率為 Yahoo 數值，11/11 現貨債市休市，僅供參考。DXY／原油／黃金／BTC「美盤結算」取 Yahoo 小時線美東 16:00 前最後一筆，「亞盤即時」為 11/12 台灣 09:2x–09:3x 價。⚠️ <code>us_market_api.py</code> 這幾項的「結算／即時」欄位這次仍疑似錯位，不採用。</blockquote>
+<ul><li><strong>跨市場解讀</strong>：<strong>美元續強、黃金續弱，升息預期還在</strong>——股市的反彈是「AI 題材」帶的，不是利率環境轉好。黃金跌破 $4,000 後亞盤小幅拉回；BTC 亞盤跟著 NVDA 消息轉弱 -1.27%。USD/TWD 美盤約 32.88、亞盤 32.86，台幣小幅回升。</li></ul>
+<h2>盤後異動</h2>
+<div class="table-wrap"><table><thead><tr><th>個股</th><th>盤後漲跌幅</th><th>原因</th></tr></thead><tbody><tr><td><strong>NVDA（持倉）</strong></td><td><strong>約 -8.61%</strong>（$158.78）</td><td>NYT：黃仁勳與公司內部高管有婚外情；WSJ：董事會正準備撤換他（CNBC 轉述，公司未回應）</td></tr><tr><td>CRWV</td><td>約 -6.37%</td><td>被 NVDA 消息拖累（推論）</td></tr><tr><td>AMD</td><td>約 +4.32%</td><td>原因查不到（推論可能是 NVDA 利空的替代受惠，未證實）</td></tr><tr><td>MU</td><td>約 -2.80%</td><td>跟 NVDA 消息走弱（推論）</td></tr><tr><td>AVGO</td><td>約 +2.36%</td><td>原因查不到</td></tr><tr><td>TSM</td><td>約 -1.95%</td><td>跟 NVDA 消息走弱（推論）</td></tr><tr><td>期貨</td><td>Nasdaq 100 -0.84%、S&P 500 -0.43%</td><td>11/12 台灣 09:2x 價 vs 美東 16:00</td></tr></tbody></table></div>
+<blockquote>盤後幅度為 Yahoo 延長盤最後成交價（美東 20:00），非正式收盤。</blockquote>
+<h2>近期提醒</h2>
+<ul><li><strong>本週關注</strong>：</li><li><strong>11/12（四）</strong>：08:30 初領失業金（共識約 19.5 萬，TD 行事曆）；Fed 理事 Barr 談話；13:00 30 年期公債標售；<strong>盤後 AMAT（半導體設備）、Cisco 財報</strong>（第三方行事曆，以公司公告為準）</li><li><strong>11/13（五）美東 08:30：10 月 PPI（生產者物價指數）</strong>——共識月增 0.4%、核心 0.3%（StockHub 報導）；CPI 已偏熱，PPI 再熱 → 升 2 碼預期升溫。<strong>同一天也是 NVDA 停損 $150 的週收盤判定日</strong></li><li><strong>NVDA（持倉）：董事會是否真的撤換黃仁勳、官方聲明；11/18 國會閉門簡報（二手報導）；Q3 財報 11/17 或 11/18（公司未公告）</strong></li><li>11/17（一）：零售銷售；11/18（三）：FOMC 10 月會議紀要；<strong>12/8–12/9：FOMC 利率決議</strong></li><li><strong>技術觀察</strong>：</li><li>S&P 500 7,619.38：回到 20 日線（約 7,626）附近，差 -0.1%；50 日線約 7,673 是下一道壓力；200 日線約 7,334（+3.9%）</li><li>Nasdaq 25,466.19：<strong>站回 200 日線（約 25,123）上方 +1.4%</strong>；20 日線約 25,807 仍是壓力</li><li>費半 10,564.11：200 日線約 10,864，差約 -2.8%；20 日線約 10,749</li></ul>
+<h2>台股盤前影響</h2>
+<blockquote>⚠️ 本份日報產出時（11/12 台灣 09:30 後）台股已開盤，以下價格為 <strong>09:15 盤中價</strong>（Yahoo），僅供參考。加權 11/11 收 44,257.15；盤中約 44,267。</blockquote>
+<h3>持倉預判</h3>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>影響方向</th><th>觀察重點</th></tr></thead><tbody><tr><td>2330 台積電</td><td><strong>偏空（短線）</strong></td><td>ADR 正式盤 +4.25%，但盤後 -1.95% 跟 NVDA 走；盤中 2,370（-1.04%）。停損 1,729（年線），很遠</td></tr><tr><td>2382 廣達、3017 奇鋐</td><td><strong>偏空</strong></td><td>NVDA 平台出貨占比高，「可能換 CEO」是直接利空；廣達盤中 289（-3.02%），<strong>已在停損 317（週收盤確認）下方</strong>；奇鋐 3,035，停損季線 2,528 還有距離</td></tr><tr><td>2449 京元電子、6239 力成</td><td>中性</td><td>美股記憶體／設備大漲是偏多力量，NVDA 是偏空力量；盤中京元 233、力成 251.5，<strong>兩檔都在停損線（京元 296、力成約 282）下方</strong>，照台股日報既有追蹤處理</td></tr><tr><td>2303 聯電</td><td>中性偏多</td><td>盤中 107（+2.88%），停損 100</td></tr><tr><td>2327 國巨</td><td>中性</td><td>盤中 431；軟停損 MA60 277／硬停損 265，很遠</td></tr><tr><td>1503 士電</td><td>偏多</td><td>美股 AI 電力反彈（BE +12.97%、CEG +2.60%）；盤中 175.5，警戒線 181 下方</td></tr><tr><td>0050、006208（市值型 ETF）</td><td>中性偏空</td><td>跟台積電走</td></tr><tr><td>0056、00878、00919（高股息 ETF）</td><td>中性</td><td>—</td></tr><tr><td>2886 兆豐金</td><td>中性</td><td>盤中 53.70</td></tr><tr><td>6757 台灣虎航</td><td>中性</td><td>油價持平</td></tr><tr><td>1432 大魯閣、3293 鈊象</td><td>中性</td><td>與美股連動度低</td></tr><tr><td><strong>NVDA（美股持倉）</strong></td><td><strong>🔴 偏空</strong></td><td>盤後 $158.78，<strong>離停損 $150（週收盤）只剩約 +5.9%</strong>；判定點是<strong>週五 11/13 收盤</strong></td></tr><tr><td>MSFT（美股持倉）</td><td>中性偏空</td><td>$521.12，跌破 20 日線；離停損 $355 很遠</td></tr><tr><td><strong>AVGO（美股持倉第一筆）</strong></td><td><strong>⚡ 偏多</strong></td><td><strong>收 $345.22 站回停損 $340 上方</strong>，盤後 $353.36</td></tr></tbody></table></div>
+<h3>進場機會掃描</h3>
+<div class="table-wrap"><table><thead><tr><th>標的</th><th>目前狀況</th><th>進場條件</th><th>判斷</th></tr></thead><tbody><tr><td><strong>VIX 規則</strong></td><td>17.49，< 25</td><td>< 25 正常進場</td><td>✅ 閘門維持打開</td></tr><tr><td><strong>T10 聯合再生(3576)</strong></td><td>11/11 收 17.75 連 2 個掃描日 🔴 評分 5；盤中 17.50 仍在 16-18 區內</td><td>區內＋KD 金叉＋MACD 翻正</td><td>👀 <strong>條件已到位，進不進由 Minna 決定</strong>；與美股 NVDA 事件連動度低</td></tr><tr><td>美股觀察清單 20 檔</td><td>無 🔴；LLY 🟡 但價格過高</td><td>區內＋動能</td><td>❌ 沒有標的到位</td></tr><tr><td>RKLB</td><td>$66.15，離進場區 68 下緣 -2.7%</td><td>回測＋技術止穩</td><td>👀 接近，等掃描器動能翻正</td></tr><tr><td>NVDA 加碼</td><td>盤後 $158.78</td><td>—</td><td>❌ <strong>不接刀</strong>：跌的是治理／CEO 去留風險，不是錯殺</td></tr></tbody></table></div>
+<h3>今天該做什麼</h3>
+<ul><li>⚠️ <strong>NVDA 持倉：週五 11/13 週收盤是停損判定點</strong>。盤後價離 $150 只剩約 6%；WSJ 報導若成真（換 CEO），週五前可能跌破。<strong>照紀律：週收盤 < $150 就出場</strong>，不提前恐慌、也不攤平</li><li>⚡ <strong>AVGO 停損問題出現新狀況：已收回 $340 上方</strong>。如果 Minna 決定「照紀律出場」，現在價格比之前好很多；如果決定續抱，請把停損正式定下來（$340 或 $280）寫進決策卡</li><li>👀 <strong>廣達(2382) 今天受 NVDA 消息直接衝擊</strong>，盤中已在停損 317 下方，週收盤確認</li><li>👀 T10 聯合再生：條件到位，由 Minna 決定</li><li>❌ <strong>不追今天的 AI 晶片反彈、不搶 NVDA 盤後下跌</strong></li><li>👀 <strong>今晚 AMAT 財報、明晚 PPI</strong>：AMAT 影響台積電供應鏈情緒；PPI 再熱 → 升 2 碼預期 → 高估值科技股再壓一次</li></ul>
+<hr>
+<blockquote>免責聲明：以上內容僅為公開資訊整理，不構成投資建議。投資有風險，請依個人財務狀況自行判斷。</blockquote>
+<p><strong>資料來源</strong></p>
+<ul><li>指數、類股 ETF、個股、盤後價、期貨、殖利率、商品、匯率、均線、台股盤中價：Yahoo Finance chart API（11/12 台灣 09:2x–09:4x 抓取，自行計算漲跌與均線）；<code>us_market_api.py</code> 輸出 <code>us_market_20261112.json</code>（個股前收、商品結算／即時欄位不採用）</li><li>盤勢、CoreWeave、NVDA 盤後消息（NYT／WSJ 轉述）、期貨：<a href="https://www.cnbc.com/2026/11/11/stock-market-today-live-updates.html" target="_blank" rel="noopener">CNBC 11/11</a>、<a href="https://benzinga.com/markets/equities/26/11/63157251/stock-market-today-nasdaq-100-coreweave-ai-rebound-nvidia" target="_blank" rel="noopener">Benzinga</a>、<a href="https://investing.com/news/stock-market-news/us-stocks-higher-at-close-of-trade-dow-jones-industrial-average-up-048-5019892" target="_blank" rel="noopener">Investing.com</a></li><li>NVDA 董事會 11/8 聲明：<a href="https://investor.nvidia.com/news/press-release-details/2026/Statement-from-NVIDIA-Board-of-Directors/" target="_blank" rel="noopener">NVIDIA 投資人關係</a>；國會簡報要求：<a href="https://letsdatascience.com/news/nvidia-board-opens-investigation-into-reported-foreign-intel-c5b93236" target="_blank" rel="noopener">Let's Data Science</a>（二手）</li><li>債市休市、本週行事曆：<a href="https://stockhub.kr/en/insights/macro-weekly-20261109" target="_blank" rel="noopener">StockHub</a>、<a href="https://economics.td.com/domains/economics.td.com/documents/reports/bottom-line/tables/2026-11-06/upcoming.htm" target="_blank" rel="noopener">TD Economics</a>（非官方，以官方為準）</li><li>技術掃描：<code>watchlist_scanner.py --market us</code></li></ul>
+</div>
+</body>
+</html>
